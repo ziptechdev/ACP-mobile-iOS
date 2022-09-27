@@ -12,9 +12,12 @@
 		40B5EDD328E224F20096B91B /* ACPHomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B5EDD228E224F20096B91B /* ACPHomeScreenViewController.swift */; };
 		40B5EDD828E224F40096B91B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40B5EDD728E224F40096B91B /* Assets.xcassets */; };
 		40B5EDDB28E224F40096B91B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40B5EDD928E224F40096B91B /* LaunchScreen.storyboard */; };
+		FF3F59D25D870A8B465A1AB4 /* Pods_ACP_mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA43A30C610F68C5A06DD99 /* Pods_ACP_mobile.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0EA43A30C610F68C5A06DD99 /* Pods_ACP_mobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ACP_mobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1301AD36DE072905C940D450 /* Pods-ACP-mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACP-mobile.release.xcconfig"; path = "Target Support Files/Pods-ACP-mobile/Pods-ACP-mobile.release.xcconfig"; sourceTree = "<group>"; };
 		40B5EDCB28E224F20096B91B /* ACP-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ACP-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		40B5EDCE28E224F20096B91B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40B5EDD028E224F20096B91B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -22,6 +25,7 @@
 		40B5EDD728E224F40096B91B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40B5EDDA28E224F40096B91B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40B5EDDC28E224F40096B91B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		687DCBFD8B005412AF06BEDD /* Pods-ACP-mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACP-mobile.debug.xcconfig"; path = "Target Support Files/Pods-ACP-mobile/Pods-ACP-mobile.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF3F59D25D870A8B465A1AB4 /* Pods_ACP_mobile.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1EF3BAC39E57E76420CCD5AA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0EA43A30C610F68C5A06DD99 /* Pods_ACP_mobile.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		40B5EDC228E224F20096B91B = {
 			isa = PBXGroup;
 			children = (
 				40B5EDCD28E224F20096B91B /* ACP-mobile */,
 				40B5EDCC28E224F20096B91B /* Products */,
+				FB00E332458E87060AD9B9F0 /* Pods */,
+				1EF3BAC39E57E76420CCD5AA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,6 +103,15 @@
 			path = HomeScreen;
 			sourceTree = "<group>";
 		};
+		FB00E332458E87060AD9B9F0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				687DCBFD8B005412AF06BEDD /* Pods-ACP-mobile.debug.xcconfig */,
+				1301AD36DE072905C940D450 /* Pods-ACP-mobile.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -95,9 +119,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 40B5EDF528E224F40096B91B /* Build configuration list for PBXNativeTarget "ACP-mobile" */;
 			buildPhases = (
+				E9CCA4F1148E364174307C10 /* [CP] Check Pods Manifest.lock */,
 				40B5EDC728E224F20096B91B /* Sources */,
 				40B5EDC828E224F20096B91B /* Frameworks */,
 				40B5EDC928E224F20096B91B /* Resources */,
+				BF0424111AA4307A312596D3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -152,6 +178,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BF0424111AA4307A312596D3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ACP-mobile/Pods-ACP-mobile-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ACP-mobile/Pods-ACP-mobile-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ACP-mobile/Pods-ACP-mobile-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E9CCA4F1148E364174307C10 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ACP-mobile-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		40B5EDC728E224F20096B91B /* Sources */ = {
@@ -228,7 +296,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -282,7 +350,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -294,6 +362,7 @@
 		};
 		40B5EDF628E224F40096B91B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 687DCBFD8B005412AF06BEDD /* Pods-ACP-mobile.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -301,6 +370,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ACP-mobile/Resources/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = ACP;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -321,6 +391,7 @@
 		};
 		40B5EDF728E224F40096B91B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1301AD36DE072905C940D450 /* Pods-ACP-mobile.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -328,6 +399,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ACP-mobile/Resources/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = ACP;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
