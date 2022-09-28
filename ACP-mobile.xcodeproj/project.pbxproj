@@ -12,6 +12,8 @@
 		40B5EDD328E224F20096B91B /* ACPHomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B5EDD228E224F20096B91B /* ACPHomeScreenViewController.swift */; };
 		40B5EDD828E224F40096B91B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40B5EDD728E224F40096B91B /* Assets.xcassets */; };
 		40B5EDDB28E224F40096B91B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40B5EDD928E224F40096B91B /* LaunchScreen.storyboard */; };
+		40EE2CAE28E4AA520028888D /* UIColor+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EE2CAD28E4AA520028888D /* UIColor+ACP.swift */; };
+		40EE2CB028E4AC5B0028888D /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40EE2CAF28E4AC5B0028888D /* Colors.xcassets */; };
 		FF3F59D25D870A8B465A1AB4 /* Pods_ACP_mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA43A30C610F68C5A06DD99 /* Pods_ACP_mobile.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +27,8 @@
 		40B5EDD728E224F40096B91B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40B5EDDA28E224F40096B91B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40B5EDDC28E224F40096B91B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40EE2CAD28E4AA520028888D /* UIColor+ACP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ACP.swift"; sourceTree = "<group>"; };
+		40EE2CAF28E4AC5B0028888D /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		687DCBFD8B005412AF06BEDD /* Pods-ACP-mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACP-mobile.debug.xcconfig"; path = "Target Support Files/Pods-ACP-mobile/Pods-ACP-mobile.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				40B5EDFF28E227E80096B91B /* App */,
+				40EE2CAC28E4AA340028888D /* Extensions */,
 				40B5EE0028E228A20096B91B /* HomeScreen */,
 				40B5EDFE28E227A30096B91B /* Resources */,
 			);
@@ -80,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				40B5EDD728E224F40096B91B /* Assets.xcassets */,
+				40EE2CAF28E4AC5B0028888D /* Colors.xcassets */,
 				40B5EDDC28E224F40096B91B /* Info.plist */,
 				40B5EDD928E224F40096B91B /* LaunchScreen.storyboard */,
 			);
@@ -101,6 +107,14 @@
 				40B5EDD228E224F20096B91B /* ACPHomeScreenViewController.swift */,
 			);
 			path = HomeScreen;
+			sourceTree = "<group>";
+		};
+		40EE2CAC28E4AA340028888D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				40EE2CAD28E4AA520028888D /* UIColor+ACP.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		FB00E332458E87060AD9B9F0 /* Pods */ = {
@@ -173,6 +187,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40EE2CB028E4AC5B0028888D /* Colors.xcassets in Resources */,
 				40B5EDDB28E224F40096B91B /* LaunchScreen.storyboard in Resources */,
 				40B5EDD828E224F40096B91B /* Assets.xcassets in Resources */,
 			);
@@ -245,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40EE2CAE28E4AA520028888D /* UIColor+ACP.swift in Sources */,
 				40B5EDD328E224F20096B91B /* ACPHomeScreenViewController.swift in Sources */,
 				40B5EDCF28E224F20096B91B /* AppDelegate.swift in Sources */,
 				40B5EDD128E224F20096B91B /* SceneDelegate.swift in Sources */,
