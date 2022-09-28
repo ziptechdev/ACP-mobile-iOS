@@ -7,17 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		40AB5D5F28E48DBA006F0700 /* ACPNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AB5D5E28E48DBA006F0700 /* ACPNavigationController.swift */; };
 		40B5EDCF28E224F20096B91B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B5EDCE28E224F20096B91B /* AppDelegate.swift */; };
 		40B5EDD128E224F20096B91B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B5EDD028E224F20096B91B /* SceneDelegate.swift */; };
 		40B5EDD328E224F20096B91B /* ACPHomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B5EDD228E224F20096B91B /* ACPHomeScreenViewController.swift */; };
 		40B5EDD828E224F40096B91B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40B5EDD728E224F40096B91B /* Assets.xcassets */; };
 		40B5EDDB28E224F40096B91B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40B5EDD928E224F40096B91B /* LaunchScreen.storyboard */; };
+		40EE2CA928E49DF00028888D /* ACPHomeScreenTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EE2CA828E49DF00028888D /* ACPHomeScreenTableHeaderView.swift */; };
+		40EE2CAB28E4A4DD0028888D /* ACPTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EE2CAA28E4A4DD0028888D /* ACPTableView.swift */; };
 		FF3F59D25D870A8B465A1AB4 /* Pods_ACP_mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA43A30C610F68C5A06DD99 /* Pods_ACP_mobile.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0EA43A30C610F68C5A06DD99 /* Pods_ACP_mobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ACP_mobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1301AD36DE072905C940D450 /* Pods-ACP-mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACP-mobile.release.xcconfig"; path = "Target Support Files/Pods-ACP-mobile/Pods-ACP-mobile.release.xcconfig"; sourceTree = "<group>"; };
+		40AB5D5E28E48DBA006F0700 /* ACPNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPNavigationController.swift; sourceTree = "<group>"; };
 		40B5EDCB28E224F20096B91B /* ACP-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ACP-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		40B5EDCE28E224F20096B91B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40B5EDD028E224F20096B91B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -25,6 +29,8 @@
 		40B5EDD728E224F40096B91B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40B5EDDA28E224F40096B91B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40B5EDDC28E224F40096B91B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40EE2CA828E49DF00028888D /* ACPHomeScreenTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPHomeScreenTableHeaderView.swift; sourceTree = "<group>"; };
+		40EE2CAA28E4A4DD0028888D /* ACPTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPTableView.swift; sourceTree = "<group>"; };
 		687DCBFD8B005412AF06BEDD /* Pods-ACP-mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACP-mobile.debug.xcconfig"; path = "Target Support Files/Pods-ACP-mobile/Pods-ACP-mobile.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -46,6 +52,23 @@
 				0EA43A30C610F68C5A06DD99 /* Pods_ACP_mobile.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		40AB5D5D28E48D8C006F0700 /* Generic */ = {
+			isa = PBXGroup;
+			children = (
+				40AB5D5E28E48DBA006F0700 /* ACPNavigationController.swift */,
+				40EE2CAA28E4A4DD0028888D /* ACPTableView.swift */,
+			);
+			path = Generic;
+			sourceTree = "<group>";
+		};
+		40AB5D6028E49472006F0700 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				40EE2CA828E49DF00028888D /* ACPHomeScreenTableHeaderView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		40B5EDC228E224F20096B91B = {
@@ -70,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				40B5EDFF28E227E80096B91B /* App */,
+				40AB5D5D28E48D8C006F0700 /* Generic */,
 				40B5EE0028E228A20096B91B /* HomeScreen */,
 				40B5EDFE28E227A30096B91B /* Resources */,
 			);
@@ -98,6 +122,7 @@
 		40B5EE0028E228A20096B91B /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
+				40AB5D6028E49472006F0700 /* Views */,
 				40B5EDD228E224F20096B91B /* ACPHomeScreenViewController.swift */,
 			);
 			path = HomeScreen;
@@ -245,8 +270,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40AB5D5F28E48DBA006F0700 /* ACPNavigationController.swift in Sources */,
 				40B5EDD328E224F20096B91B /* ACPHomeScreenViewController.swift in Sources */,
+				40EE2CA928E49DF00028888D /* ACPHomeScreenTableHeaderView.swift in Sources */,
 				40B5EDCF28E224F20096B91B /* AppDelegate.swift in Sources */,
+				40EE2CAB28E4A4DD0028888D /* ACPTableView.swift in Sources */,
 				40B5EDD128E224F20096B91B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

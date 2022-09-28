@@ -1,2 +1,5 @@
 included:
   - ACP-mobile
+
+disabled_rules:
+  - nesting
