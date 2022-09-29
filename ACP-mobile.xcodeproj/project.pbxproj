@@ -13,6 +13,7 @@
 		40B5EDD328E224F20096B91B /* ACPHomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B5EDD228E224F20096B91B /* ACPHomeScreenViewController.swift */; };
 		40B5EDD828E224F40096B91B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40B5EDD728E224F40096B91B /* Assets.xcassets */; };
 		40B5EDDB28E224F40096B91B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40B5EDD928E224F40096B91B /* LaunchScreen.storyboard */; };
+		40B73F7128E5B733002A5E14 /* ACPLeftImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B73F7028E5B733002A5E14 /* ACPLeftImageButton.swift */; };
 		40EE2CA928E49DF00028888D /* ACPHomeScreenHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EE2CA828E49DF00028888D /* ACPHomeScreenHeaderView.swift */; };
 		40EE2CAB28E4A4DD0028888D /* ACPTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EE2CAA28E4A4DD0028888D /* ACPTableView.swift */; };
 		40EE2CAE28E4AA520028888D /* UIColor+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EE2CAD28E4AA520028888D /* UIColor+ACP.swift */; };
@@ -34,6 +35,7 @@
 		40B5EDD728E224F40096B91B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40B5EDDA28E224F40096B91B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40B5EDDC28E224F40096B91B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40B73F7028E5B733002A5E14 /* ACPLeftImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPLeftImageButton.swift; sourceTree = "<group>"; };
 		40EE2CA828E49DF00028888D /* ACPHomeScreenHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPHomeScreenHeaderView.swift; sourceTree = "<group>"; };
 		40EE2CAA28E4A4DD0028888D /* ACPTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPTableView.swift; sourceTree = "<group>"; };
 		40EE2CAD28E4AA520028888D /* UIColor+ACP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ACP.swift"; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 			children = (
 				40AB5D5E28E48DBA006F0700 /* ACPNavigationController.swift */,
 				40EE2CAA28E4A4DD0028888D /* ACPTableView.swift */,
+				40B73F7028E5B733002A5E14 /* ACPLeftImageButton.swift */,
 			);
 			path = Generic;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				40EE2CB728E525960028888D /* UITableView+ACP.swift in Sources */,
 				40AB5D5F28E48DBA006F0700 /* ACPNavigationController.swift in Sources */,
 				40EE2CAE28E4AA520028888D /* UIColor+ACP.swift in Sources */,
+				40B73F7128E5B733002A5E14 /* ACPLeftImageButton.swift in Sources */,
 				40B5EDD328E224F20096B91B /* ACPHomeScreenViewController.swift in Sources */,
 				40EE2CC128E540470028888D /* ACPHomeScreenEligibilityCell.swift in Sources */,
 				40EE2CA928E49DF00028888D /* ACPHomeScreenHeaderView.swift in Sources */,

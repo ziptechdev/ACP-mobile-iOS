@@ -25,13 +25,16 @@ class ACPHomeScreenProgramCell: UITableViewCell {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.masksToBounds = true
         view.contentMode = .center
+        view.contentMode = .scaleAspectFit
         return view
     }()
 
-    private let statusButton: UIButton = {
-        let button = UIButton()
+    private let statusButton: ACPLeftImageButton = {
+        let button = ACPLeftImageButton()
         button.backgroundColor = .acpYellow
+        button.setTitle("", for: .normal)
         button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 11, weight: .bold)
         button.layer.cornerRadius = Constants.Constraints.StatusButtonCornerRadius
         button.layer.masksToBounds = true
         return button
@@ -120,9 +123,10 @@ class ACPHomeScreenProgramCell: UITableViewCell {
 
     func present(name: String) {
         programNameLabel.text = name
-        programImageView.image = UIImage(named: "test_profile")
+        programImageView.image = UIImage(named: "program_logo")
         programDetailsLabel.text = Constants.Text.Details
         statusButton.setTitle(Constants.Text.Eligible, for: .normal)
+        statusButton.setImage(UIImage(named: "checkmark"), for: .normal)
         actionButton.setTitle(Constants.Text.Apply, for: .normal)
     }
 
