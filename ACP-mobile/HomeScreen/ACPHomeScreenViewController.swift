@@ -12,15 +12,15 @@ class ACPHomeScreenViewController: UIViewController {
 
     // MARK: - Properties
 
-    let viewModel = ""
+    let viewModel = ["Programme 1", "Programme for disabled 2"]
 
     // MARK: - Views
 
+    let headerView = ACPHomeScreenHeaderView()
+
     let tableView: ACPTableView = {
         let view = ACPTableView()
-        view.backgroundColor = .blue
-        view.rowHeight = UITableView.automaticDimension
-        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .gray06Light
         return view
     }()
 
@@ -46,16 +46,26 @@ class ACPHomeScreenViewController: UIViewController {
     }
 
     private func addSubviews() {
+        view.addSubview(headerView)
         view.addSubview(tableView)
     }
 
     private func setupConstraints() {
+        headerView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.left.right.equalToSuperview()
+        }
+
         tableView.snp.makeConstraints { make in
-            make.top.bottom.left.right.equalToSuperview()
+            make.top.equalTo(headerView.snp.bottom)
+            make.bottom.left.right.equalToSuperview()
         }
     }
 
     private func setupTableView() {
+        tableView.register(ACPHomeScreenEligibilityCell.self)
+        tableView.register(ACPHomeScreenProgramCell.self)
+
         tableView.dataSource = self
         tableView.delegate = self
     }
@@ -78,22 +88,23 @@ extension ACPHomeScreenViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 3
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        if indexPath.row == 0 {
+            let cell: ACPHomeScreenEligibilityCell = tableView.dequeue(at: indexPath)
+            cell.present()
+            return cell
+        } else {
+            let cell: ACPHomeScreenProgramCell = tableView.dequeue(at: indexPath)
+            cell.present(name: viewModel[indexPath.row - 1])
+            return cell
+        }
+
     }
 }
 
 // MARK: - UITableViewDelegate
 
-extension ACPHomeScreenViewController: UITableViewDelegate {
-
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = ACPHomeScreenTableHeaderView()
-        headerView.setupUI()
-        return headerView
-    }
-}
-
+extension ACPHomeScreenViewController: UITableViewDelegate {}
