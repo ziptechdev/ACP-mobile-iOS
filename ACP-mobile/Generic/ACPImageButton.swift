@@ -9,9 +9,11 @@ import UIKit
 
 class ACPImageButton: UIButton {
 
-    init(vertical: CGFloat = 8,
-         horizontal: CGFloat = 20,
-         spacing: CGFloat = 4,
+    init(horizontal: CGFloat = 0,
+         spacing: CGFloat,
+         cornerRadius: CGFloat,
+         imageName: String,
+         textColor: UIColor = .white,
          isLeft: Bool = false
     ) {
         super.init(frame: .zero)
@@ -22,31 +24,41 @@ class ACPImageButton: UIButton {
             configuration = .plain()
 
             configuration?.contentInsets = NSDirectionalEdgeInsets(
-                top: vertical,
+                top: 0,
                 leading: horizontal,
-                bottom: vertical,
+                bottom: 0,
                 trailing: horizontal
             )
 
             configuration?.imagePadding = spacing
         } else {
             if isLeft {
-                leftSetup(vertical: vertical, horizontal: horizontal, spacing: spacing)
+                leftSetup(horizontal: horizontal, spacing: spacing)
             } else {
-                rightSetup(vertical: vertical, horizontal: horizontal, spacing: spacing)
+                rightSetup(horizontal: horizontal, spacing: spacing)
             }
         }
+
+        layer.cornerRadius = cornerRadius
+        layer.masksToBounds = true
+
+        setTitleColor(textColor, for: .normal)
+        setImage(UIImage(named: imageName), for: .normal)
+
+        // To simulate animate click comment next 2 lines
+        setTitleColor(textColor, for: .highlighted)
+        setImage(UIImage(named: imageName), for: .highlighted)
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func leftSetup(vertical: CGFloat, horizontal: CGFloat, spacing: CGFloat) {
+    private func leftSetup(horizontal: CGFloat, spacing: CGFloat) {
         contentEdgeInsets = UIEdgeInsets(
-            top: vertical,
+            top: 0,
             left: horizontal,
-            bottom: vertical,
+            bottom: 0,
             right: horizontal + spacing
         )
 
@@ -58,11 +70,11 @@ class ACPImageButton: UIButton {
         )
     }
 
-    private func rightSetup(vertical: CGFloat, horizontal: CGFloat, spacing: CGFloat) {
+    private func rightSetup(horizontal: CGFloat, spacing: CGFloat) {
         contentEdgeInsets = UIEdgeInsets(
-            top: vertical,
+            top: 0,
             left: horizontal + spacing,
-            bottom: vertical,
+            bottom: 0,
             right: horizontal
         )
 

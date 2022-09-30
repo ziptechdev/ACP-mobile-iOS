@@ -30,12 +30,14 @@ class ACPHomeScreenProgramCell: UITableViewCell {
     }()
 
     private let statusButton: ACPImageButton = {
-        let button = ACPImageButton()
+        let button = ACPImageButton(
+            horizontal: Constants.Constraints.StatusButtonContentInsetX,
+            spacing: Constants.Constraints.StatusButtonContentSpacing,
+            cornerRadius: Constants.Constraints.StatusButtonCornerRadius,
+            imageName: "checkmark"
+        )
         button.backgroundColor = .acpYellow
-        button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 11, weight: .bold)
-        button.layer.cornerRadius = Constants.Constraints.StatusButtonCornerRadius
-        button.layer.masksToBounds = true
         return button
     }()
 
@@ -125,7 +127,6 @@ class ACPHomeScreenProgramCell: UITableViewCell {
         programImageView.image = UIImage(named: "program_logo")
         programDetailsLabel.text = Constants.Text.Details
         statusButton.setTitle(Constants.Text.Eligible, for: .normal)
-        statusButton.setImage(UIImage(named: "checkmark"), for: .normal)
         actionButton.setTitle(Constants.Text.Apply, for: .normal)
     }
 
@@ -140,6 +141,8 @@ class ACPHomeScreenProgramCell: UITableViewCell {
 
             static let StatusButtonHeight: CGFloat = 29
             static let StatusButtonCornerRadius: CGFloat = 5
+            static let StatusButtonContentSpacing: CGFloat = 4
+            static let StatusButtonContentInsetX: CGFloat = 20
 
             static let ButtonOffsetTop: CGFloat = 20
             static let ButtonHeight: CGFloat = 46

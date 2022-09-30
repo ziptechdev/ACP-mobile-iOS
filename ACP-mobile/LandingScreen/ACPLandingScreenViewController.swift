@@ -50,15 +50,16 @@ class ACPLandingScreenViewController: UIViewController {
     }()
 
     private let getStartedButton: ACPImageButton = {
-        let button = ACPImageButton(vertical: 13, spacing: 10, isLeft: false)
+        let button = ACPImageButton(
+            spacing: Constants.Constraints.ButtonContentSpacing,
+            cornerRadius: Constants.Constraints.ButtonCornerRadius,
+            imageName: "right_arrow",
+            isLeft: false
+        )
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(Constants.Text.GetStarted, for: .normal)
-        button.setImage(UIImage(named: "right_arrow"), for: .normal)
-        button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
-        button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
-        button.layer.masksToBounds = true
         return button
     }()
 
@@ -130,6 +131,7 @@ class ACPLandingScreenViewController: UIViewController {
             static let ContentInsetHorizontal: CGFloat = 35
 
             static let ButtonHeight: CGFloat = 46
+            static let ButtonContentSpacing: CGFloat = 10
             static let ButtonCornerRadius: CGFloat = 10
 
             static let SubtitleBotOffset: CGFloat = 120
