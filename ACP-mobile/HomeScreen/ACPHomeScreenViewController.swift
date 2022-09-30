@@ -10,6 +10,11 @@ import SnapKit
 
 class ACPHomeScreenViewController: UIViewController {
 
+    // TODO: Add shadow to header view
+    // TODO: Setup View Model
+    // TODO: Setup UITableViewDelegate and UITableViewDataSource
+    // TODO: Cases for Program cells
+
     // MARK: - Properties
 
     let viewModel = ["Programme 1", "Programme for disabled 2", "Programme for poor 3"]
@@ -105,6 +110,7 @@ extension ACPHomeScreenViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 
 extension ACPHomeScreenViewController: UITableViewDelegate {
+
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header: ACPHomeScreenEligibilityHeaderView = tableView.dequeueHeaderFooter()
         header.present()
