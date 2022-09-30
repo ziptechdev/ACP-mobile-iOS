@@ -1,5 +1,5 @@
 //
-//  ACPHomeScreenEligibilityCell.swift
+//  ACPHomeScreenEligibilityHeaderView.swift
 //  ACP-mobile
 //
 //  Created by Adi on 29/09/2022.
@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class ACPHomeScreenEligibilityCell: UITableViewCell {
+class ACPHomeScreenEligibilityHeaderView: UITableViewHeaderFooterView {
 
     // MARK: - Views
 
@@ -43,8 +43,8 @@ class ACPHomeScreenEligibilityCell: UITableViewCell {
 
     // MARK: - Life Cycle
 
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
 
         setupUI()
     }

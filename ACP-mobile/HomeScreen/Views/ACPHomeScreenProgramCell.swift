@@ -29,10 +29,9 @@ class ACPHomeScreenProgramCell: UITableViewCell {
         return view
     }()
 
-    private let statusButton: ACPLeftImageButton = {
-        let button = ACPLeftImageButton()
+    private let statusButton: ACPImageButton = {
+        let button = ACPImageButton()
         button.backgroundColor = .acpYellow
-        button.setTitle("", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 11, weight: .bold)
         button.layer.cornerRadius = Constants.Constraints.StatusButtonCornerRadius
@@ -146,14 +145,13 @@ class ACPHomeScreenProgramCell: UITableViewCell {
             static let ButtonHeight: CGFloat = 46
             static let ButtonCornerRadius: CGFloat = 10
 
-            static let DetailsOffsetTop: CGFloat = 5
+            static let DetailsOffsetTop: CGFloat = 10
         }
 
         struct Text {
             static let Details = """
                 Medicaid provides health coverage to low-income people and is one of the largest
                 payers for...
-
                 """
             static let Eligible = "Eligible"
             static let Apply = "Apply"
