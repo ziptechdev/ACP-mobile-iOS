@@ -9,7 +9,7 @@ import UIKit
 
 enum ACPColorEnum: String {
     case CoreBlue, Gray01Dark, Gray01Light, Gray03Light, Gray06Dark, Gray06Light, ACPYellow,
-         WarningRed
+         WarningRed, SuccessGreen
 }
 
 extension UIColor {
@@ -21,4 +21,5 @@ extension UIColor {
     static let gray06Light = UIColor(named: ACPColorEnum.Gray06Light.rawValue)
     static let acpYellow = UIColor(named: ACPColorEnum.ACPYellow.rawValue)
     static let warningRed = UIColor(named: ACPColorEnum.WarningRed.rawValue)
+    static let successGreen = UIColor(named: ACPColorEnum.SuccessGreen.rawValue)
 }

@@ -2,4 +2,5 @@ included:
   - ACP-mobile
 
 disabled_rules:
+  - nesting
   - identifier_name
