@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		405D770228E6040800358D4A /* ACPLandingScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405D770128E6040800358D4A /* ACPLandingScreenViewController.swift */; };
+		405D773128E8507000358D4A /* ACPEligibilityDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405D773028E8507000358D4A /* ACPEligibilityDetailsViewController.swift */; };
+		405D773328E8698D00358D4A /* UITapGestureRecognizer+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405D773228E8698D00358D4A /* UITapGestureRecognizer+ACP.swift */; };
+		405D773528E8708C00358D4A /* ACPTermsAndPrivacyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405D773428E8708C00358D4A /* ACPTermsAndPrivacyLabel.swift */; };
+		405D773728E8A62600358D4A /* ACPTopTabMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405D773628E8A62600358D4A /* ACPTopTabMenuViewController.swift */; };
+		405D773B28E8A83400358D4A /* ACPTopTabMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405D773A28E8A83400358D4A /* ACPTopTabMenuButton.swift */; };
+		405D773D28E8D09D00358D4A /* ACPTabMenuChildModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405D773C28E8D09D00358D4A /* ACPTabMenuChildModel.swift */; };
 		40AB5D5F28E48DBA006F0700 /* ACPNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AB5D5E28E48DBA006F0700 /* ACPNavigationController.swift */; };
 		40B5EDCF28E224F20096B91B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B5EDCE28E224F20096B91B /* AppDelegate.swift */; };
 		40B5EDD128E224F20096B91B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B5EDD028E224F20096B91B /* SceneDelegate.swift */; };
@@ -29,6 +35,12 @@
 		0EA43A30C610F68C5A06DD99 /* Pods_ACP_mobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ACP_mobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1301AD36DE072905C940D450 /* Pods-ACP-mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACP-mobile.release.xcconfig"; path = "Target Support Files/Pods-ACP-mobile/Pods-ACP-mobile.release.xcconfig"; sourceTree = "<group>"; };
 		405D770128E6040800358D4A /* ACPLandingScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPLandingScreenViewController.swift; sourceTree = "<group>"; };
+		405D773028E8507000358D4A /* ACPEligibilityDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsViewController.swift; sourceTree = "<group>"; };
+		405D773228E8698D00358D4A /* UITapGestureRecognizer+ACP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITapGestureRecognizer+ACP.swift"; sourceTree = "<group>"; };
+		405D773428E8708C00358D4A /* ACPTermsAndPrivacyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPTermsAndPrivacyLabel.swift; sourceTree = "<group>"; };
+		405D773628E8A62600358D4A /* ACPTopTabMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPTopTabMenuViewController.swift; sourceTree = "<group>"; };
+		405D773A28E8A83400358D4A /* ACPTopTabMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPTopTabMenuButton.swift; sourceTree = "<group>"; };
+		405D773C28E8D09D00358D4A /* ACPTabMenuChildModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPTabMenuChildModel.swift; sourceTree = "<group>"; };
 		40AB5D5E28E48DBA006F0700 /* ACPNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPNavigationController.swift; sourceTree = "<group>"; };
 		40B5EDCB28E224F20096B91B /* ACP-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ACP-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		40B5EDCE28E224F20096B91B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,12 +88,40 @@
 			path = LandingScreen;
 			sourceTree = "<group>";
 		};
+		405D773828E8A7B600358D4A /* TabMenu */ = {
+			isa = PBXGroup;
+			children = (
+				405D773628E8A62600358D4A /* ACPTopTabMenuViewController.swift */,
+				405D773A28E8A83400358D4A /* ACPTopTabMenuButton.swift */,
+				405D773C28E8D09D00358D4A /* ACPTabMenuChildModel.swift */,
+			);
+			path = TabMenu;
+			sourceTree = "<group>";
+		};
+		405D773928E8A7C200358D4A /* UIElements */ = {
+			isa = PBXGroup;
+			children = (
+				405D773428E8708C00358D4A /* ACPTermsAndPrivacyLabel.swift */,
+				40B73F7028E5B733002A5E14 /* ACPImageButton.swift */,
+			);
+			path = UIElements;
+			sourceTree = "<group>";
+		};
+		405D773E28E8D4B600358D4A /* EligibilityDetails */ = {
+			isa = PBXGroup;
+			children = (
+				405D773028E8507000358D4A /* ACPEligibilityDetailsViewController.swift */,
+			);
+			path = EligibilityDetails;
+			sourceTree = "<group>";
+		};
 		40AB5D5D28E48D8C006F0700 /* Generic */ = {
 			isa = PBXGroup;
 			children = (
+				405D773928E8A7C200358D4A /* UIElements */,
+				405D773828E8A7B600358D4A /* TabMenu */,
 				40AB5D5E28E48DBA006F0700 /* ACPNavigationController.swift */,
 				40EE2CAA28E4A4DD0028888D /* ACPTableView.swift */,
-				40B73F7028E5B733002A5E14 /* ACPImageButton.swift */,
 			);
 			path = Generic;
 			sourceTree = "<group>";
@@ -121,6 +161,7 @@
 				40AB5D5D28E48D8C006F0700 /* Generic */,
 				40EE2CAC28E4AA340028888D /* Extensions */,
 				405D770028E603C400358D4A /* LandingScreen */,
+				405D773E28E8D4B600358D4A /* EligibilityDetails */,
 				40B5EE0028E228A20096B91B /* HomeScreen */,
 				40B5EDFE28E227A30096B91B /* Resources */,
 			);
@@ -161,6 +202,7 @@
 			children = (
 				40EE2CAD28E4AA520028888D /* UIColor+ACP.swift */,
 				40EE2CB628E525960028888D /* UITableView+ACP.swift */,
+				405D773228E8698D00358D4A /* UITapGestureRecognizer+ACP.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -314,12 +356,18 @@
 				40AB5D5F28E48DBA006F0700 /* ACPNavigationController.swift in Sources */,
 				40EE2CAE28E4AA520028888D /* UIColor+ACP.swift in Sources */,
 				40B73F7128E5B733002A5E14 /* ACPImageButton.swift in Sources */,
+				405D773B28E8A83400358D4A /* ACPTopTabMenuButton.swift in Sources */,
+				405D773328E8698D00358D4A /* UITapGestureRecognizer+ACP.swift in Sources */,
 				40B5EDD328E224F20096B91B /* ACPHomeScreenViewController.swift in Sources */,
 				40EE2CC128E540470028888D /* ACPHomeScreenEligibilityHeaderView.swift in Sources */,
 				40EE2CA928E49DF00028888D /* ACPHomeScreenHeaderView.swift in Sources */,
+				405D773728E8A62600358D4A /* ACPTopTabMenuViewController.swift in Sources */,
 				40B5EDCF28E224F20096B91B /* AppDelegate.swift in Sources */,
 				40EE2CAB28E4A4DD0028888D /* ACPTableView.swift in Sources */,
+				405D773D28E8D09D00358D4A /* ACPTabMenuChildModel.swift in Sources */,
+				405D773128E8507000358D4A /* ACPEligibilityDetailsViewController.swift in Sources */,
 				40B5EDD128E224F20096B91B /* SceneDelegate.swift in Sources */,
+				405D773528E8708C00358D4A /* ACPTermsAndPrivacyLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

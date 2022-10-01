@@ -53,8 +53,7 @@ class ACPLandingScreenViewController: UIViewController {
         let button = ACPImageButton(
             spacing: Constants.Constraints.ButtonContentSpacing,
             cornerRadius: Constants.Constraints.ButtonCornerRadius,
-            imageName: "right_arrow",
-            isLeft: false
+            imageName: "right_arrow"
         )
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
