@@ -37,16 +37,19 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
         return label
     }()
 
-    private lazy var monthTextField: ACPTextField = {
-        let view = ACPTextField()
+    private lazy var monthTextField: ACPPickerView = {
+        let view = ACPPickerView()
         view.titleLabel.text = Constants.Text.Month
-        view.textField.delegate = self
+        view.delegate = self
+        view.pickerView.delegate = self
+        view.pickerView.dataSource = self
         return view
     }()
 
     private lazy var dayTextField: ACPTextField = {
         let view = ACPTextField()
         view.titleLabel.text = Constants.Text.Day
+        view.delegate = self
         view.textField.delegate = self
         view.textField.keyboardType = .numberPad
         view.textField.textAlignment = .center
@@ -56,6 +59,7 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
     private lazy var yearTextField: ACPTextField = {
         let view = ACPTextField()
         view.titleLabel.text = Constants.Text.Year
+        view.delegate = self
         view.textField.delegate = self
         view.textField.keyboardType = .numberPad
         view.textField.textAlignment = .center
@@ -65,6 +69,7 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
     private lazy var ssnTextField: ACPTextField = {
         let view = ACPTextField()
         view.titleLabel.text = Constants.Text.SSN
+        view.delegate = self
         view.textField.delegate = self
         view.textField.keyboardType = .numberPad
         return view
@@ -228,5 +233,35 @@ extension ACPEligibilityDetailsDOBViewController: UITextFieldDelegate {
             textField.resignFirstResponder()
         }
         return true
+    }
+}
+
+// MARK: - ACPPickerViewDelegate
+
+extension ACPEligibilityDetailsDOBViewController: ACPToolbarDelegate {
+    func didPressDone(_ textfield: UITextField) {
+        _ = textFieldShouldReturn(textfield)
+    }
+}
+
+// MARK: - UIPickerViewDelegate
+
+extension ACPEligibilityDetailsDOBViewController: UIPickerViewDelegate {
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        let heh = ["1", "2", "3", "4", "5"]
+        return heh[row]
+    }
+}
+
+// MARK: - UIPickerViewDelegate
+
+extension ACPEligibilityDetailsDOBViewController: UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 5
     }
 }

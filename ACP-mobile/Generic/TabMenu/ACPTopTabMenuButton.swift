@@ -18,7 +18,7 @@ class ACPTopTabMenuButton: UIView {
 
 	// MARK: - Properties
 
-    var status: TabButtonStatus {
+    var status: TabButtonStatus = .inactive {
         didSet {
             updateStyle()
         }
@@ -37,9 +37,7 @@ class ACPTopTabMenuButton: UIView {
 
     // MARK: - Initialization
 
-    init(status: TabButtonStatus = .inactive) {
-        self.status = status
-
+    init() {
         super.init(frame: .zero)
 
         backgroundColor = .white
@@ -87,7 +85,7 @@ class ACPTopTabMenuButton: UIView {
         }
     }
 
-    func setText(text: String) {
+    func setText(text: String?) {
         titleLabel.text = text
     }
 

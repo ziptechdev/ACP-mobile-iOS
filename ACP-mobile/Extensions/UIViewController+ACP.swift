@@ -56,6 +56,10 @@ extension UIViewController {
     }
 
     @objc func didTapLeftButton() {
-        navigationController?.popViewController(animated: true)
+        guard let navigationController = navigationController as? ACPNavigationController else {
+            return
+        }
+
+        navigationController.backButtonAction()
     }
 }

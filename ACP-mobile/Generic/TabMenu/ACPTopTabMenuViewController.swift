@@ -8,12 +8,53 @@
 import UIKit
 import SnapKit
 
+protocol ACPTopTabMenuViewControllerDelegate: AnyObject {
+    var allTabsAreActive: Bool { get }
+
+    func titleForTab(at index: ACPTopTabMenuViewController.TabIndex) -> String
+    func viewControllerForTab(at index: ACPTopTabMenuViewController.TabIndex) -> UIViewController
+    func selectedTabItem(at index: ACPTopTabMenuViewController.TabIndex)
+}
+
 class ACPTopTabMenuViewController: UIViewController {
+
+    // MARK: - TabIndex
+
+    enum TabIndex: Int {
+        case first = 0
+        case second = 1
+        case third = 2
+
+        var nextTab: TabIndex {
+            switch self {
+            case .first:
+                return .second
+            default:
+                return .third
+            }
+        }
+
+        var previousTab: TabIndex {
+            switch self {
+            case .third:
+                return .second
+            default:
+                return .first
+            }
+        }
+    }
 
 	// MARK: - Properties
 
     private var childVC: UIViewController?
-    private var tabMenuItems: [ACPTabMenuChildModel] = []
+
+    private var currentTabItem = TabIndex.first
+
+    weak var delegate: ACPTopTabMenuViewControllerDelegate? {
+        didSet {
+            setupTabItems()
+        }
+    }
 
     // MARK: - Views
 
@@ -26,7 +67,7 @@ class ACPTopTabMenuViewController: UIViewController {
         return view
     }()
 
-    private let firstTabButton = ACPTopTabMenuButton(status: .selected)
+    private let firstTabButton = ACPTopTabMenuButton()
 
     private let secondTabButton = ACPTopTabMenuButton()
 
@@ -122,44 +163,54 @@ class ACPTopTabMenuViewController: UIViewController {
         viewController.removeFromParent()
     }
 
-    func setupTabItems(_ tabItems: [ACPTabMenuChildModel]) {
-        tabMenuItems = tabItems
+    // MARK: - Tab Items
 
-        firstTabButton.setText(text: tabItems[0].title)
-        secondTabButton.setText(text: tabItems[1].title)
-        thirdTabButton.setText(text: tabItems[2].title)
+    func setupTabItems() {
+        firstTabButton.setText(text: delegate?.titleForTab(at: .first))
+        secondTabButton.setText(text: delegate?.titleForTab(at: .second))
+        thirdTabButton.setText(text: delegate?.titleForTab(at: .third))
 
-        selectTabItem(index: 0)
+        selectTabItem(tabIndex: .first)
     }
 
-    func selectTabItem(index: Int) {
-        guard index < tabMenuItems.count else {
+    func selectTabItem(tabIndex: TabIndex) {
+        guard let delegate = delegate else {
             return
         }
 
-        switch index {
-        case 0:
+        let statusForOtherButtons: TabButtonStatus = delegate.allTabsAreActive ? .active : .inactive
 
+        currentTabItem = tabIndex
+
+        switch tabIndex {
+        case .first:
             firstTabButton.status = .selected
-            secondTabButton.status = .inactive
-            thirdTabButton.status = .inactive
+            secondTabButton.status = statusForOtherButtons
+            thirdTabButton.status = statusForOtherButtons
 
-        case 1:
+        case .second:
             firstTabButton.status = .active
             secondTabButton.status = .selected
-            thirdTabButton.status = .inactive
+            thirdTabButton.status = statusForOtherButtons
 
-        case 2:
+        case .third:
             firstTabButton.status = .active
             secondTabButton.status = .active
             thirdTabButton.status = .selected
-
-        default:
-            break
         }
 
-        let controllerToAdd = tabMenuItems[index].viewController
+        let controllerToAdd = delegate.viewControllerForTab(at: tabIndex)
         add(asChildViewController: controllerToAdd)
+
+        delegate.selectedTabItem(at: tabIndex)
+    }
+
+    func nextTabItem() {
+        selectTabItem(tabIndex: currentTabItem.nextTab)
+    }
+
+    func previousTabItem() {
+        selectTabItem(tabIndex: currentTabItem.previousTab)
     }
 
     // MARK: - Tab Callback
@@ -192,16 +243,13 @@ class ACPTopTabMenuViewController: UIViewController {
 
         switch tabButton {
         case firstTabButton:
-            selectTabItem(index: 0)
+            selectTabItem(tabIndex: .first)
 
         case secondTabButton:
-            selectTabItem(index: 1)
-
-        case thirdTabButton:
-            selectTabItem(index: 2)
+            selectTabItem(tabIndex: .second)
 
         default:
-            break
+            selectTabItem(tabIndex: .third)
         }
     }
 

@@ -51,16 +51,19 @@ class ACPEligibilityDetailsAddressViewController: UIViewController {
         return view
     }()
 
-    private lazy var stateTextField: ACPTextField = {
-        let view = ACPTextField()
+    private lazy var stateTextField: ACPPickerView = {
+        let view = ACPPickerView()
         view.titleLabel.text = Constants.Text.State
-        view.textField.delegate = self
+        view.delegate = self
+        view.pickerView.delegate = self
+        view.pickerView.dataSource = self
         return view
     }()
 
     private lazy var zipTextField: ACPTextField = {
         let view = ACPTextField()
         view.titleLabel.text = Constants.Text.Zip
+        view.delegate = self
         view.textField.delegate = self
         view.textField.attributedPlaceholder = NSAttributedString(
             string: Constants.Text.ZipPlaceholder,
@@ -222,6 +225,7 @@ class ACPEligibilityDetailsAddressViewController: UIViewController {
 // MARK: - UITextFieldDelegate
 
 extension ACPEligibilityDetailsAddressViewController: UITextFieldDelegate {
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == streetTextField.textField {
             cityTextField.textField.becomeFirstResponder()
@@ -233,5 +237,40 @@ extension ACPEligibilityDetailsAddressViewController: UITextFieldDelegate {
             textField.resignFirstResponder()
         }
         return true
+    }
+}
+
+// MARK: - ACPPickerViewDelegate
+
+extension ACPEligibilityDetailsAddressViewController: ACPToolbarDelegate {
+
+    func didPressDone(_ textfield: UITextField) {
+        _ = textFieldShouldReturn(textfield)
+    }
+}
+
+// MARK: - UIPickerViewDelegate
+
+extension ACPEligibilityDetailsAddressViewController: UIPickerViewDelegate {
+
+    func pickerView(
+        _ pickerView: UIPickerView,
+        attributedTitleForRow row: Int,
+        forComponent component: Int
+    ) -> NSAttributedString? {
+        return NSAttributedString(string: "Test")
+    }
+}
+
+// MARK: - UIPickerViewDelegate
+
+extension ACPEligibilityDetailsAddressViewController: UIPickerViewDataSource {
+
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 5
     }
 }

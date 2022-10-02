@@ -1,5 +1,5 @@
 //
-//  ACPTextField.swift
+//  ACPPickerView.swift
 //  ACP-mobile
 //
 //  Created by Adi on 02/10/2022.
@@ -8,15 +8,15 @@
 import UIKit
 import SnapKit
 
-class ACPTextField: UIView {
+protocol ACPToolbarDelegate: AnyObject {
+    func didPressDone(_ textfield: UITextField)
+}
+
+class ACPPickerView: UIView {
 
     // MARK: - Properties
 
-    weak var delegate: ACPToolbarDelegate? {
-        didSet {
-            textField.inputAccessoryView = toolbar
-        }
-    }
+    weak var delegate: ACPToolbarDelegate?
 
     // MARK: - Views
 
@@ -42,7 +42,9 @@ class ACPTextField: UIView {
         return view
     }()
 
-    private lazy var toolbar: UIToolbar = {
+    let pickerView = UIPickerView()
+
+    private lazy var pickerToolbar: UIToolbar = {
         let toolBar = UIToolbar()
         toolBar.barStyle = UIBarStyle.default
         toolBar.isTranslucent = true
@@ -73,6 +75,9 @@ class ACPTextField: UIView {
         super.init(frame: frame)
 
         setupUI()
+
+        textField.inputView = pickerView
+        textField.inputAccessoryView = pickerToolbar
     }
 
     required init?(coder: NSCoder) {

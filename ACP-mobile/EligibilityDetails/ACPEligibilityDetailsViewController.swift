@@ -63,13 +63,6 @@ class ACPEligibilityDetailsViewController: UIViewController {
     }
 
     private func setupTabMenu() {
-        // TODO: Make it into the model or a protocol
-        tabMenu.setupTabItems([
-            .init(title: "Name", viewController: ACPEligibilityDetailsNameViewController(self)),
-            .init(title: "Date of Birth", viewController: ACPEligibilityDetailsDOBViewController(self)),
-            .init(title: "Address", viewController: ACPEligibilityDetailsAddressViewController(self))
-        ])
-
         addChild(tabMenu)
         view.addSubview(tabMenu.view)
 
@@ -81,6 +74,8 @@ class ACPEligibilityDetailsViewController: UIViewController {
 
         tabMenu.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         tabMenu.didMove(toParent: self)
+
+        tabMenu.delegate = self
     }
 
     // MARK: - Constants
@@ -99,6 +94,8 @@ class ACPEligibilityDetailsViewController: UIViewController {
     }
 }
 
+// MARK: - ACPTermsAndPrivacyLabelDelegate
+
 extension ACPEligibilityDetailsViewController: ACPTermsAndPrivacyLabelDelegate {
     func didTapTerms() {
         // TODO: Add link
@@ -109,12 +106,56 @@ extension ACPEligibilityDetailsViewController: ACPTermsAndPrivacyLabelDelegate {
     }
 }
 
+// MARK: - ACPEligibilityDetailsDelegate
+
 extension ACPEligibilityDetailsViewController: ACPEligibilityDetailsDelegate {
     func didTapNextButton(newIndex: Int) {
-        tabMenu.selectTabItem(index: newIndex)
+        tabMenu.nextTabItem()
     }
 
     func didTapVerifyButton() {
         print("Done")
+    }
+}
+
+// MARK: - ACPTopTabMenuViewControllerDelegate
+
+extension ACPEligibilityDetailsViewController: ACPTopTabMenuViewControllerDelegate {
+    var allTabsAreActive: Bool {
+        return false
+    }
+
+    func titleForTab(at index: ACPTopTabMenuViewController.TabIndex) -> String {
+        switch index {
+        case .first:
+            return "Name"
+        case .second:
+            return "Date of Birth"
+        case .third:
+            return "Address"
+        }
+    }
+
+    func viewControllerForTab(at index: ACPTopTabMenuViewController.TabIndex) -> UIViewController {
+        switch index {
+        case .first:
+            return ACPEligibilityDetailsNameViewController(self)
+        case .second:
+            return ACPEligibilityDetailsDOBViewController(self)
+        case .third:
+            return ACPEligibilityDetailsAddressViewController(self)
+        }
+    }
+
+    func selectedTabItem(at index: ACPTopTabMenuViewController.TabIndex) {
+        guard let navigationController = navigationController as? ACPNavigationController else {
+            return
+        }
+
+        if index == .first {
+            navigationController.backButtonOverride = nil
+        } else {
+            navigationController.backButtonOverride = tabMenu.previousTabItem
+        }
     }
 }
