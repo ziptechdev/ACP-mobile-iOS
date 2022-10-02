@@ -37,6 +37,8 @@ class ACPTopTabMenuViewController: UIViewController {
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
+        super.viewDidLoad()
+
         setupUI()
     }
 
@@ -135,6 +137,27 @@ class ACPTopTabMenuViewController: UIViewController {
             return
         }
 
+        switch index {
+        case 0:
+
+            firstTabButton.status = .selected
+            secondTabButton.status = .inactive
+            thirdTabButton.status = .inactive
+
+        case 1:
+            firstTabButton.status = .active
+            secondTabButton.status = .selected
+            thirdTabButton.status = .inactive
+
+        case 2:
+            firstTabButton.status = .active
+            secondTabButton.status = .active
+            thirdTabButton.status = .selected
+
+        default:
+            break
+        }
+
         let controllerToAdd = tabMenuItems[index].viewController
         add(asChildViewController: controllerToAdd)
     }
@@ -169,38 +192,17 @@ class ACPTopTabMenuViewController: UIViewController {
 
         switch tabButton {
         case firstTabButton:
-
-            firstTabButton.status = .selected
-            secondTabButton.status = .inactive
-            thirdTabButton.status = .inactive
-
             selectTabItem(index: 0)
 
         case secondTabButton:
-            firstTabButton.status = .active
-            secondTabButton.status = .selected
-            thirdTabButton.status = .inactive
-
             selectTabItem(index: 1)
 
         case thirdTabButton:
-            firstTabButton.status = .active
-            secondTabButton.status = .active
-            thirdTabButton.status = .selected
-
             selectTabItem(index: 2)
 
         default:
             break
         }
-    }
-
-    // MARK: - Presenting
-
-    func setTabTitles(first: String, second: String, third: String) {
-        firstTabButton.setText(text: first)
-        secondTabButton.setText(text: second)
-        thirdTabButton.setText(text: third)
     }
 
     // MARK: - Constants

@@ -8,6 +8,11 @@
 import UIKit
 import SnapKit
 
+protocol ACPEligibilityDetailsDelegate: AnyObject {
+    func didTapNextButton(newIndex: Int)
+    func didTapVerifyButton()
+}
+
 class ACPEligibilityDetailsViewController: UIViewController {
 
 	// MARK: - Properties
@@ -21,12 +26,17 @@ class ACPEligibilityDetailsViewController: UIViewController {
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
+        super.viewDidLoad()
+
         setupUI()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         title = Constants.Text.Title
-        navigationController?.isNavigationBarHidden = false
+        navigationController?.navigationBar.isHidden = false
+
+        setupRightNavigationBarButton()
+        setupLeftNavigationBarButton()
     }
 
     // MARK: - UI
@@ -53,7 +63,12 @@ class ACPEligibilityDetailsViewController: UIViewController {
     }
 
     private func setupTabMenu() {
-        tabMenu.setupTabItems([])
+        // TODO: Make it into the model or a protocol
+        tabMenu.setupTabItems([
+            .init(title: "Name", viewController: ACPEligibilityDetailsNameViewController(self)),
+            .init(title: "Date of Birth", viewController: ACPEligibilityDetailsDOBViewController(self)),
+            .init(title: "Address", viewController: ACPEligibilityDetailsAddressViewController(self))
+        ])
 
         addChild(tabMenu)
         view.addSubview(tabMenu.view)
@@ -91,5 +106,15 @@ extension ACPEligibilityDetailsViewController: ACPTermsAndPrivacyLabelDelegate {
 
     func didTapPrivacy() {
         // TODO: Add link
+    }
+}
+
+extension ACPEligibilityDetailsViewController: ACPEligibilityDetailsDelegate {
+    func didTapNextButton(newIndex: Int) {
+        tabMenu.selectTabItem(index: newIndex)
+    }
+
+    func didTapVerifyButton() {
+        print("Done")
     }
 }

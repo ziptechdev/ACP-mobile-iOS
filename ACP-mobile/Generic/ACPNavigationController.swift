@@ -16,6 +16,10 @@ class ACPNavigationController: UINavigationController {
         super.viewDidLoad()
 
         navigationBar.barTintColor = .white
+        navigationBar.titleTextAttributes = [
+            .font: UIFont.systemFont(ofSize: 20, weight: .regular),
+            .foregroundColor: UIColor.gray06Dark
+        ]
     }
 
     override func popViewController(animated: Bool) -> UIViewController? {
