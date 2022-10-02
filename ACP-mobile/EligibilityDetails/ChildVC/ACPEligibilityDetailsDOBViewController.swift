@@ -40,6 +40,7 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
     private lazy var monthTextField: ACPPickerView = {
         let view = ACPPickerView()
         view.titleLabel.text = Constants.Text.Month
+        view.textField.addRightImage(imageName: "down_arrow")
         view.delegate = self
         view.pickerView.delegate = self
         view.pickerView.dataSource = self

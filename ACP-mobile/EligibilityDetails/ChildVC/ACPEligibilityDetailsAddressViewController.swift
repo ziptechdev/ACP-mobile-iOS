@@ -54,6 +54,7 @@ class ACPEligibilityDetailsAddressViewController: UIViewController {
     private lazy var stateTextField: ACPPickerView = {
         let view = ACPPickerView()
         view.titleLabel.text = Constants.Text.State
+        view.textField.addRightImage(imageName: "down_arrow")
         view.delegate = self
         view.pickerView.delegate = self
         view.pickerView.dataSource = self

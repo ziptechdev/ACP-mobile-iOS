@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class TextField: UITextField {
 
@@ -21,5 +22,26 @@ class TextField: UITextField {
 
     override open func editingRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.inset(by: padding)
+    }
+}
+
+extension UITextField {
+
+    func addRightImage(imageName: String) {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: imageName)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+
+        let imageContainerView = UIView()
+        imageContainerView.isUserInteractionEnabled = false
+        imageContainerView.addSubview(imageView)
+
+        imageView.snp.makeConstraints { make in
+            make.right.equalToSuperview().inset(20)
+            make.centerY.equalToSuperview().offset(1)
+        }
+
+        rightView = imageContainerView
+        rightViewMode = .always
     }
 }
