@@ -117,6 +117,9 @@ extension ACPEligibilityDetailsViewController: ACPEligibilityDetailsDelegate {
 
     func didTapVerifyButton() {
         viewModel.didTapVerify()
+
+        let viewController = ACPEligibilityDetailsVerifyViewController()
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
 

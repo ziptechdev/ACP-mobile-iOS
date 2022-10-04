@@ -162,6 +162,7 @@ class ACPEligibilityDetailsVerifyViewController: UIViewController {
 
         if loadingPercentage == 100 {
             loadingTimer?.invalidate()
+            goToSuccess()
         }
     }
 
@@ -181,6 +182,18 @@ class ACPEligibilityDetailsVerifyViewController: UIViewController {
             // TODO: Add Link
             print("NationalVerifier")
         }
+    }
+
+    // MARK: - Navigation
+
+    private func goToSuccess() {
+        let viewController = ACPEligibilityDetailsSuccessViewController()
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+
+    private func goToFail() {
+        let viewController = ACPEligibilityDetailsFailViewController()
+        navigationController?.pushViewController(viewController, animated: true)
     }
 
     // MARK: - Constants

@@ -170,7 +170,7 @@ class ACPEligibilityDetailsSuccessViewController: UIViewController {
     // MARK: - Callbacks
 
     @objc func didTapCancel() {
-        navigationController?.popViewController(animated: true)
+        navigationController?.popToRootViewController(animated: true)
     }
 
     @objc func didTapRegisterButton() {
