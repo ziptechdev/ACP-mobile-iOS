@@ -18,13 +18,28 @@ class ACPCircleLoadingBarView: UIView {
     var timeInterval: CGFloat = 10
 
     /// Set to change the width of the progress bar
-    var lineWidth: CGFloat = Constants.Constraints.DefaultLineWidth
+    var lineWidth: CGFloat = Constants.Constraints.DefaultLineWidth {
+        didSet {
+            setupLayers()
+        }
+    }
 
     /// Color of the loading bar
-    var progressColor: UIColor = .coreBlue
+    var progressColor: UIColor = .coreBlue {
+        didSet {
+            setupLayers()
+        }
+    }
 
     /// Color of the loading bar background
-    var barColor: UIColor = .gray06Light
+    var barColor: UIColor = .gray06Light {
+        didSet {
+            setupLayers()
+        }
+    }
+
+    /// Indicates if the loading bar should animate, can be used as a circle
+    var shouldAnimate: Bool = true
 
     // MARK: - Views
 
@@ -65,7 +80,9 @@ class ACPCircleLoadingBarView: UIView {
 
         progressLayer.path = path.cgPath
 
-        progressAnimation()
+        if shouldAnimate {
+            progressAnimation()
+        }
     }
 
     // MARK: - UI

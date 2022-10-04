@@ -27,6 +27,8 @@
 		405D775F28EB8C5800358D4A /* ACPEligibilityDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405D775E28EB8C5800358D4A /* ACPEligibilityDetailsModel.swift */; };
 		405D776128EBB3D500358D4A /* ACPCircleLoadingBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405D776028EBB3D500358D4A /* ACPCircleLoadingBarView.swift */; };
 		405D776328EBBB3C00358D4A /* ACPEligibilityDetailsVerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405D776228EBBB3C00358D4A /* ACPEligibilityDetailsVerifyViewController.swift */; };
+		405D776528EBCF7200358D4A /* ACPEligibilityDetailsFailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405D776428EBCF7200358D4A /* ACPEligibilityDetailsFailViewController.swift */; };
+		405D776728EBD88600358D4A /* ACPEligibilityDetailsSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405D776628EBD88600358D4A /* ACPEligibilityDetailsSuccessViewController.swift */; };
 		40AB5D5F28E48DBA006F0700 /* ACPNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AB5D5E28E48DBA006F0700 /* ACPNavigationController.swift */; };
 		40B5EDCF28E224F20096B91B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B5EDCE28E224F20096B91B /* AppDelegate.swift */; };
 		40B5EDD128E224F20096B91B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B5EDD028E224F20096B91B /* SceneDelegate.swift */; };
@@ -67,6 +69,8 @@
 		405D775E28EB8C5800358D4A /* ACPEligibilityDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsModel.swift; sourceTree = "<group>"; };
 		405D776028EBB3D500358D4A /* ACPCircleLoadingBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPCircleLoadingBarView.swift; sourceTree = "<group>"; };
 		405D776228EBBB3C00358D4A /* ACPEligibilityDetailsVerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsVerifyViewController.swift; sourceTree = "<group>"; };
+		405D776428EBCF7200358D4A /* ACPEligibilityDetailsFailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsFailViewController.swift; sourceTree = "<group>"; };
+		405D776628EBD88600358D4A /* ACPEligibilityDetailsSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsSuccessViewController.swift; sourceTree = "<group>"; };
 		40AB5D5E28E48DBA006F0700 /* ACPNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPNavigationController.swift; sourceTree = "<group>"; };
 		40B5EDCB28E224F20096B91B /* ACP-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ACP-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		40B5EDCE28E224F20096B91B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -161,6 +165,8 @@
 				405D773028E8507000358D4A /* ACPEligibilityDetailsViewController.swift */,
 				405D773F28E8DA1500358D4A /* ChildVC */,
 				405D776228EBBB3C00358D4A /* ACPEligibilityDetailsVerifyViewController.swift */,
+				405D776428EBCF7200358D4A /* ACPEligibilityDetailsFailViewController.swift */,
+				405D776628EBD88600358D4A /* ACPEligibilityDetailsSuccessViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -441,6 +447,8 @@
 				40EE2CC128E540470028888D /* ACPHomeScreenEligibilityHeaderView.swift in Sources */,
 				40EE2CA928E49DF00028888D /* ACPHomeScreenHeaderView.swift in Sources */,
 				405D773728E8A62600358D4A /* ACPTopTabMenuViewController.swift in Sources */,
+				405D776728EBD88600358D4A /* ACPEligibilityDetailsSuccessViewController.swift in Sources */,
+				405D776528EBCF7200358D4A /* ACPEligibilityDetailsFailViewController.swift in Sources */,
 				405D775D28EB87D100358D4A /* ACPEligibilityDetailsAddressModel.swift in Sources */,
 				405D775B28EB87C700358D4A /* ACPEligibilityDetailsDOBModel.swift in Sources */,
 				40B5EDCF28E224F20096B91B /* AppDelegate.swift in Sources */,

@@ -10,22 +10,18 @@ import SnapKit
 
 class ACPEligibilityDetailsVerifyViewController: UIViewController {
 
-	// MARK: - Properties
-
-
-
     // MARK: - Views
 
     private let loadingBar = ACPCircleLoadingBarView()
 
     private let countdownLabel: UILabel = {
+        // TODO: Add Counting
         let label = UILabel()
-        label.text = Constants.Text.Title
+        label.text = Constants.Text.Countdown
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 32, weight: .bold)
         label.textColor = .coreBlue
-        label.adjustsFontSizeToFitWidth = true
         return label
     }()
 
@@ -36,7 +32,6 @@ class ACPEligibilityDetailsVerifyViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 32, weight: .bold)
         label.textColor = .coreBlue
-        label.adjustsFontSizeToFitWidth = true
         return label
     }()
 
@@ -89,12 +84,17 @@ class ACPEligibilityDetailsVerifyViewController: UIViewController {
 
     private func addSubviews() {
         view.addSubview(loadingBar)
+        view.addSubview(countdownLabel)
         view.addSubview(titleLabel)
         view.addSubview(subtitleLabel)
         view.addSubview(cancelButton)
     }
 
     private func setupConstraints() {
+        countdownLabel.snp.makeConstraints { make in
+            make.center.equalTo(loadingBar.snp.center)
+        }
+
         loadingBar.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).inset(Constants.Constraints.LoadingBarInsetY)
             make.left.right.equalToSuperview().inset(Constants.Constraints.LoadingBarInsetX)
@@ -169,6 +169,7 @@ class ACPEligibilityDetailsVerifyViewController: UIViewController {
 
         struct Text {
             static let Title = "Verifying..."
+            static let Countdown = "0%"
             static let NationalVerifier = "National Verifier"
             static let Subtitle = "We are back-checking your information through National Verifier. It may take a few minutes."
             static let Cancel = "Cancel"
