@@ -18,6 +18,16 @@ class ACPTextField: UIView {
         }
     }
 
+    var textFieldImage: UIImageView? {
+        if let subviews = textField.rightView?.subviews {
+            let view = subviews.first(where: { $0 is UIImageView })
+            if let imageView = view as? UIImageView {
+                return imageView
+            }
+        }
+        return nil
+    }
+
     // MARK: - Views
 
     let titleLabel: UILabel = {

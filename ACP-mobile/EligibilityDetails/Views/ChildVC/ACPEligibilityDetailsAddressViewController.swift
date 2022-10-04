@@ -55,7 +55,7 @@ class ACPEligibilityDetailsAddressViewController: UIViewController {
     private lazy var stateTextField: ACPPickerView = {
         let view = ACPPickerView()
         view.titleLabel.text = Constants.Text.State
-        view.textField.addRightImage(imageName: "down_arrow")
+        view.textField.addRightImage(named: "down_arrow")
         view.delegate = self
         view.pickerView.delegate = self
         view.pickerView.dataSource = self
@@ -247,19 +247,19 @@ extension ACPEligibilityDetailsAddressViewController: UITextFieldDelegate {
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == streetTextField.textField {
-            cityTextField.textField.becomeFirstResponder()
+            cityTextField.becomeFirstResponder()
         } else if textField == cityTextField.textField {
-            stateTextField.textField.becomeFirstResponder()
+            stateTextField.becomeFirstResponder()
         } else if textField == stateTextField.textField {
-            zipTextField.textField.becomeFirstResponder()
+            zipTextField.becomeFirstResponder()
         } else {
-            textField.resignFirstResponder()
+            zipTextField.resignFirstResponder()
         }
         return true
     }
 }
 
-// MARK: - ACPPickerViewDelegate
+// MARK: - ACPToolbarDelegate
 
 extension ACPEligibilityDetailsAddressViewController: ACPToolbarDelegate {
 

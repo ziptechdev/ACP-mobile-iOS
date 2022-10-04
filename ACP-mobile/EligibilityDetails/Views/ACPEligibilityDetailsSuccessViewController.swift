@@ -174,7 +174,8 @@ class ACPEligibilityDetailsSuccessViewController: UIViewController {
     }
 
     @objc func didTapRegisterButton() {
-        // TODO: Add Stuff
+        let viewController = ACPVerifiedRegistrationViewController()
+        navigationController?.pushViewController(viewController, animated: true)
     }
 
     // MARK: - Constants

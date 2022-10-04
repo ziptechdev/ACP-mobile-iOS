@@ -27,10 +27,16 @@ class TextField: UITextField {
 
 extension UITextField {
 
-    func addRightImage(imageName: String) {
+    func addRightImage(named: String, imageColor: UIColor? = nil) {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: imageName)
         imageView.translatesAutoresizingMaskIntoConstraints = false
+
+        if let tintColor = imageColor {
+            imageView.image = UIImage(named: named)?.withRenderingMode(.alwaysTemplate)
+            imageView.tintColor = tintColor
+        } else {
+            imageView.image = UIImage(named: named)
+        }
 
         let imageContainerView = UIView()
         imageContainerView.isUserInteractionEnabled = false

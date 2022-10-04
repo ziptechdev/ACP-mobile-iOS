@@ -34,6 +34,8 @@ class ACPEligibilityDetailsViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         title = Constants.Text.Title
         navigationController?.navigationBar.isHidden = false
 

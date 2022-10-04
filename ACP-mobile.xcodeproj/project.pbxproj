@@ -29,6 +29,7 @@
 		405D776328EBBB3C00358D4A /* ACPEligibilityDetailsVerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405D776228EBBB3C00358D4A /* ACPEligibilityDetailsVerifyViewController.swift */; };
 		405D776528EBCF7200358D4A /* ACPEligibilityDetailsFailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405D776428EBCF7200358D4A /* ACPEligibilityDetailsFailViewController.swift */; };
 		405D776728EBD88600358D4A /* ACPEligibilityDetailsSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405D776628EBD88600358D4A /* ACPEligibilityDetailsSuccessViewController.swift */; };
+		405D776E28ECA7C200358D4A /* ACPVerifiedRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405D776D28ECA7C200358D4A /* ACPVerifiedRegistrationViewController.swift */; };
 		40AB5D5F28E48DBA006F0700 /* ACPNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AB5D5E28E48DBA006F0700 /* ACPNavigationController.swift */; };
 		40B5EDCF28E224F20096B91B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B5EDCE28E224F20096B91B /* AppDelegate.swift */; };
 		40B5EDD128E224F20096B91B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B5EDD028E224F20096B91B /* SceneDelegate.swift */; };
@@ -71,6 +72,7 @@
 		405D776228EBBB3C00358D4A /* ACPEligibilityDetailsVerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsVerifyViewController.swift; sourceTree = "<group>"; };
 		405D776428EBCF7200358D4A /* ACPEligibilityDetailsFailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsFailViewController.swift; sourceTree = "<group>"; };
 		405D776628EBD88600358D4A /* ACPEligibilityDetailsSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsSuccessViewController.swift; sourceTree = "<group>"; };
+		405D776D28ECA7C200358D4A /* ACPVerifiedRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPVerifiedRegistrationViewController.swift; sourceTree = "<group>"; };
 		40AB5D5E28E48DBA006F0700 /* ACPNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPNavigationController.swift; sourceTree = "<group>"; };
 		40B5EDCB28E224F20096B91B /* ACP-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ACP-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		40B5EDCE28E224F20096B91B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -190,6 +192,30 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		405D776928ECA5EE00358D4A /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				405D776C28ECA79800358D4A /* NotVerified */,
+				405D776A28ECA60800358D4A /* Verified */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		405D776A28ECA60800358D4A /* Verified */ = {
+			isa = PBXGroup;
+			children = (
+				405D776D28ECA7C200358D4A /* ACPVerifiedRegistrationViewController.swift */,
+			);
+			path = Verified;
+			sourceTree = "<group>";
+		};
+		405D776C28ECA79800358D4A /* NotVerified */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NotVerified;
+			sourceTree = "<group>";
+		};
 		40AB5D5D28E48D8C006F0700 /* Generic */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,6 +264,7 @@
 				40EE2CAC28E4AA340028888D /* Extensions */,
 				405D770028E603C400358D4A /* LandingScreen */,
 				405D773E28E8D4B600358D4A /* EligibilityDetails */,
+				405D776928ECA5EE00358D4A /* Registration */,
 				40B5EE0028E228A20096B91B /* HomeScreen */,
 				40B5EDFE28E227A30096B91B /* Resources */,
 			);
@@ -437,6 +464,7 @@
 				405D776128EBB3D500358D4A /* ACPCircleLoadingBarView.swift in Sources */,
 				40AB5D5F28E48DBA006F0700 /* ACPNavigationController.swift in Sources */,
 				405D775628EB851F00358D4A /* ACPEligibilityDetailsViewModel.swift in Sources */,
+				405D776E28ECA7C200358D4A /* ACPVerifiedRegistrationViewController.swift in Sources */,
 				40EE2CAE28E4AA520028888D /* UIColor+ACP.swift in Sources */,
 				40B73F7128E5B733002A5E14 /* ACPImageButton.swift in Sources */,
 				405D773B28E8A83400358D4A /* ACPTopTabMenuButton.swift in Sources */,

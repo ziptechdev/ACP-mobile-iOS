@@ -228,11 +228,11 @@ class ACPEligibilityDetailsNameViewController: UIViewController {
 extension ACPEligibilityDetailsNameViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == nameTextField.textField {
-            middleNameTextField.textField.becomeFirstResponder()
+            middleNameTextField.becomeFirstResponder()
         } else if textField == middleNameTextField.textField {
-            lastNameTextField.textField.becomeFirstResponder()
+            lastNameTextField.becomeFirstResponder()
         } else {
-            textField.resignFirstResponder()
+            lastNameTextField.resignFirstResponder()
         }
         return true
     }

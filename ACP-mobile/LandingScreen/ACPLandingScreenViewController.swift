@@ -65,6 +65,8 @@ class ACPLandingScreenViewController: UIViewController {
     // MARK: - Life Cycle
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         navigationController?.navigationBar.isHidden = true
     }
 

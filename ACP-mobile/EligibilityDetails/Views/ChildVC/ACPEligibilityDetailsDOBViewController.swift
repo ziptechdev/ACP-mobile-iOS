@@ -41,7 +41,7 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
     private lazy var monthTextField: ACPPickerView = {
         let view = ACPPickerView()
         view.titleLabel.text = Constants.Text.Month
-        view.textField.addRightImage(imageName: "down_arrow")
+        view.textField.addRightImage(named: "down_arrow")
         view.delegate = self
         view.pickerView.delegate = self
         view.pickerView.dataSource = self
@@ -244,19 +244,19 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
 extension ACPEligibilityDetailsDOBViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == monthTextField.textField {
-            dayTextField.textField.becomeFirstResponder()
+            dayTextField.becomeFirstResponder()
         } else if textField == dayTextField.textField {
-            yearTextField.textField.becomeFirstResponder()
+            yearTextField.becomeFirstResponder()
         } else if textField == yearTextField.textField {
-            ssnTextField.textField.becomeFirstResponder()
+            ssnTextField.becomeFirstResponder()
         } else {
-            textField.resignFirstResponder()
+            ssnTextField.resignFirstResponder()
         }
         return true
     }
 }
 
-// MARK: - ACPPickerViewDelegate
+// MARK: - ACPToolbarDelegate
 
 extension ACPEligibilityDetailsDOBViewController: ACPToolbarDelegate {
     func didPressDone(_ textfield: UITextField) {
