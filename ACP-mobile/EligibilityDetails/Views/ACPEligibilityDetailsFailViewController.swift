@@ -15,7 +15,6 @@ class ACPEligibilityDetailsFailViewController: UIViewController {
     private let failCircle: ACPCircleLoadingBarView = {
         let view = ACPCircleLoadingBarView()
         view.barColor = .warningRed
-        view.shouldAnimate = false
         return view
     }()
 

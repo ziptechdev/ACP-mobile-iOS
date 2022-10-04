@@ -38,9 +38,6 @@ class ACPCircleLoadingBarView: UIView {
         }
     }
 
-    /// Indicates if the loading bar should animate, can be used as a circle
-    var shouldAnimate: Bool = true
-
     // MARK: - Views
 
     private var circleLayer = CAShapeLayer()
@@ -79,10 +76,6 @@ class ACPCircleLoadingBarView: UIView {
         circleLayer.path = path.cgPath
 
         progressLayer.path = path.cgPath
-
-        if shouldAnimate {
-            progressAnimation()
-        }
     }
 
     // MARK: - UI

@@ -10,12 +10,16 @@ import SnapKit
 
 class ACPEligibilityDetailsVerifyViewController: UIViewController {
 
+    // MARK: - Properties
+
+    private var loadingPercentage = 0
+    private var loadingTimer: Timer?
+
     // MARK: - Views
 
     private let loadingBar = ACPCircleLoadingBarView()
 
-    private let countdownLabel: UILabel = {
-        // TODO: Add Counting
+    private let loadingLabel: UILabel = {
         let label = UILabel()
         label.text = Constants.Text.Countdown
         label.textAlignment = .center
@@ -65,6 +69,8 @@ class ACPEligibilityDetailsVerifyViewController: UIViewController {
         super.viewDidLoad()
 
         setupUI()
+
+        setupLoadingTimer()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -84,14 +90,14 @@ class ACPEligibilityDetailsVerifyViewController: UIViewController {
 
     private func addSubviews() {
         view.addSubview(loadingBar)
-        view.addSubview(countdownLabel)
+        view.addSubview(loadingLabel)
         view.addSubview(titleLabel)
         view.addSubview(subtitleLabel)
         view.addSubview(cancelButton)
     }
 
     private func setupConstraints() {
-        countdownLabel.snp.makeConstraints { make in
+        loadingLabel.snp.makeConstraints { make in
             make.center.equalTo(loadingBar.snp.center)
         }
 
@@ -131,7 +137,33 @@ class ACPEligibilityDetailsVerifyViewController: UIViewController {
         return string
     }
 
+    // MARK: - Loading
+
+    private func setupLoadingTimer() {
+        let timeBetweenUpdates = Constants.Numbers.LoadingTime / 100
+
+        loadingTimer = .scheduledTimer(
+            timeInterval: timeBetweenUpdates,
+            target: self,
+            selector: #selector(updateLoadingPercentage),
+            userInfo: nil,
+            repeats: true
+        )
+
+        loadingBar.timeInterval = Constants.Numbers.LoadingTime
+        loadingBar.progressAnimation()
+    }
+
     // MARK: - Callbacks
+
+    @objc func updateLoadingPercentage() {
+        loadingPercentage += 1
+        loadingLabel.text = "\(loadingPercentage)%"
+
+        if loadingPercentage == 100 {
+            loadingTimer?.invalidate()
+        }
+    }
 
     @objc func didTapCancel() {
         navigationController?.popViewController(animated: true)
@@ -173,6 +205,11 @@ class ACPEligibilityDetailsVerifyViewController: UIViewController {
             static let NationalVerifier = "National Verifier"
             static let Subtitle = "We are back-checking your information through National Verifier. It may take a few minutes."
             static let Cancel = "Cancel"
+        }
+
+        struct Numbers {
+            // TODO: Add real time
+            static let LoadingTime: Double = 20
         }
     }
 }
