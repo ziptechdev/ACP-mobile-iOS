@@ -12,6 +12,7 @@ class ACPEligibilityDetailsNameViewController: UIViewController {
 
     // MARK: - Properties
 
+    var viewModel: ACPEligibilityDetailsViewModel?
     weak var delegate: ACPEligibilityDetailsDelegate?
 
     // MARK: - Views
@@ -87,18 +88,8 @@ class ACPEligibilityDetailsNameViewController: UIViewController {
         super.viewDidLoad()
 
         setupUI()
-    }
 
-    // MARK: - Initialization
-
-    init(_ delegate: ACPEligibilityDetailsDelegate) {
-        super.init(nibName: nil, bundle: nil)
-
-        self.delegate = delegate
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        showValuesIfPresent()
     }
 
     // MARK: - UI
@@ -168,10 +159,36 @@ class ACPEligibilityDetailsNameViewController: UIViewController {
         return string
     }
 
+    // MARK: - Presenting
+
+    private func showValuesIfPresent() {
+        guard let viewModel = viewModel?.model.nameModel else {
+            return
+        }
+
+        nameTextField.textField.text = viewModel.name
+        middleNameTextField.textField.text = viewModel.middleName
+        lastNameTextField.textField.text = viewModel.lastName
+    }
+
     // MARK: - Callback
 
     @objc func didTapButton() {
-        delegate?.didTapNextButton(newIndex: 1)
+        guard let name = nameTextField.textField.text, name != "" else {
+            return
+        }
+        viewModel?.model.nameModel.name = name
+
+        if let middleName = middleNameTextField.textField.text {
+            viewModel?.model.nameModel.middleName = middleName
+        }
+
+        guard let lastName = lastNameTextField.textField.text, lastName != "" else {
+            return
+        }
+        viewModel?.model.nameModel.lastName = lastName
+
+        delegate?.didTapNextButton()
     }
 
     // MARK: - Constants

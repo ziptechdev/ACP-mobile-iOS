@@ -9,13 +9,15 @@ import UIKit
 import SnapKit
 
 protocol ACPEligibilityDetailsDelegate: AnyObject {
-    func didTapNextButton(newIndex: Int)
+    func didTapNextButton()
     func didTapVerifyButton()
 }
 
 class ACPEligibilityDetailsViewController: UIViewController {
 
 	// MARK: - Properties
+
+    private let viewModel = ACPEligibilityDetailsViewModel()
 
     // MARK: - Views
 
@@ -109,12 +111,12 @@ extension ACPEligibilityDetailsViewController: ACPTermsAndPrivacyLabelDelegate {
 // MARK: - ACPEligibilityDetailsDelegate
 
 extension ACPEligibilityDetailsViewController: ACPEligibilityDetailsDelegate {
-    func didTapNextButton(newIndex: Int) {
+    func didTapNextButton() {
         tabMenu.nextTabItem()
     }
 
     func didTapVerifyButton() {
-        print("Done")
+        viewModel.didTapVerify()
     }
 }
 
@@ -126,24 +128,26 @@ extension ACPEligibilityDetailsViewController: ACPTopTabMenuViewControllerDelega
     }
 
     func titleForTab(at index: ACPTopTabMenuViewController.TabIndex) -> String {
-        switch index {
-        case .first:
-            return "Name"
-        case .second:
-            return "Date of Birth"
-        case .third:
-            return "Address"
-        }
+        return viewModel.titleForTab(at: index)
     }
 
     func viewControllerForTab(at index: ACPTopTabMenuViewController.TabIndex) -> UIViewController {
         switch index {
         case .first:
-            return ACPEligibilityDetailsNameViewController(self)
+            let viewController = ACPEligibilityDetailsNameViewController()
+            viewController.delegate = self
+            viewController.viewModel = viewModel
+            return viewController
         case .second:
-            return ACPEligibilityDetailsDOBViewController(self)
+            let viewController = ACPEligibilityDetailsDOBViewController()
+            viewController.delegate = self
+            viewController.viewModel = viewModel
+            return viewController
         case .third:
-            return ACPEligibilityDetailsAddressViewController(self)
+            let viewController = ACPEligibilityDetailsAddressViewController()
+            viewController.delegate = self
+            viewController.viewModel = viewModel
+            return viewController
         }
     }
 
