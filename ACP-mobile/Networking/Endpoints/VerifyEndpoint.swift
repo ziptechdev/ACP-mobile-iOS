@@ -13,13 +13,13 @@ enum VerifyEndpoint {
 
 extension VerifyEndpoint: ACPEndpoint {
     var baseURL: String {
-        return "https://api.universalservice.org/verify"
+        return "https://api.universalservice.org"
     }
 
     var path: String {
         switch self {
         case .verify:
-            return ""
+            return "/verify"
         }
     }
 
