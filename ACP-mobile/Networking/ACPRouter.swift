@@ -24,6 +24,8 @@ class ACPRouter {
 
     weak var delegate: ACPRouterDelegate?
 
+    // MARK: - Request
+
     func request(_ endpoint: ACPEndpoint) {
         let url = endpoint.baseURL + endpoint.path
 
@@ -36,15 +38,15 @@ class ACPRouter {
         // TODO: - Real Auth
         httpHeaders.add(.authorization("Basic \(authData!.base64EncodedString(options: []))"))
 
-        AF.request(
+        let request = AF.request(
             url,
             method: endpoint.httpMethod,
             parameters: endpoint.parameters,
             encoding: encoding,
             headers: httpHeaders
         )
-        .validate()
-        .responseData { [weak self] response in
+
+        request.validate().responseData { [weak self] response in
             guard let self = self else {
                 return
             }
