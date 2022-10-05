@@ -48,12 +48,13 @@ class ACPTextField: UIView {
         view.layer.borderWidth = Constants.Constraints.TextFieldBorderWidth
         view.layer.borderColor = UIColor.gray03Light.cgColor
         view.font = .systemFont(ofSize: 16, weight: .regular)
+        view.autocorrectionType = .no
         view.textColor = .gray06Dark
         return view
     }()
 
     private lazy var toolbar: UIToolbar = {
-        let toolBar = UIToolbar()
+        let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 40))
         toolBar.barStyle = UIBarStyle.default
         toolBar.isTranslucent = true
         toolBar.sizeToFit()

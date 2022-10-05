@@ -247,13 +247,13 @@ extension ACPEligibilityDetailsAddressViewController: UITextFieldDelegate {
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == streetTextField.textField {
-            cityTextField.becomeFirstResponder()
+            cityTextField.textField.becomeFirstResponder()
         } else if textField == cityTextField.textField {
-            stateTextField.becomeFirstResponder()
+            stateTextField.textField.becomeFirstResponder()
         } else if textField == stateTextField.textField {
-            zipTextField.becomeFirstResponder()
+            zipTextField.textField.becomeFirstResponder()
         } else {
-            zipTextField.resignFirstResponder()
+            zipTextField.textField.resignFirstResponder()
         }
         return true
     }

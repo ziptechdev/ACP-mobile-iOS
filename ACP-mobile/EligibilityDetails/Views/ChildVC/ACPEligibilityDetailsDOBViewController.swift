@@ -244,13 +244,13 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
 extension ACPEligibilityDetailsDOBViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == monthTextField.textField {
-            dayTextField.becomeFirstResponder()
+            dayTextField.textField.becomeFirstResponder()
         } else if textField == dayTextField.textField {
-            yearTextField.becomeFirstResponder()
+            yearTextField.textField.becomeFirstResponder()
         } else if textField == yearTextField.textField {
-            ssnTextField.becomeFirstResponder()
+            ssnTextField.textField.becomeFirstResponder()
         } else {
-            ssnTextField.resignFirstResponder()
+            ssnTextField.textField.resignFirstResponder()
         }
         return true
     }
