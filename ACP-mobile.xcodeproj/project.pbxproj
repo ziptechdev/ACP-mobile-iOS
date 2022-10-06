@@ -39,7 +39,8 @@
 		40B73F7128E5B733002A5E14 /* ACPImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B73F7028E5B733002A5E14 /* ACPImageButton.swift */; };
 		40C7E58E28EF484500C03ECE /* NSMutableParagraphStyle+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7E58D28EF484500C03ECE /* NSMutableParagraphStyle+ACP.swift */; };
 		40C7E59328EF5A2200C03ECE /* ACPNotVerifiedRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7E59228EF5A2200C03ECE /* ACPNotVerifiedRegistrationViewController.swift */; };
-		40C7E59528EF60E000C03ECE /* ACPEligibilityDetailsTabCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7E59428EF60E000C03ECE /* ACPEligibilityDetailsTabCell.swift */; };
+		40C7E59528EF60E000C03ECE /* ACPTabMenuTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7E59428EF60E000C03ECE /* ACPTabMenuTitleCell.swift */; };
+		40C7E59728EF6CEC00C03ECE /* ACPPersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7E59628EF6CEC00C03ECE /* ACPPersonalInfoViewController.swift */; };
 		40EA672A28EE826300163F59 /* ACPTabMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EA672928EE826300163F59 /* ACPTabMenuViewController.swift */; };
 		40EA672C28EE827100163F59 /* ACPFocusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EA672B28EE827100163F59 /* ACPFocusableView.swift */; };
 		40EA672E28EE827F00163F59 /* UICollectionView+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EA672D28EE827F00163F59 /* UICollectionView+ACP.swift */; };
@@ -90,7 +91,8 @@
 		40B73F7028E5B733002A5E14 /* ACPImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPImageButton.swift; sourceTree = "<group>"; };
 		40C7E58D28EF484500C03ECE /* NSMutableParagraphStyle+ACP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableParagraphStyle+ACP.swift"; sourceTree = "<group>"; };
 		40C7E59228EF5A2200C03ECE /* ACPNotVerifiedRegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPNotVerifiedRegistrationViewController.swift; sourceTree = "<group>"; };
-		40C7E59428EF60E000C03ECE /* ACPEligibilityDetailsTabCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsTabCell.swift; sourceTree = "<group>"; };
+		40C7E59428EF60E000C03ECE /* ACPTabMenuTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPTabMenuTitleCell.swift; sourceTree = "<group>"; };
+		40C7E59628EF6CEC00C03ECE /* ACPPersonalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPPersonalInfoViewController.swift; sourceTree = "<group>"; };
 		40EA672928EE826300163F59 /* ACPTabMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPTabMenuViewController.swift; sourceTree = "<group>"; };
 		40EA672B28EE827100163F59 /* ACPFocusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPFocusableView.swift; sourceTree = "<group>"; };
 		40EA672D28EE827F00163F59 /* UICollectionView+ACP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+ACP.swift"; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 		405D773828E8A7B600358D4A /* TabMenu */ = {
 			isa = PBXGroup;
 			children = (
+				40C7E59428EF60E000C03ECE /* ACPTabMenuTitleCell.swift */,
 				405D773A28E8A83400358D4A /* ACPTopTabMenuButton.swift */,
 				405D773628E8A62600358D4A /* ACPTopTabMenuViewController.swift */,
 			);
@@ -177,7 +180,6 @@
 			isa = PBXGroup;
 			children = (
 				405D773028E8507000358D4A /* ACPEligibilityDetailsViewController.swift */,
-				40C7E59428EF60E000C03ECE /* ACPEligibilityDetailsTabCell.swift */,
 				405D773F28E8DA1500358D4A /* ChildVC */,
 				405D776228EBBB3C00358D4A /* ACPEligibilityDetailsVerifyViewController.swift */,
 				405D776428EBCF7200358D4A /* ACPEligibilityDetailsFailViewController.swift */,
@@ -205,21 +207,12 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		405D776928ECA5EE00358D4A /* Registration */ = {
-			isa = PBXGroup;
-			children = (
-				40C7E58A28EF395800C03ECE /* NotVerified */,
-				405D776A28ECA60800358D4A /* Verified */,
-			);
-			path = Registration;
-			sourceTree = "<group>";
-		};
-		405D776A28ECA60800358D4A /* Verified */ = {
+		405D776A28ECA60800358D4A /* VerifiedRegistration */ = {
 			isa = PBXGroup;
 			children = (
 				405D776D28ECA7C200358D4A /* ACPVerifiedRegistrationViewController.swift */,
 			);
-			path = Verified;
+			path = VerifiedRegistration;
 			sourceTree = "<group>";
 		};
 		40AB5D5D28E48D8C006F0700 /* Generic */ = {
@@ -271,7 +264,8 @@
 				40EE2CAC28E4AA340028888D /* Extensions */,
 				405D770028E603C400358D4A /* LandingScreen */,
 				405D773E28E8D4B600358D4A /* EligibilityDetails */,
-				405D776928ECA5EE00358D4A /* Registration */,
+				40C7E58A28EF395800C03ECE /* NotVerifiedRegistration */,
+				405D776A28ECA60800358D4A /* VerifiedRegistration */,
 				40B5EE0028E228A20096B91B /* HomeScreen */,
 				40B5EDFE28E227A30096B91B /* Resources */,
 			);
@@ -306,12 +300,37 @@
 			path = HomeScreen;
 			sourceTree = "<group>";
 		};
-		40C7E58A28EF395800C03ECE /* NotVerified */ = {
+		40C7E58A28EF395800C03ECE /* NotVerifiedRegistration */ = {
 			isa = PBXGroup;
 			children = (
+				40C7E59A28EF712000C03ECE /* Views */,
+				40C7E59928EF711700C03ECE /* Models */,
+				40C7E59828EF710700C03ECE /* ViewModels */,
 				40C7E59228EF5A2200C03ECE /* ACPNotVerifiedRegistrationViewController.swift */,
+				40C7E59628EF6CEC00C03ECE /* ACPPersonalInfoViewController.swift */,
 			);
-			path = NotVerified;
+			path = NotVerifiedRegistration;
+			sourceTree = "<group>";
+		};
+		40C7E59828EF710700C03ECE /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		40C7E59928EF711700C03ECE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		40C7E59A28EF712000C03ECE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		40EA672828EE826300163F59 /* NewTabMenu */ = {
@@ -513,7 +532,8 @@
 				40B5EDCF28E224F20096B91B /* AppDelegate.swift in Sources */,
 				40EE2CAB28E4A4DD0028888D /* ACPTableView.swift in Sources */,
 				405D774E28E913E400358D4A /* UIViewController+ACP.swift in Sources */,
-				40C7E59528EF60E000C03ECE /* ACPEligibilityDetailsTabCell.swift in Sources */,
+				40C7E59528EF60E000C03ECE /* ACPTabMenuTitleCell.swift in Sources */,
+				40C7E59728EF6CEC00C03ECE /* ACPPersonalInfoViewController.swift in Sources */,
 				405D774128E8DA4900358D4A /* ACPEligibilityDetailsNameViewController.swift in Sources */,
 				405D775F28EB8C5800358D4A /* ACPEligibilityDetailsModel.swift in Sources */,
 				405D773128E8507000358D4A /* ACPEligibilityDetailsViewController.swift in Sources */,

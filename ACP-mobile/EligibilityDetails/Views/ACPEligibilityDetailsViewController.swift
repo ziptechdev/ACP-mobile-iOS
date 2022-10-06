@@ -139,7 +139,7 @@ extension ACPEligibilityDetailsViewController: ACPTabMenuViewControllerDelegate 
         collectionView.layer.cornerRadius = Constants.Constraints.HeaderCornerRadius
         collectionView.contentInset = UIEdgeInsets(top: 6, left: 6, bottom: 6, right: 6)
 
-        collectionView.register(ACPEligibilityDetailsTabCell.self)
+        collectionView.register(ACPTabMenuTitleCell.self)
 
         collectionView.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(Constants.Constraints.HeaderInsetHorizontal)
@@ -154,7 +154,7 @@ extension ACPEligibilityDetailsViewController: ACPTabMenuViewControllerDelegate 
     }
 
     func cellForIndex(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: ACPEligibilityDetailsTabCell = collectionView.dequeue(at: indexPath)
+        let cell: ACPTabMenuTitleCell = collectionView.dequeue(at: indexPath)
         cell.configureCell(text: viewModel.titleForTab(at: indexPath.item))
         return cell
     }

@@ -1,5 +1,5 @@
 //
-//  ACPEligibilityDetailsTabCell.swift
+//  ACPTabMenuTitleCell.swift
 //  ACP-mobile
 //
 //  Created by Adi on 06/10/2022.
@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class ACPEligibilityDetailsTabCell: UICollectionViewCell {
+class ACPTabMenuTitleCell: UICollectionViewCell {
 
     // MARK: - Views
 
@@ -70,7 +70,7 @@ class ACPEligibilityDetailsTabCell: UICollectionViewCell {
     }
 }
 
-extension ACPEligibilityDetailsTabCell: ACPFocusableView {
+extension ACPTabMenuTitleCell: ACPFocusableView {
     func onActive() {
         contentView.backgroundColor = .white
         titleLabel.textColor = .gray06Dark
