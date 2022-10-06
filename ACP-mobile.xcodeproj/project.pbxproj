@@ -41,6 +41,8 @@
 		40C7E59328EF5A2200C03ECE /* ACPNotVerifiedRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7E59228EF5A2200C03ECE /* ACPNotVerifiedRegistrationViewController.swift */; };
 		40C7E59528EF60E000C03ECE /* ACPTabMenuTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7E59428EF60E000C03ECE /* ACPTabMenuTitleCell.swift */; };
 		40C7E59728EF6CEC00C03ECE /* ACPPersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7E59628EF6CEC00C03ECE /* ACPPersonalInfoViewController.swift */; };
+		40C7E59D28EF735000C03ECE /* ACPPersonalInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7E59C28EF735000C03ECE /* ACPPersonalInfoViewModel.swift */; };
+		40C7E59F28EF74A800C03ECE /* ACPPersonalInfoDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7E59E28EF74A800C03ECE /* ACPPersonalInfoDetailsViewController.swift */; };
 		40EA672A28EE826300163F59 /* ACPTabMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EA672928EE826300163F59 /* ACPTabMenuViewController.swift */; };
 		40EA672C28EE827100163F59 /* ACPFocusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EA672B28EE827100163F59 /* ACPFocusableView.swift */; };
 		40EA672E28EE827F00163F59 /* UICollectionView+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EA672D28EE827F00163F59 /* UICollectionView+ACP.swift */; };
@@ -93,6 +95,8 @@
 		40C7E59228EF5A2200C03ECE /* ACPNotVerifiedRegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPNotVerifiedRegistrationViewController.swift; sourceTree = "<group>"; };
 		40C7E59428EF60E000C03ECE /* ACPTabMenuTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPTabMenuTitleCell.swift; sourceTree = "<group>"; };
 		40C7E59628EF6CEC00C03ECE /* ACPPersonalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPPersonalInfoViewController.swift; sourceTree = "<group>"; };
+		40C7E59C28EF735000C03ECE /* ACPPersonalInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPPersonalInfoViewModel.swift; sourceTree = "<group>"; };
+		40C7E59E28EF74A800C03ECE /* ACPPersonalInfoDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPPersonalInfoDetailsViewController.swift; sourceTree = "<group>"; };
 		40EA672928EE826300163F59 /* ACPTabMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPTabMenuViewController.swift; sourceTree = "<group>"; };
 		40EA672B28EE827100163F59 /* ACPFocusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPFocusableView.swift; sourceTree = "<group>"; };
 		40EA672D28EE827F00163F59 /* UICollectionView+ACP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+ACP.swift"; sourceTree = "<group>"; };
@@ -306,8 +310,6 @@
 				40C7E59A28EF712000C03ECE /* Views */,
 				40C7E59928EF711700C03ECE /* Models */,
 				40C7E59828EF710700C03ECE /* ViewModels */,
-				40C7E59228EF5A2200C03ECE /* ACPNotVerifiedRegistrationViewController.swift */,
-				40C7E59628EF6CEC00C03ECE /* ACPPersonalInfoViewController.swift */,
 			);
 			path = NotVerifiedRegistration;
 			sourceTree = "<group>";
@@ -315,6 +317,7 @@
 		40C7E59828EF710700C03ECE /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				40C7E59C28EF735000C03ECE /* ACPPersonalInfoViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -329,8 +332,19 @@
 		40C7E59A28EF712000C03ECE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				40C7E59628EF6CEC00C03ECE /* ACPPersonalInfoViewController.swift */,
+				40C7E59B28EF724100C03ECE /* ChildVC */,
+				40C7E59228EF5A2200C03ECE /* ACPNotVerifiedRegistrationViewController.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		40C7E59B28EF724100C03ECE /* ChildVC */ = {
+			isa = PBXGroup;
+			children = (
+				40C7E59E28EF74A800C03ECE /* ACPPersonalInfoDetailsViewController.swift */,
+			);
+			path = ChildVC;
 			sourceTree = "<group>";
 		};
 		40EA672828EE826300163F59 /* NewTabMenu */ = {
@@ -508,6 +522,7 @@
 				405D775928EB873100358D4A /* ACPEligibilityDetailsNameModel.swift in Sources */,
 				405D776128EBB3D500358D4A /* ACPCircleLoadingBarView.swift in Sources */,
 				40AB5D5F28E48DBA006F0700 /* ACPNavigationController.swift in Sources */,
+				40C7E59F28EF74A800C03ECE /* ACPPersonalInfoDetailsViewController.swift in Sources */,
 				405D775628EB851F00358D4A /* ACPEligibilityDetailsViewModel.swift in Sources */,
 				405D776E28ECA7C200358D4A /* ACPVerifiedRegistrationViewController.swift in Sources */,
 				40EE2CAE28E4AA520028888D /* UIColor+ACP.swift in Sources */,
@@ -516,6 +531,7 @@
 				405D776328EBBB3C00358D4A /* ACPEligibilityDetailsVerifyViewController.swift in Sources */,
 				405D773328E8698D00358D4A /* UITapGestureRecognizer+ACP.swift in Sources */,
 				405D774328E8DA5600358D4A /* ACPEligibilityDetailsDOBViewController.swift in Sources */,
+				40C7E59D28EF735000C03ECE /* ACPPersonalInfoViewModel.swift in Sources */,
 				40EA672C28EE827100163F59 /* ACPFocusableView.swift in Sources */,
 				40EA672A28EE826300163F59 /* ACPTabMenuViewController.swift in Sources */,
 				40EA672E28EE827F00163F59 /* UICollectionView+ACP.swift in Sources */,
