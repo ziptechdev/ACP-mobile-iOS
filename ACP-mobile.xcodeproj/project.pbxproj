@@ -85,7 +85,7 @@
 		40AB5D5D28E48D8C006F0700 /* Generic */ = {
 			isa = PBXGroup;
 			children = (
-				40EA672828EE826300163F59 /* TabMenu */,
+				40EA672828EE826300163F59 /* NewTabMenu */,
 				40AB5D5E28E48DBA006F0700 /* ACPNavigationController.swift */,
 				40EE2CAA28E4A4DD0028888D /* ACPTableView.swift */,
 				40B73F7028E5B733002A5E14 /* ACPImageButton.swift */,
@@ -163,13 +163,13 @@
 			path = HomeScreen;
 			sourceTree = "<group>";
 		};
-		40EA672828EE826300163F59 /* TabMenu */ = {
+		40EA672828EE826300163F59 /* NewTabMenu */ = {
 			isa = PBXGroup;
 			children = (
 				40EA672B28EE827100163F59 /* ACPFocusableView.swift */,
 				40EA672928EE826300163F59 /* ACPTabMenuViewController.swift */,
 			);
-			path = TabMenu;
+			path = NewTabMenu;
 			sourceTree = "<group>";
 		};
 		40EE2CAC28E4AA340028888D /* Extensions */ = {
