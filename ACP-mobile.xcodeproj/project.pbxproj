@@ -37,8 +37,8 @@
 		40B5EDD828E224F40096B91B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40B5EDD728E224F40096B91B /* Assets.xcassets */; };
 		40B5EDDB28E224F40096B91B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40B5EDD928E224F40096B91B /* LaunchScreen.storyboard */; };
 		40B73F7128E5B733002A5E14 /* ACPImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B73F7028E5B733002A5E14 /* ACPImageButton.swift */; };
-		40C7E58C28EF396800C03ECE /* ACPNotVerifiedRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7E58B28EF396800C03ECE /* ACPNotVerifiedRegistrationViewController.swift */; };
 		40C7E58E28EF484500C03ECE /* NSMutableParagraphStyle+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7E58D28EF484500C03ECE /* NSMutableParagraphStyle+ACP.swift */; };
+		40C7E59328EF5A2200C03ECE /* ACPNotVerifiedRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7E59228EF5A2200C03ECE /* ACPNotVerifiedRegistrationViewController.swift */; };
 		40EE2CA928E49DF00028888D /* ACPHomeScreenHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EE2CA828E49DF00028888D /* ACPHomeScreenHeaderView.swift */; };
 		40EE2CAB28E4A4DD0028888D /* ACPTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EE2CAA28E4A4DD0028888D /* ACPTableView.swift */; };
 		40EE2CAE28E4AA520028888D /* UIColor+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EE2CAD28E4AA520028888D /* UIColor+ACP.swift */; };
@@ -84,8 +84,8 @@
 		40B5EDDA28E224F40096B91B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40B5EDDC28E224F40096B91B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40B73F7028E5B733002A5E14 /* ACPImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPImageButton.swift; sourceTree = "<group>"; };
-		40C7E58B28EF396800C03ECE /* ACPNotVerifiedRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ACPNotVerifiedRegistrationViewController.swift; path = "ACP-mobile/Registration/ACPNotVerifiedRegistrationViewController.swift"; sourceTree = SOURCE_ROOT; };
 		40C7E58D28EF484500C03ECE /* NSMutableParagraphStyle+ACP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableParagraphStyle+ACP.swift"; sourceTree = "<group>"; };
+		40C7E59228EF5A2200C03ECE /* ACPNotVerifiedRegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPNotVerifiedRegistrationViewController.swift; sourceTree = "<group>"; };
 		40EE2CA828E49DF00028888D /* ACPHomeScreenHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPHomeScreenHeaderView.swift; sourceTree = "<group>"; };
 		40EE2CAA28E4A4DD0028888D /* ACPTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPTableView.swift; sourceTree = "<group>"; };
 		40EE2CAD28E4AA520028888D /* UIColor+ACP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ACP.swift"; sourceTree = "<group>"; };
@@ -299,7 +299,7 @@
 		40C7E58A28EF395800C03ECE /* NotVerified */ = {
 			isa = PBXGroup;
 			children = (
-				40C7E58B28EF396800C03ECE /* ACPNotVerifiedRegistrationViewController.swift */,
+				40C7E59228EF5A2200C03ECE /* ACPNotVerifiedRegistrationViewController.swift */,
 			);
 			path = NotVerified;
 			sourceTree = "<group>";
@@ -471,7 +471,6 @@
 				40AB5D5F28E48DBA006F0700 /* ACPNavigationController.swift in Sources */,
 				405D775628EB851F00358D4A /* ACPEligibilityDetailsViewModel.swift in Sources */,
 				405D776E28ECA7C200358D4A /* ACPVerifiedRegistrationViewController.swift in Sources */,
-				40C7E58C28EF396800C03ECE /* ACPNotVerifiedRegistrationViewController.swift in Sources */,
 				40EE2CAE28E4AA520028888D /* UIColor+ACP.swift in Sources */,
 				40B73F7128E5B733002A5E14 /* ACPImageButton.swift in Sources */,
 				405D773B28E8A83400358D4A /* ACPTopTabMenuButton.swift in Sources */,
@@ -480,6 +479,7 @@
 				405D774328E8DA5600358D4A /* ACPEligibilityDetailsDOBViewController.swift in Sources */,
 				40B5EDD328E224F20096B91B /* ACPHomeScreenViewController.swift in Sources */,
 				40C7E58E28EF484500C03ECE /* NSMutableParagraphStyle+ACP.swift in Sources */,
+				40C7E59328EF5A2200C03ECE /* ACPNotVerifiedRegistrationViewController.swift in Sources */,
 				40EE2CC128E540470028888D /* ACPHomeScreenEligibilityHeaderView.swift in Sources */,
 				40EE2CA928E49DF00028888D /* ACPHomeScreenHeaderView.swift in Sources */,
 				405D773728E8A62600358D4A /* ACPTopTabMenuViewController.swift in Sources */,
