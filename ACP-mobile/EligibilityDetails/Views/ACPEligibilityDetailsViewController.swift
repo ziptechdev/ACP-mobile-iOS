@@ -21,7 +21,7 @@ class ACPEligibilityDetailsViewController: UIViewController {
 
     // MARK: - Views
 
-    private let tabMenu = ACPTopTabMenuViewController()
+    private let tabMenu = ACPTabMenuViewController(initialTab: 2)
 
     private let infoLabel = ACPTermsAndPrivacyLabel()
 
@@ -72,7 +72,8 @@ class ACPEligibilityDetailsViewController: UIViewController {
 
         tabMenu.view.translatesAutoresizingMaskIntoConstraints = false
         tabMenu.view.snp.makeConstraints { make in
-            make.left.right.top.equalToSuperview()
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.left.right.equalToSuperview()
             make.bottom.equalTo(infoLabel.snp.top)
         }
 
@@ -87,7 +88,7 @@ class ACPEligibilityDetailsViewController: UIViewController {
     private struct Constants {
         struct Constraints {
             static let HeaderInsetHorizontal: CGFloat = 35
-            static let HeaderInsetVertical: CGFloat = 5
+            static let HeaderInsetVertical: CGFloat = 20
             static let HeaderCornerRadius: CGFloat = 10
             static let HeaderHeight: CGFloat = 40
         }
@@ -114,7 +115,7 @@ extension ACPEligibilityDetailsViewController: ACPTermsAndPrivacyLabelDelegate {
 
 extension ACPEligibilityDetailsViewController: ACPEligibilityDetailsDelegate {
     func didTapNextButton() {
-        tabMenu.nextTabItem()
+        tabMenu.nextTab()
     }
 
     func didTapVerifyButton() {
@@ -127,44 +128,101 @@ extension ACPEligibilityDetailsViewController: ACPEligibilityDetailsDelegate {
 
 // MARK: - ACPTopTabMenuViewControllerDelegate
 
-extension ACPEligibilityDetailsViewController: ACPTopTabMenuViewControllerDelegate {
-    var allTabsAreActive: Bool {
-        return false
+extension ACPEligibilityDetailsViewController: ACPTabMenuViewControllerDelegate {
+    var numberOfItems: Int {
+        return viewModel.numberOfTabItems()
     }
 
-    func titleForTab(at index: ACPTopTabMenuViewController.TabIndex) -> String {
-        return viewModel.titleForTab(at: index)
+    func setupViews(collectionView: UICollectionView, containerView: UIView) {
+        collectionView.backgroundColor = .gray06Light
+        collectionView.layer.masksToBounds = true
+        collectionView.layer.cornerRadius = Constants.Constraints.HeaderCornerRadius
+        collectionView.contentInset = UIEdgeInsets(top: 6, left: 6, bottom: 6, right: 6)
+
+        collectionView.register(ACPEligibilityDetailsTabCell.self)
+
+        collectionView.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(Constants.Constraints.HeaderInsetHorizontal)
+            make.top.equalToSuperview().inset(Constants.Constraints.HeaderInsetVertical)
+            make.height.equalTo(Constants.Constraints.HeaderHeight)
+        }
+
+        containerView.snp.makeConstraints { make in
+            make.top.equalTo(collectionView.snp.bottom)
+            make.bottom.left.right.equalToSuperview()
+        }
     }
 
-    func viewControllerForTab(at index: ACPTopTabMenuViewController.TabIndex) -> UIViewController {
+    func cellForIndex(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: ACPEligibilityDetailsTabCell = collectionView.dequeue(at: indexPath)
+        cell.configureCell(text: viewModel.titleForTab(at: indexPath.item))
+        return cell
+    }
+
+    func didSelectTab(index: Int) -> UIViewController {
         switch index {
-        case .first:
+        case 0:
             let viewController = ACPEligibilityDetailsNameViewController()
             viewController.delegate = self
             viewController.viewModel = viewModel
             return viewController
-        case .second:
+        case 1:
             let viewController = ACPEligibilityDetailsDOBViewController()
             viewController.delegate = self
             viewController.viewModel = viewModel
             return viewController
-        case .third:
+        default:
             let viewController = ACPEligibilityDetailsAddressViewController()
             viewController.delegate = self
             viewController.viewModel = viewModel
             return viewController
         }
     }
+}
 
-    func selectedTabItem(at index: ACPTopTabMenuViewController.TabIndex) {
-        guard let navigationController = navigationController as? ACPNavigationController else {
-            return
+class TestCell: UICollectionViewCell {
+    let a = UIView()
+    let b = UIView()
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+
+        contentView.addSubview(a)
+        a.translatesAutoresizingMaskIntoConstraints = false
+        a.layer.cornerRadius = 6
+
+        a.snp.makeConstraints { make in
+            make.top.bottom.left.right.equalToSuperview()
         }
 
-        if index == .first {
-            navigationController.backButtonOverride = nil
-        } else {
-            navigationController.backButtonOverride = tabMenu.previousTabItem
+        contentView.addSubview(b)
+        b.translatesAutoresizingMaskIntoConstraints = false
+        b.backgroundColor = .black
+        b.layer.cornerRadius = 5
+
+        b.snp.makeConstraints { make in
+            make.width.height.equalTo(10)
+            make.center.equalToSuperview()
         }
     }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension TestCell: ACPFocusableView {
+    func onActive() {
+        b.backgroundColor = .white
+    }
+
+    func onInactive() {
+        b.backgroundColor = .black
+    }
+
+    func onDisable() {
+        b.backgroundColor = .black
+    }
+
+
 }
