@@ -14,7 +14,7 @@ struct WelcomeTermsView: View {
             ZStack(alignment: .top) {
                 TabView(selection: self.$currentTab) {
                     WelcomeView().tag(0)
-                    TermsAndPrivacyView().tag(1)
+                    TermsAndPrivacyWelcomeView().tag(1)
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
                 .edgesIgnoringSafeArea(.all)
