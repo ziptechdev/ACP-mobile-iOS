@@ -323,7 +323,7 @@ class EgibilityZipView: UIView {
             static let TopConstant: CGFloat = 60
             static let LeadingConstant: CGFloat = 30
             static let TrailingConstant: CGFloat = 20
-            static let BottomButtonSpacingConstant: CGFloat = 148
+            static let BottomButtonSpacingConstant: CGFloat = 85
             static let SecondTextFieldWidth: CGFloat = 140
             static let DividerLineViewWidth: CGFloat = 2
             static let TopErrorConstant: CGFloat = 10

@@ -20,7 +20,7 @@ class EgibilityCheckViewController: UIViewController {
     // MARK: - Properties
 
     private let infoLabel = ACPTermsAndPrivacyLabel()
-    
+
     // MARK: - Life Cycle
 
     override func viewWillAppear(_ animated: Bool) {
