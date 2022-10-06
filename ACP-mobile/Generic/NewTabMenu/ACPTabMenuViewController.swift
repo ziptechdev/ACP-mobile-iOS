@@ -160,34 +160,6 @@ class ACPTabMenuViewController: UIViewController {
                     }
                 }
             }
-//
-//            if newIndex.item > 0 {
-//                setupCellsBefore(index: newIndex.item)
-//            }
-//
-//            if newIndex.item < tabCount {
-//                setupCellsAfter(index: newIndex.item, tabCount: tabCount)
-//            }
-        }
-    }
-
-    private func setupCellsBefore(index: Int) {
-        let indexesToSetup: [Int] = Array(0..<index)
-        indexesToSetup.forEach { index in
-            let indexPath = IndexPath(item: index, section: 0)
-            if let cell = collectionView.cellForItem(at: indexPath) as? ACPFocusableView {
-                cell.onInactive()
-            }
-        }
-    }
-
-    private func setupCellsAfter(index: Int, tabCount: Int) {
-        let indexesToSetup: [Int] = Array(index...tabCount)
-        indexesToSetup.forEach { index in
-            let indexPath = IndexPath(item: index, section: 0)
-            if let cell = collectionView.cellForItem(at: indexPath) as? ACPFocusableView {
-                cell.onDisable()
-            }
         }
     }
 
@@ -221,7 +193,10 @@ extension ACPTabMenuViewController: UICollectionViewDataSource {
         return delegate?.numberOfItems ?? 0
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         guard let cell = delegate?.cellForIndex(collectionView, indexPath: indexPath) else {
             return UICollectionViewCell()
         }

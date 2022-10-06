@@ -21,7 +21,7 @@ class ACPEligibilityDetailsViewController: UIViewController {
 
     // MARK: - Views
 
-    private let tabMenu = ACPTabMenuViewController(initialTab: 2)
+    private let tabMenu = ACPTabMenuViewController()
 
     private let infoLabel = ACPTermsAndPrivacyLabel()
 
