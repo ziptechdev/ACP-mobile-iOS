@@ -18,9 +18,11 @@ protocol ACPTabMenuViewControllerDelegate: AnyObject {
 
 class ACPTabMenuViewController: UIViewController {
 
+    // TODO: Add swipe gestures
 	// MARK: - Properties
 
     private let allTabsEnabled: Bool
+    private let allowSelection: Bool
 
     private var currentTabItem: Int
 
@@ -53,9 +55,10 @@ class ACPTabMenuViewController: UIViewController {
 
     // MARK: - Initialization
 
-    init(initialTab: Int = 0, allTabsEnabled: Bool = false) {
+    init(initialTab: Int = 0, allTabsEnabled: Bool = false, allowSelection: Bool = true) {
         self.currentTabItem = initialTab
         self.allTabsEnabled = allTabsEnabled
+        self.allowSelection = allowSelection
 
         super.init(nibName: nil, bundle: nil)
     }
@@ -138,7 +141,7 @@ class ACPTabMenuViewController: UIViewController {
         collectionView(collectionView, didSelectItemAt: IndexPath(item: index, section: 0))
     }
 
-    func setupOtherCells(newIndex: IndexPath) {
+    private func setupOtherCells(newIndex: IndexPath) {
         if allTabsEnabled {
             let previousIndexPath = IndexPath(item: currentTabItem, section: 0)
             if let previousCell = collectionView.cellForItem(at: previousIndexPath) as? ACPFocusableView {
@@ -156,6 +159,24 @@ class ACPTabMenuViewController: UIViewController {
                     }
                 }
             }
+        }
+    }
+
+    // MARK: - Navigation
+
+    func nextTab() {
+        guard let numberOfItems = delegate?.numberOfItems else {
+            return
+        }
+
+        if currentTabItem < numberOfItems {
+            selectTab(index: currentTabItem + 1)
+        }
+    }
+
+    func previousTab() {
+        if currentTabItem > 0 {
+            selectTab(index: currentTabItem - 1)
         }
     }
 }
@@ -208,10 +229,14 @@ extension ACPTabMenuViewController: UICollectionViewDelegate {
     }
 
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        if allTabsEnabled {
-            return true
+        if allowSelection {
+            if allTabsEnabled {
+                return true
+            } else {
+                return indexPath.item <= currentTabItem
+            }
         } else {
-            return indexPath.item <= currentTabItem
+            return false
         }
     }
 }
