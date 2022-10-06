@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class EgibilityZipViewController: UIViewController {
 
@@ -40,6 +41,7 @@ class EgibilityZipViewController: UIViewController {
         zipCodeView.zipSecondCodeTextField.delegate = self
         zipCodeView.zipFirstCodeTextField.delegate = self
     }
+    
     // MARK: - UI
 
     func setupUI() {
@@ -53,8 +55,8 @@ class EgibilityZipViewController: UIViewController {
         view.addSubview(infoLabel)
         view.addSubview(zipCodeView)
     }
-    private func setUpConstraints() {
 
+    private func setUpConstraints() {
         zipCodeView.snp.makeConstraints { make in
             make.top.left.right.equalTo(view.safeAreaLayoutGuide)
             make.bottom.equalTo(infoLabel.snp.top)
@@ -63,25 +65,25 @@ class EgibilityZipViewController: UIViewController {
             make.left.right.equalToSuperview().inset(Constants.Constraints.HeaderInsetHorizontal)
             make.bottom.equalTo(view.safeAreaLayoutGuide).inset(Constants.Constraints.HeaderInsetVertical)
         }
-
     }
 
     @objc func focusZipCodeStack() {
         zipCodeView.zipCodeStackView.layer.borderColor = UIColor.blue.cgColor
     }
+
     @objc func unfocusZipCodeStackView(firstCount: Int, secondCount: Int) {
         if firstCount == 0 && secondCount == 0 {
             zipCodeView.zipCodeStackView.layer.borderColor = UIColor.lightGray.cgColor
             zipCodeView.errorLabel.isHidden = true
         }
     }
+
     @objc func checkIsZipCodeValid(firstCount: String, secondCount: String) {
         if firstCount.count == 5 && secondCount.count == 4 {
             zipCodeView.setVisibilityForValidZipCode()
         } else {
             zipCodeView.setVisibilityForInvalidZipCode()
         }
-
     }
 
     // MARK: - Constants
@@ -99,6 +101,7 @@ class EgibilityZipViewController: UIViewController {
         }
     }
 }
+
 // MARK: - ACPTermsAndPrivacyLabelDelegate
 
 extension EgibilityZipViewController: ACPTermsAndPrivacyLabelDelegate {
@@ -112,6 +115,7 @@ extension EgibilityZipViewController: ACPTermsAndPrivacyLabelDelegate {
         print("Clicked on privacy")
     }
 }
+
 // MARK: - EgibilityCheckDelegate
 
 extension EgibilityZipViewController: EgibilityZipCodeDelegate {
@@ -124,7 +128,6 @@ extension EgibilityZipViewController: EgibilityZipCodeDelegate {
         let targetVC = ACPEligibilityDetailsViewController()
         navigationController?.pushViewController(targetVC, animated: true)
     }
-
 }
 
 extension EgibilityZipViewController: UITextFieldDelegate {
@@ -163,13 +166,14 @@ extension EgibilityZipViewController: UITextFieldDelegate {
         if text.count == 5 {
             zipCodeView.zipSecondCodeTextField.becomeFirstResponder()
         }
+
         if textSecond.count == 4 {
             if text.count < 5 {
                 zipCodeView.zipFirstCodeTextField.becomeFirstResponder()
             }
             zipCodeView.zipSecondCodeTextField.resignFirstResponder()
         }
-        checkIsZipCodeValid(firstCount: text, secondCount: textSecond)
 
+        checkIsZipCodeValid(firstCount: text, secondCount: textSecond)
     }
 }

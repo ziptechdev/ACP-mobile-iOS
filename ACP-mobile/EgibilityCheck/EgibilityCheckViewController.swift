@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class EgibilityCheckViewController: UIViewController {
 
@@ -36,7 +37,6 @@ class EgibilityCheckViewController: UIViewController {
         setupUI()
         infoLabel.delegate = self
         egibilityView.delegate = self
-
     }
     // MARK: - UI
 
@@ -51,17 +51,17 @@ class EgibilityCheckViewController: UIViewController {
         view.addSubview(infoLabel)
         view.addSubview(egibilityView)
     }
-    private func setUpConstraints() {
 
+    private func setUpConstraints() {
         egibilityView.snp.makeConstraints { make in
             make.top.left.right.equalTo(view.safeAreaLayoutGuide)
             make.bottom.equalTo(infoLabel.snp.top)
         }
+
         infoLabel.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(Constants.Constraints.HeaderInsetHorizontal)
             make.bottom.equalTo(view.safeAreaLayoutGuide).inset(Constants.Constraints.HeaderInsetVertical)
         }
-
     }
 
     // MARK: - Constants
@@ -79,6 +79,7 @@ class EgibilityCheckViewController: UIViewController {
         }
     }
 }
+
 // MARK: - ACPTermsAndPrivacyLabelDelegate
 
 extension EgibilityCheckViewController: ACPTermsAndPrivacyLabelDelegate {
@@ -96,6 +97,7 @@ extension EgibilityCheckViewController: ACPTermsAndPrivacyLabelDelegate {
         print("Clicked on assistance ")
     }
 }
+
 // MARK: - ACPEligibilityDetailsDelegate
 
 extension EgibilityCheckViewController: EgibilityCheckDelegate {

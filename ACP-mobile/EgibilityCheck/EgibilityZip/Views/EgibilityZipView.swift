@@ -6,12 +6,13 @@
 //
 
 import UIKit
+import SnapKit
 
 protocol EgibilityZipCodeDelegate: AnyObject {
     func didTapNextButton()
     func didPressDone(_ textfield: UITextField, _ secondTextfield: UITextField)
 }
-// swiftlint:disable:next type_body_length
+
 class EgibilityZipView: UIView {
 
     // MARK: - Delegates
@@ -128,7 +129,7 @@ class EgibilityZipView: UIView {
         button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
         // shadow for button
-        button.layer.shadowColor = UIColor.lavenderGray.cgColor// UIColor(red: 0.07, green: 0.45, blue: 0.87, alpha: 1.00).cgColor
+        button.layer.shadowColor = UIColor.lavenderGray.cgColor
         button.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
         button.layer.shadowOpacity = 0.0
         button.layer.shadowRadius = 20.0
@@ -180,11 +181,9 @@ class EgibilityZipView: UIView {
         nextButton.addTarget(self, action: #selector(checkEgibilityTapped), for: .touchUpInside)
         zipFirstCodeTextField.addTarget(self, action: #selector(zipCodeFirstHandler), for: .editingChanged)
         zipSecondCodeTextField.addTarget(self, action: #selector(zipCodeSecondHandler), for: .editingChanged)
-
     }
 
     required init?(coder: NSCoder) {
-
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -193,7 +192,6 @@ class EgibilityZipView: UIView {
     }
 
     private func addSubviews() {
-
         textStackView.addArrangedSubview(titleLabel)
         textStackView.addArrangedSubview(descriptionTexLabel)
 
@@ -219,17 +217,22 @@ class EgibilityZipView: UIView {
         if let t: String = zipFirstCodeTextField.text {
             zipFirstCodeTextField.text = String(t.prefix(5))
         }
-        // swiftlint:disable:next line_length
-        zipFirstCodeTextField.attributedText = attributedTitleText(attributeText: zipFirstCodeTextField.text!, spacing: 18)
+
+        zipFirstCodeTextField.attributedText = attributedTitleText(
+            attributeText: zipFirstCodeTextField.text!,
+            spacing: 18
+        )
     }
 
     @objc private func zipCodeSecondHandler() {
         if let t: String = zipSecondCodeTextField.text {
             zipSecondCodeTextField.text = String(t.prefix(4))
         }
-        // swiftlint:disable:next line_length
-        zipSecondCodeTextField.attributedText = attributedTitleText(attributeText: zipSecondCodeTextField.text!, spacing: 10)
 
+        zipSecondCodeTextField.attributedText = attributedTitleText(
+            attributeText: zipSecondCodeTextField.text!,
+            spacing: 10
+        )
     }
 
     func setVisibilityForValidZipCode() {
@@ -261,7 +264,6 @@ class EgibilityZipView: UIView {
     }
 
     private func setUpConstraints() {
-
         nextButton.snp.makeConstraints { make in
             make.height.equalTo(Constants.Constraints.ButtonHeight)
         }
@@ -303,7 +305,6 @@ class EgibilityZipView: UIView {
             make.bottom.equalTo(snp.bottom).inset(Constants.Constraints.BottomButtonSpacingConstant)
             make.left.right.equalToSuperview().inset(Constants.Constraints.LeadingConstant)
         }
-
     }
 
     private func setText() {
@@ -312,14 +313,12 @@ class EgibilityZipView: UIView {
         zipLabelName.text = Constants.Text.zipNameLabelText
         errorLabel.text = Constants.Text.errorLabel
         nextButton.setTitle(Constants.Text.nextButtonText, for: .normal)
-
     }
 
     // MARK: - Constants
 
     private struct Constants {
         struct Constraints {
-
             static let TopConstant: CGFloat = 60
             static let LeadingConstant: CGFloat = 30
             static let TrailingConstant: CGFloat = 20
@@ -332,7 +331,6 @@ class EgibilityZipView: UIView {
             static let ButtonContentSpacing: CGFloat = 10
             static let ButtonCornerRadius: CGFloat = 10
             static let TitleBotOffset: CGFloat = 10
-
         }
 
         struct Text {

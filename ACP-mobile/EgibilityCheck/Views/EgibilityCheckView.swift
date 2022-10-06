@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 protocol EgibilityCheckDelegate: AnyObject {
     func didTapCheckEgibilityButton()
@@ -109,11 +110,9 @@ class EgibilityCheckView: UIView {
 
         checkEgibilityButton.addTarget(self, action: #selector(checkEgibilityTapped), for: .touchUpInside)
         createNewAccountButton.addTarget(self, action: #selector(createNewAccountTapped), for: .touchUpInside)
-
     }
 
     required init?(coder: NSCoder) {
-
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -134,7 +133,6 @@ class EgibilityCheckView: UIView {
     }
 
     private func setUpConstraints() {
-
         createNewAccountButton.snp.makeConstraints { make in
             make.height.equalTo(Constants.Constraints.ButtonHeight)
         }
@@ -152,7 +150,6 @@ class EgibilityCheckView: UIView {
             make.bottom.equalTo(snp.bottom).inset(Constants.Constraints.BottomButtonConstant)
             make.left.right.equalToSuperview().inset(Constants.Constraints.LeadingConstant)
         }
-
     }
 
     @objc func checkEgibilityTapped(sender: UIButton!) {
@@ -164,14 +161,13 @@ class EgibilityCheckView: UIView {
     }
 
     private func setText() {
-
         titleLabel.text = Constants.Text.titleLabelEgibilityText
         descriptionLabel.text = Constants.Text.egibilityCheckText
         infoLabel.text = Constants.Text.personalNoteInfoText
         checkEgibilityButton.setTitle(Constants.Text.checkEgTextButton, for: .normal)
         createNewAccountButton.setTitle(Constants.Text.newAccountTextButton, for: .normal)
-
     }
+
     private func attributedInfoText() -> NSMutableAttributedString {
         let info =  Constants.Text.egibilityCheckText as NSString
         let fullRange = NSRange(location: 0, length: info.length)
@@ -183,11 +179,9 @@ class EgibilityCheckView: UIView {
         string.addAttribute(.foregroundColor, value: UIColor.coreBlue, range: markRange)
 
         return string
-
     }
 
     @objc func didTapLabel(_ sender: UITapGestureRecognizer? = nil) {
-
         guard let sender = sender else {
             return
         }
@@ -197,14 +191,12 @@ class EgibilityCheckView: UIView {
         if sender.didTapAttributedTextInLabel(label: descriptionLabel, inRange: termsRange) {
             delegate?.didTapTextLink()
         }
-
     }
 
     // MARK: - Constants
 
     private struct Constants {
         struct Constraints {
-
             static let textFieldHeight: CGFloat = 40
             static let TopConstant: CGFloat = 60
             static let LeadingConstant: CGFloat = 30
@@ -212,7 +204,6 @@ class EgibilityCheckView: UIView {
             static let ButtonHeight: CGFloat = 46
             static let ButtonContentSpacing: CGFloat = 10
             static let ButtonCornerRadius: CGFloat = 10
-
         }
 
         struct Text {
