@@ -9,18 +9,17 @@ import UIKit
 
 class EgibilityZipViewController: UIViewController {
 
+    // MARK: - Views
+
     private let zipCodeView: EgibilityZipView = {
         let view = EgibilityZipView()
         view.translatesAutoresizingMaskIntoConstraints = false
-       // view.backgroundColor = .white
         return view
     }()
 
-    private let infoLabel = ACPTermsAndPrivacyLabel()
-
     // MARK: - Properties
 
-    // MARK: - Views
+    private let infoLabel = ACPTermsAndPrivacyLabel()
 
     // MARK: - Life Cycle
 
@@ -116,8 +115,9 @@ extension EgibilityZipViewController: ACPTermsAndPrivacyLabelDelegate {
 // MARK: - EgibilityCheckDelegate
 
 extension EgibilityZipViewController: EgibilityZipCodeDelegate {
-    func didPressDone(_ textfield: UITextField) {
+    func didPressDone(_ textfield: UITextField, _ secondTextfield: UITextField) {
         textfield.resignFirstResponder()
+        secondTextfield.resignFirstResponder()
     }
 
     func didTapNextButton() {

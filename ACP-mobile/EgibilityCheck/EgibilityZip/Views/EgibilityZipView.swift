@@ -9,12 +9,13 @@ import UIKit
 
 protocol EgibilityZipCodeDelegate: AnyObject {
     func didTapNextButton()
-    func didPressDone(_ textfield: UITextField)
+    func didPressDone(_ textfield: UITextField, _ secondTextfield: UITextField)
 }
 // swiftlint:disable:next type_body_length
 class EgibilityZipView: UIView {
 
     // MARK: - Delegates
+
     weak var delegate: EgibilityZipCodeDelegate? {
         didSet {
             zipFirstCodeTextField.inputAccessoryView = toolbar
@@ -53,7 +54,7 @@ class EgibilityZipView: UIView {
 
     let zipLabelName: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = .gray06Dark
         label.font = .systemFont(ofSize: 14, weight: .regular)
         label.textAlignment = .left
         label.numberOfLines = 0
@@ -63,12 +64,10 @@ class EgibilityZipView: UIView {
 
     var zipFirstCodeTextField: UITextField = {
         let zipTextField = UITextField()
-        //   zipTextField.borderStyle = UITextField.BorderStyle.none
-        zipTextField.font = UIFont.systemFont(ofSize: 20)
+        zipTextField.adjustsFontSizeToFitWidth = true
         zipTextField.autocorrectionType = .no
         zipTextField.keyboardType = .numberPad
         zipTextField.returnKeyType = .done
-        // zipTextField.clearButtonMode = .whileEditing
         zipTextField.contentVerticalAlignment = .center
         zipTextField.textAlignment = .center
         return zipTextField
@@ -77,7 +76,7 @@ class EgibilityZipView: UIView {
     var zipSecondCodeTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = UITextField.BorderStyle.none
-        textField.font = UIFont.systemFont(ofSize: 20)
+        textField.adjustsFontSizeToFitWidth = true
         textField.autocorrectionType = .no
         textField.keyboardType = .numberPad
         textField.returnKeyType = .done
@@ -94,22 +93,22 @@ class EgibilityZipView: UIView {
         stackView.alignment = .center
         stackView.spacing = 1
         stackView.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
-        stackView.layer.borderWidth = 1.0
-        stackView.layer.borderColor = UIColor.lightGray.cgColor
+        stackView.layer.borderWidth = 2.0
+        stackView.layer.borderColor = UIColor.gray03Light.cgColor
         return stackView
     }()
 
     private let customLine: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .gray03Light
         return view
     }()
 
     let errorLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .red
-        label.font = .systemFont(ofSize: 14, weight: .regular)
+        label.textColor = .warningRed
+        label.font = UIFont(name: "Poppins", size: 14)
         label.textAlignment = .left
         label.numberOfLines = 0
         label.isHidden = true
@@ -123,15 +122,15 @@ class EgibilityZipView: UIView {
             cornerRadius: Constants.Constraints.ButtonCornerRadius,
             imageName: "right_arrow"
         )
-        button.backgroundColor = .lightGray
+        button.backgroundColor = .lavenderGray
         button.isEnabled = false
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
         // shadow for button
-        button.layer.shadowColor = UIColor.lightGray.cgColor // UIColor(red: 0.07, green: 0.45, blue: 0.87, alpha: 1.00).cgColor
+        button.layer.shadowColor = UIColor.lavenderGray.cgColor// UIColor(red: 0.07, green: 0.45, blue: 0.87, alpha: 1.00).cgColor
         button.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
-        button.layer.shadowOpacity = 1.0
+        button.layer.shadowOpacity = 0.0
         button.layer.shadowRadius = 20.0
         button.layer.masksToBounds = false
         return button
@@ -246,7 +245,7 @@ class EgibilityZipView: UIView {
         nextButton.backgroundColor = .lightGray
         nextButton.layer.shadowOpacity = 0.0
         errorLabel.isHidden = false
-        zipCodeStackView.layer.borderColor = UIColor.red.cgColor
+        zipCodeStackView.layer.borderColor = UIColor.warningRed.cgColor
     }
 
     private func attributedTitleText(attributeText: String, spacing: Int) -> NSMutableAttributedString {
@@ -258,8 +257,7 @@ class EgibilityZipView: UIView {
     // MARK: - Callback
 
     @objc private func donePicker() {
-        delegate?.didPressDone(zipFirstCodeTextField)
-        delegate?.didPressDone(zipSecondCodeTextField)
+        delegate?.didPressDone(zipFirstCodeTextField, zipSecondCodeTextField)
     }
 
     private func setUpConstraints() {
@@ -327,7 +325,7 @@ class EgibilityZipView: UIView {
             static let TrailingConstant: CGFloat = 20
             static let BottomButtonSpacingConstant: CGFloat = 148
             static let SecondTextFieldWidth: CGFloat = 140
-            static let DividerLineViewWidth: CGFloat = 1
+            static let DividerLineViewWidth: CGFloat = 2
             static let TopErrorConstant: CGFloat = 10
             static let ZipCodeTextFieldTopConstant: CGFloat = 6
             static let ButtonHeight: CGFloat = 46

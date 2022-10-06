@@ -10,6 +10,7 @@ import UIKit
 protocol EgibilityCheckDelegate: AnyObject {
     func didTapCheckEgibilityButton()
     func didTapCreateNewAccountButton()
+    func didTapTextLink()
 }
 
 class EgibilityCheckView: UIView {
@@ -34,6 +35,7 @@ class EgibilityCheckView: UIView {
         label.font = .systemFont(ofSize: 14, weight: .regular)
         label.textAlignment = .left
         label.numberOfLines = 0
+        label.isUserInteractionEnabled = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -70,7 +72,7 @@ class EgibilityCheckView: UIView {
         button.backgroundColor = .clear
         button.layer.borderWidth = 1
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
-        button.layer.borderColor = UIColor.blue.cgColor
+        button.layer.borderColor = UIColor.coreBlue.cgColor
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -100,6 +102,10 @@ class EgibilityCheckView: UIView {
         addSubviews()
         setUpConstraints()
         setText()
+
+        let tap = UITapGestureRecognizer(target: self, action: #selector(didTapLabel(_:)))
+        descriptionLabel.addGestureRecognizer(tap)
+        descriptionLabel.attributedText = attributedInfoText()
 
         checkEgibilityButton.addTarget(self, action: #selector(checkEgibilityTapped), for: .touchUpInside)
         createNewAccountButton.addTarget(self, action: #selector(createNewAccountTapped), for: .touchUpInside)
@@ -166,6 +172,33 @@ class EgibilityCheckView: UIView {
         createNewAccountButton.setTitle(Constants.Text.newAccountTextButton, for: .normal)
 
     }
+    private func attributedInfoText() -> NSMutableAttributedString {
+        let info =  Constants.Text.egibilityCheckText as NSString
+        let fullRange = NSRange(location: 0, length: info.length)
+        let markRange = info.range(of: Constants.Text.Terms)
+
+        let string = NSMutableAttributedString(string: Constants.Text.egibilityCheckText)
+        string.addAttribute(.font, value: UIFont.systemFont(ofSize: 14, weight: .regular), range: fullRange)
+        string.addAttribute(.foregroundColor, value: UIColor.gray01Light, range: fullRange)
+        string.addAttribute(.foregroundColor, value: UIColor.coreBlue, range: markRange)
+
+        return string
+
+    }
+
+    @objc func didTapLabel(_ sender: UITapGestureRecognizer? = nil) {
+
+        guard let sender = sender else {
+            return
+        }
+        let info = Constants.Text.egibilityCheckText as NSString
+        let termsRange = info.range(of: Constants.Text.Terms)
+
+        if sender.didTapAttributedTextInLabel(label: descriptionLabel, inRange: termsRange) {
+            delegate?.didTapTextLink()
+        }
+
+    }
 
     // MARK: - Constants
 
@@ -191,6 +224,7 @@ class EgibilityCheckView: UIView {
             static let egibilityCheckText: String = "ACP requires proof of your identity to check if you are eligible for any of the assistance programs approved by FCC. If you are already receiving government benefits, check your eligiblity status by clicking the button below. Otherwise create a new account and follow the required steps in order to verify your identitiy.*"
             // swiftlint:disable:next line_length
             static let personalNoteInfoText = "*All of your personal and identity information goes through National Verifier (NV), a body of FCC. No information is stored by us or third-party services."
+            static let Terms: String = "assistance programs"
 
         }
     }

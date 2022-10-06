@@ -9,19 +9,18 @@ import UIKit
 
 class EgibilityCheckViewController: UIViewController {
 
+    // MARK: - Views
+
     private let egibilityView: EgibilityCheckView = {
         let view = EgibilityCheckView()
         view.translatesAutoresizingMaskIntoConstraints = false
-     //   view.backgroundColor = .white
         return view
     }()
 
-    private let infoLabel = ACPTermsAndPrivacyLabel()
-
     // MARK: - Properties
 
-    // MARK: - Views
-
+    private let infoLabel = ACPTermsAndPrivacyLabel()
+    
     // MARK: - Life Cycle
 
     override func viewWillAppear(_ animated: Bool) {
@@ -37,6 +36,7 @@ class EgibilityCheckViewController: UIViewController {
         setupUI()
         infoLabel.delegate = self
         egibilityView.delegate = self
+
     }
     // MARK: - UI
 
@@ -90,6 +90,10 @@ extension EgibilityCheckViewController: ACPTermsAndPrivacyLabelDelegate {
     func didTapPrivacy() {
         // TODO: Add link
         print("Clicked on privacy")
+    }
+
+    func didTapTextLink() {
+        print("Clicked on assistance ")
     }
 }
 // MARK: - ACPEligibilityDetailsDelegate
