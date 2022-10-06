@@ -118,7 +118,7 @@ class ACPLandingScreenViewController: UIViewController {
     // MARK: - Navigation
 
     @objc func navigateToWelcome() {
-        let targetVC = ACPEligibilityDetailsViewController()
+        let targetVC = EgibilityCheckViewController()
         navigationController?.pushViewController(targetVC, animated: true)
     }
 
