@@ -15,6 +15,9 @@
 		40B5EDD828E224F40096B91B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40B5EDD728E224F40096B91B /* Assets.xcassets */; };
 		40B5EDDB28E224F40096B91B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40B5EDD928E224F40096B91B /* LaunchScreen.storyboard */; };
 		40B73F7128E5B733002A5E14 /* ACPImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B73F7028E5B733002A5E14 /* ACPImageButton.swift */; };
+		40EA672A28EE826300163F59 /* ACPTabMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EA672928EE826300163F59 /* ACPTabMenuViewController.swift */; };
+		40EA672C28EE827100163F59 /* ACPFocusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EA672B28EE827100163F59 /* ACPFocusableView.swift */; };
+		40EA672E28EE827F00163F59 /* UICollectionView+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EA672D28EE827F00163F59 /* UICollectionView+ACP.swift */; };
 		40EE2CA928E49DF00028888D /* ACPHomeScreenHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EE2CA828E49DF00028888D /* ACPHomeScreenHeaderView.swift */; };
 		40EE2CAB28E4A4DD0028888D /* ACPTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EE2CAA28E4A4DD0028888D /* ACPTableView.swift */; };
 		40EE2CAE28E4AA520028888D /* UIColor+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EE2CAD28E4AA520028888D /* UIColor+ACP.swift */; };
@@ -38,6 +41,9 @@
 		40B5EDDA28E224F40096B91B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40B5EDDC28E224F40096B91B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40B73F7028E5B733002A5E14 /* ACPImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPImageButton.swift; sourceTree = "<group>"; };
+		40EA672928EE826300163F59 /* ACPTabMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPTabMenuViewController.swift; sourceTree = "<group>"; };
+		40EA672B28EE827100163F59 /* ACPFocusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPFocusableView.swift; sourceTree = "<group>"; };
+		40EA672D28EE827F00163F59 /* UICollectionView+ACP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+ACP.swift"; sourceTree = "<group>"; };
 		40EE2CA828E49DF00028888D /* ACPHomeScreenHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPHomeScreenHeaderView.swift; sourceTree = "<group>"; };
 		40EE2CAA28E4A4DD0028888D /* ACPTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPTableView.swift; sourceTree = "<group>"; };
 		40EE2CAD28E4AA520028888D /* UIColor+ACP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ACP.swift"; sourceTree = "<group>"; };
@@ -79,6 +85,7 @@
 		40AB5D5D28E48D8C006F0700 /* Generic */ = {
 			isa = PBXGroup;
 			children = (
+				40EA672828EE826300163F59 /* TabMenu */,
 				40AB5D5E28E48DBA006F0700 /* ACPNavigationController.swift */,
 				40EE2CAA28E4A4DD0028888D /* ACPTableView.swift */,
 				40B73F7028E5B733002A5E14 /* ACPImageButton.swift */,
@@ -156,11 +163,21 @@
 			path = HomeScreen;
 			sourceTree = "<group>";
 		};
+		40EA672828EE826300163F59 /* TabMenu */ = {
+			isa = PBXGroup;
+			children = (
+				40EA672B28EE827100163F59 /* ACPFocusableView.swift */,
+				40EA672928EE826300163F59 /* ACPTabMenuViewController.swift */,
+			);
+			path = TabMenu;
+			sourceTree = "<group>";
+		};
 		40EE2CAC28E4AA340028888D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				40EE2CAD28E4AA520028888D /* UIColor+ACP.swift */,
 				40EE2CB628E525960028888D /* UITableView+ACP.swift */,
+				40EA672D28EE827F00163F59 /* UICollectionView+ACP.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -314,6 +331,9 @@
 				40AB5D5F28E48DBA006F0700 /* ACPNavigationController.swift in Sources */,
 				40EE2CAE28E4AA520028888D /* UIColor+ACP.swift in Sources */,
 				40B73F7128E5B733002A5E14 /* ACPImageButton.swift in Sources */,
+				40EA672C28EE827100163F59 /* ACPFocusableView.swift in Sources */,
+				40EA672A28EE826300163F59 /* ACPTabMenuViewController.swift in Sources */,
+				40EA672E28EE827F00163F59 /* UICollectionView+ACP.swift in Sources */,
 				40B5EDD328E224F20096B91B /* ACPHomeScreenViewController.swift in Sources */,
 				40EE2CC128E540470028888D /* ACPHomeScreenEligibilityHeaderView.swift in Sources */,
 				40EE2CA928E49DF00028888D /* ACPHomeScreenHeaderView.swift in Sources */,
