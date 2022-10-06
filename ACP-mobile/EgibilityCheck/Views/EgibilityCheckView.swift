@@ -13,11 +13,11 @@ protocol EgibilityCheckDelegate: AnyObject {
 }
 
 class EgibilityCheckView: UIView {
-    
+
     // MARK: - Properties
 
     weak var delegate: EgibilityCheckDelegate?
-   
+
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .coreBlue
@@ -54,14 +54,14 @@ class EgibilityCheckView: UIView {
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
-        button.layer.shadowColor = UIColor.lightGray.cgColor //UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        button.layer.shadowColor = UIColor.lightGray.cgColor // UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
         button.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
         button.layer.shadowOpacity = 1.0
         button.layer.shadowRadius = 15.0
         button.layer.masksToBounds = false
         return button
     }()
-    
+
     let createNewAccountButton: UIButton = {
         let button = UIButton()
         button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
@@ -74,7 +74,7 @@ class EgibilityCheckView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    
+
     let infoLabel: UILabel = {
         let label = UILabel()
         label.textColor = .gray01Light
@@ -84,7 +84,7 @@ class EgibilityCheckView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+
     private let buttonAndInfoStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -100,14 +100,14 @@ class EgibilityCheckView: UIView {
         addSubviews()
         setUpConstraints()
         setText()
-        
+
         checkEgibilityButton.addTarget(self, action: #selector(checkEgibilityTapped), for: .touchUpInside)
         createNewAccountButton.addTarget(self, action: #selector(createNewAccountTapped), for: .touchUpInside)
 
     }
-    
+
     required init?(coder: NSCoder) {
-        
+
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -128,35 +128,35 @@ class EgibilityCheckView: UIView {
     }
 
     private func setUpConstraints() {
-        
+
         createNewAccountButton.snp.makeConstraints { make in
             make.height.equalTo(Constants.Constraints.ButtonHeight)
         }
-        
+
         checkEgibilityButton.snp.makeConstraints { make in
             make.height.equalTo(Constants.Constraints.ButtonHeight)
         }
-        
+
         textStackView.snp.makeConstraints { make in
             make.top.equalTo(snp.top).offset(Constants.Constraints.TopConstant)
             make.left.right.equalToSuperview().inset(Constants.Constraints.LeadingConstant)
         }
-        
+
         buttonAndInfoStackView.snp.makeConstraints { make in
             make.bottom.equalTo(snp.bottom).inset(Constants.Constraints.BottomButtonConstant)
             make.left.right.equalToSuperview().inset(Constants.Constraints.LeadingConstant)
         }
 
     }
-    
+
     @objc func checkEgibilityTapped(sender: UIButton!) {
         delegate?.didTapCheckEgibilityButton()
     }
-    
+
     @objc func createNewAccountTapped(sender: UIButton!) {
         delegate?.didTapCreateNewAccountButton()
     }
-    
+
     private func setText() {
 
         titleLabel.text = Constants.Text.titleLabelEgibilityText
@@ -164,10 +164,8 @@ class EgibilityCheckView: UIView {
         infoLabel.text = Constants.Text.personalNoteInfoText
         checkEgibilityButton.setTitle(Constants.Text.checkEgTextButton, for: .normal)
         createNewAccountButton.setTitle(Constants.Text.newAccountTextButton, for: .normal)
-        
+
     }
-    
- 
 
     // MARK: - Constants
 
@@ -188,10 +186,12 @@ class EgibilityCheckView: UIView {
             static let checkEgTextButton = "Check Egibility"
             static let newAccountTextButton = "New Account"
             static let titleLabelEgibilityText = "Check egibility or create new account"
+            // TODO: Add this string to localizable.
+            // swiftlint:disable:next line_length
             static let egibilityCheckText: String = "ACP requires proof of your identity to check if you are eligible for any of the assistance programs approved by FCC. If you are already receiving government benefits, check your eligiblity status by clicking the button below. Otherwise create a new account and follow the required steps in order to verify your identitiy.*"
+            // swiftlint:disable:next line_length
             static let personalNoteInfoText = "*All of your personal and identity information goes through National Verifier (NV), a body of FCC. No information is stored by us or third-party services."
 
         }
     }
 }
-
