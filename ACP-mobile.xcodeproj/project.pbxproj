@@ -21,10 +21,9 @@
 		40EE2CB728E525960028888D /* UITableView+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EE2CB628E525960028888D /* UITableView+ACP.swift */; };
 		40EE2CBD28E52E050028888D /* ACPHomeScreenProgramCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EE2CBC28E52E050028888D /* ACPHomeScreenProgramCell.swift */; };
 		40EE2CC128E540470028888D /* ACPHomeScreenEligibilityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EE2CC028E540470028888D /* ACPHomeScreenEligibilityCell.swift */; };
-		CE62E2FA28EA63860000833B /* TermsAndPrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE62E2F928EA63860000833B /* TermsAndPrivacyView.swift */; };
-		CE62E2FD28EA63B10000833B /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE62E2FC28EA63B10000833B /* WelcomeView.swift */; };
-		CE62E2FF28EA63BA0000833B /* TermsAndPrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE62E2FE28EA63BA0000833B /* TermsAndPrivacyView.swift */; };
 		CE62E30128EA64D20000833B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE62E30028EA64D20000833B /* Localizable.strings */; };
+		CE6D94EC28EFC3C3005577F8 /* ACPWelcomeScreeViewControllern.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6D94EB28EFC3C3005577F8 /* ACPWelcomeScreeViewControllern.swift */; };
+		CE6D94EE28EFC54A005577F8 /* ACPTermsPrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6D94ED28EFC54A005577F8 /* ACPTermsPrivacyViewController.swift */; };
 		FF3F59D25D870A8B465A1AB4 /* Pods_ACP_mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA43A30C610F68C5A06DD99 /* Pods_ACP_mobile.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,10 +47,9 @@
 		40EE2CBC28E52E050028888D /* ACPHomeScreenProgramCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPHomeScreenProgramCell.swift; sourceTree = "<group>"; };
 		40EE2CC028E540470028888D /* ACPHomeScreenEligibilityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPHomeScreenEligibilityCell.swift; sourceTree = "<group>"; };
 		687DCBFD8B005412AF06BEDD /* Pods-ACP-mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACP-mobile.debug.xcconfig"; path = "Target Support Files/Pods-ACP-mobile/Pods-ACP-mobile.debug.xcconfig"; sourceTree = "<group>"; };
-		CE62E2F928EA63860000833B /* TermsAndPrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndPrivacyView.swift; sourceTree = "<group>"; };
-		CE62E2FC28EA63B10000833B /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
-		CE62E2FE28EA63BA0000833B /* TermsAndPrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndPrivacyView.swift; sourceTree = "<group>"; };
 		CE62E30028EA64D20000833B /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		CE6D94EB28EFC3C3005577F8 /* ACPWelcomeScreeViewControllern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPWelcomeScreeViewControllern.swift; sourceTree = "<group>"; };
+		CE6D94ED28EFC54A005577F8 /* ACPTermsPrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPTermsPrivacyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,19 +165,10 @@
 		CE62E2F828EA635A0000833B /* TermsPrivacyScreen */ = {
 			isa = PBXGroup;
 			children = (
-				CE62E2FB28EA63970000833B /* Tabs */,
-				CE62E2F928EA63860000833B /* TermsAndPrivacyView.swift */,
+				CE6D94EB28EFC3C3005577F8 /* ACPWelcomeScreeViewControllern.swift */,
+				CE6D94ED28EFC54A005577F8 /* ACPTermsPrivacyViewController.swift */,
 			);
 			path = TermsPrivacyScreen;
-			sourceTree = "<group>";
-		};
-		CE62E2FB28EA63970000833B /* Tabs */ = {
-			isa = PBXGroup;
-			children = (
-				CE62E2FC28EA63B10000833B /* WelcomeView.swift */,
-				CE62E2FE28EA63BA0000833B /* TermsAndPrivacyView.swift */,
-			);
-			path = Tabs;
 			sourceTree = "<group>";
 		};
 		FB00E332458E87060AD9B9F0 /* Pods */ = {
@@ -326,15 +315,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE6D94EE28EFC54A005577F8 /* ACPTermsPrivacyViewController.swift in Sources */,
 				40EE2CBD28E52E050028888D /* ACPHomeScreenProgramCell.swift in Sources */,
 				40EE2CB728E525960028888D /* UITableView+ACP.swift in Sources */,
 				40AB5D5F28E48DBA006F0700 /* ACPNavigationController.swift in Sources */,
-				CE62E2FF28EA63BA0000833B /* TermsAndPrivacyView.swift in Sources */,
-				CE62E2FA28EA63860000833B /* TermsAndPrivacyView.swift in Sources */,
 				40EE2CAE28E4AA520028888D /* UIColor+ACP.swift in Sources */,
+				CE6D94EC28EFC3C3005577F8 /* ACPWelcomeScreeViewControllern.swift in Sources */,
 				40B73F7128E5B733002A5E14 /* ACPLeftImageButton.swift in Sources */,
 				40B5EDD328E224F20096B91B /* ACPHomeScreenViewController.swift in Sources */,
-				CE62E2FD28EA63B10000833B /* WelcomeView.swift in Sources */,
 				40EE2CC128E540470028888D /* ACPHomeScreenEligibilityCell.swift in Sources */,
 				40EE2CA928E49DF00028888D /* ACPHomeScreenHeaderView.swift in Sources */,
 				40B5EDCF28E224F20096B91B /* AppDelegate.swift in Sources */,
