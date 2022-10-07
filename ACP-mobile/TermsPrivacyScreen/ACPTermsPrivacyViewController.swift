@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import SnapKit
 
 class ACPTermsPrivacyViewController: UIViewController {
-    
+
     // MARK: - Views
     private lazy var leftTopLine: UIImageView = {
         let img = UIImageView()
@@ -27,7 +28,7 @@ class ACPTermsPrivacyViewController: UIViewController {
         img.contentMode = .scaleAspectFit
         return img
     }()
-//
+
     private lazy var termsText: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
@@ -41,7 +42,7 @@ class ACPTermsPrivacyViewController: UIViewController {
     private lazy var termsDescriptionText: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = "\(NSLocalizedString("terms_text", comment: ""))"
+        lbl.text = NSLocalizedString("terms_text", comment: "")
         lbl.numberOfLines = 0
         lbl.textAlignment = .justified
         lbl.textColor = .black
@@ -72,7 +73,6 @@ class ACPTermsPrivacyViewController: UIViewController {
         return lbl
     }()
 
-
     private lazy var acceptButton: UIButton! = {
       let button = UIButton()
       button.translatesAutoresizingMaskIntoConstraints = false
@@ -87,8 +87,7 @@ class ACPTermsPrivacyViewController: UIViewController {
 
     let scrollView = UIScrollView()
     let contentView = UIView()
-        
-    
+
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,9 +100,20 @@ class ACPTermsPrivacyViewController: UIViewController {
         setupScrollView()
         setupViews()
     }
-    
+
     // MARK: - UI
     private func setupConstraints() {
+//        leftTopLine.snp.makeConstraints { make in
+//            make.left.equalToSuperview()
+//            make.top.equalToSuperview().inset(55)
+//            make.width.equalTo(rightTopLine)
+//        }
+//
+//        rightTopLine.snp.makeConstraints { make in
+//            make.right.equalToSuperview()
+//            make.top.equalToSuperview().inset(55)
+//            make.width.equalTo(leftTopLine)
+//        }
         NSLayoutConstraint.activate([
             leftTopLine.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             leftTopLine.topAnchor.constraint(equalTo: view.topAnchor, constant: 55),
@@ -111,11 +121,11 @@ class ACPTermsPrivacyViewController: UIViewController {
 
             rightTopLine.leadingAnchor.constraint(equalTo: leftTopLine.trailingAnchor, constant: 5),
             rightTopLine.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            rightTopLine.topAnchor.constraint(equalTo: view.topAnchor, constant: 55),
+            rightTopLine.topAnchor.constraint(equalTo: view.topAnchor, constant: 55)
         ])
     }
 
-    func setupScrollView(){
+    func setupScrollView() {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         contentView.translatesAutoresizingMaskIntoConstraints = false
 
@@ -123,14 +133,14 @@ class ACPTermsPrivacyViewController: UIViewController {
         scrollView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         scrollView.topAnchor.constraint(equalTo: leftTopLine.bottomAnchor, constant: 20).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        
+
         contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
         contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
         contentView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
         contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
     }
-    
-    func setupViews(){
+
+    func setupViews() {
         contentView.addSubview(termsText)
         termsText.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         termsText.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 25).isActive = true
@@ -140,28 +150,27 @@ class ACPTermsPrivacyViewController: UIViewController {
         termsDescriptionText.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -30).isActive = true
         termsDescriptionText.topAnchor.constraint(equalTo: termsText.topAnchor, constant: 10).isActive = true
         termsDescriptionText.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 25).isActive = true
-        
+
         contentView.addSubview(privacyText)
         privacyText.topAnchor.constraint(equalTo: termsDescriptionText.bottomAnchor, constant: 10).isActive = true
         privacyText.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 25).isActive = true
         privacyText.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 25).isActive = true
-        
+
         contentView.addSubview(privacyDescriptionText)
         privacyDescriptionText.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -30).isActive = true
         privacyDescriptionText.topAnchor.constraint(equalTo: privacyText.bottomAnchor, constant: 10).isActive = true
         privacyDescriptionText.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 25).isActive = true
         privacyDescriptionText.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-        
+
         contentView.addSubview(acceptButton)
         acceptButton.topAnchor.constraint(equalTo: privacyDescriptionText.bottomAnchor, constant: 20).isActive = true
         acceptButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         acceptButton.widthAnchor.constraint(equalToConstant: 320).isActive = true
         acceptButton.heightAnchor.constraint(equalToConstant: 46).isActive = true
     }
-        
-    
-    //MARK: Functions
-    @objc func didTaped(_ sender: UIButton!){
+
+    // MARK: Functions
+    @objc func didTaped(_ sender: UIButton!) {
       print("KARINA")
     }
 }
