@@ -32,16 +32,16 @@ class ACPHomeScreenViewController: UIViewController {
     // MARK: - Life Cycle
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        title = Constants.Text.Title
         navigationController?.navigationBar.isHidden = false
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = Constants.Text.Title
-
         setupUI()
-
         setupTableView()
     }
 

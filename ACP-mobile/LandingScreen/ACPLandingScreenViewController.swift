@@ -53,8 +53,7 @@ class ACPLandingScreenViewController: UIViewController {
         let button = ACPImageButton(
             spacing: Constants.Constraints.ButtonContentSpacing,
             cornerRadius: Constants.Constraints.ButtonCornerRadius,
-            imageName: "right_arrow",
-            isLeft: false
+            imageName: "right_arrow"
         )
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -66,6 +65,8 @@ class ACPLandingScreenViewController: UIViewController {
     // MARK: - Life Cycle
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         navigationController?.navigationBar.isHidden = true
     }
 
@@ -119,7 +120,7 @@ class ACPLandingScreenViewController: UIViewController {
     // MARK: - Navigation
 
     @objc func navigateToWelcome() {
-        let targetVC = ACPHomeScreenViewController()
+        let targetVC = ACPEligibilityDetailsViewController()
         navigationController?.pushViewController(targetVC, animated: true)
     }
 
