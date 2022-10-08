@@ -15,6 +15,8 @@ class ACPEligibilityDetailsNameViewController: UIViewController {
     var viewModel: ACPEligibilityDetailsViewModel?
     weak var delegate: ACPEligibilityDetailsDelegate?
 
+    private let keyboardHelper = ACPKeyboardHelper()
+
     // MARK: - Views
 
     private let titleLabel: UILabel = {
@@ -90,6 +92,18 @@ class ACPEligibilityDetailsNameViewController: UIViewController {
         setupUI()
 
         showValuesIfPresent()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        addKeyboardObserver()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        removeKeyboardObserver()
     }
 
     // MARK: - UI
@@ -235,5 +249,9 @@ extension ACPEligibilityDetailsNameViewController: UITextFieldDelegate {
             lastNameTextField.textField.resignFirstResponder()
         }
         return true
+    }
+
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print(2)
     }
 }
