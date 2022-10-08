@@ -15,8 +15,6 @@ class ACPEligibilityDetailsNameViewController: UIViewController {
     var viewModel: ACPEligibilityDetailsViewModel?
     weak var delegate: ACPEligibilityDetailsDelegate?
 
-    private let keyboardHelper = ACPKeyboardHelper()
-
     // MARK: - Views
 
     private let titleLabel: UILabel = {
