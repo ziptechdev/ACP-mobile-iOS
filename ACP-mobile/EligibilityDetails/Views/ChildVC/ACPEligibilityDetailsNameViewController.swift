@@ -248,8 +248,4 @@ extension ACPEligibilityDetailsNameViewController: UITextFieldDelegate {
         }
         return true
     }
-
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        print(2)
-    }
 }
