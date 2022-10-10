@@ -237,7 +237,7 @@ class EgibilityZipView: UIView {
         nextButton.backgroundColor = .coreBlue
         nextButton.layer.shadowOpacity = 1.0
         errorLabel.isHidden = true
-        zipCodeStackView.layer.borderColor = UIColor.blue.cgColor
+        zipCodeStackView.layer.borderColor = UIColor.coreBlue.cgColor
     }
 
     func setVisibilityForInvalidZipCode() {
