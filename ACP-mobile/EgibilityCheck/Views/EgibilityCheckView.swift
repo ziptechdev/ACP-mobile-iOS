@@ -57,7 +57,7 @@ class EgibilityCheckView: UIView {
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
-        button.layer.shadowColor = UIColor.lightGray.cgColor // UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        button.layer.shadowColor = UIColor.gray03Light.cgColor // UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
         button.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
         button.layer.shadowOpacity = 1.0
         button.layer.shadowRadius = 15.0
