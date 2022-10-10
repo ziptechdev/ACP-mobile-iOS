@@ -68,12 +68,12 @@ class EgibilityZipViewController: UIViewController {
     }
 
     @objc func focusZipCodeStack() {
-        zipCodeView.zipCodeStackView.layer.borderColor = UIColor.blue.cgColor
+        zipCodeView.zipCodeStackView.layer.borderColor = UIColor.coreBlue.cgColor
     }
 
     @objc func unfocusZipCodeStackView(firstCount: Int, secondCount: Int) {
         if firstCount == 0 && secondCount == 0 {
-            zipCodeView.zipCodeStackView.layer.borderColor = UIColor.lightGray.cgColor
+            zipCodeView.zipCodeStackView.layer.borderColor = UIColor.gray03Light.cgColor
             zipCodeView.errorLabel.isHidden = true
         }
     }
