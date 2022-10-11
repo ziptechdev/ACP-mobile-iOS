@@ -59,7 +59,7 @@ class ACPHomeScreenProgramCell: UITableViewCell {
         return button
     }()
 
-    // MARK: - Life Cycle
+    // MARK: - Initialization
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

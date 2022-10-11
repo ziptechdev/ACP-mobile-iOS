@@ -48,6 +48,8 @@ class ACPImageButton: UIButton {
         // To simulate animate click comment next 2 lines
         setTitleColor(textColor, for: .highlighted)
         setImage(UIImage(named: imageName), for: .highlighted)
+
+        setTitleColor(textColor, for: .disabled)
     }
 
     required init?(coder: NSCoder) {

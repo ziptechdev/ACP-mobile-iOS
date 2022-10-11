@@ -16,23 +16,30 @@ class ACPNavigationController: UINavigationController {
         super.viewDidLoad()
 
         navigationBar.barTintColor = .white
+        navigationBar.titleTextAttributes = [
+            .font: UIFont.systemFont(ofSize: 20, weight: .regular),
+            .foregroundColor: UIColor.gray06Dark
+        ]
     }
 
-    override func popViewController(animated: Bool) -> UIViewController? {
+    func backButtonAction(animated: Bool = true) {
         guard let callback = backButtonOverride else {
-            return super.popViewController(animated: animated)
+            super.popViewController(animated: animated)
+            return
         }
 
         callback()
-        backButtonOverride = nil
-
-        return nil
     }
 
-    /// Use this to ignore the back button override
-    func pop(animated: Bool = true) {
+    override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         backButtonOverride = nil
 
-        super.popViewController(animated: animated)
+        super.pushViewController(viewController, animated: animated)
+    }
+
+    override func popViewController(animated: Bool) -> UIViewController? {
+        backButtonOverride = nil
+
+        return super.popViewController(animated: animated)
     }
 }

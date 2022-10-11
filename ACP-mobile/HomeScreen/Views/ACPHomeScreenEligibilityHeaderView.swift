@@ -41,7 +41,7 @@ class ACPHomeScreenEligibilityHeaderView: UITableViewHeaderFooterView {
         return button
     }()
 
-    // MARK: - Life Cycle
+    // MARK: - Initialization
 
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
