@@ -139,31 +139,45 @@ class ACPTermsPrivacyViewController: UIViewController {
 
     func setupViews() {
         contentView.addSubview(termsText)
-        termsText.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        termsText.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 25).isActive = true
-        termsText.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 25).isActive = true
+
+        termsText.snp.makeConstraints { make in
+            make.top.equalTo(contentView)
+            make.right.equalTo(contentView).inset(25)
+            make.left.equalTo(contentView).inset(25)
+        }
 
         contentView.addSubview(termsDescriptionText)
-        termsDescriptionText.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -30).isActive = true
-        termsDescriptionText.topAnchor.constraint(equalTo: termsText.topAnchor, constant: 10).isActive = true
-        termsDescriptionText.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 25).isActive = true
+
+        termsDescriptionText.snp.makeConstraints { make in
+            make.right.equalTo(contentView).inset(30)
+            make.top.equalTo(termsText).inset(10)
+            make.left.equalTo(contentView).inset(25)
+        }
 
         contentView.addSubview(privacyText)
-        privacyText.topAnchor.constraint(equalTo: termsDescriptionText.bottomAnchor, constant: 10).isActive = true
-        privacyText.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 25).isActive = true
-        privacyText.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 25).isActive = true
+
+        privacyText.snp.makeConstraints { make in
+            make.top.equalTo(termsDescriptionText.snp.bottom).inset(-10)
+            make.right.equalTo(contentView).inset(25)
+            make.left.equalTo(contentView).inset(25)
+        }
 
         contentView.addSubview(privacyDescriptionText)
-        privacyDescriptionText.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -30).isActive = true
-        privacyDescriptionText.topAnchor.constraint(equalTo: privacyText.bottomAnchor, constant: 10).isActive = true
-        privacyDescriptionText.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 25).isActive = true
-        privacyDescriptionText.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+
+        privacyDescriptionText.snp.makeConstraints { make in
+            make.right.equalTo(contentView).inset(30)
+            make.top.equalTo(privacyText.snp.bottom).inset(-10)
+            make.left.equalTo(contentView).inset(25)
+            make.bottom.equalTo(contentView)
+        }
 
         contentView.addSubview(acceptButton)
-        acceptButton.topAnchor.constraint(equalTo: privacyDescriptionText.bottomAnchor, constant: 20).isActive = true
-        acceptButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        acceptButton.widthAnchor.constraint(equalToConstant: 320).isActive = true
-        acceptButton.heightAnchor.constraint(equalToConstant: 46).isActive = true
+        acceptButton.snp.makeConstraints { make in
+            make.right.left.equalToSuperview().inset(35)
+            make.top.equalTo(privacyDescriptionText.snp.bottom).offset(20)
+            make.height.equalTo(46)
+        }
+
     }
 
     // MARK: Functions
