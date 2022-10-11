@@ -15,9 +15,9 @@ class ACPTermsPrivacyViewController: UIViewController {
         let img = UIImageView()
         img.translatesAutoresizingMaskIntoConstraints = false
         img.layer.masksToBounds = true
-        img.image = UIImage(named: "tab_line")
+        img.image = UIImage(named: "tab_line")?.withRenderingMode(.alwaysTemplate)
         img.contentMode = .scaleAspectFit
-        img.tintColor = .gray
+        img.tintColor = .gray06Light
         return img
     }()
 
@@ -25,7 +25,7 @@ class ACPTermsPrivacyViewController: UIViewController {
         let img = UIImageView()
         img.translatesAutoresizingMaskIntoConstraints = false
         img.layer.masksToBounds = true
-        img.image = UIImage(named: "tab_line")
+        img.image = UIImage(named: "tab_line")?.withRenderingMode(.alwaysTemplate)
         img.contentMode = .scaleAspectFit
         img.tintColor = .coreBlue
         return img
@@ -47,7 +47,7 @@ class ACPTermsPrivacyViewController: UIViewController {
         lbl.text = NSLocalizedString("terms_text", comment: "")
         lbl.numberOfLines = 0
         lbl.textAlignment = .justified
-        lbl.textColor = .black
+        lbl.textColor = .gray06Dark
         lbl.adjustsFontSizeToFitWidth = true
         lbl.font = .systemFont(ofSize: 16, weight: .regular)
         return lbl
@@ -69,7 +69,7 @@ class ACPTermsPrivacyViewController: UIViewController {
         lbl.text = "\(NSLocalizedString("privacy_text", comment: ""))"
         lbl.numberOfLines = 0
         lbl.textAlignment = .justified
-        lbl.textColor = .black
+        lbl.textColor = .gray06Dark
         lbl.adjustsFontSizeToFitWidth = true
         lbl.font = .systemFont(ofSize: 16, weight: .regular)
         return lbl
