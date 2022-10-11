@@ -110,6 +110,7 @@ class ACPWelcomeScreeViewController: UIViewController {
 
     // MARK: Functions
     @objc func didTaped(_ sender: UIButton!) {
-        print("KARINA")
+        let vc = ACPTermsPrivacyViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

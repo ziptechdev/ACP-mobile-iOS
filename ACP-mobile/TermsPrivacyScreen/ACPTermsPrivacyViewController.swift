@@ -103,41 +103,38 @@ class ACPTermsPrivacyViewController: UIViewController {
 
     // MARK: - UI
     private func setupConstraints() {
-//        leftTopLine.snp.makeConstraints { make in
-//            make.left.equalToSuperview()
-//            make.top.equalToSuperview().inset(55)
-//            make.width.equalTo(rightTopLine)
-//        }
-//
-//        rightTopLine.snp.makeConstraints { make in
-//            make.right.equalToSuperview()
-//            make.top.equalToSuperview().inset(55)
-//            make.width.equalTo(leftTopLine)
-//        }
-        NSLayoutConstraint.activate([
-            leftTopLine.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            leftTopLine.topAnchor.constraint(equalTo: view.topAnchor, constant: 55),
-            leftTopLine.widthAnchor.constraint(equalTo: rightTopLine.widthAnchor),
+        leftTopLine.snp.makeConstraints { make in
+            make.left.equalToSuperview().inset(35)
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(55)
+            make.width.equalTo(rightTopLine)
+        }
 
-            rightTopLine.leadingAnchor.constraint(equalTo: leftTopLine.trailingAnchor, constant: 5),
-            rightTopLine.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            rightTopLine.topAnchor.constraint(equalTo: view.topAnchor, constant: 55)
-        ])
+        rightTopLine.snp.makeConstraints { make in
+            make.right.equalToSuperview().inset(35)
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(55)
+            make.width.equalTo(leftTopLine)
+        }
+
     }
 
     func setupScrollView() {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         contentView.translatesAutoresizingMaskIntoConstraints = false
 
-        scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        scrollView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-        scrollView.topAnchor.constraint(equalTo: leftTopLine.bottomAnchor, constant: 20).isActive = true
-        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        scrollView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.width.equalToSuperview()
+            make.top.equalTo(leftTopLine).inset(20)
+            make.bottom.equalTo(view.safeAreaLayoutGuide)
+        }
 
-        contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
-        contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
-        contentView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
-        contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+        contentView.snp.makeConstraints { make in
+            make.centerX.equalTo(scrollView)
+            make.width.equalTo(scrollView)
+            make.top.equalTo(scrollView)
+            make.bottom.equalTo(scrollView)
+        }
+
     }
 
     func setupViews() {
@@ -171,6 +168,8 @@ class ACPTermsPrivacyViewController: UIViewController {
 
     // MARK: Functions
     @objc func didTaped(_ sender: UIButton!) {
-      print("KARINA")
+        let vc = ACPHomeScreenViewController()
+        vc.modalPresentationStyle = .fullScreen
+        self.show(vc, sender: nil)
     }
 }
