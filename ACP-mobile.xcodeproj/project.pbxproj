@@ -59,6 +59,9 @@
 		40EE2CB728E525960028888D /* UITableView+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EE2CB628E525960028888D /* UITableView+ACP.swift */; };
 		40EE2CBD28E52E050028888D /* ACPHomeScreenProgramCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EE2CBC28E52E050028888D /* ACPHomeScreenProgramCell.swift */; };
 		40EE2CC128E540470028888D /* ACPHomeScreenEligibilityHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EE2CC028E540470028888D /* ACPHomeScreenEligibilityHeaderView.swift */; };
+		CE62E30128EA64D20000833B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE62E30028EA64D20000833B /* Localizable.strings */; };
+		CE6D94EC28EFC3C3005577F8 /* ACPWelcomeScreeViewControllern.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6D94EB28EFC3C3005577F8 /* ACPWelcomeScreeViewControllern.swift */; };
+		CE6D94EE28EFC54A005577F8 /* ACPTermsPrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6D94ED28EFC54A005577F8 /* ACPTermsPrivacyViewController.swift */; };
 		FF3F59D25D870A8B465A1AB4 /* Pods_ACP_mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA43A30C610F68C5A06DD99 /* Pods_ACP_mobile.framework */; };
 /* End PBXBuildFile section */
 
@@ -120,6 +123,9 @@
 		40EE2CBC28E52E050028888D /* ACPHomeScreenProgramCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPHomeScreenProgramCell.swift; sourceTree = "<group>"; };
 		40EE2CC028E540470028888D /* ACPHomeScreenEligibilityHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPHomeScreenEligibilityHeaderView.swift; sourceTree = "<group>"; };
 		687DCBFD8B005412AF06BEDD /* Pods-ACP-mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACP-mobile.debug.xcconfig"; path = "Target Support Files/Pods-ACP-mobile/Pods-ACP-mobile.debug.xcconfig"; sourceTree = "<group>"; };
+		CE62E30028EA64D20000833B /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		CE6D94EB28EFC3C3005577F8 /* ACPWelcomeScreeViewControllern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPWelcomeScreeViewControllern.swift; sourceTree = "<group>"; };
+		CE6D94ED28EFC54A005577F8 /* ACPTermsPrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPTermsPrivacyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -344,6 +350,7 @@
 				405D770028E603C400358D4A /* LandingScreen */,
 				405D773E28E8D4B600358D4A /* EligibilityDetails */,
 				405D776928ECA5EE00358D4A /* Registration */,
+				CE62E2F828EA635A0000833B /* TermsPrivacyScreen */,
 				40B5EE0028E228A20096B91B /* HomeScreen */,
 				405D777528ECF99800358D4A /* Networking */,
 				40B5EDFE28E227A30096B91B /* Resources */,
@@ -358,6 +365,7 @@
 				40EE2CAF28E4AC5B0028888D /* Colors.xcassets */,
 				40B5EDDC28E224F40096B91B /* Info.plist */,
 				40B5EDD928E224F40096B91B /* LaunchScreen.storyboard */,
+				CE62E30028EA64D20000833B /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -410,6 +418,15 @@
 				40C7E5A428F0D12C00C03ECE /* UIViewController+Keyboard.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CE62E2F828EA635A0000833B /* TermsPrivacyScreen */ = {
+			isa = PBXGroup;
+			children = (
+				CE6D94EB28EFC3C3005577F8 /* ACPWelcomeScreeViewControllern.swift */,
+				CE6D94ED28EFC54A005577F8 /* ACPTermsPrivacyViewController.swift */,
+			);
+			path = TermsPrivacyScreen;
 			sourceTree = "<group>";
 		};
 		FB00E332458E87060AD9B9F0 /* Pods */ = {
@@ -483,6 +500,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40EE2CB028E4AC5B0028888D /* Colors.xcassets in Resources */,
+				CE62E30128EA64D20000833B /* Localizable.strings in Resources */,
 				40B5EDDB28E224F40096B91B /* LaunchScreen.storyboard in Resources */,
 				40B5EDD828E224F40096B91B /* Assets.xcassets in Resources */,
 			);
@@ -555,6 +573,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE6D94EE28EFC54A005577F8 /* ACPTermsPrivacyViewController.swift in Sources */,
 				40ECB6D628F63143004FD644 /* ACPImageButton.swift in Sources */,
 				1390E2A928E88AF9009BCE11 /* EgibilityCheckViewController.swift in Sources */,
 				40EE2CBD28E52E050028888D /* ACPHomeScreenProgramCell.swift in Sources */,
@@ -570,6 +589,7 @@
 				405D775628EB851F00358D4A /* ACPEligibilityDetailsViewModel.swift in Sources */,
 				405D776E28ECA7C200358D4A /* ACPVerifiedRegistrationViewController.swift in Sources */,
 				40EE2CAE28E4AA520028888D /* UIColor+ACP.swift in Sources */,
+				CE6D94EC28EFC3C3005577F8 /* ACPWelcomeScreeViewControllern.swift in Sources */,
 				405D777E28ED0F3100358D4A /* VerifyEndpoint.swift in Sources */,
 				405D777C28ED09DE00358D4A /* TestEndpoint.swift in Sources */,
 				405D777728ECF9EF00358D4A /* ACPRouter.swift in Sources */,
@@ -743,6 +763,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HBSJWT4Z7H;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ACP-mobile/Resources/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = ACP;
@@ -751,6 +772,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -772,6 +794,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HBSJWT4Z7H;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ACP-mobile/Resources/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = ACP;
@@ -780,6 +803,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
