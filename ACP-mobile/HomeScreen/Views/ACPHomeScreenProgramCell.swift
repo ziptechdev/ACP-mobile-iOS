@@ -29,14 +29,15 @@ class ACPHomeScreenProgramCell: UITableViewCell {
         return view
     }()
 
-    private let statusButton: ACPLeftImageButton = {
-        let button = ACPLeftImageButton()
+    private let statusButton: ACPImageButton = {
+        let button = ACPImageButton(
+            horizontal: Constants.Constraints.StatusButtonContentInsetX,
+            spacing: Constants.Constraints.StatusButtonContentSpacing,
+            cornerRadius: Constants.Constraints.StatusButtonCornerRadius,
+            imageName: "checkmark"
+        )
         button.backgroundColor = .acpYellow
-        button.setTitle("", for: .normal)
-        button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 11, weight: .bold)
-        button.layer.cornerRadius = Constants.Constraints.StatusButtonCornerRadius
-        button.layer.masksToBounds = true
         return button
     }()
 
@@ -58,7 +59,7 @@ class ACPHomeScreenProgramCell: UITableViewCell {
         return button
     }()
 
-    // MARK: - Life Cycle
+    // MARK: - Initialization
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -126,7 +127,6 @@ class ACPHomeScreenProgramCell: UITableViewCell {
         programImageView.image = UIImage(named: "program_logo")
         programDetailsLabel.text = Constants.Text.Details
         statusButton.setTitle(Constants.Text.Eligible, for: .normal)
-        statusButton.setImage(UIImage(named: "checkmark"), for: .normal)
         actionButton.setTitle(Constants.Text.Apply, for: .normal)
     }
 
@@ -141,19 +141,20 @@ class ACPHomeScreenProgramCell: UITableViewCell {
 
             static let StatusButtonHeight: CGFloat = 29
             static let StatusButtonCornerRadius: CGFloat = 5
+            static let StatusButtonContentSpacing: CGFloat = 4
+            static let StatusButtonContentInsetX: CGFloat = 20
 
             static let ButtonOffsetTop: CGFloat = 20
             static let ButtonHeight: CGFloat = 46
             static let ButtonCornerRadius: CGFloat = 10
 
-            static let DetailsOffsetTop: CGFloat = 5
+            static let DetailsOffsetTop: CGFloat = 10
         }
 
         struct Text {
             static let Details = """
                 Medicaid provides health coverage to low-income people and is one of the largest
                 payers for...
-
                 """
             static let Eligible = "Eligible"
             static let Apply = "Apply"
