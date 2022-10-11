@@ -15,8 +15,9 @@ class ACPTermsPrivacyViewController: UIViewController {
         let img = UIImageView()
         img.translatesAutoresizingMaskIntoConstraints = false
         img.layer.masksToBounds = true
-        img.image = UIImage(named: "acpSecondTabLeftLine")
+        img.image = UIImage(named: "tab_line")
         img.contentMode = .scaleAspectFit
+        img.tintColor = .gray
         return img
     }()
 
@@ -24,8 +25,9 @@ class ACPTermsPrivacyViewController: UIViewController {
         let img = UIImageView()
         img.translatesAutoresizingMaskIntoConstraints = false
         img.layer.masksToBounds = true
-        img.image = UIImage(named: "acpSecondTabRightLine")
+        img.image = UIImage(named: "tab_line")
         img.contentMode = .scaleAspectFit
+        img.tintColor = .coreBlue
         return img
     }()
 
@@ -132,7 +134,7 @@ class ACPTermsPrivacyViewController: UIViewController {
             make.centerX.equalTo(scrollView)
             make.width.equalTo(scrollView)
             make.top.equalTo(scrollView)
-            make.bottom.equalTo(scrollView)
+            make.bottom.equalTo(scrollView).inset(75)
         }
 
     }
@@ -182,8 +184,6 @@ class ACPTermsPrivacyViewController: UIViewController {
 
     // MARK: Functions
     @objc func didTaped(_ sender: UIButton!) {
-        let vc = ACPHomeScreenViewController()
-        vc.modalPresentationStyle = .fullScreen
-        self.show(vc, sender: nil)
+//        btn to show ACP
     }
 }

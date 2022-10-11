@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         window = UIWindow(frame: scene.coordinateSpace.bounds)
         window?.windowScene = scene
-        window?.rootViewController = ACPTermsPrivacyViewController()
+        window?.rootViewController = ACPWelcomeScreeViewController()
         window?.makeKeyAndVisible()
     }
 
