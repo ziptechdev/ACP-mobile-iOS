@@ -113,6 +113,18 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
         showValuesIfPresent()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        addKeyboardObserver()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        removeKeyboardObserver()
+    }
+
     // MARK: - UI
 
     private func setupUI() {
