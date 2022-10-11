@@ -122,6 +122,12 @@ extension EgibilityZipViewController: EgibilityZipCodeDelegate {
     func didPressDone(_ textfield: UITextField, _ secondTextfield: UITextField) {
         textfield.resignFirstResponder()
         secondTextfield.resignFirstResponder()
+        guard let text = zipCodeView.zipFirstCodeTextField.text else { return }
+        guard let textSecond = zipCodeView.zipSecondCodeTextField.text else { return }
+
+        if textfield == zipCodeView.zipFirstCodeTextField || secondTextfield == zipCodeView.zipSecondCodeTextField {
+            unfocusZipCodeStackView(firstCount: text.count, secondCount: textSecond.count)
+        }
     }
 
     func didTapNextButton() {
@@ -150,12 +156,6 @@ extension EgibilityZipViewController: UITextFieldDelegate {
     }
 
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        guard let text = zipCodeView.zipFirstCodeTextField.text else { return false }
-        guard let textSecond = zipCodeView.zipSecondCodeTextField.text else { return false }
-
-        if textField == zipCodeView.zipFirstCodeTextField || textField == zipCodeView.zipSecondCodeTextField {
-            unfocusZipCodeStackView(firstCount: text.count, secondCount: textSecond.count)
-        }
         return true
     }
 
