@@ -1,5 +1,5 @@
 //
-//  ACPEligibilityDetailsDOBViewController.swift
+//  ACPEligibilityDetailsNameViewController.swift
 //  ACP-mobile
 //
 //  Created by Adi on 01/10/2022.
@@ -8,10 +8,11 @@
 import UIKit
 import SnapKit
 
-class ACPEligibilityDetailsDOBViewController: UIViewController {
+class ACPEligibilityDetailsNameViewController: UIViewController {
 
     // MARK: - Properties
 
+    var viewModel: ACPEligibilityDetailsViewModel?
     weak var delegate: ACPEligibilityDetailsDelegate?
 
     // MARK: - Views
@@ -37,42 +38,24 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
         return label
     }()
 
-    private lazy var monthTextField: ACPPickerView = {
-        let view = ACPPickerView()
-        view.titleLabel.text = Constants.Text.Month
-        view.textField.addRightImage(imageName: "down_arrow")
-        view.delegate = self
-        view.pickerView.delegate = self
-        view.pickerView.dataSource = self
+    private lazy var nameTextField: ACPTextField = {
+        let view = ACPTextField()
+        view.titleLabel.text = Constants.Text.FirstName
+        view.textField.delegate = self
         return view
     }()
 
-    private lazy var dayTextField: ACPTextField = {
+    private lazy var middleNameTextField: ACPTextField = {
         let view = ACPTextField()
-        view.titleLabel.text = Constants.Text.Day
-        view.delegate = self
+        view.titleLabel.attributedText = attributedTitleText()
         view.textField.delegate = self
-        view.textField.keyboardType = .numberPad
-        view.textField.textAlignment = .center
         return view
     }()
 
-    private lazy var yearTextField: ACPTextField = {
+    private lazy var lastNameTextField: ACPTextField = {
         let view = ACPTextField()
-        view.titleLabel.text = Constants.Text.Year
-        view.delegate = self
+        view.titleLabel.text = Constants.Text.LastName
         view.textField.delegate = self
-        view.textField.keyboardType = .numberPad
-        view.textField.textAlignment = .center
-        return view
-    }()
-
-    private lazy var ssnTextField: ACPTextField = {
-        let view = ACPTextField()
-        view.titleLabel.text = Constants.Text.SSN
-        view.delegate = self
-        view.textField.delegate = self
-        view.textField.keyboardType = .numberPad
         return view
     }()
 
@@ -105,18 +88,8 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
         super.viewDidLoad()
 
         setupUI()
-    }
 
-    // MARK: - Initialization
-
-    init(_ delegate: ACPEligibilityDetailsDelegate) {
-        super.init(nibName: nil, bundle: nil)
-
-        self.delegate = delegate
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        showValuesIfPresent()
     }
 
     // MARK: - UI
@@ -129,10 +102,9 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
     private func addSubviews() {
         view.addSubview(titleLabel)
         view.addSubview(subtitleLabel)
-        view.addSubview(monthTextField)
-        view.addSubview(dayTextField)
-        view.addSubview(yearTextField)
-        view.addSubview(ssnTextField)
+        view.addSubview(nameTextField)
+        view.addSubview(middleNameTextField)
+        view.addSubview(lastNameTextField)
         view.addSubview(noBlankLabel)
         view.addSubview(nextButton)
     }
@@ -148,31 +120,24 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
             make.top.equalTo(titleLabel.snp.bottom).offset(Constants.Constraints.SubtitleOffsetVertical)
         }
 
-        monthTextField.snp.makeConstraints { make in
+        nameTextField.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.top.equalTo(subtitleLabel.snp.bottom).offset(Constants.Constraints.MonthOffsetVertical)
+            make.top.equalTo(subtitleLabel.snp.bottom).offset(Constants.Constraints.NameOffsetVertical)
         }
 
-        dayTextField.snp.makeConstraints { make in
-            make.left.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.right.equalTo(view.snp.centerX).inset(Constants.Constraints.TextFieldSpacing / 2)
-            make.top.equalTo(monthTextField.snp.bottom).offset(Constants.Constraints.TextFieldOffsetVertical)
-        }
-
-        yearTextField.snp.makeConstraints { make in
-            make.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.left.equalTo(view.snp.centerX).offset(Constants.Constraints.TextFieldSpacing / 2)
-            make.top.equalTo(monthTextField.snp.bottom).offset(Constants.Constraints.TextFieldOffsetVertical)
-        }
-
-        ssnTextField.snp.makeConstraints { make in
+        middleNameTextField.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.top.equalTo(dayTextField.snp.bottom).offset(Constants.Constraints.TextFieldOffsetVertical)
+            make.top.equalTo(nameTextField.snp.bottom).offset(Constants.Constraints.TextFieldOffsetVertical)
+        }
+
+        lastNameTextField.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
+            make.top.equalTo(middleNameTextField.snp.bottom).offset(Constants.Constraints.TextFieldOffsetVertical)
         }
 
         noBlankLabel.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.top.equalTo(ssnTextField.snp.bottom).offset(Constants.Constraints.SubtitleOffsetVertical)
+            make.top.equalTo(lastNameTextField.snp.bottom).offset(Constants.Constraints.TextFieldOffsetVertical)
         }
 
         nextButton.snp.makeConstraints { make in
@@ -182,10 +147,48 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
         }
     }
 
+    private func attributedTitleText() -> NSMutableAttributedString {
+        let middleName = Constants.Text.MiddleName as NSString
+        let fullRange = NSRange(location: 0, length: middleName.length)
+        let optionalRange = middleName.range(of: Constants.Text.Optional)
+
+        let string = NSMutableAttributedString(string: Constants.Text.MiddleName)
+        string.addAttribute(.foregroundColor, value: UIColor.gray06Dark, range: fullRange)
+        string.addAttribute(.foregroundColor, value: UIColor.gray01Light, range: optionalRange)
+
+        return string
+    }
+
+    // MARK: - Presenting
+
+    private func showValuesIfPresent() {
+        guard let viewModel = viewModel?.model.nameModel else {
+            return
+        }
+
+        nameTextField.textField.text = viewModel.name
+        middleNameTextField.textField.text = viewModel.middleName
+        lastNameTextField.textField.text = viewModel.lastName
+    }
+
     // MARK: - Callback
 
     @objc func didTapButton() {
-        delegate?.didTapNextButton(newIndex: 2)
+        guard let name = nameTextField.textField.text, name != "" else {
+            return
+        }
+        viewModel?.model.nameModel.name = name
+
+        if let middleName = middleNameTextField.textField.text {
+            viewModel?.model.nameModel.middleName = middleName
+        }
+
+        guard let lastName = lastNameTextField.textField.text, lastName != "" else {
+            return
+        }
+        viewModel?.model.nameModel.lastName = lastName
+
+        delegate?.didTapNextButton()
     }
 
     // MARK: - Constants
@@ -197,9 +200,8 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
 
             static let SubtitleOffsetVertical: CGFloat = 10
 
-            static let MonthOffsetVertical: CGFloat = 30
+            static let NameOffsetVertical: CGFloat = 30
             static let TextFieldOffsetVertical: CGFloat = 10
-            static let TextFieldSpacing: CGFloat = 20
 
             static let ButtonHeight: CGFloat = 46
             static let ButtonContentSpacing: CGFloat = 10
@@ -208,61 +210,30 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
         }
 
         struct Text {
-            static let Title = "Your date of birth"
-            static let Subtitle = "This information is required by National Verifier to verify your identity."
+            static let Title = "Your full legal name"
+            static let Subtitle = "The name you use on official documents, " +
+                                  "like your Social Security Card or State ID. Not a nickname."
             static let Next = "Next"
             static let Blank = "*Cannot be left blank"
-            static let Month = "Month*"
-            static let Day = "Day*"
-            static let Year = "Year*"
-            static let SSN = "SSN (Last 4 digits of your Social Security Number)*"
+            static let FirstName = "First Name*"
+            static let MiddleName = "Middle Name (Optional)"
+            static let Optional = "(Optional)"
+            static let LastName = "Last Name*"
         }
     }
 }
 
 // MARK: - UITextFieldDelegate
 
-extension ACPEligibilityDetailsDOBViewController: UITextFieldDelegate {
+extension ACPEligibilityDetailsNameViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == monthTextField.textField {
-            dayTextField.textField.becomeFirstResponder()
-        } else if textField == dayTextField.textField {
-            yearTextField.textField.becomeFirstResponder()
-        } else if textField == yearTextField.textField {
-            ssnTextField.textField.becomeFirstResponder()
+        if textField == nameTextField.textField {
+            middleNameTextField.textField.becomeFirstResponder()
+        } else if textField == middleNameTextField.textField {
+            lastNameTextField.textField.becomeFirstResponder()
         } else {
-            textField.resignFirstResponder()
+            lastNameTextField.textField.resignFirstResponder()
         }
         return true
-    }
-}
-
-// MARK: - ACPPickerViewDelegate
-
-extension ACPEligibilityDetailsDOBViewController: ACPToolbarDelegate {
-    func didPressDone(_ textfield: UITextField) {
-        _ = textFieldShouldReturn(textfield)
-    }
-}
-
-// MARK: - UIPickerViewDelegate
-
-extension ACPEligibilityDetailsDOBViewController: UIPickerViewDelegate {
-
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        let heh = ["1", "2", "3", "4", "5"]
-        return heh[row]
-    }
-}
-
-// MARK: - UIPickerViewDelegate
-
-extension ACPEligibilityDetailsDOBViewController: UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 5
     }
 }

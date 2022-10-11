@@ -83,10 +83,6 @@ class ACPTopTabMenuViewController: UIViewController {
         setupUI()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.isNavigationBarHidden = false
-    }
-
     // MARK: - UI
 
     private func setupUI() {
