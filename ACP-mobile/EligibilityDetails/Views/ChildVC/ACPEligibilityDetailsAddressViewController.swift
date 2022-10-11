@@ -73,6 +73,7 @@ class ACPEligibilityDetailsAddressViewController: UIViewController {
         )
         view.textField.keyboardType = .numberPad
         view.textField.textAlignment = .center
+        view.textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         return view
     }()
 
@@ -204,6 +205,23 @@ class ACPEligibilityDetailsAddressViewController: UIViewController {
         viewModel?.model.dobModel.ssn = zip
 
         delegate?.didTapActionButton()
+    }
+
+    @objc private func textFieldDidChange(_ textField: UITextField) {
+        guard var text = textField.text else {
+            return
+        }
+
+        text = text.replacingOccurrences(of: " ", with: "")
+        text = text.replacingOccurrences(of: "-", with: "")
+
+        if text.count >= 6 {
+            let separator = " - "
+            let separatorIndex = text.index(text.startIndex, offsetBy: 5)
+            text.insert(contentsOf: separator, at: separatorIndex)
+        }
+
+        textField.text = String(text.prefix(12))
     }
 
     // MARK: - Constants

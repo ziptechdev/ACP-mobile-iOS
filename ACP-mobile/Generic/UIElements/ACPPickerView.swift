@@ -45,7 +45,7 @@ class ACPPickerView: UIView {
     let pickerView = UIPickerView()
 
     private lazy var pickerToolbar: UIToolbar = {
-        let toolBar = UIToolbar()
+        let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 40))
         toolBar.barStyle = UIBarStyle.default
         toolBar.isTranslucent = true
         toolBar.sizeToFit()

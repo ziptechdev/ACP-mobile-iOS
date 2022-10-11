@@ -55,6 +55,7 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
         view.textField.delegate = self
         view.textField.keyboardType = .numberPad
         view.textField.textAlignment = .center
+        view.textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         return view
     }()
 
@@ -65,6 +66,7 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
         view.textField.delegate = self
         view.textField.keyboardType = .numberPad
         view.textField.textAlignment = .center
+        view.textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         return view
     }()
 
@@ -74,6 +76,7 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
         view.delegate = self
         view.textField.delegate = self
         view.textField.keyboardType = .numberPad
+        view.textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         return view
     }()
 
@@ -205,6 +208,23 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
         viewModel?.model.dobModel.ssn = ssn
 
         delegate?.didTapNextButton()
+    }
+
+    @objc private func textFieldDidChange(_ textField: UITextField) {
+        guard var text = textField.text else {
+            return
+        }
+
+        switch textField {
+        case dayTextField.textField:
+            text = String(text.prefix(2))
+
+        default:
+            text = String(text.prefix(4))
+
+        }
+
+        textField.text = text
     }
 
     // MARK: - Constants
