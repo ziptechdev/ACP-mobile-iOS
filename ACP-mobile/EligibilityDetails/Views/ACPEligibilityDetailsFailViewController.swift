@@ -27,18 +27,6 @@ class ACPEligibilityDetailsFailViewController: UIViewController {
         return view
     }()
 
-    private lazy var cancelButton: UIButton = {
-        let button = UIButton()
-        let image = UIImage(named: "x_mark")?.withRenderingMode(.alwaysTemplate)
-        button.layer.masksToBounds = true
-        button.backgroundColor = .clear
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(image, for: .normal)
-        button.imageView?.tintColor = .gray01Dark
-        button.addTarget(self, action: #selector(didTapCancel), for: .touchUpInside)
-        return button
-    }()
-
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = Constants.Text.Title
@@ -53,12 +41,14 @@ class ACPEligibilityDetailsFailViewController: UIViewController {
 
     private lazy var subtitleLabel: UILabel = {
         let label = UILabel()
-        label.attributedText = subtitleAttributedText()
         label.textAlignment = .center
+        label.attributedText = subtitleAttributedText()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 14, weight: .regular)
         label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 2
+        label.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(didTapLabel(_:)))
+        label.addGestureRecognizer(tap)
         return label
     }()
 
@@ -101,7 +91,9 @@ class ACPEligibilityDetailsFailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.isHidden = false
+
+        setupRightNavigationBarButton()
     }
 
     // MARK: - UI
@@ -120,7 +112,6 @@ class ACPEligibilityDetailsFailViewController: UIViewController {
         view.addSubview(subtitleLabel)
         view.addSubview(newAccountButton)
         view.addSubview(tryAgainButton)
-        view.addSubview(cancelButton)
     }
 
     private func setupConstraints() {
@@ -157,12 +148,6 @@ class ACPEligibilityDetailsFailViewController: UIViewController {
             make.height.equalTo(Constants.Constraints.ButtonHeight)
             make.top.equalTo(tryAgainButton.snp.bottom).offset(Constants.Constraints.ButtonSpacingVertical)
         }
-
-        cancelButton.snp.makeConstraints { make in
-            make.right.equalToSuperview().inset(Constants.Constraints.CancelInsetHorizontal)
-            make.height.width.equalTo(Constants.Constraints.CancelButtonSize)
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(Constants.Constraints.CancelInsetVertical)
-        }
     }
 
     private func subtitleAttributedText() -> NSAttributedString {
@@ -172,6 +157,7 @@ class ACPEligibilityDetailsFailViewController: UIViewController {
 
         let string = NSMutableAttributedString(string: Constants.Text.Subtitle)
         string.addAttribute(.font, value: UIFont.systemFont(ofSize: 14, weight: .regular), range: fullRange)
+        string.addAttribute(.paragraphStyle, value: NSMutableParagraphStyle.center, range: fullRange)
         string.addAttribute(.foregroundColor, value: UIColor.gray01Light, range: fullRange)
         string.addAttribute(.foregroundColor, value: UIColor.coreBlue, range: attributeRange)
 
@@ -179,10 +165,6 @@ class ACPEligibilityDetailsFailViewController: UIViewController {
     }
 
     // MARK: - Callbacks
-
-    @objc func didTapCancel() {
-        navigationController?.popToRootViewController(animated: true)
-    }
 
     @objc func didTapAccountButton() {
         // TODO: Add Stuff
@@ -210,7 +192,7 @@ class ACPEligibilityDetailsFailViewController: UIViewController {
 
     private struct Constants {
         struct Constraints {
-            static let LoadingBarInsetY: CGFloat = 91
+            static let LoadingBarInsetY: CGFloat = 30
             static let LoadingBarInsetX: CGFloat = 64
 
             static let ImageSize: CGFloat = 36
@@ -224,10 +206,6 @@ class ACPEligibilityDetailsFailViewController: UIViewController {
             static let ButtonOffsetVertical: CGFloat = 60
             static let ButtonSpacingVertical: CGFloat = 30
             static let ButtonCornerRadius: CGFloat = 10
-
-            static let CancelInsetVertical: CGFloat = 38
-            static let CancelInsetHorizontal: CGFloat = 35
-            static let CancelButtonSize: CGFloat = 14
         }
 
         struct Text {

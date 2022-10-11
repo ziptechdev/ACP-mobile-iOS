@@ -28,7 +28,6 @@ class ACPTermsAndPrivacyLabel: UILabel {
         translatesAutoresizingMaskIntoConstraints = false
         isUserInteractionEnabled = true
         attributedText = attributedInfoText()
-        textAlignment = .center
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(didTapLabel(_:)))
         addGestureRecognizer(tap)
@@ -48,6 +47,7 @@ class ACPTermsAndPrivacyLabel: UILabel {
 
         let string = NSMutableAttributedString(string: Constants.Text.Info)
         string.addAttribute(.font, value: UIFont.systemFont(ofSize: 14, weight: .regular), range: fullRange)
+        string.addAttribute(.paragraphStyle, value: NSMutableParagraphStyle.center, range: fullRange)
         string.addAttribute(.foregroundColor, value: UIColor.gray06Dark, range: fullRange)
         string.addAttribute(.foregroundColor, value: UIColor.coreBlue, range: termsRange)
         string.addAttribute(.foregroundColor, value: UIColor.coreBlue, range: privacyRange)
@@ -65,8 +65,12 @@ class ACPTermsAndPrivacyLabel: UILabel {
         let privacyRange = info.range(of: Constants.Text.Privacy)
 
         if sender.didTapAttributedTextInLabel(label: self, inRange: termsRange) {
+            // TODO: Remove print
+            print("didTapTerms")
             delegate?.didTapTerms()
         } else if sender.didTapAttributedTextInLabel(label: self, inRange: privacyRange) {
+            // TODO: Remove print
+            print("didTapPrivacy")
             delegate?.didTapPrivacy()
         }
     }

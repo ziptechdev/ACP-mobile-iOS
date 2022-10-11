@@ -42,11 +42,12 @@ class ACPEligibilityDetailsVerifyViewController: UIViewController {
     private lazy var subtitleLabel: UILabel = {
         let label = UILabel()
         label.attributedText = subtitleAttributedText()
-        label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 14, weight: .regular)
         label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 2
+        label.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(didTapLabel(_:)))
+        label.addGestureRecognizer(tap)
         return label
     }()
 
@@ -131,6 +132,7 @@ class ACPEligibilityDetailsVerifyViewController: UIViewController {
 
         let string = NSMutableAttributedString(string: Constants.Text.Subtitle)
         string.addAttribute(.font, value: UIFont.systemFont(ofSize: 14, weight: .regular), range: fullRange)
+        string.addAttribute(.paragraphStyle, value: NSMutableParagraphStyle.center, range: fullRange)
         string.addAttribute(.foregroundColor, value: UIColor.gray01Light, range: fullRange)
         string.addAttribute(.foregroundColor, value: UIColor.coreBlue, range: attributeRange)
 
