@@ -155,12 +155,12 @@ class ACPVerifyEmailViewController: UIViewController {
         confirmButton.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
             make.height.equalTo(Constants.Constraints.ButtonHeight)
-            make.bottom.equalTo(infoLabel.snp.top).inset(-Constants.Constraints.ButtonInsetVertical)
+            make.top.equalTo(keyboardView.snp.bottom).offset(Constants.Constraints.ButtonOffsetVertical)
         }
 
         infoLabel.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.bottom.equalTo(view.safeAreaLayoutGuide)
+            make.top.equalTo(confirmButton.snp.bottom).offset(Constants.Constraints.InfoOffsetVertical)
         }
     }
 
@@ -223,7 +223,9 @@ class ACPVerifyEmailViewController: UIViewController {
 
             static let ButtonHeight: CGFloat = 46
             static let ButtonCornerRadius: CGFloat = 10
-            static let ButtonInsetVertical: CGFloat = 30
+            static let ButtonOffsetVertical: CGFloat = 30
+
+            static let InfoOffsetVertical: CGFloat = 30
         }
 
         struct Text {

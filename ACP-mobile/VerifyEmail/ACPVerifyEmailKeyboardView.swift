@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 protocol ACPVerifyEmailKeyboardViewDelegate: AnyObject {
-    func didPressKey()
+    func didPressKey(key: String)
     func didPressDelete()
 }
 
@@ -46,35 +46,60 @@ class ACPVerifyEmailKeyboardView: UIView {
 
         for i in 0...3 {
             for j in 1...3 {
-                let newKey = setupKey(i: i, j: j, top: topConstraint)
+                if let newKey = setupKey(i: i, j: j, top: topConstraint) {
 
-                if j == 3 {
-                    topConstraint = newKey.snp.bottom
-                }
+                    // Set new constraint
+                    if j == 3 {
+                        topConstraint = newKey.snp.bottom
+                    }
 
-                if j == 3 && i == 3 {
-                    newKey.snp.makeConstraints { make in
-                        make.bottom.equalToSuperview()
-                        make.right.equalToSuperview()
+                    // Set constraints for the last button
+                    if j == 3 && i == 3 {
+                        newKey.snp.makeConstraints { make in
+                            make.bottom.equalToSuperview()
+                            make.right.equalToSuperview()
+                        }
                     }
                 }
             }
         }
     }
 
-    private func setupKey(i: Int, j: Int, top: ConstraintItem) -> UIView {
+    private func setupKey(i: Int, j: Int, top: ConstraintItem) -> UIView? {
         let value = i * 3 + j
-        let label = UILabel()
-        // TODO: Add Real Labels and callbacks
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "\(value)"
-        label.font = .systemFont(ofSize: 28, weight: .regular)
-        label.textAlignment = .center
-        addSubview(label)
 
-        label.snp.makeConstraints { make in
+        guard value != 10 else {
+            return nil
+        }
+
+        let view: UIView
+        if value == 12 {
+            let imageView = UIImageView()
+            let image = UIImage(named: "backspace")
+            imageView.image = image
+            imageView.contentMode = .center
+            let tap = UITapGestureRecognizer(target: self, action: #selector(didTapDelete))
+            imageView.addGestureRecognizer(tap)
+            view = imageView
+        } else {
+            let label = UILabel()
+            // Set 0 for 11th key
+            label.text = value == 11 ? "0" : "\(value)"
+            label.font = .systemFont(ofSize: 28, weight: .regular)
+            label.textAlignment = .center
+            let tap = UITapGestureRecognizer(target: self, action: #selector(didTapKey))
+            label.addGestureRecognizer(tap)
+            view = label
+        }
+
+        // TODO: Add Real Labels and callbacks
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+
+        view.snp.makeConstraints { make in
             make.top.equalTo(top)
-            make.width.height.equalTo(75)
+            make.width.equalToSuperview().inset(10).dividedBy(3)
+            make.height.equalTo(view.snp.width)
             if j == 1 {
                 make.left.equalToSuperview()
             } else if j == 2 {
@@ -84,10 +109,18 @@ class ACPVerifyEmailKeyboardView: UIView {
             }
         }
 
-        return label
+        return view
     }
 
     // MARK: - Callbacks
+
+    @objc func didTapDelete() {
+        delegate?.didPressDelete()
+    }
+
+    @objc func didTapKey() {
+        delegate?.didPressKey(key: "2")
+    }
 
     // MARK: - Constants
 
