@@ -13,6 +13,7 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
     // MARK: - Properties
 
     private var isSecureEntry = true
+    weak var delegate: ACPTabMenuDelegate?
 
     // MARK: - Views
 
@@ -210,7 +211,7 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
     // MARK: - Callback
 
     @objc func didTapButton() {
-//        delegate?.didTapNextButton()
+        delegate?.didTapNextButton()
     }
 
     // MARK: - Constants

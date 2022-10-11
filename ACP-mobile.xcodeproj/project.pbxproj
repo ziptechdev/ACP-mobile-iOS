@@ -30,6 +30,9 @@
 		405D776528EBCF7200358D4A /* ACPEligibilityDetailsFailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405D776428EBCF7200358D4A /* ACPEligibilityDetailsFailViewController.swift */; };
 		405D776728EBD88600358D4A /* ACPEligibilityDetailsSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405D776628EBD88600358D4A /* ACPEligibilityDetailsSuccessViewController.swift */; };
 		405D776E28ECA7C200358D4A /* ACPVerifiedRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405D776D28ECA7C200358D4A /* ACPVerifiedRegistrationViewController.swift */; };
+		409132C128F4E0740003CC4E /* ACPVerifyEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409132C028F4E0740003CC4E /* ACPVerifyEmailViewController.swift */; };
+		409132C528F4EBC10003CC4E /* ACPVerifyEmailKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409132C428F4EBC10003CC4E /* ACPVerifyEmailKeyboardView.swift */; };
+		409132C728F4EBF50003CC4E /* ACPVerifyEmailCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409132C628F4EBF50003CC4E /* ACPVerifyEmailCodeView.swift */; };
 		40AB5D5F28E48DBA006F0700 /* ACPNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AB5D5E28E48DBA006F0700 /* ACPNavigationController.swift */; };
 		40B5EDCF28E224F20096B91B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B5EDCE28E224F20096B91B /* AppDelegate.swift */; };
 		40B5EDD128E224F20096B91B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B5EDD028E224F20096B91B /* SceneDelegate.swift */; };
@@ -82,6 +85,9 @@
 		405D776428EBCF7200358D4A /* ACPEligibilityDetailsFailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsFailViewController.swift; sourceTree = "<group>"; };
 		405D776628EBD88600358D4A /* ACPEligibilityDetailsSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsSuccessViewController.swift; sourceTree = "<group>"; };
 		405D776D28ECA7C200358D4A /* ACPVerifiedRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPVerifiedRegistrationViewController.swift; sourceTree = "<group>"; };
+		409132C028F4E0740003CC4E /* ACPVerifyEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPVerifyEmailViewController.swift; sourceTree = "<group>"; };
+		409132C428F4EBC10003CC4E /* ACPVerifyEmailKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPVerifyEmailKeyboardView.swift; sourceTree = "<group>"; };
+		409132C628F4EBF50003CC4E /* ACPVerifyEmailCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPVerifyEmailCodeView.swift; sourceTree = "<group>"; };
 		40AB5D5E28E48DBA006F0700 /* ACPNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPNavigationController.swift; sourceTree = "<group>"; };
 		40B5EDCB28E224F20096B91B /* ACP-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ACP-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		40B5EDCE28E224F20096B91B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -219,6 +225,16 @@
 			path = VerifiedRegistration;
 			sourceTree = "<group>";
 		};
+		409132BF28F4E00D0003CC4E /* VerifyEmail */ = {
+			isa = PBXGroup;
+			children = (
+				409132C028F4E0740003CC4E /* ACPVerifyEmailViewController.swift */,
+				409132C428F4EBC10003CC4E /* ACPVerifyEmailKeyboardView.swift */,
+				409132C628F4EBF50003CC4E /* ACPVerifyEmailCodeView.swift */,
+			);
+			path = VerifyEmail;
+			sourceTree = "<group>";
+		};
 		40AB5D5D28E48D8C006F0700 /* Generic */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,6 +285,7 @@
 				405D770028E603C400358D4A /* LandingScreen */,
 				405D773E28E8D4B600358D4A /* EligibilityDetails */,
 				40C7E58A28EF395800C03ECE /* NotVerifiedRegistration */,
+				409132BF28F4E00D0003CC4E /* VerifyEmail */,
 				405D776A28ECA60800358D4A /* VerifiedRegistration */,
 				40B5EE0028E228A20096B91B /* HomeScreen */,
 				40B5EDFE28E227A30096B91B /* Resources */,
@@ -522,10 +539,12 @@
 				405D775928EB873100358D4A /* ACPEligibilityDetailsNameModel.swift in Sources */,
 				405D776128EBB3D500358D4A /* ACPCircleLoadingBarView.swift in Sources */,
 				40AB5D5F28E48DBA006F0700 /* ACPNavigationController.swift in Sources */,
+				409132C128F4E0740003CC4E /* ACPVerifyEmailViewController.swift in Sources */,
 				40C7E59F28EF74A800C03ECE /* ACPPersonalInfoDetailsViewController.swift in Sources */,
 				405D775628EB851F00358D4A /* ACPEligibilityDetailsViewModel.swift in Sources */,
 				405D776E28ECA7C200358D4A /* ACPVerifiedRegistrationViewController.swift in Sources */,
 				40EE2CAE28E4AA520028888D /* UIColor+ACP.swift in Sources */,
+				409132C728F4EBF50003CC4E /* ACPVerifyEmailCodeView.swift in Sources */,
 				40B73F7128E5B733002A5E14 /* ACPImageButton.swift in Sources */,
 				405D773B28E8A83400358D4A /* ACPTopTabMenuButton.swift in Sources */,
 				405D776328EBBB3C00358D4A /* ACPEligibilityDetailsVerifyViewController.swift in Sources */,
@@ -555,6 +574,7 @@
 				405D773128E8507000358D4A /* ACPEligibilityDetailsViewController.swift in Sources */,
 				405D774528E8DA6500358D4A /* ACPEligibilityDetailsAddressViewController.swift in Sources */,
 				40B5EDD128E224F20096B91B /* SceneDelegate.swift in Sources */,
+				409132C528F4EBC10003CC4E /* ACPVerifyEmailKeyboardView.swift in Sources */,
 				405D773528E8708C00358D4A /* ACPTermsAndPrivacyLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -13,7 +13,7 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
     // MARK: - Properties
 
     var viewModel: ACPEligibilityDetailsViewModel?
-    weak var delegate: ACPEligibilityDetailsDelegate?
+    weak var delegate: ACPTabMenuDelegate?
 
     // MARK: - Views
 

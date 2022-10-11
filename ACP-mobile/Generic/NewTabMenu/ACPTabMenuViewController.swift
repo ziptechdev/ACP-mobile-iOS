@@ -8,6 +8,11 @@
 import UIKit
 import SnapKit
 
+protocol ACPTabMenuDelegate: AnyObject {
+    func didTapNextButton()
+    func didTapActionButton()
+}
+
 protocol ACPTabMenuViewControllerDelegate: AnyObject {
     var numberOfItems: Int { get }
 
@@ -32,6 +37,10 @@ class ACPTabMenuViewController: UIViewController {
         didSet {
             didSetDelegate()
         }
+    }
+
+    public var currentTab: Int {
+        return currentTabItem
     }
 
     // MARK: - Views

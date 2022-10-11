@@ -8,11 +8,6 @@
 import UIKit
 import SnapKit
 
-protocol ACPEligibilityDetailsDelegate: AnyObject {
-    func didTapNextButton()
-    func didTapVerifyButton()
-}
-
 class ACPEligibilityDetailsViewController: UIViewController {
 
 	// MARK: - Properties
@@ -111,14 +106,14 @@ extension ACPEligibilityDetailsViewController: ACPTermsAndPrivacyLabelDelegate {
     }
 }
 
-// MARK: - ACPEligibilityDetailsDelegate
+// MARK: - ACPTabMenuDelegate
 
-extension ACPEligibilityDetailsViewController: ACPEligibilityDetailsDelegate {
+extension ACPEligibilityDetailsViewController: ACPTabMenuDelegate {
     func didTapNextButton() {
         tabMenu.nextTab()
     }
 
-    func didTapVerifyButton() {
+    func didTapActionButton() {
         viewModel.didTapVerify()
 
         let viewController = ACPEligibilityDetailsVerifyViewController()

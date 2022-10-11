@@ -13,7 +13,7 @@ class ACPEligibilityDetailsAddressViewController: UIViewController {
     // MARK: - Properties
 
     var viewModel: ACPEligibilityDetailsViewModel?
-    weak var delegate: ACPEligibilityDetailsDelegate?
+    weak var delegate: ACPTabMenuDelegate?
 
     // MARK: - Views
 
@@ -203,7 +203,7 @@ class ACPEligibilityDetailsAddressViewController: UIViewController {
         }
         viewModel?.model.dobModel.ssn = zip
 
-        delegate?.didTapVerifyButton()
+        delegate?.didTapActionButton()
     }
 
     // MARK: - Constants
