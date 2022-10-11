@@ -107,6 +107,7 @@ extension EgibilityCheckViewController: EgibilityCheckDelegate {
     }
 
     func didTapCreateNewAccountButton() {
-        print("Create new account")
+        let targetVC = ACPNotVerifiedRegistrationViewController()
+        navigationController?.pushViewController(targetVC, animated: true)
     }
 }

@@ -16,6 +16,12 @@ class ACPNavigationController: UINavigationController {
         super.viewDidLoad()
 
         navigationBar.barTintColor = .white
+
+        // Removes the line beneath the tab controller
+        navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationBar.shadowImage = UIImage()
+        navigationBar.isTranslucent = true
+
         navigationBar.titleTextAttributes = [
             .font: UIFont.systemFont(ofSize: 20, weight: .regular),
             .foregroundColor: UIColor.gray06Dark
