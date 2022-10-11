@@ -45,6 +45,8 @@
 		40B5EDD828E224F40096B91B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40B5EDD728E224F40096B91B /* Assets.xcassets */; };
 		40B5EDDB28E224F40096B91B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40B5EDD928E224F40096B91B /* LaunchScreen.storyboard */; };
 		40B73F7128E5B733002A5E14 /* ACPImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B73F7028E5B733002A5E14 /* ACPImageButton.swift */; };
+		40C7E5A328F0D0A700C03ECE /* UIResponder+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7E5A228F0D0A700C03ECE /* UIResponder+ACP.swift */; };
+		40C7E5A528F0D12C00C03ECE /* UIViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7E5A428F0D12C00C03ECE /* UIViewController+Keyboard.swift */; };
 		40EA672A28EE826300163F59 /* ACPTabMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EA672928EE826300163F59 /* ACPTabMenuViewController.swift */; };
 		40EA672C28EE827100163F59 /* ACPFocusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EA672B28EE827100163F59 /* ACPFocusableView.swift */; };
 		40EA672E28EE827F00163F59 /* UICollectionView+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EA672D28EE827F00163F59 /* UICollectionView+ACP.swift */; };
@@ -101,6 +103,8 @@
 		40B5EDDA28E224F40096B91B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40B5EDDC28E224F40096B91B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40B73F7028E5B733002A5E14 /* ACPImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPImageButton.swift; sourceTree = "<group>"; };
+		40C7E5A228F0D0A700C03ECE /* UIResponder+ACP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+ACP.swift"; sourceTree = "<group>"; };
+		40C7E5A428F0D12C00C03ECE /* UIViewController+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Keyboard.swift"; sourceTree = "<group>"; };
 		40EA672928EE826300163F59 /* ACPTabMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPTabMenuViewController.swift; sourceTree = "<group>"; };
 		40EA672B28EE827100163F59 /* ACPFocusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPFocusableView.swift; sourceTree = "<group>"; };
 		40EA672D28EE827F00163F59 /* UICollectionView+ACP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+ACP.swift"; sourceTree = "<group>"; };
@@ -396,6 +400,8 @@
 				405D773228E8698D00358D4A /* UITapGestureRecognizer+ACP.swift */,
 				405D774B28E9053F00358D4A /* UITextField+ACP.swift */,
 				405D774D28E913E400358D4A /* UIViewController+ACP.swift */,
+				40C7E5A228F0D0A700C03ECE /* UIResponder+ACP.swift */,
+				40C7E5A428F0D12C00C03ECE /* UIViewController+Keyboard.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -568,8 +574,10 @@
 				40EA672A28EE826300163F59 /* ACPTabMenuViewController.swift in Sources */,
 				40EA672E28EE827F00163F59 /* UICollectionView+ACP.swift in Sources */,
 				405D773B28E8A83400358D4A /* ACPTopTabMenuButton.swift in Sources */,
+				40C7E5A328F0D0A700C03ECE /* UIResponder+ACP.swift in Sources */,
 				405D776328EBBB3C00358D4A /* ACPEligibilityDetailsVerifyViewController.swift in Sources */,
 				405D773328E8698D00358D4A /* UITapGestureRecognizer+ACP.swift in Sources */,
+				40C7E5A528F0D12C00C03ECE /* UIViewController+Keyboard.swift in Sources */,
 				405D774328E8DA5600358D4A /* ACPEligibilityDetailsDOBViewController.swift in Sources */,
 				40B5EDD328E224F20096B91B /* ACPHomeScreenViewController.swift in Sources */,
 				40EE2CC128E540470028888D /* ACPHomeScreenEligibilityHeaderView.swift in Sources */,
