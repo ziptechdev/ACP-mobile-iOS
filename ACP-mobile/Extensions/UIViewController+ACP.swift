@@ -12,14 +12,24 @@ extension UIViewController {
     // MARK: - Right Navigation Button
 
     /// Adds an X button to the left side
-    func setupRightNavigationBarButton() {
-        let image = UIImage(named: "x_mark")?.withRenderingMode(.alwaysOriginal)
+    func setupRightNavigationBarButton(color: UIColor? = nil) {
+        let image: UIImage?
+        if color != nil {
+            image = UIImage(named: "x_mark")?.withRenderingMode(.alwaysTemplate)
+        } else {
+            image = UIImage(named: "x_mark")?.withRenderingMode(.alwaysOriginal)
+        }
+
         let button = UIBarButtonItem(
             image: image,
             style: .plain,
             target: self,
             action: #selector(didTapRightButton)
         )
+
+        if let color = color {
+            button.tintColor = color
+        }
 
         let spacer = UIBarButtonItem(
             barButtonSystemItem: .fixedSpace,
@@ -38,13 +48,13 @@ extension UIViewController {
     // MARK: - Left Navigation Button
 
     /// Adds a back button with an arrow to the right side
-    func setupLeftNavigationBarButton() {
+    func setupLeftNavigationBarButton(color: UIColor = .gray01Light) {
         let button = ACPImageButton(
             horizontal: 15,
             spacing: 7,
             cornerRadius: 0,
             imageName: "left_arrow",
-            textColor: .gray01Light,
+            textColor: color,
             isLeft: true
         )
 

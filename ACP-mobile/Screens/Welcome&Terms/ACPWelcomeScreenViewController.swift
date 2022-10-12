@@ -1,5 +1,5 @@
 //
-//  ACPWelcomeScreeViewController.swift
+//  ACPWelcomeScreenViewController.swift
 //  ACP-mobile
 //
 //  Created by Eldar Tutnjic on 7. 10. 2022..
@@ -8,9 +8,10 @@
 import UIKit
 import SnapKit
 
-class ACPWelcomeScreeViewController: UIViewController {
+class ACPWelcomeScreenViewController: UIViewController {
 
     // MARK: - Views
+
     private lazy var leftTopLine: UIImageView = {
         let img = UIImageView()
         img.translatesAutoresizingMaskIntoConstraints = false
@@ -44,12 +45,12 @@ class ACPWelcomeScreeViewController: UIViewController {
     private lazy var descriptionText: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = "\(NSLocalizedString("welcomeScreen_text", comment: ""))"
+        lbl.text = NSLocalizedString("welcomeScreen_text", comment: "")
         lbl.numberOfLines = 0
         lbl.adjustsFontSizeToFitWidth = true
         lbl.textAlignment = .justified
         lbl.textColor = .white
-        lbl.font = .systemFont(ofSize: 16, weight: .regular)
+        lbl.font = .systemFont(ofSize: 14, weight: .regular)
         return lbl
     }()
 
@@ -58,7 +59,7 @@ class ACPWelcomeScreeViewController: UIViewController {
       button.translatesAutoresizingMaskIntoConstraints = false
       button.backgroundColor = .white
       button.setTitleColor(.coreBlue, for: .normal)
-      button.addTarget(self, action: #selector(didTaped(_:)), for: .touchUpInside)
+      button.addTarget(self, action: #selector(didTapContinue), for: .touchUpInside)
       button.setTitle("Continue", for: .normal)
       button.layer.masksToBounds = true
       button.layer.cornerRadius = 10
@@ -66,6 +67,7 @@ class ACPWelcomeScreeViewController: UIViewController {
     }()
 
     // MARK: - Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .coreBlue
@@ -77,7 +79,22 @@ class ACPWelcomeScreeViewController: UIViewController {
         setupConstraints()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        title = "Welcome"
+        navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.titleTextAttributes = [
+            .font: UIFont.systemFont(ofSize: 20, weight: .regular),
+            .foregroundColor: UIColor.white
+        ]
+
+        setupRightNavigationBarButton(color: .white)
+        setupLeftNavigationBarButton(color: .white)
+    }
+
     // MARK: - UI
+
     private func setupConstraints() {
         leftTopLine.snp.makeConstraints { make in
             make.left.equalToSuperview().inset(35)
@@ -109,7 +126,11 @@ class ACPWelcomeScreeViewController: UIViewController {
     }
 
     // MARK: Functions
-    @objc func didTaped(_ sender: UIButton!) {
-//        btn to show ACPTermsPrivacyViewController
+
+    @objc func didTapContinue() {
+        let targetVC = ACPTermsPrivacyViewController()
+        navigationController?.pushViewController(targetVC, animated: true)
     }
+
+    // TODO: Add Constants
 }

@@ -15,7 +15,7 @@ class ACPNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationBar.backgroundColor = .white
+        navigationBar.backgroundColor = .clear
         navigationBar.barTintColor = .white
         navigationBar.titleTextAttributes = [
             .font: UIFont.systemFont(ofSize: 20, weight: .regular),

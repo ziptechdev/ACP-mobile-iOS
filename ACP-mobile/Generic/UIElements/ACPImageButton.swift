@@ -39,15 +39,18 @@ class ACPImageButton: UIButton {
             }
         }
 
+        let image = UIImage(named: imageName)?.withRenderingMode(.alwaysTemplate)
+        tintColor = textColor
+
         layer.cornerRadius = cornerRadius
         layer.masksToBounds = true
 
         setTitleColor(textColor, for: .normal)
-        setImage(UIImage(named: imageName), for: .normal)
+        setImage(image, for: .normal)
 
         // To simulate animate click comment next 2 lines
         setTitleColor(textColor, for: .highlighted)
-        setImage(UIImage(named: imageName), for: .highlighted)
+        setImage(image, for: .highlighted)
 
         setTitleColor(textColor, for: .disabled)
     }

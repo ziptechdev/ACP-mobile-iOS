@@ -11,6 +11,7 @@ import SnapKit
 class ACPTermsPrivacyViewController: UIViewController {
 
     // MARK: - Views
+
     private lazy var leftTopLine: UIImageView = {
         let img = UIImageView()
         img.translatesAutoresizingMaskIntoConstraints = false
@@ -66,31 +67,32 @@ class ACPTermsPrivacyViewController: UIViewController {
     private lazy var privacyDescriptionText: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = "\(NSLocalizedString("privacy_text", comment: ""))"
+        lbl.text = NSLocalizedString("privacy_text", comment: "")
         lbl.numberOfLines = 0
         lbl.textAlignment = .justified
         lbl.textColor = .gray06Dark
         lbl.adjustsFontSizeToFitWidth = true
-        lbl.font = .systemFont(ofSize: 16, weight: .regular)
+        lbl.font = .systemFont(ofSize: 14, weight: .regular)
         return lbl
     }()
 
-    private lazy var acceptButton: UIButton! = {
-      let button = UIButton()
-      button.translatesAutoresizingMaskIntoConstraints = false
-      button.backgroundColor = .coreBlue
-      button.setTitleColor(.white, for: .normal)
-      button.addTarget(self, action: #selector(didTaped(_:)), for: .touchUpInside)
-      button.setTitle("Accept", for: .normal)
-      button.layer.masksToBounds = true
-      button.layer.cornerRadius = 10
-      return button
+    private lazy var acceptButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .coreBlue
+        button.setTitleColor(.white, for: .normal)
+        button.setTitle("Accept", for: .normal)
+        button.addTarget(self, action: #selector(didTapAccept), for: .touchUpInside)
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 10
+        return button
     }()
 
     let scrollView = UIScrollView()
     let contentView = UIView()
 
     // MARK: - Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -103,7 +105,22 @@ class ACPTermsPrivacyViewController: UIViewController {
         setupViews()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        title = "Welcome"
+        navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.titleTextAttributes = [
+            .font: UIFont.systemFont(ofSize: 20, weight: .regular),
+            .foregroundColor: UIColor.gray06Dark
+        ]
+
+        setupRightNavigationBarButton()
+        setupLeftNavigationBarButton()
+    }
+
     // MARK: - UI
+
     private func setupConstraints() {
         leftTopLine.snp.makeConstraints { make in
             make.left.equalToSuperview().inset(35)
@@ -116,7 +133,6 @@ class ACPTermsPrivacyViewController: UIViewController {
             make.top.equalTo(view.safeAreaLayoutGuide).inset(55)
             make.width.equalTo(leftTopLine)
         }
-
     }
 
     func setupScrollView() {
@@ -136,41 +152,31 @@ class ACPTermsPrivacyViewController: UIViewController {
             make.top.equalTo(scrollView)
             make.bottom.equalTo(scrollView).inset(75)
         }
-
     }
 
     func setupViews() {
         contentView.addSubview(termsText)
-
         termsText.snp.makeConstraints { make in
             make.top.equalTo(contentView)
-            make.right.equalTo(contentView).inset(25)
-            make.left.equalTo(contentView).inset(25)
+            make.right.left.equalToSuperview().inset(35)
         }
 
         contentView.addSubview(termsDescriptionText)
-
         termsDescriptionText.snp.makeConstraints { make in
-            make.right.equalTo(contentView).inset(30)
+            make.right.left.equalToSuperview().inset(35)
             make.top.equalTo(termsText).inset(10)
-            make.left.equalTo(contentView).inset(25)
         }
 
         contentView.addSubview(privacyText)
-
         privacyText.snp.makeConstraints { make in
             make.top.equalTo(termsDescriptionText.snp.bottom).inset(-10)
-            make.right.equalTo(contentView).inset(25)
-            make.left.equalTo(contentView).inset(25)
+            make.right.left.equalToSuperview().inset(35)
         }
 
         contentView.addSubview(privacyDescriptionText)
-
         privacyDescriptionText.snp.makeConstraints { make in
-            make.right.equalTo(contentView).inset(30)
+            make.right.left.equalTo(contentView).inset(35)
             make.top.equalTo(privacyText.snp.bottom).inset(-10)
-            make.left.equalTo(contentView).inset(25)
-            make.bottom.equalTo(contentView)
         }
 
         contentView.addSubview(acceptButton)
@@ -178,12 +184,16 @@ class ACPTermsPrivacyViewController: UIViewController {
             make.right.left.equalToSuperview().inset(35)
             make.top.equalTo(privacyDescriptionText.snp.bottom).offset(20)
             make.height.equalTo(46)
+            make.bottom.equalToSuperview()
         }
-
     }
 
     // MARK: Functions
-    @objc func didTaped(_ sender: UIButton!) {
-//        btn to show ACP
+
+    @objc func didTapAccept() {
+        let targetVC = EgibilityCheckViewController()
+        navigationController?.pushViewController(targetVC, animated: true)
     }
+
+    // TODO: Add Constants
 }
