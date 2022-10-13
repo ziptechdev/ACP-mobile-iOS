@@ -33,7 +33,7 @@ class ACPWelcomeScreeViewController: UIViewController {
     private lazy var titleText: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = "Affordable Conectivity Program"
+        lbl.text = Constants.Text.ACPTitleText
         lbl.numberOfLines = 0
         lbl.textColor = .white
         lbl.font = .systemFont(ofSize: 32, weight: .bold)
@@ -59,9 +59,9 @@ class ACPWelcomeScreeViewController: UIViewController {
       button.backgroundColor = .white
       button.setTitleColor(.coreBlue, for: .normal)
       button.addTarget(self, action: #selector(didTaped(_:)), for: .touchUpInside)
-      button.setTitle("Continue", for: .normal)
+        button.setTitle(Constants.Text.ContinueButton, for: .normal)
       button.layer.masksToBounds = true
-      button.layer.cornerRadius = 10
+        button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
       return button
     }()
 
@@ -80,31 +80,31 @@ class ACPWelcomeScreeViewController: UIViewController {
     // MARK: - UI
     private func setupConstraints() {
         leftTopLine.snp.makeConstraints { make in
-            make.left.equalToSuperview().inset(35)
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(55)
+            make.left.equalToSuperview().inset(Constants.Constraints.mainLROffset)
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(Constants.Constraints.imageTopOffset)
             make.width.equalTo(rightTopLine)
         }
 
         rightTopLine.snp.makeConstraints { make in
-            make.right.equalToSuperview().inset(35)
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(55)
+            make.right.equalToSuperview().inset(Constants.Constraints.mainLROffset)
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(Constants.Constraints.imageTopOffset)
             make.width.equalTo(leftTopLine)
         }
 
         titleText.snp.makeConstraints { make in
-            make.right.left.equalToSuperview().inset(35)
-            make.top.equalTo(rightTopLine.snp.bottom).offset(35)
+            make.right.left.equalToSuperview().inset(Constants.Constraints.mainLROffset)
+            make.top.equalTo(rightTopLine.snp.bottom).offset(Constants.Constraints.titleTopOffset)
         }
 
         descriptionText.snp.makeConstraints { make in
-            make.right.left.equalToSuperview().inset(35)
-            make.top.equalTo(titleText.snp.bottom).offset(10)
+            make.right.left.equalToSuperview().inset(Constants.Constraints.mainLROffset)
+            make.top.equalTo(titleText.snp.bottom).offset(Constants.Constraints.descriptionOffsetTop)
         }
 
         continueButton.snp.makeConstraints { make in
-            make.right.left.equalToSuperview().inset(35)
-            make.top.equalTo(descriptionText.snp.bottom).offset(20)
-            make.height.equalTo(46)
+            make.right.left.equalToSuperview().inset(Constants.Constraints.mainLROffset)
+            make.top.equalTo(descriptionText.snp.bottom).offset(Constants.Constraints.ButtonOffsetTop)
+            make.height.equalTo(Constants.Constraints.ButtonHeight)
         }
     }
 
@@ -112,4 +112,27 @@ class ACPWelcomeScreeViewController: UIViewController {
     @objc func didTaped(_ sender: UIButton!) {
 //        btn to show ACPTermsPrivacyViewController
     }
+
+    // MARK: - Constants
+
+    private struct Constants {
+        struct Constraints {
+            static let mainLROffset = 35
+            static let imageTopOffset = 55
+
+            static let titleTopOffset = 35
+
+            static let descriptionOffsetTop = 10
+
+            static let ButtonOffsetTop: CGFloat = 20
+            static let ButtonHeight: CGFloat = 46
+            static let ButtonCornerRadius: CGFloat = 10
+        }
+
+        struct Text {
+            static let ACPTitleText = "Affordable Conectivity Program"
+            static let ContinueButton = "Continue"
+        }
+    }
+
 }
