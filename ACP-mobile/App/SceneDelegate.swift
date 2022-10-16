@@ -20,7 +20,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         window = UIWindow(frame: scene.coordinateSpace.bounds)
         window?.windowScene = scene
-        window?.rootViewController = ACPHomeScreenViewController()
+        let rootVC = ACPLandingScreenViewController()
+        let nav = ACPNavigationController(rootViewController: rootVC)
+        window?.rootViewController = nav
         window?.makeKeyAndVisible()
     }
 
