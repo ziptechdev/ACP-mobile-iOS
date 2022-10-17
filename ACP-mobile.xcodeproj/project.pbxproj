@@ -11,6 +11,7 @@
 		1356421628EC6C14009F8B38 /* EgibilityZipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1356421528EC6C14009F8B38 /* EgibilityZipViewController.swift */; };
 		1390E2A728E88AB6009BCE11 /* EgibilityCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1390E2A628E88AB6009BCE11 /* EgibilityCheckView.swift */; };
 		1390E2A928E88AF9009BCE11 /* EgibilityCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1390E2A828E88AF9009BCE11 /* EgibilityCheckViewController.swift */; };
+		400AB76128FDD31500A6DCB6 /* String+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB76028FDD31500A6DCB6 /* String+ACP.swift */; };
 		405D770228E6040800358D4A /* ACPLandingScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405D770128E6040800358D4A /* ACPLandingScreenViewController.swift */; };
 		405D773128E8507000358D4A /* ACPEligibilityDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405D773028E8507000358D4A /* ACPEligibilityDetailsViewController.swift */; };
 		405D773328E8698D00358D4A /* UITapGestureRecognizer+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405D773228E8698D00358D4A /* UITapGestureRecognizer+ACP.swift */; };
@@ -72,6 +73,7 @@
 		1356421528EC6C14009F8B38 /* EgibilityZipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EgibilityZipViewController.swift; sourceTree = "<group>"; };
 		1390E2A628E88AB6009BCE11 /* EgibilityCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EgibilityCheckView.swift; sourceTree = "<group>"; };
 		1390E2A828E88AF9009BCE11 /* EgibilityCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EgibilityCheckViewController.swift; sourceTree = "<group>"; };
+		400AB76028FDD31500A6DCB6 /* String+ACP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ACP.swift"; sourceTree = "<group>"; };
 		405D770128E6040800358D4A /* ACPLandingScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPLandingScreenViewController.swift; sourceTree = "<group>"; };
 		405D773028E8507000358D4A /* ACPEligibilityDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsViewController.swift; sourceTree = "<group>"; };
 		405D773228E8698D00358D4A /* UITapGestureRecognizer+ACP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITapGestureRecognizer+ACP.swift"; sourceTree = "<group>"; };
@@ -424,6 +426,7 @@
 				40C7E58D28EF484500C03ECE /* NSMutableParagraphStyle+ACP.swift */,
 				40C7E5A228F0D0A700C03ECE /* UIResponder+ACP.swift */,
 				40C7E5A428F0D12C00C03ECE /* UIViewController+Keyboard.swift */,
+				400AB76028FDD31500A6DCB6 /* String+ACP.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -582,6 +585,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE6D94EE28EFC54A005577F8 /* ACPTermsPrivacyViewController.swift in Sources */,
+				400AB76128FDD31500A6DCB6 /* String+ACP.swift in Sources */,
 				40ECB6D628F63143004FD644 /* ACPImageButton.swift in Sources */,
 				1390E2A928E88AF9009BCE11 /* EgibilityCheckViewController.swift in Sources */,
 				40EE2CBD28E52E050028888D /* ACPHomeScreenProgramCell.swift in Sources */,

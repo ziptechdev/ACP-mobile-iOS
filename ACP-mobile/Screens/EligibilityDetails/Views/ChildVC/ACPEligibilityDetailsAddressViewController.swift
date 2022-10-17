@@ -19,7 +19,7 @@ class ACPEligibilityDetailsAddressViewController: UIViewController {
 
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = Constants.Text.Title
+        label.text = .localizedString(key: "eligibility_address_title")
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 32, weight: .bold)
         label.textColor = .coreBlue
@@ -29,7 +29,7 @@ class ACPEligibilityDetailsAddressViewController: UIViewController {
 
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = Constants.Text.Subtitle
+        label.text = .localizedString(key: "eligibility_address_details")
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 14, weight: .regular)
         label.textColor = .gray01Light
@@ -40,21 +40,21 @@ class ACPEligibilityDetailsAddressViewController: UIViewController {
 
     private lazy var streetTextField: ACPTextField = {
         let view = ACPTextField()
-        view.titleLabel.text = Constants.Text.Street
+        view.titleLabel.text = .localizedString(key: "eligibility_address_street")
         view.textField.delegate = self
         return view
     }()
 
     private lazy var cityTextField: ACPTextField = {
         let view = ACPTextField()
-        view.titleLabel.text = Constants.Text.City
+        view.titleLabel.text = .localizedString(key: "eligibility_address_city")
         view.textField.delegate = self
         return view
     }()
 
     private lazy var stateTextField: ACPPickerView = {
         let view = ACPPickerView()
-        view.titleLabel.text = Constants.Text.State
+        view.titleLabel.text = .localizedString(key: "eligibility_address_state")
         view.textField.addRightImage(named: "down_arrow")
         view.delegate = self
         view.pickerView.delegate = self
@@ -64,11 +64,11 @@ class ACPEligibilityDetailsAddressViewController: UIViewController {
 
     private lazy var zipTextField: ACPTextField = {
         let view = ACPTextField()
-        view.titleLabel.text = Constants.Text.Zip
+        view.titleLabel.text = .localizedString(key: "eligibility_address_zip")
         view.delegate = self
         view.textField.delegate = self
         view.textField.attributedPlaceholder = NSAttributedString(
-            string: Constants.Text.ZipPlaceholder,
+            string: .localizedString(key: "eligibility_address_placeholder"),
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray01Dark]
         )
         view.textField.keyboardType = .numberPad
@@ -79,7 +79,7 @@ class ACPEligibilityDetailsAddressViewController: UIViewController {
 
     private let noBlankLabel: UILabel = {
         let label = UILabel()
-        label.text = Constants.Text.Blank
+        label.text = .localizedString(key: "eligibility_address_info")
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 12, weight: .regular)
         label.textColor = .gray01Light
@@ -92,7 +92,7 @@ class ACPEligibilityDetailsAddressViewController: UIViewController {
         button.layer.masksToBounds = true
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(Constants.Text.Verify, for: .normal)
+        button.setTitle(.localizedString(key: "eligibility_address_btn"), for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.setTitleColor(.white, for: .highlighted)
         button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
@@ -252,21 +252,6 @@ class ACPEligibilityDetailsAddressViewController: UIViewController {
             static let ButtonHeight: CGFloat = 46
             static let ButtonCornerRadius: CGFloat = 10
             static let ButtonOffsetVertical: CGFloat = 60
-        }
-
-        struct Text {
-            static let Title = "Your home address"
-            static let Subtitle = """
-            The address where you will get service.
-            Do not use a P.O. Box.
-            """
-            static let Verify = "Verify"
-            static let Blank = "*Cannot be left blank"
-            static let Street = "Street Number and Name*"
-            static let City = "City*"
-            static let State = "State*"
-            static let Zip = "ZIP Code"
-            static let ZipPlaceholder = "92805 - 1483"
         }
     }
 }

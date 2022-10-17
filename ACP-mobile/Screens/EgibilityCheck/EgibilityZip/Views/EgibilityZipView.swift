@@ -13,6 +13,7 @@ protocol EgibilityZipCodeDelegate: AnyObject {
     func didPressDone(_ textfield: UITextField, _ secondTextfield: UITextField)
 }
 
+// TODO: Body Length Fix
 class EgibilityZipView: UIView {
 
     // MARK: - Delegates
@@ -124,7 +125,7 @@ class EgibilityZipView: UIView {
             imageName: "right_arrow"
         )
         button.backgroundColor = .lavenderGray
-        button.isEnabled = false
+        button.isUserInteractionEnabled = false
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
@@ -236,7 +237,7 @@ class EgibilityZipView: UIView {
     }
 
     func setVisibilityForValidZipCode() {
-        nextButton.isEnabled = true
+        nextButton.isUserInteractionEnabled = true
         nextButton.backgroundColor = .coreBlue
         nextButton.layer.shadowOpacity = 1.0
         errorLabel.isHidden = true
@@ -244,7 +245,7 @@ class EgibilityZipView: UIView {
     }
 
     func setVisibilityForInvalidZipCode() {
-        nextButton.isEnabled = false
+        nextButton.isUserInteractionEnabled = false
         nextButton.backgroundColor = .lavenderGray
         nextButton.layer.shadowOpacity = 0.0
         errorLabel.isHidden = false
@@ -252,9 +253,9 @@ class EgibilityZipView: UIView {
     }
 
     private func attributedTitleText(attributeText: String, spacing: Int) -> NSMutableAttributedString {
-        let firstAttributes: [NSAttributedString.Key: Any] = [ NSAttributedString.Key.kern: spacing]
-        let firstString = NSMutableAttributedString(string: attributeText, attributes: firstAttributes)
-        return firstString
+        let attributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.kern: spacing]
+        let string = NSMutableAttributedString(string: attributeText, attributes: attributes)
+        return string
     }
 
     // MARK: - Callback
@@ -308,11 +309,11 @@ class EgibilityZipView: UIView {
     }
 
     private func setText() {
-        titleLabel.text = Constants.Text.titleLabelEgibilityText
-        descriptionTexLabel.text = Constants.Text.egibilityCheckText
-        zipLabelName.text = Constants.Text.zipNameLabelText
-        errorLabel.text = Constants.Text.errorLabel
-        nextButton.setTitle(Constants.Text.nextButtonText, for: .normal)
+        titleLabel.text = .localizedString(key: "eligibility_zip_title")
+        descriptionTexLabel.text = .localizedString(key: "eligibility_zip_details")
+        zipLabelName.text = .localizedString(key: "eligibility_zip_label")
+        errorLabel.text = .localizedString(key: "eligibility_zip_error")
+        nextButton.setTitle(.localizedString(key: "eligibility_zip_btn"), for: .normal)
     }
 
     // MARK: - Constants
@@ -332,16 +333,5 @@ class EgibilityZipView: UIView {
             static let ButtonCornerRadius: CGFloat = 10
             static let TitleBotOffset: CGFloat = 10
         }
-
-        struct Text {
-            static let nextButtonText = "Next"
-            static let titleLabelEgibilityText = "Start by entering your ZIP code"
-            // TODO: Add this string to localizable.
-            static let egibilityCheckText: String = "After entering ZIP code you will be required to enter your personal information in order to verify identitiy."
-            static let zipNameLabelText = "Your ZIP Code"
-            static let errorLabel = "ZIP Code Invalid"
-
-        }
     }
-
 }

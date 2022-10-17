@@ -29,7 +29,7 @@ class ACPEligibilityDetailsFailViewController: UIViewController {
 
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = Constants.Text.Title
+        label.text = .localizedString(key: "verify_fail_title")
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 32, weight: .bold)
@@ -58,7 +58,7 @@ class ACPEligibilityDetailsFailViewController: UIViewController {
         button.layer.masksToBounds = true
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(Constants.Text.NewAccount, for: .normal)
+        button.setTitle(.localizedString(key: "verify_fail_new_account"), for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.setTitleColor(.white, for: .highlighted)
         button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
@@ -72,7 +72,7 @@ class ACPEligibilityDetailsFailViewController: UIViewController {
         button.layer.masksToBounds = true
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(Constants.Text.TryAgain, for: .normal)
+        button.setTitle(.localizedString(key: "verify_fail_try_again"), for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.setTitleColor(.white, for: .highlighted)
         button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
@@ -151,11 +151,11 @@ class ACPEligibilityDetailsFailViewController: UIViewController {
     }
 
     private func subtitleAttributedText() -> NSAttributedString {
-        let subtitle = Constants.Text.Subtitle as NSString
+        let subtitle: NSString = .localizedString(key: "verify_fail_details")
         let fullRange = NSRange(location: 0, length: subtitle.length)
-        let attributeRange = subtitle.range(of: Constants.Text.NationalVerifier)
+        let attributeRange = subtitle.range(of: .localizedString(key: "verify_fail_highlight"))
 
-        let string = NSMutableAttributedString(string: Constants.Text.Subtitle)
+        let string: NSMutableAttributedString = .localizedString(key: "verify_fail_details")
         string.addAttribute(.font, value: UIFont.systemFont(ofSize: 14, weight: .regular), range: fullRange)
         string.addAttribute(.paragraphStyle, value: NSMutableParagraphStyle.center, range: fullRange)
         string.addAttribute(.foregroundColor, value: UIColor.gray01Light, range: fullRange)
@@ -179,8 +179,8 @@ class ACPEligibilityDetailsFailViewController: UIViewController {
             return
         }
 
-        let subtitle = Constants.Text.Subtitle as NSString
-        let attributeRange = subtitle.range(of: Constants.Text.NationalVerifier)
+        let subtitle: NSString = .localizedString(key: "verify_fail_details")
+        let attributeRange = subtitle.range(of: .localizedString(key: "verify_fail_highlight"))
 
         if sender.didTapAttributedTextInLabel(label: subtitleLabel, inRange: attributeRange) {
             // TODO: Add Link
@@ -206,14 +206,6 @@ class ACPEligibilityDetailsFailViewController: UIViewController {
             static let ButtonOffsetVertical: CGFloat = 60
             static let ButtonSpacingVertical: CGFloat = 30
             static let ButtonCornerRadius: CGFloat = 10
-        }
-
-        struct Text {
-            static let Title = "We could not verify your identity."
-            static let NationalVerifier = "National Verifier"
-            static let Subtitle = "You either entered wrong information or there is no such data in National Verifier system."
-            static let TryAgain = "Try Again"
-            static let NewAccount = "New Account"
         }
     }
 }
