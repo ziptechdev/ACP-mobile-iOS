@@ -26,6 +26,5 @@ class ACPEligibilityDetailsViewModel {
 
     func didTapVerify() {
         // TODO: Network call
-
     }
 }

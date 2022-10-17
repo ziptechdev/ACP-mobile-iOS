@@ -101,7 +101,7 @@
 "verify_fail_new_account" = "New Account";
 
 /* Eligibility Verifying Success Screen */
-"verify_success_title" = "Welcome, &name!";
+"verify_success_title" = "Welcome, %@!";
 "verify_success_details" = "Success! Your identity has been verified and you are eligible for ACP. You can continue by registering new ACP Mobile account.";
 "verify_success_register" = "Register";
 "verify_success_cancel" = "Cancel";
@@ -109,7 +109,7 @@
 /* Verified Registration Screen */
 "verified_register_page_title" = "Register";
 "verified_register_title" = "Register new account";
-"verified_register_details" = "Hi &name! Register new account by entering your email address and password below.";
+"verified_register_details" = "Hi %@! Register new account by entering your email address and password below.";
 "verified_register_email" = "Email Address";
 "verified_register_password" = "Password";
 "verified_register_confirm" = "Confirm Password";

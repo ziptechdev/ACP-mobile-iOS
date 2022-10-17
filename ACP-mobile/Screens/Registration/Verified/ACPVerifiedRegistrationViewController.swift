@@ -37,7 +37,11 @@ class ACPVerifiedRegistrationViewController: UIViewController {
 
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = .localizedString(key: "verified_register_details")
+        // TODO: Set the name
+        label.text = .formatLocalizedString(
+            key: "verified_register_details",
+            values: "Adi"
+        )
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 14, weight: .regular)
         label.textColor = .gray01Light

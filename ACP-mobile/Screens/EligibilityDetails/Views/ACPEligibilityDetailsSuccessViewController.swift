@@ -44,7 +44,11 @@ class ACPEligibilityDetailsSuccessViewController: UIViewController {
 
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = .localizedString(key: "verify_success_title")
+        // TODO: Set the name
+        label.text = .formatLocalizedString(
+            key: "verify_success_title",
+            values: "Adi"
+        )
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 32, weight: .bold)
