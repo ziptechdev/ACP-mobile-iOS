@@ -35,7 +35,8 @@ class ACPRouter {
 
         let authStr = "Username:Password"
         let authData = authStr.data(using: .utf8)
-        // TODO: - Real Auth
+
+        // TODO: Real Auth
         httpHeaders.add(.authorization("Basic \(authData!.base64EncodedString(options: []))"))
 
         let request = AF.request(

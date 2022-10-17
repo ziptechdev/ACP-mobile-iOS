@@ -192,7 +192,10 @@ extension ACPTabMenuViewController: UICollectionViewDataSource {
         return delegate?.numberOfItems ?? 0
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         guard let cell = delegate?.cellForIndex(collectionView, indexPath: indexPath) else {
             return UICollectionViewCell()
         }

@@ -39,7 +39,7 @@ class ACPLandingScreenViewController: UIViewController {
 
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = .localizedString(key: "landing_details")
+        label.text = .localizedString(key: "landing_subtitle")
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 14, weight: .regular)
         label.textAlignment = .center

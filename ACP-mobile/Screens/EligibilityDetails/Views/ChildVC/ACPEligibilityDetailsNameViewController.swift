@@ -29,7 +29,7 @@ class ACPEligibilityDetailsNameViewController: UIViewController {
 
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = .localizedString(key: "eligibility_details_details")
+        label.text = .localizedString(key: "eligibility_details_subtitle")
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 14, weight: .regular)
         label.textColor = .gray01Light

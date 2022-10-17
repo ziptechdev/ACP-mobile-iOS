@@ -24,7 +24,7 @@ class ACPNotVerifiedRegistrationViewController: UIViewController {
 
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = .localizedString(key: "not_verified_register_details")
+        label.text = .localizedString(key: "not_verified_register_subtitle")
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 14, weight: .regular)
         label.textColor = .gray01Light
@@ -138,11 +138,11 @@ class ACPNotVerifiedRegistrationViewController: UIViewController {
     }
 
     private func explanationAttributedText() -> NSAttributedString {
-        let explanation: NSString = .localizedString(key: "not_verified_register_details_2")
+        let explanation: NSString = .localizedString(key: "not_verified_register_details")
         let fullRange = NSRange(location: 0, length: explanation.length)
         let attributeRange = explanation.range(of: .localizedString(key: "not_verified_register_highlight"))
 
-        let string: NSMutableAttributedString = .localizedString(key: "not_verified_register_details_2")
+        let string: NSMutableAttributedString = .localizedString(key: "not_verified_register_details")
         string.addAttribute(.font, value: UIFont.systemFont(ofSize: 14, weight: .regular), range: fullRange)
         string.addAttribute(.foregroundColor, value: UIColor.gray01Light, range: fullRange)
         string.addAttribute(.foregroundColor, value: UIColor.coreBlue, range: attributeRange)
@@ -161,7 +161,7 @@ class ACPNotVerifiedRegistrationViewController: UIViewController {
             return
         }
 
-        let explanation: NSString = .localizedString(key: "not_verified_register_details_2")
+        let explanation: NSString = .localizedString(key: "not_verified_register_details")
         let attributeRange = explanation.range(of: .localizedString(key: "not_verified_register_highlight"))
 
         if sender.didTapAttributedTextInLabel(label: explanationLabel, inRange: attributeRange) {

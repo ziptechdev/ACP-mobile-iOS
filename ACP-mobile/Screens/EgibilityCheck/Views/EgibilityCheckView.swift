@@ -168,11 +168,11 @@ class EgibilityCheckView: UIView {
     }
 
     private func attributedInfoText() -> NSMutableAttributedString {
-        let info: NSString = .localizedString(key: "eligibility_details")
+        let info: NSString = .localizedString(key: "eligibility_subtitle")
         let fullRange = NSRange(location: 0, length: info.length)
         let termsRange = info.range(of: .localizedString(key: "eligibility_details_highlight"))
 
-        let string: NSMutableAttributedString = .localizedString(key: "eligibility_details")
+        let string: NSMutableAttributedString = .localizedString(key: "eligibility_subtitle")
         string.addAttribute(.font, value: UIFont.systemFont(ofSize: 14, weight: .regular), range: fullRange)
         string.addAttribute(.foregroundColor, value: UIColor.gray01Light, range: fullRange)
         string.addAttribute(.foregroundColor, value: UIColor.coreBlue, range: termsRange)
@@ -185,7 +185,7 @@ class EgibilityCheckView: UIView {
             return
         }
 
-        let info: NSString = .localizedString(key: "eligibility_details")
+        let info: NSString = .localizedString(key: "eligibility_subtitle")
         let termsRange = info.range(of: .localizedString(key: "eligibility_details_highlight"))
 
         if sender.didTapAttributedTextInLabel(label: descriptionLabel, inRange: termsRange) {

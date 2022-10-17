@@ -310,7 +310,7 @@ class EgibilityZipView: UIView {
 
     private func setText() {
         titleLabel.text = .localizedString(key: "eligibility_zip_title")
-        descriptionTexLabel.text = .localizedString(key: "eligibility_zip_details")
+        descriptionTexLabel.text = .localizedString(key: "eligibility_zip_subtitle")
         zipLabelName.text = .localizedString(key: "eligibility_zip_label")
         errorLabel.text = .localizedString(key: "eligibility_zip_error")
         nextButton.setTitle(.localizedString(key: "eligibility_zip_btn"), for: .normal)

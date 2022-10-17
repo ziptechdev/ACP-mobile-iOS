@@ -126,11 +126,11 @@ class ACPEligibilityDetailsVerifyViewController: UIViewController {
     }
 
     private func subtitleAttributedText() -> NSAttributedString {
-        let subtitle: NSString = .localizedString(key: "verify_process_details")
+        let subtitle: NSString = .localizedString(key: "verify_process_subtitle")
         let fullRange = NSRange(location: 0, length: subtitle.length)
         let attributeRange = subtitle.range(of: .localizedString(key: "verify_process_highlight"))
 
-        let string: NSMutableAttributedString = .localizedString(key: "verify_process_details")
+        let string: NSMutableAttributedString = .localizedString(key: "verify_process_subtitle")
         string.addAttribute(.font, value: UIFont.systemFont(ofSize: 14, weight: .regular), range: fullRange)
         string.addAttribute(.paragraphStyle, value: NSMutableParagraphStyle.center, range: fullRange)
         string.addAttribute(.foregroundColor, value: UIColor.gray01Light, range: fullRange)
@@ -177,7 +177,7 @@ class ACPEligibilityDetailsVerifyViewController: UIViewController {
             return
         }
 
-        let subtitle: NSString = .localizedString(key: "verify_process_details")
+        let subtitle: NSString = .localizedString(key: "verify_process_subtitle")
         let attributeRange = subtitle.range(of: .localizedString(key: "verify_process_highlight"))
 
         if sender.didTapAttributedTextInLabel(label: subtitleLabel, inRange: attributeRange) {

@@ -39,7 +39,7 @@ class ACPVerifiedRegistrationViewController: UIViewController {
         let label = UILabel()
         // TODO: Set the name
         label.text = .formatLocalizedString(
-            key: "verified_register_details",
+            key: "verified_register_subtitle",
             values: "Adi"
         )
         label.translatesAutoresizingMaskIntoConstraints = false

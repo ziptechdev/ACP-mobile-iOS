@@ -19,7 +19,7 @@
 
 /* Landing Screen */
 "landing_title" = "Welcome to ACP Mobile";
-"landing_details" = "This is your first time exploring ACP Mobile app. Press ‘Get Started’ button to explore the benfits.";
+"landing_subtitle" = "This is your first time exploring ACP Mobile app. Press ‘Get Started’ button to explore the benfits.";
 "landing_btn" = "Get Started";
 
 /* Welcome Screen */
@@ -40,7 +40,7 @@
 
 /* Screen 1 */
 "eligibility_title" = "Check egibility or create new account";
-"eligibility_details" = "ACP requires proof of your identity to check if you are eligible for any of the assistance programs approved by FCC. If you are already receiving government benefits, check your eligiblity status by clicking the button below. Otherwise create a new account and follow the required steps in order to verify your identitiy.*";
+"eligibility_subtitle" = "ACP requires proof of your identity to check if you are eligible for any of the assistance programs approved by FCC. If you are already receiving government benefits, check your eligiblity status by clicking the button below. Otherwise create a new account and follow the required steps in order to verify your identitiy.*";
 "eligibility_btn" = "Check Egibility";
 "new_account_btn" = "New Account";
 "eligibility_info" = "*All of your personal and identity information goes through National Verifier (NV), a body of FCC. No information is stored by us or third-party services.";
@@ -48,7 +48,7 @@
 
 /* Screen 2 */
 "eligibility_zip_title" = "Start by entering your ZIP code";
-"eligibility_zip_details" = "After entering ZIP code you will be required to enter your personal information in order to verify identitiy.";
+"eligibility_zip_subtitle" = "After entering ZIP code you will be required to enter your personal information in order to verify identitiy.";
 "eligibility_zip_label" = "Your ZIP Code";
 "eligibility_zip_error" = "ZIP Code Invalid";
 "eligibility_zip_btn" = "Next";
@@ -56,7 +56,7 @@
 /* Eligibility Personal Details Screen */
 "eligibility_details_page_title" = "Name";
 "eligibility_details_title" = "Your full legal name";
-"eligibility_details_details" = "The name you use on official documents, like your Social Security Card or State ID. Not a nickname.";
+"eligibility_details_subtitle" = "The name you use on official documents, like your Social Security Card or State ID. Not a nickname.";
 "eligibility_details_info" = "*Cannot be left blank";
 "eligibility_details_name" = "First Name*";
 "eligibility_details_middle_name" = "Middle Name (Optional)";
@@ -67,7 +67,7 @@
 /* Eligibility Date of Birth Screen */
 "eligibility_dob_page_title" = "Date of Birth";
 "eligibility_dob_title" = "Your date of birth";
-"eligibility_dob_details" = "This information is required by National Verifier to verify your identity.";
+"eligibility_dob_subtitle" = "This information is required by National Verifier to verify your identity.";
 "eligibility_dob_info" = "*Cannot be left blank";
 "eligibility_dob_month" = "Month";
 "eligibility_dob_day" = "Day*";
@@ -78,7 +78,7 @@
 /* Eligibility Home Address Screen */
 "eligibility_address_page_title" = "Address";
 "eligibility_address_title" = "Your home address";
-"eligibility_address_details" = "The address where you will get service. Do not use a P.O. Box.";
+"eligibility_address_subtitle" = "The address where you will get service. Do not use a P.O. Box.";
 "eligibility_address_info" = "*Cannot be left blank";
 "eligibility_address_street" = "Street Number and Name*";
 "eligibility_address_city" = "City*";
@@ -89,27 +89,27 @@
 
 /* Eligibility Verifying Screen */
 "verify_process_title" = "Verifying...";
-"verify_process_details" = "We are back-checking your information through National Verifier. It may take a few minutes.";
+"verify_process_subtitle" = "We are back-checking your information through National Verifier. It may take a few minutes.";
 "verify_process_highlight" = "National Verifier";
 "verify_process_btn" = "Cancel";
 
 /* Eligibility Verifying Fail Screen */
 "verify_fail_title" = "We could not verify your identity.";
-"verify_fail_details" = "You either entered wrong information or there is no such data in National Verifier system.";
+"verify_fail_subtitle" = "You either entered wrong information or there is no such data in National Verifier system.";
 "verify_fail_highlight" = "National Verifier";
 "verify_fail_try_again" = "Try Again";
 "verify_fail_new_account" = "New Account";
 
 /* Eligibility Verifying Success Screen */
 "verify_success_title" = "Welcome, %@!";
-"verify_success_details" = "Success! Your identity has been verified and you are eligible for ACP. You can continue by registering new ACP Mobile account.";
+"verify_success_subtitle" = "Success! Your identity has been verified and you are eligible for ACP. You can continue by registering new ACP Mobile account.";
 "verify_success_register" = "Register";
 "verify_success_cancel" = "Cancel";
 
 /* Verified Registration Screen */
 "verified_register_page_title" = "Register";
 "verified_register_title" = "Register new account";
-"verified_register_details" = "Hi %@! Register new account by entering your email address and password below.";
+"verified_register_subtitle" = "Hi %@! Register new account by entering your email address and password below.";
 "verified_register_email" = "Email Address";
 "verified_register_password" = "Password";
 "verified_register_confirm" = "Confirm Password";
@@ -117,8 +117,8 @@
 
 /* Not Verified Registration Screen */
 "not_verified_register_title" = "Create new account";
-"not_verified_register_details" = "Follow the registration and verification process to see if youre eligible for ACP services.";
-"not_verified_register_details_2" = "After successfully completing the process, you will be awarded $10 to your digital wallet to spend with one of our partners.";
+"not_verified_register_subtitle" = "Follow the registration and verification process to see if youre eligible for ACP services.";
+"not_verified_register_details" = "After successfully completing the process, you will be awarded $10 to your digital wallet to spend with one of our partners.";
 "not_verified_register_highlight" = "partners";
 "not_verified_register_btn" = "Get Started";
 
