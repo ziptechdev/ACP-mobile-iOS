@@ -1,36 +1,35 @@
 //
-//  ACPVerifyEmailCodeView.swift
+//  ACPIdentityProofViewController.swift
 //  ACP-mobile
 //
-//  Created by Adi on 11/10/2022.
+//  Created by Adi on 19/10/2022.
 //
 
 import UIKit
 
-class ACPVerifyEmailCodeView: UIView {
+class ACPIdentityProofViewController: UIViewController {
 
 	// MARK: - Properties
+    
+    weak var delegate: ACPTabMenuDelegate?
 
     // MARK: - Views
 
     // MARK: - Initialization
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    // MARK: - Life Cycle
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
         setupUI()
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 
     // MARK: - UI
 
     private func setupUI() {
-        backgroundColor = .red
-        translatesAutoresizingMaskIntoConstraints = false
-        
+        view.backgroundColor = .white
+
         addSubviews()
         setupConstraints()
     }

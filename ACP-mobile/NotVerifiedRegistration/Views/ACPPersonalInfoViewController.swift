@@ -95,9 +95,11 @@ extension ACPPersonalInfoViewController: ACPTermsAndPrivacyLabelDelegate {
 extension ACPPersonalInfoViewController: ACPTabMenuDelegate {
     func didTapNextButton() {
         if tabMenu.currentTab == 0 {
-            navigationController?.present(ACPVerifyEmailViewController(), animated: true)
+            let verifyVC = ACPVerifyEmailViewController(dismissCallback: tabMenu.nextTab)
+            navigationController?.present(verifyVC, animated: true)
+        } else {
+            tabMenu.nextTab()
         }
-//        tabMenu.nextTab()
     }
 
     func didTapActionButton() {
@@ -145,10 +147,12 @@ extension ACPPersonalInfoViewController: ACPTabMenuViewControllerDelegate {
             viewController.delegate = self
             return viewController
         case 1:
-            let viewController = ACPEligibilityDetailsDOBViewController()
+            let viewController = ACPIdentityProofViewController()
+            viewController.delegate = self
             return viewController
         default:
-            let viewController = ACPEligibilityDetailsAddressViewController()
+            let viewController = ACPBankInfoViewController()
+            viewController.delegate = self
             return viewController
         }
     }

@@ -12,6 +12,9 @@ class ACPVerifyEmailViewController: UIViewController {
 
 	// MARK: - Properties
 
+    private var code = ""
+    private var dismissCallback: (() -> Void)
+
     // MARK: - Views
 
     private let infoLabel = ACPTermsAndPrivacyLabel()
@@ -67,9 +70,9 @@ class ACPVerifyEmailViewController: UIViewController {
         return label
     }()
 
-    private let keyboardView: ACPVerifyEmailKeyboardView = {
+    private lazy var keyboardView: ACPVerifyEmailKeyboardView = {
         let view = ACPVerifyEmailKeyboardView()
-
+        view.delegate = self
         return view
     }()
 
@@ -88,6 +91,16 @@ class ACPVerifyEmailViewController: UIViewController {
     }()
 
     // MARK: - Initialization
+
+    init(dismissCallback: @escaping (() -> Void)) {
+        self.dismissCallback = dismissCallback
+
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     // MARK: - Life Cycle
 
@@ -139,7 +152,6 @@ class ACPVerifyEmailViewController: UIViewController {
         codeView.snp.makeConstraints { make in
             make.top.equalTo(subtitleLabel.snp.bottom).offset(Constants.Constraints.CodeViewOffset)
             make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.height.equalTo(60)
         }
 
         resendCodeLabel.snp.makeConstraints { make in
@@ -201,6 +213,8 @@ class ACPVerifyEmailViewController: UIViewController {
     @objc func didTapConfirm() {
         // TODO: Add Call
         print("Confirm")
+        dismissCallback()
+        dismiss(animated: true)
     }
 
     // MARK: - Constants
@@ -247,5 +261,19 @@ extension ACPVerifyEmailViewController: ACPTermsAndPrivacyLabelDelegate {
 
     func didTapPrivacy() {
         // TODO: Add link
+    }
+}
+
+// MARK: - ACPVerifyEmailKeyboardViewDelegate
+
+extension ACPVerifyEmailViewController: ACPVerifyEmailKeyboardViewDelegate {
+    func didPressKey(key: String) {
+        code = String((code + key).prefix(5))
+        codeView.setText(code: code)
+    }
+
+    func didPressDelete() {
+        _ = code.popLast()
+        codeView.setText(code: code)
     }
 }

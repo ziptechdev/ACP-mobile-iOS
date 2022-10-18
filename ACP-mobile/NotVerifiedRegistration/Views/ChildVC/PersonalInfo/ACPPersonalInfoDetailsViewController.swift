@@ -223,7 +223,7 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
 
             static let NameOffsetVertical: CGFloat = 30
 
-            static let TextFieldOffsetVertical: CGFloat = 30
+            static let TextFieldOffsetVertical: CGFloat = 10
 
             static let ButtonHeight: CGFloat = 46
             static let ButtonContentSpacing: CGFloat = 10

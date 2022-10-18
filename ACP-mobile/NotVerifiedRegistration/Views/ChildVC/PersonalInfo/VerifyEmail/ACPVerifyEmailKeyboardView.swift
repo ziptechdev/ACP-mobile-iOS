@@ -85,20 +85,21 @@ class ACPVerifyEmailKeyboardView: UIView {
             let label = UILabel()
             // Set 0 for 11th key
             label.text = value == 11 ? "0" : "\(value)"
+            label.tag = value == 11 ? 0 : value
             label.font = .systemFont(ofSize: 28, weight: .regular)
             label.textAlignment = .center
-            let tap = UITapGestureRecognizer(target: self, action: #selector(didTapKey))
+            let tap = UITapGestureRecognizer(target: self, action: #selector(didTapKey(_:)))
             label.addGestureRecognizer(tap)
             view = label
         }
 
-        // TODO: Add Real Labels and callbacks
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.isUserInteractionEnabled = true
         addSubview(view)
 
         view.snp.makeConstraints { make in
             make.top.equalTo(top)
-            make.width.equalToSuperview().inset(10).dividedBy(3)
+            make.width.equalToSuperview().inset(Constants.Constraints.KeySpacing).dividedBy(3)
             make.height.equalTo(view.snp.width)
             if j == 1 {
                 make.left.equalToSuperview()
@@ -118,13 +119,19 @@ class ACPVerifyEmailKeyboardView: UIView {
         delegate?.didPressDelete()
     }
 
-    @objc func didTapKey() {
-        delegate?.didPressKey(key: "2")
+    @objc func didTapKey(_ sender: UITapGestureRecognizer) {
+        guard let number = sender.view?.tag else {
+            return
+        }
+
+        delegate?.didPressKey(key: "\(number)")
     }
 
     // MARK: - Constants
 
     private struct Constants {
-
+        struct Constraints {
+            static let KeySpacing: CGFloat = 10
+        }
     }
 }
