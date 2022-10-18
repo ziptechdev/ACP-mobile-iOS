@@ -1,8 +1,124 @@
-"welcomeScreen_title" = "Affordable Conectivity Program\n";
-"welcomeScreen_text" = "\nThe Affordable Connectivity Program is an FCC benefit program that helps ensure that households can afford the broadband they need for work, school, healthcare and more.\n\nThe benefit provides a discount of up to $30 per month toward internet service for eligible households and up to $75 per month for households on qualifying Tribal lands. Eligible households can also receive a one-time discount of up to $100 to purchase a laptop, desktop computer, or tablet from participating providers if they contribute more than $10 and less than $50 toward the purchase price.\n\nThe Affordable Connectivity Program is limited to one monthly service discount and one device discount per household. Before continuing you are required to review our Terms of Use and Privacy Policy.\n";
+/* Info Label */
+"info_label_text" = "Read our Terms of Use and Privacy Policy.";
+"info_label_privacy" = "Privacy Policy";
+"info_label_terms" = "Terms of Use";
+
+/* Months */
+"month_1" = "Janauary";
+"month_2" = "February";
+"month_3" = "March";
+"month_4" = "April";
+"month_5" = "May";
+"month_6" = "June";
+"month_7" = "July";
+"month_8" = "August";
+"month_9" = "September";
+"month_10" = "October";
+"month_11" = "November";
+"month_12" = "December";
+
+/* Landing Screen */
+"landing_title" = "Welcome to ACP Mobile";
+"landing_subtitle" = "This is your first time exploring ACP Mobile app. Press ‘Get Started’ button to explore the benfits.";
+"landing_btn" = "Get Started";
+
+/* Welcome Screen */
+"welcome_page_title" = "Welcome";
+"welcome_title" = "Affordable Conectivity Program";
+"welcome_text" = "The Affordable Connectivity Program is an FCC benefit program that helps ensure that households can afford the broadband they need for work, school, healthcare and more.\n\nThe benefit provides a discount of up to $30 per month toward internet service for eligible households and up to $75 per month for households on qualifying Tribal lands. Eligible households can also receive a one-time discount of up to $100 to purchase a laptop, desktop computer, or tablet from participating providers if they contribute more than $10 and less than $50 toward the purchase price.\n\nThe Affordable Connectivity Program is limited to one monthly service discount and one device discount per household. Before continuing you are required to review our Terms of Use and Privacy Policy.";
 "welcome_btn" = "Continue";
+
+/* Terms Screen */
 "terms_title" = "Terms of Use";
 "terms_text" = "\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.";
 "privacy_title" = "\nPrivacy Policy\n";
 "privacy_text" = "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.\n";
 "termsPrivacy_btn" = "Accept";
+
+/* Check Eligibility Screens */
+"eligibility_page_title" = "Eligibility Check";
+
+/* Screen 1 */
+"eligibility_title" = "Check egibility or create new account";
+"eligibility_subtitle" = "ACP requires proof of your identity to check if you are eligible for any of the assistance programs approved by FCC. If you are already receiving government benefits, check your eligiblity status by clicking the button below. Otherwise create a new account and follow the required steps in order to verify your identitiy.*";
+"eligibility_btn" = "Check Egibility";
+"new_account_btn" = "New Account";
+"eligibility_info" = "*All of your personal and identity information goes through National Verifier (NV), a body of FCC. No information is stored by us or third-party services.";
+"eligibility_details_highlight" = "assistance programs";
+
+/* Screen 2 */
+"eligibility_zip_title" = "Start by entering your ZIP code";
+"eligibility_zip_subtitle" = "After entering ZIP code you will be required to enter your personal information in order to verify identitiy.";
+"eligibility_zip_label" = "Your ZIP Code";
+"eligibility_zip_error" = "ZIP Code Invalid";
+"eligibility_zip_btn" = "Next";
+
+/* Eligibility Personal Details Screen */
+"eligibility_details_page_title" = "Name";
+"eligibility_details_title" = "Your full legal name";
+"eligibility_details_subtitle" = "The name you use on official documents, like your Social Security Card or State ID. Not a nickname.";
+"eligibility_details_info" = "*Cannot be left blank";
+"eligibility_details_name" = "First Name*";
+"eligibility_details_middle_name" = "Middle Name (Optional)";
+"eligibility_details_highlight" = "(Optional)";
+"eligibility_details_last_name" = "Last Name*";
+"eligibility_details_btn" = "Next";
+
+/* Eligibility Date of Birth Screen */
+"eligibility_dob_page_title" = "Date of Birth";
+"eligibility_dob_title" = "Your date of birth";
+"eligibility_dob_subtitle" = "This information is required by National Verifier to verify your identity.";
+"eligibility_dob_info" = "*Cannot be left blank";
+"eligibility_dob_month" = "Month";
+"eligibility_dob_day" = "Day*";
+"eligibility_dob_year" = "Year*";
+"eligibility_dob_ssn" = "SSN (Last 4 digits of your Social Security Number)*";
+"eligibility_dob_btn" = "Next";
+
+/* Eligibility Home Address Screen */
+"eligibility_address_page_title" = "Address";
+"eligibility_address_title" = "Your home address";
+"eligibility_address_subtitle" = "The address where you will get service. Do not use a P.O. Box.";
+"eligibility_address_info" = "*Cannot be left blank";
+"eligibility_address_street" = "Street Number and Name*";
+"eligibility_address_city" = "City*";
+"eligibility_address_state" = "State*";
+"eligibility_address_zip" = "ZIP Code";
+"eligibility_address_placeholder" = "92805 - 1483";
+"eligibility_address_btn" = "Verify";
+
+/* Eligibility Verifying Screen */
+"verify_process_title" = "Verifying...";
+"verify_process_subtitle" = "We are back-checking your information through National Verifier. It may take a few minutes.";
+"verify_process_highlight" = "National Verifier";
+"verify_process_btn" = "Cancel";
+
+/* Eligibility Verifying Fail Screen */
+"verify_fail_title" = "We could not verify your identity.";
+"verify_fail_subtitle" = "You either entered wrong information or there is no such data in National Verifier system.";
+"verify_fail_highlight" = "National Verifier";
+"verify_fail_try_again" = "Try Again";
+"verify_fail_new_account" = "New Account";
+
+/* Eligibility Verifying Success Screen */
+"verify_success_title" = "Welcome, %@!";
+"verify_success_subtitle" = "Success! Your identity has been verified and you are eligible for ACP. You can continue by registering new ACP Mobile account.";
+"verify_success_register" = "Register";
+"verify_success_cancel" = "Cancel";
+
+/* Verified Registration Screen */
+"verified_register_page_title" = "Register";
+"verified_register_title" = "Register new account";
+"verified_register_subtitle" = "Hi %@! Register new account by entering your email address and password below.";
+"verified_register_email" = "Email Address";
+"verified_register_password" = "Password";
+"verified_register_confirm" = "Confirm Password";
+"verified_register_btn" = "Register";
+
+/* Not Verified Registration Screen */
+"not_verified_register_title" = "Create new account";
+"not_verified_register_subtitle" = "Follow the registration and verification process to see if youre eligible for ACP services.";
+"not_verified_register_details" = "After successfully completing the process, you will be awarded $10 to your digital wallet to spend with one of our partners.";
+"not_verified_register_highlight" = "partners";
+"not_verified_register_btn" = "Get Started";
+

@@ -57,7 +57,7 @@ class EgibilityCheckView: UIView {
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
-        button.layer.shadowColor = UIColor.gray03Light.cgColor // UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        button.layer.shadowColor = UIColor.gray03Light.cgColor
         button.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
         button.layer.shadowOpacity = 1.0
         button.layer.shadowRadius = 15.0
@@ -106,7 +106,6 @@ class EgibilityCheckView: UIView {
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(didTapLabel(_:)))
         descriptionLabel.addGestureRecognizer(tap)
-        descriptionLabel.attributedText = attributedInfoText()
 
         checkEgibilityButton.addTarget(self, action: #selector(checkEgibilityTapped), for: .touchUpInside)
         createNewAccountButton.addTarget(self, action: #selector(createNewAccountTapped), for: .touchUpInside)
@@ -161,22 +160,22 @@ class EgibilityCheckView: UIView {
     }
 
     private func setText() {
-        titleLabel.text = Constants.Text.titleLabelEgibilityText
-        descriptionLabel.text = Constants.Text.egibilityCheckText
-        infoLabel.text = Constants.Text.personalNoteInfoText
-        checkEgibilityButton.setTitle(Constants.Text.checkEgTextButton, for: .normal)
-        createNewAccountButton.setTitle(Constants.Text.newAccountTextButton, for: .normal)
+        titleLabel.text = .localizedString(key: "eligibility_title")
+        descriptionLabel.attributedText = attributedInfoText()
+        infoLabel.text = .localizedString(key: "eligibility_info")
+        checkEgibilityButton.setTitle(.localizedString(key: "eligibility_btn"), for: .normal)
+        createNewAccountButton.setTitle(.localizedString(key: "new_account_btn"), for: .normal)
     }
 
     private func attributedInfoText() -> NSMutableAttributedString {
-        let info =  Constants.Text.egibilityCheckText as NSString
+        let info: NSString = .localizedString(key: "eligibility_subtitle")
         let fullRange = NSRange(location: 0, length: info.length)
-        let markRange = info.range(of: Constants.Text.Terms)
+        let termsRange = info.range(of: .localizedString(key: "eligibility_details_highlight"))
 
-        let string = NSMutableAttributedString(string: Constants.Text.egibilityCheckText)
+        let string: NSMutableAttributedString = .localizedString(key: "eligibility_subtitle")
         string.addAttribute(.font, value: UIFont.systemFont(ofSize: 14, weight: .regular), range: fullRange)
         string.addAttribute(.foregroundColor, value: UIColor.gray01Light, range: fullRange)
-        string.addAttribute(.foregroundColor, value: UIColor.coreBlue, range: markRange)
+        string.addAttribute(.foregroundColor, value: UIColor.coreBlue, range: termsRange)
 
         return string
     }
@@ -185,8 +184,9 @@ class EgibilityCheckView: UIView {
         guard let sender = sender else {
             return
         }
-        let info = Constants.Text.egibilityCheckText as NSString
-        let termsRange = info.range(of: Constants.Text.Terms)
+
+        let info: NSString = .localizedString(key: "eligibility_subtitle")
+        let termsRange = info.range(of: .localizedString(key: "eligibility_details_highlight"))
 
         if sender.didTapAttributedTextInLabel(label: descriptionLabel, inRange: termsRange) {
             delegate?.didTapTextLink()
@@ -204,19 +204,6 @@ class EgibilityCheckView: UIView {
             static let ButtonHeight: CGFloat = 46
             static let ButtonContentSpacing: CGFloat = 10
             static let ButtonCornerRadius: CGFloat = 10
-        }
-
-        struct Text {
-            static let checkEgTextButton = "Check Egibility"
-            static let newAccountTextButton = "New Account"
-            static let titleLabelEgibilityText = "Check egibility or create new account"
-            // TODO: Add this string to localizable.
-            // swiftlint:disable:next line_length
-            static let egibilityCheckText: String = "ACP requires proof of your identity to check if you are eligible for any of the assistance programs approved by FCC. If you are already receiving government benefits, check your eligiblity status by clicking the button below. Otherwise create a new account and follow the required steps in order to verify your identitiy.*"
-            // swiftlint:disable:next line_length
-            static let personalNoteInfoText = "*All of your personal and identity information goes through National Verifier (NV), a body of FCC. No information is stored by us or third-party services."
-            static let Terms: String = "assistance programs"
-
         }
     }
 }

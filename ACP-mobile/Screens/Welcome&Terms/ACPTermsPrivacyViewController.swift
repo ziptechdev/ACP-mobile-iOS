@@ -45,7 +45,7 @@ class ACPTermsPrivacyViewController: UIViewController {
     private lazy var termsDescriptionText: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = NSLocalizedString("terms_text", comment: "")
+        lbl.text = .localizedString(key: "terms_text")
         lbl.numberOfLines = 0
         lbl.textAlignment = .justified
         lbl.textColor = .gray06Dark
@@ -67,7 +67,7 @@ class ACPTermsPrivacyViewController: UIViewController {
     private lazy var privacyDescriptionText: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = NSLocalizedString("privacy_text", comment: "")
+        lbl.text = .localizedString(key: "privacy_text")
         lbl.numberOfLines = 0
         lbl.textAlignment = .justified
         lbl.textColor = .gray06Dark
@@ -108,7 +108,7 @@ class ACPTermsPrivacyViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        title = "Welcome"
+        title = .localizedString(key: "welcome_page_title")
         navigationController?.navigationBar.isHidden = false
         navigationController?.navigationBar.titleTextAttributes = [
             .font: UIFont.systemFont(ofSize: 20, weight: .regular),

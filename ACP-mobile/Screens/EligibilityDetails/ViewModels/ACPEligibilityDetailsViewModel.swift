@@ -16,16 +16,15 @@ class ACPEligibilityDetailsViewModel {
     func titleForTab(at index: ACPTopTabMenuViewController.TabIndex) -> String {
         switch index {
         case .first:
-            return "Name"
+            return .localizedString(key: "eligibility_details_page_title")
         case .second:
-            return "Date of Birth"
+            return .localizedString(key: "eligibility_dob_page_title")
         case .third:
-            return "Address"
+            return .localizedString(key: "eligibility_address_page_title")
         }
     }
 
     func didTapVerify() {
         // TODO: Network call
-
     }
 }

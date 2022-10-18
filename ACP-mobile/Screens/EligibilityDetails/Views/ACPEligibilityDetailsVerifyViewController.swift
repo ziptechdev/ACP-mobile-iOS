@@ -21,7 +21,7 @@ class ACPEligibilityDetailsVerifyViewController: UIViewController {
 
     private let loadingLabel: UILabel = {
         let label = UILabel()
-        label.text = Constants.Text.Countdown
+        label.text = "0%"
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 32, weight: .bold)
@@ -31,7 +31,7 @@ class ACPEligibilityDetailsVerifyViewController: UIViewController {
 
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = Constants.Text.Title
+        label.text = .localizedString(key: "verify_process_title")
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 32, weight: .bold)
@@ -56,7 +56,7 @@ class ACPEligibilityDetailsVerifyViewController: UIViewController {
         button.layer.masksToBounds = true
         button.backgroundColor = .clear
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(Constants.Text.Cancel, for: .normal)
+        button.setTitle(.localizedString(key: "verify_process_btn"), for: .normal)
         button.setTitleColor(.coreBlue, for: .normal)
         button.setTitleColor(.coreBlue, for: .highlighted)
         button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
@@ -126,11 +126,11 @@ class ACPEligibilityDetailsVerifyViewController: UIViewController {
     }
 
     private func subtitleAttributedText() -> NSAttributedString {
-        let subtitle = Constants.Text.Subtitle as NSString
+        let subtitle: NSString = .localizedString(key: "verify_process_subtitle")
         let fullRange = NSRange(location: 0, length: subtitle.length)
-        let attributeRange = subtitle.range(of: Constants.Text.NationalVerifier)
+        let attributeRange = subtitle.range(of: .localizedString(key: "verify_process_highlight"))
 
-        let string = NSMutableAttributedString(string: Constants.Text.Subtitle)
+        let string: NSMutableAttributedString = .localizedString(key: "verify_process_subtitle")
         string.addAttribute(.font, value: UIFont.systemFont(ofSize: 14, weight: .regular), range: fullRange)
         string.addAttribute(.paragraphStyle, value: NSMutableParagraphStyle.center, range: fullRange)
         string.addAttribute(.foregroundColor, value: UIColor.gray01Light, range: fullRange)
@@ -177,8 +177,8 @@ class ACPEligibilityDetailsVerifyViewController: UIViewController {
             return
         }
 
-        let subtitle = Constants.Text.Subtitle as NSString
-        let attributeRange = subtitle.range(of: Constants.Text.NationalVerifier)
+        let subtitle: NSString = .localizedString(key: "verify_process_subtitle")
+        let attributeRange = subtitle.range(of: .localizedString(key: "verify_process_highlight"))
 
         if sender.didTapAttributedTextInLabel(label: subtitleLabel, inRange: attributeRange) {
             // TODO: Add Link
@@ -212,14 +212,6 @@ class ACPEligibilityDetailsVerifyViewController: UIViewController {
 
             static let ButtonHeight: CGFloat = 46
             static let ButtonOffsetVertical: CGFloat = 45
-        }
-
-        struct Text {
-            static let Title = "Verifying..."
-            static let Countdown = "0%"
-            static let NationalVerifier = "National Verifier"
-            static let Subtitle = "We are back-checking your information through National Verifier. It may take a few minutes."
-            static let Cancel = "Cancel"
         }
 
         struct Numbers {

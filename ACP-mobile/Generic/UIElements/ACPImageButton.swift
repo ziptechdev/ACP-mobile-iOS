@@ -53,6 +53,7 @@ class ACPImageButton: UIButton {
         setImage(image, for: .highlighted)
 
         setTitleColor(textColor, for: .disabled)
+        setImage(image, for: .disabled)
     }
 
     required init?(coder: NSCoder) {
