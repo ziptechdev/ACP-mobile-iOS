@@ -102,9 +102,13 @@ extension ACPIdentityProofViewController: ACPTermsAndPrivacyLabelDelegate {
 
 extension ACPIdentityProofViewController: ACPTabMenuDelegate {
     func didTapNextButton() {
+        // TODO: Add link
+        tabMenu.nextTab()
     }
 
     func didTapActionButton() {
+        // TODO: Add link
+        delegate?.didTapNextButton()
     }
 }
 
