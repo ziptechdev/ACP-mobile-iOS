@@ -99,7 +99,8 @@ extension ACPPersonalInfoViewController: ACPTabMenuDelegate {
     }
 
     func didTapActionButton() {
-
+        let targetVC = ACPRegistrationCompleteViewController()
+        navigationController?.pushViewController(targetVC, animated: true)
     }
 }
 
