@@ -15,6 +15,7 @@ class ACPNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationBar.backgroundColor = .clear
         navigationBar.barTintColor = .white
 
         // Removes the line beneath the tab controller

@@ -1,0 +1,172 @@
+//
+//  ACPEligibilityDetailsViewController.swift
+//  ACP-mobile
+//
+//  Created by Adi on 01/10/2022.
+//
+
+import UIKit
+import SnapKit
+
+class ACPEligibilityDetailsViewController: UIViewController {
+
+	// MARK: - Properties
+
+    private let viewModel = ACPEligibilityDetailsViewModel()
+
+    // MARK: - Views
+
+    private let tabMenu = ACPTabMenuViewController()
+
+    private let infoLabel = ACPTermsAndPrivacyLabel()
+
+    // MARK: - Life Cycle
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        setupUI()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        title = .localizedString(key: "eligibility_page_title")
+        navigationController?.navigationBar.isHidden = false
+
+        setupRightNavigationBarButton()
+        setupLeftNavigationBarButton()
+    }
+
+    // MARK: - UI
+
+    private func setupUI() {
+        view.backgroundColor = .white
+
+        addSubviews()
+        setupConstraints()
+        setupTabMenu()
+
+        infoLabel.delegate = self
+    }
+
+    private func addSubviews() {
+        view.addSubview(infoLabel)
+    }
+
+    private func setupConstraints() {
+        infoLabel.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(Constants.Constraints.HeaderInsetHorizontal)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(Constants.Constraints.HeaderInsetVertical)
+        }
+    }
+
+    private func setupTabMenu() {
+        addChild(tabMenu)
+        view.addSubview(tabMenu.view)
+
+        tabMenu.view.translatesAutoresizingMaskIntoConstraints = false
+        tabMenu.view.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.left.right.equalToSuperview()
+            make.bottom.equalTo(infoLabel.snp.top)
+        }
+
+        tabMenu.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        tabMenu.didMove(toParent: self)
+
+        tabMenu.delegate = self
+    }
+
+    // MARK: - Constants
+
+    private struct Constants {
+        struct Constraints {
+            static let HeaderInsetHorizontal: CGFloat = 35
+            static let HeaderInsetVertical: CGFloat = 20
+            static let HeaderCornerRadius: CGFloat = 10
+            static let HeaderHeight: CGFloat = 40
+        }
+    }
+}
+
+// MARK: - ACPTermsAndPrivacyLabelDelegate
+
+extension ACPEligibilityDetailsViewController: ACPTermsAndPrivacyLabelDelegate {
+    func didTapTerms() {
+        // TODO: Add link
+    }
+
+    func didTapPrivacy() {
+        // TODO: Add link
+    }
+}
+
+// MARK: - ACPTabMenuDelegate
+
+extension ACPEligibilityDetailsViewController: ACPTabMenuDelegate {
+    func didTapNextButton() {
+        tabMenu.nextTab()
+    }
+
+    func didTapActionButton() {
+        viewModel.didTapVerify()
+
+        let viewController = ACPEligibilityDetailsVerifyViewController()
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+}
+
+// MARK: - ACPTabMenuViewControllerDelegate
+
+extension ACPEligibilityDetailsViewController: ACPTabMenuViewControllerDelegate {
+    var numberOfItems: Int {
+        return viewModel.numberOfTabItems()
+    }
+
+    func setupViews(collectionView: UICollectionView, containerView: UIView) {
+        collectionView.backgroundColor = .gray06Light
+        collectionView.layer.masksToBounds = true
+        collectionView.layer.cornerRadius = Constants.Constraints.HeaderCornerRadius
+        collectionView.contentInset = UIEdgeInsets(top: 6, left: 6, bottom: 6, right: 6)
+
+        collectionView.register(ACPTabMenuTitleCell.self)
+
+        collectionView.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(Constants.Constraints.HeaderInsetHorizontal)
+            make.top.equalToSuperview().inset(Constants.Constraints.HeaderInsetVertical)
+            make.height.equalTo(Constants.Constraints.HeaderHeight)
+        }
+
+        containerView.snp.makeConstraints { make in
+            make.top.equalTo(collectionView.snp.bottom)
+            make.bottom.left.right.equalToSuperview()
+        }
+    }
+
+    func cellForIndex(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: ACPTabMenuTitleCell = collectionView.dequeue(at: indexPath)
+        cell.configureCell(text: viewModel.titleForTab(at: indexPath.item))
+        return cell
+    }
+
+    func didSelectTab(index: Int) -> UIViewController {
+        switch index {
+        case 0:
+            let viewController = ACPEligibilityDetailsNameViewController()
+            viewController.delegate = self
+            viewController.viewModel = viewModel
+            return viewController
+        case 1:
+            let viewController = ACPEligibilityDetailsDOBViewController()
+            viewController.delegate = self
+            viewController.viewModel = viewModel
+            return viewController
+        default:
+            let viewController = ACPEligibilityDetailsAddressViewController()
+            viewController.delegate = self
+            viewController.viewModel = viewModel
+            return viewController
+        }
+    }
+}

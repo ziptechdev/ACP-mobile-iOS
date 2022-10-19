@@ -14,7 +14,7 @@ class ACPNotVerifiedRegistrationViewController: UIViewController {
 
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = Constants.Text.Title
+        label.text = .localizedString(key: "not_verified_register_title")
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 32, weight: .bold)
         label.textColor = .coreBlue
@@ -24,7 +24,7 @@ class ACPNotVerifiedRegistrationViewController: UIViewController {
 
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = Constants.Text.Subtitle
+        label.text = .localizedString(key: "not_verified_register_subtitle")
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 14, weight: .regular)
         label.textColor = .gray01Light
@@ -61,7 +61,7 @@ class ACPNotVerifiedRegistrationViewController: UIViewController {
         )
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(Constants.Text.GetStarted, for: .normal)
+        button.setTitle(.localizedString(key: "not_verified_register_btn"), for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         return button
@@ -138,11 +138,11 @@ class ACPNotVerifiedRegistrationViewController: UIViewController {
     }
 
     private func explanationAttributedText() -> NSAttributedString {
-        let explanation = Constants.Text.Explanation as NSString
+        let explanation: NSString = .localizedString(key: "not_verified_register_details")
         let fullRange = NSRange(location: 0, length: explanation.length)
-        let attributeRange = explanation.range(of: Constants.Text.Partners)
+        let attributeRange = explanation.range(of: .localizedString(key: "not_verified_register_highlight"))
 
-        let string = NSMutableAttributedString(string: Constants.Text.Explanation)
+        let string: NSMutableAttributedString = .localizedString(key: "not_verified_register_details")
         string.addAttribute(.font, value: UIFont.systemFont(ofSize: 14, weight: .regular), range: fullRange)
         string.addAttribute(.foregroundColor, value: UIColor.gray01Light, range: fullRange)
         string.addAttribute(.foregroundColor, value: UIColor.coreBlue, range: attributeRange)
@@ -162,8 +162,8 @@ class ACPNotVerifiedRegistrationViewController: UIViewController {
             return
         }
 
-        let explanation = Constants.Text.Explanation as NSString
-        let attributeRange = explanation.range(of: Constants.Text.Partners)
+        let explanation: NSString = .localizedString(key: "not_verified_register_details")
+        let attributeRange = explanation.range(of: .localizedString(key: "not_verified_register_highlight"))
 
         if sender.didTapAttributedTextInLabel(label: explanationLabel, inRange: attributeRange) {
             // TODO: Add Link
@@ -194,14 +194,6 @@ class ACPNotVerifiedRegistrationViewController: UIViewController {
             static let ButtonOffsetVertical: CGFloat = 30
 
             static let InfoLabelInsetY: CGFloat = 60
-        }
-
-        struct Text {
-            static let Title = "Create new account"
-            static let Subtitle = "Follow the registration and verification process to see if youre eligible for ACP services."
-            static let Explanation = "After successfully completing the process, you will be awarded $10 to your digital wallet to spend with one of our partners."
-            static let Partners = "partners"
-            static let GetStarted = "Get Started"
         }
     }
 }
