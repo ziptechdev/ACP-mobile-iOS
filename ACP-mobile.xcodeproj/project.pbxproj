@@ -73,6 +73,7 @@
 		400ABA2D28FF7F6000A6DCB6 /* VerifyEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9EA28FF7F6000A6DCB6 /* VerifyEndpoint.swift */; };
 		400ABA2E28FF7F6000A6DCB6 /* ACPRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9EB28FF7F6000A6DCB6 /* ACPRouter.swift */; };
 		400ABA2F28FF7F6000A6DCB6 /* ACPEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9EC28FF7F6000A6DCB6 /* ACPEndpoint.swift */; };
+		400ABA3228FF904B00A6DCB6 /* ACPTabMenuDotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400ABA3128FF904B00A6DCB6 /* ACPTabMenuDotCell.swift */; };
 		40B5EDD828E224F40096B91B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40B5EDD728E224F40096B91B /* Assets.xcassets */; };
 		40B5EDDB28E224F40096B91B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40B5EDD928E224F40096B91B /* LaunchScreen.storyboard */; };
 		40EE2CB028E4AC5B0028888D /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40EE2CAF28E4AC5B0028888D /* Colors.xcassets */; };
@@ -155,6 +156,7 @@
 		400AB9EA28FF7F6000A6DCB6 /* VerifyEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyEndpoint.swift; sourceTree = "<group>"; };
 		400AB9EB28FF7F6000A6DCB6 /* ACPRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPRouter.swift; sourceTree = "<group>"; };
 		400AB9EC28FF7F6000A6DCB6 /* ACPEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEndpoint.swift; sourceTree = "<group>"; };
+		400ABA3128FF904B00A6DCB6 /* ACPTabMenuDotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPTabMenuDotCell.swift; sourceTree = "<group>"; };
 		409132C028F4E0740003CC4E /* ACPVerifyEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPVerifyEmailViewController.swift; sourceTree = "<group>"; };
 		409132C428F4EBC10003CC4E /* ACPVerifyEmailKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPVerifyEmailKeyboardView.swift; sourceTree = "<group>"; };
 		409132C628F4EBF50003CC4E /* ACPVerifyEmailCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPVerifyEmailCodeView.swift; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 		400AB99C28FF7F5F00A6DCB6 /* Registration */ = {
 			isa = PBXGroup;
 			children = (
+				400AB9D328FF7F6000A6DCB6 /* NotVerified */,
 				400AB99D28FF7F5F00A6DCB6 /* Verified */,
 			);
 			path = Registration;
@@ -403,6 +406,7 @@
 			children = (
 				400AB9C428FF7F6000A6DCB6 /* ACPTabMenuViewController.swift */,
 				400AB9C528FF7F6000A6DCB6 /* ACPFocusableView.swift */,
+				400ABA3328FF905C00A6DCB6 /* Cells */,
 			);
 			path = NewTabMenu;
 			sourceTree = "<group>";
@@ -412,7 +416,6 @@
 			children = (
 				400AB9C928FF7F6000A6DCB6 /* ACPTopTabMenuViewController.swift */,
 				400AB9CA28FF7F6000A6DCB6 /* ACPTopTabMenuButton.swift */,
-				400AB9CB28FF7F6000A6DCB6 /* ACPTabMenuTitleCell.swift */,
 			);
 			path = TabMenu;
 			sourceTree = "<group>";
@@ -430,13 +433,13 @@
 			path = UIElements;
 			sourceTree = "<group>";
 		};
-		400AB9D328FF7F6000A6DCB6 /* NotVerifiedRegistration */ = {
+		400AB9D328FF7F6000A6DCB6 /* NotVerified */ = {
 			isa = PBXGroup;
 			children = (
 				400AB9D428FF7F6000A6DCB6 /* ViewModels */,
 				400AB9D628FF7F6000A6DCB6 /* Views */,
 			);
-			path = NotVerifiedRegistration;
+			path = NotVerified;
 			sourceTree = "<group>";
 		};
 		400AB9D428FF7F6000A6DCB6 /* ViewModels */ = {
@@ -450,9 +453,9 @@
 		400AB9D628FF7F6000A6DCB6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				400AB9D728FF7F6000A6DCB6 /* ChildVC */,
 				400AB9E528FF7F6000A6DCB6 /* ACPNotVerifiedRegistrationViewController.swift */,
 				400AB9E628FF7F6000A6DCB6 /* ACPPersonalInfoViewController.swift */,
+				400AB9D728FF7F6000A6DCB6 /* ChildVC */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -470,8 +473,8 @@
 		400AB9D828FF7F6000A6DCB6 /* PersonalInfo */ = {
 			isa = PBXGroup;
 			children = (
-				400AB9D928FF7F6000A6DCB6 /* VerifyEmail */,
 				400AB9DD28FF7F6000A6DCB6 /* ACPPersonalInfoDetailsViewController.swift */,
+				400AB9D928FF7F6000A6DCB6 /* VerifyEmail */,
 			);
 			path = PersonalInfo;
 			sourceTree = "<group>";
@@ -490,10 +493,7 @@
 			isa = PBXGroup;
 			children = (
 				400AB9DF28FF7F6000A6DCB6 /* ACPIdentityProofViewController.swift */,
-				400AB9E028FF7F6000A6DCB6 /* ACPSelfieViewController.swift */,
-				400AB9E128FF7F6000A6DCB6 /* ACPScanIDViewController.swift */,
-				400AB9E228FF7F6000A6DCB6 /* ACPKYCViewController.swift */,
-				400AB9E328FF7F6000A6DCB6 /* ACPKYCCompleteViewController.swift */,
+				400ABA3028FF8BFE00A6DCB6 /* ChildVC */,
 			);
 			path = KYC;
 			sourceTree = "<group>";
@@ -515,6 +515,26 @@
 				400AB9EA28FF7F6000A6DCB6 /* VerifyEndpoint.swift */,
 			);
 			path = Endpoints;
+			sourceTree = "<group>";
+		};
+		400ABA3028FF8BFE00A6DCB6 /* ChildVC */ = {
+			isa = PBXGroup;
+			children = (
+				400AB9E028FF7F6000A6DCB6 /* ACPSelfieViewController.swift */,
+				400AB9E128FF7F6000A6DCB6 /* ACPScanIDViewController.swift */,
+				400AB9E228FF7F6000A6DCB6 /* ACPKYCViewController.swift */,
+				400AB9E328FF7F6000A6DCB6 /* ACPKYCCompleteViewController.swift */,
+			);
+			path = ChildVC;
+			sourceTree = "<group>";
+		};
+		400ABA3328FF905C00A6DCB6 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				400ABA3128FF904B00A6DCB6 /* ACPTabMenuDotCell.swift */,
+				400AB9CB28FF7F6000A6DCB6 /* ACPTabMenuTitleCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		40B5EDC228E224F20096B91B = {
@@ -543,7 +563,6 @@
 				400AB9B428FF7F6000A6DCB6 /* Extensions */,
 				400AB9C228FF7F6000A6DCB6 /* Generic */,
 				400AB9E728FF7F6000A6DCB6 /* Networking */,
-				400AB9D328FF7F6000A6DCB6 /* NotVerifiedRegistration */,
 				400AB98A28FF7F5F00A6DCB6 /* Screens */,
 				40B5EDFE28E227A30096B91B /* Resources */,
 			);
@@ -739,6 +758,7 @@
 				400ABA0128FF7F6000A6DCB6 /* EgibilityCheckView.swift in Sources */,
 				400AB9F728FF7F6000A6DCB6 /* ACPEligibilityDetailsVerifyViewController.swift in Sources */,
 				400ABA0C28FF7F6000A6DCB6 /* UIViewController+ACP.swift in Sources */,
+				400ABA3228FF904B00A6DCB6 /* ACPTabMenuDotCell.swift in Sources */,
 				400ABA0828FF7F6000A6DCB6 /* UITableView+ACP.swift in Sources */,
 				400ABA0E28FF7F6000A6DCB6 /* UIColor+ACP.swift in Sources */,
 				400ABA2928FF7F6000A6DCB6 /* ACPBankInfoViewController.swift in Sources */,

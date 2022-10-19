@@ -11,6 +11,8 @@ class ACPKYCCompleteViewController: UIViewController {
 
 	// MARK: - Properties
 
+    weak var delegate: ACPTabMenuDelegate?
+
     // MARK: - Views
 
     // MARK: - Initialization

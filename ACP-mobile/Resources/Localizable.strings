@@ -116,9 +116,41 @@
 "verified_register_btn" = "Register";
 
 /* Not Verified Registration Screen */
+"not_verified_register_page_title" = "Registration";
 "not_verified_register_title" = "Create new account";
 "not_verified_register_subtitle" = "Follow the registration and verification process to see if youre eligible for ACP services.";
 "not_verified_register_details" = "After successfully completing the process, you will be awarded $10 to your digital wallet to spend with one of our partners.";
 "not_verified_register_highlight" = "partners";
 "not_verified_register_btn" = "Get Started";
 
+/* Personal Info Screen */
+"personal_info_page_title" = "Personal Info";
+"personal_info_subtitle" = "Enter personal information below that will be associated with your account.";
+"personal_info_first_name" = "First Name";
+"personal_info_last_name" = "Last Name";
+"personal_info_email" = "Email Address";
+"personal_info_phone" = "Phone Number";
+"personal_info_password" = "Password";
+"personal_info_confirm" = "Confirm Password";
+"personal_info_ssn" = "SSN (Social Security Number)";
+"personal_info_btn" = "Next";
+
+/* Verify Email Screen */
+"verify_email_title" = "Confirm your email";
+"verify_email_subtitle" = "We’ve sent numerical confirmation code to your email. Please enter it below to verify it’s you and continue to the next step.";
+"verify_email_no_code" = "Didn’t receive your code? Resend.";
+"verify_email_highlight" = "Resend";
+"verify_email_btn" = "Confirm";
+
+/* Bank Info Screen */
+"identity_proof_page_title" = "Identity Proof";
+
+/* Bank Info Screen */
+"bank_info_page_title" = "Bank Info";
+"bank_info_subtitle" = "Enter bank account information that we will use to transfer funds.";
+"bank_info_bank_name" = "Bank Name";
+"bank_info_bank_number" = "Bank Number";
+"bank_info_acc_name" = "Account Holder Name";
+"bank_info_acc_number" = "Account Number";
+"bank_info_expiration" = "Expiration Date";
+"bank_info_btn" = "Complete";

@@ -29,7 +29,7 @@ class ACPPersonalInfoViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        title = Constants.Text.Title
+        title = .localizedString(key: "not_verified_register_page_title")
         navigationController?.navigationBar.isHidden = false
 
         setupRightNavigationBarButton()
@@ -70,10 +70,6 @@ class ACPPersonalInfoViewController: UIViewController {
             static let HeaderInsetVertical: CGFloat = 20
             static let HeaderCornerRadius: CGFloat = 10
             static let HeaderHeight: CGFloat = 40
-        }
-
-        struct Text {
-            static let Title = "Registration"
         }
     }
 }

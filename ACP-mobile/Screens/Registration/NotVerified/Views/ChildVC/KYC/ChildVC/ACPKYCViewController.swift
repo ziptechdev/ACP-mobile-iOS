@@ -1,5 +1,5 @@
 //
-//  ACPSelfieViewController.swift
+//  ACPKYCViewController.swift
 //  ACP-mobile
 //
 //  Created by Adi on 18/10/2022.
@@ -7,9 +7,11 @@
 
 import UIKit
 
-class ACPSelfieViewController: UIViewController {
+class ACPKYCViewController: UIViewController {
 
 	// MARK: - Properties
+
+    weak var delegate: ACPTabMenuDelegate?
 
     // MARK: - Views
 

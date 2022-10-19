@@ -11,6 +11,8 @@ class ACPScanIDViewController: UIViewController {
 
 	// MARK: - Properties
 
+    weak var delegate: ACPTabMenuDelegate?
+
     // MARK: - Views
 
     // MARK: - Initialization

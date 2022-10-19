@@ -13,17 +13,21 @@ class ACPEligibilityDetailsViewModel {
 
     var model = ACPEligibilityDetailsModel()
 
-    private let tabs = ["Name", "Date of Birth", "Address"]
+    private let tabNames: [String] = [
+        .localizedString(key: "eligibility_details_page_title"),
+        .localizedString(key: "eligibility_dob_page_title"),
+        .localizedString(key: "eligibility_address_page_title")
+    ]
 
     func didTapVerify() {
         // TODO: Network call
     }
 
     func numberOfTabItems() -> Int {
-        return tabs.count
+        return tabNames.count
     }
 
     func titleForTab(at index: Int) -> String {
-        return tabs[index]
+        return tabNames[index]
     }
 }

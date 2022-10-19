@@ -18,7 +18,7 @@ class ACPBankInfoViewController: UIViewController {
 
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Constants.Text.Subtitle"
+        label.text = .localizedString(key: "bank_info_subtitle")
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 14, weight: .regular)
         label.textColor = .gray01Light
@@ -29,14 +29,14 @@ class ACPBankInfoViewController: UIViewController {
 
     private lazy var bankNameTextField: ACPTextField = {
         let view = ACPTextField()
-        view.titleLabel.text = "Constants.Text.FirstName"
+        view.titleLabel.text = .localizedString(key: "bank_info_bank_name")
         view.textField.delegate = self
         return view
     }()
 
     private lazy var bankNumberTextField: ACPTextField = {
         let view = ACPTextField()
-        view.titleLabel.text = "Constants.Text.LastName"
+        view.titleLabel.text = .localizedString(key: "bank_info_bank_number")
         view.delegate = self
         view.textField.delegate = self
         view.textField.keyboardType = .numberPad
@@ -45,14 +45,14 @@ class ACPBankInfoViewController: UIViewController {
 
     private lazy var accountHolderTextField: ACPTextField = {
         let view = ACPTextField()
-        view.titleLabel.text = "Constants.Text.Email"
+        view.titleLabel.text = .localizedString(key: "bank_info_acc_name")
         view.textField.delegate = self
         return view
     }()
 
     private lazy var accountNumberTextField: ACPTextField = {
         let view = ACPTextField()
-        view.titleLabel.text = "Constants.Text.PhoneNumber"
+        view.titleLabel.text = .localizedString(key: "bank_info_acc_number")
         view.delegate = self
         view.textField.delegate = self
         view.textField.keyboardType = .numberPad
@@ -61,7 +61,7 @@ class ACPBankInfoViewController: UIViewController {
 
     private lazy var expirationTextField: ACPTextField = {
         let view = ACPTextField()
-        view.titleLabel.text = "Constants.Text.Password"
+        view.titleLabel.text = .localizedString(key: "bank_info_expiration")
         view.textField.delegate = self
         return view
     }()
@@ -74,7 +74,7 @@ class ACPBankInfoViewController: UIViewController {
         )
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Constants.Text.Next", for: .normal)
+        button.setTitle(.localizedString(key: "bank_info_btn"), for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         return button
@@ -95,6 +95,8 @@ class ACPBankInfoViewController: UIViewController {
     private func setupUI() {
         addSubviews()
         setupConstraints()
+
+        infoLabel.delegate = self
     }
 
     private func addSubviews() {
@@ -177,6 +179,18 @@ class ACPBankInfoViewController: UIViewController {
             static let InfoOffsetVertical: CGFloat = 30
             static let InfoInsetVertical: CGFloat = 60
         }
+    }
+}
+
+// MARK: - ACPTermsAndPrivacyLabelDelegate
+
+extension ACPBankInfoViewController: ACPTermsAndPrivacyLabelDelegate {
+    func didTapTerms() {
+        // TODO: Add link
+    }
+
+    func didTapPrivacy() {
+        // TODO: Add link
     }
 }
 

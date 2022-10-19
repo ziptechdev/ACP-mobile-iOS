@@ -34,7 +34,7 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
 
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = Constants.Text.Subtitle
+        label.text = .localizedString(key: "personal_info_subtitle")
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 14, weight: .regular)
         label.textColor = .gray01Light
@@ -45,28 +45,28 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
 
     private lazy var nameTextField: ACPTextField = {
         let view = ACPTextField()
-        view.titleLabel.text = Constants.Text.FirstName
+        view.titleLabel.text = .localizedString(key: "personal_info_first_name")
         view.textField.delegate = self
         return view
     }()
 
     private lazy var lastNameTextField: ACPTextField = {
         let view = ACPTextField()
-        view.titleLabel.text = Constants.Text.LastName
+        view.titleLabel.text = .localizedString(key: "personal_info_last_name")
         view.textField.delegate = self
         return view
     }()
 
     private lazy var emailTextField: ACPTextField = {
         let view = ACPTextField()
-        view.titleLabel.text = Constants.Text.Email
+        view.titleLabel.text = .localizedString(key: "personal_info_email")
         view.textField.delegate = self
         return view
     }()
 
     private lazy var phoneTextField: ACPTextField = {
         let view = ACPTextField()
-        view.titleLabel.text = Constants.Text.PhoneNumber
+        view.titleLabel.text = .localizedString(key: "personal_info_phone")
         view.delegate = self
         view.textField.delegate = self
         view.textField.keyboardType = .numberPad
@@ -75,7 +75,7 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
 
     private lazy var passwordTextField: ACPTextField = {
         let view = ACPTextField()
-        view.titleLabel.text = Constants.Text.Password
+        view.titleLabel.text = .localizedString(key: "personal_info_password")
         view.textField.delegate = self
         view.textField.isSecureTextEntry = isSecureEntry
         view.textField.addRightImage(named: "eye", imageColor: .gray01Light)
@@ -84,7 +84,7 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
 
     private lazy var confirmTextField: ACPTextField = {
         let view = ACPTextField()
-        view.titleLabel.text = Constants.Text.ConfirmPassword
+        view.titleLabel.text = .localizedString(key: "personal_info_confirm")
         view.textField.delegate = self
         view.textField.isSecureTextEntry = isSecureEntry
         view.textField.addRightImage(named: "eye", imageColor: .gray01Light)
@@ -93,7 +93,7 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
 
     private lazy var ssnTextField: ACPTextField = {
         let view = ACPTextField()
-        view.titleLabel.text = Constants.Text.SSN
+        view.titleLabel.text = .localizedString(key: "personal_info_ssn")
         view.delegate = self
         view.textField.delegate = self
         view.textField.keyboardType = .numberPad
@@ -108,7 +108,7 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
         )
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(Constants.Text.Next, for: .normal)
+        button.setTitle(.localizedString(key: "personal_info_btn"), for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         return button
@@ -129,6 +129,8 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
     private func setupUI() {
         addSubviews()
         setupConstraints()
+
+        infoLabel.delegate = self
     }
 
     private func addSubviews() {
@@ -233,18 +235,18 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
             static let InfoOffsetVertical: CGFloat = 30
             static let InfoInsetVertical: CGFloat = 60
         }
+    }
+}
 
-        struct Text {
-            static let Subtitle = "Enter personal information below that will be associated with your account."
-            static let FirstName = "First Name"
-            static let LastName = "Last Name"
-            static let Email = "Email Address"
-            static let PhoneNumber = "Phone Number"
-            static let Password = "Password"
-            static let ConfirmPassword = "Confirm Password"
-            static let SSN = "SSN (Social Security Number)"
-            static let Next = "Next"
-        }
+// MARK: - ACPTermsAndPrivacyLabelDelegate
+
+extension ACPPersonalInfoDetailsViewController: ACPTermsAndPrivacyLabelDelegate {
+    func didTapTerms() {
+        // TODO: Add link
+    }
+
+    func didTapPrivacy() {
+        // TODO: Add link
     }
 }
 
