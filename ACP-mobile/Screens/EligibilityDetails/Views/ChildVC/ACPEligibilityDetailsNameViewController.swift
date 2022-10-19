@@ -19,7 +19,7 @@ class ACPEligibilityDetailsNameViewController: UIViewController {
 
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = Constants.Text.Title
+        label.text = .localizedString(key: "eligibility_details_title")
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 32, weight: .bold)
         label.textColor = .coreBlue
@@ -29,7 +29,7 @@ class ACPEligibilityDetailsNameViewController: UIViewController {
 
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = Constants.Text.Subtitle
+        label.text = .localizedString(key: "eligibility_details_subtitle")
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 14, weight: .regular)
         label.textColor = .gray01Light
@@ -40,7 +40,7 @@ class ACPEligibilityDetailsNameViewController: UIViewController {
 
     private lazy var nameTextField: ACPTextField = {
         let view = ACPTextField()
-        view.titleLabel.text = Constants.Text.FirstName
+        view.titleLabel.text = .localizedString(key: "eligibility_details_name")
         view.textField.delegate = self
         return view
     }()
@@ -54,14 +54,14 @@ class ACPEligibilityDetailsNameViewController: UIViewController {
 
     private lazy var lastNameTextField: ACPTextField = {
         let view = ACPTextField()
-        view.titleLabel.text = Constants.Text.LastName
+        view.titleLabel.text = .localizedString(key: "eligibility_details_last_name")
         view.textField.delegate = self
         return view
     }()
 
     private let noBlankLabel: UILabel = {
         let label = UILabel()
-        label.text = Constants.Text.Blank
+        label.text = .localizedString(key: "eligibility_details_info")
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 12, weight: .regular)
         label.textColor = .gray01Light
@@ -76,7 +76,7 @@ class ACPEligibilityDetailsNameViewController: UIViewController {
         )
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(Constants.Text.Next, for: .normal)
+        button.setTitle(.localizedString(key: "eligibility_details_btn"), for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         return button
@@ -160,11 +160,11 @@ class ACPEligibilityDetailsNameViewController: UIViewController {
     }
 
     private func attributedTitleText() -> NSMutableAttributedString {
-        let middleName = Constants.Text.MiddleName as NSString
+        let middleName: NSString = .localizedString(key: "eligibility_details_middle_name")
         let fullRange = NSRange(location: 0, length: middleName.length)
-        let optionalRange = middleName.range(of: Constants.Text.Optional)
+        let optionalRange = middleName.range(of: .localizedString(key: "eligibility_details_highlight"))
 
-        let string = NSMutableAttributedString(string: Constants.Text.MiddleName)
+        let string: NSMutableAttributedString = .localizedString(key: "eligibility_details_middle_name")
         string.addAttribute(.foregroundColor, value: UIColor.gray06Dark, range: fullRange)
         string.addAttribute(.foregroundColor, value: UIColor.gray01Light, range: optionalRange)
 
@@ -219,18 +219,6 @@ class ACPEligibilityDetailsNameViewController: UIViewController {
             static let ButtonContentSpacing: CGFloat = 10
             static let ButtonCornerRadius: CGFloat = 10
             static let ButtonOffsetVertical: CGFloat = 60
-        }
-
-        struct Text {
-            static let Title = "Your full legal name"
-            static let Subtitle = "The name you use on official documents, " +
-                                  "like your Social Security Card or State ID. Not a nickname."
-            static let Next = "Next"
-            static let Blank = "*Cannot be left blank"
-            static let FirstName = "First Name*"
-            static let MiddleName = "Middle Name (Optional)"
-            static let Optional = "(Optional)"
-            static let LastName = "Last Name*"
         }
     }
 }

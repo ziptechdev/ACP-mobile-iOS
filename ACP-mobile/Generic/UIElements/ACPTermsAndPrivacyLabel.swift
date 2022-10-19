@@ -40,12 +40,12 @@ class ACPTermsAndPrivacyLabel: UILabel {
     // MARK: - Functions
 
     private func attributedInfoText() -> NSMutableAttributedString {
-        let info = Constants.Text.Info as NSString
+        let info: NSString = .localizedString(key: "info_label_text")
         let fullRange = NSRange(location: 0, length: info.length)
-        let termsRange = info.range(of: Constants.Text.Terms)
-        let privacyRange = info.range(of: Constants.Text.Privacy)
+        let termsRange = info.range(of: .localizedString(key: "info_label_terms"))
+        let privacyRange = info.range(of: .localizedString(key: "info_label_privacy"))
 
-        let string = NSMutableAttributedString(string: Constants.Text.Info)
+        let string: NSMutableAttributedString = .localizedString(key: "info_label_text")
         string.addAttribute(.font, value: UIFont.systemFont(ofSize: 14, weight: .regular), range: fullRange)
         string.addAttribute(.paragraphStyle, value: NSMutableParagraphStyle.center, range: fullRange)
         string.addAttribute(.foregroundColor, value: UIColor.gray06Dark, range: fullRange)
@@ -60,26 +60,14 @@ class ACPTermsAndPrivacyLabel: UILabel {
             return
         }
 
-        let info = Constants.Text.Info as NSString
-        let termsRange = info.range(of: Constants.Text.Terms)
-        let privacyRange = info.range(of: Constants.Text.Privacy)
+        let info: NSString = .localizedString(key: "info_label_text")
+        let termsRange = info.range(of: .localizedString(key: "info_label_terms"))
+        let privacyRange = info.range(of: .localizedString(key: "info_label_privacy"))
 
         if sender.didTapAttributedTextInLabel(label: self, inRange: termsRange) {
-            // TODO: Remove print
-            print("didTapTerms")
             delegate?.didTapTerms()
         } else if sender.didTapAttributedTextInLabel(label: self, inRange: privacyRange) {
-            // TODO: Remove print
-            print("didTapPrivacy")
             delegate?.didTapPrivacy()
-        }
-    }
-
-    private struct Constants {
-        struct Text {
-            static let Info = "Read our Terms of Use and Privacy Policy."
-            static let Privacy = "Privacy Policy"
-            static let Terms = "Terms of Use"
         }
     }
 }

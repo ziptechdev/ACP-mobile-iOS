@@ -19,7 +19,7 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
 
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = Constants.Text.Title
+        label.text = .localizedString(key: "eligibility_dob_title")
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 32, weight: .bold)
         label.textColor = .coreBlue
@@ -29,7 +29,7 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
 
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = Constants.Text.Subtitle
+        label.text = .localizedString(key: "eligibility_dob_subtitle")
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 14, weight: .regular)
         label.textColor = .gray01Light
@@ -40,7 +40,7 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
 
     private lazy var monthTextField: ACPPickerView = {
         let view = ACPPickerView()
-        view.titleLabel.text = Constants.Text.Month
+        view.titleLabel.text = .localizedString(key: "eligibility_dob_month")
         view.textField.addRightImage(named: "down_arrow")
         view.delegate = self
         view.pickerView.delegate = self
@@ -50,7 +50,7 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
 
     private lazy var dayTextField: ACPTextField = {
         let view = ACPTextField()
-        view.titleLabel.text = Constants.Text.Day
+        view.titleLabel.text = .localizedString(key: "eligibility_dob_day")
         view.delegate = self
         view.textField.delegate = self
         view.textField.keyboardType = .numberPad
@@ -61,7 +61,7 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
 
     private lazy var yearTextField: ACPTextField = {
         let view = ACPTextField()
-        view.titleLabel.text = Constants.Text.Year
+        view.titleLabel.text = .localizedString(key: "eligibility_dob_year")
         view.delegate = self
         view.textField.delegate = self
         view.textField.keyboardType = .numberPad
@@ -72,7 +72,7 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
 
     private lazy var ssnTextField: ACPTextField = {
         let view = ACPTextField()
-        view.titleLabel.text = Constants.Text.SSN
+        view.titleLabel.text = .localizedString(key: "eligibility_dob_ssn")
         view.delegate = self
         view.textField.delegate = self
         view.textField.keyboardType = .numberPad
@@ -82,7 +82,7 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
 
     private let noBlankLabel: UILabel = {
         let label = UILabel()
-        label.text = Constants.Text.Blank
+        label.text = .localizedString(key: "eligibility_dob_info")
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 12, weight: .regular)
         label.textColor = .gray01Light
@@ -97,7 +97,7 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
         )
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(Constants.Text.Next, for: .normal)
+        button.setTitle(.localizedString(key: "eligibility_dob_btn"), for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         return button
@@ -256,17 +256,6 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
             static let ButtonContentSpacing: CGFloat = 10
             static let ButtonCornerRadius: CGFloat = 10
             static let ButtonOffsetVertical: CGFloat = 60
-        }
-
-        struct Text {
-            static let Title = "Your date of birth"
-            static let Subtitle = "This information is required by National Verifier to verify your identity."
-            static let Next = "Next"
-            static let Blank = "*Cannot be left blank"
-            static let Month = "Month*"
-            static let Day = "Day*"
-            static let Year = "Year*"
-            static let SSN = "SSN (Last 4 digits of your Social Security Number)*"
         }
     }
 }

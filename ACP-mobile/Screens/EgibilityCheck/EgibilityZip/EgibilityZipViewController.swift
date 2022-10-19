@@ -25,7 +25,9 @@ class EgibilityZipViewController: UIViewController {
     // MARK: - Life Cycle
 
     override func viewWillAppear(_ animated: Bool) {
-        title = Constants.Text.Title
+        super.viewWillAppear(animated)
+
+        title = .localizedString(key: "eligibility_page_title")
         navigationController?.navigationBar.isHidden = false
 
         setupRightNavigationBarButton()
@@ -93,10 +95,6 @@ class EgibilityZipViewController: UIViewController {
             static let HeaderInsetVertical: CGFloat = 5
             static let HeaderCornerRadius: CGFloat = 10
             static let HeaderHeight: CGFloat = 40
-        }
-
-        struct Text {
-            static let Title = "Eligibility Check"
         }
     }
 }

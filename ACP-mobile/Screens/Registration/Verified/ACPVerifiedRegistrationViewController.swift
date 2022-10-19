@@ -26,7 +26,7 @@ class ACPVerifiedRegistrationViewController: UIViewController {
 
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = Constants.Text.Title
+        label.text = .localizedString(key: "verified_register_title")
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 32, weight: .bold)
@@ -37,7 +37,11 @@ class ACPVerifiedRegistrationViewController: UIViewController {
 
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = Constants.Text.Subtitle
+        // TODO: Set the name
+        label.text = .formatLocalizedString(
+            key: "verified_register_subtitle",
+            values: "Adi"
+        )
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 14, weight: .regular)
         label.textColor = .gray01Light
@@ -48,14 +52,14 @@ class ACPVerifiedRegistrationViewController: UIViewController {
 
     private lazy var emailTextField: ACPTextField = {
         let view = ACPTextField()
-        view.titleLabel.text = Constants.Text.Email
+        view.titleLabel.text = .localizedString(key: "verified_register_email")
         view.textField.delegate = self
         return view
     }()
 
     private lazy var passwordTextField: ACPTextField = {
         let view = ACPTextField()
-        view.titleLabel.text = Constants.Text.Password
+        view.titleLabel.text = .localizedString(key: "verified_register_password")
         view.textField.delegate = self
         view.textField.isSecureTextEntry = isSecureEntry
         view.textField.addRightImage(named: "eye", imageColor: .gray01Light)
@@ -64,7 +68,7 @@ class ACPVerifiedRegistrationViewController: UIViewController {
 
     private lazy var confirmTextField: ACPTextField = {
         let view = ACPTextField()
-        view.titleLabel.text = Constants.Text.ConfirmPassword
+        view.titleLabel.text = .localizedString(key: "verified_register_confirm")
         view.textField.delegate = self
         view.textField.isSecureTextEntry = isSecureEntry
         view.textField.addRightImage(named: "eye", imageColor: .gray01Light)
@@ -77,7 +81,7 @@ class ACPVerifiedRegistrationViewController: UIViewController {
         button.layer.masksToBounds = true
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(Constants.Text.Register, for: .normal)
+        button.setTitle(.localizedString(key: "verified_register_btn"), for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.setTitleColor(.white, for: .highlighted)
         button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
@@ -98,7 +102,7 @@ class ACPVerifiedRegistrationViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        title = Constants.Text.Register
+        title = .localizedString(key: "verified_register_page_title")
         navigationController?.navigationBar.isHidden = false
 
         setupRightNavigationBarButton()
@@ -204,15 +208,6 @@ class ACPVerifiedRegistrationViewController: UIViewController {
             static let ButtonOffsetVertical: CGFloat = 60
 
             static let InfoLabelInsetY: CGFloat = 5
-        }
-
-        struct Text {
-            static let Title = "Register new account"
-            static let Subtitle = "Hi John! Register new account by entering your email address and password below."
-            static let Email = "Email Address"
-            static let Password = "Password"
-            static let ConfirmPassword = "Confirm Password"
-            static let Register = "Register"
         }
     }
 }
