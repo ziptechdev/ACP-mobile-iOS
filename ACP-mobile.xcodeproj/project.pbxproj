@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		130B43AE28F9FEFB0099C05C /* ApplyForServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130B43AD28F9FEFB0099C05C /* ApplyForServiceView.swift */; };
+		130B43B228FA00090099C05C /* ApplyForServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130B43B128FA00090099C05C /* ApplyForServiceViewController.swift */; };
+		130B43B628FC10460099C05C /* ApplyACPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130B43B528FC10450099C05C /* ApplyACPView.swift */; };
+		130B43B828FC11160099C05C /* ApplyACPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130B43B728FC11160099C05C /* ApplyACPViewController.swift */; };
+		1327C6EB28FF0B0500395773 /* ACPSuccesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1327C6EA28FF0B0500395773 /* ACPSuccesViewController.swift */; };
 		1356421428EC6BF6009F8B38 /* EgibilityZipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1356421328EC6BF6009F8B38 /* EgibilityZipView.swift */; };
 		1356421628EC6C14009F8B38 /* EgibilityZipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1356421528EC6C14009F8B38 /* EgibilityZipViewController.swift */; };
 		1390E2A728E88AB6009BCE11 /* EgibilityCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1390E2A628E88AB6009BCE11 /* EgibilityCheckView.swift */; };
@@ -68,6 +73,11 @@
 /* Begin PBXFileReference section */
 		0EA43A30C610F68C5A06DD99 /* Pods_ACP_mobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ACP_mobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1301AD36DE072905C940D450 /* Pods-ACP-mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACP-mobile.release.xcconfig"; path = "Target Support Files/Pods-ACP-mobile/Pods-ACP-mobile.release.xcconfig"; sourceTree = "<group>"; };
+		130B43AD28F9FEFB0099C05C /* ApplyForServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyForServiceView.swift; sourceTree = "<group>"; };
+		130B43B128FA00090099C05C /* ApplyForServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyForServiceViewController.swift; sourceTree = "<group>"; };
+		130B43B528FC10450099C05C /* ApplyACPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyACPView.swift; sourceTree = "<group>"; };
+		130B43B728FC11160099C05C /* ApplyACPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyACPViewController.swift; sourceTree = "<group>"; };
+		1327C6EA28FF0B0500395773 /* ACPSuccesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPSuccesViewController.swift; sourceTree = "<group>"; };
 		1356421328EC6BF6009F8B38 /* EgibilityZipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EgibilityZipView.swift; sourceTree = "<group>"; };
 		1356421528EC6C14009F8B38 /* EgibilityZipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EgibilityZipViewController.swift; sourceTree = "<group>"; };
 		1390E2A628E88AB6009BCE11 /* EgibilityCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EgibilityCheckView.swift; sourceTree = "<group>"; };
@@ -140,6 +150,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		130B43AB28F9FDFB0099C05C /* ApplyScreens */ = {
+			isa = PBXGroup;
+			children = (
+				1327C6E928FF0ADB00395773 /* ACPSuccess */,
+				130B43B328FC0FE40099C05C /* ApplyForACP */,
+				130B43AF28F9FFBF0099C05C /* ApplyForService */,
+			);
+			path = ApplyScreens;
+			sourceTree = "<group>";
+		};
+		130B43AC28F9FE9D0099C05C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				130B43AD28F9FEFB0099C05C /* ApplyForServiceView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		130B43AF28F9FFBF0099C05C /* ApplyForService */ = {
+			isa = PBXGroup;
+			children = (
+				130B43AC28F9FE9D0099C05C /* Views */,
+				130B43B128FA00090099C05C /* ApplyForServiceViewController.swift */,
+			);
+			path = ApplyForService;
+			sourceTree = "<group>";
+		};
+		130B43B328FC0FE40099C05C /* ApplyForACP */ = {
+			isa = PBXGroup;
+			children = (
+				130B43B428FC0FF60099C05C /* Views */,
+				130B43B728FC11160099C05C /* ApplyACPViewController.swift */,
+			);
+			path = ApplyForACP;
+			sourceTree = "<group>";
+		};
+		130B43B428FC0FF60099C05C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				130B43B528FC10450099C05C /* ApplyACPView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1327C6E928FF0ADB00395773 /* ACPSuccess */ = {
+			isa = PBXGroup;
+			children = (
+				1327C6EA28FF0B0500395773 /* ACPSuccesViewController.swift */,
+			);
+			path = ACPSuccess;
+			sourceTree = "<group>";
+		};
 		1356421128EC6B78009F8B38 /* EgibilityZip */ = {
 			isa = PBXGroup;
 			children = (
@@ -402,6 +464,7 @@
 		40ECB6D728F63D4C004FD644 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				130B43AB28F9FDFB0099C05C /* ApplyScreens */,
 				405D770028E603C400358D4A /* LandingScreen */,
 				CE62E2F828EA635A0000833B /* Welcome&Terms */,
 				1390E2A228E888C2009BCE11 /* EgibilityCheck */,
@@ -533,7 +596,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint fix &&\n${PODS_ROOT}/SwiftLint/swiftlint\n";
 		};
 		BF0424111AA4307A312596D3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -598,6 +661,7 @@
 				405D776E28ECA7C200358D4A /* ACPVerifiedRegistrationViewController.swift in Sources */,
 				40EE2CAE28E4AA520028888D /* UIColor+ACP.swift in Sources */,
 				CE6D94EC28EFC3C3005577F8 /* ACPWelcomeScreenViewController.swift in Sources */,
+				130B43B228FA00090099C05C /* ApplyForServiceViewController.swift in Sources */,
 				405D777E28ED0F3100358D4A /* VerifyEndpoint.swift in Sources */,
 				405D777C28ED09DE00358D4A /* TestEndpoint.swift in Sources */,
 				405D777728ECF9EF00358D4A /* ACPRouter.swift in Sources */,
@@ -610,14 +674,17 @@
 				40C7E5A328F0D0A700C03ECE /* UIResponder+ACP.swift in Sources */,
 				405D776328EBBB3C00358D4A /* ACPEligibilityDetailsVerifyViewController.swift in Sources */,
 				405D773328E8698D00358D4A /* UITapGestureRecognizer+ACP.swift in Sources */,
+				130B43B628FC10460099C05C /* ApplyACPView.swift in Sources */,
 				40C7E5A528F0D12C00C03ECE /* UIViewController+Keyboard.swift in Sources */,
 				405D774328E8DA5600358D4A /* ACPEligibilityDetailsDOBViewController.swift in Sources */,
+				130B43B828FC11160099C05C /* ApplyACPViewController.swift in Sources */,
 				40B5EDD328E224F20096B91B /* ACPHomeScreenViewController.swift in Sources */,
 				40C7E58E28EF484500C03ECE /* NSMutableParagraphStyle+ACP.swift in Sources */,
 				40C7E59328EF5A2200C03ECE /* ACPNotVerifiedRegistrationViewController.swift in Sources */,
 				40EE2CC128E540470028888D /* ACPHomeScreenEligibilityHeaderView.swift in Sources */,
 				40EE2CA928E49DF00028888D /* ACPHomeScreenHeaderView.swift in Sources */,
 				405D773728E8A62600358D4A /* ACPTopTabMenuViewController.swift in Sources */,
+				130B43AE28F9FEFB0099C05C /* ApplyForServiceView.swift in Sources */,
 				405D776728EBD88600358D4A /* ACPEligibilityDetailsSuccessViewController.swift in Sources */,
 				405D776528EBCF7200358D4A /* ACPEligibilityDetailsFailViewController.swift in Sources */,
 				405D775D28EB87D100358D4A /* ACPEligibilityDetailsAddressModel.swift in Sources */,
@@ -626,6 +693,7 @@
 				405D777928ECFA9A00358D4A /* ACPEndpoint.swift in Sources */,
 				40EE2CAB28E4A4DD0028888D /* ACPTableView.swift in Sources */,
 				405D774E28E913E400358D4A /* UIViewController+ACP.swift in Sources */,
+				1327C6EB28FF0B0500395773 /* ACPSuccesViewController.swift in Sources */,
 				405D774128E8DA4900358D4A /* ACPEligibilityDetailsNameViewController.swift in Sources */,
 				405D775F28EB8C5800358D4A /* ACPEligibilityDetailsModel.swift in Sources */,
 				405D773128E8507000358D4A /* ACPEligibilityDetailsViewController.swift in Sources */,
