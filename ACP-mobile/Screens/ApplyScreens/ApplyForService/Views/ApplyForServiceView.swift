@@ -30,26 +30,27 @@ class ApplyForServiceView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
     let subTitleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .gray06Dark
         label.font = .systemFont(ofSize: 20, weight: .regular)
         label.textAlignment = .left
         label.numberOfLines = 0
-        label.isUserInteractionEnabled = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
     let descriptionLabel: UILabel = {
         let label = UILabel()
         label.textColor = .gray01Light
         label.font = .systemFont(ofSize: 16, weight: .regular)
         label.textAlignment = .left
         label.numberOfLines = 0
-        label.isUserInteractionEnabled = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
     let correctImageView: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -57,16 +58,16 @@ class ApplyForServiceView: UIView {
         view.image = UIImage(named: "correct2")
         return view
     }()
+    
     let eligibleOrNotLabel: UILabel = {
         let label = UILabel()
         label.textColor = .gray06Dark
         label.font = .systemFont(ofSize: 14, weight: .regular)
         label.textAlignment = .left
-        label.numberOfLines = 0
-        label.isUserInteractionEnabled = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
     private let eligibleView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -74,6 +75,7 @@ class ApplyForServiceView: UIView {
         view.layer.masksToBounds = true
         return view
     }()
+    
     private let textStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -82,6 +84,7 @@ class ApplyForServiceView: UIView {
         stackView.spacing = 20
         return stackView
     }()
+    
     let applyNowButton: UIButton = {
         let button = UIButton()
         button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
@@ -92,6 +95,7 @@ class ApplyForServiceView: UIView {
         button.layer.masksToBounds = false
         return button
     }()
+    
     lazy var toggleSwitch: UISwitch = {
         let button = UISwitch()
         button.layer.masksToBounds = true
@@ -99,6 +103,7 @@ class ApplyForServiceView: UIView {
         button.addTarget(self, action: #selector(handleToggleBT), for: .touchUpInside)
         return button
     }()
+    
     let switchTextLabel: UILabel = {
         let label = UILabel()
         label.textColor = .gray06Dark
@@ -109,6 +114,7 @@ class ApplyForServiceView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
     private let switchStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -136,6 +142,7 @@ class ApplyForServiceView: UIView {
         return button
 
     }()
+    
     let infoLabel: UILabel = {
         let label = UILabel()
         label.textColor = .gray01Light
@@ -145,6 +152,7 @@ class ApplyForServiceView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
     private let buttonAndInfoStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -206,7 +214,7 @@ class ApplyForServiceView: UIView {
             make.width.height.equalTo(Constants.Constraints.ImageView)
         }
         eligibleOrNotLabel.snp.makeConstraints { make in
-            make.left.equalTo(correctImageView.snp.right).offset(3)
+            make.left.equalTo(correctImageView.snp.right).offset(Constants.Constraints.TextLeftOffset)
         }
         textStackView.snp.makeConstraints { make in
             make.top.equalTo(snp.top).offset(Constants.Constraints.TopConstant)
@@ -232,21 +240,23 @@ class ApplyForServiceView: UIView {
         delegate?.didTapVisitWebsiteButton()
     }
     private func setText() {
-        titleLabel.text = Constants.Text.titleLabelEgibilityText
-        subTitleLabel.text = Constants.Text.subTitleLabelText
-        descriptionLabel.text = Constants.Text.egibilityCheckText
-        eligibleOrNotLabel.text = Constants.Text.eligbleOrNotText
-        infoLabel.text = Constants.Text.personalNoteInfoText
-        switchTextLabel.text = Constants.Text.switchTexr
-        applyNowButton.setTitle(Constants.Text.checkEgTextButton, for: .normal)
-        visitWebsiteButton.setTitle(Constants.Text.newAccountTextButton, for: .normal)
+        titleLabel.text = .localizedString(key: "service_title")
+        descriptionLabel.text = .localizedString(key: "service_description")
+        eligibleOrNotLabel.text = .localizedString(key: "eligible_check")
+        infoLabel.text = .localizedString(key: "service_note")
+        applyNowButton.setTitle(.localizedString(key: "apply_now_btn"), for: .normal)
+        subTitleLabel.text = .localizedString(key: "service_subtitle")
+        eligibleOrNotLabel.text = .localizedString(key: "eligble_check")
+        switchTextLabel.text = .localizedString(key: "auto_renewal")
+
+        visitWebsiteButton.setTitle(.localizedString(key: "visit_website_btn"), for: .normal)
     }
 
     // MARK: - Constants
 
     private struct Constants {
         struct Constraints {
-            static let textFieldHeight: CGFloat = 40
+            static let TextLeftOffset: CGFloat = 3
             static let TopConstant: CGFloat = 45
             static let LeadingConstant: CGFloat = 30
             static let BottomTopConstant: CGFloat = 5
@@ -255,22 +265,6 @@ class ApplyForServiceView: UIView {
             static let ButtonCornerRadius: CGFloat = 10
             static let HeightView: CGFloat = 34
             static let ImageView: CGFloat = 24
-        }
-
-        struct Text {
-            static let checkEgTextButton = "Apply now"
-            static let newAccountTextButton = "Visit website"
-            static let titleLabelEgibilityText = "Veterans Pension or Survivor Benefits"
-            static let subTitleLabelText = "U.S. Department of Veteran Affairs"
-            static let eligbleOrNotText = "You are eligible"
-            static let switchTexr = "Auto-renewal after expiration"
-            // TODO: Add this string to localizable.
-            // swiftlint:disable:next line_length
-            static let egibilityCheckText: String = "A VA Survivors Pension offers monthly payments to qualified surviving spouses and unmarried dependent children of wartime Veterans who meet certain income and net worth limits set by Congress."
-            // swiftlint:disable:next line_length
-            static let personalNoteInfoText = "Your information is already stored in your profile. Simply press ‘Apply Now’ button to begin application process. It may take 2-3 business days for us to reach back."
-            static let Terms: String = "assistance programs"
-
         }
     }
 }

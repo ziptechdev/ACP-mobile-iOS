@@ -23,7 +23,7 @@ class ACPSuccesViewController: UIViewController {
 
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = Constants.Text.Title
+        label.text = .localizedString(key: "successfull_title")
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 32, weight: .bold)
@@ -34,12 +34,11 @@ class ACPSuccesViewController: UIViewController {
 
     private lazy var subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = Constants.Text.Subtitle
+        label.text = .localizedString(key: "acp_successfull_desc")
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 14, weight: .regular)
         label.textColor = .white
-       // label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 0
         return label
     }()
@@ -53,7 +52,7 @@ class ACPSuccesViewController: UIViewController {
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.white.cgColor
-        button.setTitle(Constants.Text.Register, for: .normal)
+        button.setTitle(.localizedString(key: "acp_successfull_register_btn"), for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.setTitleColor(.white, for: .highlighted)
         button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
@@ -134,7 +133,6 @@ class ACPSuccesViewController: UIViewController {
         struct Constraints {
             static let SuccessCircleOffsetY: CGFloat = 175
             static let CircleSize: CGFloat = 120
-            static let IconSize: CGFloat = 63
 
             static let TitleOffsetVertical: CGFloat = 113
 
@@ -143,19 +141,9 @@ class ACPSuccesViewController: UIViewController {
 
             static let ButtonHeight: CGFloat = 46
             static let ButtonOffsetVertical: CGFloat = 60
-            static let ButtonSpacingVertical: CGFloat = 15
             static let ButtonCornerRadius: CGFloat = 10
-
-            static let CancelInsetVertical: CGFloat = 38
-            static let CancelInsetHorizontal: CGFloat = 35
-            static let CancelButtonSize: CGFloat = 14
+            
         }
 
-        struct Text {
-            static let Title = "Confirmed!"
-            // swiftlint:disable:next line_length
-            static let Subtitle = "Your ACP application has been successfully submitted and will be reviewed within 2-3 business days. If everything is correct, you will receive funds immediately and your device will be shipped within 5 businss days. Check notifications for further updates about the package."
-            static let Register = "Done"
-        }
     }
 }

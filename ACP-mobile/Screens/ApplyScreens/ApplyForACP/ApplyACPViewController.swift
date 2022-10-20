@@ -26,7 +26,7 @@ class ApplyACPViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = false
-        title = "ACP"
+        title = .localizedString(key: "acp_title")
         setupRightNavigationBarButton()
         setupLeftNavigationBarButton()
     }
@@ -71,10 +71,6 @@ class ApplyACPViewController: UIViewController {
             static let HeaderInsetVertical: CGFloat = 5
             static let HeaderCornerRadius: CGFloat = 10
             static let HeaderHeight: CGFloat = 40
-        }
-
-        struct Text {
-            static let Title = "Eligibility Check"
         }
     }
 }

@@ -122,3 +122,27 @@
 "not_verified_register_highlight" = "partners";
 "not_verified_register_btn" = "Get Started";
 
+/* Apply for Service Screen */
+"apply_now_btn" = "Apply now";
+"visit_website_btn" = "Visit website";
+"service_title" = "Veterans Pension or Survivor Benefits";
+"service_subtitle" = "U.S. Department of Veteran Affairs";
+"eligble_check" = "You are eligible";
+"auto_renewal" = "Auto-renewal after expiration";
+"service_description" = "A VA Survivors Pension offers monthly payments to qualified surviving spouses and unmarried dependent children of wartime Veterans who meet certain income and net worth limits set by Congress.";
+"service_note" = "Your information is already stored in your profile. Simply press ‘Apply Now’ button to begin application process. It may take 2-3 business days for us to reach back.";
+
+/* Apply ACP Screen */
+"acp_title" = "ACP";
+"apply_acp_title" = "Apply for ACP";
+"apply_acp_description" = "Hi %@! You can now easily apply for ACP because you are currently taking part in following government assistance programs:";
+"apply_acp_eligibility" = "Supplemental Nutrition AssistanceProgram (SNAP)";
+"apply_acp_plan_name" = "7GB Choose Plan";
+"apply_acp_phone_setup" = "One-click-setup phone";
+"apply_acp_choose_plan" = "Choose plan:";
+"apply_acp_choose_device" = "Choose device:";
+
+/* Apply Succesfull Screen*/
+"successfull_title" = "Confirmed!";
+"acp_successfull_desc" = "Your ACP application has been successfully submitted and will be reviewed within 2-3 business days. If everything is correct, you will receive funds immediately and your device will be shipped within 5 businss days. Check notifications for further updates about the package.";
+"acp_successfull_register_btn" = "Done";

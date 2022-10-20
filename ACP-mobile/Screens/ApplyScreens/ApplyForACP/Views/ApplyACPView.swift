@@ -15,12 +15,10 @@ protocol ApplyACPViewDelegate: AnyObject {
 }
 // swiftlint:disable:next type_body_length
 class ApplyACPView: UIView {
-
-    // MARK: - Properties
     
     weak var delegate: ApplyACPViewDelegate?
-    var mainHeightConstraint: NSLayoutConstraint?
-
+    var mainHeightConstraint: NSLayoutConstraint?   
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .coreBlue
@@ -226,15 +224,6 @@ class ApplyACPView: UIView {
         stackView.isLayoutMarginsRelativeArrangement = true
         return stackView
     }()
-    let infoLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .gray01Light
-        label.font = .systemFont(ofSize: 14, weight: .regular)
-        label.textAlignment = .left
-        label.numberOfLines = 0
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
     private let buttonAndInfoStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -309,58 +298,58 @@ class ApplyACPView: UIView {
             make.height.equalTo(Constants.Constraints.ButtonHeight)
         }
         acpProgramStackView.snp.makeConstraints { make in
-            make.top.equalTo(textStackView.snp.bottom).offset(Constants.Constraints.constantTop)
+            make.top.equalTo(textStackView.snp.bottom).offset(Constants.Constraints.ConstantTop)
             make.left.right.equalToSuperview().inset(Constants.Constraints.LeadingConstant)
-            make.height.equalTo(54)
+            make.height.equalTo(Constants.Constraints.AcpStackViewHeight)
         }
         choosePlanLabel.snp.makeConstraints { make in
-            make.top.equalTo(acpProgramStackView.snp.bottom).offset(39)
+            make.top.equalTo(acpProgramStackView.snp.bottom).offset(Constants.Constraints.AcpBottomOffest)
             make.left.right.equalToSuperview().inset(Constants.Constraints.LeadingConstant)
         }
         planView.snp.makeConstraints { make in
-            make.top.equalTo(choosePlanLabel.snp.bottom).offset(Constants.Constraints.constantTop)
+            make.top.equalTo(choosePlanLabel.snp.bottom).offset(Constants.Constraints.ConstantTop)
             make.left.right.equalToSuperview().inset(Constants.Constraints.LeadingConstant)
         }
-        mainHeightConstraint = planView.heightAnchor.constraint(equalToConstant: 65)
+        mainHeightConstraint = planView.heightAnchor.constraint(equalToConstant: Constants.Constraints.HeightView)
         mainHeightConstraint?.isActive = true
         planNameLabel.snp.makeConstraints { make in
-            make.left.equalTo(planView.snp.left).offset(Constants.Constraints.constantTop)
-            make.top.equalTo(planView.snp.top).offset(23)
+            make.left.equalTo(planView.snp.left).offset(Constants.Constraints.ConstantTop)
+            make.top.equalTo(planView.snp.top).offset(Constants.Constraints.LeftPlanTopOffest)
         }
         planPriceLabel.snp.makeConstraints { make in
-            make.right.equalTo(planView.snp.right).inset(Constants.Constraints.constantTop)
-            make.top.equalTo(planView.snp.top).offset(15)
+            make.right.equalTo(planView.snp.right).inset(Constants.Constraints.ConstantTop)
+            make.top.equalTo(planView.snp.top).offset(Constants.Constraints.LeftPlanTopOffest)
         }
         planDescriptionLabel.snp.makeConstraints { make in
-            make.left.equalTo(planView.snp.left).inset(Constants.Constraints.constantTop)
-            make.top.equalTo(planNameLabel.snp.bottom).offset(30)
+            make.left.equalTo(planView.snp.left).inset(Constants.Constraints.ConstantTop)
+            make.top.equalTo(planNameLabel.snp.bottom).offset(Constants.Constraints.LeadingConstant)
         }
         choosePlanSelectedImageView.snp.makeConstraints { make in
             make.centerX.equalTo(planView.snp.centerX)
-            make.top.equalTo(planView.snp.top).offset(-15)
+            make.top.equalTo(planView.snp.top).offset(-Constants.Constraints.LeftPlanTopOffest)
         }
         phoneImageView.snp.makeConstraints { make in
-            make.width.height.equalTo(24)
+            make.width.height.equalTo(Constants.Constraints.PhoneImageConstant)
         }
         phoneSelectedImageView.snp.makeConstraints { make in
             make.centerX.equalTo(phoneSetupStackView.snp.centerX)
-            make.top.equalTo(phoneSetupStackView.snp.top).inset(-15)
+            make.top.equalTo(phoneSetupStackView.snp.top).inset(-Constants.Constraints.LeftPlanTopOffest)
         }
         switchTextLabel.snp.makeConstraints { make in
-            make.top.equalTo(planView.snp.bottom).offset(30)
+            make.top.equalTo(planView.snp.bottom).offset(Constants.Constraints.LeadingConstant)
             make.left.right.equalToSuperview().inset(Constants.Constraints.LeadingConstant)
         }
         phoneSetupStackView.snp.makeConstraints { make in
-            make.top.equalTo(switchTextLabel.snp.bottom).offset(Constants.Constraints.constantTop)
+            make.top.equalTo(switchTextLabel.snp.bottom).offset(Constants.Constraints.ConstantTop)
             make.left.right.equalToSuperview().inset(Constants.Constraints.LeadingConstant)
-            make.height.equalTo(65)
+            make.height.equalTo(Constants.Constraints.HeightView)
         }
         textStackView.snp.makeConstraints { make in
             make.top.equalTo(snp.top).offset(Constants.Constraints.TopConstant)
             make.left.right.equalToSuperview().inset(Constants.Constraints.LeadingConstant)
         }
         buttonAndInfoStackView.snp.makeConstraints { make in
-            make.top.equalTo(phoneSetupStackView.snp.bottom).offset(60)
+            make.top.equalTo(phoneSetupStackView.snp.bottom).offset(Constants.Constraints.BottomButtonConstant)
             make.left.right.equalToSuperview().inset(Constants.Constraints.LeadingConstant)
         }
     }
@@ -420,48 +409,41 @@ class ApplyACPView: UIView {
         delegate?.didApplyNowButton()
     }
     private func setText() {
-        titleLabel.text = Constants.Text.titleLabelEgibilityText
-        descriptionLabel.text = Constants.Text.egibilityCheckText
-        eligibleOrNotLabel.text = Constants.Text.eligbleOrNotText
-        infoLabel.text = Constants.Text.personalNoteInfoText
-        applyNowButton.setTitle(Constants.Text.checkEgTextButton, for: .normal)
-        planNameLabel.text = "7GB Choose Plan"
+        titleLabel.text = .localizedString(key: "apply_acp_title")
+        descriptionLabel.text = .formatLocalizedString(
+            key: "apply_acp_description",
+            values: "John"
+        )
+        eligibleOrNotLabel.text = .localizedString(key: "apply_acp_eligibility")
+        applyNowButton.setTitle(.localizedString(key: "apply_now_btn"), for: .normal)
+        planNameLabel.text = .localizedString(key: "apply_acp_plan_name")
+        phoneSetupLabel.text = .localizedString(key: "apply_acp_phone_setup")
+        choosePlanLabel.text = .localizedString(key: "apply_acp_choose_plan")
+        switchTextLabel.text = .localizedString(key: "apply_acp_choose_device")
+        // TODO: Check how we will get this data from BE
         planPriceLabel.attributedText = "Free \n$30/mo".createAttributedString(stringtToStrike: "$30/mo")
-        phoneSetupLabel.text = "One-click-setup phone"
-        choosePlanLabel.text = "Choose plan:"
-        switchTextLabel.text = "Choose device:"
-        let arrayOfLines = ["Unlimited Talk & Text and Data"," 7GB 4G LTE data"," Turn your phone into a Wi-Fi hotspot!"]
+        let arrayOfLines = ["Unlimited Talk & Text and Data", " 7GB 4G LTE data", " Turn your phone into a Wi-Fi hotspot!"]
         for value in arrayOfLines {
             planDescriptionLabel.text = (planDescriptionLabel.text ?? "")  + " • " + value + "\n"
         }
     }
-    
     // MARK: - Constants
     
     private struct Constants {
         struct Constraints {
-            static let textFieldHeight: CGFloat = 40
             static let TopConstant: CGFloat = 45
             static let LeadingConstant: CGFloat = 30
-            static let BottomButtonConstant: CGFloat = 118
+            static let BottomButtonConstant: CGFloat = 60
             static let ButtonHeight: CGFloat = 46
             static let ButtonContentSpacing: CGFloat = 10
             static let ButtonCornerRadius: CGFloat = 10
-            static let constantTop: CGFloat = 20
-        }
-        struct Text {
-            static let checkEgTextButton = "Apply now"
-            static let newAccountTextButton = "Visit website"
-            static let titleLabelEgibilityText = "Apply for ACP"
-            static let subTitleLabelText = "U.S. Department of Veteran Affairs"
-            static let eligbleOrNotText = "Supplemental Nutrition AssistanceProgram (SNAP)"
-            static let switchTexr = "Auto-renewal after expiration"
-            // TODO: Add this string to localizable.
-            // swiftlint:disable:next line_length
-            static let egibilityCheckText: String = "Hi John! You can now easily apply for ACP because you are currently taking part in following government assistance programs:"
-            // swiftlint:disable:next line_length
-            static let personalNoteInfoText = "Your information is already stored in your profile. Simply press ‘Apply Now’ button to begin application process. It may take 2-3 business days for us to reach back."
-            static let Terms: String = "assistance programs"
+            static let ConstantTop: CGFloat = 20
+            static let AcpStackViewHeight: CGFloat = 54
+            static let AcpBottomOffest: CGFloat = 39
+            static let HeightView: CGFloat = 65
+            static let LeftPlanTopOffest = 23
+            static let TopConstantOffest = 15
+            static let PhoneImageConstant = 24
         }
     }
 }

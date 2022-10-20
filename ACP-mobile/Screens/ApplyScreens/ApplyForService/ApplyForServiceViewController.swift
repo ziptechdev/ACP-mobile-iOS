@@ -70,10 +70,6 @@ class ApplyForServiceViewController: UIViewController {
             static let HeaderCornerRadius: CGFloat = 10
             static let HeaderHeight: CGFloat = 40
         }
-
-        struct Text {
-            static let Title = "Eligibility Check"
-        }
     }
 }
 
