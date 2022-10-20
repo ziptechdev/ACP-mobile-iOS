@@ -66,15 +66,15 @@ class ACPBankInfoViewController: UIViewController {
         return view
     }()
 
-    private lazy var completeButton: ACPImageButton = {
-        let button = ACPImageButton(
-            spacing: Constants.Constraints.ButtonContentSpacing,
-            cornerRadius: Constants.Constraints.ButtonCornerRadius,
-            imageName: "right_arrow"
-        )
+    private lazy var completeButton: UIButton = {
+        let button = UIButton()
+        button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
+        button.layer.masksToBounds = true
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(.localizedString(key: "bank_info_btn"), for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(.white, for: .highlighted)
         button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         return button

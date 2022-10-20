@@ -28,7 +28,6 @@ class ACPTabMenuDotCell: UICollectionViewCell {
 
         backgroundColor = .clear
         isUserInteractionEnabled = true
-        translatesAutoresizingMaskIntoConstraints = false
         layer.masksToBounds = true
         layer.cornerRadius = Constants.Constraints.CornerRadius
 
