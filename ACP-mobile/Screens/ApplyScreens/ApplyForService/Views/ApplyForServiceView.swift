@@ -55,7 +55,7 @@ class ApplyForServiceView: UIView {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.contentMode = .scaleAspectFill
-        view.image = UIImage(named: "correct2")
+        view.image = UIImage(named: "correct")
         return view
     }()
     
