@@ -55,7 +55,7 @@ class ApplyForServiceView: UIView {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.contentMode = .scaleAspectFill
-        view.image = UIImage(named: "correct")
+        view.image = UIImage(named: "correct2x")
         return view
     }()
     
@@ -202,7 +202,6 @@ class ApplyForServiceView: UIView {
         visitWebsiteButton.snp.makeConstraints { make in
             make.height.equalTo(Constants.Constraints.ButtonHeight)
         }
-        
         applyNowButton.snp.makeConstraints { make in
             make.height.equalTo(Constants.Constraints.ButtonHeight)
         }
