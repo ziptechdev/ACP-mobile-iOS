@@ -1,22 +1,22 @@
 //
-//  ACPEligibilityDetailsViewController.swift
+//  ACPIdentityProofViewController.swift
 //  ACP-mobile
 //
-//  Created by Adi on 01/10/2022.
+//  Created by Adi on 19/10/2022.
 //
 
 import UIKit
 import SnapKit
 
-class ACPEligibilityDetailsViewController: UIViewController {
+class ACPIdentityProofViewController: UIViewController {
 
 	// MARK: - Properties
 
-    private let viewModel = ACPEligibilityDetailsViewModel()
+    weak var delegate: ACPTabMenuDelegate?
 
     // MARK: - Views
 
-    private let tabMenu = ACPTabMenuViewController()
+    private let tabMenu = ACPTabMenuViewController(allowSelection: false)
 
     private let infoLabel = ACPTermsAndPrivacyLabel()
 
@@ -26,16 +26,6 @@ class ACPEligibilityDetailsViewController: UIViewController {
         super.viewDidLoad()
 
         setupUI()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        title = .localizedString(key: "eligibility_page_title")
-        navigationController?.navigationBar.isHidden = false
-
-        setupRightNavigationBarButton()
-        setupLeftNavigationBarButton()
     }
 
     // MARK: - UI
@@ -56,8 +46,8 @@ class ACPEligibilityDetailsViewController: UIViewController {
 
     private func setupConstraints() {
         infoLabel.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.HeaderInsetHorizontal)
-            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(Constants.Constraints.HeaderInsetVertical)
+            make.left.right.equalToSuperview().inset(Constants.Constraints.InfoLabelInsetX)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(Constants.Constraints.InfoLabelInsetY)
         }
     }
 
@@ -82,17 +72,19 @@ class ACPEligibilityDetailsViewController: UIViewController {
 
     private struct Constants {
         struct Constraints {
-            static let HeaderInsetHorizontal: CGFloat = 35
+            static let HeaderInsetHorizontal: CGFloat = 140
             static let HeaderInsetVertical: CGFloat = 20
-            static let HeaderCornerRadius: CGFloat = 10
-            static let HeaderHeight: CGFloat = 40
+            static let HeaderHeight: CGFloat = 25
+
+            static let InfoLabelInsetX: CGFloat = 35
+            static let InfoLabelInsetY: CGFloat = 60
         }
     }
 }
 
 // MARK: - ACPTermsAndPrivacyLabelDelegate
 
-extension ACPEligibilityDetailsViewController: ACPTermsAndPrivacyLabelDelegate {
+extension ACPIdentityProofViewController: ACPTermsAndPrivacyLabelDelegate {
     func didTapTerms() {
         // TODO: Add link
     }
@@ -104,68 +96,62 @@ extension ACPEligibilityDetailsViewController: ACPTermsAndPrivacyLabelDelegate {
 
 // MARK: - ACPTabMenuDelegate
 
-extension ACPEligibilityDetailsViewController: ACPTabMenuDelegate {
+extension ACPIdentityProofViewController: ACPTabMenuDelegate {
     func didTapNextButton() {
+        // TODO: Add link
         tabMenu.nextTab()
     }
 
     func didTapActionButton() {
-        viewModel.didTapVerify()
-
-        let viewController = ACPEligibilityDetailsVerifyViewController()
-        navigationController?.pushViewController(viewController, animated: true)
+        // TODO: Add link
+        delegate?.didTapNextButton()
     }
 }
 
 // MARK: - ACPTabMenuViewControllerDelegate
 
-extension ACPEligibilityDetailsViewController: ACPTabMenuViewControllerDelegate {
+extension ACPIdentityProofViewController: ACPTabMenuViewControllerDelegate {
     var numberOfItems: Int {
-        return viewModel.numberOfTabItems()
+        return 4
     }
 
     func setupViews(collectionView: UICollectionView, containerView: UIView) {
-        collectionView.backgroundColor = .gray06Light
-        collectionView.layer.masksToBounds = true
-        collectionView.layer.cornerRadius = Constants.Constraints.HeaderCornerRadius
-        collectionView.contentInset = UIEdgeInsets(top: 6, left: 6, bottom: 6, right: 6)
-
-        collectionView.register(ACPTabMenuTitleCell.self)
+        collectionView.register(ACPTabMenuDotCell.self)
 
         collectionView.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(Constants.Constraints.HeaderInsetHorizontal)
-            make.top.equalToSuperview().inset(Constants.Constraints.HeaderInsetVertical)
+            make.bottom.equalToSuperview().inset(Constants.Constraints.HeaderInsetVertical)
             make.height.equalTo(Constants.Constraints.HeaderHeight)
         }
 
         containerView.snp.makeConstraints { make in
-            make.top.equalTo(collectionView.snp.bottom)
-            make.bottom.left.right.equalToSuperview()
+            make.bottom.equalTo(collectionView.snp.top)
+            make.top.left.right.equalToSuperview()
         }
     }
 
     func cellForIndex(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: ACPTabMenuTitleCell = collectionView.dequeue(at: indexPath)
-        cell.configureCell(text: viewModel.titleForTab(at: indexPath.item))
+        let cell: ACPTabMenuDotCell = collectionView.dequeue(at: indexPath)
         return cell
     }
 
     func didSelectTab(index: Int) -> UIViewController {
         switch index {
         case 0:
-            let viewController = ACPEligibilityDetailsNameViewController()
+            let viewController = ACPKYCViewController()
             viewController.delegate = self
-            viewController.viewModel = viewModel
             return viewController
         case 1:
-            let viewController = ACPEligibilityDetailsDOBViewController()
+            let viewController = ACPScanIDViewController()
             viewController.delegate = self
-            viewController.viewModel = viewModel
+            return viewController
+        case 2:
+            let viewController = ACPSelfieViewController()
+            viewController.delegate = self
             return viewController
         default:
-            let viewController = ACPEligibilityDetailsAddressViewController()
+            let viewController = ACPKYCCompleteViewController()
             viewController.delegate = self
-            viewController.viewModel = viewModel
             return viewController
         }
     }

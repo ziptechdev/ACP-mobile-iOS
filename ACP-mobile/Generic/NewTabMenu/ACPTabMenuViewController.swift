@@ -8,6 +8,11 @@
 import UIKit
 import SnapKit
 
+protocol ACPTabMenuDelegate: AnyObject {
+    func didTapNextButton()
+    func didTapActionButton()
+}
+
 protocol ACPTabMenuViewControllerDelegate: AnyObject {
     var numberOfItems: Int { get }
 
@@ -34,11 +39,16 @@ class ACPTabMenuViewController: UIViewController {
         }
     }
 
+    public var currentTab: Int {
+        return currentTabItem
+    }
+
     // MARK: - Views
 
     private let containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
         return view
     }()
 
@@ -75,12 +85,6 @@ class ACPTabMenuViewController: UIViewController {
         setupUI()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-        selectTab(index: currentTabItem)
-    }
-
     // MARK: - UI
 
     private func setupUI() {
@@ -101,6 +105,8 @@ class ACPTabMenuViewController: UIViewController {
         collectionView.delegate = self
 
         collectionView.reloadData()
+
+        selectTab(index: currentTabItem)
     }
 
     // MARK: - Child View Controller
@@ -132,7 +138,7 @@ class ACPTabMenuViewController: UIViewController {
 
     // MARK: - Selection
 
-    func selectTab(index: Int) {
+    private func selectTab(index: Int) {
         collectionView.selectItem(
             at: IndexPath(item: index, section: 0),
             animated: false,
@@ -148,11 +154,15 @@ class ACPTabMenuViewController: UIViewController {
                 previousCell.onInactive()
             }
         } else {
-            let indexesToSetup: [Int] = Array(newIndex.item...currentTabItem)
+            guard let tabCount = delegate?.numberOfItems else {
+                return
+            }
+
+            let indexesToSetup: [Int] = Array(0..<tabCount)
             indexesToSetup.forEach { index in
                 let indexPath = IndexPath(item: index, section: 0)
                 if let cell = collectionView.cellForItem(at: indexPath) as? ACPFocusableView {
-                    if indexPath.item <= newIndex.item {
+                    if index < newIndex.item {
                         cell.onInactive()
                     } else {
                         cell.onDisable()
@@ -201,7 +211,9 @@ extension ACPTabMenuViewController: UICollectionViewDataSource {
         }
 
         if let focusableCell = cell as? ACPFocusableView {
-            if allTabsEnabled || (indexPath.item <= currentTabItem) {
+            if indexPath.item == currentTabItem {
+                focusableCell.onActive()
+            } else if allTabsEnabled || (indexPath.item <= currentTabItem) {
                 focusableCell.onInactive()
             } else {
                 focusableCell.onDisable()

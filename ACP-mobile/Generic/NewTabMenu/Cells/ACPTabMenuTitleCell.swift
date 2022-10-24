@@ -1,28 +1,14 @@
 //
-//  ACPTopTabMenuButton.swift
+//  ACPTabMenuTitleCell.swift
 //  ACP-mobile
 //
-//  Created by Adi on 01/10/2022.
+//  Created by Adi on 06/10/2022.
 //
 
 import UIKit
 import SnapKit
 
-enum TabButtonStatus {
-    case selected
-    case active
-    case inactive
-}
-
-class ACPTopTabMenuButton: UIView {
-
-	// MARK: - Properties
-
-    var status: TabButtonStatus = .inactive {
-        didSet {
-            updateStyle()
-        }
-    }
+class ACPTabMenuTitleCell: UICollectionViewCell {
 
     // MARK: - Views
 
@@ -37,17 +23,15 @@ class ACPTopTabMenuButton: UIView {
 
     // MARK: - Initialization
 
-    init() {
-        super.init(frame: .zero)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
 
-        backgroundColor = .white
+        backgroundColor = .clear
         isUserInteractionEnabled = true
         layer.masksToBounds = true
         layer.cornerRadius = Constants.Constraints.CornerRadius
 
         setupUI()
-
-        updateStyle()
     }
 
     required init?(coder: NSCoder) {
@@ -62,30 +46,16 @@ class ACPTopTabMenuButton: UIView {
     }
 
     private func addSubviews() {
-        addSubview(titleLabel)
+        contentView.addSubview(titleLabel)
     }
 
     private func setupConstraints() {
         titleLabel.snp.makeConstraints { make in
-            make.top.left.bottom.right.equalToSuperview().inset(Constants.Constraints.ContentInset)
+            make.center.equalToSuperview()
         }
     }
 
-    private func updateStyle() {
-        switch status {
-        case .selected:
-            backgroundColor = .white
-            titleLabel.textColor = .gray06Dark
-        case .active:
-            backgroundColor = .clear
-            titleLabel.textColor = .gray06Dark
-        case .inactive:
-            backgroundColor = .clear
-            titleLabel.textColor = .gray03Light
-        }
-    }
-
-    func setText(text: String?) {
+    func configureCell(text: String) {
         titleLabel.text = text
     }
 
@@ -96,5 +66,22 @@ class ACPTopTabMenuButton: UIView {
             static let ContentInset: CGFloat = 4
             static let CornerRadius: CGFloat = 6
         }
+    }
+}
+
+extension ACPTabMenuTitleCell: ACPFocusableView {
+    func onActive() {
+        contentView.backgroundColor = .white
+        titleLabel.textColor = .gray06Dark
+    }
+
+    func onInactive() {
+        contentView.backgroundColor = .clear
+        titleLabel.textColor = .gray06Dark
+    }
+
+    func onDisable() {
+        contentView.backgroundColor = .clear
+        titleLabel.textColor = .gray03Light
     }
 }

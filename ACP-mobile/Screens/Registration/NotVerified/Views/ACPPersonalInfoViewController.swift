@@ -1,24 +1,22 @@
 //
-//  ACPEligibilityDetailsViewController.swift
+//  ACPPersonalInfoViewController.swift
 //  ACP-mobile
 //
-//  Created by Adi on 01/10/2022.
+//  Created by Adi on 06/10/2022.
 //
 
 import UIKit
 import SnapKit
 
-class ACPEligibilityDetailsViewController: UIViewController {
+class ACPPersonalInfoViewController: UIViewController {
 
 	// MARK: - Properties
 
-    private let viewModel = ACPEligibilityDetailsViewModel()
+    private let viewModel = ACPPersonalInfoViewModel()
 
     // MARK: - Views
 
     private let tabMenu = ACPTabMenuViewController()
-
-    private let infoLabel = ACPTermsAndPrivacyLabel()
 
     // MARK: - Life Cycle
 
@@ -31,7 +29,7 @@ class ACPEligibilityDetailsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        title = .localizedString(key: "eligibility_page_title")
+        title = .localizedString(key: "not_verified_register_page_title")
         navigationController?.navigationBar.isHidden = false
 
         setupRightNavigationBarButton()
@@ -43,22 +41,7 @@ class ACPEligibilityDetailsViewController: UIViewController {
     private func setupUI() {
         view.backgroundColor = .white
 
-        addSubviews()
-        setupConstraints()
         setupTabMenu()
-
-        infoLabel.delegate = self
-    }
-
-    private func addSubviews() {
-        view.addSubview(infoLabel)
-    }
-
-    private func setupConstraints() {
-        infoLabel.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.HeaderInsetHorizontal)
-            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(Constants.Constraints.HeaderInsetVertical)
-        }
     }
 
     private func setupTabMenu() {
@@ -68,8 +51,7 @@ class ACPEligibilityDetailsViewController: UIViewController {
         tabMenu.view.translatesAutoresizingMaskIntoConstraints = false
         tabMenu.view.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
-            make.left.right.equalToSuperview()
-            make.bottom.equalTo(infoLabel.snp.top)
+            make.left.right.bottom.equalToSuperview()
         }
 
         tabMenu.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -77,6 +59,8 @@ class ACPEligibilityDetailsViewController: UIViewController {
 
         tabMenu.delegate = self
     }
+
+    // MARK: - Callbacks
 
     // MARK: - Constants
 
@@ -92,7 +76,7 @@ class ACPEligibilityDetailsViewController: UIViewController {
 
 // MARK: - ACPTermsAndPrivacyLabelDelegate
 
-extension ACPEligibilityDetailsViewController: ACPTermsAndPrivacyLabelDelegate {
+extension ACPPersonalInfoViewController: ACPTermsAndPrivacyLabelDelegate {
     func didTapTerms() {
         // TODO: Add link
     }
@@ -104,22 +88,25 @@ extension ACPEligibilityDetailsViewController: ACPTermsAndPrivacyLabelDelegate {
 
 // MARK: - ACPTabMenuDelegate
 
-extension ACPEligibilityDetailsViewController: ACPTabMenuDelegate {
+extension ACPPersonalInfoViewController: ACPTabMenuDelegate {
     func didTapNextButton() {
-        tabMenu.nextTab()
+        if tabMenu.currentTab == 0 {
+            let verifyVC = ACPVerifyEmailViewController(dismissCallback: tabMenu.nextTab)
+            navigationController?.present(verifyVC, animated: true)
+        } else {
+            tabMenu.nextTab()
+        }
     }
 
     func didTapActionButton() {
-        viewModel.didTapVerify()
-
-        let viewController = ACPEligibilityDetailsVerifyViewController()
-        navigationController?.pushViewController(viewController, animated: true)
+        let targetVC = ACPRegistrationCompleteViewController()
+        navigationController?.pushViewController(targetVC, animated: true)
     }
 }
 
 // MARK: - ACPTabMenuViewControllerDelegate
 
-extension ACPEligibilityDetailsViewController: ACPTabMenuViewControllerDelegate {
+extension ACPPersonalInfoViewController: ACPTabMenuViewControllerDelegate {
     var numberOfItems: Int {
         return viewModel.numberOfTabItems()
     }
@@ -153,19 +140,16 @@ extension ACPEligibilityDetailsViewController: ACPTabMenuViewControllerDelegate 
     func didSelectTab(index: Int) -> UIViewController {
         switch index {
         case 0:
-            let viewController = ACPEligibilityDetailsNameViewController()
+            let viewController = ACPPersonalInfoDetailsViewController()
             viewController.delegate = self
-            viewController.viewModel = viewModel
             return viewController
         case 1:
-            let viewController = ACPEligibilityDetailsDOBViewController()
+            let viewController = ACPIdentityProofViewController()
             viewController.delegate = self
-            viewController.viewModel = viewModel
             return viewController
         default:
-            let viewController = ACPEligibilityDetailsAddressViewController()
+            let viewController = ACPBankInfoViewController()
             viewController.delegate = self
-            viewController.viewModel = viewModel
             return viewController
         }
     }

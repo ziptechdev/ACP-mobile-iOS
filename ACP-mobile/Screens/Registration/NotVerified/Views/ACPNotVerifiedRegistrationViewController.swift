@@ -153,7 +153,8 @@ class ACPNotVerifiedRegistrationViewController: UIViewController {
     // MARK: - Callbacks
 
     @objc func didTapButton() {
-        print("Get Started")
+        let viewController = ACPPersonalInfoViewController()
+        navigationController?.pushViewController(viewController, animated: true)
     }
 
     @objc func didTapLabel(_ sender: UITapGestureRecognizer? = nil) {
