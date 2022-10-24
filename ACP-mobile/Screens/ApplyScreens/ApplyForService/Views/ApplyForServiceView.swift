@@ -16,11 +16,11 @@ protocol ApplyForServiceViewDelegate: AnyObject {
 }
 
 class ApplyForServiceView: UIView {
-    
+
     // MARK: - Properties
-    
+
     weak var delegate: ApplyForServiceViewDelegate?
-    
+
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .coreBlue
@@ -30,7 +30,7 @@ class ApplyForServiceView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+
     let subTitleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .gray06Dark
@@ -40,7 +40,7 @@ class ApplyForServiceView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+
     let descriptionLabel: UILabel = {
         let label = UILabel()
         label.textColor = .gray01Light
@@ -50,15 +50,15 @@ class ApplyForServiceView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+
     let correctImageView: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.contentMode = .scaleAspectFill
-        view.image = UIImage(named: "correct")
+        view.image = UIImage(named: "correct2x")
         return view
     }()
-    
+
     let eligibleOrNotLabel: UILabel = {
         let label = UILabel()
         label.textColor = .gray06Dark
@@ -67,7 +67,7 @@ class ApplyForServiceView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+
     private let eligibleView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -75,7 +75,7 @@ class ApplyForServiceView: UIView {
         view.layer.masksToBounds = true
         return view
     }()
-    
+
     private let textStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -84,7 +84,7 @@ class ApplyForServiceView: UIView {
         stackView.spacing = 20
         return stackView
     }()
-    
+
     let applyNowButton: UIButton = {
         let button = UIButton()
         button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
@@ -95,7 +95,7 @@ class ApplyForServiceView: UIView {
         button.layer.masksToBounds = false
         return button
     }()
-    
+
     lazy var toggleSwitch: UISwitch = {
         let button = UISwitch()
         button.layer.masksToBounds = true
@@ -103,7 +103,7 @@ class ApplyForServiceView: UIView {
         button.addTarget(self, action: #selector(handleToggleBT), for: .touchUpInside)
         return button
     }()
-    
+
     let switchTextLabel: UILabel = {
         let label = UILabel()
         label.textColor = .gray06Dark
@@ -113,7 +113,7 @@ class ApplyForServiceView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+
     private let switchStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -122,7 +122,7 @@ class ApplyForServiceView: UIView {
         stackView.spacing = 15
         return stackView
     }()
-    
+
     let visitWebsiteButton: ACPImageButton = {
         let button = ACPImageButton(
             spacing: Constants.Constraints.ButtonContentSpacing,
@@ -139,9 +139,9 @@ class ApplyForServiceView: UIView {
         button.layer.borderColor = UIColor.coreBlue.cgColor
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
-        
+
     }()
-    
+
     let infoLabel: UILabel = {
         let label = UILabel()
         label.textColor = .gray01Light
@@ -151,7 +151,7 @@ class ApplyForServiceView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+
     private let buttonAndInfoStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -160,26 +160,26 @@ class ApplyForServiceView: UIView {
         stackView.spacing = 20
         return stackView
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+
         addSubviews()
         setUpConstraints()
         setText()
-        
+
         applyNowButton.addTarget(self, action: #selector(applyNowTapped), for: .touchUpInside)
         visitWebsiteButton.addTarget(self, action: #selector(visitWebsiteTapped), for: .touchUpInside)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
     }
-    
+
     private func addSubviews() {
         eligibleView.addSubview(correctImageView)
         eligibleView.addSubview(eligibleOrNotLabel)
@@ -193,16 +193,16 @@ class ApplyForServiceView: UIView {
         buttonAndInfoStackView.addArrangedSubview(switchStackView)
         buttonAndInfoStackView.addArrangedSubview(visitWebsiteButton)
         buttonAndInfoStackView.addArrangedSubview(infoLabel)
-        
+
         addSubview(textStackView)
         addSubview(buttonAndInfoStackView)
     }
-    
+
     private func setUpConstraints() {
         visitWebsiteButton.snp.makeConstraints { make in
             make.height.equalTo(Constants.Constraints.ButtonHeight)
         }
-        
+
         applyNowButton.snp.makeConstraints { make in
             make.height.equalTo(Constants.Constraints.ButtonHeight)
         }
@@ -224,7 +224,7 @@ class ApplyForServiceView: UIView {
             make.left.right.equalToSuperview().inset(Constants.Constraints.LeadingConstant)
         }
     }
-    
+
     @objc func handleToggleBT() {
         if toggleSwitch.isOn {
             delegate?.toogleSwitchToYes()
@@ -232,15 +232,15 @@ class ApplyForServiceView: UIView {
             delegate?.toogleSwitchToNo()
         }
     }
-    
+
     @objc func applyNowTapped(sender: UIButton!) {
         delegate?.didApplyNowButton()
     }
-    
+
     @objc func visitWebsiteTapped(sender: UIButton!) {
         delegate?.didTapVisitWebsiteButton()
     }
-    
+
     private func setText() {
         titleLabel.text = .localizedString(key: "service_title")
         descriptionLabel.text = .localizedString(key: "service_description")
@@ -252,9 +252,9 @@ class ApplyForServiceView: UIView {
         switchTextLabel.text = .localizedString(key: "auto_renewal")
         visitWebsiteButton.setTitle(.localizedString(key: "visit_website_btn"), for: .normal)
     }
-    
+
     // MARK: - Constants
-    
+
     private struct Constants {
         struct Constraints {
             static let TextLeftOffset: CGFloat = 3

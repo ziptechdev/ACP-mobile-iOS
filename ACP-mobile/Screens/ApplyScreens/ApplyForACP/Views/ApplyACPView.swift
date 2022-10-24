@@ -16,12 +16,12 @@ protocol ApplyACPViewDelegate: AnyObject {
 
 // swiftlint:disable:next type_body_length
 class ApplyACPView: UIView {
-    
+
     weak var delegate: ApplyACPViewDelegate?
     var mainHeightConstraint: NSLayoutConstraint?
     private var shouldCollapse = false
     private var isMobileTapped = false
-    
+
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .coreBlue
@@ -31,7 +31,7 @@ class ApplyACPView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+
     let descriptionLabel: UILabel = {
         let label = UILabel()
         label.textColor = .gray01Light
@@ -41,7 +41,7 @@ class ApplyACPView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+
     let correctImageView: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -49,7 +49,7 @@ class ApplyACPView: UIView {
         view.image = UIImage(named: "correctACP")
         return view
     }()
-    
+
     let assistanceImageView: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -57,7 +57,7 @@ class ApplyACPView: UIView {
         view.image = UIImage(named: "snap")
         return view
     }()
-    
+
     let eligibleOrNotLabel: UILabel = {
         let label = UILabel()
         label.textColor = .gray06Dark
@@ -67,7 +67,7 @@ class ApplyACPView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+
     private let acpProgramStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -83,7 +83,7 @@ class ApplyACPView: UIView {
         stackView.isLayoutMarginsRelativeArrangement = true
         return stackView
     }()
-    
+
     private let textStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -92,7 +92,7 @@ class ApplyACPView: UIView {
         stackView.spacing = 10
         return stackView
     }()
-    
+
     let choosePlanLabel: UILabel = {
         let label = UILabel()
         label.textColor = .gray06Dark
@@ -102,7 +102,7 @@ class ApplyACPView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+
     let planNameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .coreBlue
@@ -112,7 +112,7 @@ class ApplyACPView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+
     let planPriceLabel: UILabel = {
         let label = UILabel()
         label.textColor = .gray06Dark
@@ -122,7 +122,7 @@ class ApplyACPView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+
     let planDescriptionLabel: UILabel = {
         let label = UILabel()
         label.textColor = .gray06Dark
@@ -133,7 +133,7 @@ class ApplyACPView: UIView {
         label.isHidden = true
         return label
     }()
-    
+
     let choosePlanSelectedImageView: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -142,7 +142,7 @@ class ApplyACPView: UIView {
         view.isHidden = true
         return view
     }()
-    
+
     let applyNowButton: UIButton = {
         let button = UIButton()
         button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
@@ -154,7 +154,7 @@ class ApplyACPView: UIView {
         button.layer.masksToBounds = false
         return button
     }()
-    
+
     let phoneSelectedImageView: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -163,7 +163,7 @@ class ApplyACPView: UIView {
         view.isHidden = true
         return view
     }()
-    
+
     let switchTextLabel: UILabel = {
         let label = UILabel()
         label.textColor = .gray06Dark
@@ -173,7 +173,7 @@ class ApplyACPView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+
     let phoneSetupButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .clear
@@ -185,7 +185,7 @@ class ApplyACPView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    
+
     private let choosePlanStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -202,7 +202,7 @@ class ApplyACPView: UIView {
         stackView.isLayoutMarginsRelativeArrangement = true
         return stackView
     }()
-    
+
     let phoneSetupLabel: UILabel = {
         let label = UILabel()
         label.textColor = .coreBlue
@@ -212,7 +212,7 @@ class ApplyACPView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+
     let phoneImageView: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -220,7 +220,7 @@ class ApplyACPView: UIView {
         view.image = UIImage(named: "phone")
         return view
     }()
-    
+
     private let phoneSetupStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -238,7 +238,7 @@ class ApplyACPView: UIView {
         stackView.isLayoutMarginsRelativeArrangement = true
         return stackView
     }()
-    
+
     private let buttonAndInfoStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -247,7 +247,7 @@ class ApplyACPView: UIView {
         stackView.spacing = 20
         return stackView
     }()
-    
+
     let planView: UIView = {
         let view = UIView()
         view.backgroundColor = .coreLightBlue
@@ -259,7 +259,7 @@ class ApplyACPView: UIView {
         view.layer.borderColor = UIColor.coreLightBlue.cgColor
         return view
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubviews()
@@ -271,7 +271,7 @@ class ApplyACPView: UIView {
         let phoneViewGesture = UITapGestureRecognizer(target: self, action: #selector(mobileSetupTapped))
         phoneSetupStackView.addGestureRecognizer(phoneViewGesture)
     }
-    
+
     func checkButtonAvailability() {
         if isMobileTapped && shouldCollapse {
             applyNowButton.backgroundColor = .coreBlue
@@ -281,15 +281,15 @@ class ApplyACPView: UIView {
             applyNowButton.isUserInteractionEnabled = false
         }
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
     }
-    
+
     private func addSubviews() {
         planView.addSubview(planNameLabel)
         planView.addSubview(planPriceLabel)
@@ -302,7 +302,7 @@ class ApplyACPView: UIView {
         phoneSetupStackView.addArrangedSubview(phoneSetupLabel)
         phoneSetupStackView.addArrangedSubview(phoneImageView)
         buttonAndInfoStackView.addArrangedSubview(applyNowButton)
-        
+
         addSubview(textStackView)
         addSubview(acpProgramStackView)
         addSubview(choosePlanLabel)
@@ -313,7 +313,7 @@ class ApplyACPView: UIView {
         addSubview(phoneSelectedImageView)
         addSubview(buttonAndInfoStackView)
     }
-    
+
     // swiftlint:disable:next function_body_length
     private func setUpConstraints() {
         applyNowButton.snp.makeConstraints { make in
@@ -375,8 +375,7 @@ class ApplyACPView: UIView {
             make.left.right.equalToSuperview().inset(Constants.Constraints.LeadingConstant)
         }
     }
-    
-    
+
     @objc func planTapped() {
         if shouldCollapse {
             animateView(isCollapse: false,
@@ -389,7 +388,7 @@ class ApplyACPView: UIView {
         }
         checkButtonAvailability()
     }
-    
+
     @objc func mobileSetupTapped() {
         if isMobileTapped {
             phoneView(isCollapse: false,
@@ -402,7 +401,7 @@ class ApplyACPView: UIView {
         }
         checkButtonAvailability()
     }
-    
+
     private func phoneView(isCollapse: Bool, heighConstraint: Double) {
         UIView.animate(withDuration: 0.5) { [self] in
             self.isMobileTapped = isCollapse
@@ -415,7 +414,7 @@ class ApplyACPView: UIView {
             self.layoutIfNeeded()
         }
     }
-    
+
     private func animateView(isCollapse: Bool, heighConstraint: Double) {
         UIView.animate(withDuration: 0.5) { [self] in
             self.shouldCollapse = isCollapse
@@ -430,11 +429,11 @@ class ApplyACPView: UIView {
             self.planView.layoutIfNeeded()
         }
     }
-    
+
     @objc func applyNowTapped(sender: UIButton!) {
         delegate?.didApplyNowButton()
     }
-    
+
     private func setText() {
         titleLabel.text = .localizedString(key: "apply_acp_title")
         descriptionLabel.text = .formatLocalizedString(
@@ -455,7 +454,7 @@ class ApplyACPView: UIView {
         }
     }
     // MARK: - Constants
-    
+
     private struct Constants {
         struct Constraints {
             static let TopConstant: CGFloat = 45

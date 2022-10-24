@@ -142,7 +142,7 @@ class ACPSuccesViewController: UIViewController {
             static let ButtonHeight: CGFloat = 46
             static let ButtonOffsetVertical: CGFloat = 60
             static let ButtonCornerRadius: CGFloat = 10
-            
+
         }
 
     }
