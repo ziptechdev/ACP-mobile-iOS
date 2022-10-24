@@ -19,8 +19,6 @@ class ACPVerifyEmailKeyboardView: UIView {
 
     weak var delegate: ACPVerifyEmailKeyboardViewDelegate?
 
-    // MARK: - Views
-
     // MARK: - Initialization
 
     override init(frame: CGRect) {

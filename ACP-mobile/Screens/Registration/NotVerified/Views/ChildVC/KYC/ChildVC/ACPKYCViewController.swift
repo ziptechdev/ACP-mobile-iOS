@@ -51,8 +51,6 @@ class ACPKYCViewController: UIViewController {
         return button
     }()
 
-    // MARK: - Initialization
-
     // MARK: - Life Cycle
 
     override func viewDidLoad() {

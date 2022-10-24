@@ -66,8 +66,6 @@ class ACPScanIDViewController: UIViewController {
         return button
     }()
 
-    // MARK: - Initialization
-
     // MARK: - Life Cycle
 
     override func viewDidLoad() {

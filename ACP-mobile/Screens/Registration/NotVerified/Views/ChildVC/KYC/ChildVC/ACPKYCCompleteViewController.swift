@@ -61,8 +61,6 @@ class ACPKYCCompleteViewController: UIViewController {
         return button
     }()
 
-    // MARK: - Initialization
-
     // MARK: - Life Cycle
 
     override func viewDidLoad() {

@@ -111,8 +111,6 @@ class ACPVerifyEmailCodeView: UIView {
         }
     }
 
-    // MARK: - Callbacks
-
     // MARK: - Constants
 
     private struct Constants {

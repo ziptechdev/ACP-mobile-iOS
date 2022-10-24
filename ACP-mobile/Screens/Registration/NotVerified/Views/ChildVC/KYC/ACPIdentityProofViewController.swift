@@ -20,8 +20,6 @@ class ACPIdentityProofViewController: UIViewController {
 
     private let infoLabel = ACPTermsAndPrivacyLabel()
 
-    // MARK: - Initialization
-
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
@@ -69,8 +67,6 @@ class ACPIdentityProofViewController: UIViewController {
 
         tabMenu.delegate = self
     }
-
-    // MARK: - Callbacks
 
     // MARK: - Constants
 
