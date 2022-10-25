@@ -74,6 +74,9 @@
 		400ABA3228FF904B00A6DCB6 /* ACPTabMenuDotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400ABA3128FF904B00A6DCB6 /* ACPTabMenuDotCell.swift */; };
 		400ABA352900413D00A6DCB6 /* ACPRegistrationCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400ABA342900413D00A6DCB6 /* ACPRegistrationCompleteViewController.swift */; };
 		4013FADE29083DB00018025F /* ACPCardSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4013FADD29083DB00018025F /* ACPCardSuccessViewController.swift */; };
+		4013FAE12908427F0018025F /* ACPEmptyWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4013FAE02908427F0018025F /* ACPEmptyWalletViewController.swift */; };
+		4013FAE32908428A0018025F /* ACPWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4013FAE22908428A0018025F /* ACPWalletViewController.swift */; };
+		4013FAE7290844380018025F /* ACPEmptyWalletBalanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4013FAE6290844380018025F /* ACPEmptyWalletBalanceView.swift */; };
 		403AD22029075B0600C6D556 /* ACPHomeScreenTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403AD21F29075B0600C6D556 /* ACPHomeScreenTabViewController.swift */; };
 		403AD22329075B6400C6D556 /* ACPHomeScreenTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403AD22229075B6400C6D556 /* ACPHomeScreenTabViewModel.swift */; };
 		403AD2252907636B00C6D556 /* ACPTabMenuImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403AD2242907636B00C6D556 /* ACPTabMenuImageCell.swift */; };
@@ -160,6 +163,9 @@
 		400ABA3128FF904B00A6DCB6 /* ACPTabMenuDotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPTabMenuDotCell.swift; sourceTree = "<group>"; };
 		400ABA342900413D00A6DCB6 /* ACPRegistrationCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPRegistrationCompleteViewController.swift; sourceTree = "<group>"; };
 		4013FADD29083DB00018025F /* ACPCardSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPCardSuccessViewController.swift; sourceTree = "<group>"; };
+		4013FAE02908427F0018025F /* ACPEmptyWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPEmptyWalletViewController.swift; sourceTree = "<group>"; };
+		4013FAE22908428A0018025F /* ACPWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPWalletViewController.swift; sourceTree = "<group>"; };
+		4013FAE6290844380018025F /* ACPEmptyWalletBalanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPEmptyWalletBalanceView.swift; sourceTree = "<group>"; };
 		403AD21F29075B0600C6D556 /* ACPHomeScreenTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPHomeScreenTabViewController.swift; sourceTree = "<group>"; };
 		403AD22229075B6400C6D556 /* ACPHomeScreenTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPHomeScreenTabViewModel.swift; sourceTree = "<group>"; };
 		403AD2242907636B00C6D556 /* ACPTabMenuImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPTabMenuImageCell.swift; sourceTree = "<group>"; };
@@ -540,6 +546,7 @@
 		4013FADA29083D620018025F /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
+				4013FAE52908438E0018025F /* EmptyWallet */,
 				4013FADC29083D920018025F /* CardSuccess */,
 				4013FADB29083D7C0018025F /* MyWallet */,
 			);
@@ -549,6 +556,7 @@
 		4013FADB29083D7C0018025F /* MyWallet */ = {
 			isa = PBXGroup;
 			children = (
+				4013FAE22908428A0018025F /* ACPWalletViewController.swift */,
 			);
 			path = MyWallet;
 			sourceTree = "<group>";
@@ -559,6 +567,23 @@
 				4013FADD29083DB00018025F /* ACPCardSuccessViewController.swift */,
 			);
 			path = CardSuccess;
+			sourceTree = "<group>";
+		};
+		4013FADF290842420018025F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4013FAE6290844380018025F /* ACPEmptyWalletBalanceView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4013FAE52908438E0018025F /* EmptyWallet */ = {
+			isa = PBXGroup;
+			children = (
+				4013FADF290842420018025F /* Views */,
+				4013FAE02908427F0018025F /* ACPEmptyWalletViewController.swift */,
+			);
+			path = EmptyWallet;
 			sourceTree = "<group>";
 		};
 		403AD21E29075AC200C6D556 /* Home */ = {
@@ -784,6 +809,7 @@
 				400AB9F428FF7F6000A6DCB6 /* ACPEligibilityDetailsAddressViewController.swift in Sources */,
 				400ABA1528FF7F6000A6DCB6 /* ACPNavigationController.swift in Sources */,
 				400AB9EF28FF7F6000A6DCB6 /* ACPEligibilityDetailsAddressModel.swift in Sources */,
+				4013FAE7290844380018025F /* ACPEmptyWalletBalanceView.swift in Sources */,
 				400ABA2128FF7F6000A6DCB6 /* ACPVerifyEmailViewController.swift in Sources */,
 				400ABA2428FF7F6000A6DCB6 /* ACPIdentityProofViewController.swift in Sources */,
 				400ABA1028FF7F6000A6DCB6 /* AppDelegate.swift in Sources */,
@@ -827,12 +853,14 @@
 				400ABA2F28FF7F6000A6DCB6 /* ACPEndpoint.swift in Sources */,
 				400ABA2628FF7F6000A6DCB6 /* ACPScanIDViewController.swift in Sources */,
 				400AB9F128FF7F6000A6DCB6 /* ACPEligibilityDetailsNameModel.swift in Sources */,
+				4013FAE12908427F0018025F /* ACPEmptyWalletViewController.swift in Sources */,
 				400ABA0628FF7F6000A6DCB6 /* UIResponder+ACP.swift in Sources */,
 				400AB9FC28FF7F6000A6DCB6 /* ACPWelcomeScreenViewController.swift in Sources */,
 				400ABA2D28FF7F6000A6DCB6 /* VerifyEndpoint.swift in Sources */,
 				400ABA1228FF7F6000A6DCB6 /* ACPTabMenuViewController.swift in Sources */,
 				400ABA1A28FF7F6000A6DCB6 /* ACPTermsAndPrivacyLabel.swift in Sources */,
 				400ABA2728FF7F6000A6DCB6 /* ACPKYCViewController.swift in Sources */,
+				4013FAE32908428A0018025F /* ACPWalletViewController.swift in Sources */,
 				400ABA352900413D00A6DCB6 /* ACPRegistrationCompleteViewController.swift in Sources */,
 				400AB9F928FF7F6000A6DCB6 /* ACPVerifiedRegistrationViewController.swift in Sources */,
 				400ABA2A28FF7F6000A6DCB6 /* ACPNotVerifiedRegistrationViewController.swift in Sources */,

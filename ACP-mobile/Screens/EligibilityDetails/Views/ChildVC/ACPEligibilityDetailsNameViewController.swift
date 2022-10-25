@@ -160,13 +160,11 @@ class ACPEligibilityDetailsNameViewController: UIViewController {
     }
 
     private func attributedTitleText() -> NSMutableAttributedString {
-        let middleName: NSString = .localizedString(key: "eligibility_details_middle_name")
-        let fullRange = NSRange(location: 0, length: middleName.length)
-        let optionalRange = middleName.range(of: .localizedString(key: "eligibility_details_highlight"))
-
         let string: NSMutableAttributedString = .localizedString(key: "eligibility_details_middle_name")
-        string.addAttribute(.foregroundColor, value: UIColor.gray06Dark, range: fullRange)
-        string.addAttribute(.foregroundColor, value: UIColor.gray01Light, range: optionalRange)
+        let highlightRange = string.range(of: .localizedString(key: "eligibility_details_highlight"))
+
+        string.addAttribute(.foregroundColor, value: UIColor.gray06Dark)
+        string.addAttribute(.foregroundColor, value: UIColor.gray01Light, range: highlightRange)
 
         return string
     }

@@ -151,15 +151,13 @@ class ACPEligibilityDetailsFailViewController: UIViewController {
     }
 
     private func subtitleAttributedText() -> NSAttributedString {
-        let subtitle: NSString = .localizedString(key: "verify_fail_subtitle")
-        let fullRange = NSRange(location: 0, length: subtitle.length)
-        let attributeRange = subtitle.range(of: .localizedString(key: "verify_fail_highlight"))
-
         let string: NSMutableAttributedString = .localizedString(key: "verify_fail_subtitle")
-        string.addAttribute(.font, value: UIFont.systemFont(ofSize: 14, weight: .regular), range: fullRange)
-        string.addAttribute(.paragraphStyle, value: NSMutableParagraphStyle.center, range: fullRange)
-        string.addAttribute(.foregroundColor, value: UIColor.gray01Light, range: fullRange)
-        string.addAttribute(.foregroundColor, value: UIColor.coreBlue, range: attributeRange)
+        let highlightRange = string.range(of: .localizedString(key: "verify_fail_highlight"))
+
+        string.addAttribute(.font, value: UIFont.systemFont(ofSize: 14, weight: .regular))
+        string.addAttribute(.paragraphStyle, value: NSMutableParagraphStyle.center)
+        string.addAttribute(.foregroundColor, value: UIColor.gray01Light)
+        string.addAttribute(.foregroundColor, value: UIColor.coreBlue, range: highlightRange)
 
         return string
     }
@@ -179,10 +177,10 @@ class ACPEligibilityDetailsFailViewController: UIViewController {
             return
         }
 
-        let subtitle: NSString = .localizedString(key: "verify_fail_subtitle")
-        let attributeRange = subtitle.range(of: .localizedString(key: "verify_fail_highlight"))
+        let string: String = .localizedString(key: "verify_fail_subtitle")
+        let highlightRange = string.range(of: .localizedString(key: "verify_fail_highlight"))
 
-        if sender.didTapAttributedTextInLabel(label: subtitleLabel, inRange: attributeRange) {
+        if sender.didTapAttributedTextInLabel(label: subtitleLabel, inRange: highlightRange) {
             // TODO: Add Link
             print("NationalVerifier")
         }

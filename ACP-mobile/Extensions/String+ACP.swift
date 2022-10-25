@@ -15,15 +15,10 @@ extension String {
     static func formatLocalizedString(key: String, values: CVarArg...) -> String {
         return String(format: .localizedString(key: key), values)
     }
-}
 
-extension NSString {
-    static func localizedString(key: String) -> NSString {
-        return NSLocalizedString(key, comment: key) as NSString
-    }
-
-    static func formatLocalizedString(key: String, values: CVarArg...) -> NSString {
-        return String(format: .localizedString(key: key), values) as NSString
+    func range(of subString: String) -> NSRange {
+        let string = NSString(string: self)
+        return string.range(of: subString)
     }
 }
 
@@ -36,5 +31,14 @@ extension NSMutableAttributedString {
     static func formatLocalizedString(key: String, values: CVarArg...) -> NSMutableAttributedString {
         let string = String(format: .localizedString(key: key), values)
         return NSMutableAttributedString(string: string)
+    }
+
+    func range(of subString: String) -> NSRange {
+        return self.mutableString.range(of: subString)
+    }
+
+    func addAttribute(_ name: NSAttributedString.Key, value: Any) {
+        let fullRange = NSRange(location: 0, length: self.length)
+        addAttribute(name, value: value, range: fullRange)
     }
 }

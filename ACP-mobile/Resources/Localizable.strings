@@ -191,6 +191,13 @@ KYC requires a selfie/clear shot of your face and a photo of the document that c
 /* Wallet Screen */
 "wallet_page_title" = "Wallet";
 
+/* Empty Wallet Screen */
+"empty_wallet_title" = "You need a card!";
+"empty_wallet_subtitle" = "In order to spend your funds you have to request a debit card by clicking the button below.";
+"empty_wallet_btn" = "Request Card";
+"empty_wallet_balance" = "Total balance in USD:";
+"empty_wallet_balance_highlight" = "USD";
+
 /* Wallet Success Screen */
 "wallet_success_title" = "Confirmed!";
 "wallet_success_subtitle" = "Your VISA debit card request has been successfully submitted. The card will be shipped to your address within 2-3 business days.";

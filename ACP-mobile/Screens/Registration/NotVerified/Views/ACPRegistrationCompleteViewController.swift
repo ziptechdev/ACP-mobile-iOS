@@ -112,15 +112,14 @@ class ACPRegistrationCompleteViewController: UIViewController {
     }
 
     private func attributedButtonTitle() -> NSMutableAttributedString {
-        let title: NSMutableAttributedString = .localizedString(key: "registration_complete_btn")
-        let fullRange = NSRange(location: 0, length: title.length)
+        let string: NSMutableAttributedString = .localizedString(key: "registration_complete_btn")
 
-        title.addAttribute(.font, value: UIFont.systemFont(ofSize: 14, weight: .semibold), range: fullRange)
-        title.addAttribute(.foregroundColor, value: UIColor.white, range: fullRange)
-        title.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: fullRange)
-        title.addAttribute(.underlineColor, value: UIColor.white, range: fullRange)
+        string.addAttribute(.font, value: UIFont.systemFont(ofSize: 14, weight: .semibold))
+        string.addAttribute(.foregroundColor, value: UIColor.white)
+        string.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue)
+        string.addAttribute(.underlineColor, value: UIColor.white)
 
-        return title
+        return string
     }
 
     // MARK: - Callbacks

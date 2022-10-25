@@ -91,13 +91,11 @@ class ACPKYCViewController: UIViewController {
     }
 
     private func attributedSubitleText() -> NSMutableAttributedString {
-        let subtitle: NSString = .localizedString(key: "kyc_subtitle")
-        let fullRange = NSRange(location: 0, length: subtitle.length)
-        let highlightRange = subtitle.range(of: .localizedString(key: "kyc_highlight"))
-
         let string: NSMutableAttributedString = .localizedString(key: "kyc_subtitle")
-        string.addAttribute(.font, value: UIFont.systemFont(ofSize: 14, weight: .regular), range: fullRange)
-        string.addAttribute(.foregroundColor, value: UIColor.gray01Light, range: fullRange)
+        let highlightRange = string.range(of: .localizedString(key: "kyc_highlight"))
+
+        string.addAttribute(.font, value: UIFont.systemFont(ofSize: 14, weight: .regular))
+        string.addAttribute(.foregroundColor, value: UIColor.gray01Light)
         string.addAttribute(.foregroundColor, value: UIColor.coreBlue, range: highlightRange)
 
         return string
@@ -114,7 +112,7 @@ class ACPKYCViewController: UIViewController {
             return
         }
 
-        let subtitle: NSString = .localizedString(key: "kyc_subtitle")
+        let subtitle: String = .localizedString(key: "kyc_subtitle")
         let highlightRange = subtitle.range(of: .localizedString(key: "kyc_highlight"))
 
         if sender.didTapAttributedTextInLabel(label: subtitleLabel, inRange: highlightRange) {

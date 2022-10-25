@@ -120,14 +120,12 @@ class ACPScanIDViewController: UIViewController {
     }
 
     private func attributedSubitleText() -> NSMutableAttributedString {
-        let subtitle: NSString = .localizedString(key: "kyc_scan_id_subtitle")
-        let fullRange = NSRange(location: 0, length: subtitle.length)
-        let highlightRange = subtitle.range(of: .localizedString(key: "kyc_scan_id_highlight"))
-
         let string: NSMutableAttributedString = .localizedString(key: "kyc_scan_id_subtitle")
-        string.addAttribute(.paragraphStyle, value: NSMutableParagraphStyle.center, range: fullRange)
-        string.addAttribute(.foregroundColor, value: UIColor.gray01Light, range: fullRange)
-        string.addAttribute(.font, value: UIFont.systemFont(ofSize: 14, weight: .regular), range: fullRange)
+        let highlightRange = string.range(of: .localizedString(key: "kyc_scan_id_highlight"))
+
+        string.addAttribute(.paragraphStyle, value: NSMutableParagraphStyle.center)
+        string.addAttribute(.foregroundColor, value: UIColor.gray01Light)
+        string.addAttribute(.font, value: UIFont.systemFont(ofSize: 14, weight: .regular))
         string.addAttribute(.font, value: UIFont.systemFont(ofSize: 13, weight: .semibold), range: highlightRange)
 
         return string

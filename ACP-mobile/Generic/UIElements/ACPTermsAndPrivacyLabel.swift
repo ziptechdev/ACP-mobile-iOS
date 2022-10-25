@@ -40,15 +40,13 @@ class ACPTermsAndPrivacyLabel: UILabel {
     // MARK: - Functions
 
     private func attributedInfoText() -> NSMutableAttributedString {
-        let info: NSString = .localizedString(key: "info_label_text")
-        let fullRange = NSRange(location: 0, length: info.length)
-        let termsRange = info.range(of: .localizedString(key: "info_label_terms"))
-        let privacyRange = info.range(of: .localizedString(key: "info_label_privacy"))
-
         let string: NSMutableAttributedString = .localizedString(key: "info_label_text")
-        string.addAttribute(.font, value: UIFont.systemFont(ofSize: 14, weight: .regular), range: fullRange)
-        string.addAttribute(.paragraphStyle, value: NSMutableParagraphStyle.center, range: fullRange)
-        string.addAttribute(.foregroundColor, value: UIColor.gray06Dark, range: fullRange)
+        let termsRange = string.range(of: .localizedString(key: "info_label_terms"))
+        let privacyRange = string.range(of: .localizedString(key: "info_label_privacy"))
+
+        string.addAttribute(.font, value: UIFont.systemFont(ofSize: 14, weight: .regular))
+        string.addAttribute(.paragraphStyle, value: NSMutableParagraphStyle.center)
+        string.addAttribute(.foregroundColor, value: UIColor.gray06Dark)
         string.addAttribute(.foregroundColor, value: UIColor.coreBlue, range: termsRange)
         string.addAttribute(.foregroundColor, value: UIColor.coreBlue, range: privacyRange)
 
@@ -60,9 +58,9 @@ class ACPTermsAndPrivacyLabel: UILabel {
             return
         }
 
-        let info: NSString = .localizedString(key: "info_label_text")
-        let termsRange = info.range(of: .localizedString(key: "info_label_terms"))
-        let privacyRange = info.range(of: .localizedString(key: "info_label_privacy"))
+        let string: String = .localizedString(key: "info_label_text")
+        let termsRange = string.range(of: .localizedString(key: "info_label_terms"))
+        let privacyRange = string.range(of: .localizedString(key: "info_label_privacy"))
 
         if sender.didTapAttributedTextInLabel(label: self, inRange: termsRange) {
             delegate?.didTapTerms()
