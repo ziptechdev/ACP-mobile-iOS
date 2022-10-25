@@ -8,6 +8,11 @@
 import UIKit
 import SnapKit
 
+struct ACPTabMenuImageCellModel {
+    let title: String
+    let imageName: String
+}
+
 class ACPTabMenuImageCell: UICollectionViewCell {
 
     // MARK: - Views
@@ -24,7 +29,6 @@ class ACPTabMenuImageCell: UICollectionViewCell {
     private let containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .clear
         view.layer.cornerRadius = Constants.Constraints.CornerRadius
         view.layer.masksToBounds = true
         return view
@@ -52,8 +56,6 @@ class ACPTabMenuImageCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    // MARK: - Life Cycle
 
     // MARK: - UI
 

@@ -9,14 +9,23 @@ import UIKit
 
 class ACPHomeScreenTabViewModel {
 
-	// MARK: - Properties
+    // MARK: - Properties
 
     var currentTab = 0
 
-    private let tabs: [(titleString: String, imageName: String)] = [
-        (.localizedString(key: "home_page_title"), "home"),
-        (.localizedString(key: "wallet_page_title"), "wallet"),
-        (.localizedString(key: "profile_page_title"), "profile")
+    private let tabs: [ACPTabMenuImageCellModel] = [
+        ACPTabMenuImageCellModel(
+            title: .localizedString(key: "home_page_title"),
+            imageName: "home"
+        ),
+        ACPTabMenuImageCellModel(
+            title: .localizedString(key: "wallet_page_title"),
+            imageName: "wallet"
+        ),
+        ACPTabMenuImageCellModel(
+            title: .localizedString(key: "profile_page_title"),
+            imageName: "profile"
+        )
     ]
 
     func numberOfTabItems() -> Int {
@@ -24,7 +33,7 @@ class ACPHomeScreenTabViewModel {
     }
 
     func titleForTab(at index: Int) -> String {
-        return tabs[index].titleString
+        return tabs[index].title
     }
 
     func imageNameForTab(at index: Int) -> String {
