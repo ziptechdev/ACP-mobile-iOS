@@ -192,23 +192,6 @@ class ApplyACPView: UIView {
         return button
     }()
 
-    private let choosePlanStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .horizontal
-        stackView.distribution = .fill
-        stackView.spacing = 15
-        stackView.isUserInteractionEnabled = true
-        stackView.backgroundColor = .coreLightBlue
-        stackView.layer.borderWidth = 1
-        stackView.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
-        stackView.layer.borderColor = UIColor.coreBlue.cgColor
-        stackView.spacing = 23
-        stackView.layoutMargins = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 15)
-        stackView.isLayoutMarginsRelativeArrangement = true
-        return stackView
-    }()
-
     let phoneSetupLabel: UILabel = {
         let label = UILabel()
         label.textColor = .coreBlue
@@ -342,7 +325,7 @@ class ApplyACPView: UIView {
         }
         planPriceLabel.snp.makeConstraints { make in
             make.right.equalTo(planView.snp.right).inset(Constants.Constraints.ConstantTop)
-            make.top.equalTo(planView.snp.top).offset(Constants.Constraints.LeftPlanTopOffest)
+            make.centerY.equalTo(planNameLabel.snp.centerY)
         }
         planDescriptionLabel.snp.makeConstraints { make in
             make.left.equalTo(planView.snp.left).inset(Constants.Constraints.ConstantTop)
