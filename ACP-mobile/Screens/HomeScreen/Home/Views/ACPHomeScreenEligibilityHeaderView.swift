@@ -41,7 +41,6 @@ class ACPHomeScreenEligibilityHeaderView: UITableViewHeaderFooterView {
         let button = UIButton()
         button.backgroundColor = .acpYellow
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitleColor(.gray06Dark, for: .normal)
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
         button.layer.masksToBounds = true
         return button
@@ -104,7 +103,7 @@ class ACPHomeScreenEligibilityHeaderView: UITableViewHeaderFooterView {
     func present() {
         titleLabel.text = Constants.Text.Title
         detailsLabel.text = Constants.Text.Details
-        applyButton.setTitle(Constants.Text.Apply, for: .normal)
+        applyButton.setTitle(titleKey: Constants.Text.Apply, textColor: .gray06Dark)
     }
 
     // MARK: - Constants

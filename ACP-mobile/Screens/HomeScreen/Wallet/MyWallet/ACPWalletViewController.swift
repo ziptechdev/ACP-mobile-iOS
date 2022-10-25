@@ -18,6 +18,7 @@ class ACPWalletViewController: UIViewController {
 
     private lazy var newCardButton: ACPImageButton = {
         let button = ACPImageButton(
+            titleKey: "wallet_btn",
             spacing: Constants.Constraints.ButtonContentSpacing,
             cornerRadius: Constants.Constraints.ButtonCornerRadius,
             imageName: "plus",
@@ -25,8 +26,6 @@ class ACPWalletViewController: UIViewController {
         )
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(.localizedString(key: "wallet_btn"), for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         return button
     }()

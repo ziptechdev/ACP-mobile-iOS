@@ -56,10 +56,7 @@ class ACPEligibilityDetailsVerifyViewController: UIViewController {
         button.layer.masksToBounds = true
         button.backgroundColor = .clear
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(.localizedString(key: "verify_process_btn"), for: .normal)
-        button.setTitleColor(.coreBlue, for: .normal)
-        button.setTitleColor(.coreBlue, for: .highlighted)
-        button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
+        button.setTitle(titleKey: "verify_process_btn", textColor: .coreBlue)
         button.addTarget(self, action: #selector(didTapCancel), for: .touchUpInside)
         return button
     }()

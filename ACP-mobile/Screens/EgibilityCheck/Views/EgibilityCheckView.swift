@@ -52,24 +52,16 @@ class EgibilityCheckView: UIView {
 
     let checkEgibilityButton: UIButton = {
         let button = UIButton()
-        button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
-        button.titleLabel?.textAlignment = .center
+        button.setTitle(titleKey: "eligibility_btn")
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
-        button.layer.shadowColor = UIColor.gray03Light.cgColor
-        button.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
-        button.layer.shadowOpacity = 1.0
-        button.layer.shadowRadius = 15.0
-        button.layer.masksToBounds = false
         return button
     }()
 
     let createNewAccountButton: UIButton = {
         let button = UIButton()
-        button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
-        button.titleLabel?.textAlignment = .center
-        button.setTitleColor(.coreBlue, for: .normal)
+        button.setTitle(titleKey: "new_account_btn", textColor: .coreBlue)
         button.backgroundColor = .clear
         button.layer.borderWidth = 1
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
@@ -163,8 +155,6 @@ class EgibilityCheckView: UIView {
         titleLabel.text = .localizedString(key: "eligibility_title")
         descriptionLabel.attributedText = attributedInfoText()
         infoLabel.text = .localizedString(key: "eligibility_info")
-        checkEgibilityButton.setTitle(.localizedString(key: "eligibility_btn"), for: .normal)
-        createNewAccountButton.setTitle(.localizedString(key: "new_account_btn"), for: .normal)
     }
 
     private func attributedInfoText() -> NSMutableAttributedString {

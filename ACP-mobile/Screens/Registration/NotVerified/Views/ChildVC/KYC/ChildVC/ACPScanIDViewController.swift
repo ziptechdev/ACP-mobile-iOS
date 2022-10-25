@@ -44,10 +44,7 @@ class ACPScanIDViewController: UIViewController {
         button.layer.masksToBounds = true
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(.localizedString(key: "kyc_scan_id_btn"), for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.setTitleColor(.white, for: .highlighted)
-        button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
+        button.setTitle(titleKey: "kyc_scan_id_btn")
         button.addTarget(self, action: #selector(didTapScanFrontButton), for: .touchUpInside)
         return button
     }()
@@ -58,10 +55,7 @@ class ACPScanIDViewController: UIViewController {
         button.layer.masksToBounds = true
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(.localizedString(key: "kyc_scan_id_btn_2"), for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.setTitleColor(.white, for: .highlighted)
-        button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
+        button.setTitle(titleKey: "kyc_scan_id_btn_2")
         button.addTarget(self, action: #selector(didTapScanBackButton), for: .touchUpInside)
         return button
     }()

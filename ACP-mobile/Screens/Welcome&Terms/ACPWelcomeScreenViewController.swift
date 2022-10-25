@@ -56,21 +56,21 @@ class ACPWelcomeScreenViewController: UIViewController {
     }()
 
     private lazy var continueButton: UIButton! = {
-      let button = UIButton()
-      button.translatesAutoresizingMaskIntoConstraints = false
-      button.backgroundColor = .white
-      button.setTitleColor(.coreBlue, for: .normal)
-      button.addTarget(self, action: #selector(didTapContinue), for: .touchUpInside)
-      button.setTitle(.localizedString(key: "welcome_btn"), for: .normal)
-      button.layer.masksToBounds = true
-      button.layer.cornerRadius = 10
-      return button
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .white
+        button.addTarget(self, action: #selector(didTapContinue), for: .touchUpInside)
+        button.setTitle(titleKey: "welcome_btn", textColor: .coreBlue)
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 10
+        return button
     }()
 
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.backgroundColor = .coreBlue
         view.addSubview(leftTopLine)
         view.addSubview(rightTopLine)

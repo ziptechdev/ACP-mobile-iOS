@@ -51,14 +51,13 @@ class ACPLandingScreenViewController: UIViewController {
 
     private let getStartedButton: ACPImageButton = {
         let button = ACPImageButton(
+            titleKey: "landing_btn",
             spacing: Constants.Constraints.ButtonContentSpacing,
             cornerRadius: Constants.Constraints.ButtonCornerRadius,
             imageName: "right_arrow"
         )
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(.localizedString(key: "landing_btn"), for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
         return button
     }()
 

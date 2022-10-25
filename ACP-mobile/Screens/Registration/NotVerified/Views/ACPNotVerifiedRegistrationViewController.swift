@@ -55,14 +55,13 @@ class ACPNotVerifiedRegistrationViewController: UIViewController {
 
     private lazy var getStartedButton: ACPImageButton = {
         let button = ACPImageButton(
+            titleKey: "not_verified_register_btn",
             spacing: Constants.Constraints.ButtonContentSpacing,
             cornerRadius: Constants.Constraints.ButtonCornerRadius,
             imageName: "right_arrow"
         )
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(.localizedString(key: "not_verified_register_btn"), for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         return button
     }()
