@@ -190,6 +190,8 @@ KYC requires a selfie/clear shot of your face and a photo of the document that c
 
 /* Wallet Screen */
 "wallet_page_title" = "Wallet";
+"wallet_btn" = "New Card";
+"wallet_transactions" = "Transactions";
 
 /* Empty Wallet Screen */
 "empty_wallet_title" = "You need a card!";

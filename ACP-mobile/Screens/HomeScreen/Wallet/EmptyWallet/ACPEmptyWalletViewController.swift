@@ -10,8 +10,6 @@ import SnapKit
 
 class ACPEmptyWalletViewController: UIViewController {
 
-	// MARK: - Properties
-
     // MARK: - Views
 
     let balanceView = ACPEmptyWalletBalanceView()

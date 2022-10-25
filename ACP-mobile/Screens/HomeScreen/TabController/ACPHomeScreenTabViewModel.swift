@@ -28,6 +28,8 @@ class ACPHomeScreenTabViewModel {
         )
     ]
 
+    var isWalletEmpty: Bool = true
+
     func numberOfTabItems() -> Int {
         return tabs.count
     }

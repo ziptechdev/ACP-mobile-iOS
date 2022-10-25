@@ -77,6 +77,7 @@
 		4013FAE12908427F0018025F /* ACPEmptyWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4013FAE02908427F0018025F /* ACPEmptyWalletViewController.swift */; };
 		4013FAE32908428A0018025F /* ACPWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4013FAE22908428A0018025F /* ACPWalletViewController.swift */; };
 		4013FAE7290844380018025F /* ACPEmptyWalletBalanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4013FAE6290844380018025F /* ACPEmptyWalletBalanceView.swift */; };
+		4013FAEA29085B220018025F /* ACPDebitCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4013FAE929085B220018025F /* ACPDebitCardView.swift */; };
 		403AD22029075B0600C6D556 /* ACPHomeScreenTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403AD21F29075B0600C6D556 /* ACPHomeScreenTabViewController.swift */; };
 		403AD22329075B6400C6D556 /* ACPHomeScreenTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403AD22229075B6400C6D556 /* ACPHomeScreenTabViewModel.swift */; };
 		403AD2252907636B00C6D556 /* ACPTabMenuImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403AD2242907636B00C6D556 /* ACPTabMenuImageCell.swift */; };
@@ -166,6 +167,7 @@
 		4013FAE02908427F0018025F /* ACPEmptyWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPEmptyWalletViewController.swift; sourceTree = "<group>"; };
 		4013FAE22908428A0018025F /* ACPWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPWalletViewController.swift; sourceTree = "<group>"; };
 		4013FAE6290844380018025F /* ACPEmptyWalletBalanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPEmptyWalletBalanceView.swift; sourceTree = "<group>"; };
+		4013FAE929085B220018025F /* ACPDebitCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPDebitCardView.swift; sourceTree = "<group>"; };
 		403AD21F29075B0600C6D556 /* ACPHomeScreenTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPHomeScreenTabViewController.swift; sourceTree = "<group>"; };
 		403AD22229075B6400C6D556 /* ACPHomeScreenTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPHomeScreenTabViewModel.swift; sourceTree = "<group>"; };
 		403AD2242907636B00C6D556 /* ACPTabMenuImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPTabMenuImageCell.swift; sourceTree = "<group>"; };
@@ -556,6 +558,7 @@
 		4013FADB29083D7C0018025F /* MyWallet */ = {
 			isa = PBXGroup;
 			children = (
+				4013FAE829085AFF0018025F /* Views */,
 				4013FAE22908428A0018025F /* ACPWalletViewController.swift */,
 			);
 			path = MyWallet;
@@ -584,6 +587,14 @@
 				4013FAE02908427F0018025F /* ACPEmptyWalletViewController.swift */,
 			);
 			path = EmptyWallet;
+			sourceTree = "<group>";
+		};
+		4013FAE829085AFF0018025F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4013FAE929085B220018025F /* ACPDebitCardView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		403AD21E29075AC200C6D556 /* Home */ = {
@@ -815,6 +826,7 @@
 				400ABA1028FF7F6000A6DCB6 /* AppDelegate.swift in Sources */,
 				400ABA0728FF7F6000A6DCB6 /* UITextField+ACP.swift in Sources */,
 				400ABA1828FF7F6000A6DCB6 /* ACPTabMenuTitleCell.swift in Sources */,
+				4013FAEA29085B220018025F /* ACPDebitCardView.swift in Sources */,
 				400ABA0028FF7F6000A6DCB6 /* EgibilityCheckViewController.swift in Sources */,
 				400AB9F828FF7F6000A6DCB6 /* ACPEligibilityDetailsViewController.swift in Sources */,
 				400AB9F028FF7F6000A6DCB6 /* ACPEligibilityDetailsModel.swift in Sources */,
