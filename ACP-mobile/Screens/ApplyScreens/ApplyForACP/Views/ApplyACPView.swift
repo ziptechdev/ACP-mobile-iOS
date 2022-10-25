@@ -447,12 +447,29 @@ class ApplyACPView: UIView {
         choosePlanLabel.text = .localizedString(key: "apply_acp_choose_plan")
         switchTextLabel.text = .localizedString(key: "apply_acp_choose_device")
         // TODO: Check how we will get this data from BE
-        planPriceLabel.attributedText = "Free \n$30/mo".createAttributedString(stringtToStrike: "$30/mo")
-        let arrayOfLines = ["Unlimited Talk & Text and Data", " 7GB 4G LTE data", " Turn your phone into a Wi-Fi hotspot!"]
+        planPriceLabel.attributedText = createAttributedString(string: "Free \n$30/mo", stringToStrike: "$30/mo")
+
+        let arrayOfLines = [
+            "Unlimited Talk & Text and Data",
+            " 7GB 4G LTE data",
+            " Turn your phone into a Wi-Fi hotspot!"
+        ]
+
         for value in arrayOfLines {
             planDescriptionLabel.text = (planDescriptionLabel.text ?? "")  + " • " + value + "\n"
         }
     }
+
+    func createAttributedString(string: String, stringToStrike: String) -> NSMutableAttributedString {
+        let attributedString = NSMutableAttributedString(string: string)
+        let range = attributedString.mutableString.range(of: stringToStrike)
+        attributedString.addAttributes([
+            NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue,
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: .regular),
+            NSAttributedString.Key.foregroundColor: UIColor.gray01Light], range: range)
+        return attributedString
+    }
+
     // MARK: - Constants
 
     private struct Constants {
@@ -471,17 +488,5 @@ class ApplyACPView: UIView {
             static let TopConstantOffest = 15
             static let PhoneImageConstant = 24
         }
-    }
-}
-extension String {
-    func createAttributedString(stringtToStrike: String) -> NSMutableAttributedString {
-        let attributedString = NSMutableAttributedString(string: self)
-        let range = attributedString.mutableString.range(of: stringtToStrike)
-        // swiftlint:disable:next line_length
-        attributedString.addAttributes([
-            NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue,
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: .regular),
-            NSAttributedString.Key.foregroundColor: UIColor.gray01Light], range: range)
-        return attributedString
     }
 }
