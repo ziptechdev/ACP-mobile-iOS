@@ -351,7 +351,7 @@
 		400AB9AE28FF7F5F00A6DCB6 /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
-				403AD22129075B2600C6D556 /* Tab */,
+				403AD22129075B2600C6D556 /* TabController */,
 				403AD21E29075AC200C6D556 /* Home */,
 			);
 			path = HomeScreen;
@@ -542,13 +542,13 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		403AD22129075B2600C6D556 /* Tab */ = {
+		403AD22129075B2600C6D556 /* TabController */ = {
 			isa = PBXGroup;
 			children = (
 				403AD21F29075B0600C6D556 /* ACPHomeScreenTabViewController.swift */,
 				403AD22229075B6400C6D556 /* ACPHomeScreenTabViewModel.swift */,
 			);
-			path = Tab;
+			path = TabController;
 			sourceTree = "<group>";
 		};
 		40B5EDC228E224F20096B91B = {
