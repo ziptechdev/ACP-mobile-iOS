@@ -12,7 +12,12 @@ class ACPHomeScreenEligibilityHeaderView: UITableViewHeaderFooterView {
 
     // MARK: - Views
 
-    private let containerView = UIView()
+    private let containerView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
+        return view
+    }()
 
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -35,6 +40,7 @@ class ACPHomeScreenEligibilityHeaderView: UITableViewHeaderFooterView {
     private let applyButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .acpYellow
+        button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(.gray06Dark, for: .normal)
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
         button.layer.masksToBounds = true
@@ -56,15 +62,14 @@ class ACPHomeScreenEligibilityHeaderView: UITableViewHeaderFooterView {
     // MARK: - UI
 
     private func setupUI() {
-        backgroundColor = .clear
-        containerView.backgroundColor = .white
+        contentView.backgroundColor = .clear
 
         addSubviews()
         setupConstraints()
     }
 
     private func addSubviews() {
-        contentView.addSubview(containerView)
+        addSubview(containerView)
         containerView.addSubview(titleLabel)
         containerView.addSubview(detailsLabel)
         containerView.addSubview(applyButton)

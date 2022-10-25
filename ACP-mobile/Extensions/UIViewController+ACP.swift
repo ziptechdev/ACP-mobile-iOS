@@ -11,7 +11,6 @@ extension UIViewController {
 
     // MARK: - Right Navigation Button
 
-    /// Adds an X button to the left side
     func setupRightNavigationBarButton(color: UIColor? = nil) {
         let image: UIImage?
         if color != nil {
@@ -45,9 +44,26 @@ extension UIViewController {
         navigationController?.popToRootViewController(animated: true)
     }
 
+    func setupNotificationsBarButton() {
+        let button = UIBarButtonItem(
+            image: UIImage(named: "bell")?.withRenderingMode(.alwaysOriginal),
+            style: .plain,
+            target: self,
+            action: nil
+        )
+
+        let spacer = UIBarButtonItem(
+            barButtonSystemItem: .fixedSpace,
+            target: nil,
+            action: nil
+        )
+        spacer.width = 15
+
+        navigationItem.rightBarButtonItems = [spacer, button]
+    }
+
     // MARK: - Left Navigation Button
 
-    /// Adds a back button with an arrow to the right side
     func setupLeftNavigationBarButton(color: UIColor = .gray01Light) {
         let button = ACPImageButton(
             horizontal: 15,
@@ -71,5 +87,23 @@ extension UIViewController {
         }
 
         navigationController.backButtonAction()
+    }
+
+    func setupHamburgerBarButton() {
+        let button = UIBarButtonItem(
+            image: UIImage(named: "hamburger")?.withRenderingMode(.alwaysOriginal),
+            style: .plain,
+            target: self,
+            action: nil
+        )
+
+        let spacer = UIBarButtonItem(
+            barButtonSystemItem: .fixedSpace,
+            target: nil,
+            action: nil
+        )
+        spacer.width = 15
+
+        navigationItem.leftBarButtonItems = [spacer, button]
     }
 }
