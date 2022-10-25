@@ -72,7 +72,7 @@ class ACPProfileViewController: UIViewController {
        }
 }
 
-//MARK: - UITableViewDataSource
+// MARK: - UITableViewDataSource
 extension ACPProfileViewController: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -99,4 +99,22 @@ extension ACPProfileViewController: UITableViewDelegate {
         header.present()
         return header
     }
+}
+
+extension ACPProfileViewController: ACPProfileHeaderViewDelegate {
+    func didTapPersonalInfo() {
+        let vc = ACPPersonalInfoViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
+    func didTapSecurityInfo() {
+        let vc = ACPProfileSecurityViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
+    func didTapLegalInfo() {
+        print("LEGAL BTN TAPPED")
+    }
+
+
 }

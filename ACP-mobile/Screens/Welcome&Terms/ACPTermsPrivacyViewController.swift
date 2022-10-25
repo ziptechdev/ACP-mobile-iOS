@@ -50,7 +50,7 @@ class ACPTermsPrivacyViewController: UIViewController {
         lbl.textAlignment = .justified
         lbl.textColor = .gray06Dark
         lbl.adjustsFontSizeToFitWidth = true
-        lbl.font = .systemFont(ofSize: 16, weight: .regular)
+        lbl.font = .systemFont(ofSize: 14, weight: .regular)
         return lbl
     }()
 
@@ -124,13 +124,13 @@ class ACPTermsPrivacyViewController: UIViewController {
     private func setupConstraints() {
         leftTopLine.snp.makeConstraints { make in
             make.left.equalToSuperview().inset(35)
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(55)
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(39)
             make.width.equalTo(rightTopLine)
         }
 
         rightTopLine.snp.makeConstraints { make in
             make.right.equalToSuperview().inset(35)
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(55)
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(39)
             make.width.equalTo(leftTopLine)
         }
     }

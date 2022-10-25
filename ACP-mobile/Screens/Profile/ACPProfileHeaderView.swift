@@ -10,6 +10,8 @@ import SnapKit
 
 protocol ACPProfileHeaderViewDelegate: AnyObject {
     func didTapPersonalInfo()
+    func didTapSecurityInfo()
+    func didTapLegalInfo()
 }
 
 class ACPProfileHeaderView: UIView {
@@ -67,7 +69,7 @@ class ACPProfileHeaderView: UIView {
 
     // MARK: - Initialization
 
-    weak var delegate: ACPRouterDelegate?
+    weak var delegate: ACPProfileHeaderViewDelegate?
 
     init() {
         super.init(frame: .zero)
@@ -80,6 +82,7 @@ class ACPProfileHeaderView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
 
     // MARK: - UI
 
@@ -163,6 +166,7 @@ class ACPProfileHeaderView: UIView {
         personalInfoButton.layer.borderWidth = 1.5
         personalInfoButton.layer.borderColor = UIColor.gray03Light.cgColor
         personalInfoButton.layer.cornerRadius = 10
+        personalInfoButton.isUserInteractionEnabled = true
 
         securityButton.layer.borderWidth = 1.5
         securityButton.layer.borderColor = UIColor.gray03Light.cgColor
@@ -171,6 +175,14 @@ class ACPProfileHeaderView: UIView {
         legalButton.layer.borderWidth = 1.5
         legalButton.layer.borderColor = UIColor.gray03Light.cgColor
         legalButton.layer.cornerRadius = 10
+
+        let personalBtnGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(personalButtonPressed))
+        let securityBtnGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(securityButtonPressed))
+        let legalBtnGestgure: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(legalButtonPressed))
+
+        personalInfoButton.addGestureRecognizer(personalBtnGesture)
+        securityButton.addGestureRecognizer(securityBtnGesture)
+        legalButton.addGestureRecognizer(legalBtnGestgure)
     }
 
     // MARK: - Presenting
@@ -192,6 +204,18 @@ class ACPProfileHeaderView: UIView {
             checkmarkImageView.image = UIImage(named: "checkmark")
             checkmarkImageView.backgroundColor = .warningRed
         }
+    }
+
+    @objc func personalButtonPressed(sender: AnyObject) {
+        delegate?.didTapPersonalInfo()
+    }
+
+    @objc func securityButtonPressed(sender: AnyObject) {
+        delegate?.didTapSecurityInfo()
+    }
+
+    @objc func legalButtonPressed(sender: AnyObject) {
+        delegate?.didTapLegalInfo()
     }
 
     // MARK: - Constants
