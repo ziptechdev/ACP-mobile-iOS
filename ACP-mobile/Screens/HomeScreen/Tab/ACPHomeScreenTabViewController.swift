@@ -29,7 +29,6 @@ class ACPHomeScreenTabViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        title = viewModel.titleForTab(at: viewModel.currentTab)
         navigationController?.navigationBar.isHidden = false
 
         setupHamburgerBarButton()
@@ -100,6 +99,8 @@ extension ACPHomeScreenTabViewController: ACPTabMenuViewControllerDelegate {
 
     func didSelectTab(index: Int) -> UIViewController {
         viewModel.currentTab = index
+
+        title = viewModel.titleForTab(at: index)
 
         switch index {
         case 0:
