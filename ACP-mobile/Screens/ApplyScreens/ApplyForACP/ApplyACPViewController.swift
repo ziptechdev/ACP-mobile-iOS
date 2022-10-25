@@ -18,25 +18,29 @@ class ApplyACPViewController: UIViewController {
         return view
     }()
 
-    // MARK: - Properties
-
     private let infoLabel = ACPTermsAndPrivacyLabel()
 
     // MARK: - Life Cycle
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
         navigationController?.navigationBar.isHidden = false
         title = .localizedString(key: "acp_title")
+
         setupRightNavigationBarButton()
         setupLeftNavigationBarButton()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         setupUI()
+
         infoLabel.delegate = self
         applyACPView.delegate = self
     }
+
     // MARK: - UI
 
     func setupUI() {
@@ -99,14 +103,14 @@ extension ApplyACPViewController: ApplyACPViewDelegate {
     func didTapPlanButton() {
         print("plan tapped")
     }
+
     func didTapPhoneButton() {
         print("phone tapped")
     }
+
     func didApplyNowButton() {
         print("apply now")
         let targetVC = ACPSuccesViewController()
         navigationController?.pushViewController(targetVC, animated: true)
-
     }
-
 }

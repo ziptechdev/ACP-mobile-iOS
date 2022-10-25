@@ -8,6 +8,8 @@
 import UIKit
 import SnapKit
 
+// MARK: - ApplyACPViewDelegate
+
 protocol ApplyACPViewDelegate: AnyObject {
     func didApplyNowButton()
     func didTapPlanButton()
@@ -17,10 +19,14 @@ protocol ApplyACPViewDelegate: AnyObject {
 // swiftlint:disable:next type_body_length
 class ApplyACPView: UIView {
 
+    // MARK: - Properties
+
     weak var delegate: ApplyACPViewDelegate?
     var mainHeightConstraint: NSLayoutConstraint?
     private var shouldCollapse = false
     private var isMobileTapped = false
+
+    // MARK: - Views
 
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -260,11 +266,13 @@ class ApplyACPView: UIView {
         return view
     }()
 
+    // MARK: - Initialization
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addSubviews()
-        setUpConstraints()
-        setText()
+
+        setupUI()
+
         applyNowButton.addTarget(self, action: #selector(applyNowTapped), for: .touchUpInside)
         let planGesture = UITapGestureRecognizer(target: self, action: #selector(planTapped))
         planView.addGestureRecognizer(planGesture)
@@ -272,22 +280,16 @@ class ApplyACPView: UIView {
         phoneSetupStackView.addGestureRecognizer(phoneViewGesture)
     }
 
-    func checkButtonAvailability() {
-        if isMobileTapped && shouldCollapse {
-            applyNowButton.backgroundColor = .coreBlue
-            applyNowButton.isUserInteractionEnabled = true
-        } else {
-            applyNowButton.backgroundColor = .gray06Light
-            applyNowButton.isUserInteractionEnabled = false
-        }
-    }
-
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    // MARK: - UI
+
+    private func setupUI() {
+        addSubviews()
+        setUpConstraints()
+        setText()
     }
 
     private func addSubviews() {
@@ -376,30 +378,14 @@ class ApplyACPView: UIView {
         }
     }
 
-    @objc func planTapped() {
-        if shouldCollapse {
-            animateView(isCollapse: false,
-                        heighConstraint: 65)
+    func checkButtonAvailability() {
+        if isMobileTapped && shouldCollapse {
+            applyNowButton.backgroundColor = .coreBlue
+            applyNowButton.isUserInteractionEnabled = true
         } else {
-            // TODO: Add dynamic height for view
-            animateView(isCollapse: true,
-                        heighConstraint: 142)
-            delegate?.didTapPlanButton()
+            applyNowButton.backgroundColor = .gray06Light
+            applyNowButton.isUserInteractionEnabled = false
         }
-        checkButtonAvailability()
-    }
-
-    @objc func mobileSetupTapped() {
-        if isMobileTapped {
-            phoneView(isCollapse: false,
-                      heighConstraint: 65)
-        } else {
-            // TODO: Add dynamic height for view
-            phoneView(isCollapse: true,
-                      heighConstraint: 142)
-            delegate?.didTapPhoneButton()
-        }
-        checkButtonAvailability()
     }
 
     private func phoneView(isCollapse: Bool, heighConstraint: Double) {
@@ -428,10 +414,6 @@ class ApplyACPView: UIView {
             }
             self.planView.layoutIfNeeded()
         }
-    }
-
-    @objc func applyNowTapped(sender: UIButton!) {
-        delegate?.didApplyNowButton()
     }
 
     private func setText() {
@@ -468,6 +450,38 @@ class ApplyACPView: UIView {
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: .regular),
             NSAttributedString.Key.foregroundColor: UIColor.gray01Light], range: range)
         return attributedString
+    }
+
+    // MARK: - Callbacks
+
+    @objc func applyNowTapped(sender: UIButton!) {
+        delegate?.didApplyNowButton()
+    }
+
+    @objc func planTapped() {
+        if shouldCollapse {
+            animateView(isCollapse: false,
+                        heighConstraint: 65)
+        } else {
+            // TODO: Add dynamic height for view
+            animateView(isCollapse: true,
+                        heighConstraint: 142)
+            delegate?.didTapPlanButton()
+        }
+        checkButtonAvailability()
+    }
+
+    @objc func mobileSetupTapped() {
+        if isMobileTapped {
+            phoneView(isCollapse: false,
+                      heighConstraint: 65)
+        } else {
+            // TODO: Add dynamic height for view
+            phoneView(isCollapse: true,
+                      heighConstraint: 142)
+            delegate?.didTapPhoneButton()
+        }
+        checkButtonAvailability()
     }
 
     // MARK: - Constants

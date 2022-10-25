@@ -8,6 +8,8 @@
 import UIKit
 import SnapKit
 
+// MARK: - ApplyForServiceViewDelegate
+
 protocol ApplyForServiceViewDelegate: AnyObject {
     func didApplyNowButton()
     func didTapVisitWebsiteButton()
@@ -20,6 +22,8 @@ class ApplyForServiceView: UIView {
     // MARK: - Properties
 
     weak var delegate: ApplyForServiceViewDelegate?
+
+    // MARK: - Views
 
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -139,7 +143,6 @@ class ApplyForServiceView: UIView {
         button.layer.borderColor = UIColor.coreBlue.cgColor
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
-
     }()
 
     let infoLabel: UILabel = {
@@ -161,12 +164,12 @@ class ApplyForServiceView: UIView {
         return stackView
     }()
 
+    // MARK: - Initialization
+
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        addSubviews()
-        setUpConstraints()
-        setText()
+        setupUI()
 
         applyNowButton.addTarget(self, action: #selector(applyNowTapped), for: .touchUpInside)
         visitWebsiteButton.addTarget(self, action: #selector(visitWebsiteTapped), for: .touchUpInside)
@@ -176,8 +179,12 @@ class ApplyForServiceView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    // MARK: - UI
+
+    private func setupUI() {
+        addSubviews()
+        setUpConstraints()
+        setText()
     }
 
     private func addSubviews() {
@@ -206,24 +213,43 @@ class ApplyForServiceView: UIView {
         applyNowButton.snp.makeConstraints { make in
             make.height.equalTo(Constants.Constraints.ButtonHeight)
         }
+
         eligibleView.snp.makeConstraints { make in
             make.height.equalTo(Constants.Constraints.HeightView)
         }
+
         correctImageView.snp.makeConstraints { make in
             make.width.height.equalTo(Constants.Constraints.ImageView)
         }
+
         eligibleOrNotLabel.snp.makeConstraints { make in
             make.left.equalTo(correctImageView.snp.right).offset(Constants.Constraints.TextLeftOffset)
         }
+
         textStackView.snp.makeConstraints { make in
             make.top.equalTo(snp.top).offset(Constants.Constraints.TopConstant)
             make.left.right.equalToSuperview().inset(Constants.Constraints.LeadingConstant)
         }
+
         buttonAndInfoStackView.snp.makeConstraints { make in
             make.top.equalTo(textStackView.snp.bottom).offset(Constants.Constraints.BottomTopConstant)
             make.left.right.equalToSuperview().inset(Constants.Constraints.LeadingConstant)
         }
     }
+
+    private func setText() {
+        titleLabel.text = .localizedString(key: "service_title")
+        descriptionLabel.text = .localizedString(key: "service_description")
+        eligibleOrNotLabel.text = .localizedString(key: "eligible_check")
+        infoLabel.text = .localizedString(key: "service_note")
+        applyNowButton.setTitle(.localizedString(key: "apply_now_btn"), for: .normal)
+        subTitleLabel.text = .localizedString(key: "service_subtitle")
+        eligibleOrNotLabel.text = .localizedString(key: "eligble_check")
+        switchTextLabel.text = .localizedString(key: "auto_renewal")
+        visitWebsiteButton.setTitle(.localizedString(key: "visit_website_btn"), for: .normal)
+    }
+
+    // MARK: - Callbacks
 
     @objc func handleToggleBT() {
         if toggleSwitch.isOn {
@@ -239,18 +265,6 @@ class ApplyForServiceView: UIView {
 
     @objc func visitWebsiteTapped(sender: UIButton!) {
         delegate?.didTapVisitWebsiteButton()
-    }
-
-    private func setText() {
-        titleLabel.text = .localizedString(key: "service_title")
-        descriptionLabel.text = .localizedString(key: "service_description")
-        eligibleOrNotLabel.text = .localizedString(key: "eligible_check")
-        infoLabel.text = .localizedString(key: "service_note")
-        applyNowButton.setTitle(.localizedString(key: "apply_now_btn"), for: .normal)
-        subTitleLabel.text = .localizedString(key: "service_subtitle")
-        eligibleOrNotLabel.text = .localizedString(key: "eligble_check")
-        switchTextLabel.text = .localizedString(key: "auto_renewal")
-        visitWebsiteButton.setTitle(.localizedString(key: "visit_website_btn"), for: .normal)
     }
 
     // MARK: - Constants

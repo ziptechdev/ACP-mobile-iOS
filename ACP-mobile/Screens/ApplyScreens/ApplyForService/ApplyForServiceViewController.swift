@@ -25,16 +25,22 @@ class ApplyForServiceViewController: UIViewController {
     // MARK: - Life Cycle
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         navigationController?.navigationBar.isHidden = false
+
         setupLeftNavigationBarButton()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         setupUI()
+
         infoLabel.delegate = self
         applyForACPView.delegate = self
     }
+
     // MARK: - UI
 
     func setupUI() {
@@ -97,9 +103,11 @@ extension ApplyForServiceViewController: ApplyForServiceViewDelegate {
     func toogleSwitchToYes() {
         print("toogle on")
     }
+
     func toogleSwitchToNo() {
-        print("toogle onoff")
+        print("toogle off")
     }
+
     func didApplyNowButton() {
         print("apply now")
         let targetVC = ApplyACPViewController()
