@@ -62,6 +62,7 @@
 		CE62E30128EA64D20000833B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE62E30028EA64D20000833B /* Localizable.strings */; };
 		CE6D94EC28EFC3C3005577F8 /* ACPWelcomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6D94EB28EFC3C3005577F8 /* ACPWelcomeScreenViewController.swift */; };
 		CE6D94EE28EFC54A005577F8 /* ACPTermsPrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6D94ED28EFC54A005577F8 /* ACPTermsPrivacyViewController.swift */; };
+		CE6EFA642907B79000093F79 /* ACPProfileVerticalStackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EFA632907B79000093F79 /* ACPProfileVerticalStackButton.swift */; };
 		CED24DC128F82ED900DDD3B9 /* ACPProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED24DC028F82ED900DDD3B9 /* ACPProfileViewController.swift */; };
 		CED24DC328F82EE600DDD3B9 /* ACPProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED24DC228F82EE600DDD3B9 /* ACPProfileHeaderView.swift */; };
 		CED24DC528F82EFD00DDD3B9 /* ACPProfileSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED24DC428F82EFD00DDD3B9 /* ACPProfileSettingsView.swift */; };
@@ -131,6 +132,7 @@
 		CE62E30028EA64D20000833B /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		CE6D94EB28EFC3C3005577F8 /* ACPWelcomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPWelcomeScreenViewController.swift; sourceTree = "<group>"; };
 		CE6D94ED28EFC54A005577F8 /* ACPTermsPrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPTermsPrivacyViewController.swift; sourceTree = "<group>"; };
+		CE6EFA632907B79000093F79 /* ACPProfileVerticalStackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPProfileVerticalStackButton.swift; sourceTree = "<group>"; };
 		CED24DC028F82ED900DDD3B9 /* ACPProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPProfileViewController.swift; sourceTree = "<group>"; };
 		CED24DC228F82EE600DDD3B9 /* ACPProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPProfileHeaderView.swift; sourceTree = "<group>"; };
 		CED24DC428F82EFD00DDD3B9 /* ACPProfileSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPProfileSettingsView.swift; sourceTree = "<group>"; };
@@ -456,6 +458,7 @@
 				CED24DC428F82EFD00DDD3B9 /* ACPProfileSettingsView.swift */,
 				CED24DC628F82F2A00DDD3B9 /* ACPProfileSecurityViewController.swift */,
 				CED24DC828F82F3F00DDD3B9 /* ACPPersonalInfoViewController.swift */,
+				CE6EFA632907B79000093F79 /* ACPProfileVerticalStackButton.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -628,6 +631,7 @@
 				CED24DC528F82EFD00DDD3B9 /* ACPProfileSettingsView.swift in Sources */,
 				405D777728ECF9EF00358D4A /* ACPRouter.swift in Sources */,
 				1390E2A728E88AB6009BCE11 /* EgibilityCheckView.swift in Sources */,
+				CE6EFA642907B79000093F79 /* ACPProfileVerticalStackButton.swift in Sources */,
 				CED24DC328F82EE600DDD3B9 /* ACPProfileHeaderView.swift in Sources */,
 				1356421428EC6BF6009F8B38 /* EgibilityZipView.swift in Sources */,
 				40EA672C28EE827100163F59 /* ACPFocusableView.swift in Sources */,
