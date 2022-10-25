@@ -73,6 +73,7 @@
 		400ABA2F28FF7F6000A6DCB6 /* ACPEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9EC28FF7F6000A6DCB6 /* ACPEndpoint.swift */; };
 		400ABA3228FF904B00A6DCB6 /* ACPTabMenuDotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400ABA3128FF904B00A6DCB6 /* ACPTabMenuDotCell.swift */; };
 		400ABA352900413D00A6DCB6 /* ACPRegistrationCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400ABA342900413D00A6DCB6 /* ACPRegistrationCompleteViewController.swift */; };
+		4013FADE29083DB00018025F /* ACPCardSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4013FADD29083DB00018025F /* ACPCardSuccessViewController.swift */; };
 		403AD22029075B0600C6D556 /* ACPHomeScreenTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403AD21F29075B0600C6D556 /* ACPHomeScreenTabViewController.swift */; };
 		403AD22329075B6400C6D556 /* ACPHomeScreenTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403AD22229075B6400C6D556 /* ACPHomeScreenTabViewModel.swift */; };
 		403AD2252907636B00C6D556 /* ACPTabMenuImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403AD2242907636B00C6D556 /* ACPTabMenuImageCell.swift */; };
@@ -158,6 +159,7 @@
 		400AB9EC28FF7F6000A6DCB6 /* ACPEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEndpoint.swift; sourceTree = "<group>"; };
 		400ABA3128FF904B00A6DCB6 /* ACPTabMenuDotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPTabMenuDotCell.swift; sourceTree = "<group>"; };
 		400ABA342900413D00A6DCB6 /* ACPRegistrationCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPRegistrationCompleteViewController.swift; sourceTree = "<group>"; };
+		4013FADD29083DB00018025F /* ACPCardSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPCardSuccessViewController.swift; sourceTree = "<group>"; };
 		403AD21F29075B0600C6D556 /* ACPHomeScreenTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPHomeScreenTabViewController.swift; sourceTree = "<group>"; };
 		403AD22229075B6400C6D556 /* ACPHomeScreenTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPHomeScreenTabViewModel.swift; sourceTree = "<group>"; };
 		403AD2242907636B00C6D556 /* ACPTabMenuImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPTabMenuImageCell.swift; sourceTree = "<group>"; };
@@ -351,6 +353,7 @@
 		400AB9AE28FF7F5F00A6DCB6 /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
+				4013FADA29083D620018025F /* Wallet */,
 				403AD22129075B2600C6D556 /* TabController */,
 				403AD21E29075AC200C6D556 /* Home */,
 			);
@@ -532,6 +535,30 @@
 				403AD2242907636B00C6D556 /* ACPTabMenuImageCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		4013FADA29083D620018025F /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				4013FADC29083D920018025F /* CardSuccess */,
+				4013FADB29083D7C0018025F /* MyWallet */,
+			);
+			path = Wallet;
+			sourceTree = "<group>";
+		};
+		4013FADB29083D7C0018025F /* MyWallet */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MyWallet;
+			sourceTree = "<group>";
+		};
+		4013FADC29083D920018025F /* CardSuccess */ = {
+			isa = PBXGroup;
+			children = (
+				4013FADD29083DB00018025F /* ACPCardSuccessViewController.swift */,
+			);
+			path = CardSuccess;
 			sourceTree = "<group>";
 		};
 		403AD21E29075AC200C6D556 /* Home */ = {
@@ -740,6 +767,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				400AB9ED28FF7F6000A6DCB6 /* ACPEligibilityDetailsViewModel.swift in Sources */,
+				4013FADE29083DB00018025F /* ACPCardSuccessViewController.swift in Sources */,
 				400ABA2B28FF7F6000A6DCB6 /* ACPPersonalInfoViewController.swift in Sources */,
 				400AB9FB28FF7F6000A6DCB6 /* ACPLandingScreenViewController.swift in Sources */,
 				400AB9FE28FF7F6000A6DCB6 /* EgibilityZipViewController.swift in Sources */,
