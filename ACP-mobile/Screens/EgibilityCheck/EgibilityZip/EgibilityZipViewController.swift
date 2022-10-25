@@ -43,6 +43,7 @@ class EgibilityZipViewController: UIViewController {
         zipCodeView.zipSecondCodeTextField.delegate = self
         zipCodeView.zipFirstCodeTextField.delegate = self
     }
+
     // MARK: - UI
 
     func setupUI() {

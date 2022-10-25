@@ -113,7 +113,6 @@ class ACPSuccesViewController: UIViewController {
             make.height.equalTo(Constants.Constraints.ButtonHeight)
             make.top.equalTo(subtitleLabel.snp.bottom).offset(Constants.Constraints.ButtonOffsetVertical)
         }
-
     }
 
     // MARK: - Callbacks
@@ -142,8 +141,6 @@ class ACPSuccesViewController: UIViewController {
             static let ButtonHeight: CGFloat = 46
             static let ButtonOffsetVertical: CGFloat = 60
             static let ButtonCornerRadius: CGFloat = 10
-
         }
-
     }
 }
