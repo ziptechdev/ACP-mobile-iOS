@@ -10,7 +10,7 @@ import SnapKit
 
 class ACPHomeScreenTabViewController: UIViewController {
 
-	// MARK: - Properties
+    // MARK: - Properties
 
     private let viewModel = ACPHomeScreenTabViewModel()
 
