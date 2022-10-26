@@ -91,18 +91,6 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
         return view
     }()
 
-    private let passwordErrorLabel: UILabel = {
-        let label = UILabel()
-        label.text = .localizedString(key: "password_not_matched")
-        label.textAlignment = .left
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 12, weight: .semibold)
-        label.textColor = .red
-        label.isHidden = true
-        label.adjustsFontSizeToFitWidth = true
-        return label
-    }()
-
     private lazy var ssnTextField: ACPTextField = {
         let view = ACPTextField()
         view.titleLabel.text = .localizedString(key: "personal_info_ssn")
@@ -153,7 +141,6 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
         contentView.addSubview(phoneTextField)
         contentView.addSubview(passwordTextField)
         contentView.addSubview(confirmTextField)
-        contentView.addSubview(passwordErrorLabel)
         contentView.addSubview(ssnTextField)
         contentView.addSubview(nextButton)
         contentView.addSubview(infoLabel)
@@ -205,15 +192,12 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
             make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
             make.top.equalTo(passwordTextField.snp.bottom).offset(Constants.Constraints.TextFieldOffsetVertical)
         }
-        passwordErrorLabel.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.top.equalTo(confirmTextField.snp.bottom).offset(Constants.Constraints.errorOffset)
-        }
+
         ssnTextField.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
+            make.top.equalTo(confirmTextField.snp.bottom).offset(Constants.Constraints.TextFieldOffsetVertical)
         }
-        mainTopOffsetConstraint = ssnTextField.topAnchor.constraint(equalTo: confirmTextField.bottomAnchor, constant: Constants.Constraints.TextFieldOffsetVertical)
-        mainTopOffsetConstraint?.isActive = true
+
         nextButton.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
             make.height.equalTo(Constants.Constraints.ButtonHeight)
@@ -304,15 +288,19 @@ extension ACPPersonalInfoDetailsViewController: UITextFieldDelegate {
               let phone = phoneTextField.textField.text,
               let password = passwordTextField.textField.text,
               let confirmPass = confirmTextField.textField.text,
-              let ssn = ssnTextField.textField.text,
-              !(password == "" && confirmPass == "")
+              let ssn = ssnTextField.textField.text
         else { return }
 
-        passwordErrorLabel.isHidden = password == confirmPass
+        if password != "" && confirmPass != "" {
+            confirmTextField.showError(message: "Passwords do not match")
+        } else {
+            confirmTextField.hideError()
+        }
 
         guard password == confirmPass else { return }
 
-        let isEnabled = !(name == "" && lastName == "" && email == "" && phone == "" && ssn == "")
+        let isEnabled = name != "" && lastName != "" && email != "" && phone != "" && ssn != ""
+                        && password != "" && confirmPass != ""
 
         nextButton.isUserInteractionEnabled = isEnabled
         nextButton.backgroundColor = isEnabled ? .coreBlue : .lavenderGray

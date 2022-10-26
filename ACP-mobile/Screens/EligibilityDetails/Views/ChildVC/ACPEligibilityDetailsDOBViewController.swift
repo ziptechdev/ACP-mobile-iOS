@@ -280,7 +280,7 @@ extension ACPEligibilityDetailsDOBViewController: UITextFieldDelegate {
               let ssnNumber = ssnTextField.textField.text
         else { return }
 
-        let isEnabled = !(day == "" && year == "" && ssnNumber == "")
+        let isEnabled = day != "" && year != "" && ssnNumber != ""
 
         nextButton.isUserInteractionEnabled = isEnabled
         nextButton.backgroundColor = isEnabled ? .coreBlue : .lavenderGray

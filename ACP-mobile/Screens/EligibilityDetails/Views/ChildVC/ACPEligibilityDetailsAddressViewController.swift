@@ -270,17 +270,15 @@ extension ACPEligibilityDetailsAddressViewController: UITextFieldDelegate {
     }
 
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        guard let street = streetTextField.textField.text else { return }
-        guard let city = cityTextField.textField.text else { return }
-        guard let state = stateTextField.textField.text else { return }
-        if !(street == "" && city == "" && state == "") {
-            verifyButton.isUserInteractionEnabled = true
-            verifyButton.backgroundColor = .coreBlue
-        } else {
-            verifyButton.isUserInteractionEnabled = false
-            verifyButton.backgroundColor = .lavenderGray
-        }
+        guard let street = streetTextField.textField.text,
+              let city = cityTextField.textField.text,
+              let state = stateTextField.textField.text
+        else { return }
 
+        let isEnabled = street != "" && city != "" && state != ""
+
+        verifyButton.isUserInteractionEnabled = isEnabled
+        verifyButton.backgroundColor = isEnabled ? .coreBlue : .lavenderGray
     }
 }
 

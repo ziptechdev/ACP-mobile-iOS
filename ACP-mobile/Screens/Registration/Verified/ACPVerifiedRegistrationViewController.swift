@@ -72,18 +72,6 @@ class ACPVerifiedRegistrationViewController: UIViewController {
         return view
     }()
 
-    private let passwordErrorLabel: UILabel = {
-        let label = UILabel()
-        label.text = .localizedString(key: "password_not_matched")
-        label.textAlignment = .left
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 14, weight: .semibold)
-        label.textColor = .red
-        label.isHidden = true
-        label.adjustsFontSizeToFitWidth = true
-        return label
-    }()
-
     private lazy var registerButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
@@ -134,7 +122,6 @@ class ACPVerifiedRegistrationViewController: UIViewController {
         view.addSubview(emailTextField)
         view.addSubview(passwordTextField)
         view.addSubview(confirmTextField)
-        view.addSubview(passwordErrorLabel)
         view.addSubview(registerButton)
         view.addSubview(infoLabel)
     }
@@ -169,11 +156,6 @@ class ACPVerifiedRegistrationViewController: UIViewController {
         confirmTextField.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
             make.top.equalTo(passwordTextField.snp.bottom).offset(Constants.Constraints.TextFieldOffsetVertical)
-        }
-
-        passwordErrorLabel.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.top.equalTo(confirmTextField.snp.bottom).offset(Constants.Constraints.InfoLabelInsetY)
         }
 
         registerButton.snp.makeConstraints { make in
@@ -275,14 +257,18 @@ extension ACPVerifiedRegistrationViewController: UITextFieldDelegate {
         guard let email = emailTextField.textField.text,
               let password = passwordTextField.textField.text,
               let confirmPass = confirmTextField.textField.text,
-              !(password == "" && confirmPass == "")
+              !(password != "" && confirmPass != "")
         else { return }
 
-        passwordErrorLabel.isHidden = password == confirmPass
+        if password != "" && confirmPass != "" {
+            confirmTextField.showError(message: "Passwords do not match")
+        } else {
+            confirmTextField.hideError()
+        }
 
         guard password == confirmPass else { return }
 
-        let isEnabled = !(email == "")
+        let isEnabled = email != "" && password != "" && confirmPass != ""
 
         registerButton.isUserInteractionEnabled = isEnabled
         registerButton.backgroundColor = isEnabled ? .coreBlue : .lavenderGray

@@ -216,8 +216,8 @@ extension ACPBankInfoViewController: UITextFieldDelegate {
               let expiration = expirationTextField.textField.text
         else { return }
 
-        let isEnabled = !(bankName == "" && bankNumber == "" && accountHolder == ""
-                          && accountNumber == "" && expiration == "")
+        let isEnabled = bankName != "" && bankNumber != "" && accountHolder != ""
+                        && accountNumber != "" && expiration != ""
 
         completeButton.isUserInteractionEnabled = isEnabled
         completeButton.backgroundColor = isEnabled ? .coreBlue : .lavenderGray
