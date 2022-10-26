@@ -56,8 +56,9 @@ class ACPVerifiedRegistrationViewController: UIViewController {
         let view = ACPTextField()
         view.titleLabel.text = .localizedString(key: "verified_register_password")
         view.textField.delegate = self
-        view.textField.isSecureTextEntry = isSecureEntry
-        view.textField.addRightImage(named: "eye", imageColor: .gray01Light)
+        view.toggleSecureEntry(isSecureEntry)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(toggleSecureEntry))
+        view.textFieldImage?.addGestureRecognizer(tap)
         return view
     }()
 
@@ -65,8 +66,9 @@ class ACPVerifiedRegistrationViewController: UIViewController {
         let view = ACPTextField()
         view.titleLabel.text = .localizedString(key: "verified_register_confirm")
         view.textField.delegate = self
-        view.textField.isSecureTextEntry = isSecureEntry
-        view.textField.addRightImage(named: "eye", imageColor: .gray01Light)
+        view.toggleSecureEntry(isSecureEntry)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(toggleSecureEntry))
+        view.textFieldImage?.addGestureRecognizer(tap)
         return view
     }()
 
@@ -108,6 +110,8 @@ class ACPVerifiedRegistrationViewController: UIViewController {
 
         addSubviews()
         setupConstraints()
+
+        
     }
 
     private func addSubviews() {
@@ -166,6 +170,13 @@ class ACPVerifiedRegistrationViewController: UIViewController {
     }
 
     // MARK: - Callbacks
+
+    @objc func toggleSecureEntry() {
+        isSecureEntry = !isSecureEntry
+
+        passwordTextField.toggleSecureEntry(isSecureEntry)
+        confirmTextField.toggleSecureEntry(isSecureEntry)
+    }
 
     @objc func didTapButton() {
         let targetVC = ACPRegistrationCompleteViewController()

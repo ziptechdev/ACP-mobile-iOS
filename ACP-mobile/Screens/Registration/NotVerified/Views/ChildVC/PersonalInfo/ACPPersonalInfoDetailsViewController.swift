@@ -75,8 +75,9 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
         let view = ACPTextField()
         view.titleLabel.text = .localizedString(key: "personal_info_password")
         view.textField.delegate = self
-        view.textField.isSecureTextEntry = isSecureEntry
-        view.textField.addRightImage(named: "eye", imageColor: .gray01Light)
+        view.toggleSecureEntry(isSecureEntry)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(toggleSecureEntry))
+        view.textFieldImage?.addGestureRecognizer(tap)
         return view
     }()
 
@@ -84,8 +85,9 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
         let view = ACPTextField()
         view.titleLabel.text = .localizedString(key: "personal_info_confirm")
         view.textField.delegate = self
-        view.textField.isSecureTextEntry = isSecureEntry
-        view.textField.addRightImage(named: "eye", imageColor: .gray01Light)
+        view.toggleSecureEntry(isSecureEntry)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(toggleSecureEntry))
+        view.textFieldImage?.addGestureRecognizer(tap)
         return view
     }()
 
@@ -208,6 +210,13 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
     }
 
     // MARK: - Callback
+
+    @objc func toggleSecureEntry() {
+        isSecureEntry = !isSecureEntry
+
+        passwordTextField.toggleSecureEntry(isSecureEntry)
+        confirmTextField.toggleSecureEntry(isSecureEntry)
+    }
 
     @objc func didTapButton() {
         delegate?.didTapNextButton()
