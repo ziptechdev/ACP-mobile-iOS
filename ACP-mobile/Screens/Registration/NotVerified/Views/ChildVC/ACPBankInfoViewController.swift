@@ -68,7 +68,8 @@ class ACPBankInfoViewController: UIViewController {
         let button = UIButton()
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
         button.layer.masksToBounds = true
-        button.backgroundColor = .coreBlue
+        button.isUserInteractionEnabled = false
+        button.backgroundColor = .lavenderGray
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(titleKey: "bank_info_btn")
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
@@ -205,6 +206,20 @@ extension ACPBankInfoViewController: UITextFieldDelegate {
             expirationTextField.textField.resignFirstResponder()
         }
         return true
+    }
+
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        guard let bankName = bankNameTextField.textField.text,
+              let bankNumber = bankNumberTextField.textField.text,
+              let accountHolder = accountHolderTextField.textField.text,
+              let accountNumber = accountNumberTextField.textField.text,
+              let expiration = expirationTextField.textField.text
+        else { return }
+
+        let isEnabled = !(bankName.isEmpty && bankNumber.isEmpty && accountHolder.isEmpty && accountNumber.isEmpty && expiration.isEmpty)
+
+        completeButton.isUserInteractionEnabled = isEnabled
+        completeButton.backgroundColor = isEnabled ? .coreBlue : .lavenderGray
     }
 }
 
