@@ -256,8 +256,7 @@ extension ACPVerifiedRegistrationViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
         guard let email = emailTextField.textField.text,
               let password = passwordTextField.textField.text,
-              let confirmPass = confirmTextField.textField.text,
-              !(password != "" && confirmPass != "")
+              let confirmPass = confirmTextField.textField.text
         else { return }
 
         if password != "" && confirmPass != "" {
