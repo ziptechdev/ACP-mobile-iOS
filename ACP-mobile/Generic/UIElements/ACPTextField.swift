@@ -21,13 +21,7 @@ class ACPTextField: UIView {
     }
 
     var textFieldImage: UIImageView? {
-        if let subviews = textField.rightView?.subviews {
-            let view = subviews.first(where: { $0 is UIImageView })
-            if let imageView = view as? UIImageView {
-                return imageView
-            }
-        }
-        return nil
+        return textField.textFieldImage
     }
 
     // MARK: - Views
@@ -179,6 +173,18 @@ class ACPTextField: UIView {
             errorLabel.isHidden = true
             errorLabel.text = ""
         }
+    }
+
+    func toggleSecureEntry(_ isSecureEntry: Bool) {
+        let imageName = isSecureEntry ? "eye_open" : "eye_closed"
+
+        if let textFieldImage = textFieldImage {
+            textFieldImage.image = UIImage(named: imageName)
+        } else {
+            textField.addRightImage(named: imageName)
+        }
+
+        textField.isSecureTextEntry = isSecureEntry
     }
 
     // MARK: - Callback
