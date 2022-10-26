@@ -28,6 +28,7 @@ class EgibilityZipView: UIView {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .coreBlue
+        label.numberOfLines = 0
         label.font = .systemFont(ofSize: 32, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
