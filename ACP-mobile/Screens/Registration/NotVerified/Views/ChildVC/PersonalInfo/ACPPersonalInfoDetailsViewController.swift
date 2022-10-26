@@ -291,16 +291,15 @@ extension ACPPersonalInfoDetailsViewController: UITextFieldDelegate {
               let ssn = ssnTextField.textField.text
         else { return }
 
-        if password != confirmPass {
+        let showPasswordError = password != "" && confirmPass != "" && password == confirmPass
+
+        if showPasswordError {
             confirmTextField.showError(message: "Passwords do not match")
         } else {
             confirmTextField.hideError()
         }
 
-        guard password == confirmPass else { return }
-
-        let isEnabled = name != "" && lastName != "" && email != "" && phone != "" && ssn != ""
-                        && password != "" && confirmPass != ""
+        let isEnabled = name != "" && lastName != "" && email != "" && phone != "" && ssn != "" && showPasswordError
 
         nextButton.isUserInteractionEnabled = isEnabled
         nextButton.backgroundColor = isEnabled ? .coreBlue : .lavenderGray
