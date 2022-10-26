@@ -12,6 +12,8 @@ class ACPTextField: UIView {
 
     // MARK: - Properties
 
+    private var isErrorShowing = false
+
     weak var delegate: ACPToolbarDelegate? {
         didSet {
             textField.inputAccessoryView = toolbar
@@ -51,6 +53,22 @@ class ACPTextField: UIView {
         view.autocorrectionType = .no
         view.textColor = .gray06Dark
         return view
+    }()
+
+    let spacerView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
+    let errorLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.adjustsFontSizeToFitWidth = true
+        label.font = .systemFont(ofSize: 14, weight: .regular)
+        label.textColor = .warningRed
+        label.isHidden = true
+        return label
     }()
 
     private lazy var toolbar: UIToolbar = {
@@ -100,6 +118,8 @@ class ACPTextField: UIView {
     private func addSubviews() {
         addSubview(titleLabel)
         addSubview(textField)
+        addSubview(spacerView)
+        addSubview(errorLabel)
     }
 
     private func setupConstraints() {
@@ -108,9 +128,56 @@ class ACPTextField: UIView {
         }
 
         textField.snp.makeConstraints { make in
-            make.left.right.bottom.equalToSuperview()
+            make.left.right.equalToSuperview()
             make.height.equalTo(Constants.Constraints.TextFieldHeight)
             make.top.equalTo(titleLabel.snp.bottom).offset(Constants.Constraints.TextFieldOffset)
+        }
+
+        spacerView.snp.makeConstraints { make in
+            make.left.right.equalToSuperview()
+            make.height.equalTo(0)
+            make.top.equalTo(textField.snp.bottom)
+            make.bottom.equalTo(errorLabel.snp.top)
+        }
+
+        errorLabel.snp.makeConstraints { make in
+            make.left.right.bottom.equalToSuperview()
+            make.top.equalTo(spacerView.snp.bottom)
+        }
+    }
+
+    func showError(message: String) {
+        if !isErrorShowing {
+            isErrorShowing = true
+
+            spacerView.snp.remakeConstraints { make in
+                make.left.right.equalToSuperview()
+                make.height.equalTo(Constants.Constraints.TextFieldOffset)
+                make.top.equalTo(textField.snp.bottom)
+                make.bottom.equalTo(errorLabel.snp.top)
+            }
+
+            textField.layer.borderColor = UIColor.warningRed.cgColor
+            errorLabel.isHidden = false
+        }
+
+        errorLabel.text = message
+    }
+
+    func hideError() {
+        if isErrorShowing {
+            isErrorShowing = false
+
+            spacerView.snp.remakeConstraints { make in
+                make.left.right.equalToSuperview()
+                make.height.equalTo(0)
+                make.top.equalTo(textField.snp.bottom)
+                make.bottom.equalTo(errorLabel.snp.top)
+            }
+
+            textField.layer.borderColor = UIColor.gray03Light.cgColor
+            errorLabel.isHidden = true
+            errorLabel.text = ""
         }
     }
 
