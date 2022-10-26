@@ -91,6 +91,18 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
         return view
     }()
 
+    private let passwordErrorLabel: UILabel = {
+        let label = UILabel()
+        label.text = .localizedString(key: "password_not_matched")
+        label.textAlignment = .left
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 12, weight: .semibold)
+        label.textColor = .red
+        label.isHidden = true
+        label.adjustsFontSizeToFitWidth = true
+        return label
+    }()
+
     private lazy var ssnTextField: ACPTextField = {
         let view = ACPTextField()
         view.titleLabel.text = .localizedString(key: "personal_info_ssn")
@@ -141,12 +153,14 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
         contentView.addSubview(phoneTextField)
         contentView.addSubview(passwordTextField)
         contentView.addSubview(confirmTextField)
+        contentView.addSubview(passwordErrorLabel)
         contentView.addSubview(ssnTextField)
         contentView.addSubview(nextButton)
         contentView.addSubview(infoLabel)
         scrollView.addSubview(contentView)
         view.addSubview(scrollView)
     }
+    var mainTopOffsetConstraint: NSLayoutConstraint?
 
     private func setupConstraints() {
         scrollView.snp.makeConstraints { make in
@@ -191,12 +205,15 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
             make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
             make.top.equalTo(passwordTextField.snp.bottom).offset(Constants.Constraints.TextFieldOffsetVertical)
         }
-
+        passwordErrorLabel.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
+            make.top.equalTo(confirmTextField.snp.bottom).offset(Constants.Constraints.errorOffset)
+        }
         ssnTextField.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.top.equalTo(confirmTextField.snp.bottom).offset(Constants.Constraints.TextFieldOffsetVertical)
         }
-
+        mainTopOffsetConstraint = ssnTextField.topAnchor.constraint(equalTo: confirmTextField.bottomAnchor, constant: Constants.Constraints.TextFieldOffsetVertical)
+        mainTopOffsetConstraint?.isActive = true
         nextButton.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
             make.height.equalTo(Constants.Constraints.ButtonHeight)
@@ -234,6 +251,7 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
 
             static let InfoOffsetVertical: CGFloat = 30
             static let InfoInsetVertical: CGFloat = 60
+            static let errorOffset: CGFloat = 5
         }
     }
 }
@@ -270,6 +288,21 @@ extension ACPPersonalInfoDetailsViewController: UITextFieldDelegate {
             ssnTextField.textField.resignFirstResponder()
         }
         return true
+    }
+
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        guard let password = confirmTextField.textField.text else { return }
+        guard let confirmPass = passwordTextField.textField.text else { return }
+        if password != confirmPass {
+            passwordErrorLabel.isHidden = false
+            mainTopOffsetConstraint?.constant = CGFloat(30)
+
+        } else {
+            passwordErrorLabel.isHidden = true
+            mainTopOffsetConstraint?.constant = CGFloat(10)
+
+        }
+
     }
 }
 

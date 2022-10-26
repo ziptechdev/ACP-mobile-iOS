@@ -95,7 +95,8 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
             cornerRadius: Constants.Constraints.ButtonCornerRadius,
             imageName: "right_arrow"
         )
-        button.backgroundColor = .coreBlue
+        button.isUserInteractionEnabled = false
+        button.backgroundColor = .lavenderGray
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(.localizedString(key: "eligibility_dob_btn"), for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
@@ -274,6 +275,20 @@ extension ACPEligibilityDetailsDOBViewController: UITextFieldDelegate {
             ssnTextField.textField.resignFirstResponder()
         }
         return true
+    }
+
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        guard let day = dayTextField.textField.text else { return }
+        guard let year = yearTextField.textField.text else { return }
+        guard let ssnNumber = ssnTextField.textField.text else { return }
+        if !day.isEmpty && !year.isEmpty && !ssnNumber.isEmpty {
+            nextButton.isUserInteractionEnabled = true
+            nextButton.backgroundColor = .coreBlue
+        } else {
+            nextButton.isUserInteractionEnabled = false
+            nextButton.backgroundColor = .lavenderGray
+        }
+
     }
 }
 
