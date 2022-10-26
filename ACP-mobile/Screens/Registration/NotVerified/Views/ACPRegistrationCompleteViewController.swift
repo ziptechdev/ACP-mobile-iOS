@@ -35,12 +35,14 @@ class ACPRegistrationCompleteViewController: UIViewController {
 
     private lazy var subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = .localizedString(key: "registration_complete_subtitle")
-        label.textColor = .white
+        label.attributedText = NSMutableAttributedString.subtitleString(
+            key: "registration_complete_subtitle",
+            color: .white,
+            isCenter: true
+        )
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 3
         label.adjustsFontSizeToFitWidth = true
-        label.textAlignment = .center
         return label
     }()
 

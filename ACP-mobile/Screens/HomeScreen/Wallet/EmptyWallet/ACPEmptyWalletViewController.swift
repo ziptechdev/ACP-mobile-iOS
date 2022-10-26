@@ -26,10 +26,8 @@ class ACPEmptyWalletViewController: UIViewController {
 
     private lazy var subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = .localizedString(key: "empty_wallet_subtitle")
+        label.attributedText = NSMutableAttributedString.subtitleString(key: "empty_wallet_subtitle")
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 14, weight: .regular)
-        label.textColor = .gray01Light
         label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 3
         return label

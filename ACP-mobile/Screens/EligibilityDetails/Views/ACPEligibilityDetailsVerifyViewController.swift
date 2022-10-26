@@ -135,12 +135,12 @@ class ACPEligibilityDetailsVerifyViewController: UIViewController {
     }
 
     private func subtitleAttributedText() -> NSAttributedString {
-        let string: NSMutableAttributedString = .localizedString(key: "verify_process_subtitle")
-        let highlightRange = string.range(of: .localizedString(key: "verify_process_highlight"))
+        let string: NSMutableAttributedString = .subtitleString(
+            key: "verify_process_subtitle",
+            isCenter: true
+        )
 
-        string.addAttribute(.font, value: UIFont.systemFont(ofSize: 14, weight: .regular))
-        string.addAttribute(.paragraphStyle, value: NSMutableParagraphStyle.center)
-        string.addAttribute(.foregroundColor, value: UIColor.gray01Light)
+        let highlightRange = string.range(of: .localizedString(key: "verify_process_highlight"))
         string.addAttribute(.foregroundColor, value: UIColor.coreBlue, range: highlightRange)
 
         return string

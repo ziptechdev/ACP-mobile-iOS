@@ -39,8 +39,7 @@ class ACPKYCCompleteViewController: UIViewController {
 
     private lazy var subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = .localizedString(key: "kyc_success_subtitle")
-        label.textColor = .gray01Light
+        label.attributedText = NSMutableAttributedString.subtitleString(key: "kyc_success_subtitle")
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 3
         label.adjustsFontSizeToFitWidth = true

@@ -29,10 +29,8 @@ class ACPEligibilityDetailsNameViewController: UIViewController {
 
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = .localizedString(key: "eligibility_details_subtitle")
+        label.attributedText = NSMutableAttributedString.subtitleString(key: "eligibility_details_subtitle")
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 14, weight: .regular)
-        label.textColor = .gray01Light
         label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 2
         return label
@@ -163,6 +161,7 @@ class ACPEligibilityDetailsNameViewController: UIViewController {
         let highlightRange = string.range(of: .localizedString(key: "eligibility_details_highlight"))
 
         string.addAttribute(.foregroundColor, value: UIColor.gray06Dark)
+        string.addAttribute(.font, value: UIFont.systemFont(ofSize: 14, weight: .regular))
         string.addAttribute(.foregroundColor, value: UIColor.gray01Light, range: highlightRange)
 
         return string

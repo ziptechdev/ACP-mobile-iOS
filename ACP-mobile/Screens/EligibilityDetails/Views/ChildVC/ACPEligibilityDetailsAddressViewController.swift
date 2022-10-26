@@ -29,10 +29,8 @@ class ACPEligibilityDetailsAddressViewController: UIViewController {
 
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = .localizedString(key: "eligibility_address_subtitle")
+        label.attributedText = NSMutableAttributedString.subtitleString(key: "eligibility_address_subtitle")
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 14, weight: .regular)
-        label.textColor = .gray01Light
         label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 2
         return label

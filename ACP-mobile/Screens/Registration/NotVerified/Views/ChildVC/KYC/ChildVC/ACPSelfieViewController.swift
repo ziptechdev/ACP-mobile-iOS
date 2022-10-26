@@ -31,8 +31,7 @@ class ACPSelfieViewController: UIViewController {
 
     private lazy var subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = .localizedString(key: "kyc_selfie_subtitle")
-        label.textColor = .gray01Light
+        label.attributedText = NSMutableAttributedString.subtitleString(key: "kyc_selfie_subtitle")
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontSizeToFitWidth = true
         return label

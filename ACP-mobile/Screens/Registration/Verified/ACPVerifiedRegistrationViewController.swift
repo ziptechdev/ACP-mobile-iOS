@@ -38,13 +38,8 @@ class ACPVerifiedRegistrationViewController: UIViewController {
     private let subtitleLabel: UILabel = {
         let label = UILabel()
         // TODO: Set the name
-        label.text = .formatLocalizedString(
-            key: "verified_register_subtitle",
-            values: "Adi"
-        )
+        label.attributedText = NSMutableAttributedString.subtitleString(key: "verified_register_subtitle")
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 14, weight: .regular)
-        label.textColor = .gray01Light
         label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 2
         return label

@@ -29,18 +29,15 @@ class EgibilityZipView: UIView {
         let label = UILabel()
         label.textColor = .coreBlue
         label.font = .systemFont(ofSize: 32, weight: .bold)
-        label.textAlignment = .left
-        label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
     let descriptionTexLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .gray01Light
-        label.font = .systemFont(ofSize: 14, weight: .regular)
-        label.textAlignment = .left
-        label.numberOfLines = 0
+        label.attributedText = NSMutableAttributedString.subtitleString(key: "eligibility_zip_subtitle")
+        label.numberOfLines = 2
+        label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -305,7 +302,6 @@ class EgibilityZipView: UIView {
 
     private func setText() {
         titleLabel.text = .localizedString(key: "eligibility_zip_title")
-        descriptionTexLabel.text = .localizedString(key: "eligibility_zip_subtitle")
         zipLabelName.text = .localizedString(key: "eligibility_zip_label")
         errorLabel.text = .localizedString(key: "eligibility_zip_error")
     }

@@ -59,11 +59,11 @@ class ACPEligibilityDetailsSuccessViewController: UIViewController {
 
     private lazy var subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = .localizedString(key: "verify_success_subtitle")
-        label.textAlignment = .center
+        label.attributedText = NSMutableAttributedString.subtitleString(
+            key: "verify_success_subtitle",
+            isCenter: true
+        )
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 14, weight: .regular)
-        label.textColor = .gray01Light
         label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 3
         return label

@@ -44,11 +44,11 @@ class ACPVerifyEmailViewController: UIViewController {
 
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = .localizedString(key: "verify_email_subtitle")
+        label.attributedText = NSMutableAttributedString.subtitleString(
+            key: "verify_email_subtitle",
+            isCenter: true
+        )
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 14, weight: .regular)
-        label.textColor = .gray01Light
-        label.textAlignment = .center
         label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 3
         return label

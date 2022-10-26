@@ -73,9 +73,8 @@ class EgibilityCheckView: UIView {
     let infoLabel: UILabel = {
         let label = UILabel()
         label.textColor = .gray01Light
-        label.font = .systemFont(ofSize: 14, weight: .regular)
-        label.textAlignment = .left
-        label.numberOfLines = 0
+        label.numberOfLines = 3
+        label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -154,15 +153,13 @@ class EgibilityCheckView: UIView {
     private func setText() {
         titleLabel.text = .localizedString(key: "eligibility_title")
         descriptionLabel.attributedText = attributedInfoText()
-        infoLabel.text = .localizedString(key: "eligibility_info")
+        infoLabel.attributedText = NSMutableAttributedString.subtitleString(key: "eligibility_info")
     }
 
     private func attributedInfoText() -> NSMutableAttributedString {
-        let string: NSMutableAttributedString = .localizedString(key: "eligibility_subtitle")
-        let highlightRange = string.range(of: .localizedString(key: "eligibility_details_highlight"))
+        let string: NSMutableAttributedString = .subtitleString(key: "eligibility_subtitle")
 
-        string.addAttribute(.font, value: UIFont.systemFont(ofSize: 14, weight: .regular))
-        string.addAttribute(.foregroundColor, value: UIColor.gray01Light)
+        let highlightRange = string.range(of: .localizedString(key: "eligibility_highlight"))
         string.addAttribute(.foregroundColor, value: UIColor.coreBlue, range: highlightRange)
 
         return string

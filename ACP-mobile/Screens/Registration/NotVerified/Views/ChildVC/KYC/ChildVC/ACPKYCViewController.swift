@@ -88,11 +88,9 @@ class ACPKYCViewController: UIViewController {
     }
 
     private func attributedSubitleText() -> NSMutableAttributedString {
-        let string: NSMutableAttributedString = .localizedString(key: "kyc_subtitle")
-        let highlightRange = string.range(of: .localizedString(key: "kyc_highlight"))
+        let string: NSMutableAttributedString = .subtitleString(key: "kyc_subtitle")
 
-        string.addAttribute(.font, value: UIFont.systemFont(ofSize: 14, weight: .regular))
-        string.addAttribute(.foregroundColor, value: UIColor.gray01Light)
+        let highlightRange = string.range(of: .localizedString(key: "kyc_highlight"))
         string.addAttribute(.foregroundColor, value: UIColor.coreBlue, range: highlightRange)
 
         return string

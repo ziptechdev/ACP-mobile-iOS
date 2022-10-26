@@ -34,10 +34,8 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
 
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = .localizedString(key: "personal_info_subtitle")
+        label.attributedText = NSMutableAttributedString.subtitleString(key: "personal_info_subtitle")
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 14, weight: .regular)
-        label.textColor = .gray01Light
         label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 2
         return label
