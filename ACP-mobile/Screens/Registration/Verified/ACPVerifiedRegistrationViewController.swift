@@ -259,7 +259,7 @@ extension ACPVerifiedRegistrationViewController: UITextFieldDelegate {
               let confirmPass = confirmTextField.textField.text
         else { return }
 
-        if password != "" && confirmPass != "" {
+        if password != confirmPass {
             confirmTextField.showError(message: "Passwords do not match")
         } else {
             confirmTextField.hideError()
