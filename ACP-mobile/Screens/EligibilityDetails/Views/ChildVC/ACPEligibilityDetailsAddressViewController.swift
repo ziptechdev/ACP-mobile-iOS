@@ -88,7 +88,8 @@ class ACPEligibilityDetailsAddressViewController: UIViewController {
         let button = UIButton()
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
         button.layer.masksToBounds = true
-        button.backgroundColor = .coreBlue
+        button.isUserInteractionEnabled = false
+        button.backgroundColor = .lavenderGray
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(titleKey: "eligibility_address_btn")
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
@@ -266,6 +267,20 @@ extension ACPEligibilityDetailsAddressViewController: UITextFieldDelegate {
             zipTextField.textField.resignFirstResponder()
         }
         return true
+    }
+
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        guard let street = streetTextField.textField.text else { return }
+        guard let city = cityTextField.textField.text else { return }
+        guard let state = stateTextField.textField.text else { return }
+        if !street.isEmpty && !city.isEmpty && !state.isEmpty {
+            verifyButton.isUserInteractionEnabled = true
+            verifyButton.backgroundColor = .coreBlue
+        } else {
+            verifyButton.isUserInteractionEnabled = false
+            verifyButton.backgroundColor = .lavenderGray
+        }
+
     }
 }
 

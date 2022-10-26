@@ -231,8 +231,10 @@ KYC requires a selfie/clear shot of your face and a photo of the document that c
  "apply_acp_choose_plan" = "Choose plan:";
  "apply_acp_choose_device" = "Choose device:";
 
- /* Apply Succesfull Screen*/
+ /* Apply Successfull Screen */
  "successfull_title" = "Confirmed!";
  "acp_successfull_desc" = "Your ACP application has been successfully submitted and will be reviewed within 2-3 business days. If everything is correct, you will receive funds immediately and your device will be shipped within 5 businss days. Check notifications for further updates about the package.";
  "acp_successfull_register_btn" = "Done";
 
+/* Password errors */
+"password_not_matched" = "Password does not match";

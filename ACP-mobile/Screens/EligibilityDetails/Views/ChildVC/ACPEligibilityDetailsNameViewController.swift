@@ -73,7 +73,8 @@ class ACPEligibilityDetailsNameViewController: UIViewController {
             cornerRadius: Constants.Constraints.ButtonCornerRadius,
             imageName: "right_arrow"
         )
-        button.backgroundColor = .coreBlue
+        button.isUserInteractionEnabled = false
+        button.backgroundColor = .lavenderGray
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         return button
@@ -194,6 +195,7 @@ class ACPEligibilityDetailsNameViewController: UIViewController {
         guard let lastName = lastNameTextField.textField.text, lastName != "" else {
             return
         }
+
         viewModel?.model.nameModel.lastName = lastName
 
         delegate?.didTapNextButton()
@@ -231,5 +233,18 @@ extension ACPEligibilityDetailsNameViewController: UITextFieldDelegate {
             lastNameTextField.textField.resignFirstResponder()
         }
         return true
+    }
+
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        guard let lastname = lastNameTextField.textField.text else { return }
+        guard let name = nameTextField.textField.text else { return }
+        if !lastname.isEmpty && !name.isEmpty {
+            nextButton.isUserInteractionEnabled = true
+            nextButton.backgroundColor = .coreBlue
+        } else {
+            nextButton.isUserInteractionEnabled = false
+            nextButton.backgroundColor = .lavenderGray
+        }
+
     }
 }

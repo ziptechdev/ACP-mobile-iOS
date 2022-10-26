@@ -10,7 +10,7 @@ import SnapKit
 
 class ACPVerifiedRegistrationViewController: UIViewController {
 
-	// MARK: - Properties
+    // MARK: - Properties
 
     private var isSecureEntry = true
 
@@ -70,6 +70,18 @@ class ACPVerifiedRegistrationViewController: UIViewController {
         return view
     }()
 
+    private let passwordErrorLabel: UILabel = {
+        let label = UILabel()
+        label.text = .localizedString(key: "password_not_matched")
+        label.textAlignment = .left
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 14, weight: .semibold)
+        label.textColor = .red
+        label.isHidden = true
+        label.adjustsFontSizeToFitWidth = true
+        return label
+    }()
+
     private lazy var registerButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
@@ -117,6 +129,7 @@ class ACPVerifiedRegistrationViewController: UIViewController {
         view.addSubview(emailTextField)
         view.addSubview(passwordTextField)
         view.addSubview(confirmTextField)
+        view.addSubview(passwordErrorLabel)
         view.addSubview(registerButton)
         view.addSubview(infoLabel)
     }
@@ -151,6 +164,11 @@ class ACPVerifiedRegistrationViewController: UIViewController {
         confirmTextField.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
             make.top.equalTo(passwordTextField.snp.bottom).offset(Constants.Constraints.TextFieldOffsetVertical)
+        }
+
+        passwordErrorLabel.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
+            make.top.equalTo(confirmTextField.snp.bottom).offset(Constants.Constraints.InfoLabelInsetY)
         }
 
         registerButton.snp.makeConstraints { make in
@@ -239,5 +257,16 @@ extension ACPVerifiedRegistrationViewController: UITextFieldDelegate {
             unFocusTextField(confirmTextField)
         }
         return true
+    }
+
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        guard let password = confirmTextField.textField.text else { return }
+        guard let confirmPass = passwordTextField.textField.text else { return }
+        if password != confirmPass {
+            passwordErrorLabel.isHidden = false
+        } else {
+            passwordErrorLabel.isHidden = true
+        }
+
     }
 }
