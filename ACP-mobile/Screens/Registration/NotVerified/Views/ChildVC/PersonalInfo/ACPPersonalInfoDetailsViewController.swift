@@ -118,7 +118,8 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
             cornerRadius: Constants.Constraints.ButtonCornerRadius,
             imageName: "right_arrow"
         )
-        button.backgroundColor = .coreBlue
+        button.isUserInteractionEnabled = false
+        button.backgroundColor = .lavenderGray
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(.localizedString(key: "personal_info_btn"), for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
@@ -291,18 +292,24 @@ extension ACPPersonalInfoDetailsViewController: UITextFieldDelegate {
     }
 
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        guard let password = confirmTextField.textField.text else { return }
-        guard let confirmPass = passwordTextField.textField.text else { return }
-        if password != confirmPass {
-            passwordErrorLabel.isHidden = false
-            mainTopOffsetConstraint?.constant = CGFloat(30)
+        guard let name = nameTextField.textField.text,
+              let lastName = lastNameTextField.textField.text,
+              let email = emailTextField.textField.text,
+              let phone = phoneTextField.textField.text,
+              let password = passwordTextField.textField.text,
+              let confirmPass = confirmTextField.textField.text,
+              let ssn = ssnTextField.textField.text,
+              !password.isEmpty, !confirmPass.isEmpty
+        else { return }
 
-        } else {
-            passwordErrorLabel.isHidden = true
-            mainTopOffsetConstraint?.constant = CGFloat(10)
+        passwordErrorLabel.isHidden = password == confirmPass
 
-        }
+        guard password == confirmPass else { return }
 
+        let isEnabled = !(name.isEmpty && lastName.isEmpty && email.isEmpty && phone.isEmpty && ssn.isEmpty)
+
+        nextButton.isUserInteractionEnabled = isEnabled
+        nextButton.backgroundColor = isEnabled ? .coreBlue : .lavenderGray
     }
 }
 

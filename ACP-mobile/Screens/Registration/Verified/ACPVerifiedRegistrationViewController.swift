@@ -91,7 +91,8 @@ class ACPVerifiedRegistrationViewController: UIViewController {
         let button = UIButton()
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
         button.layer.masksToBounds = true
-        button.backgroundColor = .coreBlue
+        button.isUserInteractionEnabled = false
+        button.backgroundColor = .lavenderGray
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(.localizedString(key: "verified_register_btn"), for: .normal)
         button.setTitleColor(.white, for: .normal)
@@ -243,37 +244,43 @@ extension ACPVerifiedRegistrationViewController: UITextFieldDelegate {
         }
         return true
     }
-
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        if textField == emailTextField.textField {
-            focusTextField(emailTextField)
-        } else if textField == passwordTextField.textField {
-            focusTextField(passwordTextField)
-        } else {
-            focusTextField(confirmTextField)
-        }
-        return true
-    }
-
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        if textField == emailTextField.textField {
-            unFocusTextField(emailTextField)
-        } else if textField == passwordTextField.textField {
-            unFocusTextField(passwordTextField)
-        } else {
-            unFocusTextField(confirmTextField)
-        }
-        return true
-    }
+//
+//    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+//        if textField == emailTextField.textField {
+//            focusTextField(emailTextField)
+//        } else if textField == passwordTextField.textField {
+//            focusTextField(passwordTextField)
+//        } else {
+//            focusTextField(confirmTextField)
+//        }
+//        return true
+//    }
+//
+//    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+//        if textField == emailTextField.textField {
+//            unFocusTextField(emailTextField)
+//        } else if textField == passwordTextField.textField {
+//            unFocusTextField(passwordTextField)
+//        } else {
+//            unFocusTextField(confirmTextField)
+//        }
+//        return true
+//    }
 
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        guard let password = confirmTextField.textField.text else { return }
-        guard let confirmPass = passwordTextField.textField.text else { return }
-        if password != confirmPass {
-            passwordErrorLabel.isHidden = false
-        } else {
-            passwordErrorLabel.isHidden = true
-        }
+        guard let email = emailTextField.textField.text,
+              let password = passwordTextField.textField.text,
+              let confirmPass = confirmTextField.textField.text,
+              !password.isEmpty, !confirmPass.isEmpty
+        else { return }
 
+        passwordErrorLabel.isHidden = password == confirmPass
+
+        guard password == confirmPass else { return }
+
+        let isEnabled = !(email.isEmpty && password.isEmpty && confirmPass.isEmpty)
+
+        registerButton.isUserInteractionEnabled = isEnabled
+        registerButton.backgroundColor = isEnabled ? .coreBlue : .lavenderGray
     }
 }

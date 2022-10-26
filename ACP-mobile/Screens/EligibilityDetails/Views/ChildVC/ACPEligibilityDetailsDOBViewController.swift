@@ -278,17 +278,15 @@ extension ACPEligibilityDetailsDOBViewController: UITextFieldDelegate {
     }
 
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        guard let day = dayTextField.textField.text else { return }
-        guard let year = yearTextField.textField.text else { return }
-        guard let ssnNumber = ssnTextField.textField.text else { return }
-        if !day.isEmpty && !year.isEmpty && !ssnNumber.isEmpty {
-            nextButton.isUserInteractionEnabled = true
-            nextButton.backgroundColor = .coreBlue
-        } else {
-            nextButton.isUserInteractionEnabled = false
-            nextButton.backgroundColor = .lavenderGray
-        }
+        guard let day = dayTextField.textField.text,
+              let year = yearTextField.textField.text,
+              let ssnNumber = ssnTextField.textField.text
+        else { return }
 
+        let isEnabled = !(day.isEmpty && year.isEmpty && ssnNumber.isEmpty)
+
+        nextButton.isUserInteractionEnabled = isEnabled
+        nextButton.backgroundColor = isEnabled ? .coreBlue : .lavenderGray
     }
 }
 
