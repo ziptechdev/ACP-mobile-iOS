@@ -74,6 +74,18 @@ class ACPEligibilityDetailsFailViewController: UIViewController {
         return button
     }()
 
+    private lazy var cancelButton: UIButton = {
+        let button = UIButton()
+        let image = UIImage(named: "x_mark")?.withRenderingMode(.alwaysTemplate)
+        button.layer.masksToBounds = true
+        button.backgroundColor = .clear
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(image, for: .normal)
+        button.imageView?.tintColor = .gray01Dark
+        button.addTarget(self, action: #selector(didTapCancel), for: .touchUpInside)
+        return button
+    }()
+
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
@@ -85,9 +97,7 @@ class ACPEligibilityDetailsFailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        navigationController?.navigationBar.isHidden = false
-
-        setupRightNavigationBarButton()
+        navigationController?.navigationBar.isHidden = true
     }
 
     // MARK: - UI
@@ -106,6 +116,7 @@ class ACPEligibilityDetailsFailViewController: UIViewController {
         view.addSubview(subtitleLabel)
         view.addSubview(newAccountButton)
         view.addSubview(tryAgainButton)
+        view.addSubview(cancelButton)
     }
 
     private func setupConstraints() {
@@ -115,7 +126,7 @@ class ACPEligibilityDetailsFailViewController: UIViewController {
         }
 
         failCircle.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(Constants.Constraints.LoadingBarInsetY)
+            make.top.equalTo(cancelButton.snp.bottom).offset(Constants.Constraints.LoadingBarInsetY)
             make.left.right.equalToSuperview().inset(Constants.Constraints.LoadingBarInsetX)
             make.height.equalTo(failCircle.snp.width)
         }
@@ -142,6 +153,12 @@ class ACPEligibilityDetailsFailViewController: UIViewController {
             make.height.equalTo(Constants.Constraints.ButtonHeight)
             make.top.equalTo(tryAgainButton.snp.bottom).offset(Constants.Constraints.ButtonSpacingVertical)
         }
+
+        cancelButton.snp.makeConstraints { make in
+            make.right.equalToSuperview().inset(Constants.Constraints.CancelInsetHorizontal)
+            make.height.width.equalTo(Constants.Constraints.CancelButtonSize)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(Constants.Constraints.CancelInsetVertical)
+        }
     }
 
     private func subtitleAttributedText() -> NSAttributedString {
@@ -159,11 +176,21 @@ class ACPEligibilityDetailsFailViewController: UIViewController {
     // MARK: - Callbacks
 
     @objc func didTapAccountButton() {
-        // TODO: Add Stuff
+        let targetVC = ACPNotVerifiedRegistrationViewController()
+
+        navigationController?.pushViewController(targetVC, animated: true)
+        navigationController?.popInTheBackgroundToVC(EgibilityCheckViewController.self)
     }
 
     @objc func didTapTryAgainButton() {
-        // TODO: Add Stuff
+        let targetVC = EgibilityZipViewController()
+
+        navigationController?.pushViewController(targetVC, animated: true)
+        navigationController?.popInTheBackgroundToVC(EgibilityCheckViewController.self)
+    }
+
+    @objc func didTapCancel() {
+        navigationController?.popToRootViewController(animated: true)
     }
 
     @objc func didTapLabel(_ sender: UITapGestureRecognizer? = nil) {
@@ -198,6 +225,10 @@ class ACPEligibilityDetailsFailViewController: UIViewController {
             static let ButtonOffsetVertical: CGFloat = 60
             static let ButtonSpacingVertical: CGFloat = 30
             static let ButtonCornerRadius: CGFloat = 10
+
+            static let CancelInsetVertical: CGFloat = 38
+            static let CancelInsetHorizontal: CGFloat = 35
+            static let CancelButtonSize: CGFloat = 14
         }
     }
 }

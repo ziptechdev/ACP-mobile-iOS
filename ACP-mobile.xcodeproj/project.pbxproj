@@ -79,6 +79,7 @@
 		4013FAE7290844380018025F /* ACPEmptyWalletBalanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4013FAE6290844380018025F /* ACPEmptyWalletBalanceView.swift */; };
 		4013FAEA29085B220018025F /* ACPDebitCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4013FAE929085B220018025F /* ACPDebitCardView.swift */; };
 		4013FAEC290892810018025F /* UIButton+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4013FAEB290892810018025F /* UIButton+ACP.swift */; };
+		4013FAEE2908A3A30018025F /* UINavigationController+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4013FAED2908A3A30018025F /* UINavigationController+ACP.swift */; };
 		403AD22029075B0600C6D556 /* ACPHomeScreenTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403AD21F29075B0600C6D556 /* ACPHomeScreenTabViewController.swift */; };
 		403AD22329075B6400C6D556 /* ACPHomeScreenTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403AD22229075B6400C6D556 /* ACPHomeScreenTabViewModel.swift */; };
 		403AD2252907636B00C6D556 /* ACPTabMenuImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403AD2242907636B00C6D556 /* ACPTabMenuImageCell.swift */; };
@@ -170,6 +171,7 @@
 		4013FAE6290844380018025F /* ACPEmptyWalletBalanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPEmptyWalletBalanceView.swift; sourceTree = "<group>"; };
 		4013FAE929085B220018025F /* ACPDebitCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPDebitCardView.swift; sourceTree = "<group>"; };
 		4013FAEB290892810018025F /* UIButton+ACP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+ACP.swift"; sourceTree = "<group>"; };
+		4013FAED2908A3A30018025F /* UINavigationController+ACP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+ACP.swift"; sourceTree = "<group>"; };
 		403AD21F29075B0600C6D556 /* ACPHomeScreenTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPHomeScreenTabViewController.swift; sourceTree = "<group>"; };
 		403AD22229075B6400C6D556 /* ACPHomeScreenTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPHomeScreenTabViewModel.swift; sourceTree = "<group>"; };
 		403AD2242907636B00C6D556 /* ACPTabMenuImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPTabMenuImageCell.swift; sourceTree = "<group>"; };
@@ -395,6 +397,7 @@
 				400AB9BD28FF7F6000A6DCB6 /* UIColor+ACP.swift */,
 				400AB9BE28FF7F6000A6DCB6 /* String+ACP.swift */,
 				4013FAEB290892810018025F /* UIButton+ACP.swift */,
+				4013FAED2908A3A30018025F /* UINavigationController+ACP.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -820,6 +823,7 @@
 				400ABA0D28FF7F6000A6DCB6 /* UITapGestureRecognizer+ACP.swift in Sources */,
 				400ABA2828FF7F6000A6DCB6 /* ACPKYCCompleteViewController.swift in Sources */,
 				400ABA2C28FF7F6000A6DCB6 /* TestEndpoint.swift in Sources */,
+				4013FAEE2908A3A30018025F /* UINavigationController+ACP.swift in Sources */,
 				400AB9F428FF7F6000A6DCB6 /* ACPEligibilityDetailsAddressViewController.swift in Sources */,
 				400ABA1528FF7F6000A6DCB6 /* ACPNavigationController.swift in Sources */,
 				400AB9EF28FF7F6000A6DCB6 /* ACPEligibilityDetailsAddressModel.swift in Sources */,

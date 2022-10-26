@@ -61,6 +61,16 @@ class ACPEligibilityDetailsVerifyViewController: UIViewController {
         return button
     }()
 
+    private lazy var failButton: UIButton = {
+        let button = UIButton()
+        button.layer.masksToBounds = true
+        button.backgroundColor = .clear
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle(titleKey: "fail", textColor: .coreBlue)
+        button.addTarget(self, action: #selector(testNav), for: .touchUpInside)
+        return button
+    }()
+
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
@@ -84,6 +94,8 @@ class ACPEligibilityDetailsVerifyViewController: UIViewController {
 
         addSubviews()
         setupConstraints()
+
+        setupTest()
     }
 
     private func addSubviews() {
@@ -164,6 +176,8 @@ class ACPEligibilityDetailsVerifyViewController: UIViewController {
     }
 
     @objc func didTapCancel() {
+        loadingTimer?.invalidate()
+
         navigationController?.popViewController(animated: true)
     }
 
@@ -179,6 +193,25 @@ class ACPEligibilityDetailsVerifyViewController: UIViewController {
             // TODO: Add Link
             print("NationalVerifier")
         }
+    }
+
+    // MARK: - TEST
+
+    private func setupTest() {
+        view.addSubview(failButton)
+
+        failButton.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
+            make.height.equalTo(Constants.Constraints.ButtonHeight)
+            make.top.equalTo(cancelButton.snp.bottom).offset(20)
+        }
+    }
+
+    @objc func testNav() {
+        loadingTimer?.invalidate()
+        
+        let targetVC = ACPEligibilityDetailsFailViewController()
+        navigationController?.pushViewController(targetVC, animated: true)
     }
 
     // MARK: - Navigation
@@ -211,7 +244,8 @@ class ACPEligibilityDetailsVerifyViewController: UIViewController {
 
         struct Numbers {
             // TODO: Add real time
-            static let LoadingTime: Double = 20
+            static let LoadingTime: Double = 5
+
         }
     }
 }
