@@ -109,7 +109,6 @@ extension ApplyACPViewController: ApplyACPViewDelegate {
     }
 
     func didApplyNowButton() {
-        print("apply now")
         let targetVC = ACPSuccesViewController()
         navigationController?.pushViewController(targetVC, animated: true)
     }

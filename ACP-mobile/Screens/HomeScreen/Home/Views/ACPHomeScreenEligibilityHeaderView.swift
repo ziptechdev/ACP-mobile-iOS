@@ -37,7 +37,7 @@ class ACPHomeScreenEligibilityHeaderView: UITableViewHeaderFooterView {
         return label
     }()
 
-    private let applyButton: UIButton = {
+    let applyButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .acpYellow
         button.translatesAutoresizingMaskIntoConstraints = false
