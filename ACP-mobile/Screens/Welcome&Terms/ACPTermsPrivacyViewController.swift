@@ -48,7 +48,7 @@ class ACPTermsPrivacyViewController: UIViewController {
         lbl.text = NSLocalizedString("terms_text", comment: "")
         lbl.numberOfLines = 0
         lbl.textAlignment = .justified
-        lbl.textColor = .gray06Dark
+        lbl.textColor = .gray01Light
         lbl.adjustsFontSizeToFitWidth = true
         lbl.font = .systemFont(ofSize: 14, weight: .regular)
         return lbl
@@ -70,7 +70,7 @@ class ACPTermsPrivacyViewController: UIViewController {
         lbl.text = NSLocalizedString("privacy_text", comment: "")
         lbl.numberOfLines = 0
         lbl.textAlignment = .justified
-        lbl.textColor = .gray06Dark
+        lbl.textColor = .gray01Light
         lbl.adjustsFontSizeToFitWidth = true
         lbl.font = .systemFont(ofSize: 14, weight: .regular)
         return lbl
