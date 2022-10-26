@@ -22,4 +22,12 @@ extension UINavigationController {
 
         setViewControllers(newStack, animated: false)
     }
+
+    func popToRootInTheBackground() {
+        guard let lastVC = viewControllers.last else {
+            fatalError("There are no ViewControllers in the view stack")
+        }
+
+        setViewControllers([lastVC], animated: false)
+    }
 }

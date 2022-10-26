@@ -66,7 +66,7 @@ class ACPEligibilityDetailsVerifyViewController: UIViewController {
         button.layer.masksToBounds = true
         button.backgroundColor = .clear
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(titleKey: "fail", textColor: .coreBlue)
+        button.setTitle(titleKey: "Force Fail", textColor: .coreBlue)
         button.addTarget(self, action: #selector(testNav), for: .touchUpInside)
         return button
     }()
@@ -209,7 +209,7 @@ class ACPEligibilityDetailsVerifyViewController: UIViewController {
 
     @objc func testNav() {
         loadingTimer?.invalidate()
-        
+
         let targetVC = ACPEligibilityDetailsFailViewController()
         navigationController?.pushViewController(targetVC, animated: true)
     }
@@ -244,8 +244,7 @@ class ACPEligibilityDetailsVerifyViewController: UIViewController {
 
         struct Numbers {
             // TODO: Add real time
-            static let LoadingTime: Double = 5
-
+            static let LoadingTime: Double = 10
         }
     }
 }

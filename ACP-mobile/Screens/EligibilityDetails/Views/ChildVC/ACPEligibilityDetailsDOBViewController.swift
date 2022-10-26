@@ -91,7 +91,7 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
 
     private lazy var nextButton: ACPImageButton = {
         let button = ACPImageButton(
-            titleKey: "eligibility_dob_btn", 
+            titleKey: "eligibility_dob_btn",
             spacing: Constants.Constraints.ButtonContentSpacing,
             cornerRadius: Constants.Constraints.ButtonCornerRadius,
             imageName: "right_arrow"

@@ -70,7 +70,7 @@ class ACPWelcomeScreenViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         view.backgroundColor = .coreBlue
         view.addSubview(leftTopLine)
         view.addSubview(rightTopLine)

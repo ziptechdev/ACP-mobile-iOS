@@ -173,7 +173,8 @@ class ACPVerifiedRegistrationViewController: UIViewController {
     // MARK: - Callbacks
 
     @objc func didTapButton() {
-        print("register")
+        let targetVC = ACPRegistrationCompleteViewController()
+        navigationController?.pushViewController(targetVC, animated: true)
     }
 
     func focusTextField(_ view: ACPTextField) {
