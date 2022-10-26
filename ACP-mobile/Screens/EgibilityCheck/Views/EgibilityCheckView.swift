@@ -32,9 +32,6 @@ class EgibilityCheckView: UIView {
 
     let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .gray01Light
-        label.font = .systemFont(ofSize: 14, weight: .regular)
-        label.textAlignment = .left
         label.numberOfLines = 0
         label.isUserInteractionEnabled = true
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -72,7 +69,6 @@ class EgibilityCheckView: UIView {
 
     let infoLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .gray01Light
         label.numberOfLines = 3
         label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
