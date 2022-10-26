@@ -238,7 +238,7 @@ extension ACPEligibilityDetailsNameViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
         guard let lastname = lastNameTextField.textField.text else { return }
         guard let name = nameTextField.textField.text else { return }
-        if !lastname.isEmpty && !name.isEmpty {
+        if !(lastname == "" && name == "") {
             nextButton.isUserInteractionEnabled = true
             nextButton.backgroundColor = .coreBlue
         } else {

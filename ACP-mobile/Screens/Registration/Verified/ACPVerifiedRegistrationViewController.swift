@@ -275,14 +275,14 @@ extension ACPVerifiedRegistrationViewController: UITextFieldDelegate {
         guard let email = emailTextField.textField.text,
               let password = passwordTextField.textField.text,
               let confirmPass = confirmTextField.textField.text,
-              !password.isEmpty, !confirmPass.isEmpty
+              !(password == "" && confirmPass == "")
         else { return }
 
         passwordErrorLabel.isHidden = password == confirmPass
 
         guard password == confirmPass else { return }
 
-        let isEnabled = !(email.isEmpty && password.isEmpty && confirmPass.isEmpty)
+        let isEnabled = !(email == "")
 
         registerButton.isUserInteractionEnabled = isEnabled
         registerButton.backgroundColor = isEnabled ? .coreBlue : .lavenderGray

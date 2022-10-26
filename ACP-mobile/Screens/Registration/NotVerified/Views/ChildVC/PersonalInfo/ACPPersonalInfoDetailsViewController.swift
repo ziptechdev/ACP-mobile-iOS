@@ -305,14 +305,14 @@ extension ACPPersonalInfoDetailsViewController: UITextFieldDelegate {
               let password = passwordTextField.textField.text,
               let confirmPass = confirmTextField.textField.text,
               let ssn = ssnTextField.textField.text,
-              !password.isEmpty, !confirmPass.isEmpty
+              !(password == "" && confirmPass == "")
         else { return }
 
         passwordErrorLabel.isHidden = password == confirmPass
 
         guard password == confirmPass else { return }
 
-        let isEnabled = !(name.isEmpty && lastName.isEmpty && email.isEmpty && phone.isEmpty && ssn.isEmpty)
+        let isEnabled = !(name == "" && lastName == "" && email == "" && phone == "" && ssn == "")
 
         nextButton.isUserInteractionEnabled = isEnabled
         nextButton.backgroundColor = isEnabled ? .coreBlue : .lavenderGray
