@@ -278,7 +278,7 @@ extension ACPEligibilityDetailsAddressViewController: UITextFieldDelegate {
         guard let street = streetTextField.textField.text else { return }
         guard let city = cityTextField.textField.text else { return }
         guard let state = stateTextField.textField.text else { return }
-        if !street.isEmpty && !city.isEmpty && !state.isEmpty {
+        if !(street == "" && city == "" && state == "") {
             verifyButton.isUserInteractionEnabled = true
             verifyButton.backgroundColor = .coreBlue
         } else {
