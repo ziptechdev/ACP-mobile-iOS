@@ -102,7 +102,7 @@ class ACPHomeScreenEligibilityHeaderView: UITableViewHeaderFooterView {
 
     func present() {
         titleLabel.text = Constants.Text.Title
-        detailsLabel.text = Constants.Text.Details
+        detailsLabel.attributedText = NSMutableAttributedString.subtitleString(key: Constants.Text.Details)
         applyButton.setTitle(titleKey: Constants.Text.Apply, textColor: .gray06Dark)
     }
 
