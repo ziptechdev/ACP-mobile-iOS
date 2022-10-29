@@ -189,10 +189,15 @@ KYC requires a selfie/clear shot of your face and a photo of the document that c
 "registration_complete_btn" = "Login";
 
 /* Home Screen */
+"home_tab_title" = "Home";
 "home_page_title" = "Home";
 
 /* Wallet Screen */
-"wallet_page_title" = "Wallet";
+"wallet_tab_title" = "Wallet";
+"wallet_page_title" = "My Wallet";
+"wallet_balance" = "Total Balance";
+"wallet_credit_card" = "Credit Card";
+"wallet_debit_card" = "Debit Card";
 "wallet_btn" = "New Card";
 "wallet_transactions" = "Transactions";
 
@@ -209,4 +214,5 @@ KYC requires a selfie/clear shot of your face and a photo of the document that c
 "wallet_success_btn" = "Done";
 
 /* Profile Screen */
+"profile_tab_title" = "Profile";
 "profile_page_title" = "Profile";

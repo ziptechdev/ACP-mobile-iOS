@@ -100,7 +100,7 @@ extension ACPHomeScreenTabViewController: ACPTabMenuViewControllerDelegate {
     func didSelectTab(index: Int) -> UIViewController {
         viewModel.currentTab = index
 
-        title = viewModel.titleForTab(at: index)
+        title = viewModel.titleForPage(at: index)
 
         switch index {
         case 0:

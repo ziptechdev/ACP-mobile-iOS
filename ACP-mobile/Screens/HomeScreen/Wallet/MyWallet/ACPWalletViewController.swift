@@ -14,6 +14,21 @@ class ACPWalletViewController: UIViewController {
 
     // MARK: - Views
 
+    private let scrollView: UIScrollView = {
+        let view = UIScrollView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.showsVerticalScrollIndicator = false
+        view.backgroundColor = .clear
+        return view
+    }()
+
+    private let contentView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .clear
+        return view
+    }()
+
     let debitCard = ACPDebitCardView()
 
     private lazy var newCardButton: ACPImageButton = {
@@ -41,12 +56,25 @@ class ACPWalletViewController: UIViewController {
         return label
     }()
 
+    private let tabMenu = ACPTabMenuViewController(allTabsEnabled: true)
+
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupUI()
+
+        let test = ACPCardModel(
+            balance: 64.77,
+            cardNumber: "•••• •••• •••• 4215",
+            expirationMonth: 4,
+            expirationYear: 23,
+            type: .debit,
+            issuerLogo: "visa"
+        )
+
+        debitCard.setupCard(card: test)
     }
 
     // MARK: - UI
@@ -54,15 +82,26 @@ class ACPWalletViewController: UIViewController {
     private func setupUI() {
         addSubviews()
         setupConstraints()
+        setupTabMenu()
     }
 
     private func addSubviews() {
-        view.addSubview(debitCard)
-        view.addSubview(newCardButton)
-        view.addSubview(transactionsLabel)
+        contentView.addSubview(debitCard)
+        contentView.addSubview(newCardButton)
+        contentView.addSubview(transactionsLabel)
+        scrollView.addSubview(contentView)
+        view.addSubview(scrollView)
     }
 
     private func setupConstraints() {
+        scrollView.snp.makeConstraints { make in
+            make.width.centerX.top.bottom.equalToSuperview()
+        }
+
+        contentView.snp.makeConstraints { make in
+            make.left.right.top.bottom.width.equalToSuperview()
+        }
+
         debitCard.snp.makeConstraints { make in
             make.right.left.equalToSuperview().inset(Constants.Constraints.ContentInset)
             make.height.equalTo(Constants.Constraints.CardHeight)
@@ -79,6 +118,22 @@ class ACPWalletViewController: UIViewController {
             make.right.left.equalToSuperview().inset(Constants.Constraints.ContentInset)
             make.top.equalTo(newCardButton.snp.bottom).offset(Constants.Constraints.TitleOffset)
         }
+    }
+
+    private func setupTabMenu() {
+        addChild(tabMenu)
+        contentView.addSubview(tabMenu.view)
+
+        tabMenu.view.translatesAutoresizingMaskIntoConstraints = false
+        tabMenu.view.snp.makeConstraints { make in
+            make.top.equalTo(transactionsLabel.snp.bottom).offset(Constants.Constraints.TabMenuOffset)
+            make.left.right.bottom.equalToSuperview()
+        }
+
+        tabMenu.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        tabMenu.didMove(toParent: self)
+
+        tabMenu.delegate = self
     }
 
     // MARK: - Callbacks
@@ -102,6 +157,63 @@ class ACPWalletViewController: UIViewController {
             static let ButtonOffset: CGFloat = 30
 
             static let TitleOffset: CGFloat = 60
+
+            static let TabMenuHeight: CGFloat = 40
+            static let TabMenuOffset: CGFloat = 30
+            static let HeaderCornerRadius: CGFloat = 10
+        }
+    }
+}
+
+extension ACPWalletViewController: ACPTabMenuViewControllerDelegate {
+    var numberOfItems: Int {
+        return 3
+    }
+
+    func setupViews(collectionView: UICollectionView, containerView: UIView) {
+        collectionView.backgroundColor = .gray06Light
+        collectionView.layer.masksToBounds = true
+        collectionView.layer.cornerRadius = Constants.Constraints.HeaderCornerRadius
+        collectionView.contentInset = UIEdgeInsets(top: 6, left: 6, bottom: 6, right: 6)
+
+        collectionView.register(ACPTabMenuTitleCell.self)
+
+        collectionView.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInset)
+            make.top.equalToSuperview()
+            make.height.equalTo(Constants.Constraints.TabMenuHeight)
+        }
+
+        containerView.snp.makeConstraints { make in
+            make.top.equalTo(collectionView.snp.bottom)
+            make.height.equalTo(800)
+            make.left.right.bottom.equalToSuperview()
+        }
+    }
+
+    func cellForIndex(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: ACPTabMenuTitleCell = collectionView.dequeue(at: indexPath)
+        cell.configureCell(text: "Test")
+        return cell
+    }
+
+    func didSelectTab(index: Int) -> UIViewController {
+        switch index {
+        case 0:
+            // TODO: Add Proper VC
+            let viewController = UIViewController()
+            viewController.view.backgroundColor = .white
+            return viewController
+        case 1:
+            // TODO: Add Proper VC
+            let viewController = UIViewController()
+            viewController.view.backgroundColor = .white
+            return viewController
+        default:
+            // TODO: Add Proper VC
+            let viewController = UIViewController()
+            viewController.view.backgroundColor = .white
+            return viewController
         }
     }
 }
