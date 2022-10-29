@@ -73,6 +73,9 @@
 		400ABA2F28FF7F6000A6DCB6 /* ACPEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9EC28FF7F6000A6DCB6 /* ACPEndpoint.swift */; };
 		400ABA3228FF904B00A6DCB6 /* ACPTabMenuDotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400ABA3128FF904B00A6DCB6 /* ACPTabMenuDotCell.swift */; };
 		400ABA352900413D00A6DCB6 /* ACPRegistrationCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400ABA342900413D00A6DCB6 /* ACPRegistrationCompleteViewController.swift */; };
+		403AD22029075B0600C6D556 /* ACPHomeScreenTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403AD21F29075B0600C6D556 /* ACPHomeScreenTabViewController.swift */; };
+		403AD22329075B6400C6D556 /* ACPHomeScreenTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403AD22229075B6400C6D556 /* ACPHomeScreenTabViewModel.swift */; };
+		403AD2252907636B00C6D556 /* ACPTabMenuImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403AD2242907636B00C6D556 /* ACPTabMenuImageCell.swift */; };
 		40B5EDD828E224F40096B91B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40B5EDD728E224F40096B91B /* Assets.xcassets */; };
 		40B5EDDB28E224F40096B91B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40B5EDD928E224F40096B91B /* LaunchScreen.storyboard */; };
 		40EE2CB028E4AC5B0028888D /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40EE2CAF28E4AC5B0028888D /* Colors.xcassets */; };
@@ -155,6 +158,9 @@
 		400AB9EC28FF7F6000A6DCB6 /* ACPEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEndpoint.swift; sourceTree = "<group>"; };
 		400ABA3128FF904B00A6DCB6 /* ACPTabMenuDotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPTabMenuDotCell.swift; sourceTree = "<group>"; };
 		400ABA342900413D00A6DCB6 /* ACPRegistrationCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPRegistrationCompleteViewController.swift; sourceTree = "<group>"; };
+		403AD21F29075B0600C6D556 /* ACPHomeScreenTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPHomeScreenTabViewController.swift; sourceTree = "<group>"; };
+		403AD22229075B6400C6D556 /* ACPHomeScreenTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPHomeScreenTabViewModel.swift; sourceTree = "<group>"; };
+		403AD2242907636B00C6D556 /* ACPTabMenuImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPTabMenuImageCell.swift; sourceTree = "<group>"; };
 		409132C028F4E0740003CC4E /* ACPVerifyEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPVerifyEmailViewController.swift; sourceTree = "<group>"; };
 		409132C428F4EBC10003CC4E /* ACPVerifyEmailKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPVerifyEmailKeyboardView.swift; sourceTree = "<group>"; };
 		409132C628F4EBF50003CC4E /* ACPVerifyEmailCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPVerifyEmailCodeView.swift; sourceTree = "<group>"; };
@@ -345,7 +351,8 @@
 		400AB9AE28FF7F5F00A6DCB6 /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
-				400AB9AF28FF7F5F00A6DCB6 /* Views */,
+				403AD22129075B2600C6D556 /* TabController */,
+				403AD21E29075AC200C6D556 /* Home */,
 			);
 			path = HomeScreen;
 			sourceTree = "<group>";
@@ -390,7 +397,7 @@
 		400AB9C228FF7F6000A6DCB6 /* Generic */ = {
 			isa = PBXGroup;
 			children = (
-				400AB9C328FF7F6000A6DCB6 /* NewTabMenu */,
+				400AB9C328FF7F6000A6DCB6 /* TabMenu */,
 				400AB9C628FF7F6000A6DCB6 /* ACPTableView.swift */,
 				400AB9C728FF7F6000A6DCB6 /* ACPNavigationController.swift */,
 				400AB9CC28FF7F6000A6DCB6 /* UIElements */,
@@ -398,14 +405,14 @@
 			path = Generic;
 			sourceTree = "<group>";
 		};
-		400AB9C328FF7F6000A6DCB6 /* NewTabMenu */ = {
+		400AB9C328FF7F6000A6DCB6 /* TabMenu */ = {
 			isa = PBXGroup;
 			children = (
 				400AB9C428FF7F6000A6DCB6 /* ACPTabMenuViewController.swift */,
 				400AB9C528FF7F6000A6DCB6 /* ACPFocusableView.swift */,
 				400ABA3328FF905C00A6DCB6 /* Cells */,
 			);
-			path = NewTabMenu;
+			path = TabMenu;
 			sourceTree = "<group>";
 		};
 		400AB9CC28FF7F6000A6DCB6 /* UIElements */ = {
@@ -522,8 +529,26 @@
 			children = (
 				400ABA3128FF904B00A6DCB6 /* ACPTabMenuDotCell.swift */,
 				400AB9CB28FF7F6000A6DCB6 /* ACPTabMenuTitleCell.swift */,
+				403AD2242907636B00C6D556 /* ACPTabMenuImageCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		403AD21E29075AC200C6D556 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				400AB9AF28FF7F5F00A6DCB6 /* Views */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		403AD22129075B2600C6D556 /* TabController */ = {
+			isa = PBXGroup;
+			children = (
+				403AD21F29075B0600C6D556 /* ACPHomeScreenTabViewController.swift */,
+				403AD22229075B6400C6D556 /* ACPHomeScreenTabViewModel.swift */,
+			);
+			path = TabController;
 			sourceTree = "<group>";
 		};
 		40B5EDC228E224F20096B91B = {
@@ -751,6 +776,7 @@
 				400ABA2928FF7F6000A6DCB6 /* ACPBankInfoViewController.swift in Sources */,
 				400AB9FF28FF7F6000A6DCB6 /* EgibilityZipView.swift in Sources */,
 				400ABA1128FF7F6000A6DCB6 /* SceneDelegate.swift in Sources */,
+				403AD22029075B0600C6D556 /* ACPHomeScreenTabViewController.swift in Sources */,
 				400ABA0428FF7F6000A6DCB6 /* ACPHomeScreenViewController.swift in Sources */,
 				400AB9F328FF7F6000A6DCB6 /* ACPEligibilityDetailsDOBViewController.swift in Sources */,
 				400ABA2E28FF7F6000A6DCB6 /* ACPRouter.swift in Sources */,
@@ -765,8 +791,10 @@
 				400ABA2228FF7F6000A6DCB6 /* ACPVerifyEmailKeyboardView.swift in Sources */,
 				400ABA1E28FF7F6000A6DCB6 /* ACPCircleLoadingBarView.swift in Sources */,
 				400ABA2028FF7F6000A6DCB6 /* ACPVerifyEmailCodeView.swift in Sources */,
+				403AD2252907636B00C6D556 /* ACPTabMenuImageCell.swift in Sources */,
 				400ABA0A28FF7F6000A6DCB6 /* UIViewController+Keyboard.swift in Sources */,
 				400ABA1D28FF7F6000A6DCB6 /* ACPBorderedView.swift in Sources */,
+				403AD22329075B6400C6D556 /* ACPHomeScreenTabViewModel.swift in Sources */,
 				400ABA1B28FF7F6000A6DCB6 /* ACPPickerView.swift in Sources */,
 				400ABA2F28FF7F6000A6DCB6 /* ACPEndpoint.swift in Sources */,
 				400ABA2628FF7F6000A6DCB6 /* ACPScanIDViewController.swift in Sources */,

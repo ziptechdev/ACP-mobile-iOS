@@ -56,8 +56,6 @@ class ACPTabMenuDotCell: UICollectionViewCell {
         }
     }
 
-    // MARK: - Callbacks
-
     // MARK: - Constants
 
     private struct Constants {
