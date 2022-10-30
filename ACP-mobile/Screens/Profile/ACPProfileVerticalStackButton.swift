@@ -47,7 +47,10 @@ class ACPProfileVerticalStackButton: UIView {
 
     func setupUI() {
         translatesAutoresizingMaskIntoConstraints = false
-
+        isUserInteractionEnabled = true
+        layer.borderWidth = Constants.Constraints.BorderWidth
+        layer.cornerRadius = Constants.Constraints.CornerRadius
+        layer.borderColor = UIColor.gray03Light.cgColor
         backgroundColor = .white
         addSubviews()
         setupConstraints()
@@ -61,18 +64,18 @@ class ACPProfileVerticalStackButton: UIView {
 
     private func setupConstraints() {
         leftImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(11)
-            make.left.equalToSuperview().offset(20)
+            make.top.equalToSuperview().offset(Constants.Constraints.LeftImageViewTopOffest)
+            make.left.equalToSuperview().offset(Constants.Constraints.LeftImageViewLeftOffest)
         }
 
         buttonText.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(13)
-            make.left.equalTo(leftImageView.snp.right).offset(10)
+            make.top.equalToSuperview().offset(Constants.Constraints.ButtonTopOffest)
+            make.left.equalTo(leftImageView.snp.right).offset(Constants.Constraints.ButtonLeftOffest)
         }
 
         rightImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(17)
-            make.right.equalToSuperview().inset(20)
+            make.top.equalToSuperview().offset(Constants.Constraints.RightImageViewTopOffest)
+            make.right.equalToSuperview().inset(Constants.Constraints.RightImageViewRightInset)
         }
     }
 
@@ -80,5 +83,24 @@ class ACPProfileVerticalStackButton: UIView {
         buttonText.text = buttonTitle
         leftImageView.image = UIImage(named: leftImageName)
         rightImageView.image = UIImage(named: "down_arrow")
+    }
+
+    // MARK: - Constants
+
+    private struct Constants {
+        struct Constraints {
+
+            static let LeftImageViewTopOffest: CGFloat = 11
+            static let LeftImageViewLeftOffest: CGFloat = 20
+
+            static let ButtonTopOffest: CGFloat = 13
+            static let ButtonLeftOffest: CGFloat = 10
+
+            static let RightImageViewTopOffest: CGFloat = 17
+            static let RightImageViewRightInset: CGFloat = 20
+
+            static let BorderWidth: CGFloat = 1.5
+            static let CornerRadius: CGFloat = 10
+        }
     }
 }

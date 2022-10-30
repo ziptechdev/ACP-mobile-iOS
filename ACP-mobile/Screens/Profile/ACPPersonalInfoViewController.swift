@@ -247,93 +247,97 @@ class ACPPersonalInfoViewController: UIViewController {
         }
 
         nameSectionTitle.snp.makeConstraints { make in
-            make.top.equalTo(scrolLView).inset(Constants.Constraints.NameSectionTopOffset)
+            make.top.equalTo(titleLabel.snp.bottom).offset(Constants.Constraints.NameSectionTopOffset)
             make.left.equalTo(scrolLView).inset(Constants.Constraints.LROffset)
         }
 
         nameTextField.snp.makeConstraints { make in
-            make.top.equalTo(scrolLView).inset(Constants.Constraints.FullNameTopOffset)
+            make.top.equalTo(nameSectionTitle.snp.bottom).offset(Constants.Constraints.FullNameTopOffset)
             make.left.equalTo(scrolLView).inset(Constants.Constraints.LROffset)
             make.width.equalTo(Constants.Constraints.mainWidth)
         }
 
         middleNameTextField.snp.makeConstraints { make in
-            make.top.equalTo(scrolLView).inset(Constants.Constraints.MiddleNameTopOffset)
+            make.top.equalTo(nameTextField.snp.bottom).offset(Constants.Constraints.MiddleNameTopOffset)
             make.left.equalTo(scrolLView).inset(Constants.Constraints.LROffset)
             make.width.equalTo(Constants.Constraints.mainWidth)
         }
 
         lastNameTextField.snp.makeConstraints { make in
-            make.top.equalTo(scrolLView).inset(Constants.Constraints.LastNameTopOffset)
+            make.top.equalTo(middleNameTextField.snp.bottom).offset(Constants.Constraints.LastNameTopOffset)
             make.left.equalTo(scrolLView).inset(Constants.Constraints.LROffset)
             make.width.equalTo(Constants.Constraints.mainWidth)
         }
 
         DOBSectionTitle.snp.makeConstraints { make in
-            make.top.equalTo(scrolLView).inset(Constants.Constraints.DOBSectionTopOffset)
+            make.top.equalTo(lastNameTextField.snp.bottom).offset(Constants.Constraints.DOBSectionTopOffset)
             make.left.equalTo(scrolLView).inset(Constants.Constraints.LROffset)
         }
 
         monthTextField.snp.makeConstraints { make in
-            make.top.equalTo(scrolLView).inset(Constants.Constraints.MonthTopOffset)
+            make.top.equalTo(DOBSectionTitle.snp.bottom).offset(Constants.Constraints.MonthTopOffset)
             make.left.equalTo(scrolLView).inset(Constants.Constraints.LROffset)
             make.width.equalTo(Constants.Constraints.mainWidth)
         }
 
         dayTextField.snp.makeConstraints { make in
-            make.top.equalTo(scrolLView).inset(Constants.Constraints.DayTopOffset)
+            make.top.equalTo(monthTextField.snp.bottom).offset(Constants.Constraints.DayTopOffset)
             make.left.equalTo(scrolLView).inset(Constants.Constraints.LROffset)
             make.right.equalTo(view.snp.centerX).inset(Constants.Constraints.TextFieldSpacing / 2)
+            make.width.equalTo(Constants.Constraints.LRFieldWidth)
         }
 
         yearTextField.snp.makeConstraints { make in
-            make.top.equalTo(scrolLView).inset(Constants.Constraints.YearTopOffset)
+            make.top.equalTo(monthTextField.snp.bottom).offset(Constants.Constraints.YearTopOffset)
             make.left.equalTo(view.snp.centerX).offset(Constants.Constraints.TextFieldSpacing / 2)
-            make.right.equalTo(scrolLView).offset(Constants.Constraints.LROffset)
+            make.right.equalTo(scrolLView).inset(Constants.Constraints.LROffset)
+            make.width.equalTo(Constants.Constraints.LRFieldWidth)
         }
 
         addressSectionTitle.snp.makeConstraints { make in
-            make.top.equalTo(scrolLView).inset(Constants.Constraints.AddressSectionTopOffset)
+            make.top.equalTo(yearTextField.snp.bottom).offset(Constants.Constraints.AddressSectionTopOffset)
             make.left.equalTo(scrolLView).offset(Constants.Constraints.LROffset)
         }
 
         streetTextField.snp.makeConstraints { make in
-            make.top.equalTo(scrolLView).inset(Constants.Constraints.AddressTopOffset)
+            make.top.equalTo(addressSectionTitle.snp.bottom).offset(Constants.Constraints.AddressTopOffset)
             make.left.equalTo(scrolLView).inset(Constants.Constraints.LROffset)
             make.width.equalTo(Constants.Constraints.mainWidth)
         }
 
         cityTextField.snp.makeConstraints { make in
-            make.top.equalTo(scrolLView).inset(Constants.Constraints.CityTopOffset)
+            make.top.equalTo(streetTextField.snp.bottom).offset(Constants.Constraints.CityTopOffset)
             make.left.equalTo(scrolLView).inset(Constants.Constraints.LROffset)
             make.width.equalTo(Constants.Constraints.mainWidth)
         }
 
         stateTextField.snp.makeConstraints { make in
-            make.top.equalTo(scrolLView).inset(Constants.Constraints.StateTopOffset)
+            make.top.equalTo(cityTextField.snp.bottom).offset(Constants.Constraints.StateTopOffset)
             make.left.equalTo(scrolLView).inset(Constants.Constraints.LROffset)
-            make.right.equalTo(scrolLView).inset(Constants.Constraints.TextFieldSpacing / 2)
+            make.right.equalTo(view.snp.centerX).inset(Constants.Constraints.TextFieldSpacing / 2)
+            make.width.equalTo(Constants.Constraints.LRFieldWidth)
         }
 
         zipTextField.snp.makeConstraints { make in
-            make.top.equalTo(scrolLView).inset(Constants.Constraints.ZIPTopOffset)
-            make.left.equalTo(scrolLView).inset(Constants.Constraints.LROffset)
-            make.right.equalTo(scrolLView).inset(Constants.Constraints.TextFieldSpacing / 2)
+            make.top.equalTo(cityTextField.snp.bottom).offset(Constants.Constraints.ZIPTopOffset)
+            make.left.equalTo(view.snp.centerX).offset(Constants.Constraints.TextFieldSpacing / 2)
+            make.right.equalTo(scrolLView).inset(Constants.Constraints.LROffset)
+            make.width.equalTo(Constants.Constraints.LRFieldWidth)
         }
 
         SSNSectionTitle.snp.makeConstraints { make in
-            make.top.equalTo(scrolLView).inset(Constants.Constraints.SSNSectionTopOffset)
+            make.top.equalTo(zipTextField.snp.bottom).offset(Constants.Constraints.SSNSectionTopOffset)
             make.left.equalTo(scrolLView).inset(Constants.Constraints.LROffset)
         }
 
         ssnTextField.snp.makeConstraints { make in
-            make.top.equalTo(scrolLView).inset(Constants.Constraints.SSNTopOffset)
+            make.top.equalTo(SSNSectionTitle.snp.bottom).offset(Constants.Constraints.SSNTopOffset)
             make.left.equalTo(scrolLView).inset(Constants.Constraints.LROffset)
             make.width.equalTo(Constants.Constraints.mainWidth)
         }
 
         saveButton.snp.makeConstraints { make in
-            make.top.equalTo(scrolLView).inset(Constants.Constraints.ButtonTopOffset)
+            make.top.equalTo(ssnTextField.snp.bottom).offset(Constants.Constraints.ButtonTopOffset)
             make.left.equalTo(scrolLView).inset(Constants.Constraints.LROffset)
             make.height.equalTo(Constants.Constraints.ButtonHeight)
             make.width.equalTo(Constants.Constraints.mainWidth)
@@ -385,30 +389,32 @@ class ACPPersonalInfoViewController: UIViewController {
             static let mainWidth = 320
             static let TextFieldSpacing = 20
 
-            static let TitleTopOffset = 161
+            static let TitleTopOffset = 60
 
-            static let NameSectionTopOffset = 225
-            static let FullNameTopOffset = 254
-            static let MiddleNameTopOffset = 332
-            static let LastNameTopOffset = 410
+            static let NameSectionTopOffset = 26
+            static let FullNameTopOffset = 10
+            static let MiddleNameTopOffset = 10
+            static let LastNameTopOffset = 10
 
-            static let DOBSectionTopOffset = 508
-            static let MonthTopOffset = 537
-            static let DayTopOffset = 615
-            static let YearTopOffset = 615
+            static let DOBSectionTopOffset = 30
+            static let MonthTopOffset = 10
+            static let DayTopOffset = 10
+            static let YearTopOffset = 10
 
-            static let AddressSectionTopOffset = 713
-            static let AddressTopOffset = 742
-            static let CityTopOffset = 820
-            static let StateTopOffset = 898
-            static let ZIPTopOffset = 898
+            static let AddressSectionTopOffset = 30
+            static let AddressTopOffset = 10
+            static let CityTopOffset = 10
+            static let StateTopOffset = 10
+            static let ZIPTopOffset = 10
 
-            static let SSNSectionTopOffset = 996
-            static let SSNTopOffset = 1025
+            static let SSNSectionTopOffset = 10
+            static let SSNTopOffset = 10
 
-            static let ButtonTopOffset = 1123
+            static let ButtonTopOffset = 10
             static let ButtonHeight: CGFloat = 46
             static let ButtonCornerRadius: CGFloat = 10
+
+            static let LRFieldWidth: CGFloat = 150
         }
 
         struct Text {

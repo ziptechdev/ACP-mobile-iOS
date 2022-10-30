@@ -122,6 +122,7 @@ class ACPProfileHeaderView: UIView {
 
         nameLabel.snp.makeConstraints { make in
             make.top.equalTo(profileImageView.snp.bottom).offset(Constants.Constraints.NameOffsetTop)
+            make.width .equalTo(Constants.Constraints.NameWidth)
             make.centerX.equalToSuperview()
         }
 
@@ -163,19 +164,6 @@ class ACPProfileHeaderView: UIView {
     }
 
     func setupStackButtons() {
-        personalInfoButton.layer.borderWidth = 1.5
-        personalInfoButton.layer.borderColor = UIColor.gray03Light.cgColor
-        personalInfoButton.layer.cornerRadius = 10
-        personalInfoButton.isUserInteractionEnabled = true
-
-        securityButton.layer.borderWidth = 1.5
-        securityButton.layer.borderColor = UIColor.gray03Light.cgColor
-        securityButton.layer.cornerRadius = 10
-
-        legalButton.layer.borderWidth = 1.5
-        legalButton.layer.borderColor = UIColor.gray03Light.cgColor
-        legalButton.layer.cornerRadius = 10
-
         let personalBtnGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(personalButtonPressed))
         let securityBtnGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(securityButtonPressed))
         let legalBtnGestgure: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(legalButtonPressed))
@@ -222,20 +210,21 @@ class ACPProfileHeaderView: UIView {
 
     private struct Constants {
         struct Constraints {
-            static let ImageInsetTop: CGFloat = 50
+            static let ImageInsetTop: CGFloat = 60
             static let ImageSize: CGFloat = 96
             static let ImageCornerRadius: CGFloat = 30
+            static let ImageLeftRightOffest: CGFloat = 147
 
             static let CheckmarkSize: CGFloat = 32
             static let CheckmarkOffset: CGFloat = 10
             static let CheckmarkCornerRadius: CGFloat = 10
 
             static let NameOffsetTop: CGFloat = 20
-
+            static let NameWidth: CGFloat = 320
             static let VerifiedOffsetTop: CGFloat = 10
-            static let VerifiedInsetBot: CGFloat = 30
+            static let VerifiedInsetBot: CGFloat = 24
 
-            static let ChangeProfileButtonTopOffset: CGFloat = 51
+            static let ChangeProfileButtonTopOffset: CGFloat = 24
             static let ChangeProfileButtonLeftOffest: CGFloat = 35
 
             static let StackButtonsTopOffest: CGFloat = 30

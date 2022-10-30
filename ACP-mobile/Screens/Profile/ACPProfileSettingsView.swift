@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class ACPProfileSettingsView: UITableViewHeaderFooterView {
+class ACPProfileSettingsView: UIView {
 
     // MARK: - Views
 
@@ -50,8 +50,8 @@ class ACPProfileSettingsView: UITableViewHeaderFooterView {
     }()
     // MARK: - Initialization
 
-    override init(reuseIdentifier: String?) {
-        super.init(reuseIdentifier: reuseIdentifier)
+    init() {
+        super.init(frame: .zero)
 
         setupUI()
     }
@@ -70,7 +70,7 @@ class ACPProfileSettingsView: UITableViewHeaderFooterView {
     }
 
     private func addSubviews() {
-        contentView.addSubview(containerView)
+        addSubview(containerView)
         containerView.addSubview(languageGlobeImageView)
         containerView.addSubview(selectLanguage)
         containerView.addSubview(selectedLangauge)

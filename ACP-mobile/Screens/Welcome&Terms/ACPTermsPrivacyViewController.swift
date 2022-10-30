@@ -123,14 +123,14 @@ class ACPTermsPrivacyViewController: UIViewController {
 
     private func setupConstraints() {
         leftTopLine.snp.makeConstraints { make in
-            make.left.equalToSuperview().inset(35)
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(39)
+            make.left.equalToSuperview().inset(Constants.Constraints.LeftTopLineLeftOffest)
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(Constants.Constraints.LeftTopLineTopOffest)
             make.width.equalTo(rightTopLine)
         }
 
         rightTopLine.snp.makeConstraints { make in
-            make.right.equalToSuperview().inset(35)
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(39)
+            make.right.equalToSuperview().inset(Constants.Constraints.RightTopLineRightOffest)
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(Constants.Constraints.RightTopLineTopOffest)
             make.width.equalTo(leftTopLine)
         }
     }
@@ -142,7 +142,7 @@ class ACPTermsPrivacyViewController: UIViewController {
         scrollView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.width.equalToSuperview()
-            make.top.equalTo(leftTopLine).inset(20)
+            make.top.equalTo(leftTopLine).inset(Constants.Constraints.ScrollViewTopOffest)
             make.bottom.equalTo(view.safeAreaLayoutGuide)
         }
 
@@ -150,7 +150,7 @@ class ACPTermsPrivacyViewController: UIViewController {
             make.centerX.equalTo(scrollView)
             make.width.equalTo(scrollView)
             make.top.equalTo(scrollView)
-            make.bottom.equalTo(scrollView).inset(75)
+            make.bottom.equalTo(scrollView).inset(Constants.Constraints.ContentViewBottomView)
         }
     }
 
@@ -158,32 +158,32 @@ class ACPTermsPrivacyViewController: UIViewController {
         contentView.addSubview(termsText)
         termsText.snp.makeConstraints { make in
             make.top.equalTo(contentView)
-            make.right.left.equalToSuperview().inset(35)
+            make.right.left.equalToSuperview().inset(Constants.Constraints.TermsTextLeftRightOffest)
         }
 
         contentView.addSubview(termsDescriptionText)
         termsDescriptionText.snp.makeConstraints { make in
-            make.right.left.equalToSuperview().inset(35)
-            make.top.equalTo(termsText).inset(10)
+            make.right.left.equalToSuperview().inset(Constants.Constraints.TermsDescriptionLeftRightOffest)
+            make.top.equalTo(termsText).inset(Constants.Constraints.TermsDescriptionTopOffest)
         }
 
         contentView.addSubview(privacyText)
         privacyText.snp.makeConstraints { make in
-            make.top.equalTo(termsDescriptionText.snp.bottom).inset(-10)
-            make.right.left.equalToSuperview().inset(35)
+            make.top.equalTo(termsDescriptionText.snp.bottom).inset(Constants.Constraints.PrivacyTextTopOffest)
+            make.right.left.equalToSuperview().inset(Constants.Constraints.PrivacyTextLeftRight)
         }
 
         contentView.addSubview(privacyDescriptionText)
         privacyDescriptionText.snp.makeConstraints { make in
-            make.right.left.equalTo(contentView).inset(35)
-            make.top.equalTo(privacyText.snp.bottom).inset(-10)
+            make.right.left.equalTo(contentView).inset(Constants.Constraints.PrivacyDescriptionLeftRight)
+            make.top.equalTo(privacyText.snp.bottom).inset(Constants.Constraints.PrivacyDescriptionTopOffest)
         }
 
         contentView.addSubview(acceptButton)
         acceptButton.snp.makeConstraints { make in
-            make.right.left.equalToSuperview().inset(35)
-            make.top.equalTo(privacyDescriptionText.snp.bottom).offset(20)
-            make.height.equalTo(46)
+            make.right.left.equalToSuperview().inset(Constants.Constraints.ButtonLeftRightOffest)
+            make.top.equalTo(privacyDescriptionText.snp.bottom).offset(Constants.Constraints.ButtonTopOffest)
+            make.height.equalTo(Constants.Constraints.ButtonHeight)
             make.bottom.equalToSuperview()
         }
     }
@@ -195,5 +195,37 @@ class ACPTermsPrivacyViewController: UIViewController {
         navigationController?.pushViewController(targetVC, animated: true)
     }
 
-    // TODO: Add Constants
+    // MARK: - Constants
+
+    private struct Constants {
+        struct Constraints {
+
+            static let LeftTopLineLeftOffest: CGFloat = 35
+            static let LeftTopLineTopOffest: CGFloat = 39
+
+            static let RightTopLineRightOffest: CGFloat = 35
+            static let RightTopLineTopOffest: CGFloat = 39
+
+            static let ScrollViewTopOffest: CGFloat = 20
+
+            static let ContentViewBottomView: CGFloat = 75
+
+            static let TermsTextLeftRightOffest: CGFloat = 35
+
+            static let TermsDescriptionLeftRightOffest: CGFloat = 35
+            static let TermsDescriptionTopOffest: CGFloat = 10
+
+            static let PrivacyTextTopOffest: CGFloat = -10
+            static let PrivacyTextLeftRight: CGFloat = 35
+
+            static let PrivacyDescriptionTopOffest: CGFloat = -10
+            static let PrivacyDescriptionLeftRight: CGFloat = 35
+
+            static let ButtonLeftRightOffest: CGFloat = 35
+            static let ButtonTopOffest: CGFloat = 20
+            static let ButtonHeight: CGFloat = 46
+
+        }
+    }
+
 }

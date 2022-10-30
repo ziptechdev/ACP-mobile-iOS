@@ -97,31 +97,31 @@ class ACPWelcomeScreenViewController: UIViewController {
 
     private func setupConstraints() {
         leftTopLine.snp.makeConstraints { make in
-            make.left.equalToSuperview().inset(35)
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(39)
+            make.left.equalToSuperview().inset(Constants.Constraints.LeftLineLeftOffest)
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(Constants.Constraints.LeftTopLineOffest)
             make.width.equalTo(rightTopLine)
         }
 
         rightTopLine.snp.makeConstraints { make in
-            make.right.equalToSuperview().inset(35)
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(39)
+            make.right.equalToSuperview().inset(Constants.Constraints.RighLineLeftOffest)
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(Constants.Constraints.RightTopLineOffest)
             make.width.equalTo(leftTopLine)
         }
 
         titleText.snp.makeConstraints { make in
-            make.right.left.equalToSuperview().inset(35)
-            make.top.equalTo(rightTopLine.snp.bottom).offset(35)
+            make.right.left.equalToSuperview().inset(Constants.Constraints.TitleLeftRighOffest)
+            make.top.equalTo(rightTopLine.snp.bottom).offset(Constants.Constraints.TitleTextTopOffset)
         }
 
         descriptionText.snp.makeConstraints { make in
-            make.right.left.equalToSuperview().inset(35)
-            make.top.equalTo(titleText.snp.bottom).offset(10)
+            make.right.left.equalToSuperview().inset(Constants.Constraints.DescriptionTextLeftRightOffest)
+            make.top.equalTo(titleText.snp.bottom).offset(Constants.Constraints.DescriptionTextTopOffset)
         }
 
         continueButton.snp.makeConstraints { make in
-            make.right.left.equalToSuperview().inset(35)
-            make.top.equalTo(descriptionText.snp.bottom).offset(20)
-            make.height.equalTo(46)
+            make.right.left.equalToSuperview().inset(Constants.Constraints.ButtonLeftRightOffest)
+            make.top.equalTo(descriptionText.snp.bottom).offset(Constants.Constraints.ButtonTopOffest)
+            make.height.equalTo(Constants.Constraints.ButtonHeight)
         }
     }
 
@@ -132,5 +132,27 @@ class ACPWelcomeScreenViewController: UIViewController {
         navigationController?.pushViewController(targetVC, animated: true)
     }
 
-    // TODO: Add Constants
+    // MARK: - Constants
+
+    private struct Constants {
+        struct Constraints {
+
+            static let LeftTopLineOffest: CGFloat = 39
+            static let LeftLineLeftOffest: CGFloat = 35
+
+            static let RightTopLineOffest: CGFloat = 39
+            static let RighLineLeftOffest: CGFloat = 35
+
+            static let TitleTextTopOffset: CGFloat = 35
+            static let TitleLeftRighOffest: CGFloat = 35
+
+            static let DescriptionTextTopOffset: CGFloat = 10
+            static let DescriptionTextLeftRightOffest: CGFloat = 35
+
+            static let ButtonTopOffest: CGFloat = 20
+            static let ButtonHeight: CGFloat = 46
+            static let ButtonLeftRightOffest: CGFloat = 35
+
+        }
+    }
 }

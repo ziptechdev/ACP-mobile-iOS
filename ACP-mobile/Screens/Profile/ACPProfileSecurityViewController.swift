@@ -18,7 +18,6 @@ class ACPProfileSecurityViewController: UIViewController {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = Constants.Text.MainTitle
-        label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 32, weight: .bold)
         label.textColor = .coreBlue
@@ -29,7 +28,6 @@ class ACPProfileSecurityViewController: UIViewController {
     private let emailSectionTitle: UILabel = {
         let label = UILabel()
         label.text = Constants.Text.EmailAddress
-        label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 16, weight: .bold)
         label.textColor = .gray06Dark
@@ -40,7 +38,6 @@ class ACPProfileSecurityViewController: UIViewController {
     private let passwordSectionTitle: UILabel = {
         let label = UILabel()
         label.text = Constants.Text.PasswordSection
-        label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 16, weight: .bold)
         label.textColor = .gray06Dark
@@ -127,46 +124,46 @@ class ACPProfileSecurityViewController: UIViewController {
 
     private func setupConstraints() {
         titleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(Constants.Constraints.TitleTopOffset)
+            make.top.equalToSuperview().offset(Constants.Constraints.TitleTopOffset)
             make.left.equalToSuperview().inset(Constants.Constraints.LROffset)
         }
 
         emailSectionTitle.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(Constants.Constraints.EmailSectionTopOffset)
+            make.top.equalTo(titleLabel.snp.bottom).offset(Constants.Constraints.EmailSectionTopOffset)
             make.left.equalToSuperview().inset(Constants.Constraints.LROffset)
         }
 
         emailTextField.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(Constants.Constraints.EmailTextFieldTopOffset)
+            make.top.equalTo(emailSectionTitle.snp.bottom).offset(Constants.Constraints.EmailTextFieldTopOffset)
             make.left.equalToSuperview().inset(Constants.Constraints.LROffset)
             make.width.equalTo(Constants.Constraints.mainWidth)
         }
 
         passwordSectionTitle.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(Constants.Constraints.PasswordSectionTopOffset)
+            make.top.equalTo(emailTextField.snp.bottom).offset(Constants.Constraints.PasswordSectionTopOffset)
             make.left.equalToSuperview().inset(Constants.Constraints.LROffset)
         }
 
         currentPasswordTextField.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(Constants.Constraints.PasswordFieldTopOffset)
+            make.top.equalTo(passwordSectionTitle.snp.bottom).offset(Constants.Constraints.PasswordFieldTopOffset)
             make.left.equalToSuperview().inset(Constants.Constraints.LROffset)
             make.width.equalTo(Constants.Constraints.mainWidth)
         }
 
         newPasswordTextField.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(Constants.Constraints.NewPasswordTopOffset)
+            make.top.equalTo(currentPasswordTextField.snp.bottom).offset(Constants.Constraints.NewPasswordTopOffset)
             make.left.equalToSuperview().inset(Constants.Constraints.LROffset)
             make.width.equalTo(Constants.Constraints.mainWidth)
         }
 
         confirmNewPasswordTextField.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(Constants.Constraints.ConfirmNewPasswordTopOffset)
+            make.top.equalTo(newPasswordTextField.snp.bottom).offset(Constants.Constraints.ConfirmNewPasswordTopOffset)
             make.left.equalToSuperview().inset(Constants.Constraints.LROffset)
             make.width.equalTo(Constants.Constraints.mainWidth)
         }
 
         saveButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(Constants.Constraints.ButtonTopOffset)
+            make.top.equalTo(confirmNewPasswordTextField.snp.bottom).offset(Constants.Constraints.ButtonTopOffset)
             make.left.equalToSuperview().inset(Constants.Constraints.LROffset)
             make.height.equalTo(Constants.Constraints.ButtonHeight)
             make.width.equalTo(Constants.Constraints.mainWidth)
@@ -198,15 +195,15 @@ class ACPProfileSecurityViewController: UIViewController {
             static let mainWidth = 320
             static let TitleTopOffset = 161
 
-            static let EmailSectionTopOffset = 232
-            static let EmailTextFieldTopOffset = 260
+            static let EmailSectionTopOffset = 33
+            static let EmailTextFieldTopOffset = 9
 
-            static let PasswordSectionTopOffset = 359
-            static let PasswordFieldTopOffset = 388
-            static let NewPasswordTopOffset = 466
-            static let ConfirmNewPasswordTopOffset = 544
+            static let PasswordSectionTopOffset = 31
+            static let PasswordFieldTopOffset = 10
+            static let NewPasswordTopOffset = 10
+            static let ConfirmNewPasswordTopOffset = 10
 
-            static let ButtonTopOffset = 642
+            static let ButtonTopOffset = 30
             static let ButtonHeight: CGFloat = 46
             static let ButtonCornerRadius: CGFloat = 10
             static let ButtonOffsetVertical: CGFloat = 60
