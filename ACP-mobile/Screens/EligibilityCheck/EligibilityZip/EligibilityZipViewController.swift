@@ -1,5 +1,5 @@
 //
-//  EgibilityZipViewController.swift
+//  EligibilityZipViewController.swift
 //  ACP-mobile
 //
 //  Created by Abi  on 4. 10. 2022..
@@ -8,12 +8,12 @@
 import UIKit
 import SnapKit
 
-class EgibilityZipViewController: UIViewController {
+class EligibilityZipViewController: UIViewController {
 
     // MARK: - Views
 
-    private let zipCodeView: EgibilityZipView = {
-        let view = EgibilityZipView()
+    private let zipCodeView: EligibilityZipView = {
+        let view = EligibilityZipView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -102,7 +102,7 @@ class EgibilityZipViewController: UIViewController {
 
 // MARK: - ACPTermsAndPrivacyLabelDelegate
 
-extension EgibilityZipViewController: ACPTermsAndPrivacyLabelDelegate {
+extension EligibilityZipViewController: ACPTermsAndPrivacyLabelDelegate {
     func didTapTerms() {
         // TODO: Add link
         print("Clicked on terms")
@@ -114,9 +114,9 @@ extension EgibilityZipViewController: ACPTermsAndPrivacyLabelDelegate {
     }
 }
 
-// MARK: - EgibilityCheckDelegate
+// MARK: - EligibilityCheckDelegate
 
-extension EgibilityZipViewController: EgibilityZipCodeDelegate {
+extension EligibilityZipViewController: EligibilityZipCodeDelegate {
     func didPressDone(_ textfield: UITextField, _ secondTextfield: UITextField) {
         textfield.resignFirstResponder()
         secondTextfield.resignFirstResponder()
@@ -134,7 +134,7 @@ extension EgibilityZipViewController: EgibilityZipCodeDelegate {
     }
 }
 
-extension EgibilityZipViewController: UITextFieldDelegate {
+extension EligibilityZipViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == zipCodeView.zipFirstCodeTextField {
             zipCodeView.zipFirstCodeTextField.becomeFirstResponder()

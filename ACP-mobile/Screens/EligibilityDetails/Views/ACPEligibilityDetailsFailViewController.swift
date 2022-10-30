@@ -179,14 +179,14 @@ class ACPEligibilityDetailsFailViewController: UIViewController {
         let targetVC = ACPNotVerifiedRegistrationViewController()
 
         navigationController?.pushViewController(targetVC, animated: true)
-        navigationController?.popInTheBackgroundToVC(EgibilityCheckViewController.self)
+        navigationController?.popInTheBackgroundToVC(EligibilityCheckViewController.self)
     }
 
     @objc func didTapTryAgainButton() {
-        let targetVC = EgibilityZipViewController()
+        let targetVC = EligibilityZipViewController()
 
         navigationController?.pushViewController(targetVC, animated: true)
-        navigationController?.popInTheBackgroundToVC(EgibilityCheckViewController.self)
+        navigationController?.popInTheBackgroundToVC(EligibilityCheckViewController.self)
     }
 
     @objc func didTapCancel() {

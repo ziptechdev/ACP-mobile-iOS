@@ -1,5 +1,5 @@
 //
-//  EgibilityCheckViewController.swift
+//  EligibilityCheckViewController.swift
 //  ACP-mobile
 //
 //  Created by Abi  on 1. 10. 2022..
@@ -8,12 +8,12 @@
 import UIKit
 import SnapKit
 
-class EgibilityCheckViewController: UIViewController {
+class EligibilityCheckViewController: UIViewController {
 
     // MARK: - Views
 
-    private let egibilityView: EgibilityCheckView = {
-        let view = EgibilityCheckView()
+    private let eligibilityView: EligibilityCheckView = {
+        let view = EligibilityCheckView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -39,7 +39,7 @@ class EgibilityCheckViewController: UIViewController {
 
         setupUI()
         infoLabel.delegate = self
-        egibilityView.delegate = self
+        eligibilityView.delegate = self
     }
     // MARK: - UI
 
@@ -52,11 +52,11 @@ class EgibilityCheckViewController: UIViewController {
 
     private func addSubviews() {
         view.addSubview(infoLabel)
-        view.addSubview(egibilityView)
+        view.addSubview(eligibilityView)
     }
 
     private func setUpConstraints() {
-        egibilityView.snp.makeConstraints { make in
+        eligibilityView.snp.makeConstraints { make in
             make.top.left.right.equalTo(view.safeAreaLayoutGuide)
             make.bottom.equalTo(infoLabel.snp.top)
         }
@@ -81,7 +81,7 @@ class EgibilityCheckViewController: UIViewController {
 
 // MARK: - ACPTermsAndPrivacyLabelDelegate
 
-extension EgibilityCheckViewController: ACPTermsAndPrivacyLabelDelegate {
+extension EligibilityCheckViewController: ACPTermsAndPrivacyLabelDelegate {
     func didTapTerms() {
         // TODO: Add link
         print("Clicked on terms")
@@ -99,9 +99,9 @@ extension EgibilityCheckViewController: ACPTermsAndPrivacyLabelDelegate {
 
 // MARK: - ACPEligibilityDetailsDelegate
 
-extension EgibilityCheckViewController: EgibilityCheckDelegate {
-    func didTapCheckEgibilityButton() {
-        let targetVC = EgibilityZipViewController()
+extension EligibilityCheckViewController: EligibilityCheckDelegate {
+    func didTapCheckEligibilityButton() {
+        let targetVC = EligibilityZipViewController()
         navigationController?.pushViewController(targetVC, animated: true)
     }
 

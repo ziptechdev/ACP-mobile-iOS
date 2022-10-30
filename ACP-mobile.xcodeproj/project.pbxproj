@@ -23,10 +23,10 @@
 		400AB9FB28FF7F6000A6DCB6 /* ACPLandingScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9A228FF7F5F00A6DCB6 /* ACPLandingScreenViewController.swift */; };
 		400AB9FC28FF7F6000A6DCB6 /* ACPWelcomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9A428FF7F5F00A6DCB6 /* ACPWelcomeScreenViewController.swift */; };
 		400AB9FD28FF7F6000A6DCB6 /* ACPTermsPrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9A528FF7F5F00A6DCB6 /* ACPTermsPrivacyViewController.swift */; };
-		400AB9FE28FF7F6000A6DCB6 /* EgibilityZipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9A828FF7F5F00A6DCB6 /* EgibilityZipViewController.swift */; };
-		400AB9FF28FF7F6000A6DCB6 /* EgibilityZipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9AA28FF7F5F00A6DCB6 /* EgibilityZipView.swift */; };
-		400ABA0028FF7F6000A6DCB6 /* EgibilityCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9AB28FF7F5F00A6DCB6 /* EgibilityCheckViewController.swift */; };
-		400ABA0128FF7F6000A6DCB6 /* EgibilityCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9AD28FF7F5F00A6DCB6 /* EgibilityCheckView.swift */; };
+		400AB9FE28FF7F6000A6DCB6 /* EligibilityZipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9A828FF7F5F00A6DCB6 /* EligibilityZipViewController.swift */; };
+		400AB9FF28FF7F6000A6DCB6 /* EligibilityZipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9AA28FF7F5F00A6DCB6 /* EligibilityZipView.swift */; };
+		400ABA0028FF7F6000A6DCB6 /* EligibilityCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9AB28FF7F5F00A6DCB6 /* EligibilityCheckViewController.swift */; };
+		400ABA0128FF7F6000A6DCB6 /* EligibilityCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9AD28FF7F5F00A6DCB6 /* EligibilityCheckView.swift */; };
 		400ABA0228FF7F6000A6DCB6 /* ACPHomeScreenEligibilityHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9B028FF7F5F00A6DCB6 /* ACPHomeScreenEligibilityHeaderView.swift */; };
 		400ABA0328FF7F6000A6DCB6 /* ACPHomeScreenProgramCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9B128FF7F5F00A6DCB6 /* ACPHomeScreenProgramCell.swift */; };
 		400ABA0428FF7F6000A6DCB6 /* ACPHomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9B228FF7F5F00A6DCB6 /* ACPHomeScreenViewController.swift */; };
@@ -118,10 +118,10 @@
 		400AB9A228FF7F5F00A6DCB6 /* ACPLandingScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPLandingScreenViewController.swift; sourceTree = "<group>"; };
 		400AB9A428FF7F5F00A6DCB6 /* ACPWelcomeScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPWelcomeScreenViewController.swift; sourceTree = "<group>"; };
 		400AB9A528FF7F5F00A6DCB6 /* ACPTermsPrivacyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPTermsPrivacyViewController.swift; sourceTree = "<group>"; };
-		400AB9A828FF7F5F00A6DCB6 /* EgibilityZipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EgibilityZipViewController.swift; sourceTree = "<group>"; };
-		400AB9AA28FF7F5F00A6DCB6 /* EgibilityZipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EgibilityZipView.swift; sourceTree = "<group>"; };
-		400AB9AB28FF7F5F00A6DCB6 /* EgibilityCheckViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EgibilityCheckViewController.swift; sourceTree = "<group>"; };
-		400AB9AD28FF7F5F00A6DCB6 /* EgibilityCheckView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EgibilityCheckView.swift; sourceTree = "<group>"; };
+		400AB9A828FF7F5F00A6DCB6 /* EligibilityZipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilityZipViewController.swift; sourceTree = "<group>"; };
+		400AB9AA28FF7F5F00A6DCB6 /* EligibilityZipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilityZipView.swift; sourceTree = "<group>"; };
+		400AB9AB28FF7F5F00A6DCB6 /* EligibilityCheckViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilityCheckViewController.swift; sourceTree = "<group>"; };
+		400AB9AD28FF7F5F00A6DCB6 /* EligibilityCheckView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilityCheckView.swift; sourceTree = "<group>"; };
 		400AB9B028FF7F5F00A6DCB6 /* ACPHomeScreenEligibilityHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPHomeScreenEligibilityHeaderView.swift; sourceTree = "<group>"; };
 		400AB9B128FF7F5F00A6DCB6 /* ACPHomeScreenProgramCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPHomeScreenProgramCell.swift; sourceTree = "<group>"; };
 		400AB9B228FF7F5F00A6DCB6 /* ACPHomeScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPHomeScreenViewController.swift; sourceTree = "<group>"; };
@@ -242,7 +242,7 @@
 				400AB99C28FF7F5F00A6DCB6 /* Registration */,
 				400AB9A128FF7F5F00A6DCB6 /* LandingScreen */,
 				400AB9A328FF7F5F00A6DCB6 /* Welcome&Terms */,
-				400AB9A628FF7F5F00A6DCB6 /* EgibilityCheck */,
+				400AB9A628FF7F5F00A6DCB6 /* EligibilityCheck */,
 				400AB9AE28FF7F5F00A6DCB6 /* HomeScreen */,
 			);
 			path = Screens;
@@ -333,29 +333,29 @@
 			path = "Welcome&Terms";
 			sourceTree = "<group>";
 		};
-		400AB9A628FF7F5F00A6DCB6 /* EgibilityCheck */ = {
+		400AB9A628FF7F5F00A6DCB6 /* EligibilityCheck */ = {
 			isa = PBXGroup;
 			children = (
-				400AB9A728FF7F5F00A6DCB6 /* EgibilityZip */,
-				400AB9AB28FF7F5F00A6DCB6 /* EgibilityCheckViewController.swift */,
+				400AB9A728FF7F5F00A6DCB6 /* EligibilityZip */,
+				400AB9AB28FF7F5F00A6DCB6 /* EligibilityCheckViewController.swift */,
 				400AB9AC28FF7F5F00A6DCB6 /* Views */,
 			);
-			path = EgibilityCheck;
+			path = EligibilityCheck;
 			sourceTree = "<group>";
 		};
-		400AB9A728FF7F5F00A6DCB6 /* EgibilityZip */ = {
+		400AB9A728FF7F5F00A6DCB6 /* EligibilityZip */ = {
 			isa = PBXGroup;
 			children = (
-				400AB9A828FF7F5F00A6DCB6 /* EgibilityZipViewController.swift */,
+				400AB9A828FF7F5F00A6DCB6 /* EligibilityZipViewController.swift */,
 				400AB9A928FF7F5F00A6DCB6 /* Views */,
 			);
-			path = EgibilityZip;
+			path = EligibilityZip;
 			sourceTree = "<group>";
 		};
 		400AB9A928FF7F5F00A6DCB6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				400AB9AA28FF7F5F00A6DCB6 /* EgibilityZipView.swift */,
+				400AB9AA28FF7F5F00A6DCB6 /* EligibilityZipView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -363,7 +363,7 @@
 		400AB9AC28FF7F5F00A6DCB6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				400AB9AD28FF7F5F00A6DCB6 /* EgibilityCheckView.swift */,
+				400AB9AD28FF7F5F00A6DCB6 /* EligibilityCheckView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -845,7 +845,7 @@
 				4013FADE29083DB00018025F /* ACPCardSuccessViewController.swift in Sources */,
 				400ABA2B28FF7F6000A6DCB6 /* ACPPersonalInfoViewController.swift in Sources */,
 				400AB9FB28FF7F6000A6DCB6 /* ACPLandingScreenViewController.swift in Sources */,
-				400AB9FE28FF7F6000A6DCB6 /* EgibilityZipViewController.swift in Sources */,
+				400AB9FE28FF7F6000A6DCB6 /* EligibilityZipViewController.swift in Sources */,
 				40251D46290DE0710083B89A /* ACPTransactionsCell.swift in Sources */,
 				400ABA0228FF7F6000A6DCB6 /* ACPHomeScreenEligibilityHeaderView.swift in Sources */,
 				400ABA0F28FF7F6000A6DCB6 /* String+ACP.swift in Sources */,
@@ -869,21 +869,21 @@
 				400ABA0728FF7F6000A6DCB6 /* UITextField+ACP.swift in Sources */,
 				400ABA1828FF7F6000A6DCB6 /* ACPTabMenuTitleCell.swift in Sources */,
 				4013FAEA29085B220018025F /* ACPDebitCardView.swift in Sources */,
-				400ABA0028FF7F6000A6DCB6 /* EgibilityCheckViewController.swift in Sources */,
+				400ABA0028FF7F6000A6DCB6 /* EligibilityCheckViewController.swift in Sources */,
 				400AB9F828FF7F6000A6DCB6 /* ACPEligibilityDetailsViewController.swift in Sources */,
 				400AB9F028FF7F6000A6DCB6 /* ACPEligibilityDetailsModel.swift in Sources */,
 				400ABA2528FF7F6000A6DCB6 /* ACPSelfieViewController.swift in Sources */,
 				40251D41290CD2840083B89A /* ACPCardModel.swift in Sources */,
 				400ABA1F28FF7F6000A6DCB6 /* ACPPersonalInfoViewModel.swift in Sources */,
 				400AB9F228FF7F6000A6DCB6 /* ACPEligibilityDetailsNameViewController.swift in Sources */,
-				400ABA0128FF7F6000A6DCB6 /* EgibilityCheckView.swift in Sources */,
+				400ABA0128FF7F6000A6DCB6 /* EligibilityCheckView.swift in Sources */,
 				400AB9F728FF7F6000A6DCB6 /* ACPEligibilityDetailsVerifyViewController.swift in Sources */,
 				400ABA0C28FF7F6000A6DCB6 /* UIViewController+ACP.swift in Sources */,
 				400ABA3228FF904B00A6DCB6 /* ACPTabMenuDotCell.swift in Sources */,
 				400ABA0828FF7F6000A6DCB6 /* UITableView+ACP.swift in Sources */,
 				400ABA0E28FF7F6000A6DCB6 /* UIColor+ACP.swift in Sources */,
 				400ABA2928FF7F6000A6DCB6 /* ACPBankInfoViewController.swift in Sources */,
-				400AB9FF28FF7F6000A6DCB6 /* EgibilityZipView.swift in Sources */,
+				400AB9FF28FF7F6000A6DCB6 /* EligibilityZipView.swift in Sources */,
 				400ABA1128FF7F6000A6DCB6 /* SceneDelegate.swift in Sources */,
 				403AD22029075B0600C6D556 /* ACPHomeScreenTabViewController.swift in Sources */,
 				400ABA0428FF7F6000A6DCB6 /* ACPHomeScreenViewController.swift in Sources */,
