@@ -186,7 +186,6 @@ extension ACPWalletViewController: ACPTabMenuViewControllerDelegate {
 
         containerView.snp.makeConstraints { make in
             make.top.equalTo(collectionView.snp.bottom)
-            make.height.equalTo(800)
             make.left.right.bottom.equalToSuperview()
         }
     }
@@ -198,22 +197,8 @@ extension ACPWalletViewController: ACPTabMenuViewControllerDelegate {
     }
 
     func didSelectTab(index: Int) -> UIViewController {
-        switch index {
-        case 0:
-            // TODO: Add Proper VC
-            let viewController = UIViewController()
-            viewController.view.backgroundColor = .white
-            return viewController
-        case 1:
-            // TODO: Add Proper VC
-            let viewController = UIViewController()
-            viewController.view.backgroundColor = .white
-            return viewController
-        default:
-            // TODO: Add Proper VC
-            let viewController = UIViewController()
-            viewController.view.backgroundColor = .white
-            return viewController
-        }
+        // TODO: Add Proper VC
+        let viewController = ACPTransactionsViewController()
+        return viewController
     }
 }
