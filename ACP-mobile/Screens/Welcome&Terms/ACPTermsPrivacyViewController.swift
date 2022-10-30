@@ -190,7 +190,7 @@ class ACPTermsPrivacyViewController: UIViewController {
     // MARK: Functions
 
     @objc func didTapAccept() {
-        let targetVC = EgibilityCheckViewController()
+        let targetVC = EligibilityCheckViewController()
         navigationController?.pushViewController(targetVC, animated: true)
     }
 
