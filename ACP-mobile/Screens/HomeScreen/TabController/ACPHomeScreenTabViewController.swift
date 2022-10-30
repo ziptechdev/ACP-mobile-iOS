@@ -107,6 +107,8 @@ extension ACPHomeScreenTabViewController: ACPTabMenuViewControllerDelegate {
             let viewController = ACPHomeScreenViewController()
             return viewController
         case 1:
+            // TODO: Remove Test
+            viewModel.test()
             if viewModel.isWalletEmpty {
                 let viewController = ACPEmptyWalletViewController()
                 return viewController

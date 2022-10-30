@@ -38,4 +38,8 @@ class ACPHomeScreenTabViewModel {
     func imageNameForTab(at index: Int) -> String {
         return tabs[index]
     }
+
+    func test() {
+        isWalletEmpty = !isWalletEmpty
+    }
 }
