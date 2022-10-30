@@ -88,6 +88,7 @@
 		403AD2252907636B00C6D556 /* ACPTabMenuImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403AD2242907636B00C6D556 /* ACPTabMenuImageCell.swift */; };
 		40B5EDD828E224F40096B91B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40B5EDD728E224F40096B91B /* Assets.xcassets */; };
 		40B5EDDB28E224F40096B91B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40B5EDD928E224F40096B91B /* LaunchScreen.storyboard */; };
+		40EDB816290EF4FC007E0255 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 40EDB815290EF4FC007E0255 /* GoogleService-Info.plist */; };
 		40EE2CB028E4AC5B0028888D /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40EE2CAF28E4AC5B0028888D /* Colors.xcassets */; };
 		CE62E30128EA64D20000833B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE62E30028EA64D20000833B /* Localizable.strings */; };
 		FF3F59D25D870A8B465A1AB4 /* Pods_ACP_mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA43A30C610F68C5A06DD99 /* Pods_ACP_mobile.framework */; };
@@ -191,6 +192,7 @@
 		40C7E59628EF6CEC00C03ECE /* ACPPersonalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPPersonalInfoViewController.swift; sourceTree = "<group>"; };
 		40C7E59C28EF735000C03ECE /* ACPPersonalInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPPersonalInfoViewModel.swift; sourceTree = "<group>"; };
 		40C7E59E28EF74A800C03ECE /* ACPPersonalInfoDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPPersonalInfoDetailsViewController.swift; sourceTree = "<group>"; };
+		40EDB815290EF4FC007E0255 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		40EE2CAF28E4AC5B0028888D /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		687DCBFD8B005412AF06BEDD /* Pods-ACP-mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACP-mobile.debug.xcconfig"; path = "Target Support Files/Pods-ACP-mobile/Pods-ACP-mobile.debug.xcconfig"; sourceTree = "<group>"; };
 		CE62E30028EA64D20000833B /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -691,6 +693,7 @@
 				40B5EDD728E224F40096B91B /* Assets.xcassets */,
 				40EE2CAF28E4AC5B0028888D /* Colors.xcassets */,
 				40B5EDDC28E224F40096B91B /* Info.plist */,
+				40EDB815290EF4FC007E0255 /* GoogleService-Info.plist */,
 				40B5EDD928E224F40096B91B /* LaunchScreen.storyboard */,
 				CE62E30028EA64D20000833B /* Localizable.strings */,
 			);
@@ -769,6 +772,7 @@
 			files = (
 				40EE2CB028E4AC5B0028888D /* Colors.xcassets in Resources */,
 				CE62E30128EA64D20000833B /* Localizable.strings in Resources */,
+				40EDB816290EF4FC007E0255 /* GoogleService-Info.plist in Resources */,
 				40B5EDDB28E224F40096B91B /* LaunchScreen.storyboard in Resources */,
 				40B5EDD828E224F40096B91B /* Assets.xcassets in Resources */,
 			);
@@ -1058,8 +1062,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = HBSJWT4Z7H;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = BS9VX4J4D4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ACP-mobile/Resources/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = ACP;
@@ -1089,8 +1093,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = HBSJWT4Z7H;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = BS9VX4J4D4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ACP-mobile/Resources/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = ACP;
