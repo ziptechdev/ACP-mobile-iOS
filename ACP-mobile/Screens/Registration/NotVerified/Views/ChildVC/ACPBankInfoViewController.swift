@@ -14,6 +14,10 @@ class ACPBankInfoViewController: UIViewController {
 
     weak var delegate: ACPTabMenuDelegate?
 
+    private lazy var textFields: [TextInput] = [
+        bankNameTextField, bankNumberTextField, accountHolderTextField, accountNumberTextField, expirationTextField
+    ]
+
     // MARK: - Views
 
     private let subtitleLabel: UILabel = {
@@ -193,18 +197,26 @@ extension ACPBankInfoViewController: ACPTermsAndPrivacyLabelDelegate {
 
 extension ACPBankInfoViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == bankNameTextField.textField {
-            bankNumberTextField.textField.becomeFirstResponder()
-        } else if textField == bankNumberTextField.textField {
-            accountHolderTextField.textField.becomeFirstResponder()
-        } else if textField == accountHolderTextField.textField {
-            accountNumberTextField.textField.becomeFirstResponder()
-        } else if textField == accountNumberTextField.textField {
-            expirationTextField.textField.becomeFirstResponder()
-        } else {
-            expirationTextField.textField.resignFirstResponder()
+        guard let currentIndex = textFields.firstIndex(where: { $0.textField == textField }) else {
+            return true
         }
+
+        let nextIndex = currentIndex.advanced(by: 1)
+
+        if nextIndex < textFields.count {
+            textFields[nextIndex].textField.becomeFirstResponder()
+        } else if nextIndex == textFields.count {
+            textFields[currentIndex].textField.resignFirstResponder()
+        }
+
         return true
+    }
+
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        let isEnabled = textFields.allSatisfy({ !$0.isEmpty })
+
+        completeButton.isUserInteractionEnabled = isEnabled
+        completeButton.backgroundColor = isEnabled ? .coreBlue : .lavenderGray
     }
 }
 

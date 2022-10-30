@@ -12,11 +12,20 @@ protocol ACPToolbarDelegate: AnyObject {
     func didPressDone(_ textfield: UITextField)
 }
 
-class ACPPickerView: UIView {
+class ACPPickerView: UIView, TextInput {
 
     // MARK: - Properties
 
     weak var delegate: ACPToolbarDelegate?
+
+    var isEmpty: Bool {
+        let textFieldEmpty = textField.text?.isEmpty ?? true
+        return textFieldEmpty
+    }
+
+    var text: String {
+        return textField.text ?? ""
+    }
 
     // MARK: - Views
 

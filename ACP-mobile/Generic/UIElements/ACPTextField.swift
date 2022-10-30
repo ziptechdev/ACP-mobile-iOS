@@ -8,9 +8,24 @@
 import UIKit
 import SnapKit
 
-class ACPTextField: UIView {
+protocol TextInput: AnyObject {
+    var isEmpty: Bool { get }
+    var text: String { get }
+    var textField: TextField { get }
+}
+
+class ACPTextField: UIView, TextInput {
 
     // MARK: - Properties
+
+    var isEmpty: Bool {
+        let textFieldEmpty = textField.text?.isEmpty ?? true
+        return textFieldEmpty
+    }
+
+    var text: String {
+        return textField.text ?? ""
+    }
 
     private var isErrorShowing = false
 
