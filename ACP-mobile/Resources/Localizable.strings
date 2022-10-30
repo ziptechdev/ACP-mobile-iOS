@@ -188,6 +188,15 @@ KYC requires a selfie/clear shot of your face and a photo of the document that c
 "registration_complete_subtitle" = "You’ve done your part. Now it’s time for us to back-check your information and approve registration. This process may take 2-3 business days.";
 "registration_complete_btn" = "Login";
 
+/* Login Screen */
+"login_page_title" = "Login";
+"login_title" = "Welcome to ACP";
+"login_subtitle" = "Log in using your credentials below.";
+"login_email" = "Email Address";
+"login_password" = "Password";
+"login_forgot" = "Forgot your password?";
+"login_btn" = "Log In";
+
 /* Home Screen */
 "home_tab_title" = "Home";
 "home_page_title" = "Home";
