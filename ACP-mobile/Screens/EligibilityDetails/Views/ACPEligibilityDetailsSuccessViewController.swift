@@ -69,8 +69,8 @@ class ACPEligibilityDetailsSuccessViewController: UIViewController {
         return label
     }()
 
-    private lazy var registerButton: UIButton = {
-        let button = UIButton()
+    private lazy var registerButton: ACPShadowButton = {
+        let button = ACPShadowButton()
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
         button.layer.masksToBounds = true
         button.backgroundColor = .coreBlue

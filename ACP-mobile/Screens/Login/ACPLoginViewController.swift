@@ -66,8 +66,8 @@ class ACPLoginViewController: UIViewController {
         return label
     }()
 
-    private lazy var loginButton: UIButton = {
-        let button = UIButton()
+    private lazy var loginButton: ACPShadowButton = {
+        let button = ACPShadowButton()
         button.layer.cornerRadius = Constants.ButtonCornerRadius
         button.layer.masksToBounds = true
         button.isUserInteractionEnabled = false
@@ -171,16 +171,6 @@ class ACPLoginViewController: UIViewController {
         navigationController?.popToRootInTheBackground()
     }
 
-    func focusTextField(_ view: ACPTextField) {
-        view.textField.layer.borderColor = UIColor.coreBlue.cgColor
-        view.textFieldImage?.tintColor = .gray06Dark
-    }
-
-    func unFocusTextField(_ view: ACPTextField) {
-        view.textField.layer.borderColor = UIColor.gray03Light.cgColor
-        view.textFieldImage?.tintColor = .gray03Light
-    }
-
     // MARK: - Constants
 
     private struct Constants {
@@ -216,20 +206,6 @@ extension ACPLoginViewController: UITextFieldDelegate {
             textFields[currentIndex].textField.resignFirstResponder()
         }
 
-        return true
-    }
-
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        if let currentTextField = textFields.first(where: { $0.textField == textField }) as? ACPTextField {
-            focusTextField(currentTextField)
-        }
-        return true
-    }
-
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        if let currentTextField = textFields.first(where: { $0.textField == textField }) as? ACPTextField {
-            unFocusTextField(currentTextField)
-        }
         return true
     }
 

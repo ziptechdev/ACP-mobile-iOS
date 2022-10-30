@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ACPImageButton: UIButton {
+class ACPImageButton: ACPShadowButton {
 
     init(titleKey: String? = nil,
          font: UIFont? = nil,
