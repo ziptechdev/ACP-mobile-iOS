@@ -10,7 +10,7 @@ import SnapKit
 
 class ACPTransactionsCell: UITableViewCell {
 
-	// MARK: - Properties
+    // MARK: - Properties
 
     // MARK: - Views
 

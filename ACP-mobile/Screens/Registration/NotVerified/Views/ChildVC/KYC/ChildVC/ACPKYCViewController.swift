@@ -10,7 +10,7 @@ import SnapKit
 
 class ACPKYCViewController: UIViewController {
 
-	// MARK: - Properties
+    // MARK: - Properties
 
     weak var delegate: ACPTabMenuDelegate?
 

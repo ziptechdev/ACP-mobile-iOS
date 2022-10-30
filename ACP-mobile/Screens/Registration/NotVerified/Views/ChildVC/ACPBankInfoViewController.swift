@@ -10,7 +10,7 @@ import SnapKit
 
 class ACPBankInfoViewController: UIViewController {
 
-	// MARK: - Properties
+    // MARK: - Properties
 
     weak var delegate: ACPTabMenuDelegate?
 

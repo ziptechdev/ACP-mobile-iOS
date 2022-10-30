@@ -10,7 +10,7 @@ import SnapKit
 
 class ACPVerifyEmailViewController: UIViewController {
 
-	// MARK: - Properties
+    // MARK: - Properties
 
     private var code = ""
     private var dismissCallback: (() -> Void)

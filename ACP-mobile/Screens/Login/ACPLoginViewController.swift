@@ -10,7 +10,7 @@ import SnapKit
 
 class ACPLoginViewController: UIViewController {
 
-	// MARK: - Properties
+    // MARK: - Properties
 
     private var isSecureEntry = true
 
