@@ -34,10 +34,8 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
 
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = .localizedString(key: "personal_info_subtitle")
+        label.attributedText = NSMutableAttributedString.subtitleString(key: "personal_info_subtitle")
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 14, weight: .regular)
-        label.textColor = .gray01Light
         label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 2
         return label
@@ -77,8 +75,9 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
         let view = ACPTextField()
         view.titleLabel.text = .localizedString(key: "personal_info_password")
         view.textField.delegate = self
-        view.textField.isSecureTextEntry = isSecureEntry
-        view.textField.addRightImage(named: "eye", imageColor: .gray01Light)
+        view.toggleSecureEntry(isSecureEntry)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(toggleSecureEntry))
+        view.textFieldImage?.addGestureRecognizer(tap)
         return view
     }()
 
@@ -86,8 +85,9 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
         let view = ACPTextField()
         view.titleLabel.text = .localizedString(key: "personal_info_confirm")
         view.textField.delegate = self
-        view.textField.isSecureTextEntry = isSecureEntry
-        view.textField.addRightImage(named: "eye", imageColor: .gray01Light)
+        view.toggleSecureEntry(isSecureEntry)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(toggleSecureEntry))
+        view.textFieldImage?.addGestureRecognizer(tap)
         return view
     }()
 
@@ -102,14 +102,13 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
 
     private lazy var nextButton: ACPImageButton = {
         let button = ACPImageButton(
+            titleKey: "personal_info_btn",
             spacing: Constants.Constraints.ButtonContentSpacing,
             cornerRadius: Constants.Constraints.ButtonCornerRadius,
             imageName: "right_arrow"
         )
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(.localizedString(key: "personal_info_btn"), for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         return button
     }()
@@ -211,6 +210,13 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
     }
 
     // MARK: - Callback
+
+    @objc func toggleSecureEntry() {
+        isSecureEntry = !isSecureEntry
+
+        passwordTextField.toggleSecureEntry(isSecureEntry)
+        confirmTextField.toggleSecureEntry(isSecureEntry)
+    }
 
     @objc func didTapButton() {
         delegate?.didTapNextButton()

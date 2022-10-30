@@ -28,19 +28,17 @@ class EgibilityZipView: UIView {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .coreBlue
-        label.font = .systemFont(ofSize: 32, weight: .bold)
-        label.textAlignment = .left
         label.numberOfLines = 0
+        label.font = .systemFont(ofSize: 32, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
     let descriptionTexLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .gray01Light
-        label.font = .systemFont(ofSize: 14, weight: .regular)
-        label.textAlignment = .left
-        label.numberOfLines = 0
+        label.attributedText = NSMutableAttributedString.subtitleString(key: "eligibility_zip_subtitle")
+        label.numberOfLines = 2
+        label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -120,6 +118,7 @@ class EgibilityZipView: UIView {
 
     let nextButton: ACPImageButton = {
         let button = ACPImageButton(
+            titleKey: "eligibility_zip_btn",
             spacing: Constants.Constraints.ButtonContentSpacing,
             cornerRadius: Constants.Constraints.ButtonCornerRadius,
             imageName: "right_arrow"
@@ -129,12 +128,6 @@ class EgibilityZipView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
-        // shadow for button
-        button.layer.shadowColor = UIColor.lavenderGray.cgColor
-        button.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
-        button.layer.shadowOpacity = 0.0
-        button.layer.shadowRadius = 20.0
-        button.layer.masksToBounds = false
         return button
     }()
 
@@ -310,10 +303,8 @@ class EgibilityZipView: UIView {
 
     private func setText() {
         titleLabel.text = .localizedString(key: "eligibility_zip_title")
-        descriptionTexLabel.text = .localizedString(key: "eligibility_zip_subtitle")
         zipLabelName.text = .localizedString(key: "eligibility_zip_label")
         errorLabel.text = .localizedString(key: "eligibility_zip_error")
-        nextButton.setTitle(.localizedString(key: "eligibility_zip_btn"), for: .normal)
     }
 
     // MARK: - Constants

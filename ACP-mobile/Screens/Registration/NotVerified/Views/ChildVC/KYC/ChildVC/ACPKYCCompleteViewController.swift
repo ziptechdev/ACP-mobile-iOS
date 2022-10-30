@@ -39,8 +39,7 @@ class ACPKYCCompleteViewController: UIViewController {
 
     private lazy var subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = .localizedString(key: "kyc_success_subtitle")
-        label.textColor = .gray01Light
+        label.attributedText = NSMutableAttributedString.subtitleString(key: "kyc_success_subtitle")
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 3
         label.adjustsFontSizeToFitWidth = true
@@ -53,10 +52,7 @@ class ACPKYCCompleteViewController: UIViewController {
         button.layer.masksToBounds = true
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(.localizedString(key: "kyc_success_btn"), for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.setTitleColor(.white, for: .highlighted)
-        button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
+        button.setTitle(titleKey: "kyc_success_btn")
         button.addTarget(self, action: #selector(didTapDoneButton), for: .touchUpInside)
         return button
     }()

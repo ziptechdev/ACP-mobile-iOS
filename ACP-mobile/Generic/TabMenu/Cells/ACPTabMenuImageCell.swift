@@ -8,11 +8,6 @@
 import UIKit
 import SnapKit
 
-struct ACPTabMenuImageCellModel {
-    let title: String
-    let imageName: String
-}
-
 class ACPTabMenuImageCell: UICollectionViewCell {
 
     // MARK: - Views

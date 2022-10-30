@@ -24,7 +24,6 @@ class EgibilityCheckView: UIView {
         let label = UILabel()
         label.textColor = .coreBlue
         label.font = .systemFont(ofSize: 32, weight: .bold)
-        label.textAlignment = .left
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -32,9 +31,6 @@ class EgibilityCheckView: UIView {
 
     let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .gray01Light
-        label.font = .systemFont(ofSize: 14, weight: .regular)
-        label.textAlignment = .left
         label.numberOfLines = 0
         label.isUserInteractionEnabled = true
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -52,24 +48,16 @@ class EgibilityCheckView: UIView {
 
     let checkEgibilityButton: UIButton = {
         let button = UIButton()
-        button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
-        button.titleLabel?.textAlignment = .center
+        button.setTitle(titleKey: "eligibility_btn")
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
-        button.layer.shadowColor = UIColor.gray03Light.cgColor
-        button.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
-        button.layer.shadowOpacity = 1.0
-        button.layer.shadowRadius = 15.0
-        button.layer.masksToBounds = false
         return button
     }()
 
     let createNewAccountButton: UIButton = {
         let button = UIButton()
-        button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
-        button.titleLabel?.textAlignment = .center
-        button.setTitleColor(.coreBlue, for: .normal)
+        button.setTitle(titleKey: "new_account_btn", textColor: .coreBlue)
         button.backgroundColor = .clear
         button.layer.borderWidth = 1
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
@@ -80,10 +68,8 @@ class EgibilityCheckView: UIView {
 
     let infoLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .gray01Light
-        label.font = .systemFont(ofSize: 14, weight: .regular)
-        label.textAlignment = .left
-        label.numberOfLines = 0
+        label.numberOfLines = 3
+        label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -162,20 +148,14 @@ class EgibilityCheckView: UIView {
     private func setText() {
         titleLabel.text = .localizedString(key: "eligibility_title")
         descriptionLabel.attributedText = attributedInfoText()
-        infoLabel.text = .localizedString(key: "eligibility_info")
-        checkEgibilityButton.setTitle(.localizedString(key: "eligibility_btn"), for: .normal)
-        createNewAccountButton.setTitle(.localizedString(key: "new_account_btn"), for: .normal)
+        infoLabel.attributedText = NSMutableAttributedString.subtitleString(key: "eligibility_info")
     }
 
     private func attributedInfoText() -> NSMutableAttributedString {
-        let info: NSString = .localizedString(key: "eligibility_subtitle")
-        let fullRange = NSRange(location: 0, length: info.length)
-        let termsRange = info.range(of: .localizedString(key: "eligibility_details_highlight"))
+        let string: NSMutableAttributedString = .subtitleString(key: "eligibility_subtitle")
 
-        let string: NSMutableAttributedString = .localizedString(key: "eligibility_subtitle")
-        string.addAttribute(.font, value: UIFont.systemFont(ofSize: 14, weight: .regular), range: fullRange)
-        string.addAttribute(.foregroundColor, value: UIColor.gray01Light, range: fullRange)
-        string.addAttribute(.foregroundColor, value: UIColor.coreBlue, range: termsRange)
+        let highlightRange = string.range(of: .localizedString(key: "eligibility_highlight"))
+        string.addAttribute(.foregroundColor, value: UIColor.coreBlue, range: highlightRange)
 
         return string
     }
@@ -185,8 +165,8 @@ class EgibilityCheckView: UIView {
             return
         }
 
-        let info: NSString = .localizedString(key: "eligibility_subtitle")
-        let termsRange = info.range(of: .localizedString(key: "eligibility_details_highlight"))
+        let string: String = .localizedString(key: "eligibility_subtitle")
+        let termsRange = string.range(of: .localizedString(key: "eligibility_details_highlight"))
 
         if sender.didTapAttributedTextInLabel(label: descriptionLabel, inRange: termsRange) {
             delegate?.didTapTextLink()

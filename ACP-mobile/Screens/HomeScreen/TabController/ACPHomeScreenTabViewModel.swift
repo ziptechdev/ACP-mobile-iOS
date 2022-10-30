@@ -13,30 +13,33 @@ class ACPHomeScreenTabViewModel {
 
     var currentTab = 0
 
-    private let tabs: [ACPTabMenuImageCellModel] = [
-        ACPTabMenuImageCellModel(
-            title: .localizedString(key: "home_page_title"),
-            imageName: "home"
-        ),
-        ACPTabMenuImageCellModel(
-            title: .localizedString(key: "wallet_page_title"),
-            imageName: "wallet"
-        ),
-        ACPTabMenuImageCellModel(
-            title: .localizedString(key: "profile_page_title"),
-            imageName: "profile"
-        )
+    private let tabs = [
+        "home",
+        "wallet",
+        "profile"
     ]
+
+    var isWalletEmpty: Bool = false
 
     func numberOfTabItems() -> Int {
         return tabs.count
     }
 
     func titleForTab(at index: Int) -> String {
-        return tabs[index].title
+        let titleKey = "\(tabs[index])_tab_title"
+        return .localizedString(key: titleKey)
+    }
+
+    func titleForPage(at index: Int) -> String {
+        let titleKey = "\(tabs[index])_page_title"
+        return .localizedString(key: titleKey)
     }
 
     func imageNameForTab(at index: Int) -> String {
-        return tabs[index].imageName
+        return tabs[index]
+    }
+
+    func test() {
+        isWalletEmpty = !isWalletEmpty
     }
 }

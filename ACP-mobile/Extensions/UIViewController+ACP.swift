@@ -66,6 +66,8 @@ extension UIViewController {
 
     func setupLeftNavigationBarButton(color: UIColor = .gray01Light) {
         let button = ACPImageButton(
+            titleKey: "back_button",
+            font: .systemFont(ofSize: 16, weight: .medium),
             horizontal: 15,
             spacing: 7,
             cornerRadius: 0,
@@ -74,9 +76,7 @@ extension UIViewController {
             isLeft: true
         )
 
-        button.setTitle("Back", for: .normal)
         button.addTarget(self, action: #selector(didTapLeftButton), for: .touchUpInside)
-        button.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
 
         navigationItem.leftBarButtonItems = [UIBarButtonItem(customView: button)]
     }

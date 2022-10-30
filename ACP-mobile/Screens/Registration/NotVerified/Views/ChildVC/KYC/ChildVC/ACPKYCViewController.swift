@@ -43,10 +43,7 @@ class ACPKYCViewController: UIViewController {
         button.layer.masksToBounds = true
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(.localizedString(key: "kyc_btn"), for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.setTitleColor(.white, for: .highlighted)
-        button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
+        button.setTitle(titleKey: "kyc_btn")
         button.addTarget(self, action: #selector(didTapStartButton), for: .touchUpInside)
         return button
     }()
@@ -91,13 +88,9 @@ class ACPKYCViewController: UIViewController {
     }
 
     private func attributedSubitleText() -> NSMutableAttributedString {
-        let subtitle: NSString = .localizedString(key: "kyc_subtitle")
-        let fullRange = NSRange(location: 0, length: subtitle.length)
-        let highlightRange = subtitle.range(of: .localizedString(key: "kyc_highlight"))
+        let string: NSMutableAttributedString = .subtitleString(key: "kyc_subtitle")
 
-        let string: NSMutableAttributedString = .localizedString(key: "kyc_subtitle")
-        string.addAttribute(.font, value: UIFont.systemFont(ofSize: 14, weight: .regular), range: fullRange)
-        string.addAttribute(.foregroundColor, value: UIColor.gray01Light, range: fullRange)
+        let highlightRange = string.range(of: .localizedString(key: "kyc_highlight"))
         string.addAttribute(.foregroundColor, value: UIColor.coreBlue, range: highlightRange)
 
         return string
@@ -114,7 +107,7 @@ class ACPKYCViewController: UIViewController {
             return
         }
 
-        let subtitle: NSString = .localizedString(key: "kyc_subtitle")
+        let subtitle: String = .localizedString(key: "kyc_subtitle")
         let highlightRange = subtitle.range(of: .localizedString(key: "kyc_highlight"))
 
         if sender.didTapAttributedTextInLabel(label: subtitleLabel, inRange: highlightRange) {

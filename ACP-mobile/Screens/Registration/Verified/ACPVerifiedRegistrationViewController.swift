@@ -38,13 +38,8 @@ class ACPVerifiedRegistrationViewController: UIViewController {
     private let subtitleLabel: UILabel = {
         let label = UILabel()
         // TODO: Set the name
-        label.text = .formatLocalizedString(
-            key: "verified_register_subtitle",
-            values: "Adi"
-        )
+        label.attributedText = NSMutableAttributedString.subtitleString(key: "verified_register_subtitle")
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 14, weight: .regular)
-        label.textColor = .gray01Light
         label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 2
         return label
@@ -61,8 +56,9 @@ class ACPVerifiedRegistrationViewController: UIViewController {
         let view = ACPTextField()
         view.titleLabel.text = .localizedString(key: "verified_register_password")
         view.textField.delegate = self
-        view.textField.isSecureTextEntry = isSecureEntry
-        view.textField.addRightImage(named: "eye", imageColor: .gray01Light)
+        view.toggleSecureEntry(isSecureEntry)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(toggleSecureEntry))
+        view.textFieldImage?.addGestureRecognizer(tap)
         return view
     }()
 
@@ -70,8 +66,9 @@ class ACPVerifiedRegistrationViewController: UIViewController {
         let view = ACPTextField()
         view.titleLabel.text = .localizedString(key: "verified_register_confirm")
         view.textField.delegate = self
-        view.textField.isSecureTextEntry = isSecureEntry
-        view.textField.addRightImage(named: "eye", imageColor: .gray01Light)
+        view.toggleSecureEntry(isSecureEntry)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(toggleSecureEntry))
+        view.textFieldImage?.addGestureRecognizer(tap)
         return view
     }()
 
@@ -81,10 +78,7 @@ class ACPVerifiedRegistrationViewController: UIViewController {
         button.layer.masksToBounds = true
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(.localizedString(key: "verified_register_btn"), for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.setTitleColor(.white, for: .highlighted)
-        button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
+        button.setTitle(titleKey: "verified_register_btn")
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         return button
     }()
@@ -116,6 +110,8 @@ class ACPVerifiedRegistrationViewController: UIViewController {
 
         addSubviews()
         setupConstraints()
+
+        
     }
 
     private func addSubviews() {
@@ -175,8 +171,16 @@ class ACPVerifiedRegistrationViewController: UIViewController {
 
     // MARK: - Callbacks
 
+    @objc func toggleSecureEntry() {
+        isSecureEntry = !isSecureEntry
+
+        passwordTextField.toggleSecureEntry(isSecureEntry)
+        confirmTextField.toggleSecureEntry(isSecureEntry)
+    }
+
     @objc func didTapButton() {
-        print("register")
+        let targetVC = ACPRegistrationCompleteViewController()
+        navigationController?.pushViewController(targetVC, animated: true)
     }
 
     func focusTextField(_ view: ACPTextField) {

@@ -24,10 +24,8 @@ class ACPNotVerifiedRegistrationViewController: UIViewController {
 
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = .localizedString(key: "not_verified_register_subtitle")
+        label.attributedText = NSMutableAttributedString.subtitleString(key: "not_verified_register_subtitle")
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 14, weight: .regular)
-        label.textColor = .gray01Light
         label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 2
         return label
@@ -55,14 +53,13 @@ class ACPNotVerifiedRegistrationViewController: UIViewController {
 
     private lazy var getStartedButton: ACPImageButton = {
         let button = ACPImageButton(
+            titleKey: "not_verified_register_btn",
             spacing: Constants.Constraints.ButtonContentSpacing,
             cornerRadius: Constants.Constraints.ButtonCornerRadius,
             imageName: "right_arrow"
         )
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(.localizedString(key: "not_verified_register_btn"), for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         return button
     }()
@@ -138,14 +135,12 @@ class ACPNotVerifiedRegistrationViewController: UIViewController {
     }
 
     private func explanationAttributedText() -> NSAttributedString {
-        let explanation: NSString = .localizedString(key: "not_verified_register_details")
-        let fullRange = NSRange(location: 0, length: explanation.length)
-        let attributeRange = explanation.range(of: .localizedString(key: "not_verified_register_highlight"))
-
         let string: NSMutableAttributedString = .localizedString(key: "not_verified_register_details")
-        string.addAttribute(.font, value: UIFont.systemFont(ofSize: 14, weight: .regular), range: fullRange)
-        string.addAttribute(.foregroundColor, value: UIColor.gray01Light, range: fullRange)
-        string.addAttribute(.foregroundColor, value: UIColor.coreBlue, range: attributeRange)
+        let highlightRange = string.range(of: .localizedString(key: "not_verified_register_highlight"))
+
+        string.addAttribute(.font, value: UIFont.systemFont(ofSize: 14, weight: .regular))
+        string.addAttribute(.foregroundColor, value: UIColor.gray01Light)
+        string.addAttribute(.foregroundColor, value: UIColor.coreBlue, range: highlightRange)
 
         return string
     }
@@ -162,10 +157,10 @@ class ACPNotVerifiedRegistrationViewController: UIViewController {
             return
         }
 
-        let explanation: NSString = .localizedString(key: "not_verified_register_details")
-        let attributeRange = explanation.range(of: .localizedString(key: "not_verified_register_highlight"))
+        let string: String = .localizedString(key: "not_verified_register_details")
+        let highlightRange = string.range(of: .localizedString(key: "not_verified_register_highlight"))
 
-        if sender.didTapAttributedTextInLabel(label: explanationLabel, inRange: attributeRange) {
+        if sender.didTapAttributedTextInLabel(label: explanationLabel, inRange: highlightRange) {
             // TODO: Add Link
             print("Partners")
         }

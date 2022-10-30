@@ -34,10 +34,10 @@ class ACPHomeScreenProgramCell: UITableViewCell {
             horizontal: Constants.Constraints.StatusButtonContentInsetX,
             spacing: Constants.Constraints.StatusButtonContentSpacing,
             cornerRadius: Constants.Constraints.StatusButtonCornerRadius,
-            imageName: "checkmark"
+            imageName: "checkmark",
+            isLeft: true
         )
         button.backgroundColor = .acpYellow
-        button.titleLabel?.font = .systemFont(ofSize: 11, weight: .bold)
         return button
     }()
 
@@ -53,7 +53,6 @@ class ACPHomeScreenProgramCell: UITableViewCell {
     private let actionButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .coreBlue
-        button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
         button.layer.masksToBounds = true
         return button
@@ -126,8 +125,8 @@ class ACPHomeScreenProgramCell: UITableViewCell {
         programNameLabel.text = name
         programImageView.image = UIImage(named: "program_logo")
         programDetailsLabel.text = Constants.Text.Details
-        statusButton.setTitle(Constants.Text.Eligible, for: .normal)
-        actionButton.setTitle(Constants.Text.Apply, for: .normal)
+        statusButton.setTitle(titleKey: Constants.Text.Eligible, font: .systemFont(ofSize: 11, weight: .bold))
+        actionButton.setTitle(titleKey: Constants.Text.Apply)
     }
 
     // MARK: - Constants

@@ -29,10 +29,8 @@ class ACPEligibilityDetailsNameViewController: UIViewController {
 
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = .localizedString(key: "eligibility_details_subtitle")
+        label.attributedText = NSMutableAttributedString.subtitleString(key: "eligibility_details_subtitle")
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 14, weight: .regular)
-        label.textColor = .gray01Light
         label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 2
         return label
@@ -70,14 +68,13 @@ class ACPEligibilityDetailsNameViewController: UIViewController {
 
     private lazy var nextButton: ACPImageButton = {
         let button = ACPImageButton(
+            titleKey: "eligibility_details_btn",
             spacing: Constants.Constraints.ButtonContentSpacing,
             cornerRadius: Constants.Constraints.ButtonCornerRadius,
             imageName: "right_arrow"
         )
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(.localizedString(key: "eligibility_details_btn"), for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         return button
     }()
@@ -160,13 +157,12 @@ class ACPEligibilityDetailsNameViewController: UIViewController {
     }
 
     private func attributedTitleText() -> NSMutableAttributedString {
-        let middleName: NSString = .localizedString(key: "eligibility_details_middle_name")
-        let fullRange = NSRange(location: 0, length: middleName.length)
-        let optionalRange = middleName.range(of: .localizedString(key: "eligibility_details_highlight"))
-
         let string: NSMutableAttributedString = .localizedString(key: "eligibility_details_middle_name")
-        string.addAttribute(.foregroundColor, value: UIColor.gray06Dark, range: fullRange)
-        string.addAttribute(.foregroundColor, value: UIColor.gray01Light, range: optionalRange)
+        let highlightRange = string.range(of: .localizedString(key: "eligibility_details_highlight"))
+
+        string.addAttribute(.foregroundColor, value: UIColor.gray06Dark)
+        string.addAttribute(.font, value: UIFont.systemFont(ofSize: 14, weight: .regular))
+        string.addAttribute(.foregroundColor, value: UIColor.gray01Light, range: highlightRange)
 
         return string
     }

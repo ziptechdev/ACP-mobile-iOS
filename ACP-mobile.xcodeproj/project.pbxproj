@@ -73,6 +73,16 @@
 		400ABA2F28FF7F6000A6DCB6 /* ACPEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9EC28FF7F6000A6DCB6 /* ACPEndpoint.swift */; };
 		400ABA3228FF904B00A6DCB6 /* ACPTabMenuDotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400ABA3128FF904B00A6DCB6 /* ACPTabMenuDotCell.swift */; };
 		400ABA352900413D00A6DCB6 /* ACPRegistrationCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400ABA342900413D00A6DCB6 /* ACPRegistrationCompleteViewController.swift */; };
+		4013FADE29083DB00018025F /* ACPCardSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4013FADD29083DB00018025F /* ACPCardSuccessViewController.swift */; };
+		4013FAE12908427F0018025F /* ACPEmptyWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4013FAE02908427F0018025F /* ACPEmptyWalletViewController.swift */; };
+		4013FAE32908428A0018025F /* ACPWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4013FAE22908428A0018025F /* ACPWalletViewController.swift */; };
+		4013FAE7290844380018025F /* ACPEmptyWalletBalanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4013FAE6290844380018025F /* ACPEmptyWalletBalanceView.swift */; };
+		4013FAEA29085B220018025F /* ACPDebitCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4013FAE929085B220018025F /* ACPDebitCardView.swift */; };
+		4013FAEC290892810018025F /* UIButton+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4013FAEB290892810018025F /* UIButton+ACP.swift */; };
+		4013FAEE2908A3A30018025F /* UINavigationController+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4013FAED2908A3A30018025F /* UINavigationController+ACP.swift */; };
+		40251D41290CD2840083B89A /* ACPCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40251D40290CD2840083B89A /* ACPCardModel.swift */; };
+		40251D44290DE04C0083B89A /* ACPTransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40251D43290DE04C0083B89A /* ACPTransactionsViewController.swift */; };
+		40251D46290DE0710083B89A /* ACPTransactionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40251D45290DE0710083B89A /* ACPTransactionsCell.swift */; };
 		403AD22029075B0600C6D556 /* ACPHomeScreenTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403AD21F29075B0600C6D556 /* ACPHomeScreenTabViewController.swift */; };
 		403AD22329075B6400C6D556 /* ACPHomeScreenTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403AD22229075B6400C6D556 /* ACPHomeScreenTabViewModel.swift */; };
 		403AD2252907636B00C6D556 /* ACPTabMenuImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403AD2242907636B00C6D556 /* ACPTabMenuImageCell.swift */; };
@@ -158,6 +168,16 @@
 		400AB9EC28FF7F6000A6DCB6 /* ACPEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEndpoint.swift; sourceTree = "<group>"; };
 		400ABA3128FF904B00A6DCB6 /* ACPTabMenuDotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPTabMenuDotCell.swift; sourceTree = "<group>"; };
 		400ABA342900413D00A6DCB6 /* ACPRegistrationCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPRegistrationCompleteViewController.swift; sourceTree = "<group>"; };
+		4013FADD29083DB00018025F /* ACPCardSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPCardSuccessViewController.swift; sourceTree = "<group>"; };
+		4013FAE02908427F0018025F /* ACPEmptyWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPEmptyWalletViewController.swift; sourceTree = "<group>"; };
+		4013FAE22908428A0018025F /* ACPWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPWalletViewController.swift; sourceTree = "<group>"; };
+		4013FAE6290844380018025F /* ACPEmptyWalletBalanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPEmptyWalletBalanceView.swift; sourceTree = "<group>"; };
+		4013FAE929085B220018025F /* ACPDebitCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPDebitCardView.swift; sourceTree = "<group>"; };
+		4013FAEB290892810018025F /* UIButton+ACP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+ACP.swift"; sourceTree = "<group>"; };
+		4013FAED2908A3A30018025F /* UINavigationController+ACP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+ACP.swift"; sourceTree = "<group>"; };
+		40251D40290CD2840083B89A /* ACPCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPCardModel.swift; sourceTree = "<group>"; };
+		40251D43290DE04C0083B89A /* ACPTransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPTransactionsViewController.swift; sourceTree = "<group>"; };
+		40251D45290DE0710083B89A /* ACPTransactionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPTransactionsCell.swift; sourceTree = "<group>"; };
 		403AD21F29075B0600C6D556 /* ACPHomeScreenTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPHomeScreenTabViewController.swift; sourceTree = "<group>"; };
 		403AD22229075B6400C6D556 /* ACPHomeScreenTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPHomeScreenTabViewModel.swift; sourceTree = "<group>"; };
 		403AD2242907636B00C6D556 /* ACPTabMenuImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPTabMenuImageCell.swift; sourceTree = "<group>"; };
@@ -351,6 +371,7 @@
 		400AB9AE28FF7F5F00A6DCB6 /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
+				4013FADA29083D620018025F /* Wallet */,
 				403AD22129075B2600C6D556 /* TabController */,
 				403AD21E29075AC200C6D556 /* Home */,
 			);
@@ -381,6 +402,8 @@
 				400AB9BC28FF7F6000A6DCB6 /* UITapGestureRecognizer+ACP.swift */,
 				400AB9BD28FF7F6000A6DCB6 /* UIColor+ACP.swift */,
 				400AB9BE28FF7F6000A6DCB6 /* String+ACP.swift */,
+				4013FAEB290892810018025F /* UIButton+ACP.swift */,
+				4013FAED2908A3A30018025F /* UINavigationController+ACP.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -532,6 +555,85 @@
 				403AD2242907636B00C6D556 /* ACPTabMenuImageCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		4013FADA29083D620018025F /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				40251D42290DE0100083B89A /* Transactions */,
+				4013FAE52908438E0018025F /* EmptyWallet */,
+				4013FADC29083D920018025F /* CardSuccess */,
+				4013FADB29083D7C0018025F /* MyWallet */,
+			);
+			path = Wallet;
+			sourceTree = "<group>";
+		};
+		4013FADB29083D7C0018025F /* MyWallet */ = {
+			isa = PBXGroup;
+			children = (
+				40251D3F290CD26F0083B89A /* Models */,
+				4013FAE829085AFF0018025F /* Views */,
+				4013FAE22908428A0018025F /* ACPWalletViewController.swift */,
+			);
+			path = MyWallet;
+			sourceTree = "<group>";
+		};
+		4013FADC29083D920018025F /* CardSuccess */ = {
+			isa = PBXGroup;
+			children = (
+				4013FADD29083DB00018025F /* ACPCardSuccessViewController.swift */,
+			);
+			path = CardSuccess;
+			sourceTree = "<group>";
+		};
+		4013FADF290842420018025F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4013FAE6290844380018025F /* ACPEmptyWalletBalanceView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4013FAE52908438E0018025F /* EmptyWallet */ = {
+			isa = PBXGroup;
+			children = (
+				4013FADF290842420018025F /* Views */,
+				4013FAE02908427F0018025F /* ACPEmptyWalletViewController.swift */,
+			);
+			path = EmptyWallet;
+			sourceTree = "<group>";
+		};
+		4013FAE829085AFF0018025F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4013FAE929085B220018025F /* ACPDebitCardView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		40251D3F290CD26F0083B89A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				40251D40290CD2840083B89A /* ACPCardModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		40251D42290DE0100083B89A /* Transactions */ = {
+			isa = PBXGroup;
+			children = (
+				40251D47290DE57F0083B89A /* Views */,
+				40251D43290DE04C0083B89A /* ACPTransactionsViewController.swift */,
+			);
+			path = Transactions;
+			sourceTree = "<group>";
+		};
+		40251D47290DE57F0083B89A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				40251D45290DE0710083B89A /* ACPTransactionsCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		403AD21E29075AC200C6D556 /* Home */ = {
@@ -740,9 +842,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				400AB9ED28FF7F6000A6DCB6 /* ACPEligibilityDetailsViewModel.swift in Sources */,
+				4013FADE29083DB00018025F /* ACPCardSuccessViewController.swift in Sources */,
 				400ABA2B28FF7F6000A6DCB6 /* ACPPersonalInfoViewController.swift in Sources */,
 				400AB9FB28FF7F6000A6DCB6 /* ACPLandingScreenViewController.swift in Sources */,
 				400AB9FE28FF7F6000A6DCB6 /* EgibilityZipViewController.swift in Sources */,
+				40251D46290DE0710083B89A /* ACPTransactionsCell.swift in Sources */,
 				400ABA0228FF7F6000A6DCB6 /* ACPHomeScreenEligibilityHeaderView.swift in Sources */,
 				400ABA0F28FF7F6000A6DCB6 /* String+ACP.swift in Sources */,
 				400ABA1328FF7F6000A6DCB6 /* ACPFocusableView.swift in Sources */,
@@ -752,19 +856,24 @@
 				400AB9F528FF7F6000A6DCB6 /* ACPEligibilityDetailsFailViewController.swift in Sources */,
 				400ABA0D28FF7F6000A6DCB6 /* UITapGestureRecognizer+ACP.swift in Sources */,
 				400ABA2828FF7F6000A6DCB6 /* ACPKYCCompleteViewController.swift in Sources */,
+				40251D44290DE04C0083B89A /* ACPTransactionsViewController.swift in Sources */,
 				400ABA2C28FF7F6000A6DCB6 /* TestEndpoint.swift in Sources */,
+				4013FAEE2908A3A30018025F /* UINavigationController+ACP.swift in Sources */,
 				400AB9F428FF7F6000A6DCB6 /* ACPEligibilityDetailsAddressViewController.swift in Sources */,
 				400ABA1528FF7F6000A6DCB6 /* ACPNavigationController.swift in Sources */,
 				400AB9EF28FF7F6000A6DCB6 /* ACPEligibilityDetailsAddressModel.swift in Sources */,
+				4013FAE7290844380018025F /* ACPEmptyWalletBalanceView.swift in Sources */,
 				400ABA2128FF7F6000A6DCB6 /* ACPVerifyEmailViewController.swift in Sources */,
 				400ABA2428FF7F6000A6DCB6 /* ACPIdentityProofViewController.swift in Sources */,
 				400ABA1028FF7F6000A6DCB6 /* AppDelegate.swift in Sources */,
 				400ABA0728FF7F6000A6DCB6 /* UITextField+ACP.swift in Sources */,
 				400ABA1828FF7F6000A6DCB6 /* ACPTabMenuTitleCell.swift in Sources */,
+				4013FAEA29085B220018025F /* ACPDebitCardView.swift in Sources */,
 				400ABA0028FF7F6000A6DCB6 /* EgibilityCheckViewController.swift in Sources */,
 				400AB9F828FF7F6000A6DCB6 /* ACPEligibilityDetailsViewController.swift in Sources */,
 				400AB9F028FF7F6000A6DCB6 /* ACPEligibilityDetailsModel.swift in Sources */,
 				400ABA2528FF7F6000A6DCB6 /* ACPSelfieViewController.swift in Sources */,
+				40251D41290CD2840083B89A /* ACPCardModel.swift in Sources */,
 				400ABA1F28FF7F6000A6DCB6 /* ACPPersonalInfoViewModel.swift in Sources */,
 				400AB9F228FF7F6000A6DCB6 /* ACPEligibilityDetailsNameViewController.swift in Sources */,
 				400ABA0128FF7F6000A6DCB6 /* EgibilityCheckView.swift in Sources */,
@@ -780,6 +889,7 @@
 				400ABA0428FF7F6000A6DCB6 /* ACPHomeScreenViewController.swift in Sources */,
 				400AB9F328FF7F6000A6DCB6 /* ACPEligibilityDetailsDOBViewController.swift in Sources */,
 				400ABA2E28FF7F6000A6DCB6 /* ACPRouter.swift in Sources */,
+				4013FAEC290892810018025F /* UIButton+ACP.swift in Sources */,
 				400ABA1428FF7F6000A6DCB6 /* ACPTableView.swift in Sources */,
 				400ABA1C28FF7F6000A6DCB6 /* ACPImageButton.swift in Sources */,
 				400AB9EE28FF7F6000A6DCB6 /* ACPEligibilityDetailsDOBModel.swift in Sources */,
@@ -799,12 +909,14 @@
 				400ABA2F28FF7F6000A6DCB6 /* ACPEndpoint.swift in Sources */,
 				400ABA2628FF7F6000A6DCB6 /* ACPScanIDViewController.swift in Sources */,
 				400AB9F128FF7F6000A6DCB6 /* ACPEligibilityDetailsNameModel.swift in Sources */,
+				4013FAE12908427F0018025F /* ACPEmptyWalletViewController.swift in Sources */,
 				400ABA0628FF7F6000A6DCB6 /* UIResponder+ACP.swift in Sources */,
 				400AB9FC28FF7F6000A6DCB6 /* ACPWelcomeScreenViewController.swift in Sources */,
 				400ABA2D28FF7F6000A6DCB6 /* VerifyEndpoint.swift in Sources */,
 				400ABA1228FF7F6000A6DCB6 /* ACPTabMenuViewController.swift in Sources */,
 				400ABA1A28FF7F6000A6DCB6 /* ACPTermsAndPrivacyLabel.swift in Sources */,
 				400ABA2728FF7F6000A6DCB6 /* ACPKYCViewController.swift in Sources */,
+				4013FAE32908428A0018025F /* ACPWalletViewController.swift in Sources */,
 				400ABA352900413D00A6DCB6 /* ACPRegistrationCompleteViewController.swift in Sources */,
 				400AB9F928FF7F6000A6DCB6 /* ACPVerifiedRegistrationViewController.swift in Sources */,
 				400ABA2A28FF7F6000A6DCB6 /* ACPNotVerifiedRegistrationViewController.swift in Sources */,

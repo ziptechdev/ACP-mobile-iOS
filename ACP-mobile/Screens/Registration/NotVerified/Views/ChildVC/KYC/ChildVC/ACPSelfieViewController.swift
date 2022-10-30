@@ -31,8 +31,7 @@ class ACPSelfieViewController: UIViewController {
 
     private lazy var subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = .localizedString(key: "kyc_selfie_subtitle")
-        label.textColor = .gray01Light
+        label.attributedText = NSMutableAttributedString.subtitleString(key: "kyc_selfie_subtitle")
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontSizeToFitWidth = true
         return label
@@ -44,10 +43,7 @@ class ACPSelfieViewController: UIViewController {
         button.layer.masksToBounds = true
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(.localizedString(key: "kyc_selfie_btn"), for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.setTitleColor(.white, for: .highlighted)
-        button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
+        button.setTitle(titleKey: "kyc_selfie_btn")
         button.addTarget(self, action: #selector(didTapOpenCameraButton), for: .touchUpInside)
         return button
     }()
@@ -60,10 +56,7 @@ class ACPSelfieViewController: UIViewController {
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.coreBlue.cgColor
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(.localizedString(key: "kyc_selfie_btn_2"), for: .normal)
-        button.setTitleColor(.coreBlue, for: .normal)
-        button.setTitleColor(.coreBlue, for: .highlighted)
-        button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
+        button.setTitle(titleKey: "kyc_selfie_btn_2", textColor: .coreBlue)
         button.addTarget(self, action: #selector(didTapUploadPhotoButton), for: .touchUpInside)
         return button
     }()
