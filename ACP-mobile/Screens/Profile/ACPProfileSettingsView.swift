@@ -70,44 +70,41 @@ class ACPProfileSettingsView: UIView {
     }
 
     private func addSubviews() {
-        addSubview(containerView)
+
         containerView.addSubview(languageGlobeImageView)
         containerView.addSubview(selectLanguage)
         containerView.addSubview(selectedLangauge)
         containerView.addSubview(arrowImageView)
+        addSubview(containerView)
     }
 
     private func setupConstraints() {
         containerView.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
-            make.top.bottom.equalToSuperview().inset(Constants.Constraints.ContainerInsetVertical)
         }
 
         languageGlobeImageView.snp.makeConstraints { make in
             make.width.height.equalTo(Constants.Constraints.ImageSize)
             make.top.equalToSuperview().inset(Constants.Constraints.ContentInsetVertical)
             make.left.equalToSuperview().offset(Constants.Constraints.ImageLeftOffset)
-            make.bottom.equalToSuperview().inset(Constants.Constraints.ContentInsetVertical)
         }
+
         selectLanguage.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(Constants.Constraints.ContentInsetVertical)
             make.left.equalTo(languageGlobeImageView.snp.right).offset(Constants.Constraints.SelectLanaguageLeftOffest)
-            make.bottom.equalToSuperview().inset(Constants.Constraints.ContentInsetVertical)
 
         }
 
         selectedLangauge.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview().inset(Constants.Constraints.ContainerInsetVertical)
+            make.top.equalTo(containerView.snp.top).offset(Constants.Constraints.ContentInsetVertical)
             make.left.equalTo(selectLanguage.snp.right).offset(Constants.Constraints.SelectedLangaugeLeftOffest)
-            make.bottom .equalToSuperview().inset(Constants.Constraints.ContentInsetVertical)
         }
 
         arrowImageView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(Constants.Constraints.ContentInsetVertical)
             make.height.equalTo(Constants.Constraints.ArrowHeight)
             make.width.equalTo(Constants.Constraints.ArrowWidth)
-            make.top.bottom.equalToSuperview().inset(Constants.Constraints.ContainerInsetVertical)
             make.left.equalTo(selectedLangauge.snp.right).offset(Constants.Constraints.ArrowLeftOffest)
-            make.bottom.equalToSuperview().inset(Constants.Constraints.ContentInsetVertical)
         }
 
     }

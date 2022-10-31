@@ -27,6 +27,7 @@ class ACPProfileViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         headerView.delegate = self
+        footerView.present()
     }
 
     //MARK: - UI
@@ -58,7 +59,7 @@ class ACPProfileViewController: UIViewController {
     // MARK: - Constants
        private struct Constants {
            struct Text {
-               static let Title = "Home"
+               static let Title = "Profile"
            }
        }
 }

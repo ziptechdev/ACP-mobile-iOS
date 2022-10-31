@@ -121,7 +121,7 @@ class ACPProfileHeaderView: UIView {
         }
 
         nameLabel.snp.makeConstraints { make in
-            make.top.equalTo(profileImageView.snp.bottom).offset(Constants.Constraints.NameOffsetTop)
+            make.top.equalTo(checkmarkImageView.snp.bottom).offset(Constants.Constraints.NameOffsetTop)
             make.width .equalTo(Constants.Constraints.NameWidth)
             make.centerX.equalToSuperview()
         }
@@ -133,7 +133,7 @@ class ACPProfileHeaderView: UIView {
         }
 
         changeProfileButton.snp.makeConstraints { make in
-            make.top.equalTo(nameLabel.snp.bottom).offset(Constants.Constraints.ChangeProfileButtonTopOffset)
+            make.top.equalTo(isVerifiedLabel.snp.bottom).offset(Constants.Constraints.ChangeProfileButtonTopOffset)
             make.left.equalTo(Constants.Constraints.ButtonLeftOffest)
             make.width.equalTo(Constants.Constraints.ButtonWidth)
             make.height.equalTo(Constants.Constraints.ButtonHeight)
