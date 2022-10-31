@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13581443290F2B1500612D8B /* RequestCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13581442290F2B1500612D8B /* RequestCardViewController.swift */; };
 		400AB9ED28FF7F6000A6DCB6 /* ACPEligibilityDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB98D28FF7F5F00A6DCB6 /* ACPEligibilityDetailsViewModel.swift */; };
 		400AB9EE28FF7F6000A6DCB6 /* ACPEligibilityDetailsDOBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB98F28FF7F5F00A6DCB6 /* ACPEligibilityDetailsDOBModel.swift */; };
 		400AB9EF28FF7F6000A6DCB6 /* ACPEligibilityDetailsAddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB99028FF7F5F00A6DCB6 /* ACPEligibilityDetailsAddressModel.swift */; };
@@ -96,6 +97,7 @@
 /* Begin PBXFileReference section */
 		0EA43A30C610F68C5A06DD99 /* Pods_ACP_mobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ACP_mobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1301AD36DE072905C940D450 /* Pods-ACP-mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACP-mobile.release.xcconfig"; path = "Target Support Files/Pods-ACP-mobile/Pods-ACP-mobile.release.xcconfig"; sourceTree = "<group>"; };
+		13581442290F2B1500612D8B /* RequestCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCardViewController.swift; sourceTree = "<group>"; };
 		400AB76528FF5B6F00A6DCB6 /* ACPScanIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPScanIDViewController.swift; sourceTree = "<group>"; };
 		400AB76728FF5BCA00A6DCB6 /* ACPKYCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPKYCViewController.swift; sourceTree = "<group>"; };
 		400AB76928FF5BD800A6DCB6 /* ACPKYCCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPKYCCompleteViewController.swift; sourceTree = "<group>"; };
@@ -208,6 +210,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13581441290F2AC100612D8B /* RequestCard */ = {
+			isa = PBXGroup;
+			children = (
+				13581442290F2B1500612D8B /* RequestCardViewController.swift */,
+			);
+			path = RequestCard;
+			sourceTree = "<group>";
+		};
 		1EF3BAC39E57E76420CCD5AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,6 +248,7 @@
 		400AB98A28FF7F5F00A6DCB6 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				13581441290F2AC100612D8B /* RequestCard */,
 				400AB98B28FF7F5F00A6DCB6 /* EligibilityDetails */,
 				400AB99C28FF7F5F00A6DCB6 /* Registration */,
 				400AB9A128FF7F5F00A6DCB6 /* LandingScreen */,
@@ -793,7 +804,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint --fix\n";
 		};
 		BF0424111AA4307A312596D3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -901,6 +912,7 @@
 				400ABA2228FF7F6000A6DCB6 /* ACPVerifyEmailKeyboardView.swift in Sources */,
 				400ABA1E28FF7F6000A6DCB6 /* ACPCircleLoadingBarView.swift in Sources */,
 				400ABA2028FF7F6000A6DCB6 /* ACPVerifyEmailCodeView.swift in Sources */,
+				13581443290F2B1500612D8B /* RequestCardViewController.swift in Sources */,
 				403AD2252907636B00C6D556 /* ACPTabMenuImageCell.swift in Sources */,
 				400ABA0A28FF7F6000A6DCB6 /* UIViewController+Keyboard.swift in Sources */,
 				400ABA1D28FF7F6000A6DCB6 /* ACPBorderedView.swift in Sources */,

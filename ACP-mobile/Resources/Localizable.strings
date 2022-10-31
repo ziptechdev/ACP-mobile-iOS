@@ -217,3 +217,14 @@ KYC requires a selfie/clear shot of your face and a photo of the document that c
 /* Profile Screen */
 "profile_tab_title" = "Profile";
 "profile_page_title" = "Profile";
+
+/* Profile Screen */
+"request_card_title" = "Request a debit card";
+"request_card_subtitle" = "ACP Mobile VISA debit card will be sent to the address registered to your account. Please review this information before submitting the request.";
+"request_card_first_name" = "First Name";
+"request_card_last_name" = "Last Name";
+"request_card_street_num" = "Street Number and Name";
+"request_card_city" = "City";
+"request_card_state" = "State";
+"edit_btn" = "Edit";
+"request_card_btn" = "Request Card";

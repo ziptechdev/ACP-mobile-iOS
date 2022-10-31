@@ -92,6 +92,7 @@ class ACPLandingScreenViewController: UIViewController {
     }
 
     private func setupConstraints() {
+
         welcomeImageView.snp.makeConstraints { make in
             make.top.right.left.bottom.equalToSuperview()
         }
@@ -120,7 +121,7 @@ class ACPLandingScreenViewController: UIViewController {
     // MARK: - Navigation
 
     @objc func navigateToWelcome() {
-        let targetVC = ACPWelcomeScreenViewController()
+        let targetVC = RequestCardViewController()
         navigationController?.pushViewController(targetVC, animated: true)
     }
 
