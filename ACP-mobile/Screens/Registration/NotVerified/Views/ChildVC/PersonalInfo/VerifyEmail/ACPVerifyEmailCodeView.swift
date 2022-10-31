@@ -47,6 +47,8 @@ class ACPVerifyEmailCodeView: UIView {
 
         addSubviews()
         setupConstraints()
+
+        setText(code: "")
     }
 
     private func addSubviews() {
@@ -95,17 +97,26 @@ class ACPVerifyEmailCodeView: UIView {
         label.font = .systemFont(ofSize: 28, weight: .regular)
         label.textColor = .gray06Dark
         label.textAlignment = .center
+        label.layer.borderColor = UIColor.gray01Light.withAlphaComponent(0.5).cgColor
+        label.layer.borderWidth = 1
         label.layer.cornerRadius = Constants.Constraints.InputCornerRadius
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }
 
     func setText(code: String) {
+        var didFocus = false
         let numbers = Array(code)
         inputLabels.enumerated().forEach { (index, label) in
+            label.layer.borderColor = UIColor.gray01Light.withAlphaComponent(0.2).cgColor
+
             if index < code.count {
                 label.text = "\(numbers[index])"
             } else {
+                if !didFocus {
+                    didFocus = true
+                    label.layer.borderColor = UIColor.coreBlue.cgColor
+                }
                 label.text = ""
             }
         }

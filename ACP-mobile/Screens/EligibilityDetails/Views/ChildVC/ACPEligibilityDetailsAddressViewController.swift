@@ -15,6 +15,10 @@ class ACPEligibilityDetailsAddressViewController: UIViewController {
     var viewModel: ACPEligibilityDetailsViewModel?
     weak var delegate: ACPTabMenuDelegate?
 
+    private lazy var textFields: [TextInput] = [
+        streetTextField, cityTextField, stateTextField, zipTextField
+    ]
+
     // MARK: - Views
 
     private let titleLabel: UILabel = {
@@ -29,10 +33,8 @@ class ACPEligibilityDetailsAddressViewController: UIViewController {
 
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = .localizedString(key: "eligibility_address_subtitle")
+        label.attributedText = NSMutableAttributedString.subtitleString(key: "eligibility_address_subtitle")
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 14, weight: .regular)
-        label.textColor = .gray01Light
         label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 2
         return label
@@ -90,12 +92,10 @@ class ACPEligibilityDetailsAddressViewController: UIViewController {
         let button = UIButton()
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
         button.layer.masksToBounds = true
-        button.backgroundColor = .coreBlue
+        button.isUserInteractionEnabled = false
+        button.backgroundColor = .lavenderGray
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(.localizedString(key: "eligibility_address_btn"), for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.setTitleColor(.white, for: .highlighted)
-        button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
+        button.setTitle(titleKey: "eligibility_address_btn")
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         return button
     }()
@@ -201,20 +201,10 @@ class ACPEligibilityDetailsAddressViewController: UIViewController {
     // MARK: - Callback
 
     @objc func didTapButton() {
-        guard let street = streetTextField.textField.text, street != "" else {
-            return
-        }
-        viewModel?.model.dobModel.day = street
-
-        guard let city = cityTextField.textField.text, city != "" else {
-            return
-        }
-        viewModel?.model.dobModel.year = city
-
-        guard let zip = zipTextField.textField.text, zip != "" else {
-            return
-        }
-        viewModel?.model.dobModel.ssn = zip
+        viewModel?.model.addressModel.address = streetTextField.text
+        viewModel?.model.addressModel.city = cityTextField.text
+//        viewModel?.model.addressModel.state
+        viewModel?.model.addressModel.zipCode = zipTextField.text
 
         delegate?.didTapActionButton()
     }
@@ -261,16 +251,26 @@ class ACPEligibilityDetailsAddressViewController: UIViewController {
 extension ACPEligibilityDetailsAddressViewController: UITextFieldDelegate {
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == streetTextField.textField {
-            cityTextField.textField.becomeFirstResponder()
-        } else if textField == cityTextField.textField {
-            stateTextField.textField.becomeFirstResponder()
-        } else if textField == stateTextField.textField {
-            zipTextField.textField.becomeFirstResponder()
-        } else {
-            zipTextField.textField.resignFirstResponder()
+        guard let currentIndex = textFields.firstIndex(where: { $0.textField == textField }) else {
+            return true
         }
+
+        let nextIndex = currentIndex.advanced(by: 1)
+
+        if nextIndex < textFields.count {
+            textFields[nextIndex].textField.becomeFirstResponder()
+        } else if nextIndex == textFields.count {
+            textFields[currentIndex].textField.resignFirstResponder()
+        }
+
         return true
+    }
+
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        let isEnabled = textFields.allSatisfy({ !$0.isEmpty })
+
+        verifyButton.isUserInteractionEnabled = isEnabled
+        verifyButton.backgroundColor = isEnabled ? .coreBlue : .lavenderGray
     }
 }
 

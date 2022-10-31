@@ -37,13 +37,14 @@ class ACPLandingScreenViewController: UIViewController {
         return label
     }()
 
-    private let subtitleLabel: UILabel = {
+    private lazy var subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = .localizedString(key: "landing_subtitle")
+        label.attributedText = NSMutableAttributedString.subtitleString(
+            key: "landing_subtitle",
+            color: .white,
+            isCenter: true
+        )
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 14, weight: .regular)
-        label.textAlignment = .center
-        label.textColor = .white
         label.numberOfLines = 2
         label.adjustsFontSizeToFitWidth = true
         return label
@@ -51,14 +52,13 @@ class ACPLandingScreenViewController: UIViewController {
 
     private let getStartedButton: ACPImageButton = {
         let button = ACPImageButton(
+            titleKey: "landing_btn",
             spacing: Constants.Constraints.ButtonContentSpacing,
             cornerRadius: Constants.Constraints.ButtonCornerRadius,
             imageName: "right_arrow"
         )
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(.localizedString(key: "landing_btn"), for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
         return button
     }()
 

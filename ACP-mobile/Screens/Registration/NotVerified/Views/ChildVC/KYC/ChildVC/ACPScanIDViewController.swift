@@ -44,10 +44,7 @@ class ACPScanIDViewController: UIViewController {
         button.layer.masksToBounds = true
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(.localizedString(key: "kyc_scan_id_btn"), for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.setTitleColor(.white, for: .highlighted)
-        button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
+        button.setTitle(titleKey: "kyc_scan_id_btn")
         button.addTarget(self, action: #selector(didTapScanFrontButton), for: .touchUpInside)
         return button
     }()
@@ -58,10 +55,7 @@ class ACPScanIDViewController: UIViewController {
         button.layer.masksToBounds = true
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(.localizedString(key: "kyc_scan_id_btn_2"), for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.setTitleColor(.white, for: .highlighted)
-        button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
+        button.setTitle(titleKey: "kyc_scan_id_btn_2")
         button.addTarget(self, action: #selector(didTapScanBackButton), for: .touchUpInside)
         return button
     }()
@@ -120,14 +114,12 @@ class ACPScanIDViewController: UIViewController {
     }
 
     private func attributedSubitleText() -> NSMutableAttributedString {
-        let subtitle: NSString = .localizedString(key: "kyc_scan_id_subtitle")
-        let fullRange = NSRange(location: 0, length: subtitle.length)
-        let highlightRange = subtitle.range(of: .localizedString(key: "kyc_scan_id_highlight"))
+        let string: NSMutableAttributedString = .subtitleString(
+            key: "kyc_scan_id_subtitle",
+            isCenter: true
+        )
+        let highlightRange = string.range(of: .localizedString(key: "kyc_scan_id_highlight"))
 
-        let string: NSMutableAttributedString = .localizedString(key: "kyc_scan_id_subtitle")
-        string.addAttribute(.paragraphStyle, value: NSMutableParagraphStyle.center, range: fullRange)
-        string.addAttribute(.foregroundColor, value: UIColor.gray01Light, range: fullRange)
-        string.addAttribute(.font, value: UIFont.systemFont(ofSize: 14, weight: .regular), range: fullRange)
         string.addAttribute(.font, value: UIFont.systemFont(ofSize: 13, weight: .semibold), range: highlightRange)
 
         return string

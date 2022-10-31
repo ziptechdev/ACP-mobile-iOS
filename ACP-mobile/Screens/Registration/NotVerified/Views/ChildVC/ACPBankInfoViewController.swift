@@ -14,14 +14,16 @@ class ACPBankInfoViewController: UIViewController {
 
     weak var delegate: ACPTabMenuDelegate?
 
+    private lazy var textFields: [TextInput] = [
+        bankNameTextField, bankNumberTextField, accountHolderTextField, accountNumberTextField, expirationTextField
+    ]
+
     // MARK: - Views
 
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = .localizedString(key: "bank_info_subtitle")
+        label.attributedText = NSMutableAttributedString.subtitleString(key: "bank_info_subtitle")
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 14, weight: .regular)
-        label.textColor = .gray01Light
         label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 2
         return label
@@ -72,10 +74,7 @@ class ACPBankInfoViewController: UIViewController {
         button.layer.masksToBounds = true
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(.localizedString(key: "bank_info_btn"), for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.setTitleColor(.white, for: .highlighted)
-        button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
+        button.setTitle(titleKey: "bank_info_btn")
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         return button
     }()
@@ -198,18 +197,26 @@ extension ACPBankInfoViewController: ACPTermsAndPrivacyLabelDelegate {
 
 extension ACPBankInfoViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == bankNameTextField.textField {
-            bankNumberTextField.textField.becomeFirstResponder()
-        } else if textField == bankNumberTextField.textField {
-            accountHolderTextField.textField.becomeFirstResponder()
-        } else if textField == accountHolderTextField.textField {
-            accountNumberTextField.textField.becomeFirstResponder()
-        } else if textField == accountNumberTextField.textField {
-            expirationTextField.textField.becomeFirstResponder()
-        } else {
-            expirationTextField.textField.resignFirstResponder()
+        guard let currentIndex = textFields.firstIndex(where: { $0.textField == textField }) else {
+            return true
         }
+
+        let nextIndex = currentIndex.advanced(by: 1)
+
+        if nextIndex < textFields.count {
+            textFields[nextIndex].textField.becomeFirstResponder()
+        } else if nextIndex == textFields.count {
+            textFields[currentIndex].textField.resignFirstResponder()
+        }
+
         return true
+    }
+
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        let isEnabled = textFields.allSatisfy({ !$0.isEmpty })
+
+        completeButton.isUserInteractionEnabled = isEnabled
+        completeButton.backgroundColor = isEnabled ? .coreBlue : .lavenderGray
     }
 }
 

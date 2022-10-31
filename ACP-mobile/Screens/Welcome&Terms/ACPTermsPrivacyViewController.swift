@@ -80,8 +80,7 @@ class ACPTermsPrivacyViewController: UIViewController {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .coreBlue
-        button.setTitleColor(.white, for: .normal)
-        button.setTitle("Accept", for: .normal)
+        button.setTitle(titleKey: "termsPrivacy_btn")
         button.addTarget(self, action: #selector(didTapAccept), for: .touchUpInside)
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 10
@@ -191,7 +190,7 @@ class ACPTermsPrivacyViewController: UIViewController {
     // MARK: Functions
 
     @objc func didTapAccept() {
-        let targetVC = EgibilityCheckViewController()
+        let targetVC = EligibilityCheckViewController()
         navigationController?.pushViewController(targetVC, animated: true)
     }
 

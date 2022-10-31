@@ -44,11 +44,11 @@ class ACPVerifyEmailViewController: UIViewController {
 
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = .localizedString(key: "verify_email_subtitle")
+        label.attributedText = NSMutableAttributedString.subtitleString(
+            key: "verify_email_subtitle",
+            isCenter: true
+        )
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 14, weight: .regular)
-        label.textColor = .gray01Light
-        label.textAlignment = .center
         label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 3
         return label
@@ -82,10 +82,7 @@ class ACPVerifyEmailViewController: UIViewController {
         button.layer.masksToBounds = true
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(.localizedString(key: "verify_email_btn"), for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.setTitleColor(.white, for: .highlighted)
-        button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
+        button.setTitle(titleKey: "verify_email_btn")
         button.addTarget(self, action: #selector(didTapConfirm), for: .touchUpInside)
         return button
     }()
@@ -177,15 +174,13 @@ class ACPVerifyEmailViewController: UIViewController {
     }
 
     private func attributedText() -> NSMutableAttributedString {
-        let noCode: NSString = .localizedString(key: "verify_email_no_code")
-        let fullRange = NSRange(location: 0, length: noCode.length)
-        let resendRange = noCode.range(of: .localizedString(key: "verify_email_highlight"))
-
         let string: NSMutableAttributedString = .localizedString(key: "verify_email_no_code")
-        string.addAttribute(.font, value: UIFont.systemFont(ofSize: 14, weight: .regular), range: fullRange)
-        string.addAttribute(.paragraphStyle, value: NSMutableParagraphStyle.center, range: fullRange)
-        string.addAttribute(.foregroundColor, value: UIColor.gray06Dark, range: fullRange)
-        string.addAttribute(.foregroundColor, value: UIColor.coreBlue, range: resendRange)
+        let highlightRange = string.range(of: .localizedString(key: "verify_email_highlight"))
+
+        string.addAttribute(.font, value: UIFont.systemFont(ofSize: 14, weight: .regular))
+        string.addAttribute(.paragraphStyle, value: NSMutableParagraphStyle.center)
+        string.addAttribute(.foregroundColor, value: UIColor.gray06Dark)
+        string.addAttribute(.foregroundColor, value: UIColor.coreBlue, range: highlightRange)
 
         return string
     }
@@ -201,10 +196,10 @@ class ACPVerifyEmailViewController: UIViewController {
             return
         }
 
-        let noCode: NSString = .localizedString(key: "verify_email_no_code")
-        let resendRange = noCode.range(of: .localizedString(key: "verify_email_highlight"))
+        let string: String = .localizedString(key: "verify_email_no_code")
+        let highlightRange = string.range(of: .localizedString(key: "verify_email_highlight"))
 
-        if sender.didTapAttributedTextInLabel(label: resendCodeLabel, inRange: resendRange) {
+        if sender.didTapAttributedTextInLabel(label: resendCodeLabel, inRange: highlightRange) {
             // TODO: Add Link
             print("Resend")
         }

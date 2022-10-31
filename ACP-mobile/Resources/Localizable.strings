@@ -3,8 +3,11 @@
 "info_label_privacy" = "Privacy Policy";
 "info_label_terms" = "Terms of Use";
 
+/* Tab Bar */
+"back_button" = "Back";
+
 /* Months */
-"month_1" = "Janauary";
+"month_1" = "January";
 "month_2" = "February";
 "month_3" = "March";
 "month_4" = "April";
@@ -19,7 +22,7 @@
 
 /* Landing Screen */
 "landing_title" = "Welcome to ACP Mobile";
-"landing_subtitle" = "This is your first time exploring ACP Mobile app. Press ‘Get Started’ button to explore the benfits.";
+"landing_subtitle" = "This is your first time exploring ACP Mobile app. Press ‘Get Started’ button to explore the benefits.";
 "landing_btn" = "Get Started";
 
 /* Welcome Screen */
@@ -39,16 +42,16 @@
 "eligibility_page_title" = "Eligibility Check";
 
 /* Screen 1 */
-"eligibility_title" = "Check egibility or create new account";
-"eligibility_subtitle" = "ACP requires proof of your identity to check if you are eligible for any of the assistance programs approved by FCC. If you are already receiving government benefits, check your eligiblity status by clicking the button below. Otherwise create a new account and follow the required steps in order to verify your identitiy.*";
-"eligibility_btn" = "Check Egibility";
+"eligibility_title" = "Check eligibility or create new account";
+"eligibility_subtitle" = "ACP requires proof of your identity to check if you are eligible for any of the assistance programs approved by FCC. If you are already receiving government benefits, check your eligibility status by clicking the button below. Otherwise, create a new account and follow the required steps to verify your identity.*";
+"eligibility_btn" = "Check Eligibility";
 "new_account_btn" = "New Account";
 "eligibility_info" = "*All of your personal and identity information goes through National Verifier (NV), a body of FCC. No information is stored by us or third-party services.";
 "eligibility_details_highlight_text" = "assistance programs";
 
 /* Screen 2 */
 "eligibility_zip_title" = "Start by entering your ZIP code";
-"eligibility_zip_subtitle" = "After entering ZIP code you will be required to enter your personal information in order to verify identitiy.";
+"eligibility_zip_subtitle" = "After entering ZIP code you will be required to enter your personal information to verify identity.";
 "eligibility_zip_label" = "Your ZIP Code";
 "eligibility_zip_error" = "ZIP Code Invalid";
 "eligibility_zip_btn" = "Next";
@@ -95,21 +98,21 @@
 
 /* Eligibility Verifying Fail Screen */
 "verify_fail_title" = "We could not verify your identity.";
-"verify_fail_subtitle" = "You either entered wrong information or there is no such data in National Verifier system.";
+"verify_fail_subtitle" = "You either entered wrong information or there is no such data in the National Verifier system.";
 "verify_fail_highlight" = "National Verifier";
 "verify_fail_try_again" = "Try Again";
 "verify_fail_new_account" = "New Account";
 
 /* Eligibility Verifying Success Screen */
 "verify_success_title" = "Welcome, %@!";
-"verify_success_subtitle" = "Success! Your identity has been verified and you are eligible for ACP. You can continue by registering new ACP Mobile account.";
+"verify_success_subtitle" = "Success! Your identity has been verified and you are eligible for ACP. You can continue by registering a new ACP Mobile account.";
 "verify_success_register" = "Register";
 "verify_success_cancel" = "Cancel";
 
 /* Verified Registration Screen */
 "verified_register_page_title" = "Register";
 "verified_register_title" = "Register new account";
-"verified_register_subtitle" = "Hi %@! Register new account by entering your email address and password below.";
+"verified_register_subtitle" = "Hi John! Register a new account by entering your email address and password below.";
 "verified_register_email" = "Email Address";
 "verified_register_password" = "Password";
 "verified_register_confirm" = "Confirm Password";
@@ -118,8 +121,8 @@
 /* Not Verified Registration Screen */
 "not_verified_register_page_title" = "Registration";
 "not_verified_register_title" = "Create new account";
-"not_verified_register_subtitle" = "Follow the registration and verification process to see if youre eligible for ACP services.";
-"not_verified_register_details" = "After successfully completing the process, you will be awarded $10 to your digital wallet to spend with one of our partners.";
+"not_verified_register_subtitle" = "Follow the registration and verification process to see if you're eligible for ACP services.";
+"not_verified_register_details" = "After completing the process, you will be awarded $10 to your digital wallet to spend with one of our partners.";
 "not_verified_register_highlight" = "partners";
 "not_verified_register_btn" = "Get Started";
 
@@ -147,15 +150,15 @@
 
 /* KYC Screen */
 "kyc_title" = "KYC verification";
-"kyc_subtitle" = "You are required to go through KYC (Know Your Customer) process in order to continue.
+"kyc_subtitle" = "You are required to go through KYC (Know Your Customer) process to continue.
 KYC requires a selfie/clear shot of your face and a photo of the document that confirms your identity (ID, passport, resident card, driver’s license).";
 "kyc_highlight" = "KYC (Know Your Customer)";
 "kyc_btn" = "Start Verification";
 
 /* KYC Selfie Screen */
 "kyc_scan_id_title" = "Scan ID document";
-"kyc_scan_id_subtitle" = "Position one of the following documents in frame: \nPassport  |  ID  |  Resident Card  |  Driver’s License";
-"kyc_scan_id_highlight" = "Passport  |  ID  |  Resident Card  |  Driver’s License";
+"kyc_scan_id_subtitle" = "Position one of the following documents in frame: \nPassport | ID | Resident Card | Driver’s License";
+"kyc_scan_id_highlight" = "Passport | ID | Resident Card | Driver’s License";
 "kyc_scan_id_btn" = "Scan Front";
 "kyc_scan_id_btn_2" = "Scan Back";
 
@@ -166,7 +169,7 @@ KYC requires a selfie/clear shot of your face and a photo of the document that c
 "kyc_selfie_btn_2" = "Upload Photo";
 
 /* KYC Success Screen */
-"kyc_success_title" = "Verfication complete!";
+"kyc_success_title" = "Verification complete!";
 "kyc_success_subtitle" = "You’ve done your part. Now it’s time for us to back-check your information and approve registration. This process may take 2-3 business days.";
 "kyc_success_btn" = "Done";
 
@@ -210,3 +213,32 @@ KYC requires a selfie/clear shot of your face and a photo of the document that c
  "acp_successfull_desc" = "Your ACP application has been successfully submitted and will be reviewed within 2-3 business days. If everything is correct, you will receive funds immediately and your device will be shipped within 5 businss days. Check notifications for further updates about the package.";
  "acp_successfull_register_btn" = "Done";
 
+/* Home Screen */
+"home_tab_title" = "Home";
+"home_page_title" = "Home";
+
+/* Wallet Screen */
+"wallet_tab_title" = "Wallet";
+"wallet_page_title" = "My Wallet";
+"wallet_balance" = "Total Balance";
+"wallet_credit_card" = "Credit Card";
+"wallet_debit_card" = "Debit Card";
+"wallet_btn" = "New Card";
+"wallet_transactions" = "Transactions";
+"wallet_transactions_details" = "Details";
+
+/* Empty Wallet Screen */
+"empty_wallet_title" = "You need a card!";
+"empty_wallet_subtitle" = "To spend your funds you have to request a debit card by clicking the button below.";
+"empty_wallet_btn" = "Request Card";
+"empty_wallet_balance" = "Total balance in USD:";
+"empty_wallet_balance_highlight" = "USD";
+
+/* Wallet Success Screen */
+"wallet_success_title" = "Confirmed!";
+"wallet_success_subtitle" = "Your VISA debit card request has been successfully submitted. The card will be shipped to your address within 2-3 business days.";
+"wallet_success_btn" = "Done";
+
+/* Profile Screen */
+"profile_tab_title" = "Profile";
+"profile_page_title" = "Profile";

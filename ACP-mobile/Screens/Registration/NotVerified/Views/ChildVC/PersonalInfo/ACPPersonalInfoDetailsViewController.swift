@@ -15,6 +15,11 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
     private var isSecureEntry = true
     weak var delegate: ACPTabMenuDelegate?
 
+    private lazy var textFields: [TextInput] = [
+        nameTextField, lastNameTextField, emailTextField, phoneTextField, passwordTextField,
+        confirmTextField, ssnTextField
+    ]
+
     // MARK: - Views
 
     private let scrollView: UIScrollView = {
@@ -34,10 +39,8 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
 
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = .localizedString(key: "personal_info_subtitle")
+        label.attributedText = NSMutableAttributedString.subtitleString(key: "personal_info_subtitle")
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 14, weight: .regular)
-        label.textColor = .gray01Light
         label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 2
         return label
@@ -77,8 +80,9 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
         let view = ACPTextField()
         view.titleLabel.text = .localizedString(key: "personal_info_password")
         view.textField.delegate = self
-        view.textField.isSecureTextEntry = isSecureEntry
-        view.textField.addRightImage(named: "eye", imageColor: .gray01Light)
+        view.toggleSecureEntry(isSecureEntry)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(toggleSecureEntry))
+        view.textFieldImage?.addGestureRecognizer(tap)
         return view
     }()
 
@@ -86,8 +90,9 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
         let view = ACPTextField()
         view.titleLabel.text = .localizedString(key: "personal_info_confirm")
         view.textField.delegate = self
-        view.textField.isSecureTextEntry = isSecureEntry
-        view.textField.addRightImage(named: "eye", imageColor: .gray01Light)
+        view.toggleSecureEntry(isSecureEntry)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(toggleSecureEntry))
+        view.textFieldImage?.addGestureRecognizer(tap)
         return view
     }()
 
@@ -102,14 +107,14 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
 
     private lazy var nextButton: ACPImageButton = {
         let button = ACPImageButton(
+            titleKey: "personal_info_btn",
             spacing: Constants.Constraints.ButtonContentSpacing,
             cornerRadius: Constants.Constraints.ButtonCornerRadius,
             imageName: "right_arrow"
         )
-        button.backgroundColor = .coreBlue
+        button.isUserInteractionEnabled = false
+        button.backgroundColor = .lavenderGray
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(.localizedString(key: "personal_info_btn"), for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         return button
     }()
@@ -212,8 +217,37 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
 
     // MARK: - Callback
 
+    @objc func toggleSecureEntry() {
+        isSecureEntry = !isSecureEntry
+
+        passwordTextField.toggleSecureEntry(isSecureEntry)
+        confirmTextField.toggleSecureEntry(isSecureEntry)
+    }
+
     @objc func didTapButton() {
+        guard checkPasswords() else {
+            return
+        }
+
         delegate?.didTapNextButton()
+    }
+
+    func checkPasswords() -> Bool {
+        let passwordsMatch = passwordTextField.text == confirmTextField.text
+
+        if !passwordsMatch {
+            showError(true)
+        }
+
+        return passwordsMatch
+    }
+
+    func showError(_ show: Bool) {
+        if show {
+            confirmTextField.showError(message: "Passwords do not match")
+        } else {
+            confirmTextField.hideError()
+        }
     }
 
     // MARK: - Constants
@@ -254,22 +288,28 @@ extension ACPPersonalInfoDetailsViewController: ACPTermsAndPrivacyLabelDelegate 
 
 extension ACPPersonalInfoDetailsViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == nameTextField.textField {
-            lastNameTextField.textField.becomeFirstResponder()
-        } else if textField == lastNameTextField.textField {
-            emailTextField.textField.becomeFirstResponder()
-        } else if textField == emailTextField.textField {
-            phoneTextField.textField.becomeFirstResponder()
-        } else if textField == phoneTextField.textField {
-            passwordTextField.textField.becomeFirstResponder()
-        } else if textField == passwordTextField.textField {
-            confirmTextField.textField.becomeFirstResponder()
-        } else if textField == confirmTextField.textField {
-            ssnTextField.textField.becomeFirstResponder()
-        } else {
-            ssnTextField.textField.resignFirstResponder()
+        guard let currentIndex = textFields.firstIndex(where: { $0.textField == textField }) else {
+            return true
         }
+
+        let nextIndex = currentIndex.advanced(by: 1)
+
+        if nextIndex < textFields.count {
+            textFields[nextIndex].textField.becomeFirstResponder()
+        } else if nextIndex == textFields.count {
+            textFields[currentIndex].textField.resignFirstResponder()
+        }
+
         return true
+    }
+
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        showError(false)
+        
+        let isEnabled = textFields.allSatisfy({ !$0.isEmpty })
+
+        nextButton.isUserInteractionEnabled = isEnabled
+        nextButton.backgroundColor = isEnabled ? .coreBlue : .lavenderGray
     }
 }
 

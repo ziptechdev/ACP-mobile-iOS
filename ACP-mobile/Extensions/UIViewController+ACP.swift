@@ -11,7 +11,6 @@ extension UIViewController {
 
     // MARK: - Right Navigation Button
 
-    /// Adds an X button to the left side
     func setupRightNavigationBarButton(color: UIColor? = nil) {
         let image: UIImage?
         if color != nil {
@@ -45,11 +44,30 @@ extension UIViewController {
         navigationController?.popToRootViewController(animated: true)
     }
 
+    func setupNotificationsBarButton() {
+        let button = UIBarButtonItem(
+            image: UIImage(named: "bell")?.withRenderingMode(.alwaysOriginal),
+            style: .plain,
+            target: self,
+            action: nil
+        )
+
+        let spacer = UIBarButtonItem(
+            barButtonSystemItem: .fixedSpace,
+            target: nil,
+            action: nil
+        )
+        spacer.width = 15
+
+        navigationItem.rightBarButtonItems = [spacer, button]
+    }
+
     // MARK: - Left Navigation Button
 
-    /// Adds a back button with an arrow to the right side
     func setupLeftNavigationBarButton(color: UIColor = .gray01Light) {
         let button = ACPImageButton(
+            titleKey: "back_button",
+            font: .systemFont(ofSize: 16, weight: .medium),
             horizontal: 15,
             spacing: 7,
             cornerRadius: 0,
@@ -58,9 +76,7 @@ extension UIViewController {
             isLeft: true
         )
 
-        button.setTitle("Back", for: .normal)
         button.addTarget(self, action: #selector(didTapLeftButton), for: .touchUpInside)
-        button.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
 
         navigationItem.leftBarButtonItems = [UIBarButtonItem(customView: button)]
     }
@@ -71,5 +87,23 @@ extension UIViewController {
         }
 
         navigationController.backButtonAction()
+    }
+
+    func setupHamburgerBarButton() {
+        let button = UIBarButtonItem(
+            image: UIImage(named: "hamburger")?.withRenderingMode(.alwaysOriginal),
+            style: .plain,
+            target: self,
+            action: nil
+        )
+
+        let spacer = UIBarButtonItem(
+            barButtonSystemItem: .fixedSpace,
+            target: nil,
+            action: nil
+        )
+        spacer.width = 15
+
+        navigationItem.leftBarButtonItems = [spacer, button]
     }
 }

@@ -15,6 +15,10 @@ class ACPEligibilityDetailsNameViewController: UIViewController {
     var viewModel: ACPEligibilityDetailsViewModel?
     weak var delegate: ACPTabMenuDelegate?
 
+    private lazy var textFields: [TextInput] = [
+        nameTextField, middleNameTextField, lastNameTextField
+    ]
+
     // MARK: - Views
 
     private let titleLabel: UILabel = {
@@ -29,10 +33,8 @@ class ACPEligibilityDetailsNameViewController: UIViewController {
 
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = .localizedString(key: "eligibility_details_subtitle")
+        label.attributedText = NSMutableAttributedString.subtitleString(key: "eligibility_details_subtitle")
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 14, weight: .regular)
-        label.textColor = .gray01Light
         label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 2
         return label
@@ -70,14 +72,14 @@ class ACPEligibilityDetailsNameViewController: UIViewController {
 
     private lazy var nextButton: ACPImageButton = {
         let button = ACPImageButton(
+            titleKey: "eligibility_details_btn",
             spacing: Constants.Constraints.ButtonContentSpacing,
             cornerRadius: Constants.Constraints.ButtonCornerRadius,
             imageName: "right_arrow"
         )
-        button.backgroundColor = .coreBlue
+        button.isUserInteractionEnabled = false
+        button.backgroundColor = .lavenderGray
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(.localizedString(key: "eligibility_details_btn"), for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         return button
     }()
@@ -160,13 +162,12 @@ class ACPEligibilityDetailsNameViewController: UIViewController {
     }
 
     private func attributedTitleText() -> NSMutableAttributedString {
-        let middleName: NSString = .localizedString(key: "eligibility_details_middle_name")
-        let fullRange = NSRange(location: 0, length: middleName.length)
-        let optionalRange = middleName.range(of: .localizedString(key: "eligibility_details_highlight"))
-
         let string: NSMutableAttributedString = .localizedString(key: "eligibility_details_middle_name")
-        string.addAttribute(.foregroundColor, value: UIColor.gray06Dark, range: fullRange)
-        string.addAttribute(.foregroundColor, value: UIColor.gray01Light, range: optionalRange)
+        let highlightRange = string.range(of: .localizedString(key: "eligibility_details_highlight"))
+
+        string.addAttribute(.foregroundColor, value: UIColor.gray06Dark)
+        string.addAttribute(.font, value: UIFont.systemFont(ofSize: 14, weight: .regular))
+        string.addAttribute(.foregroundColor, value: UIColor.gray01Light, range: highlightRange)
 
         return string
     }
@@ -186,19 +187,9 @@ class ACPEligibilityDetailsNameViewController: UIViewController {
     // MARK: - Callback
 
     @objc func didTapButton() {
-        guard let name = nameTextField.textField.text, name != "" else {
-            return
-        }
-        viewModel?.model.nameModel.name = name
-
-        if let middleName = middleNameTextField.textField.text {
-            viewModel?.model.nameModel.middleName = middleName
-        }
-
-        guard let lastName = lastNameTextField.textField.text, lastName != "" else {
-            return
-        }
-        viewModel?.model.nameModel.lastName = lastName
+        viewModel?.model.nameModel.name = nameTextField.text
+        viewModel?.model.nameModel.middleName = middleNameTextField.text
+        viewModel?.model.nameModel.lastName = lastNameTextField.text
 
         delegate?.didTapNextButton()
     }
@@ -227,13 +218,26 @@ class ACPEligibilityDetailsNameViewController: UIViewController {
 
 extension ACPEligibilityDetailsNameViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == nameTextField.textField {
-            middleNameTextField.textField.becomeFirstResponder()
-        } else if textField == middleNameTextField.textField {
-            lastNameTextField.textField.becomeFirstResponder()
-        } else {
-            lastNameTextField.textField.resignFirstResponder()
+        guard let currentIndex = textFields.firstIndex(where: { $0.textField == textField }) else {
+            return true
         }
+
+        let nextIndex = currentIndex.advanced(by: 1)
+
+        if nextIndex < textFields.count {
+            textFields[nextIndex].textField.becomeFirstResponder()
+        } else if nextIndex == textFields.count {
+            textFields[currentIndex].textField.resignFirstResponder()
+        }
+
         return true
+    }
+
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        let textFieldsToCheck = textFields.filter({ $0.textField != middleNameTextField.textField })
+        let isEnabled = textFieldsToCheck.allSatisfy({ !$0.isEmpty })
+
+        nextButton.isUserInteractionEnabled = isEnabled
+        nextButton.backgroundColor = isEnabled ? .coreBlue : .lavenderGray
     }
 }

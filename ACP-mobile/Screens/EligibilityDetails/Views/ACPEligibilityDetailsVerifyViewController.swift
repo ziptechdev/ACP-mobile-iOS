@@ -56,11 +56,18 @@ class ACPEligibilityDetailsVerifyViewController: UIViewController {
         button.layer.masksToBounds = true
         button.backgroundColor = .clear
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(.localizedString(key: "verify_process_btn"), for: .normal)
-        button.setTitleColor(.coreBlue, for: .normal)
-        button.setTitleColor(.coreBlue, for: .highlighted)
-        button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
+        button.setTitle(titleKey: "verify_process_btn", textColor: .coreBlue)
         button.addTarget(self, action: #selector(didTapCancel), for: .touchUpInside)
+        return button
+    }()
+
+    private lazy var failButton: UIButton = {
+        let button = UIButton()
+        button.layer.masksToBounds = true
+        button.backgroundColor = .clear
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle(titleKey: "Force Fail", textColor: .coreBlue)
+        button.addTarget(self, action: #selector(testNav), for: .touchUpInside)
         return button
     }()
 
@@ -87,6 +94,8 @@ class ACPEligibilityDetailsVerifyViewController: UIViewController {
 
         addSubviews()
         setupConstraints()
+
+        setupTest()
     }
 
     private func addSubviews() {
@@ -126,15 +135,13 @@ class ACPEligibilityDetailsVerifyViewController: UIViewController {
     }
 
     private func subtitleAttributedText() -> NSAttributedString {
-        let subtitle: NSString = .localizedString(key: "verify_process_subtitle")
-        let fullRange = NSRange(location: 0, length: subtitle.length)
-        let attributeRange = subtitle.range(of: .localizedString(key: "verify_process_highlight"))
+        let string: NSMutableAttributedString = .subtitleString(
+            key: "verify_process_subtitle",
+            isCenter: true
+        )
 
-        let string: NSMutableAttributedString = .localizedString(key: "verify_process_subtitle")
-        string.addAttribute(.font, value: UIFont.systemFont(ofSize: 14, weight: .regular), range: fullRange)
-        string.addAttribute(.paragraphStyle, value: NSMutableParagraphStyle.center, range: fullRange)
-        string.addAttribute(.foregroundColor, value: UIColor.gray01Light, range: fullRange)
-        string.addAttribute(.foregroundColor, value: UIColor.coreBlue, range: attributeRange)
+        let highlightRange = string.range(of: .localizedString(key: "verify_process_highlight"))
+        string.addAttribute(.foregroundColor, value: UIColor.coreBlue, range: highlightRange)
 
         return string
     }
@@ -169,6 +176,8 @@ class ACPEligibilityDetailsVerifyViewController: UIViewController {
     }
 
     @objc func didTapCancel() {
+        loadingTimer?.invalidate()
+
         navigationController?.popViewController(animated: true)
     }
 
@@ -177,13 +186,32 @@ class ACPEligibilityDetailsVerifyViewController: UIViewController {
             return
         }
 
-        let subtitle: NSString = .localizedString(key: "verify_process_subtitle")
-        let attributeRange = subtitle.range(of: .localizedString(key: "verify_process_highlight"))
+        let string: String = .localizedString(key: "verify_process_subtitle")
+        let highlightRange = string.range(of: .localizedString(key: "verify_process_highlight"))
 
-        if sender.didTapAttributedTextInLabel(label: subtitleLabel, inRange: attributeRange) {
+        if sender.didTapAttributedTextInLabel(label: subtitleLabel, inRange: highlightRange) {
             // TODO: Add Link
             print("NationalVerifier")
         }
+    }
+
+    // MARK: - TEST
+
+    private func setupTest() {
+        view.addSubview(failButton)
+
+        failButton.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
+            make.height.equalTo(Constants.Constraints.ButtonHeight)
+            make.top.equalTo(cancelButton.snp.bottom).offset(20)
+        }
+    }
+
+    @objc func testNav() {
+        loadingTimer?.invalidate()
+
+        let targetVC = ACPEligibilityDetailsFailViewController()
+        navigationController?.pushViewController(targetVC, animated: true)
     }
 
     // MARK: - Navigation
@@ -216,7 +244,7 @@ class ACPEligibilityDetailsVerifyViewController: UIViewController {
 
         struct Numbers {
             // TODO: Add real time
-            static let LoadingTime: Double = 20
+            static let LoadingTime: Double = 10
         }
     }
 }

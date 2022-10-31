@@ -9,7 +9,9 @@ import UIKit
 
 class ACPImageButton: UIButton {
 
-    init(horizontal: CGFloat = 0,
+    init(titleKey: String? = nil,
+         font: UIFont? = nil,
+         horizontal: CGFloat = 0,
          spacing: CGFloat,
          cornerRadius: CGFloat,
          imageName: String,
@@ -45,14 +47,12 @@ class ACPImageButton: UIButton {
         layer.cornerRadius = cornerRadius
         layer.masksToBounds = true
 
-        setTitleColor(textColor, for: .normal)
+        if let titleKey = titleKey {
+            setTitle(titleKey: titleKey, textColor: textColor, font: font)
+        }
+
         setImage(image, for: .normal)
-
-        // To simulate animate click comment next 2 lines
-        setTitleColor(textColor, for: .highlighted)
         setImage(image, for: .highlighted)
-
-        setTitleColor(textColor, for: .disabled)
         setImage(image, for: .disabled)
     }
 
