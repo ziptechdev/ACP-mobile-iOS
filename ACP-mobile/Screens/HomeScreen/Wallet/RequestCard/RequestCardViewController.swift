@@ -11,29 +11,30 @@ import SnapKit
 class RequestCardViewController: UIViewController {
 
     // MARK: - Properties
+    var viewModel: RequestCardViewModel?
 
     private lazy var textFields: [TextInput] = [
-       firstNameTextField, lastNameTextField, streetTextField, cityTextField, stateTextField, zipTextField, phoneTextField, firstNameTextField, lastNameTextField
+        firstNameTextField, lastNameTextField, streetTextField, cityTextField, stateTextField, zipTextField, phoneTextField
     ]
     private lazy var textFieldsACP: [ACPTextField] = [
-       firstNameTextField, lastNameTextField, streetTextField, cityTextField, zipTextField, phoneTextField, firstNameTextField, lastNameTextField
+        firstNameTextField, lastNameTextField, streetTextField, cityTextField, zipTextField, phoneTextField, firstNameTextField, lastNameTextField
     ]
     private var isEditable = false
 
     // MARK: - Views
 
-    private let scrollView: UIScrollView = {
-        let view = UIScrollView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.showsVerticalScrollIndicator = false
-        view.backgroundColor = .white
-        return view
+    let scrollView: UIScrollView = {
+        let sv = UIScrollView()
+        sv.translatesAutoresizingMaskIntoConstraints = false
+        sv.showsVerticalScrollIndicator = false
+        sv.backgroundColor = .white
+        return sv
     }()
 
     private let contentView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .red
+        view.backgroundColor = .white
         return view
     }()
     private let titleLabel: UILabel = {
@@ -50,6 +51,7 @@ class RequestCardViewController: UIViewController {
         let label = UILabel()
         label.attributedText = NSMutableAttributedString.subtitleString(key: "request_card_subtitle")
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .left
         label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 0
         return label
@@ -116,24 +118,25 @@ class RequestCardViewController: UIViewController {
         return view
     }()
 
-    let editButton: ACPImageButton = {
-         let button = ACPImageButton(
-             spacing: Constants.Constraints.ButtonCornerRadius,
-             cornerRadius: Constants.Constraints.ButtonCornerRadius,
-             imageName: "edit",
-             textColor: .coreBlue,
-             isLeft: true
-         )
-         button.backgroundColor = .clear
-         button.translatesAutoresizingMaskIntoConstraints = false
-         button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
-         button.layer.borderWidth = 1
-         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
-         button.layer.borderColor = UIColor.coreBlue.cgColor
-         button.translatesAutoresizingMaskIntoConstraints = false
-         button.setTitle(.localizedString(key: "edit_btn"), for: .normal)
-         return button
-     }()
+    private lazy var editButton: ACPImageButton = {
+        let button = ACPImageButton(
+            spacing: Constants.Constraints.ButtonCornerRadius,
+            cornerRadius: Constants.Constraints.ButtonCornerRadius,
+            imageName: "edit",
+            textColor: .coreBlue,
+            isLeft: true
+        )
+        button.backgroundColor = .clear
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
+        button.layer.borderWidth = 1
+        button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
+        button.layer.borderColor = UIColor.coreBlue.cgColor
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle(.localizedString(key: "edit_btn"), for: .normal)
+        button.addTarget(self, action: #selector(didTapEdit), for: .touchUpInside)
+        return button
+    }()
 
     private lazy var requestCardButton: UIButton = {
         let button = UIButton()
@@ -143,7 +146,7 @@ class RequestCardViewController: UIViewController {
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(titleKey: "request_card_btn")
-        button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didTapRequestCardButton), for: .touchUpInside)
         return button
     }()
 
@@ -155,23 +158,18 @@ class RequestCardViewController: UIViewController {
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(titleKey: "request_card_save_btn")
-        button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didTapSaveButton), for: .touchUpInside)
         button.isHidden = true
         return button
     }()
+
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         enabledTextFields()
-
-        editButton.addTarget(self, action: #selector(didTapEdit), for: .touchUpInside)
-
-        //   showValuesIfPresent()
-    }
-    override func viewDidAppear(_ animated: Bool) {
-    //   scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        showValuesIfPresent()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -180,8 +178,8 @@ class RequestCardViewController: UIViewController {
         title = .localizedString(key: "my_wallet_title")
         navigationController?.navigationBar.isHidden = false
 
-        setupRightNavigationBarButton()
-        setupLeftNavigationBarButton()
+        setupHamburgerBarButton()
+        setupNotificationsBarButton()
         addKeyboardObserver()
     }
 
@@ -199,51 +197,35 @@ class RequestCardViewController: UIViewController {
     }
 
     private func addSubviews() {
-//        contentView.addSubview(titleLabel)
-//        contentView.addSubview(subtitleLabel)
-//        contentView.addSubview(firstNameTextField)
-//        contentView.addSubview(lastNameTextField)
-//        contentView.addSubview(streetTextField)
-//        contentView.addSubview(cityTextField)
-//        contentView.addSubview(stateTextField)
-//        contentView.addSubview(zipTextField)
-//        contentView.addSubview(phoneTextField)
-//        contentView.addSubview(editButton)
-//        contentView.addSubview(requestCardButton)
-      //  scrollView.addSubview(contentView)
-    //    view.addSubview(scrollView)
-        view.addSubview(titleLabel)
-        view.addSubview(subtitleLabel)
-        view.addSubview(firstNameTextField)
-        view.addSubview(lastNameTextField)
-        view.addSubview(streetTextField)
-        view.addSubview(cityTextField)
-        view.addSubview(stateTextField)
-        view.addSubview(zipTextField)
-        view.addSubview(phoneTextField)
-        view.addSubview(saveButton)
-        view.addSubview(editButton)
-        view.addSubview(requestCardButton)
+        scrollView.addSubview(contentView)
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(subtitleLabel)
+        contentView.addSubview(firstNameTextField)
+        contentView.addSubview(lastNameTextField)
+        contentView.addSubview(streetTextField)
+        contentView.addSubview(cityTextField)
+        contentView.addSubview(stateTextField)
+        contentView.addSubview(zipTextField)
+        contentView.addSubview(phoneTextField)
+        contentView.addSubview(saveButton)
+        contentView.addSubview(editButton)
+        contentView.addSubview(requestCardButton)
 
-        view.backgroundColor = .white
-
+        view.addSubview(scrollView)
     }
 
     private func setupConstraints() {
-//        scrollView.snp.makeConstraints { make in
-//            make.width.centerX.top.bottom.equalToSuperview()
-//           // make.top.equalToSuperview().offset(5)
-//
-//          //  make.top.equalTo(snp.top).offset(25)
-//        }
+        scrollView.snp.makeConstraints { make in
+            make.width.centerX.top.bottom.equalToSuperview()
+        }
 
-//        contentView.snp.makeConstraints { make in
-//            make.left.right.top.bottom.width.equalToSuperview()
-//        }
+        contentView.snp.makeConstraints { make in
+            make.left.right.top.bottom.width.equalToSuperview()
+        }
 
         titleLabel.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.top.equalToSuperview().offset(80)
+            make.top.equalToSuperview().offset(Constants.Constraints.ContentInsetVertical)
         }
 
         subtitleLabel.snp.makeConstraints { make in
@@ -300,21 +282,45 @@ class RequestCardViewController: UIViewController {
             make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
             make.height.equalTo(Constants.Constraints.ButtonHeight)
             make.top.equalTo(editButton.snp.bottom).offset(Constants.Constraints.StreetOffsetVertical)
+            make.bottom.equalToSuperview().inset(Constants.Constraints.TextFieldSpacing)
         }
+    }
+
+    // MARK: - Presenting
+
+    private func showValuesIfPresent() {
+        guard let viewModel = viewModel else {
+            return
+        }
+        firstNameTextField.textField.text = viewModel.firstName
+        lastNameTextField.textField.text = viewModel.lastName
+        streetTextField.textField.text = viewModel.address
+        cityTextField.textField.text = viewModel.city
+        pickerView(stateTextField.pickerView, didSelectRow: viewModel.state, inComponent: 0)
+        zipTextField.textField.text = viewModel.zipCode
+        phoneTextField.textField.text = viewModel.phoneNumber
     }
 
     // MARK: - Callback
 
-    @objc func didTapButton() {
-        print("tudenak")
+    @objc func didTapSaveButton() {
         isEditable = false
         enabledTextFields()
+        viewModel?.firstName = firstNameTextField.textField.text ?? ""
+        viewModel?.address = streetTextField.textField.text ?? ""
+        viewModel?.city = cityTextField.textField.text ?? ""
+        viewModel?.zipCode = zipTextField.textField.text ?? ""
+        viewModel?.phoneNumber = phoneTextField.textField.text ?? ""
+
     }
     @objc func didTapEdit() {
-        print("tudenak ed")
         isEditable = true
         enabledTextFields()
 
+    }
+    @objc func didTapRequestCardButton() {
+        isEditable = false
+        enabledTextFields()
     }
     @objc private func textFieldDidChange(_ textField: UITextField) {
         guard var text = textField.text else {
@@ -336,20 +342,31 @@ class RequestCardViewController: UIViewController {
     private func enabledTextFields() {
         if isEditable {
             textFieldsACP.forEach { textFieldacp in
-                textFieldacp.textField.backgroundColor = .white
-                textFieldacp.textField.isUserInteractionEnabled = true
-                textFieldacp.textField.textColor = .gray06Dark
+                if textFieldacp == firstNameTextField || textFieldacp == lastNameTextField {
+
+                } else {
+                    textFieldacp.textField.backgroundColor = .white
+                    textFieldacp.textField.isUserInteractionEnabled = true
+                    textFieldacp.textField.textColor = .gray06Dark
+                }
 
             }
+
+            stateTextField.textField.isUserInteractionEnabled = true
+            stateTextField.textField.backgroundColor = .white
             saveButton.isHidden = false
             editButton.isHidden = true
             requestCardButton.isHidden = true
+
         } else {
             textFieldsACP.forEach { textFieldacp in
                 textFieldacp.textField.backgroundColor = .lavenderGray
                 textFieldacp.textField.isUserInteractionEnabled = false
                 textFieldacp.textField.textColor = .gray06Dark
             }
+            stateTextField.textField.isUserInteractionEnabled = false
+            stateTextField.textField.backgroundColor = .lavenderGray
+
             saveButton.isHidden = true
             editButton.isHidden = false
             requestCardButton.isHidden = false
@@ -386,7 +403,6 @@ extension RequestCardViewController: UITextFieldDelegate {
         }
 
         let nextIndex = currentIndex.advanced(by: 1)
-
         if nextIndex < textFields.count {
             textFields[nextIndex].textField.becomeFirstResponder()
         } else if nextIndex == textFields.count {
@@ -398,9 +414,9 @@ extension RequestCardViewController: UITextFieldDelegate {
 
     func textFieldDidChangeSelection(_ textField: UITextField) {
         let isEnabled = textFields.allSatisfy({ !$0.isEmpty })
+          saveButton.isUserInteractionEnabled = isEnabled
+          saveButton.backgroundColor = isEnabled ? .coreBlue : .lavenderGray
 
-      //  requestCardButton.isUserInteractionEnabled = isEnabled
-     //   requestCardButton.backgroundColor = isEnabled ? .coreBlue : .lavenderGray
     }
 }
 
@@ -417,14 +433,14 @@ extension RequestCardViewController: ACPToolbarDelegate {
 
 extension RequestCardViewController: UIPickerViewDelegate {
 
-    //    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-    //         return viewModel?.model.addressModel.stateOptions[row]
-    //    }
-    //
-    //    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-    //        viewModel?.model.addressModel.state = row
-    //        stateTextField.textField.text = viewModel?.model.addressModel.stateOptions[row]
-    //    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return viewModel?.stateOptions[row]
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        viewModel?.state = row
+        stateTextField.textField.text = viewModel?.stateOptions[row]
+    }
 }
 
 // MARK: - UIPickerViewDelegate
@@ -436,6 +452,6 @@ extension RequestCardViewController: UIPickerViewDataSource {
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 1 // viewModel?.model.addressModel.stateOptions.count ?? 0
+        return  viewModel?.stateOptions.count ?? 0
     }
 }

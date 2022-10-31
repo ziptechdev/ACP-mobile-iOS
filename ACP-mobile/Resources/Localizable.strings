@@ -227,4 +227,5 @@ KYC requires a selfie/clear shot of your face and a photo of the document that c
 "request_card_city" = "City";
 "request_card_state" = "State";
 "edit_btn" = "Edit";
+"request_card_save_btn" = "Save";
 "request_card_btn" = "Request Card";
