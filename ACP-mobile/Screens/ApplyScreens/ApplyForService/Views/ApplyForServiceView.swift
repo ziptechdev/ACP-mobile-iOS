@@ -29,7 +29,6 @@ class ApplyForServiceView: UIView {
         let label = UILabel()
         label.textColor = .coreBlue
         label.font = .systemFont(ofSize: 32, weight: .bold)
-        label.textAlignment = .left
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -67,7 +66,6 @@ class ApplyForServiceView: UIView {
         let label = UILabel()
         label.textColor = .gray06Dark
         label.font = .systemFont(ofSize: 14, weight: .regular)
-        label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

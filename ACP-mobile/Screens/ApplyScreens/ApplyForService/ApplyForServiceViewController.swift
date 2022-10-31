@@ -18,8 +18,6 @@ class ApplyForServiceViewController: UIViewController {
         return view
     }()
 
-    // MARK: - Properties
-
     private let infoLabel = ACPTermsAndPrivacyLabel()
 
     // MARK: - Life Cycle

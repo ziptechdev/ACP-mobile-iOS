@@ -15,7 +15,6 @@ class ACPSuccesViewController: UIViewController {
     private let successImage: UIImageView = {
         let view = UIImageView()
         let image = UIImage(named: "success")
-        view.tintColor = .white
         view.contentMode = .scaleAspectFit
         view.image = image
         return view
@@ -116,10 +115,6 @@ class ACPSuccesViewController: UIViewController {
     }
 
     // MARK: - Callbacks
-
-    @objc func didTapCancel() {
-        navigationController?.popToRootViewController(animated: true)
-    }
 
     @objc func didTapRegisterButton() {
         let viewController = ApplyACPViewController()

@@ -120,7 +120,7 @@ class ACPLandingScreenViewController: UIViewController {
     // MARK: - Navigation
 
     @objc func navigateToWelcome() {
-        let targetVC = ACPWelcomeScreenViewController()
+        let targetVC = ApplyForServiceViewController()
         navigationController?.pushViewController(targetVC, animated: true)
     }
 
