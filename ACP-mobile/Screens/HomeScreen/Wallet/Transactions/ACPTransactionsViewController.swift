@@ -10,7 +10,7 @@ import SnapKit
 
 class ACPTransactionsViewController: UIViewController {
 
-	// MARK: - Properties
+    // MARK: - Properties
 
     private var observer: NSKeyValueObservation?
 

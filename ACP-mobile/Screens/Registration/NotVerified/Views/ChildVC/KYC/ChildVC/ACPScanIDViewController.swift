@@ -10,7 +10,7 @@ import SnapKit
 
 class ACPScanIDViewController: UIViewController {
 
-	// MARK: - Properties
+    // MARK: - Properties
 
     weak var delegate: ACPTabMenuDelegate?
 
@@ -38,8 +38,8 @@ class ACPScanIDViewController: UIViewController {
         return label
     }()
 
-    private lazy var scanFrontButton: UIButton = {
-        let button = UIButton()
+    private lazy var scanFrontButton: ACPShadowButton = {
+        let button = ACPShadowButton()
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
         button.layer.masksToBounds = true
         button.backgroundColor = .coreBlue
@@ -49,8 +49,8 @@ class ACPScanIDViewController: UIViewController {
         return button
     }()
 
-    private lazy var scanBackButton: UIButton = {
-        let button = UIButton()
+    private lazy var scanBackButton: ACPShadowButton = {
+        let button = ACPShadowButton()
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
         button.layer.masksToBounds = true
         button.backgroundColor = .coreBlue

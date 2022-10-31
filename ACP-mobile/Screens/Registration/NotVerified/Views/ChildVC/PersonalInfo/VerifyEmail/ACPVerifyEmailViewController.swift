@@ -10,7 +10,7 @@ import SnapKit
 
 class ACPVerifyEmailViewController: UIViewController {
 
-	// MARK: - Properties
+    // MARK: - Properties
 
     private var code = ""
     private var dismissCallback: (() -> Void)
@@ -76,8 +76,8 @@ class ACPVerifyEmailViewController: UIViewController {
         return view
     }()
 
-    private lazy var confirmButton: UIButton = {
-        let button = UIButton()
+    private lazy var confirmButton: ACPShadowButton = {
+        let button = ACPShadowButton()
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
         button.layer.masksToBounds = true
         button.backgroundColor = .coreBlue

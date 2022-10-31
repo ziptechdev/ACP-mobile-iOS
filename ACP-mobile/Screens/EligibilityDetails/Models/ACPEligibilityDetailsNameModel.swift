@@ -9,7 +9,7 @@ import UIKit
 
 struct ACPEligibilityDetailsNameModel {
 
-	// MARK: - Properties
+    // MARK: - Properties
 
     var name = ""
     var middleName = ""
