@@ -10,7 +10,7 @@ import SnapKit
 
 class ACPVerifyEmailCodeView: UIView {
 
-	// MARK: - Properties
+    // MARK: - Properties
 
     private lazy var inputLabels = [
         firstNumberLabel,

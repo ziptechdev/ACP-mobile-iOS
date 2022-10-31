@@ -46,8 +46,8 @@ class EligibilityCheckView: UIView {
         return stackView
     }()
 
-    let checkEligibilityButton: UIButton = {
-        let button = UIButton()
+    let checkEligibilityButton: ACPShadowButton = {
+        let button = ACPShadowButton()
         button.setTitle(titleKey: "eligibility_btn")
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false

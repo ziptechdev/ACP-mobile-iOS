@@ -76,8 +76,8 @@ class ACPVerifiedRegistrationViewController: UIViewController {
         return view
     }()
 
-    private lazy var registerButton: UIButton = {
-        let button = UIButton()
+    private lazy var registerButton: ACPShadowButton = {
+        let button = ACPShadowButton()
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
         button.layer.masksToBounds = true
         button.isUserInteractionEnabled = false
@@ -190,16 +190,6 @@ class ACPVerifiedRegistrationViewController: UIViewController {
         navigationController?.pushViewController(targetVC, animated: true)
     }
 
-    func focusTextField(_ view: ACPTextField) {
-        view.textField.layer.borderColor = UIColor.coreBlue.cgColor
-        view.textFieldImage?.tintColor = .gray06Dark
-    }
-
-    func unFocusTextField(_ view: ACPTextField) {
-        view.textField.layer.borderColor = UIColor.gray03Light.cgColor
-        view.textFieldImage?.tintColor = .gray03Light
-    }
-
     func checkPasswords() -> Bool {
         let passwordsMatch = passwordTextField.text == confirmTextField.text
 
@@ -257,20 +247,6 @@ extension ACPVerifiedRegistrationViewController: UITextFieldDelegate {
             textFields[currentIndex].textField.resignFirstResponder()
         }
 
-        return true
-    }
-
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        if let currentTextField = textFields.first(where: { $0.textField == textField }) as? ACPTextField {
-            focusTextField(currentTextField)
-        }
-        return true
-    }
-
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        if let currentTextField = textFields.first(where: { $0.textField == textField }) as? ACPTextField {
-            unFocusTextField(currentTextField)
-        }
         return true
     }
 

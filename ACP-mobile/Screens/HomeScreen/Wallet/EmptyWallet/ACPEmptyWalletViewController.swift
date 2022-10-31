@@ -33,8 +33,8 @@ class ACPEmptyWalletViewController: UIViewController {
         return label
     }()
 
-    private lazy var newCardButton: UIButton = {
-        let button = UIButton()
+    private lazy var newCardButton: ACPShadowButton = {
+        let button = ACPShadowButton()
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
         button.layer.masksToBounds = true
         button.backgroundColor = .coreBlue
