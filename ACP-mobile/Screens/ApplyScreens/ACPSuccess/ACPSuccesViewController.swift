@@ -44,11 +44,11 @@ class ACPSuccesViewController: UIViewController {
 
     private lazy var doneButton: UIButton = {
         let button = UIButton()
-        button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
+        button.layer.cornerRadius = Constants.ButtonCornerRadius
         button.layer.masksToBounds = true
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
+        button.layer.cornerRadius = Constants.ButtonCornerRadius
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.white.cgColor
         button.setTitle(.localizedString(key: "acp_successfull_register_btn"), for: .normal)
@@ -91,26 +91,26 @@ class ACPSuccesViewController: UIViewController {
 
     private func setupConstraints() {
         successImage.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(Constants.Constraints.SuccessCircleOffsetY)
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(Constants.SuccessCircleOffsetY)
             make.centerX.equalToSuperview()
-            make.height.width.equalTo(Constants.Constraints.CircleSize)
+            make.height.width.equalTo(Constants.CircleSize)
         }
 
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(successImage.snp.bottom).offset(Constants.Constraints.TitleOffsetVertical)
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
+            make.top.equalTo(successImage.snp.bottom).offset(Constants.TitleOffsetVertical)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
             make.centerX.equalToSuperview()
         }
 
         subtitleLabel.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(Constants.Constraints.SubtitleOffsetY)
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
+            make.top.equalTo(titleLabel.snp.bottom).offset(Constants.SubtitleOffsetY)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
         }
 
         doneButton.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.height.equalTo(Constants.Constraints.ButtonHeight)
-            make.top.equalTo(subtitleLabel.snp.bottom).offset(Constants.Constraints.ButtonOffsetVertical)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.height.equalTo(Constants.ButtonHeight)
+            make.top.equalTo(subtitleLabel.snp.bottom).offset(Constants.ButtonOffsetVertical)
         }
     }
 
@@ -123,18 +123,16 @@ class ACPSuccesViewController: UIViewController {
     // MARK: - Constants
 
     private struct Constants {
-        struct Constraints {
-            static let SuccessCircleOffsetY: CGFloat = 175
-            static let CircleSize: CGFloat = 120
+        static let SuccessCircleOffsetY: CGFloat = 175
+        static let CircleSize: CGFloat = 120
 
-            static let TitleOffsetVertical: CGFloat = 113
+        static let TitleOffsetVertical: CGFloat = 113
 
-            static let ContentInsetHorizontal: CGFloat = 35
-            static let SubtitleOffsetY: CGFloat = 10
+        static let ContentInsetHorizontal: CGFloat = 35
+        static let SubtitleOffsetY: CGFloat = 10
 
-            static let ButtonHeight: CGFloat = 46
-            static let ButtonOffsetVertical: CGFloat = 60
-            static let ButtonCornerRadius: CGFloat = 10
-        }
+        static let ButtonHeight: CGFloat = 46
+        static let ButtonOffsetVertical: CGFloat = 60
+        static let ButtonCornerRadius: CGFloat = 10
     }
 }
