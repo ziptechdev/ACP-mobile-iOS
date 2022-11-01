@@ -32,7 +32,6 @@ class ApplyACPView: UIView {
         let label = UILabel()
         label.textColor = .coreBlue
         label.font = .systemFont(ofSize: 32, weight: .bold)
-        label.textAlignment = .left
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -42,7 +41,6 @@ class ApplyACPView: UIView {
         let label = UILabel()
         label.textColor = .gray01Light
         label.font = .systemFont(ofSize: 14, weight: .regular)
-        label.textAlignment = .left
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -68,7 +66,6 @@ class ApplyACPView: UIView {
         let label = UILabel()
         label.textColor = .gray06Dark
         label.font = .systemFont(ofSize: 14, weight: .semibold)
-        label.textAlignment = .left
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -103,7 +100,6 @@ class ApplyACPView: UIView {
         let label = UILabel()
         label.textColor = .gray06Dark
         label.font = .systemFont(ofSize: 16, weight: .bold)
-        label.textAlignment = .left
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -113,7 +109,6 @@ class ApplyACPView: UIView {
         let label = UILabel()
         label.textColor = .coreBlue
         label.font = .systemFont(ofSize: 16, weight: .bold)
-        label.textAlignment = .left
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -133,7 +128,6 @@ class ApplyACPView: UIView {
         let label = UILabel()
         label.textColor = .gray06Dark
         label.font = .systemFont(ofSize: 14, weight: .regular)
-        label.textAlignment = .left
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         label.isHidden = true
@@ -174,7 +168,6 @@ class ApplyACPView: UIView {
         let label = UILabel()
         label.textColor = .gray06Dark
         label.font = .systemFont(ofSize: 16, weight: .bold)
-        label.textAlignment = .left
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -196,7 +189,6 @@ class ApplyACPView: UIView {
         let label = UILabel()
         label.textColor = .coreBlue
         label.font = .systemFont(ofSize: 16, weight: .bold)
-        label.textAlignment = .left
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -216,13 +208,11 @@ class ApplyACPView: UIView {
         stackView.axis = .horizontal
         stackView.alignment = .center
         stackView.distribution = .fill
-        stackView.spacing = 15
-        stackView.isUserInteractionEnabled = true
+        stackView.spacing = 23
         stackView.backgroundColor = .coreLightBlue
         stackView.layer.borderWidth = 1
         stackView.layer.cornerRadius = Constants.ButtonCornerRadius
         stackView.layer.borderColor = UIColor.coreLightBlue.cgColor
-        stackView.spacing = 23
         stackView.layoutMargins = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 15)
         stackView.isLayoutMarginsRelativeArrangement = true
         return stackView
@@ -276,14 +266,14 @@ class ApplyACPView: UIView {
     }
 
     private func addSubviews() {
+        textStackView.addArrangedSubview(titleLabel)
+        textStackView.addArrangedSubview(descriptionLabel)
         planView.addSubview(planNameLabel)
         planView.addSubview(planPriceLabel)
         planView.addSubview(planDescriptionLabel)
         acpProgramStackView.addArrangedSubview(eligibleOrNotLabel)
         acpProgramStackView.addArrangedSubview(assistanceImageView)
         acpProgramStackView.addArrangedSubview(correctImageView)
-        textStackView.addArrangedSubview(titleLabel)
-        textStackView.addArrangedSubview(descriptionLabel)
         phoneSetupStackView.addArrangedSubview(phoneSetupLabel)
         phoneSetupStackView.addArrangedSubview(phoneImageView)
         buttonAndInfoStackView.addArrangedSubview(applyNowButton)
