@@ -37,6 +37,7 @@ class RequestCardViewController: UIViewController {
         view.backgroundColor = .white
         return view
     }()
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = .localizedString(key: "request_card_title")
