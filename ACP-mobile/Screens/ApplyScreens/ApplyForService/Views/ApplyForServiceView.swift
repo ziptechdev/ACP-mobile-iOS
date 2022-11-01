@@ -87,10 +87,8 @@ class ApplyForServiceView: UIView {
         return stackView
     }()
 
-    let applyNowButton: UIButton = {
-        let button = UIButton()
-        button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
-        button.titleLabel?.textAlignment = .center
+    let applyNowButton: ACPShadowButton = {
+        let button = ACPShadowButton()
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
@@ -240,7 +238,7 @@ class ApplyForServiceView: UIView {
         descriptionLabel.text = .localizedString(key: "service_description")
         eligibleOrNotLabel.text = .localizedString(key: "eligible_check")
         infoLabel.text = .localizedString(key: "service_note")
-        applyNowButton.setTitle(.localizedString(key: "apply_now_btn"), for: .normal)
+        applyNowButton.setTitle(titleKey: "apply_now_btn")
         subTitleLabel.text = .localizedString(key: "service_subtitle")
         eligibleOrNotLabel.text = .localizedString(key: "eligble_check")
         switchTextLabel.text = .localizedString(key: "auto_renewal")

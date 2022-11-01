@@ -22,7 +22,7 @@ class ApplyACPView: UIView {
     // MARK: - Properties
 
     weak var delegate: ApplyACPViewDelegate?
-    var mainHeightConstraint: NSLayoutConstraint?
+
     private var shouldCollapse = false
     private var isMobileTapped = false
 
@@ -82,7 +82,7 @@ class ApplyACPView: UIView {
         stackView.distribution = .fill
         stackView.backgroundColor = .coreLightBlue
         stackView.layer.borderWidth = 1
-        stackView.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
+        stackView.layer.cornerRadius = Constants.ButtonCornerRadius
         stackView.layer.borderColor = UIColor.coreBlue.cgColor
         stackView.spacing = 23
         stackView.layoutMargins = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 15)
@@ -156,7 +156,7 @@ class ApplyACPView: UIView {
         button.backgroundColor = .gray06Light
         button.isUserInteractionEnabled = false
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
+        button.layer.cornerRadius = Constants.ButtonCornerRadius
         button.layer.masksToBounds = false
         return button
     }()
@@ -186,7 +186,7 @@ class ApplyACPView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
         button.layer.borderWidth = 1
-        button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
+        button.layer.cornerRadius = Constants.ButtonCornerRadius
         button.layer.borderColor = UIColor.coreBlue.cgColor
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -220,7 +220,7 @@ class ApplyACPView: UIView {
         stackView.isUserInteractionEnabled = true
         stackView.backgroundColor = .coreLightBlue
         stackView.layer.borderWidth = 1
-        stackView.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
+        stackView.layer.cornerRadius = Constants.ButtonCornerRadius
         stackView.layer.borderColor = UIColor.coreLightBlue.cgColor
         stackView.spacing = 23
         stackView.layoutMargins = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 15)
@@ -244,7 +244,7 @@ class ApplyACPView: UIView {
         view.layer.masksToBounds = true
         view.backgroundColor = .coreLightBlue
         view.layer.borderWidth = 1
-        view.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
+        view.layer.cornerRadius = Constants.ButtonCornerRadius
         view.layer.borderColor = UIColor.coreLightBlue.cgColor
         return view
     }()
@@ -302,62 +302,74 @@ class ApplyACPView: UIView {
     // swiftlint:disable:next function_body_length
     private func setUpConstraints() {
         applyNowButton.snp.makeConstraints { make in
-            make.height.equalTo(Constants.Constraints.ButtonHeight)
+            make.height.equalTo(Constants.ButtonHeight)
         }
+
         acpProgramStackView.snp.makeConstraints { make in
-            make.top.equalTo(textStackView.snp.bottom).offset(Constants.Constraints.ConstantTop)
-            make.left.right.equalToSuperview().inset(Constants.Constraints.LeadingConstant)
-            make.height.equalTo(Constants.Constraints.AcpStackViewHeight)
+            make.top.equalTo(textStackView.snp.bottom).offset(Constants.ConstantTop)
+            make.left.right.equalToSuperview().inset(Constants.LeadingConstant)
+            make.height.equalTo(Constants.AcpStackViewHeight)
         }
+
         choosePlanLabel.snp.makeConstraints { make in
-            make.top.equalTo(acpProgramStackView.snp.bottom).offset(Constants.Constraints.AcpBottomOffest)
-            make.left.right.equalToSuperview().inset(Constants.Constraints.LeadingConstant)
+            make.top.equalTo(acpProgramStackView.snp.bottom).offset(Constants.AcpBottomOffest)
+            make.left.right.equalToSuperview().inset(Constants.LeadingConstant)
         }
+
         planView.snp.makeConstraints { make in
-            make.top.equalTo(choosePlanLabel.snp.bottom).offset(Constants.Constraints.ConstantTop)
-            make.left.right.equalToSuperview().inset(Constants.Constraints.LeadingConstant)
+            make.top.equalTo(choosePlanLabel.snp.bottom).offset(Constants.ConstantTop)
+            make.left.right.equalToSuperview().inset(Constants.LeadingConstant)
+            make.height.equalTo(Constants.NotExpandedHeight)
         }
-        mainHeightConstraint = planView.heightAnchor.constraint(equalToConstant: Constants.Constraints.HeightView)
-        mainHeightConstraint?.isActive = true
+
         planNameLabel.snp.makeConstraints { make in
-            make.left.equalTo(planView.snp.left).offset(Constants.Constraints.ConstantTop)
-            make.top.equalTo(planView.snp.top).offset(Constants.Constraints.LeftPlanTopOffest)
+            make.left.equalTo(planView.snp.left).offset(Constants.ConstantTop)
+            make.top.equalTo(planView.snp.top).offset(Constants.LeftPlanTopOffest)
         }
+
         planPriceLabel.snp.makeConstraints { make in
-            make.right.equalTo(planView.snp.right).inset(Constants.Constraints.ConstantTop)
+            make.right.equalTo(planView.snp.right).inset(Constants.ConstantTop)
             make.centerY.equalTo(planNameLabel.snp.centerY)
         }
+
         planDescriptionLabel.snp.makeConstraints { make in
-            make.left.equalTo(planView.snp.left).inset(Constants.Constraints.ConstantTop)
-            make.top.equalTo(planNameLabel.snp.bottom).offset(Constants.Constraints.LeadingConstant)
+            make.left.equalTo(planView.snp.left).inset(Constants.ConstantTop)
+            make.top.equalTo(planNameLabel.snp.bottom).offset(Constants.LeadingConstant)
         }
+
         choosePlanSelectedImageView.snp.makeConstraints { make in
             make.centerX.equalTo(planView.snp.centerX)
-            make.top.equalTo(planView.snp.top).offset(-Constants.Constraints.LeftPlanTopOffest)
+            make.top.equalTo(planView.snp.top).offset(-Constants.LeftPlanTopOffest)
         }
+
         phoneImageView.snp.makeConstraints { make in
-            make.width.height.equalTo(Constants.Constraints.PhoneImageConstant)
+            make.width.height.equalTo(Constants.PhoneImageConstant)
         }
+
         phoneSelectedImageView.snp.makeConstraints { make in
             make.centerX.equalTo(phoneSetupStackView.snp.centerX)
-            make.top.equalTo(phoneSetupStackView.snp.top).inset(-Constants.Constraints.LeftPlanTopOffest)
+            make.top.equalTo(phoneSetupStackView.snp.top).inset(-Constants.LeftPlanTopOffest)
         }
+
         switchTextLabel.snp.makeConstraints { make in
-            make.top.equalTo(planView.snp.bottom).offset(Constants.Constraints.LeadingConstant)
-            make.left.right.equalToSuperview().inset(Constants.Constraints.LeadingConstant)
+            make.top.equalTo(planView.snp.bottom).offset(Constants.LeadingConstant)
+            make.left.right.equalToSuperview().inset(Constants.LeadingConstant)
         }
+
         phoneSetupStackView.snp.makeConstraints { make in
-            make.top.equalTo(switchTextLabel.snp.bottom).offset(Constants.Constraints.ConstantTop)
-            make.left.right.equalToSuperview().inset(Constants.Constraints.LeadingConstant)
-            make.height.equalTo(Constants.Constraints.HeightView)
+            make.top.equalTo(switchTextLabel.snp.bottom).offset(Constants.ConstantTop)
+            make.left.right.equalToSuperview().inset(Constants.LeadingConstant)
+            make.height.equalTo(Constants.HeightView)
         }
+
         textStackView.snp.makeConstraints { make in
-            make.top.equalTo(snp.top).offset(Constants.Constraints.TopConstant)
-            make.left.right.equalToSuperview().inset(Constants.Constraints.LeadingConstant)
+            make.top.equalTo(snp.top).offset(Constants.TopConstant)
+            make.left.right.equalToSuperview().inset(Constants.LeadingConstant)
         }
+
         buttonAndInfoStackView.snp.makeConstraints { make in
-            make.top.equalTo(phoneSetupStackView.snp.bottom).offset(Constants.Constraints.BottomButtonConstant)
-            make.left.right.equalToSuperview().inset(Constants.Constraints.LeadingConstant)
+            make.top.equalTo(phoneSetupStackView.snp.bottom).offset(Constants.BottomButtonConstant)
+            make.left.right.equalToSuperview().inset(Constants.LeadingConstant)
         }
     }
 
@@ -384,13 +396,16 @@ class ApplyACPView: UIView {
         }
     }
 
-    private func animateView(isCollapse: Bool, heighConstraint: Double) {
+    private func animateView(isCollapsed: Bool) {
+        let height = isCollapsed ? Constants.NotExpandedHeight : Constants.ExpandedHeight
         UIView.animate(withDuration: 0.5) { [self] in
-            self.shouldCollapse = isCollapse
-            mainHeightConstraint?.constant = CGFloat(heighConstraint)
-            planDescriptionLabel.isHidden = !isCollapse
-            choosePlanSelectedImageView.isHidden = !isCollapse
-            if isCollapse {
+            self.shouldCollapse = !isCollapsed
+            planView.snp.updateConstraints { make in
+                make.height.equalTo(height)
+            }
+            planDescriptionLabel.isHidden = isCollapsed
+            choosePlanSelectedImageView.isHidden = isCollapsed
+            if !isCollapsed {
                 planView.layer.borderColor = UIColor.coreBlue.cgColor
             } else {
                 planView.layer.borderColor = UIColor.coreLightBlue.cgColor
@@ -406,13 +421,16 @@ class ApplyACPView: UIView {
             values: "John"
         )
         eligibleOrNotLabel.text = .localizedString(key: "apply_acp_eligibility")
-        applyNowButton.setTitle(.localizedString(key: "apply_now_btn"), for: .normal)
+        applyNowButton.setTitle(titleKey: "apply_now_btn")
         planNameLabel.text = .localizedString(key: "apply_acp_plan_name")
         phoneSetupLabel.text = .localizedString(key: "apply_acp_phone_setup")
         choosePlanLabel.text = .localizedString(key: "apply_acp_choose_plan")
         switchTextLabel.text = .localizedString(key: "apply_acp_choose_device")
         // TODO: Check how we will get this data from BE
-        planPriceLabel.attributedText = createAttributedString(string: "Free \n$30/mo", stringToStrike: "$30/mo")
+        planPriceLabel.attributedText = createAttributedString(
+            string: "Free \n$30/mo",
+            stringToStrike: "$30/mo"
+        )
 
         let arrayOfLines = [
             "Unlimited Talk & Text and Data",
@@ -443,12 +461,10 @@ class ApplyACPView: UIView {
 
     @objc func planTapped() {
         if shouldCollapse {
-            animateView(isCollapse: false,
-                        heighConstraint: 65)
+            animateView(isCollapsed: true)
         } else {
             // TODO: Add dynamic height for view
-            animateView(isCollapse: true,
-                        heighConstraint: 142)
+            animateView(isCollapsed: false)
             delegate?.didTapPlanButton()
         }
         checkButtonAvailability()
@@ -470,20 +486,20 @@ class ApplyACPView: UIView {
     // MARK: - Constants
 
     private struct Constants {
-        struct Constraints {
-            static let TopConstant: CGFloat = 45
-            static let LeadingConstant: CGFloat = 30
-            static let BottomButtonConstant: CGFloat = 60
-            static let ButtonHeight: CGFloat = 46
-            static let ButtonContentSpacing: CGFloat = 10
-            static let ButtonCornerRadius: CGFloat = 10
-            static let ConstantTop: CGFloat = 20
-            static let AcpStackViewHeight: CGFloat = 54
-            static let AcpBottomOffest: CGFloat = 39
-            static let HeightView: CGFloat = 65
-            static let LeftPlanTopOffest = 23
-            static let TopConstantOffest = 15
-            static let PhoneImageConstant = 24
-        }
+        static let TopConstant: CGFloat = 45
+        static let LeadingConstant: CGFloat = 30
+        static let BottomButtonConstant: CGFloat = 60
+        static let ButtonHeight: CGFloat = 46
+        static let ButtonContentSpacing: CGFloat = 10
+        static let ButtonCornerRadius: CGFloat = 10
+        static let ConstantTop: CGFloat = 20
+        static let AcpStackViewHeight: CGFloat = 54
+        static let AcpBottomOffest: CGFloat = 39
+        static let HeightView: CGFloat = 65
+        static let LeftPlanTopOffest: CGFloat = 23
+        static let TopConstantOffest: CGFloat = 15
+        static let PhoneImageConstant: CGFloat = 24
+        static let ExpandedHeight: CGFloat = 142
+        static let NotExpandedHeight: CGFloat = 65
     }
 }
