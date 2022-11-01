@@ -360,12 +360,12 @@ class RequestCardViewController: UIViewController {
 
         } else {
             textFieldsACP.forEach { textFieldacp in
-                textFieldacp.textField.backgroundColor = .lavenderGray
+                textFieldacp.textField.backgroundColor = .gray06Light
                 textFieldacp.textField.isUserInteractionEnabled = false
                 textFieldacp.textField.textColor = .gray06Dark
             }
             stateTextField.textField.isUserInteractionEnabled = false
-            stateTextField.textField.backgroundColor = .lavenderGray
+            stateTextField.textField.backgroundColor = .gray06Light
 
             saveButton.isHidden = true
             editButton.isHidden = false
