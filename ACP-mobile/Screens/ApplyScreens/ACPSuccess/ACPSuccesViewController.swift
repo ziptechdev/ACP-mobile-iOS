@@ -55,7 +55,7 @@ class ACPSuccesViewController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.setTitleColor(.white, for: .highlighted)
         button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
-        button.addTarget(self, action: #selector(didTapRegisterButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didTapDoneButton), for: .touchUpInside)
         return button
     }()
 
@@ -116,9 +116,8 @@ class ACPSuccesViewController: UIViewController {
 
     // MARK: - Callbacks
 
-    @objc func didTapRegisterButton() {
-        let viewController = ApplyACPViewController()
-        navigationController?.pushViewController(viewController, animated: true)
+    @objc func didTapDoneButton() {
+        navigationController?.popToRootViewController(animated: true)
     }
 
     // MARK: - Constants
