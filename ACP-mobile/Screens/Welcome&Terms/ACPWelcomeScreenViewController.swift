@@ -176,13 +176,6 @@ class ACPWelcomeScreenViewController: UIViewController {
         }
     }
 
-    // MARK: Functions
-
-    @objc func didTapContinue() {
-        let targetVC = ACPTermsPrivacyViewController()
-        navigationController?.pushViewController(targetVC, animated: true)
-    }
-
     private func attributedTextStyle() -> NSAttributedString {
         let string: NSMutableAttributedString = .localizedString(key: "welcomeScreen_privacyTerms_descirption_text")
         let termsHighlighted = string.range(of: "Terms of Use")
@@ -193,7 +186,15 @@ class ACPWelcomeScreenViewController: UIViewController {
         return string
     }
 
+    // MARK: Functions
+
+    @objc func didTapContinue() {
+        let targetVC = ACPTermsPrivacyViewController()
+        navigationController?.pushViewController(targetVC, animated: true)
+    }
+
     // MARK: - Constants
+    
     private struct Constants {
         static let LeftTopLineOffest: CGFloat = 120
         static let LeftLineLeftOffest: CGFloat = 35
