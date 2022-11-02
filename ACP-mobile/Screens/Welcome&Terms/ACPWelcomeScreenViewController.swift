@@ -34,7 +34,7 @@ class ACPWelcomeScreenViewController: UIViewController {
     private lazy var titleText: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = "Affordable Conectivity Program"
+        lbl.text = .localizedString(key: "welcomeScreen_title")
         lbl.numberOfLines = 0
         lbl.textColor = .white
         lbl.font = .systemFont(ofSize: 30, weight: .bold)
@@ -92,7 +92,7 @@ class ACPWelcomeScreenViewController: UIViewController {
         button.backgroundColor = .white
         button.setTitleColor(.coreBlue, for: .normal)
         button.addTarget(self, action: #selector(didTapContinue), for: .touchUpInside)
-        button.setTitle(titleKey: "Continue", textColor: .coreBlue)
+        button.setTitle(titleKey: .localizedString(key: "welcome_btn"), textColor: .coreBlue)
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 10
         return button
@@ -194,7 +194,6 @@ class ACPWelcomeScreenViewController: UIViewController {
     }
 
     // MARK: - Constants
-    
     private struct Constants {
         static let LeftTopLineOffest: CGFloat = 120
         static let LeftLineLeftOffest: CGFloat = 35
