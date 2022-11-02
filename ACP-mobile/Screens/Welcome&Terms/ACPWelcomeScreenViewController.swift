@@ -78,7 +78,6 @@ class ACPWelcomeScreenViewController: UIViewController {
     private lazy var termsPrivacyUrl: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        //lbl.text = .localizedString(key: "welcomeScreen_privacyTerms_descirption_text")
         lbl.attributedText = attributedTextStyle()
         lbl.numberOfLines = 0
         lbl.adjustsFontSizeToFitWidth = true
