@@ -87,18 +87,19 @@ class ACPWelcomeScreenViewController: UIViewController {
     }()
 
     private lazy var continueButton: UIButton! = {
-      let button = UIButton()
-      button.translatesAutoresizingMaskIntoConstraints = false
-      button.backgroundColor = .white
-      button.setTitleColor(.coreBlue, for: .normal)
-      button.addTarget(self, action: #selector(didTapContinue), for: .touchUpInside)
-      button.setTitle("Continue", for: .normal)
-      button.layer.masksToBounds = true
-      button.layer.cornerRadius = 10
-      return button
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .white
+        button.setTitleColor(.coreBlue, for: .normal)
+        button.addTarget(self, action: #selector(didTapContinue), for: .touchUpInside)
+        button.setTitle("Continue", for: .normal)
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 10
+        return button
     }()
 
     // MARK: - Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .coreBlue
@@ -115,7 +116,9 @@ class ACPWelcomeScreenViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
         title = "Welcome"
+
         navigationController?.navigationBar.isHidden = false
         navigationController?.navigationBar.titleTextAttributes = [
             .font: UIFont.systemFont(ofSize: 20, weight: .regular),
@@ -124,52 +127,52 @@ class ACPWelcomeScreenViewController: UIViewController {
 
         setupRightNavigationBarButton(color: .white)
         setupLeftNavigationBarButton(color: .white)
-
     }
 
     // MARK: - UI
+
     private func setupConstraints() {
         leftTopLine.snp.makeConstraints { make in
-            make.left.equalToSuperview().inset(Constants.Constraints.LeftLineLeftOffest)
-            make.top.equalToSuperview().offset(Constants.Constraints.LeftTopLineOffest)
+            make.left.equalToSuperview().inset(Constants.LeftLineLeftOffest)
+            make.top.equalToSuperview().offset(Constants.LeftTopLineOffest)
             make.width.equalTo(rightTopLine)
         }
 
         rightTopLine.snp.makeConstraints { make in
-            make.right.equalToSuperview().inset(Constants.Constraints.RighLineLeftOffest)
-            make.top.equalToSuperview().offset(Constants.Constraints.RightTopLineOffest)
+            make.right.equalToSuperview().inset(Constants.RighLineLeftOffest)
+            make.top.equalToSuperview().offset(Constants.RightTopLineOffest)
             make.width.equalTo(leftTopLine)
         }
 
         titleText.snp.makeConstraints { make in
-            make.right.left.equalToSuperview().inset(Constants.Constraints.TitleLeftRighOffest)
-            make.top.equalTo(rightTopLine.snp.bottom).offset(Constants.Constraints.TitleTextTopOffset)
+            make.right.left.equalToSuperview().inset(Constants.TitleLeftRighOffest)
+            make.top.equalTo(rightTopLine.snp.bottom).offset(Constants.TitleTextTopOffset)
         }
 
         firstDescriptionText.snp.makeConstraints { make in
-            make.right.left.equalToSuperview().inset(Constants.Constraints.DescriptionTextLeftRightOffest)
-            make.top.equalTo(titleText.snp.bottom).offset(Constants.Constraints.DescirptionTopOffest)
+            make.right.left.equalToSuperview().inset(Constants.DescriptionTextLeftRightOffest)
+            make.top.equalTo(titleText.snp.bottom).offset(Constants.DescirptionTopOffest)
         }
 
         secondDescriptionText.snp.makeConstraints { make in
-            make.right.left.equalToSuperview().inset(Constants.Constraints.DescriptionTextLeftRightOffest)
-            make.top.equalTo(firstDescriptionText.snp.bottom).offset(Constants.Constraints.DescriptionTextTopOffset)
+            make.right.left.equalToSuperview().inset(Constants.DescriptionTextLeftRightOffest)
+            make.top.equalTo(firstDescriptionText.snp.bottom).offset(Constants.DescriptionTextTopOffset)
         }
 
         thirdDescriptionText.snp.makeConstraints { make in
-            make.right.left.equalToSuperview().inset(Constants.Constraints.DescriptionTextLeftRightOffest)
-            make.top.equalTo(secondDescriptionText.snp.bottom).offset(Constants.Constraints.DescriptionTextTopOffset)
+            make.right.left.equalToSuperview().inset(Constants.DescriptionTextLeftRightOffest)
+            make.top.equalTo(secondDescriptionText.snp.bottom).offset(Constants.DescriptionTextTopOffset)
         }
 
         termsPrivacyUrl.snp.makeConstraints { make in
-            make.right.left.equalToSuperview().inset(Constants.Constraints.DescriptionTextLeftRightOffest)
-            make.top.equalTo(thirdDescriptionText.snp.bottom).offset(Constants.Constraints.DescriptionTextTopOffset)
+            make.right.left.equalToSuperview().inset(Constants.DescriptionTextLeftRightOffest)
+            make.top.equalTo(thirdDescriptionText.snp.bottom).offset(Constants.DescriptionTextTopOffset)
         }
 
         continueButton.snp.makeConstraints { make in
-            make.right.left.equalToSuperview().inset(Constants.Constraints.ButtonLeftRightOffest)
-            make.top.equalTo(termsPrivacyUrl.snp.bottom).offset(Constants.Constraints.ButtonTopOffest)
-            make.height.equalTo(Constants.Constraints.ButtonHeight)
+            make.right.left.equalToSuperview().inset(Constants.ButtonLeftRightOffest)
+            make.top.equalTo(termsPrivacyUrl.snp.bottom).offset(Constants.ButtonTopOffest)
+            make.height.equalTo(Constants.ButtonHeight)
         }
     }
 
@@ -192,30 +195,21 @@ class ACPWelcomeScreenViewController: UIViewController {
 
     // MARK: - Constants
     private struct Constants {
-            struct Constraints {
+        static let LeftTopLineOffest: CGFloat = 120
+        static let LeftLineLeftOffest: CGFloat = 35
 
-                static let LeftTopLineOffest: CGFloat = 120
-                static let LeftLineLeftOffest: CGFloat = 35
+        static let RightTopLineOffest: CGFloat = 120
+        static let RighLineLeftOffest: CGFloat = 35
 
-                static let RightTopLineOffest: CGFloat = 120
-                static let RighLineLeftOffest: CGFloat = 35
+        static let TitleTextTopOffset: CGFloat = 35
+        static let TitleLeftRighOffest: CGFloat = 35
 
-                static let TitleTextTopOffset: CGFloat = 35
-                static let TitleLeftRighOffest: CGFloat = 35
+        static let DescirptionTopOffest: CGFloat = 10
+        static let DescriptionTextTopOffset: CGFloat = 20
+        static let DescriptionTextLeftRightOffest: CGFloat = 35
 
-                static let DescirptionTopOffest: CGFloat = 10
-                static let DescriptionTextTopOffset: CGFloat = 20
-                static let DescriptionTextLeftRightOffest: CGFloat = 35
-
-                static let ButtonTopOffest: CGFloat = 40
-                static let ButtonHeight: CGFloat = 46
-                static let ButtonLeftRightOffest: CGFloat = 35
-
-            }
-
-            struct Text {
-                static let Terms: String = "terms of use"
-                static let Privacy: String = "privacy policy"
-            }
-        }
+        static let ButtonTopOffest: CGFloat = 40
+        static let ButtonHeight: CGFloat = 46
+        static let ButtonLeftRightOffest: CGFloat = 35
+    }
 }
