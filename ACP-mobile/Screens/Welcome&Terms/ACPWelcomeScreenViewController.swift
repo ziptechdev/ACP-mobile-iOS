@@ -82,7 +82,7 @@ class ACPWelcomeScreenViewController: UIViewController {
         lbl.numberOfLines = 0
         lbl.adjustsFontSizeToFitWidth = true
         lbl.textColor = .white
-        lbl.font = .systemFont(ofSize: 14, weight: .regular)
+        lbl.font = .systemFont(ofSize: 14, weight: .bold)
         return lbl
     }()
 
@@ -121,6 +121,9 @@ class ACPWelcomeScreenViewController: UIViewController {
             .font: UIFont.systemFont(ofSize: 20, weight: .regular),
             .foregroundColor: UIColor.white
         ]
+
+        setupRightNavigationBarButton(color: .white)
+        setupLeftNavigationBarButton(color: .white)
 
     }
 
@@ -181,7 +184,6 @@ class ACPWelcomeScreenViewController: UIViewController {
         let string: NSMutableAttributedString = .localizedString(key: "welcomeScreen_privacyTerms_descirption_text")
         let termsHighlighted = string.range(of: "Terms of Use")
         let privacyHighlighted = string.range(of: "Privacy Policy")
-        string.addAttribute(.font, value: UIFont.systemFont(ofSize: 14, weight: .bold))
         string.addAttribute(NSAttributedString.Key.underlineStyle, value: 1, range: termsHighlighted)
         string.addAttribute(NSAttributedString.Key.underlineStyle, value: 1, range: privacyHighlighted)
 
