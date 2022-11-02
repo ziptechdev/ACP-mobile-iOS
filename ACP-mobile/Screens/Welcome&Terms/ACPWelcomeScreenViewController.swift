@@ -45,7 +45,7 @@ class ACPWelcomeScreenViewController: UIViewController {
     private lazy var firstDescriptionText: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = .localizedString(key:"welcomeScreen_first_descirption_text")
+        lbl.text = .localizedString(key: "welcomeScreen_first_descirption_text")
         lbl.numberOfLines = 0
         lbl.adjustsFontSizeToFitWidth = true
         lbl.textColor = .white
@@ -56,7 +56,7 @@ class ACPWelcomeScreenViewController: UIViewController {
     private lazy var secondDescriptionText: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = .localizedString(key:"welcomeScreen_second_descirption_text")
+        lbl.text = .localizedString(key: "welcomeScreen_second_descirption_text")
         lbl.numberOfLines = 0
         lbl.adjustsFontSizeToFitWidth = true
         lbl.textColor = .white
@@ -67,7 +67,7 @@ class ACPWelcomeScreenViewController: UIViewController {
     private lazy var thirdDescriptionText: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = .localizedString(key:"welcomeScreen_third_descirption_text")
+        lbl.text = .localizedString(key: "welcomeScreen_third_descirption_text")
         lbl.numberOfLines = 0
         lbl.adjustsFontSizeToFitWidth = true
         lbl.textColor = .white
@@ -92,7 +92,7 @@ class ACPWelcomeScreenViewController: UIViewController {
         button.backgroundColor = .white
         button.setTitleColor(.coreBlue, for: .normal)
         button.addTarget(self, action: #selector(didTapContinue), for: .touchUpInside)
-        button.setTitle("Continue", for: .normal)
+        button.setTitle(titleKey: "Continue", textColor: .coreBlue)
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 10
         return button

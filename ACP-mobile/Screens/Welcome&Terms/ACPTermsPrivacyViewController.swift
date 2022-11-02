@@ -96,12 +96,12 @@ class ACPTermsPrivacyViewController: UIViewController {
         return lbl
     }()
 
-    private lazy var acceptButton: UIButton = {
-        let button = UIButton()
+    private lazy var acceptButton: ACPShadowButton = {
+        let button = ACPShadowButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .coreBlue
         button.setTitleColor(.white, for: .normal)
-        button.setTitle("Accept", for: .normal)
+        button.setTitle(titleKey: "Accept")
         button.addTarget(self, action: #selector(didTapAccept), for: .touchUpInside)
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 10
