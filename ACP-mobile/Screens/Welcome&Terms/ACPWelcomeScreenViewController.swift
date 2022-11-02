@@ -45,7 +45,7 @@ class ACPWelcomeScreenViewController: UIViewController {
     private lazy var firstDescriptionText: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = NSLocalizedString("welcomeScreen_first_descirption_text", comment: "")
+        lbl.text = .localizedString(key:"welcomeScreen_first_descirption_text")
         lbl.numberOfLines = 0
         lbl.adjustsFontSizeToFitWidth = true
         lbl.textColor = .white
@@ -56,7 +56,7 @@ class ACPWelcomeScreenViewController: UIViewController {
     private lazy var secondDescriptionText: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = NSLocalizedString("welcomeScreen_second_descirption_text", comment: "")
+        lbl.text = .localizedString(key:"welcomeScreen_second_descirption_text")
         lbl.numberOfLines = 0
         lbl.adjustsFontSizeToFitWidth = true
         lbl.textColor = .white
@@ -67,7 +67,7 @@ class ACPWelcomeScreenViewController: UIViewController {
     private lazy var thirdDescriptionText: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = NSLocalizedString("welcomeScreen_third_descirption_text", comment: "")
+        lbl.text = .localizedString(key:"welcomeScreen_third_descirption_text")
         lbl.numberOfLines = 0
         lbl.adjustsFontSizeToFitWidth = true
         lbl.textColor = .white
@@ -78,7 +78,8 @@ class ACPWelcomeScreenViewController: UIViewController {
     private lazy var termsPrivacyUrl: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = NSLocalizedString("welcomeScreen_privacyTerms_descirption_text", comment: "")
+        //lbl.text = .localizedString(key: "welcomeScreen_privacyTerms_descirption_text")
+        lbl.attributedText = attributedTextStyle()
         lbl.numberOfLines = 0
         lbl.adjustsFontSizeToFitWidth = true
         lbl.textColor = .white
@@ -128,13 +129,13 @@ class ACPWelcomeScreenViewController: UIViewController {
     private func setupConstraints() {
         leftTopLine.snp.makeConstraints { make in
             make.left.equalToSuperview().inset(Constants.Constraints.LeftLineLeftOffest)
-            make.top.equalToSuperview().inset(Constants.Constraints.LeftTopLineOffest)
+            make.top.equalToSuperview().offset(Constants.Constraints.LeftTopLineOffest)
             make.width.equalTo(rightTopLine)
         }
 
         rightTopLine.snp.makeConstraints { make in
             make.right.equalToSuperview().inset(Constants.Constraints.RighLineLeftOffest)
-            make.top.equalToSuperview().inset(Constants.Constraints.RightTopLineOffest)
+            make.top.equalToSuperview().offset(Constants.Constraints.RightTopLineOffest)
             make.width.equalTo(leftTopLine)
         }
 
@@ -170,7 +171,6 @@ class ACPWelcomeScreenViewController: UIViewController {
         }
     }
 
-
     // MARK: Functions
 
     @objc func didTapContinue() {
@@ -178,14 +178,25 @@ class ACPWelcomeScreenViewController: UIViewController {
         navigationController?.pushViewController(targetVC, animated: true)
     }
 
+    private func attributedTextStyle() -> NSAttributedString {
+        let string: NSMutableAttributedString = .localizedString(key: "welcomeScreen_privacyTerms_descirption_text")
+        let termsHighlighted = string.range(of: "Terms of Use")
+        let privacyHighlighted = string.range(of: "Privacy Policy")
+        string.addAttribute(.font, value: UIFont.systemFont(ofSize: 14, weight: .bold))
+        string.addAttribute(NSAttributedString.Key.underlineStyle, value: 1, range: termsHighlighted)
+        string.addAttribute(NSAttributedString.Key.underlineStyle, value: 1, range: privacyHighlighted)
+
+        return string
+    }
+
     // MARK: - Constants
     private struct Constants {
             struct Constraints {
 
-                static let LeftTopLineOffest: CGFloat = 140
+                static let LeftTopLineOffest: CGFloat = 120
                 static let LeftLineLeftOffest: CGFloat = 35
 
-                static let RightTopLineOffest: CGFloat = 140
+                static let RightTopLineOffest: CGFloat = 120
                 static let RighLineLeftOffest: CGFloat = 35
 
                 static let TitleTextTopOffset: CGFloat = 35

@@ -85,7 +85,7 @@ class ACPTermsPrivacyViewController: UIViewController {
             return lbl
         }()
 
-        private lazy var informationCollectTextDescription: UILabel = {
+        private lazy var inforCollectTextDesc: UILabel = {
             let lbl = UILabel()
             lbl.translatesAutoresizingMaskIntoConstraints = false
             lbl.text = NSLocalizedString("informationCollectTextDescription_description", comment: "")
@@ -143,14 +143,14 @@ class ACPTermsPrivacyViewController: UIViewController {
 
     private func setupConstraints() {
         leftTopLine.snp.makeConstraints { make in
-            make.left.equalToSuperview().inset(35)
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(55)
+            make.left.equalToSuperview().inset(Constants.Constraints.LeftTopLineLeftOffest)
+            make.top.equalToSuperview().offset(Constants.Constraints.LeftTopLineTopOffest)
             make.width.equalTo(rightTopLine)
         }
 
         rightTopLine.snp.makeConstraints { make in
-            make.right.equalToSuperview().inset(35)
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(55)
+            make.right.equalToSuperview().inset(Constants.Constraints.RightTopLineRightOffest)
+            make.top.equalToSuperview().offset(Constants.Constraints.RightTopLineTopOffest)
             make.width.equalTo(leftTopLine)
         }
     }
@@ -162,7 +162,7 @@ class ACPTermsPrivacyViewController: UIViewController {
         scrollView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.width.equalToSuperview()
-            make.top.equalTo(leftTopLine).inset(20)
+            make.top.equalTo(leftTopLine).inset(Constants.Constraints.ScrollViewTopInset)
             make.bottom.equalTo(view.safeAreaLayoutGuide)
         }
 
@@ -170,7 +170,7 @@ class ACPTermsPrivacyViewController: UIViewController {
             make.centerX.equalTo(scrollView)
             make.width.equalTo(scrollView)
             make.top.equalTo(scrollView)
-            make.bottom.equalTo(scrollView).inset(75)
+            make.bottom.equalTo(scrollView).inset(Constants.Constraints.ContentViewBottomInset)
         }
     }
 
@@ -195,27 +195,27 @@ class ACPTermsPrivacyViewController: UIViewController {
 
           contentView.addSubview(consentTextDescirption)
           consentTextDescirption.snp.makeConstraints { make in
-              make.right.left.equalTo(contentView).inset(Constants.Constraints.PrivacyDescriptionLeftRight)
-              make.top.equalTo(consentText.snp.bottom).inset(Constants.Constraints.PrivacyDescriptionTopOffest)
+              make.right.left.equalTo(contentView).inset(Constants.Constraints.DescriptionLeftRight)
+              make.top.equalTo(consentText.snp.bottom).inset(Constants.Constraints.DescriptionTopOffest)
           }
 
           contentView.addSubview(informationCollectText)
 
           informationCollectText.snp.makeConstraints { make in
-              make.right.left.equalTo(contentView).inset(Constants.Constraints.PrivacyDescriptionLeftRight)
-              make.top.equalTo(consentTextDescirption.snp.bottom).inset(Constants.Constraints.PrivacyDescriptionTopOffest)
+              make.right.left.equalTo(contentView).inset(Constants.Constraints.DescriptionLeftRight)
+              make.top.equalTo(consentTextDescirption.snp.bottom).inset(Constants.Constraints.DescriptionTopOffest)
           }
 
-          contentView.addSubview(informationCollectTextDescription)
-          informationCollectTextDescription.snp.makeConstraints { make in
-              make.right.left.equalTo(contentView).inset(Constants.Constraints.PrivacyDescriptionLeftRight)
-              make.top.equalTo(informationCollectText.snp.bottom).inset(Constants.Constraints.PrivacyDescriptionTopOffest)
+          contentView.addSubview(inforCollectTextDesc)
+          inforCollectTextDesc.snp.makeConstraints { make in
+              make.right.left.equalTo(contentView).inset(Constants.Constraints.DescriptionLeftRight)
+              make.top.equalTo(informationCollectText.snp.bottom).inset(Constants.Constraints.DescriptionTopOffest)
           }
 
           contentView.addSubview(acceptButton)
           acceptButton.snp.makeConstraints { make in
               make.right.left.equalToSuperview().inset(Constants.Constraints.ButtonLeftRightOffest)
-              make.top.equalTo(informationCollectTextDescription.snp.bottom).offset(Constants.Constraints.ButtonTopOffest)
+              make.top.equalTo(inforCollectTextDesc.snp.bottom).offset(Constants.Constraints.ButtonTopOffest)
               make.height.equalTo(Constants.Constraints.ButtonHeight)
               make.bottom.equalToSuperview()
           }
@@ -234,10 +234,10 @@ class ACPTermsPrivacyViewController: UIViewController {
             struct Constraints {
 
                 static let LeftTopLineLeftOffest: CGFloat = 35
-                static let LeftTopLineTopOffest: CGFloat = 39
+                static let LeftTopLineTopOffest: CGFloat = 120
 
                 static let RightTopLineRightOffest: CGFloat = 35
-                static let RightTopLineTopOffest: CGFloat = 39
+                static let RightTopLineTopOffest: CGFloat = 120
 
                 static let ScrollViewTopOffest: CGFloat = 20
 
@@ -251,12 +251,15 @@ class ACPTermsPrivacyViewController: UIViewController {
                 static let PrivacyTextTopOffest: CGFloat = -10
                 static let PrivacyTextLeftRight: CGFloat = 35
 
-                static let PrivacyDescriptionTopOffest: CGFloat = -10
-                static let PrivacyDescriptionLeftRight: CGFloat = 35
+                static let DescriptionTopOffest: CGFloat = -10
+                static let DescriptionLeftRight: CGFloat = 35
 
                 static let ButtonLeftRightOffest: CGFloat = 35
                 static let ButtonTopOffest: CGFloat = 20
                 static let ButtonHeight: CGFloat = 46
+
+                static let ContentViewBottomInset: CGFloat = 75
+                static let ScrollViewTopInset: CGFloat = 20
 
             }
         }
