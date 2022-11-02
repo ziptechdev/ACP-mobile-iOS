@@ -73,9 +73,7 @@ class ACPProfileHeaderView: UIView {
 
     init() {
         super.init(frame: .zero)
-
         setupUI()
-
         present(name: "John Doe", isVerified: true)
     }
 
@@ -83,12 +81,10 @@ class ACPProfileHeaderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-
     // MARK: - UI
 
     func setupUI() {
         translatesAutoresizingMaskIntoConstraints = false
-
         backgroundColor = .white
 
         addSubviews()
@@ -164,13 +160,13 @@ class ACPProfileHeaderView: UIView {
     }
 
     func setupStackButtons() {
-        let personalBtnGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(personalButtonPressed))
-        let securityBtnGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(securityButtonPressed))
-        let legalBtnGestgure: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(legalButtonPressed))
+        let personalButtonGesture = UITapGestureRecognizer(target: self, action: #selector(personalButtonPressed))
+        let securityButtonGesture = UITapGestureRecognizer(target: self, action: #selector(securityButtonPressed))
+        let legalButtonGesture = UITapGestureRecognizer(target: self, action: #selector(legalButtonPressed))
 
-        personalInfoButton.addGestureRecognizer(personalBtnGesture)
-        securityButton.addGestureRecognizer(securityBtnGesture)
-        legalButton.addGestureRecognizer(legalBtnGestgure)
+        personalInfoButton.addGestureRecognizer(personalButtonGesture)
+        securityButton.addGestureRecognizer(securityButtonGesture)
+        legalButton.addGestureRecognizer(legalButtonGesture)
     }
 
     // MARK: - Presenting

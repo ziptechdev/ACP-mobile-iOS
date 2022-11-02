@@ -8,7 +8,6 @@
 import UIKit
 
 class ACPPersonalInfoViewController: UIViewController {
-
     // MARK: - Properties
     var viewModel: ACPEligibilityDetailsViewModel?
 
@@ -236,7 +235,6 @@ class ACPPersonalInfoViewController: UIViewController {
     }
 
     private func setupConstraints() {
-
         scrolLView.snp.makeConstraints { make in
             make.top.left.right.bottom.equalToSuperview()
         }
@@ -349,10 +347,8 @@ class ACPPersonalInfoViewController: UIViewController {
     private func attributedTitleText() -> NSMutableAttributedString {
         let middleName = Constants.Text.MiddleName as NSString
         let fullRange = NSRange(location: 0, length: middleName.length)
-
         let string = NSMutableAttributedString(string: Constants.Text.MiddleName)
         string.addAttribute(.foregroundColor, value: UIColor.gray06Dark, range: fullRange)
-
         return string
     }
 
@@ -365,19 +361,12 @@ class ACPPersonalInfoViewController: UIViewController {
     }
 
     @objc private func textFieldDidChange(_ textField: UITextField) {
-        guard var text = textField.text else {
-            return
-        }
-
+        guard var text = textField.text else { return }
         switch textField {
         case dayTextField.textField:
             text = String(text.prefix(2))
-
-        default:
-            text = String(text.prefix(4))
-
-        }
-
+        default: text = String(text.prefix(4))
+            }
         textField.text = text
     }
     // MARK: - Constants

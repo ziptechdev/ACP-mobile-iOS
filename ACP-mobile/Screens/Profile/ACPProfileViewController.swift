@@ -10,13 +10,11 @@ import SnapKit
 
 class ACPProfileViewController: UIViewController {
 
-    //MARK: Views
-
+    // MARK: - Views
     let headerView = ACPProfileHeaderView()
     let footerView = ACPProfileSettingsView()
 
-    //MARK: - Life Cycle
-
+    // MARK: - Life Cycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         title = Constants.Text.Title
@@ -30,7 +28,7 @@ class ACPProfileViewController: UIViewController {
         footerView.present()
     }
 
-    //MARK: - UI
+    // MARK: - UI
 
     func setupUI() {
         view.backgroundColor = .white
@@ -55,7 +53,6 @@ class ACPProfileViewController: UIViewController {
         }
     }
 
-
     // MARK: - Constants
        private struct Constants {
            struct Text {
@@ -63,8 +60,6 @@ class ACPProfileViewController: UIViewController {
            }
        }
 }
-
-
 
 extension ACPProfileViewController: ACPProfileHeaderViewDelegate {
     func didTapPersonalInfo() {
@@ -80,6 +75,4 @@ extension ACPProfileViewController: ACPProfileHeaderViewDelegate {
     func didTapLegalInfo() {
         print("LEGAL BTN TAPPED")
     }
-
-
 }
