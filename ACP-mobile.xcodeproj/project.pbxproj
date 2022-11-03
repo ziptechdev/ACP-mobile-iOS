@@ -12,6 +12,12 @@
 		133F868F290870EC00663815 /* ApplyACPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F868E290870EC00663815 /* ApplyACPViewController.swift */; };
 		133F86922908714E00663815 /* ApplyForServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F86912908714E00663815 /* ApplyForServiceView.swift */; };
 		133F86942908715900663815 /* ApplyForServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F86932908715900663815 /* ApplyForServiceViewController.swift */; };
+		13416C26291459AC00183927 /* ACPPersonalInfoViewControllerEldar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13416C25291459AC00183927 /* ACPPersonalInfoViewControllerEldar.swift */; };
+		13416C2829145A5400183927 /* ACPProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13416C2729145A5400183927 /* ACPProfileHeaderView.swift */; };
+		13416C2A29145A7A00183927 /* ACPProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13416C2929145A7A00183927 /* ACPProfileViewController.swift */; };
+		13416C2C29145B4B00183927 /* ACPProfileSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13416C2B29145B4B00183927 /* ACPProfileSettingsView.swift */; };
+		13416C2E29145BBD00183927 /* ACPProfileVerticalStackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13416C2D29145BBD00183927 /* ACPProfileVerticalStackButton.swift */; };
+		13416C3029145C7F00183927 /* ACPProfileSecurityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13416C2F29145C7F00183927 /* ACPProfileSecurityViewController.swift */; };
 		400AB9ED28FF7F6000A6DCB6 /* ACPEligibilityDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB98D28FF7F5F00A6DCB6 /* ACPEligibilityDetailsViewModel.swift */; };
 		400AB9EE28FF7F6000A6DCB6 /* ACPEligibilityDetailsDOBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB98F28FF7F5F00A6DCB6 /* ACPEligibilityDetailsDOBModel.swift */; };
 		400AB9EF28FF7F6000A6DCB6 /* ACPEligibilityDetailsAddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB99028FF7F5F00A6DCB6 /* ACPEligibilityDetailsAddressModel.swift */; };
@@ -109,6 +115,12 @@
 		133F868E290870EC00663815 /* ApplyACPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyACPViewController.swift; sourceTree = "<group>"; };
 		133F86912908714E00663815 /* ApplyForServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyForServiceView.swift; sourceTree = "<group>"; };
 		133F86932908715900663815 /* ApplyForServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyForServiceViewController.swift; sourceTree = "<group>"; };
+		13416C25291459AC00183927 /* ACPPersonalInfoViewControllerEldar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPPersonalInfoViewControllerEldar.swift; sourceTree = "<group>"; };
+		13416C2729145A5400183927 /* ACPProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPProfileHeaderView.swift; sourceTree = "<group>"; };
+		13416C2929145A7A00183927 /* ACPProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPProfileViewController.swift; sourceTree = "<group>"; };
+		13416C2B29145B4B00183927 /* ACPProfileSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPProfileSettingsView.swift; sourceTree = "<group>"; };
+		13416C2D29145BBD00183927 /* ACPProfileVerticalStackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPProfileVerticalStackButton.swift; sourceTree = "<group>"; };
+		13416C2F29145C7F00183927 /* ACPProfileSecurityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPProfileSecurityViewController.swift; sourceTree = "<group>"; };
 		400AB98D28FF7F5F00A6DCB6 /* ACPEligibilityDetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsViewModel.swift; sourceTree = "<group>"; };
 		400AB98F28FF7F5F00A6DCB6 /* ACPEligibilityDetailsDOBModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsDOBModel.swift; sourceTree = "<group>"; };
 		400AB99028FF7F5F00A6DCB6 /* ACPEligibilityDetailsAddressModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsAddressModel.swift; sourceTree = "<group>"; };
@@ -264,6 +276,19 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		13416C242914594E00183927 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				13416C25291459AC00183927 /* ACPPersonalInfoViewControllerEldar.swift */,
+				13416C2729145A5400183927 /* ACPProfileHeaderView.swift */,
+				13416C2929145A7A00183927 /* ACPProfileViewController.swift */,
+				13416C2B29145B4B00183927 /* ACPProfileSettingsView.swift */,
+				13416C2D29145BBD00183927 /* ACPProfileVerticalStackButton.swift */,
+				13416C2F29145C7F00183927 /* ACPProfileSecurityViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		1EF3BAC39E57E76420CCD5AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +300,7 @@
 		400AB98A28FF7F5F00A6DCB6 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				13416C242914594E00183927 /* Profile */,
 				133F868529086D1800663815 /* ApplyScreens */,
 				4031545C290E2325009320D8 /* Login */,
 				400AB98B28FF7F5F00A6DCB6 /* EligibilityDetails */,
@@ -904,6 +930,7 @@
 				4031545E290E2349009320D8 /* ACPLoginViewController.swift in Sources */,
 				400AB9FB28FF7F6000A6DCB6 /* ACPLandingScreenViewController.swift in Sources */,
 				400AB9FE28FF7F6000A6DCB6 /* EligibilityZipViewController.swift in Sources */,
+				13416C2829145A5400183927 /* ACPProfileHeaderView.swift in Sources */,
 				40251D46290DE0710083B89A /* ACPTransactionsCell.swift in Sources */,
 				400ABA0228FF7F6000A6DCB6 /* ACPHomeScreenEligibilityHeaderView.swift in Sources */,
 				400ABA0F28FF7F6000A6DCB6 /* String+ACP.swift in Sources */,
@@ -915,6 +942,8 @@
 				400ABA0D28FF7F6000A6DCB6 /* UITapGestureRecognizer+ACP.swift in Sources */,
 				400ABA2828FF7F6000A6DCB6 /* ACPKYCCompleteViewController.swift in Sources */,
 				40251D44290DE04C0083B89A /* ACPTransactionsViewController.swift in Sources */,
+				13416C2C29145B4B00183927 /* ACPProfileSettingsView.swift in Sources */,
+				13416C26291459AC00183927 /* ACPPersonalInfoViewControllerEldar.swift in Sources */,
 				400ABA2C28FF7F6000A6DCB6 /* TestEndpoint.swift in Sources */,
 				4013FAEE2908A3A30018025F /* UINavigationController+ACP.swift in Sources */,
 				400AB9F428FF7F6000A6DCB6 /* ACPEligibilityDetailsAddressViewController.swift in Sources */,
@@ -922,6 +951,7 @@
 				400AB9EF28FF7F6000A6DCB6 /* ACPEligibilityDetailsAddressModel.swift in Sources */,
 				4013FAE7290844380018025F /* ACPEmptyWalletBalanceView.swift in Sources */,
 				400ABA2128FF7F6000A6DCB6 /* ACPVerifyEmailViewController.swift in Sources */,
+				13416C2A29145A7A00183927 /* ACPProfileViewController.swift in Sources */,
 				400ABA2428FF7F6000A6DCB6 /* ACPIdentityProofViewController.swift in Sources */,
 				400ABA1028FF7F6000A6DCB6 /* AppDelegate.swift in Sources */,
 				400ABA0728FF7F6000A6DCB6 /* UITextField+ACP.swift in Sources */,
@@ -939,6 +969,7 @@
 				400ABA0128FF7F6000A6DCB6 /* EligibilityCheckView.swift in Sources */,
 				400AB9F728FF7F6000A6DCB6 /* ACPEligibilityDetailsVerifyViewController.swift in Sources */,
 				400ABA0C28FF7F6000A6DCB6 /* UIViewController+ACP.swift in Sources */,
+				13416C3029145C7F00183927 /* ACPProfileSecurityViewController.swift in Sources */,
 				133F86942908715900663815 /* ApplyForServiceViewController.swift in Sources */,
 				400ABA3228FF904B00A6DCB6 /* ACPTabMenuDotCell.swift in Sources */,
 				400ABA0828FF7F6000A6DCB6 /* UITableView+ACP.swift in Sources */,
@@ -949,6 +980,7 @@
 				400AB9FF28FF7F6000A6DCB6 /* EligibilityZipView.swift in Sources */,
 				400ABA1128FF7F6000A6DCB6 /* SceneDelegate.swift in Sources */,
 				403AD22029075B0600C6D556 /* ACPHomeScreenTabViewController.swift in Sources */,
+				13416C2E29145BBD00183927 /* ACPProfileVerticalStackButton.swift in Sources */,
 				400ABA0428FF7F6000A6DCB6 /* ACPHomeScreenViewController.swift in Sources */,
 				400AB9F328FF7F6000A6DCB6 /* ACPEligibilityDetailsDOBViewController.swift in Sources */,
 				400ABA2E28FF7F6000A6DCB6 /* ACPRouter.swift in Sources */,
