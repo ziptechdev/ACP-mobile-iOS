@@ -9,7 +9,8 @@ import UIKit
 
 enum ACPColorEnum: String {
     case CoreBlue, Gray01Dark, Gray01Light, Gray03Light, Gray06Dark, Gray06Light, ACPYellow,
-         WarningRed, SuccessGreen, LavenderGray, CoreLightBlue
+         WarningRed, SuccessGreen, LavenderGray, CoreLightBlue, CoreBrown, CoreLightPurple,
+         CorePurple
 }
 
 extension UIColor {
@@ -29,4 +30,7 @@ extension UIColor {
     static let successGreen = namedColor(ACPColorEnum.SuccessGreen.rawValue)
     static let lavenderGray = namedColor(ACPColorEnum.LavenderGray.rawValue)
     static let coreLightBlue = namedColor(ACPColorEnum.CoreLightBlue.rawValue)
+    static let coreBrown = namedColor(ACPColorEnum.CoreBrown.rawValue)
+    static let coreLightPurple = namedColor(ACPColorEnum.CoreLightPurple.rawValue)
+    static let corePurple = namedColor(ACPColorEnum.CorePurple.rawValue)
 }

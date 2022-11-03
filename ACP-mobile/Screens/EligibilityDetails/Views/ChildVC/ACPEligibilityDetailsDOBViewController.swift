@@ -13,13 +13,17 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
     // MARK: - Properties
 
     var viewModel: ACPEligibilityDetailsViewModel?
-    weak var delegate: ACPEligibilityDetailsDelegate?
+    weak var delegate: ACPTabMenuDelegate?
+
+    private lazy var textFields: [TextInput] = [
+        monthTextField, dayTextField, yearTextField, ssnTextField
+    ]
 
     // MARK: - Views
 
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = Constants.Text.Title
+        label.text = .localizedString(key: "eligibility_dob_title")
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 32, weight: .bold)
         label.textColor = .coreBlue
@@ -29,10 +33,8 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
 
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = Constants.Text.Subtitle
+        label.attributedText = NSMutableAttributedString.subtitleString(key: "eligibility_dob_subtitle")
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 14, weight: .regular)
-        label.textColor = .gray01Light
         label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 2
         return label
@@ -40,7 +42,7 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
 
     private lazy var monthTextField: ACPPickerView = {
         let view = ACPPickerView()
-        view.titleLabel.text = Constants.Text.Month
+        view.titleLabel.text = .localizedString(key: "eligibility_dob_month")
         view.textField.addRightImage(named: "down_arrow")
         view.delegate = self
         view.pickerView.delegate = self
@@ -50,7 +52,7 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
 
     private lazy var dayTextField: ACPTextField = {
         let view = ACPTextField()
-        view.titleLabel.text = Constants.Text.Day
+        view.titleLabel.text = .localizedString(key: "eligibility_dob_day")
         view.delegate = self
         view.textField.delegate = self
         view.textField.keyboardType = .numberPad
@@ -61,7 +63,7 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
 
     private lazy var yearTextField: ACPTextField = {
         let view = ACPTextField()
-        view.titleLabel.text = Constants.Text.Year
+        view.titleLabel.text = .localizedString(key: "eligibility_dob_year")
         view.delegate = self
         view.textField.delegate = self
         view.textField.keyboardType = .numberPad
@@ -72,7 +74,7 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
 
     private lazy var ssnTextField: ACPTextField = {
         let view = ACPTextField()
-        view.titleLabel.text = Constants.Text.SSN
+        view.titleLabel.text = .localizedString(key: "eligibility_dob_ssn")
         view.delegate = self
         view.textField.delegate = self
         view.textField.keyboardType = .numberPad
@@ -82,7 +84,7 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
 
     private let noBlankLabel: UILabel = {
         let label = UILabel()
-        label.text = Constants.Text.Blank
+        label.text = .localizedString(key: "eligibility_dob_info")
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 12, weight: .regular)
         label.textColor = .gray01Light
@@ -91,14 +93,14 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
 
     private lazy var nextButton: ACPImageButton = {
         let button = ACPImageButton(
+            titleKey: "eligibility_dob_btn",
             spacing: Constants.Constraints.ButtonContentSpacing,
             cornerRadius: Constants.Constraints.ButtonCornerRadius,
             imageName: "right_arrow"
         )
-        button.backgroundColor = .coreBlue
+        button.isUserInteractionEnabled = false
+        button.backgroundColor = .lavenderGray
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(Constants.Text.Next, for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         return button
     }()
@@ -204,20 +206,10 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
     // MARK: - Callback
 
     @objc func didTapButton() {
-        guard let day = dayTextField.textField.text, day != "" else {
-            return
-        }
-        viewModel?.model.dobModel.day = day
-
-        guard let year = yearTextField.textField.text, year != "" else {
-            return
-        }
-        viewModel?.model.dobModel.year = year
-
-        guard let ssn = ssnTextField.textField.text, ssn != "" else {
-            return
-        }
-        viewModel?.model.dobModel.ssn = ssn
+//        viewModel?.model.dobModel.month = dayTextField.text
+        viewModel?.model.dobModel.day = dayTextField.text
+        viewModel?.model.dobModel.year = yearTextField.text
+        viewModel?.model.dobModel.ssn = ssnTextField.text
 
         delegate?.didTapNextButton()
     }
@@ -257,17 +249,6 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
             static let ButtonCornerRadius: CGFloat = 10
             static let ButtonOffsetVertical: CGFloat = 60
         }
-
-        struct Text {
-            static let Title = "Your date of birth"
-            static let Subtitle = "This information is required by National Verifier to verify your identity."
-            static let Next = "Next"
-            static let Blank = "*Cannot be left blank"
-            static let Month = "Month*"
-            static let Day = "Day*"
-            static let Year = "Year*"
-            static let SSN = "SSN (Last 4 digits of your Social Security Number)*"
-        }
     }
 }
 
@@ -275,16 +256,26 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
 
 extension ACPEligibilityDetailsDOBViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == monthTextField.textField {
-            dayTextField.textField.becomeFirstResponder()
-        } else if textField == dayTextField.textField {
-            yearTextField.textField.becomeFirstResponder()
-        } else if textField == yearTextField.textField {
-            ssnTextField.textField.becomeFirstResponder()
-        } else {
-            ssnTextField.textField.resignFirstResponder()
+        guard let currentIndex = textFields.firstIndex(where: { $0.textField == textField }) else {
+            return true
         }
+
+        let nextIndex = currentIndex.advanced(by: 1)
+
+        if nextIndex < textFields.count {
+            textFields[nextIndex].textField.becomeFirstResponder()
+        } else if nextIndex == textFields.count {
+            textFields[currentIndex].textField.resignFirstResponder()
+        }
+
         return true
+    }
+
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        let isEnabled = textFields.allSatisfy({ !$0.isEmpty })
+
+        nextButton.isUserInteractionEnabled = isEnabled
+        nextButton.backgroundColor = isEnabled ? .coreBlue : .lavenderGray
     }
 }
 
