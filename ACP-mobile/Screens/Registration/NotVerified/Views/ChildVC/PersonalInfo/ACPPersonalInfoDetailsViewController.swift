@@ -305,7 +305,7 @@ extension ACPPersonalInfoDetailsViewController: UITextFieldDelegate {
 
     func textFieldDidChangeSelection(_ textField: UITextField) {
         showError(false)
-        
+
         let isEnabled = textFields.allSatisfy({ !$0.isEmpty })
 
         nextButton.isUserInteractionEnabled = isEnabled

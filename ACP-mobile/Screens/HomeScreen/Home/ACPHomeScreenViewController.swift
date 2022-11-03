@@ -79,6 +79,13 @@ class ACPHomeScreenViewController: UIViewController {
         tableView.delegate = self
     }
 
+    // MARK: - Callback
+
+    @objc func didTapApply() {
+        let targetVC = ApplyForServiceViewController()
+        navigationController?.pushViewController(targetVC, animated: true)
+    }
+
     // MARK: - Constants
 
     private struct Constants {
@@ -114,6 +121,7 @@ extension ACPHomeScreenViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header: ACPHomeScreenEligibilityHeaderView = tableView.dequeueHeaderFooter()
         header.present()
+        header.applyButton.addTarget(self, action: #selector(didTapApply), for: .touchUpInside)
         return header
     }
 }
