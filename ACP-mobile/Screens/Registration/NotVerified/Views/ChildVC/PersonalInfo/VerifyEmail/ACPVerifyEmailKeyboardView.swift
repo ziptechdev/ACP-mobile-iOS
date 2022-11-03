@@ -15,7 +15,7 @@ protocol ACPVerifyEmailKeyboardViewDelegate: AnyObject {
 
 class ACPVerifyEmailKeyboardView: UIView {
 
-	// MARK: - Properties
+    // MARK: - Properties
 
     weak var delegate: ACPVerifyEmailKeyboardViewDelegate?
 

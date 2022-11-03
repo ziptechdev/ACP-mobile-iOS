@@ -14,6 +14,10 @@ class ACPVerifiedRegistrationViewController: UIViewController {
 
     private var isSecureEntry = true
 
+    private lazy var textFields: [TextInput] = [
+        emailTextField, passwordTextField, confirmTextField
+    ]
+
     // MARK: - Views
 
     private let registerImageView: UIImageView = {
@@ -72,8 +76,8 @@ class ACPVerifiedRegistrationViewController: UIViewController {
         return view
     }()
 
-    private lazy var registerButton: UIButton = {
-        let button = UIButton()
+    private lazy var registerButton: ACPShadowButton = {
+        let button = ACPShadowButton()
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
         button.layer.masksToBounds = true
         button.isUserInteractionEnabled = false
@@ -111,8 +115,6 @@ class ACPVerifiedRegistrationViewController: UIViewController {
 
         addSubviews()
         setupConstraints()
-
-        
     }
 
     private func addSubviews() {
@@ -180,18 +182,30 @@ class ACPVerifiedRegistrationViewController: UIViewController {
     }
 
     @objc func didTapButton() {
+        guard checkPasswords() else {
+            return
+        }
+
         let targetVC = ACPRegistrationCompleteViewController()
         navigationController?.pushViewController(targetVC, animated: true)
     }
 
-    func focusTextField(_ view: ACPTextField) {
-        view.textField.layer.borderColor = UIColor.coreBlue.cgColor
-        view.textFieldImage?.tintColor = .gray06Dark
+    func checkPasswords() -> Bool {
+        let passwordsMatch = passwordTextField.text == confirmTextField.text
+
+        if !passwordsMatch {
+            showError(true)
+        }
+
+        return passwordsMatch
     }
 
-    func unFocusTextField(_ view: ACPTextField) {
-        view.textField.layer.borderColor = UIColor.gray03Light.cgColor
-        view.textFieldImage?.tintColor = .gray03Light
+    func showError(_ show: Bool) {
+        if show {
+            confirmTextField.showError(message: "Passwords do not match")
+        } else {
+            confirmTextField.hideError()
+        }
     }
 
     // MARK: - Constants
@@ -221,53 +235,25 @@ class ACPVerifiedRegistrationViewController: UIViewController {
 
 extension ACPVerifiedRegistrationViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == emailTextField.textField {
-            passwordTextField.textField.becomeFirstResponder()
-        } else if textField == passwordTextField.textField {
-            confirmTextField.textField.becomeFirstResponder()
-        } else {
-            confirmTextField.textField.resignFirstResponder()
+        guard let currentIndex = textFields.firstIndex(where: { $0.textField == textField }) else {
+            return true
         }
+
+        let nextIndex = currentIndex.advanced(by: 1)
+
+        if nextIndex < textFields.count {
+            textFields[nextIndex].textField.becomeFirstResponder()
+        } else if nextIndex == textFields.count {
+            textFields[currentIndex].textField.resignFirstResponder()
+        }
+
         return true
     }
-//
-//    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-//        if textField == emailTextField.textField {
-//            focusTextField(emailTextField)
-//        } else if textField == passwordTextField.textField {
-//            focusTextField(passwordTextField)
-//        } else {
-//            focusTextField(confirmTextField)
-//        }
-//        return true
-//    }
-//
-//    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-//        if textField == emailTextField.textField {
-//            unFocusTextField(emailTextField)
-//        } else if textField == passwordTextField.textField {
-//            unFocusTextField(passwordTextField)
-//        } else {
-//            unFocusTextField(confirmTextField)
-//        }
-//        return true
-//    }
 
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        guard let email = emailTextField.textField.text,
-              let password = passwordTextField.textField.text,
-              let confirmPass = confirmTextField.textField.text
-        else { return }
+        showError(false)
 
-        let showPasswordError = password != "" && confirmPass != "" && password == confirmPass
-
-        if showPasswordError {
-            confirmTextField.showError(message: "Passwords do not match")
-        } else {
-            confirmTextField.hideError()
-        }
-
-        let isEnabled = email != "" && showPasswordError
+        let isEnabled = textFields.allSatisfy({ !$0.isEmpty })
 
         registerButton.isUserInteractionEnabled = isEnabled
         registerButton.backgroundColor = isEnabled ? .coreBlue : .lavenderGray

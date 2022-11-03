@@ -1,5 +1,5 @@
 //
-//  EgibilityCheckView.swift
+//  EligibilityCheckView.swift
 //  ACP-mobile
 //
 //  Created by Abi  on 1. 10. 2022..
@@ -8,17 +8,17 @@
 import UIKit
 import SnapKit
 
-protocol EgibilityCheckDelegate: AnyObject {
-    func didTapCheckEgibilityButton()
+protocol EligibilityCheckDelegate: AnyObject {
+    func didTapCheckEligibilityButton()
     func didTapCreateNewAccountButton()
     func didTapTextLink()
 }
 
-class EgibilityCheckView: UIView {
+class EligibilityCheckView: UIView {
 
     // MARK: - Properties
 
-    weak var delegate: EgibilityCheckDelegate?
+    weak var delegate: EligibilityCheckDelegate?
 
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -46,8 +46,8 @@ class EgibilityCheckView: UIView {
         return stackView
     }()
 
-    let checkEgibilityButton: UIButton = {
-        let button = UIButton()
+    let checkEligibilityButton: ACPShadowButton = {
+        let button = ACPShadowButton()
         button.setTitle(titleKey: "eligibility_btn")
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -93,7 +93,7 @@ class EgibilityCheckView: UIView {
         let tap = UITapGestureRecognizer(target: self, action: #selector(didTapLabel(_:)))
         descriptionLabel.addGestureRecognizer(tap)
 
-        checkEgibilityButton.addTarget(self, action: #selector(checkEgibilityTapped), for: .touchUpInside)
+        checkEligibilityButton.addTarget(self, action: #selector(checkEligibilityTapped), for: .touchUpInside)
         createNewAccountButton.addTarget(self, action: #selector(createNewAccountTapped), for: .touchUpInside)
     }
 
@@ -109,7 +109,7 @@ class EgibilityCheckView: UIView {
         textStackView.addArrangedSubview(titleLabel)
         textStackView.addArrangedSubview(descriptionLabel)
 
-        buttonAndInfoStackView.addArrangedSubview(checkEgibilityButton)
+        buttonAndInfoStackView.addArrangedSubview(checkEligibilityButton)
         buttonAndInfoStackView.addArrangedSubview(createNewAccountButton)
         buttonAndInfoStackView.addArrangedSubview(infoLabel)
 
@@ -122,7 +122,7 @@ class EgibilityCheckView: UIView {
             make.height.equalTo(Constants.Constraints.ButtonHeight)
         }
 
-        checkEgibilityButton.snp.makeConstraints { make in
+        checkEligibilityButton.snp.makeConstraints { make in
             make.height.equalTo(Constants.Constraints.ButtonHeight)
         }
 
@@ -137,8 +137,8 @@ class EgibilityCheckView: UIView {
         }
     }
 
-    @objc func checkEgibilityTapped(sender: UIButton!) {
-        delegate?.didTapCheckEgibilityButton()
+    @objc func checkEligibilityTapped(sender: UIButton!) {
+        delegate?.didTapCheckEligibilityButton()
     }
 
     @objc func createNewAccountTapped(sender: UIButton!) {

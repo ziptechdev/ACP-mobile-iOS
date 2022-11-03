@@ -100,13 +100,15 @@ extension ACPHomeScreenTabViewController: ACPTabMenuViewControllerDelegate {
     func didSelectTab(index: Int) -> UIViewController {
         viewModel.currentTab = index
 
-        title = viewModel.titleForTab(at: index)
+        title = viewModel.titleForPage(at: index)
 
         switch index {
         case 0:
             let viewController = ACPHomeScreenViewController()
             return viewController
         case 1:
+            // TODO: Remove Test
+            viewModel.test()
             if viewModel.isWalletEmpty {
                 let viewController = ACPEmptyWalletViewController()
                 return viewController

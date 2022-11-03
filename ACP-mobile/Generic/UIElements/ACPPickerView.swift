@@ -12,11 +12,20 @@ protocol ACPToolbarDelegate: AnyObject {
     func didPressDone(_ textfield: UITextField)
 }
 
-class ACPPickerView: UIView {
+class ACPPickerView: UIView, TextInput {
 
     // MARK: - Properties
 
     weak var delegate: ACPToolbarDelegate?
+
+    var isEmpty: Bool {
+        let textFieldEmpty = textField.text?.isEmpty ?? true
+        return textFieldEmpty
+    }
+
+    var text: String {
+        return textField.text ?? ""
+    }
 
     // MARK: - Views
 
@@ -31,10 +40,12 @@ class ACPPickerView: UIView {
 
     let textField: TextField = {
         let view = TextField()
+        view.isPicker = true
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = Constants.Constraints.TextFieldRoundedCorners
         view.layer.masksToBounds = true
         view.autocorrectionType = .no
+        view.tintColor = .clear
         view.layer.borderWidth = Constants.Constraints.TextFieldBorderWidth
         view.layer.borderColor = UIColor.gray03Light.cgColor
         view.font = .systemFont(ofSize: 16, weight: .regular)

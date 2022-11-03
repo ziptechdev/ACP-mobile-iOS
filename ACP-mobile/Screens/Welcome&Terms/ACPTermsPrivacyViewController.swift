@@ -76,8 +76,8 @@ class ACPTermsPrivacyViewController: UIViewController {
         return lbl
     }()
 
-    private lazy var acceptButton: UIButton = {
-        let button = UIButton()
+    private lazy var acceptButton: ACPShadowButton = {
+        let button = ACPShadowButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .coreBlue
         button.setTitle(titleKey: "termsPrivacy_btn")
@@ -190,7 +190,7 @@ class ACPTermsPrivacyViewController: UIViewController {
     // MARK: Functions
 
     @objc func didTapAccept() {
-        let targetVC = EgibilityCheckViewController()
+        let targetVC = EligibilityCheckViewController()
         navigationController?.pushViewController(targetVC, animated: true)
     }
 

@@ -1,5 +1,5 @@
 //
-//  EgibilityZipView.swift
+//  EligibilityZipView.swift
 //  ACP-mobile
 //
 //  Created by Abi  on 4. 10. 2022..
@@ -8,17 +8,17 @@
 import UIKit
 import SnapKit
 
-protocol EgibilityZipCodeDelegate: AnyObject {
+protocol EligibilityZipCodeDelegate: AnyObject {
     func didTapNextButton()
     func didPressDone(_ textfield: UITextField, _ secondTextfield: UITextField)
 }
 
 // TODO: Body Length Fix
-class EgibilityZipView: UIView {
+class EligibilityZipView: UIView {
 
     // MARK: - Delegates
 
-    weak var delegate: EgibilityZipCodeDelegate? {
+    weak var delegate: EligibilityZipCodeDelegate? {
         didSet {
             zipFirstCodeTextField.inputAccessoryView = toolbar
             zipSecondCodeTextField.inputAccessoryView = toolbar
@@ -172,7 +172,7 @@ class EgibilityZipView: UIView {
         setUpConstraints()
         setText()
 
-        nextButton.addTarget(self, action: #selector(checkEgibilityTapped), for: .touchUpInside)
+        nextButton.addTarget(self, action: #selector(checkEligibilityTapped), for: .touchUpInside)
         zipFirstCodeTextField.addTarget(self, action: #selector(zipCodeFirstHandler), for: .editingChanged)
         zipSecondCodeTextField.addTarget(self, action: #selector(zipCodeSecondHandler), for: .editingChanged)
     }
@@ -203,7 +203,7 @@ class EgibilityZipView: UIView {
         addSubview(buttonAndInfoStackView)
     }
 
-    @objc func checkEgibilityTapped(sender: UIButton!) {
+    @objc func checkEligibilityTapped(sender: UIButton!) {
         delegate?.didTapNextButton()
     }
 

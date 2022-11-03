@@ -15,6 +15,10 @@ class ACPEligibilityDetailsAddressViewController: UIViewController {
     var viewModel: ACPEligibilityDetailsViewModel?
     weak var delegate: ACPTabMenuDelegate?
 
+    private lazy var textFields: [TextInput] = [
+        streetTextField, cityTextField, stateTextField, zipTextField
+    ]
+
     // MARK: - Views
 
     private let titleLabel: UILabel = {
@@ -84,8 +88,8 @@ class ACPEligibilityDetailsAddressViewController: UIViewController {
         return label
     }()
 
-    private lazy var verifyButton: UIButton = {
-        let button = UIButton()
+    private lazy var verifyButton: ACPShadowButton = {
+        let button = ACPShadowButton()
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
         button.layer.masksToBounds = true
         button.isUserInteractionEnabled = false
@@ -197,20 +201,10 @@ class ACPEligibilityDetailsAddressViewController: UIViewController {
     // MARK: - Callback
 
     @objc func didTapButton() {
-        guard let street = streetTextField.textField.text, street != "" else {
-            return
-        }
-        viewModel?.model.dobModel.day = street
-
-        guard let city = cityTextField.textField.text, city != "" else {
-            return
-        }
-        viewModel?.model.dobModel.year = city
-
-        guard let zip = zipTextField.textField.text, zip != "" else {
-            return
-        }
-        viewModel?.model.dobModel.ssn = zip
+        viewModel?.model.addressModel.address = streetTextField.text
+        viewModel?.model.addressModel.city = cityTextField.text
+//        viewModel?.model.addressModel.state
+        viewModel?.model.addressModel.zipCode = zipTextField.text
 
         delegate?.didTapActionButton()
     }
@@ -257,25 +251,23 @@ class ACPEligibilityDetailsAddressViewController: UIViewController {
 extension ACPEligibilityDetailsAddressViewController: UITextFieldDelegate {
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == streetTextField.textField {
-            cityTextField.textField.becomeFirstResponder()
-        } else if textField == cityTextField.textField {
-            stateTextField.textField.becomeFirstResponder()
-        } else if textField == stateTextField.textField {
-            zipTextField.textField.becomeFirstResponder()
-        } else {
-            zipTextField.textField.resignFirstResponder()
+        guard let currentIndex = textFields.firstIndex(where: { $0.textField == textField }) else {
+            return true
         }
+
+        let nextIndex = currentIndex.advanced(by: 1)
+
+        if nextIndex < textFields.count {
+            textFields[nextIndex].textField.becomeFirstResponder()
+        } else if nextIndex == textFields.count {
+            textFields[currentIndex].textField.resignFirstResponder()
+        }
+
         return true
     }
 
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        guard let street = streetTextField.textField.text,
-              let city = cityTextField.textField.text,
-              let state = stateTextField.textField.text
-        else { return }
-
-        let isEnabled = street != "" && city != "" && state != ""
+        let isEnabled = textFields.allSatisfy({ !$0.isEmpty })
 
         verifyButton.isUserInteractionEnabled = isEnabled
         verifyButton.backgroundColor = isEnabled ? .coreBlue : .lavenderGray

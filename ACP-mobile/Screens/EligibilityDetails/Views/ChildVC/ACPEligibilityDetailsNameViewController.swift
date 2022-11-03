@@ -15,6 +15,10 @@ class ACPEligibilityDetailsNameViewController: UIViewController {
     var viewModel: ACPEligibilityDetailsViewModel?
     weak var delegate: ACPTabMenuDelegate?
 
+    private lazy var textFields: [TextInput] = [
+        nameTextField, middleNameTextField, lastNameTextField
+    ]
+
     // MARK: - Views
 
     private let titleLabel: UILabel = {
@@ -183,20 +187,9 @@ class ACPEligibilityDetailsNameViewController: UIViewController {
     // MARK: - Callback
 
     @objc func didTapButton() {
-        guard let name = nameTextField.textField.text, name != "" else {
-            return
-        }
-        viewModel?.model.nameModel.name = name
-
-        if let middleName = middleNameTextField.textField.text {
-            viewModel?.model.nameModel.middleName = middleName
-        }
-
-        guard let lastName = lastNameTextField.textField.text, lastName != "" else {
-            return
-        }
-
-        viewModel?.model.nameModel.lastName = lastName
+        viewModel?.model.nameModel.name = nameTextField.text
+        viewModel?.model.nameModel.middleName = middleNameTextField.text
+        viewModel?.model.nameModel.lastName = lastNameTextField.text
 
         delegate?.didTapNextButton()
     }
@@ -225,22 +218,24 @@ class ACPEligibilityDetailsNameViewController: UIViewController {
 
 extension ACPEligibilityDetailsNameViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == nameTextField.textField {
-            middleNameTextField.textField.becomeFirstResponder()
-        } else if textField == middleNameTextField.textField {
-            lastNameTextField.textField.becomeFirstResponder()
-        } else {
-            lastNameTextField.textField.resignFirstResponder()
+        guard let currentIndex = textFields.firstIndex(where: { $0.textField == textField }) else {
+            return true
         }
+
+        let nextIndex = currentIndex.advanced(by: 1)
+
+        if nextIndex < textFields.count {
+            textFields[nextIndex].textField.becomeFirstResponder()
+        } else if nextIndex == textFields.count {
+            textFields[currentIndex].textField.resignFirstResponder()
+        }
+
         return true
     }
 
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        guard let lastname = lastNameTextField.textField.text,
-              let name = nameTextField.textField.text
-        else { return }
-
-        let isEnabled = lastname != "" && name != ""
+        let textFieldsToCheck = textFields.filter({ $0.textField != middleNameTextField.textField })
+        let isEnabled = textFieldsToCheck.allSatisfy({ !$0.isEmpty })
 
         nextButton.isUserInteractionEnabled = isEnabled
         nextButton.backgroundColor = isEnabled ? .coreBlue : .lavenderGray

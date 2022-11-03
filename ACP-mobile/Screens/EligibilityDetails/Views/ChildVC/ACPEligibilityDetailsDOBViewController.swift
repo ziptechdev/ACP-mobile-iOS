@@ -15,6 +15,10 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
     var viewModel: ACPEligibilityDetailsViewModel?
     weak var delegate: ACPTabMenuDelegate?
 
+    private lazy var textFields: [TextInput] = [
+        monthTextField, dayTextField, yearTextField, ssnTextField
+    ]
+
     // MARK: - Views
 
     private let titleLabel: UILabel = {
@@ -202,20 +206,10 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
     // MARK: - Callback
 
     @objc func didTapButton() {
-        guard let day = dayTextField.textField.text, day != "" else {
-            return
-        }
-        viewModel?.model.dobModel.day = day
-
-        guard let year = yearTextField.textField.text, year != "" else {
-            return
-        }
-        viewModel?.model.dobModel.year = year
-
-        guard let ssn = ssnTextField.textField.text, ssn != "" else {
-            return
-        }
-        viewModel?.model.dobModel.ssn = ssn
+//        viewModel?.model.dobModel.month = dayTextField.text
+        viewModel?.model.dobModel.day = dayTextField.text
+        viewModel?.model.dobModel.year = yearTextField.text
+        viewModel?.model.dobModel.ssn = ssnTextField.text
 
         delegate?.didTapNextButton()
     }
@@ -262,25 +256,23 @@ class ACPEligibilityDetailsDOBViewController: UIViewController {
 
 extension ACPEligibilityDetailsDOBViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == monthTextField.textField {
-            dayTextField.textField.becomeFirstResponder()
-        } else if textField == dayTextField.textField {
-            yearTextField.textField.becomeFirstResponder()
-        } else if textField == yearTextField.textField {
-            ssnTextField.textField.becomeFirstResponder()
-        } else {
-            ssnTextField.textField.resignFirstResponder()
+        guard let currentIndex = textFields.firstIndex(where: { $0.textField == textField }) else {
+            return true
         }
+
+        let nextIndex = currentIndex.advanced(by: 1)
+
+        if nextIndex < textFields.count {
+            textFields[nextIndex].textField.becomeFirstResponder()
+        } else if nextIndex == textFields.count {
+            textFields[currentIndex].textField.resignFirstResponder()
+        }
+
         return true
     }
 
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        guard let day = dayTextField.textField.text,
-              let year = yearTextField.textField.text,
-              let ssnNumber = ssnTextField.textField.text
-        else { return }
-
-        let isEnabled = day != "" && year != "" && ssnNumber != ""
+        let isEnabled = textFields.allSatisfy({ !$0.isEmpty })
 
         nextButton.isUserInteractionEnabled = isEnabled
         nextButton.backgroundColor = isEnabled ? .coreBlue : .lavenderGray
