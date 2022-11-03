@@ -34,7 +34,7 @@ class ACPWelcomeScreenViewController: UIViewController {
     private lazy var titleText: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = "Affordable Conectivity Program"
+        lbl.text = .localizedString(key: "welcome_title")
         lbl.numberOfLines = 0
         lbl.textColor = .white
         lbl.font = .systemFont(ofSize: 32, weight: .bold)
@@ -42,10 +42,11 @@ class ACPWelcomeScreenViewController: UIViewController {
         return lbl
     }()
 
+    // TODO: Separate into multiple labels for easier layout
     private lazy var descriptionText: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = NSLocalizedString("welcomeScreen_text", comment: "")
+        lbl.text = .localizedString(key: "welcome_text")
         lbl.numberOfLines = 0
         lbl.adjustsFontSizeToFitWidth = true
         lbl.textAlignment = .justified
@@ -55,21 +56,21 @@ class ACPWelcomeScreenViewController: UIViewController {
     }()
 
     private lazy var continueButton: UIButton! = {
-      let button = UIButton()
-      button.translatesAutoresizingMaskIntoConstraints = false
-      button.backgroundColor = .white
-      button.setTitleColor(.coreBlue, for: .normal)
-      button.addTarget(self, action: #selector(didTapContinue), for: .touchUpInside)
-      button.setTitle("Continue", for: .normal)
-      button.layer.masksToBounds = true
-      button.layer.cornerRadius = 10
-      return button
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .white
+        button.addTarget(self, action: #selector(didTapContinue), for: .touchUpInside)
+        button.setTitle(titleKey: "welcome_btn", textColor: .coreBlue)
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 10
+        return button
     }()
 
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         view.backgroundColor = .coreBlue
         view.addSubview(leftTopLine)
         view.addSubview(rightTopLine)
@@ -82,7 +83,7 @@ class ACPWelcomeScreenViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        title = "Welcome"
+        title = .localizedString(key: "welcome_page_title")
         navigationController?.navigationBar.isHidden = false
         navigationController?.navigationBar.titleTextAttributes = [
             .font: UIFont.systemFont(ofSize: 20, weight: .regular),

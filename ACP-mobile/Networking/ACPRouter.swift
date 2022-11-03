@@ -14,7 +14,7 @@ protocol ACPRouterDelegate: AnyObject {
 
 class ACPRouter {
 
-	// MARK: - Properties
+    // MARK: - Properties
 
     private var httpHeaders: HTTPHeaders = [
         .contentType("application/json")
@@ -35,7 +35,8 @@ class ACPRouter {
 
         let authStr = "Username:Password"
         let authData = authStr.data(using: .utf8)
-        // TODO: - Real Auth
+
+        // TODO: Real Auth
         httpHeaders.add(.authorization("Basic \(authData!.base64EncodedString(options: []))"))
 
         let request = AF.request(

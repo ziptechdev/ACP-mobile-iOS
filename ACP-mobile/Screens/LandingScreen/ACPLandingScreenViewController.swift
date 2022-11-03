@@ -28,7 +28,7 @@ class ACPLandingScreenViewController: UIViewController {
 
     private let welcomeLabel: UILabel = {
         let label = UILabel()
-        label.text = Constants.Text.Welcome
+        label.text = .localizedString(key: "landing_title")
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 30, weight: .bold)
         label.textAlignment = .center
@@ -37,13 +37,14 @@ class ACPLandingScreenViewController: UIViewController {
         return label
     }()
 
-    private let subtitleLabel: UILabel = {
+    private lazy var subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = Constants.Text.Details
+        label.attributedText = NSMutableAttributedString.subtitleString(
+            key: "landing_subtitle",
+            color: .white,
+            isCenter: true
+        )
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 14, weight: .regular)
-        label.textAlignment = .center
-        label.textColor = .white
         label.numberOfLines = 2
         label.adjustsFontSizeToFitWidth = true
         return label
@@ -51,14 +52,14 @@ class ACPLandingScreenViewController: UIViewController {
 
     private let getStartedButton: ACPImageButton = {
         let button = ACPImageButton(
+            titleKey: "landing_btn",
             spacing: Constants.Constraints.ButtonContentSpacing,
             cornerRadius: Constants.Constraints.ButtonCornerRadius,
             imageName: "right_arrow"
         )
+        button.hasShadow = false
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(Constants.Text.GetStarted, for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
         return button
     }()
 
@@ -138,15 +139,6 @@ class ACPLandingScreenViewController: UIViewController {
             static let SubtitleBotOffset: CGFloat = 120
 
             static let TitleBotOffset: CGFloat = 10
-        }
-
-        struct Text {
-            static let Welcome = "Welcome to ACP Mobile"
-            static let Details = """
-                This is your first time exploring ACP Mobile app.
-                Press ‘Get Started’ button to explore the benfits.
-                """
-            static let GetStarted = "Get Started"
         }
     }
 }
