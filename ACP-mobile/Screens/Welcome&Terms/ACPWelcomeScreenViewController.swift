@@ -34,7 +34,7 @@ class ACPWelcomeScreenViewController: UIViewController {
     private lazy var titleText: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = "Affordable Conectivity Program"
+        lbl.text = .localizedString(key: "welcome_title")
         lbl.numberOfLines = 0
         lbl.textColor = .white
         lbl.font = .systemFont(ofSize: 30, weight: .bold)
@@ -45,29 +45,34 @@ class ACPWelcomeScreenViewController: UIViewController {
     private lazy var firstDescriptionText: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = .localizedString(key: "welcomeScreen_first_descirption_text")
+        lbl.attributedText = NSMutableAttributedString.subtitleString(
+            key: "welcome_first_descirption_text",
+            color: .white
+        )
         lbl.numberOfLines = 0
         lbl.adjustsFontSizeToFitWidth = true
-        lbl.textColor = .white
-        lbl.font = .systemFont(ofSize: 14, weight: .regular)
         return lbl
     }()
 
     private lazy var secondDescriptionText: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = .localizedString(key: "welcomeScreen_second_descirption_text")
+        lbl.attributedText = NSMutableAttributedString.subtitleString(
+            key: "welcome_second_descirption_text",
+            color: .white
+        )
         lbl.numberOfLines = 0
         lbl.adjustsFontSizeToFitWidth = true
-        lbl.textColor = .white
-        lbl.font = .systemFont(ofSize: 14, weight: .regular)
         return lbl
     }()
 
     private lazy var thirdDescriptionText: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = .localizedString(key: "welcomeScreen_third_descirption_text")
+        lbl.attributedText = NSMutableAttributedString.subtitleString(
+            key: "welcome_third_descirption_text",
+            color: .white
+        )
         lbl.numberOfLines = 0
         lbl.adjustsFontSizeToFitWidth = true
         lbl.textColor = .white
@@ -81,8 +86,6 @@ class ACPWelcomeScreenViewController: UIViewController {
         lbl.attributedText = attributedTextStyle()
         lbl.numberOfLines = 0
         lbl.adjustsFontSizeToFitWidth = true
-        lbl.textColor = .white
-        lbl.font = .systemFont(ofSize: 14, weight: .bold)
         return lbl
     }()
 
@@ -90,9 +93,8 @@ class ACPWelcomeScreenViewController: UIViewController {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .white
-        button.setTitleColor(.coreBlue, for: .normal)
         button.addTarget(self, action: #selector(didTapContinue), for: .touchUpInside)
-        button.setTitle(titleKey: "Continue", textColor: .coreBlue)
+        button.setTitle(titleKey: "welcome_btn", textColor: .coreBlue)
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 10
         return button
@@ -102,7 +104,9 @@ class ACPWelcomeScreenViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         view.backgroundColor = .coreBlue
+
         view.addSubview(leftTopLine)
         view.addSubview(rightTopLine)
         view.addSubview(titleText)
@@ -117,7 +121,7 @@ class ACPWelcomeScreenViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        title = "Welcome"
+        title = .localizedString(key: "welcome_page_title")
 
         navigationController?.navigationBar.isHidden = false
         navigationController?.navigationBar.titleTextAttributes = [
@@ -177,11 +181,15 @@ class ACPWelcomeScreenViewController: UIViewController {
     }
 
     private func attributedTextStyle() -> NSAttributedString {
-        let string: NSMutableAttributedString = .localizedString(key: "welcomeScreen_privacyTerms_descirption_text")
-        let termsHighlighted = string.range(of: "Terms of Use")
-        let privacyHighlighted = string.range(of: "Privacy Policy")
-        string.addAttribute(NSAttributedString.Key.underlineStyle, value: 1, range: termsHighlighted)
-        string.addAttribute(NSAttributedString.Key.underlineStyle, value: 1, range: privacyHighlighted)
+        let string: NSMutableAttributedString = .localizedString(key: "welcome_privacyTerms_descirption_text")
+        let termsHighlighted = string.range(of: .localizedString(key: "welcome_privacyTerms_terms"))
+        let privacyHighlighted = string.range(of: .localizedString(key: "welcome_privacyTerms_privacy"))
+
+        string.addAttribute(.font, value: UIFont.systemFont(ofSize: 14, weight: .bold))
+        string.addAttribute(.paragraphStyle, value: NSMutableParagraphStyle.lineHeight)
+        string.addAttribute(.foregroundColor, value: UIColor.white)
+        string.addAttribute(.underlineStyle, value: NSUnderlineStyle.single, range: termsHighlighted)
+        string.addAttribute(.underlineStyle, value: NSUnderlineStyle.single, range: privacyHighlighted)
 
         return string
     }
@@ -194,7 +202,7 @@ class ACPWelcomeScreenViewController: UIViewController {
     }
 
     // MARK: - Constants
-    
+
     private struct Constants {
         static let LeftTopLineOffest: CGFloat = 120
         static let LeftLineLeftOffest: CGFloat = 35

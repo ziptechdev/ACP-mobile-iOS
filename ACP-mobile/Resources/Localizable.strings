@@ -27,11 +27,13 @@
 
 /* Welcome Screen */
 "welcome_page_title" = "Welcome";
-"welcomeScreen_title" = "Affordable Conectivity Program";
-"welcomeScreen_first_descirption_text" = "The Affordable Connectivity Program is an FCC benefit program that helps ensure households can afford the broadband they need for work, school, healthcare and more.";
-"welcomeScreen_second_descirption_text" = "The benefit provides a discount of up to $30 per month toward internet service for eligible households, and up to $75 per month for households on qualifying Tribal lands. Eligible households can also receive a one-time discount of up to $100 to purchase a laptop, desktop computer, or tablet from participating providers if they contribute more than $10 and less than $50 toward the purchase price.";
-"welcomeScreen_third_descirption_text" = "The Affordable Connectivity Program is limited to one monthly service discount and one device discount per household.";
-"welcomeScreen_privacyTerms_descirption_text" = "Before continuing you are required to review our Terms of Use and Privacy Policy.";
+"welcome_title" = "Affordable Conectivity Program";
+"welcome_first_descirption_text" = "The Affordable Connectivity Program is an FCC benefit program that helps ensure households can afford the broadband they need for work, school, healthcare and more.";
+"welcome_second_descirption_text" = "The benefit provides a discount of up to $30 per month toward internet service for eligible households, and up to $75 per month for households on qualifying Tribal lands. Eligible households can also receive a one-time discount of up to $100 to purchase a laptop, desktop computer, or tablet from participating providers if they contribute more than $10 and less than $50 toward the purchase price.";
+"welcome_third_descirption_text" = "The Affordable Connectivity Program is limited to one monthly service discount and one device discount per household.";
+"welcome_privacyTerms_descirption_text" = "Before continuing you are required to review our Terms of Use and Privacy Policy.";
+"welcome_privacyTerms_privacy" = "Privacy Policy";
+"welcome_privacyTerms_terms" = "Terms of Use";
 "welcome_btn" = "Continue";
 
 /* Terms Screen */
