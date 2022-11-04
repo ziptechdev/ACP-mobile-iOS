@@ -35,7 +35,7 @@ class ACPTermsPrivacyViewController: UIViewController {
     private lazy var termsText: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = "Privacy Policy"
+        lbl.text = .localizedString(key: "privacy_title")
         lbl.numberOfLines = 0
         lbl.textColor = .coreBlue
         lbl.font = .systemFont(ofSize: 32, weight: .bold)
@@ -56,7 +56,7 @@ class ACPTermsPrivacyViewController: UIViewController {
     private lazy var consentText: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = "Consent"
+        lbl.text = .localizedString(key: "terms_consent")
         lbl.numberOfLines = 0
         lbl.textColor = .coreBlue
         lbl.font = .systemFont(ofSize: 16, weight: .bold)
@@ -78,7 +78,7 @@ class ACPTermsPrivacyViewController: UIViewController {
     private lazy var informationCollectText: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = "Information we collect"
+        lbl.text = .localizedString(key: "terms_information")
         lbl.numberOfLines = 0
         lbl.textColor = .coreBlue
         lbl.font = .systemFont(ofSize: 16, weight: .bold)
