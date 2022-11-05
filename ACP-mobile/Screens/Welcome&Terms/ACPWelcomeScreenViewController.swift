@@ -188,8 +188,8 @@ class ACPWelcomeScreenViewController: UIViewController {
         string.addAttribute(.font, value: UIFont.systemFont(ofSize: 14, weight: .bold))
         string.addAttribute(.paragraphStyle, value: NSMutableParagraphStyle.lineHeight)
         string.addAttribute(.foregroundColor, value: UIColor.white)
-        string.addAttribute(.underlineStyle, value: NSUnderlineStyle.single, range: termsHighlighted)
-        string.addAttribute(.underlineStyle, value: NSUnderlineStyle.single, range: privacyHighlighted)
+        string.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: termsHighlighted)
+        string.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: privacyHighlighted)
 
         return string
     }

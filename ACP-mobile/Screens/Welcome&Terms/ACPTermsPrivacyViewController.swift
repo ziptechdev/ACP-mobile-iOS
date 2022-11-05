@@ -35,7 +35,7 @@ class ACPTermsPrivacyViewController: UIViewController {
     private lazy var termsText: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = .localizedString(key: "privacy_title")
+        lbl.text = .localizedString(key: "terms_title")
         lbl.numberOfLines = 0
         lbl.textColor = .coreBlue
         lbl.font = .systemFont(ofSize: 32, weight: .bold)
@@ -45,11 +45,9 @@ class ACPTermsPrivacyViewController: UIViewController {
     private lazy var termsDescriptionText: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = .localizedString(key: "terms_text")
+        lbl.attributedText = NSMutableAttributedString.subtitleString(key: "terms_text")
         lbl.numberOfLines = 0
-        lbl.textColor = .gray01Light
         lbl.adjustsFontSizeToFitWidth = true
-        lbl.font = .systemFont(ofSize: 14, weight: .regular)
         return lbl
     }()
 
@@ -66,33 +64,28 @@ class ACPTermsPrivacyViewController: UIViewController {
     private lazy var consentTextDescirption: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = .localizedString(key: "consenttext_description")
+        lbl.attributedText = NSMutableAttributedString.subtitleString(key: "terms_consent_details")
         lbl.numberOfLines = 0
-        lbl.textAlignment = .justified
-        lbl.textColor = .gray01Light
         lbl.adjustsFontSizeToFitWidth = true
-        lbl.font = .systemFont(ofSize: 14, weight: .regular)
         return lbl
     }()
 
     private lazy var informationCollectText: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = .localizedString(key: "terms_information")
+        lbl.text = .localizedString(key: "terms_info")
         lbl.numberOfLines = 0
         lbl.textColor = .coreBlue
         lbl.font = .systemFont(ofSize: 16, weight: .bold)
         return lbl
     }()
 
-    private lazy var inforCollectTextDesc: UILabel = {
+    private lazy var informationCollectDesc: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = .localizedString(key: "informationCollectTextDescription_description")
+        lbl.attributedText = NSMutableAttributedString.subtitleString(key: "terms_info_details")
         lbl.numberOfLines = 0
-        lbl.textColor = .gray01Light
         lbl.adjustsFontSizeToFitWidth = true
-        lbl.font = .systemFont(ofSize: 14, weight: .regular)
         return lbl
     }()
 
@@ -100,7 +93,7 @@ class ACPTermsPrivacyViewController: UIViewController {
         let button = ACPShadowButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .coreBlue
-        button.setTitle(titleKey: "termsPrivacy_btn")
+        button.setTitle(titleKey: "terms_btn")
         button.addTarget(self, action: #selector(didTapAccept), for: .touchUpInside)
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 10
@@ -204,8 +197,8 @@ class ACPTermsPrivacyViewController: UIViewController {
             make.top.equalTo(consentTextDescirption.snp.bottom).inset(Constants.DescriptionTopOffest)
         }
 
-        contentView.addSubview(inforCollectTextDesc)
-        inforCollectTextDesc.snp.makeConstraints { make in
+        contentView.addSubview(informationCollectDesc)
+        informationCollectDesc.snp.makeConstraints { make in
             make.right.left.equalTo(contentView).inset(Constants.DescriptionLeftRight)
             make.top.equalTo(informationCollectText.snp.bottom).inset(Constants.DescriptionTopOffest)
         }
@@ -213,7 +206,7 @@ class ACPTermsPrivacyViewController: UIViewController {
         contentView.addSubview(acceptButton)
         acceptButton.snp.makeConstraints { make in
             make.right.left.equalToSuperview().inset(Constants.ButtonLeftRightOffest)
-            make.top.equalTo(inforCollectTextDesc.snp.bottom).offset(Constants.ButtonTopOffest)
+            make.top.equalTo(informationCollectDesc.snp.bottom).offset(Constants.ButtonTopOffest)
             make.height.equalTo(Constants.ButtonHeight)
             make.bottom.equalToSuperview()
         }
