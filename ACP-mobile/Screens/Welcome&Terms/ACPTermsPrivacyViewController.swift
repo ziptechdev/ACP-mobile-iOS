@@ -42,10 +42,28 @@ class ACPTermsPrivacyViewController: UIViewController {
         return lbl
     }()
 
-    private lazy var termsDescriptionText: UILabel = {
+    private lazy var firstTextDesc: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.attributedText = NSMutableAttributedString.subtitleString(key: "terms_text")
+        lbl.numberOfLines = 0
+        lbl.adjustsFontSizeToFitWidth = true
+        return lbl
+    }()
+
+    private lazy var secondTextDesc: UILabel = {
+        let lbl = UILabel()
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.attributedText = NSMutableAttributedString.subtitleString(key: "terms_text2")
+        lbl.numberOfLines = 0
+        lbl.adjustsFontSizeToFitWidth = true
+        return lbl
+    }()
+
+    private lazy var thirdTextDesc: UILabel = {
+        let lbl = UILabel()
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.attributedText = NSMutableAttributedString.subtitleString(key: "terms_text3")
         lbl.numberOfLines = 0
         lbl.adjustsFontSizeToFitWidth = true
         return lbl
@@ -80,10 +98,28 @@ class ACPTermsPrivacyViewController: UIViewController {
         return lbl
     }()
 
-    private lazy var informationCollectDesc: UILabel = {
+    private lazy var firstInfoDesc: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.attributedText = NSMutableAttributedString.subtitleString(key: "terms_info_details")
+        lbl.numberOfLines = 0
+        lbl.adjustsFontSizeToFitWidth = true
+        return lbl
+    }()
+
+    private lazy var secondInfoDesc: UILabel = {
+        let lbl = UILabel()
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.attributedText = NSMutableAttributedString.subtitleString(key: "terms_info_details2")
+        lbl.numberOfLines = 0
+        lbl.adjustsFontSizeToFitWidth = true
+        return lbl
+    }()
+
+    private lazy var thirdInfoDesc: UILabel = {
+        let lbl = UILabel()
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.attributedText = NSMutableAttributedString.subtitleString(key: "terms_info_details3")
         lbl.numberOfLines = 0
         lbl.adjustsFontSizeToFitWidth = true
         return lbl
@@ -164,49 +200,75 @@ class ACPTermsPrivacyViewController: UIViewController {
             make.top.equalTo(scrollView)
             make.bottom.equalTo(scrollView).inset(Constants.ContentViewBottomInset)
         }
+
+        contentView.addSubview(termsText)
+        contentView.addSubview(firstTextDesc)
+        contentView.addSubview(secondTextDesc)
+        contentView.addSubview(thirdTextDesc)
+        contentView.addSubview(consentText)
+        contentView.addSubview(consentTextDescirption)
+        contentView.addSubview(informationCollectText)
+        contentView.addSubview(firstInfoDesc)
+        contentView.addSubview(secondInfoDesc)
+        contentView.addSubview(thirdInfoDesc)
+        contentView.addSubview(acceptButton)
+
     }
 
     func setupViews() {
-        contentView.addSubview(termsText)
         termsText.snp.makeConstraints { make in
             make.top.equalTo(contentView)
             make.right.left.equalToSuperview().inset(Constants.TermsTextLeftRightOffest)
         }
 
-        contentView.addSubview(termsDescriptionText)
-        termsDescriptionText.snp.makeConstraints { make in
+        firstTextDesc.snp.makeConstraints { make in
             make.right.left.equalToSuperview().inset(Constants.TermsDescriptionLeftRightOffest)
             make.top.equalTo(termsText.snp.bottom).offset(Constants.TermsDescriptionTopOffest)
         }
 
-        contentView.addSubview(consentText)
+        secondTextDesc.snp.makeConstraints { make in
+            make.right.left.equalToSuperview().inset(Constants.TermsDescriptionLeftRightOffest)
+            make.top.equalTo(firstTextDesc.snp.bottom).offset(Constants.TermsDescriptionTopOffest)
+        }
+
+        thirdTextDesc.snp.makeConstraints { make in
+            make.right.left.equalToSuperview().inset(Constants.TermsDescriptionLeftRightOffest)
+            make.top.equalTo(secondTextDesc.snp.bottom).offset(Constants.TermsDescriptionTopOffest)
+        }
+
         consentText.snp.makeConstraints { make in
-            make.top.equalTo(termsDescriptionText.snp.bottom).inset(Constants.PrivacyTextTopOffest)
+            make.top.equalTo(thirdTextDesc.snp.bottom).offset(Constants.SubtitleVerticalOffest)
             make.right.left.equalToSuperview().inset(Constants.PrivacyTextLeftRight)
         }
 
-        contentView.addSubview(consentTextDescirption)
         consentTextDescirption.snp.makeConstraints { make in
             make.right.left.equalTo(contentView).inset(Constants.DescriptionLeftRight)
-            make.top.equalTo(consentText.snp.bottom).inset(Constants.DescriptionTopOffest)
+            make.top.equalTo(consentText.snp.bottom).offset(Constants.SubtitleVerticalOffest)
         }
 
-        contentView.addSubview(informationCollectText)
         informationCollectText.snp.makeConstraints { make in
             make.right.left.equalTo(contentView).inset(Constants.DescriptionLeftRight)
-            make.top.equalTo(consentTextDescirption.snp.bottom).inset(Constants.DescriptionTopOffest)
+            make.top.equalTo(consentTextDescirption.snp.bottom).offset(Constants.SubtitleVerticalOffest)
         }
 
-        contentView.addSubview(informationCollectDesc)
-        informationCollectDesc.snp.makeConstraints { make in
+        firstInfoDesc.snp.makeConstraints { make in
             make.right.left.equalTo(contentView).inset(Constants.DescriptionLeftRight)
-            make.top.equalTo(informationCollectText.snp.bottom).inset(Constants.DescriptionTopOffest)
+            make.top.equalTo(informationCollectText.snp.bottom).offset(Constants.SubtitleVerticalOffest)
         }
 
-        contentView.addSubview(acceptButton)
+        secondInfoDesc.snp.makeConstraints { make in
+            make.right.left.equalTo(contentView).inset(Constants.DescriptionLeftRight)
+            make.top.equalTo(firstInfoDesc.snp.bottom).inset(Constants.DescriptionTopOffest)
+        }
+
+        thirdInfoDesc.snp.makeConstraints { make in
+            make.right.left.equalTo(contentView).inset(Constants.DescriptionLeftRight)
+            make.top.equalTo(secondInfoDesc.snp.bottom).inset(Constants.DescriptionTopOffest)
+        }
+
         acceptButton.snp.makeConstraints { make in
             make.right.left.equalToSuperview().inset(Constants.ButtonLeftRightOffest)
-            make.top.equalTo(informationCollectDesc.snp.bottom).offset(Constants.ButtonTopOffest)
+            make.top.equalTo(thirdInfoDesc.snp.bottom).offset(Constants.ButtonTopOffest)
             make.height.equalTo(Constants.ButtonHeight)
             make.bottom.equalToSuperview()
         }
@@ -246,6 +308,8 @@ class ACPTermsPrivacyViewController: UIViewController {
         static let ButtonLeftRightOffest: CGFloat = 35
         static let ButtonTopOffest: CGFloat = 20
         static let ButtonHeight: CGFloat = 46
+
+        static let SubtitleVerticalOffest: CGFloat = 20
 
         static let ContentViewBottomInset: CGFloat = 75
         static let ScrollViewTopInset: CGFloat = 20
