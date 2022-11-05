@@ -45,7 +45,7 @@ class ACPTermsPrivacyViewController: UIViewController {
     private lazy var termsDescriptionText: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = NSLocalizedString("terms_text", comment: "")
+        lbl.text = .localizedString(key: "terms_text")
         lbl.numberOfLines = 0
         lbl.textColor = .gray01Light
         lbl.adjustsFontSizeToFitWidth = true
@@ -66,7 +66,7 @@ class ACPTermsPrivacyViewController: UIViewController {
     private lazy var consentTextDescirption: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = NSLocalizedString("consenttext_description", comment: "")
+        lbl.text = .localizedString(key: "consenttext_description")
         lbl.numberOfLines = 0
         lbl.textAlignment = .justified
         lbl.textColor = .gray01Light
@@ -88,7 +88,7 @@ class ACPTermsPrivacyViewController: UIViewController {
     private lazy var inforCollectTextDesc: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = NSLocalizedString("informationCollectTextDescription_description", comment: "")
+        lbl.text = .localizedString(key: "informationCollectTextDescription_description")
         lbl.numberOfLines = 0
         lbl.textColor = .gray01Light
         lbl.adjustsFontSizeToFitWidth = true
