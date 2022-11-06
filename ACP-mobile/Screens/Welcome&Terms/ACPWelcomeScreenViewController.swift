@@ -96,7 +96,7 @@ class ACPWelcomeScreenViewController: UIViewController {
         button.addTarget(self, action: #selector(didTapContinue), for: .touchUpInside)
         button.setTitle(titleKey: "welcome_btn", textColor: .coreBlue)
         button.layer.masksToBounds = true
-        button.layer.cornerRadius = 10
+        button.layer.cornerRadius = Constants.ButtonCornerRadius
         return button
     }()
 
@@ -137,44 +137,44 @@ class ACPWelcomeScreenViewController: UIViewController {
 
     private func setupConstraints() {
         leftTopLine.snp.makeConstraints { make in
-            make.left.equalToSuperview().inset(Constants.LeftLineLeftOffest)
-            make.top.equalToSuperview().offset(Constants.LeftTopLineOffest)
+            make.left.equalToSuperview().inset(Constants.HorizontalContentInset)
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(Constants.VerticalContentInset)
             make.width.equalTo(rightTopLine)
         }
 
         rightTopLine.snp.makeConstraints { make in
-            make.right.equalToSuperview().inset(Constants.RighLineLeftOffest)
-            make.top.equalToSuperview().offset(Constants.RightTopLineOffest)
+            make.right.equalToSuperview().inset(Constants.HorizontalContentInset)
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(Constants.VerticalContentInset)
             make.width.equalTo(leftTopLine)
         }
 
         titleText.snp.makeConstraints { make in
-            make.right.left.equalToSuperview().inset(Constants.TitleLeftRighOffest)
+            make.right.left.equalToSuperview().inset(Constants.HorizontalContentInset)
             make.top.equalTo(rightTopLine.snp.bottom).offset(Constants.TitleTextTopOffset)
         }
 
         firstDescriptionText.snp.makeConstraints { make in
-            make.right.left.equalToSuperview().inset(Constants.DescriptionTextLeftRightOffest)
+            make.right.left.equalToSuperview().inset(Constants.HorizontalContentInset)
             make.top.equalTo(titleText.snp.bottom).offset(Constants.DescirptionTopOffest)
         }
 
         secondDescriptionText.snp.makeConstraints { make in
-            make.right.left.equalToSuperview().inset(Constants.DescriptionTextLeftRightOffest)
+            make.right.left.equalToSuperview().inset(Constants.HorizontalContentInset)
             make.top.equalTo(firstDescriptionText.snp.bottom).offset(Constants.DescriptionTextTopOffset)
         }
 
         thirdDescriptionText.snp.makeConstraints { make in
-            make.right.left.equalToSuperview().inset(Constants.DescriptionTextLeftRightOffest)
+            make.right.left.equalToSuperview().inset(Constants.HorizontalContentInset)
             make.top.equalTo(secondDescriptionText.snp.bottom).offset(Constants.DescriptionTextTopOffset)
         }
 
         termsPrivacyUrl.snp.makeConstraints { make in
-            make.right.left.equalToSuperview().inset(Constants.DescriptionTextLeftRightOffest)
+            make.right.left.equalToSuperview().inset(Constants.HorizontalContentInset)
             make.top.equalTo(thirdDescriptionText.snp.bottom).offset(Constants.DescriptionTextTopOffset)
         }
 
         continueButton.snp.makeConstraints { make in
-            make.right.left.equalToSuperview().inset(Constants.ButtonLeftRightOffest)
+            make.right.left.equalToSuperview().inset(Constants.HorizontalContentInset)
             make.top.equalTo(termsPrivacyUrl.snp.bottom).offset(Constants.ButtonTopOffest)
             make.height.equalTo(Constants.ButtonHeight)
         }
@@ -204,21 +204,16 @@ class ACPWelcomeScreenViewController: UIViewController {
     // MARK: - Constants
 
     private struct Constants {
-        static let LeftTopLineOffest: CGFloat = 120
-        static let LeftLineLeftOffest: CGFloat = 35
+        static let HorizontalContentInset: CGFloat = 35
+        static let VerticalContentInset: CGFloat = 25
 
-        static let RightTopLineOffest: CGFloat = 120
-        static let RighLineLeftOffest: CGFloat = 35
-
-        static let TitleTextTopOffset: CGFloat = 35
-        static let TitleLeftRighOffest: CGFloat = 35
+        static let TitleTextTopOffset: CGFloat = 30
 
         static let DescirptionTopOffest: CGFloat = 10
         static let DescriptionTextTopOffset: CGFloat = 20
-        static let DescriptionTextLeftRightOffest: CGFloat = 35
 
         static let ButtonTopOffest: CGFloat = 40
+        static let ButtonCornerRadius: CGFloat = 10
         static let ButtonHeight: CGFloat = 46
-        static let ButtonLeftRightOffest: CGFloat = 35
     }
 }
