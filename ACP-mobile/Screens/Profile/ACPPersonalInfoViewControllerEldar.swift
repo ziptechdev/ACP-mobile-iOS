@@ -13,7 +13,14 @@ class ACPPersonalInfoViewControllerEldar: UIViewController {
     var viewModel: ACPEligibilityDetailsViewModel?
 
     // MARK: - Views
-
+    
+    private let contentView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
+        return view
+    }()
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = Constants.Text.MainTitle
@@ -168,8 +175,8 @@ class ACPPersonalInfoViewControllerEldar: UIViewController {
         sv.translatesAutoresizingMaskIntoConstraints = false
         sv.showsVerticalScrollIndicator = false
         sv.isPagingEnabled = true
-        sv.bounces = true
-        sv.contentSize = self.view.frame.size
+      //  sv.bounces = true
+       // sv.contentSize = self.view.frame.size
         return sv
     }()
 
@@ -196,8 +203,14 @@ class ACPPersonalInfoViewControllerEldar: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        title = Constants.Text.Title
-        navigationController?.navigationBar.isHidden = false
+       // title = Constants.Text.Title
+        navigationController?.navigationBar.isHidden = true
+  
+        
+        setupRightNavigationBarButton()
+        setupLeftNavigationBarButton()
+//        setupHamburgerBarButton()
+//        setupNotificationsBarButton()
         addKeyboardObserver()
     }
 
@@ -215,129 +228,141 @@ class ACPPersonalInfoViewControllerEldar: UIViewController {
     }
 
     private func addSubviews() {
+        scrolLView.addSubview(contentView)
+        
+        
+//        view.addSubview(scrolLView)
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(nameSectionTitle)
+        contentView.addSubview(nameTextField)
+        contentView.addSubview(middleNameTextField)
+        contentView.addSubview(lastNameTextField)
+        contentView.addSubview(DOBSectionTitle)
+        contentView.addSubview(monthTextField)
+        contentView.addSubview(dayTextField)
+//        contentView.addSubview(yearTextField)
+//        contentView.addSubview(addressSectionTitle)
+//        contentView.addSubview(streetTextField)
+//        contentView.addSubview(cityTextField)
+//        contentView.addSubview(stateTextField)
+//        contentView.addSubview(zipTextField)
+//        contentView.addSubview(SSNSectionTitle)
+//        contentView.addSubview(ssnTextField)
+        contentView.addSubview(saveButton)
+       // scrolLView.layer.zPosition = 999
         view.addSubview(scrolLView)
-        scrolLView.addSubview(titleLabel)
-        scrolLView.addSubview(nameSectionTitle)
-        scrolLView.addSubview(nameTextField)
-        scrolLView.addSubview(middleNameTextField)
-        scrolLView.addSubview(lastNameTextField)
-        scrolLView.addSubview(DOBSectionTitle)
-        scrolLView.addSubview(monthTextField)
-        scrolLView.addSubview(dayTextField)
-        scrolLView.addSubview(yearTextField)
-        scrolLView.addSubview(addressSectionTitle)
-        scrolLView.addSubview(streetTextField)
-        scrolLView.addSubview(cityTextField)
-        scrolLView.addSubview(stateTextField)
-        scrolLView.addSubview(zipTextField)
-        scrolLView.addSubview(SSNSectionTitle)
-        scrolLView.addSubview(ssnTextField)
-        scrolLView.addSubview(saveButton)
+
     }
 
     private func setupConstraints() {
+        
         scrolLView.snp.makeConstraints { make in
-            make.top.left.right.bottom.equalToSuperview()
+            make.width.centerX.bottom.equalToSuperview()
+            make.top.equalTo(view.safeAreaLayoutGuide)
+
         }
 
+        contentView.snp.makeConstraints { make in
+            make.left.right.top.bottom.width.equalToSuperview()
+        }
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(scrolLView).inset(Constants.Constraints.TitleTopOffset)
-            make.left.equalTo(scrolLView).inset(Constants.Constraints.LROffset)
+            make.top.equalToSuperview().inset(Constants.Constraints.TitleTopOffset)
+            make.left.equalToSuperview().inset(Constants.Constraints.LROffset)
         }
 
         nameSectionTitle.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(Constants.Constraints.NameSectionTopOffset)
-            make.left.equalTo(scrolLView).inset(Constants.Constraints.LROffset)
+            make.left.equalToSuperview().inset(Constants.Constraints.LROffset)
         }
-
+//
         nameTextField.snp.makeConstraints { make in
             make.top.equalTo(nameSectionTitle.snp.bottom).offset(Constants.Constraints.FullNameTopOffset)
-            make.left.equalTo(scrolLView).inset(Constants.Constraints.LROffset)
+            make.left.equalToSuperview().inset(Constants.Constraints.LROffset)
             make.width.equalTo(Constants.Constraints.mainWidth)
         }
 
         middleNameTextField.snp.makeConstraints { make in
             make.top.equalTo(nameTextField.snp.bottom).offset(Constants.Constraints.MiddleNameTopOffset)
-            make.left.equalTo(scrolLView).inset(Constants.Constraints.LROffset)
+            make.left.equalToSuperview().inset(Constants.Constraints.LROffset)
             make.width.equalTo(Constants.Constraints.mainWidth)
         }
-
+//
         lastNameTextField.snp.makeConstraints { make in
             make.top.equalTo(middleNameTextField.snp.bottom).offset(Constants.Constraints.LastNameTopOffset)
-            make.left.equalTo(scrolLView).inset(Constants.Constraints.LROffset)
+            make.left.equalToSuperview().inset(Constants.Constraints.LROffset)
             make.width.equalTo(Constants.Constraints.mainWidth)
         }
-
+//
         DOBSectionTitle.snp.makeConstraints { make in
             make.top.equalTo(lastNameTextField.snp.bottom).offset(Constants.Constraints.DOBSectionTopOffset)
-            make.left.equalTo(scrolLView).inset(Constants.Constraints.LROffset)
+            make.left.equalToSuperview().inset(Constants.Constraints.LROffset)
         }
 
         monthTextField.snp.makeConstraints { make in
             make.top.equalTo(DOBSectionTitle.snp.bottom).offset(Constants.Constraints.MonthTopOffset)
-            make.left.equalTo(scrolLView).inset(Constants.Constraints.LROffset)
-            make.width.equalTo(Constants.Constraints.mainWidth)
+            make.left.equalToSuperview().inset(Constants.Constraints.LROffset)
+         //   make.width.equalTo(Constants.Constraints.mainWidth)
         }
 
         dayTextField.snp.makeConstraints { make in
             make.top.equalTo(monthTextField.snp.bottom).offset(Constants.Constraints.DayTopOffset)
-            make.left.equalTo(scrolLView).inset(Constants.Constraints.LROffset)
+            make.left.equalToSuperview().inset(Constants.Constraints.LROffset)
             make.right.equalTo(view.snp.centerX).inset(Constants.Constraints.TextFieldSpacing / 2)
-            make.width.equalTo(Constants.Constraints.LRFieldWidth)
+          //  make.width.equalTo(Constants.Constraints.LRFieldWidth)
         }
-
-        yearTextField.snp.makeConstraints { make in
-            make.top.equalTo(monthTextField.snp.bottom).offset(Constants.Constraints.YearTopOffset)
-            make.left.equalTo(view.snp.centerX).offset(Constants.Constraints.TextFieldSpacing / 2)
-            make.right.equalTo(scrolLView).inset(Constants.Constraints.LROffset)
-            make.width.equalTo(Constants.Constraints.LRFieldWidth)
-        }
-
-        addressSectionTitle.snp.makeConstraints { make in
-            make.top.equalTo(yearTextField.snp.bottom).offset(Constants.Constraints.AddressSectionTopOffset)
-            make.left.equalTo(scrolLView).offset(Constants.Constraints.LROffset)
-        }
-
-        streetTextField.snp.makeConstraints { make in
-            make.top.equalTo(addressSectionTitle.snp.bottom).offset(Constants.Constraints.AddressTopOffset)
-            make.left.equalTo(scrolLView).inset(Constants.Constraints.LROffset)
-            make.width.equalTo(Constants.Constraints.mainWidth)
-        }
-
-        cityTextField.snp.makeConstraints { make in
-            make.top.equalTo(streetTextField.snp.bottom).offset(Constants.Constraints.CityTopOffset)
-            make.left.equalTo(scrolLView).inset(Constants.Constraints.LROffset)
-            make.width.equalTo(Constants.Constraints.mainWidth)
-        }
-
-        stateTextField.snp.makeConstraints { make in
-            make.top.equalTo(cityTextField.snp.bottom).offset(Constants.Constraints.StateTopOffset)
-            make.left.equalTo(scrolLView).inset(Constants.Constraints.LROffset)
-            make.right.equalTo(view.snp.centerX).inset(Constants.Constraints.TextFieldSpacing / 2)
-            make.width.equalTo(Constants.Constraints.LRFieldWidth)
-        }
-
-        zipTextField.snp.makeConstraints { make in
-            make.top.equalTo(cityTextField.snp.bottom).offset(Constants.Constraints.ZIPTopOffset)
-            make.left.equalTo(view.snp.centerX).offset(Constants.Constraints.TextFieldSpacing / 2)
-            make.right.equalTo(scrolLView).inset(Constants.Constraints.LROffset)
-            make.width.equalTo(Constants.Constraints.LRFieldWidth)
-        }
-
-        SSNSectionTitle.snp.makeConstraints { make in
-            make.top.equalTo(zipTextField.snp.bottom).offset(Constants.Constraints.SSNSectionTopOffset)
-            make.left.equalTo(scrolLView).inset(Constants.Constraints.LROffset)
-        }
-
-        ssnTextField.snp.makeConstraints { make in
-            make.top.equalTo(SSNSectionTitle.snp.bottom).offset(Constants.Constraints.SSNTopOffset)
-            make.left.equalTo(scrolLView).inset(Constants.Constraints.LROffset)
-            make.width.equalTo(Constants.Constraints.mainWidth)
-        }
+//
+//        yearTextField.snp.makeConstraints { make in
+//            make.top.equalTo(monthTextField.snp.bottom).offset(Constants.Constraints.YearTopOffset)
+//            make.left.equalTo(view.snp.centerX).offset(Constants.Constraints.TextFieldSpacing / 2)
+//            make.right.equalToSuperview().inset(Constants.Constraints.LROffset)
+//            make.width.equalTo(Constants.Constraints.LRFieldWidth)
+//        }
+//
+//        addressSectionTitle.snp.makeConstraints { make in
+//            make.top.equalTo(yearTextField.snp.bottom).offset(Constants.Constraints.AddressSectionTopOffset)
+//            make.left.equalToSuperview().offset(Constants.Constraints.LROffset)
+//        }
+//
+//        streetTextField.snp.makeConstraints { make in
+//            make.top.equalTo(addressSectionTitle.snp.bottom).offset(Constants.Constraints.AddressTopOffset)
+//            make.left.equalToSuperview().inset(Constants.Constraints.LROffset)
+//            make.width.equalTo(Constants.Constraints.mainWidth)
+//        }
+//
+//        cityTextField.snp.makeConstraints { make in
+//            make.top.equalTo(streetTextField.snp.bottom).offset(Constants.Constraints.CityTopOffset)
+//            make.left.equalToSuperview().inset(Constants.Constraints.LROffset)
+//            make.width.equalTo(Constants.Constraints.mainWidth)
+//        }
+//
+//        stateTextField.snp.makeConstraints { make in
+//            make.top.equalTo(cityTextField.snp.bottom).offset(Constants.Constraints.StateTopOffset)
+//            make.left.equalToSuperview().inset(Constants.Constraints.LROffset)
+//            make.right.equalTo(view.snp.centerX).inset(Constants.Constraints.TextFieldSpacing / 2)
+//            make.width.equalTo(Constants.Constraints.LRFieldWidth)
+//        }
+//
+//        zipTextField.snp.makeConstraints { make in
+//            make.top.equalTo(cityTextField.snp.bottom).offset(Constants.Constraints.ZIPTopOffset)
+//            make.left.equalTo(view.snp.centerX).offset(Constants.Constraints.TextFieldSpacing / 2)
+//            make.right.equalToSuperview().inset(Constants.Constraints.LROffset)
+//            make.width.equalTo(Constants.Constraints.LRFieldWidth)
+//        }
+//
+//        SSNSectionTitle.snp.makeConstraints { make in
+//            make.top.equalTo(zipTextField.snp.bottom).offset(Constants.Constraints.SSNSectionTopOffset)
+//            make.left.equalToSuperview().inset(Constants.Constraints.LROffset)
+//        }
+//
+//        ssnTextField.snp.makeConstraints { make in
+//            make.top.equalTo(SSNSectionTitle.snp.bottom).offset(Constants.Constraints.SSNTopOffset)
+//            make.left.equalToSuperview().inset(Constants.Constraints.LROffset)
+//            make.width.equalTo(Constants.Constraints.mainWidth)
+//        }
 
         saveButton.snp.makeConstraints { make in
-            make.top.equalTo(ssnTextField.snp.bottom).offset(Constants.Constraints.ButtonTopOffset)
-            make.left.equalTo(scrolLView).inset(Constants.Constraints.LROffset)
+            make.top.equalTo(dayTextField.snp.bottom).offset(Constants.Constraints.ButtonTopOffset)
+            make.left.equalToSuperview().inset(Constants.Constraints.LROffset)
             make.height.equalTo(Constants.Constraints.ButtonHeight)
             make.width.equalTo(Constants.Constraints.mainWidth)
             make.bottom.equalToSuperview()

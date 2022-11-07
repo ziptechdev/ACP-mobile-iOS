@@ -121,7 +121,7 @@ class ACPLandingScreenViewController: UIViewController {
     // MARK: - Navigation
 
     @objc func navigateToWelcome() {
-        let targetVC = ACPWelcomeScreenViewController()
+        let targetVC = ACPHomeScreenTabViewController()
         navigationController?.pushViewController(targetVC, animated: true)
     }
 

@@ -18,6 +18,8 @@ class ACPHomeScreenTabViewModel {
         "wallet",
         "profile"
     ]
+    
+    var isTrans: String = ""
 
     var isWalletEmpty: Bool = false
 
@@ -41,5 +43,17 @@ class ACPHomeScreenTabViewModel {
 
     func test() {
         isWalletEmpty = !isWalletEmpty
+    }
+    func trans(testString: String) -> String {
+        
+        if(testString == "transaction"){
+             isTrans = testString
+        } else if (testString == "request"){
+            isTrans = testString
+        } else {
+            isTrans = testString
+        }
+        return testString
+        
     }
 }

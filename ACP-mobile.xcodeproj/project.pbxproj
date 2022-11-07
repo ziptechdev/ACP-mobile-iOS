@@ -18,6 +18,9 @@
 		13416C2C29145B4B00183927 /* ACPProfileSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13416C2B29145B4B00183927 /* ACPProfileSettingsView.swift */; };
 		13416C2E29145BBD00183927 /* ACPProfileVerticalStackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13416C2D29145BBD00183927 /* ACPProfileVerticalStackButton.swift */; };
 		13416C3029145C7F00183927 /* ACPProfileSecurityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13416C2F29145C7F00183927 /* ACPProfileSecurityViewController.swift */; };
+		13416C342914657500183927 /* RequestCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13416C332914657500183927 /* RequestCardViewModel.swift */; };
+		13416C36291465B600183927 /* RequestCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13416C35291465B600183927 /* RequestCardViewController.swift */; };
+		13416C382914669900183927 /* ACPSuccesCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13416C372914669900183927 /* ACPSuccesCardViewController.swift */; };
 		400AB9ED28FF7F6000A6DCB6 /* ACPEligibilityDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB98D28FF7F5F00A6DCB6 /* ACPEligibilityDetailsViewModel.swift */; };
 		400AB9EE28FF7F6000A6DCB6 /* ACPEligibilityDetailsDOBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB98F28FF7F5F00A6DCB6 /* ACPEligibilityDetailsDOBModel.swift */; };
 		400AB9EF28FF7F6000A6DCB6 /* ACPEligibilityDetailsAddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB99028FF7F5F00A6DCB6 /* ACPEligibilityDetailsAddressModel.swift */; };
@@ -121,6 +124,9 @@
 		13416C2B29145B4B00183927 /* ACPProfileSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPProfileSettingsView.swift; sourceTree = "<group>"; };
 		13416C2D29145BBD00183927 /* ACPProfileVerticalStackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPProfileVerticalStackButton.swift; sourceTree = "<group>"; };
 		13416C2F29145C7F00183927 /* ACPProfileSecurityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPProfileSecurityViewController.swift; sourceTree = "<group>"; };
+		13416C332914657500183927 /* RequestCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCardViewModel.swift; sourceTree = "<group>"; };
+		13416C35291465B600183927 /* RequestCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCardViewController.swift; sourceTree = "<group>"; };
+		13416C372914669900183927 /* ACPSuccesCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPSuccesCardViewController.swift; sourceTree = "<group>"; };
 		400AB98D28FF7F5F00A6DCB6 /* ACPEligibilityDetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsViewModel.swift; sourceTree = "<group>"; };
 		400AB98F28FF7F5F00A6DCB6 /* ACPEligibilityDetailsDOBModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsDOBModel.swift; sourceTree = "<group>"; };
 		400AB99028FF7F5F00A6DCB6 /* ACPEligibilityDetailsAddressModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsAddressModel.swift; sourceTree = "<group>"; };
@@ -287,6 +293,24 @@
 				13416C2F29145C7F00183927 /* ACPProfileSecurityViewController.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		13416C312914654600183927 /* RequestCard */ = {
+			isa = PBXGroup;
+			children = (
+				13416C322914656900183927 /* ViewModel */,
+				13416C35291465B600183927 /* RequestCardViewController.swift */,
+				13416C372914669900183927 /* ACPSuccesCardViewController.swift */,
+			);
+			path = RequestCard;
+			sourceTree = "<group>";
+		};
+		13416C322914656900183927 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				13416C332914657500183927 /* RequestCardViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		1EF3BAC39E57E76420CCD5AA /* Frameworks */ = {
@@ -625,6 +649,7 @@
 		4013FADA29083D620018025F /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
+				13416C312914654600183927 /* RequestCard */,
 				40251D42290DE0100083B89A /* Transactions */,
 				4013FAE52908438E0018025F /* EmptyWallet */,
 				4013FADC29083D920018025F /* CardSuccess */,
@@ -925,6 +950,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				400AB9ED28FF7F6000A6DCB6 /* ACPEligibilityDetailsViewModel.swift in Sources */,
+				13416C382914669900183927 /* ACPSuccesCardViewController.swift in Sources */,
 				4013FADE29083DB00018025F /* ACPCardSuccessViewController.swift in Sources */,
 				400ABA2B28FF7F6000A6DCB6 /* ACPPersonalInfoViewController.swift in Sources */,
 				4031545E290E2349009320D8 /* ACPLoginViewController.swift in Sources */,
@@ -948,6 +974,7 @@
 				4013FAEE2908A3A30018025F /* UINavigationController+ACP.swift in Sources */,
 				400AB9F428FF7F6000A6DCB6 /* ACPEligibilityDetailsAddressViewController.swift in Sources */,
 				400ABA1528FF7F6000A6DCB6 /* ACPNavigationController.swift in Sources */,
+				13416C36291465B600183927 /* RequestCardViewController.swift in Sources */,
 				400AB9EF28FF7F6000A6DCB6 /* ACPEligibilityDetailsAddressModel.swift in Sources */,
 				4013FAE7290844380018025F /* ACPEmptyWalletBalanceView.swift in Sources */,
 				400ABA2128FF7F6000A6DCB6 /* ACPVerifyEmailViewController.swift in Sources */,
@@ -1005,6 +1032,7 @@
 				400ABA2F28FF7F6000A6DCB6 /* ACPEndpoint.swift in Sources */,
 				400ABA2628FF7F6000A6DCB6 /* ACPScanIDViewController.swift in Sources */,
 				400AB9F128FF7F6000A6DCB6 /* ACPEligibilityDetailsNameModel.swift in Sources */,
+				13416C342914657500183927 /* RequestCardViewModel.swift in Sources */,
 				4013FAE12908427F0018025F /* ACPEmptyWalletViewController.swift in Sources */,
 				400ABA0628FF7F6000A6DCB6 /* UIResponder+ACP.swift in Sources */,
 				400AB9FC28FF7F6000A6DCB6 /* ACPWelcomeScreenViewController.swift in Sources */,

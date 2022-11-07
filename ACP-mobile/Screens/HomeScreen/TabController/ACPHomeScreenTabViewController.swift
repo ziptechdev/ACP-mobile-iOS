@@ -109,13 +109,40 @@ extension ACPHomeScreenTabViewController: ACPTabMenuViewControllerDelegate {
         case 1:
             // TODO: Remove Test
             viewModel.test()
+            if viewModel.isTrans == "transaction" {
+                 let viewController = ACPWalletViewController()
+                viewModel.trans(testString: "card")
+                return viewController
+            } else if viewModel.isTrans == "card" {
+                let viewController = ACPEmptyWalletViewController()
+                viewModel.trans(testString: "edit")
+                return viewController
+            } else if ( viewModel.isTrans == "edit") {
+                let viewController = RequestCardViewController()
+                viewController.viewModel = RequestCardViewModel()
+            //    let viewController = ACPWalletViewController()
+                viewModel.trans(testString: "transaction")
+                return viewController
+            }
+             
             if viewModel.isWalletEmpty {
                 let viewController = ACPEmptyWalletViewController()
                 return viewController
             } else {
-                let viewController = ACPWalletViewController()
+               // let viewController = ACPWalletViewController()
+                let viewController = RequestCardViewController()
+                viewController.viewModel = RequestCardViewModel()
+            //    let viewController = ACPWalletViewController()
+                viewModel.trans(testString: "transaction")
                 return viewController
             }
+          
+            
+            
+        case 2:
+            let viewController = ACPProfileViewController()
+            return viewController
+            
         default:
             // TODO: Add Proper VC
             let viewController = UIViewController()

@@ -192,7 +192,16 @@ extension ACPWalletViewController: ACPTabMenuViewControllerDelegate {
 
     func cellForIndex(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
         let cell: ACPTabMenuTitleCell = collectionView.dequeue(at: indexPath)
-        cell.configureCell(text: "Test")
+        if(indexPath.row == 0 ){
+            cell.configureCell(text: "All")
+        }
+       else  if(indexPath.row == 1) {
+            cell.configureCell(text: "Incoming")
+        } else if (indexPath.row == 2 )
+        {
+            cell.configureCell(text: "Outgoing")
+
+        }
         return cell
     }
 
