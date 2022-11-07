@@ -218,7 +218,7 @@ class ApplyACPView: UIView {
         return stackView
     }()
 
-    private let buttonAndInfoStackView: UIStackView = {
+    private let buttonApplyStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -276,7 +276,7 @@ class ApplyACPView: UIView {
         acpProgramStackView.addArrangedSubview(correctImageView)
         phoneSetupStackView.addArrangedSubview(phoneSetupLabel)
         phoneSetupStackView.addArrangedSubview(phoneImageView)
-        buttonAndInfoStackView.addArrangedSubview(applyNowButton)
+        buttonApplyStackView.addArrangedSubview(applyNowButton)
 
         addSubview(textStackView)
         addSubview(acpProgramStackView)
@@ -286,7 +286,7 @@ class ApplyACPView: UIView {
         addSubview(switchTextLabel)
         addSubview(phoneSetupStackView)
         addSubview(phoneSelectedImageView)
-        addSubview(buttonAndInfoStackView)
+        addSubview(buttonApplyStackView)
     }
 
     // swiftlint:disable:next function_body_length
@@ -357,7 +357,7 @@ class ApplyACPView: UIView {
             make.left.right.equalToSuperview().inset(Constants.LeadingConstant)
         }
 
-        buttonAndInfoStackView.snp.makeConstraints { make in
+        buttonApplyStackView.snp.makeConstraints { make in
             make.top.equalTo(phoneSetupStackView.snp.bottom).offset(Constants.BottomButtonConstant)
             make.left.right.equalToSuperview().inset(Constants.LeadingConstant)
         }
@@ -386,8 +386,13 @@ class ApplyACPView: UIView {
         }
     }
 
-    private func animateView(isCollapsed: Bool) {
-        let height = isCollapsed ? Constants.NotExpandedHeight : Constants.ExpandedHeight
+    private func planExpandedView(isCollapsed: Bool) {
+        /*  total expanded height in design is 142, not expanded height is 65, label height is 67
+            so adding additional 10 will ensure to follow height as on design for even larger text
+            you can test this by adding additional text to planDescriptionLabel
+         */
+        let expandedHeightCalc = planDescriptionLabel.bounds.size.height + 75
+        let height = isCollapsed ? Constants.NotExpandedHeight :  expandedHeightCalc
         UIView.animate(withDuration: 0.5) { [self] in
             self.shouldCollapse = !isCollapsed
             planView.snp.updateConstraints { make in
@@ -397,8 +402,14 @@ class ApplyACPView: UIView {
             choosePlanSelectedImageView.isHidden = isCollapsed
             if !isCollapsed {
                 planView.layer.borderColor = UIColor.coreBlue.cgColor
+                buttonApplyStackView.snp.updateConstraints { make in
+                    make.top.equalTo(phoneSetupStackView.snp.bottom).offset(Constants.LeadingConstant)
+                }
             } else {
                 planView.layer.borderColor = UIColor.coreLightBlue.cgColor
+                            buttonApplyStackView.snp.updateConstraints { make in
+                                make.top.equalTo(phoneSetupStackView.snp.bottom).offset(Constants.BottomButtonConstant)
+                            }
             }
             self.planView.layoutIfNeeded()
         }
@@ -451,10 +462,10 @@ class ApplyACPView: UIView {
 
     @objc func planTapped() {
         if shouldCollapse {
-            animateView(isCollapsed: true)
+            planExpandedView(isCollapsed: true)
         } else {
             // TODO: Add dynamic height for view
-            animateView(isCollapsed: false)
+            planExpandedView(isCollapsed: false)
             delegate?.didTapPlanButton()
         }
         checkButtonAvailability()
@@ -489,7 +500,6 @@ class ApplyACPView: UIView {
         static let LeftPlanTopOffest: CGFloat = 23
         static let TopConstantOffest: CGFloat = 15
         static let PhoneImageConstant: CGFloat = 24
-        static let ExpandedHeight: CGFloat = 142
         static let NotExpandedHeight: CGFloat = 65
     }
 }
