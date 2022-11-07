@@ -46,8 +46,8 @@ class EligibilityCheckView: UIView {
         return stackView
     }()
 
-    let checkEligibilityButton: UIButton = {
-        let button = UIButton()
+    let checkEligibilityButton: ACPShadowButton = {
+        let button = ACPShadowButton()
         button.setTitle(titleKey: "eligibility_btn")
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -154,7 +154,7 @@ class EligibilityCheckView: UIView {
     private func attributedInfoText() -> NSMutableAttributedString {
         let string: NSMutableAttributedString = .subtitleString(key: "eligibility_subtitle")
 
-        let highlightRange = string.range(of: .localizedString(key: "eligibility_highlight"))
+        let highlightRange = string.range(of: .localizedString(key: "eligibility_details_highlight_text"))
         string.addAttribute(.foregroundColor, value: UIColor.coreBlue, range: highlightRange)
 
         return string
@@ -165,8 +165,8 @@ class EligibilityCheckView: UIView {
             return
         }
 
-        let string: String = .localizedString(key: "eligibility_subtitle")
-        let termsRange = string.range(of: .localizedString(key: "eligibility_details_highlight"))
+        let info: String = .localizedString(key: "eligibility_subtitle")
+        let termsRange = info.range(of: .localizedString(key: "eligibility_details_highlight_text"))
 
         if sender.didTapAttributedTextInLabel(label: descriptionLabel, inRange: termsRange) {
             delegate?.didTapTextLink()

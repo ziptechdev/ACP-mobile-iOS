@@ -88,8 +88,8 @@ class ACPEligibilityDetailsAddressViewController: UIViewController {
         return label
     }()
 
-    private lazy var verifyButton: UIButton = {
-        let button = UIButton()
+    private lazy var verifyButton: ACPShadowButton = {
+        let button = ACPShadowButton()
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
         button.layer.masksToBounds = true
         button.isUserInteractionEnabled = false

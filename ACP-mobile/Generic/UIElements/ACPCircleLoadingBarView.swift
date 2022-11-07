@@ -9,7 +9,7 @@ import UIKit
 
 class ACPCircleLoadingBarView: UIView {
 
-	// MARK: - Properties
+    // MARK: - Properties
 
     private var startPoint: CGFloat = -Double.pi / 2
     private var endPoint: CGFloat = 3 * Double.pi / 2

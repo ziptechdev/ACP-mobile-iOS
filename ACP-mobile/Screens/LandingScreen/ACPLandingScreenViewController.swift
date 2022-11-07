@@ -57,6 +57,7 @@ class ACPLandingScreenViewController: UIViewController {
             cornerRadius: Constants.Constraints.ButtonCornerRadius,
             imageName: "right_arrow"
         )
+        button.hasShadow = false
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
         return button

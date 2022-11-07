@@ -9,7 +9,7 @@ import UIKit
 
 struct ACPEligibilityDetailsDOBModel {
 
-	// MARK: - Properties
+    // MARK: - Properties
 
     var month = 0
     var day = ""

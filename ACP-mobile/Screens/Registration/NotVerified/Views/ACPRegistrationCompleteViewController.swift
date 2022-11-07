@@ -127,7 +127,7 @@ class ACPRegistrationCompleteViewController: UIViewController {
     // MARK: - Callbacks
 
     @objc func didTapLoginButton() {
-        let targetVC = ACPHomeScreenTabViewController()
+        let targetVC = ACPLoginViewController()
 
         navigationController?.pushViewController(targetVC, animated: true)
         navigationController?.popToRootInTheBackground()

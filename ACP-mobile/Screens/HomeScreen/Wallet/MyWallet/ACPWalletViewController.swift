@@ -10,7 +10,7 @@ import SnapKit
 
 class ACPWalletViewController: UIViewController {
 
-	// MARK: - Properties
+    // MARK: - Properties
 
     // MARK: - Views
 

@@ -10,7 +10,7 @@ import SnapKit
 
 class ACPEligibilityDetailsViewController: UIViewController {
 
-	// MARK: - Properties
+    // MARK: - Properties
 
     private let viewModel = ACPEligibilityDetailsViewModel()
 

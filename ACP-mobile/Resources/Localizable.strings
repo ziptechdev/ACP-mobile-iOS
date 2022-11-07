@@ -47,7 +47,7 @@
 "eligibility_btn" = "Check Eligibility";
 "new_account_btn" = "New Account";
 "eligibility_info" = "*All of your personal and identity information goes through National Verifier (NV), a body of FCC. No information is stored by us or third-party services.";
-"eligibility_highlight" = "assistance programs";
+"eligibility_details_highlight_text" = "assistance programs";
 
 /* Screen 2 */
 "eligibility_zip_title" = "Start by entering your ZIP code";
@@ -187,6 +187,39 @@ KYC requires a selfie/clear shot of your face and a photo of the document that c
 "registration_complete_title" = "Registration complete!";
 "registration_complete_subtitle" = "You’ve done your part. Now it’s time for us to back-check your information and approve registration. This process may take 2-3 business days.";
 "registration_complete_btn" = "Login";
+
+/* Apply for Service Screen */
+ "apply_now_btn" = "Apply now";
+ "visit_website_btn" = "Visit website";
+ "service_title" = "Veterans Pension or Survivor Benefits";
+ "service_subtitle" = "U.S. Department of Veteran Affairs";
+ "eligble_check" = "You are eligible";
+ "auto_renewal" = "Auto-renewal after expiration";
+ "service_description" = "A VA Survivors Pension offers monthly payments to qualified surviving spouses and unmarried dependent children of wartime Veterans who meet certain income and net worth limits set by Congress.";
+ "service_note" = "Your information is already stored in your profile. Simply press ‘Apply Now’ button to begin application process. It may take 2-3 business days for us to reach back.";
+
+ /* Apply ACP Screen */
+ "acp_title" = "ACP";
+ "apply_acp_title" = "Apply for ACP";
+ "apply_acp_description" = "Hi %@! You can now easily apply for ACP because you are currently taking part in following government assistance programs:";
+ "apply_acp_eligibility" = "Supplemental Nutrition AssistanceProgram (SNAP)";
+ "apply_acp_plan_name" = "7GB Choose Plan";
+ "apply_acp_phone_setup" = "One-click-setup phone";
+ "apply_acp_choose_plan" = "Choose plan:";
+ "apply_acp_choose_device" = "Choose device:";
+
+ /* Apply Succesfull Screen*/
+ "successfull_title" = "Confirmed!";
+ "acp_successfull_desc" = "Your ACP application has been successfully submitted and will be reviewed within 2-3 business days. If everything is correct, you will receive funds immediately and your device will be shipped within 5 businss days. Check notifications for further updates about the package.";
+ "acp_successfull_register_btn" = "Done";
+/* Login Screen */
+"login_page_title" = "Login";
+"login_title" = "Welcome to ACP";
+"login_subtitle" = "Log in using your credentials below.";
+"login_email" = "Email Address";
+"login_password" = "Password";
+"login_forgot" = "Forgot your password?";
+"login_btn" = "Log In";
 
 /* Home Screen */
 "home_tab_title" = "Home";

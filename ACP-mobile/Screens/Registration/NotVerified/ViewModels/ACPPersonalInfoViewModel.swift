@@ -9,7 +9,7 @@ import UIKit
 
 class ACPPersonalInfoViewModel {
 
-	// MARK: - Properties
+    // MARK: - Properties
 
     private let tabNames: [String] = [
         .localizedString(key: "personal_info_page_title"),
