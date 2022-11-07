@@ -37,7 +37,7 @@ class RequestCardViewController: UIViewController {
         view.backgroundColor = .white
         return view
     }()
-    
+
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = .localizedString(key: "request_card_title")
@@ -175,18 +175,11 @@ class RequestCardViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
-        title = .localizedString(key: "my_wallet_title")
-        navigationController?.navigationBar.isHidden = false
-
-        setupHamburgerBarButton()
-        setupNotificationsBarButton()
         addKeyboardObserver()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-
         removeKeyboardObserver()
     }
 
