@@ -100,12 +100,6 @@
 		1301AD36DE072905C940D450 /* Pods-ACP-mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACP-mobile.release.xcconfig"; path = "Target Support Files/Pods-ACP-mobile/Pods-ACP-mobile.release.xcconfig"; sourceTree = "<group>"; };
 		13581442290F2B1500612D8B /* RequestCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCardViewController.swift; sourceTree = "<group>"; };
 		13BF542729104B1600C94201 /* RequestCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCardViewModel.swift; sourceTree = "<group>"; };
-		400AB76528FF5B6F00A6DCB6 /* ACPScanIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPScanIDViewController.swift; sourceTree = "<group>"; };
-		400AB76728FF5BCA00A6DCB6 /* ACPKYCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPKYCViewController.swift; sourceTree = "<group>"; };
-		400AB76928FF5BD800A6DCB6 /* ACPKYCCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPKYCCompleteViewController.swift; sourceTree = "<group>"; };
-		400AB76B28FF5BEF00A6DCB6 /* ACPSelfieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPSelfieViewController.swift; sourceTree = "<group>"; };
-		400AB77028FF681700A6DCB6 /* ACPIdentityProofViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPIdentityProofViewController.swift; sourceTree = "<group>"; };
-		400AB77328FF6E9300A6DCB6 /* ACPBankInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPBankInfoViewController.swift; sourceTree = "<group>"; };
 		400AB98D28FF7F5F00A6DCB6 /* ACPEligibilityDetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsViewModel.swift; sourceTree = "<group>"; };
 		400AB98F28FF7F5F00A6DCB6 /* ACPEligibilityDetailsDOBModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsDOBModel.swift; sourceTree = "<group>"; };
 		400AB99028FF7F5F00A6DCB6 /* ACPEligibilityDetailsAddressModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsAddressModel.swift; sourceTree = "<group>"; };
@@ -185,16 +179,10 @@
 		403AD21F29075B0600C6D556 /* ACPHomeScreenTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPHomeScreenTabViewController.swift; sourceTree = "<group>"; };
 		403AD22229075B6400C6D556 /* ACPHomeScreenTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPHomeScreenTabViewModel.swift; sourceTree = "<group>"; };
 		403AD2242907636B00C6D556 /* ACPTabMenuImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPTabMenuImageCell.swift; sourceTree = "<group>"; };
-		409132C028F4E0740003CC4E /* ACPVerifyEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPVerifyEmailViewController.swift; sourceTree = "<group>"; };
-		409132C428F4EBC10003CC4E /* ACPVerifyEmailKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPVerifyEmailKeyboardView.swift; sourceTree = "<group>"; };
-		409132C628F4EBF50003CC4E /* ACPVerifyEmailCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPVerifyEmailCodeView.swift; sourceTree = "<group>"; };
 		40B5EDCB28E224F20096B91B /* ACP-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ACP-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		40B5EDD728E224F40096B91B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40B5EDDA28E224F40096B91B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40B5EDDC28E224F40096B91B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		40C7E59628EF6CEC00C03ECE /* ACPPersonalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPPersonalInfoViewController.swift; sourceTree = "<group>"; };
-		40C7E59C28EF735000C03ECE /* ACPPersonalInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPPersonalInfoViewModel.swift; sourceTree = "<group>"; };
-		40C7E59E28EF74A800C03ECE /* ACPPersonalInfoDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPPersonalInfoDetailsViewController.swift; sourceTree = "<group>"; };
 		40EE2CAF28E4AC5B0028888D /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		687DCBFD8B005412AF06BEDD /* Pods-ACP-mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACP-mobile.debug.xcconfig"; path = "Target Support Files/Pods-ACP-mobile/Pods-ACP-mobile.debug.xcconfig"; sourceTree = "<group>"; };
 		CE62E30028EA64D20000833B /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -235,25 +223,6 @@
 				0EA43A30C610F68C5A06DD99 /* Pods_ACP_mobile.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		400AB92628FF7D1200A6DCB6 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				409132C028F4E0740003CC4E /* ACPVerifyEmailViewController.swift */,
-				40C7E59E28EF74A800C03ECE /* ACPPersonalInfoDetailsViewController.swift */,
-				409132C628F4EBF50003CC4E /* ACPVerifyEmailCodeView.swift */,
-				400AB77028FF681700A6DCB6 /* ACPIdentityProofViewController.swift */,
-				400AB76928FF5BD800A6DCB6 /* ACPKYCCompleteViewController.swift */,
-				40C7E59C28EF735000C03ECE /* ACPPersonalInfoViewModel.swift */,
-				400AB76B28FF5BEF00A6DCB6 /* ACPSelfieViewController.swift */,
-				400AB76728FF5BCA00A6DCB6 /* ACPKYCViewController.swift */,
-				40C7E59628EF6CEC00C03ECE /* ACPPersonalInfoViewController.swift */,
-				400AB76528FF5B6F00A6DCB6 /* ACPScanIDViewController.swift */,
-				400AB77328FF6E9300A6DCB6 /* ACPBankInfoViewController.swift */,
-				409132C428F4EBC10003CC4E /* ACPVerifyEmailKeyboardView.swift */,
-			);
-			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		400AB98A28FF7F5F00A6DCB6 /* Screens */ = {
@@ -682,7 +651,6 @@
 				40B5EDCC28E224F20096B91B /* Products */,
 				FB00E332458E87060AD9B9F0 /* Pods */,
 				1EF3BAC39E57E76420CCD5AA /* Frameworks */,
-				400AB92628FF7D1200A6DCB6 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
