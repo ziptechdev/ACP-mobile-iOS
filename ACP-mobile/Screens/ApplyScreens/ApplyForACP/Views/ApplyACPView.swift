@@ -373,7 +373,7 @@ class ApplyACPView: UIView {
         }
     }
 
-    private func phoneView(isCollapse: Bool, heighConstraint: Double) {
+    private func phoneView(isCollapse: Bool) {
         UIView.animate(withDuration: 0.5) { [self] in
             self.isMobileTapped = isCollapse
             phoneSelectedImageView.isHidden = !isCollapse
@@ -464,7 +464,6 @@ class ApplyACPView: UIView {
         if shouldCollapse {
             planExpandedView(isCollapsed: true)
         } else {
-            // TODO: Add dynamic height for view
             planExpandedView(isCollapsed: false)
             delegate?.didTapPlanButton()
         }
@@ -473,12 +472,10 @@ class ApplyACPView: UIView {
 
     @objc func mobileSetupTapped() {
         if isMobileTapped {
-            phoneView(isCollapse: false,
-                      heighConstraint: 65)
+            phoneView(isCollapse: false)
         } else {
             // TODO: Add dynamic height for view
-            phoneView(isCollapse: true,
-                      heighConstraint: 142)
+            phoneView(isCollapse: true)
             delegate?.didTapPhoneButton()
         }
         checkButtonAvailability()
