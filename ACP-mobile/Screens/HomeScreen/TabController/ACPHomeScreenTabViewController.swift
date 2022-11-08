@@ -117,9 +117,7 @@ extension ACPHomeScreenTabViewController: ACPTabMenuViewControllerDelegate {
                 return viewController
             }
         default:
-            // TODO: Add Proper VC
-            let viewController = UIViewController()
-            viewController.view.backgroundColor = .white
+            let viewController = ACPProfileViewController()
             return viewController
         }
     }

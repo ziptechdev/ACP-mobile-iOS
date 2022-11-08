@@ -403,9 +403,10 @@
 		400AB9AE28FF7F5F00A6DCB6 /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
-				4013FADA29083D620018025F /* Wallet */,
-				403AD22129075B2600C6D556 /* TabController */,
 				403AD21E29075AC200C6D556 /* Home */,
+				4013FADA29083D620018025F /* Wallet */,
+				40D0BE472919D8FC00067026 /* Profile */,
+				403AD22129075B2600C6D556 /* TabController */,
 			);
 			path = HomeScreen;
 			sourceTree = "<group>";
@@ -750,14 +751,53 @@
 		40D0BE3A2919D89900067026 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				40D0BE3B2919D89900067026 /* ACPProfileHeaderView.swift */,
-				40D0BE3C2919D89900067026 /* ACPProfileSettingsView.swift */,
-				40D0BE3D2919D89900067026 /* ACPProfileInfoViewController.swift */,
-				40D0BE3E2919D89900067026 /* ACPProfileVerticalStackButton.swift */,
-				40D0BE3F2919D89900067026 /* ACPProfileViewController.swift */,
-				40D0BE402919D89900067026 /* ACPProfileSecurityViewController.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		40D0BE472919D8FC00067026 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				40D0BE482919D92000067026 /* MyProfile */,
+				40D0BE492919D93700067026 /* Info */,
+				40D0BE4A2919D94300067026 /* Security */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		40D0BE482919D92000067026 /* MyProfile */ = {
+			isa = PBXGroup;
+			children = (
+				40D0BE4B2919D95E00067026 /* Views */,
+				40D0BE3F2919D89900067026 /* ACPProfileViewController.swift */,
+			);
+			path = MyProfile;
+			sourceTree = "<group>";
+		};
+		40D0BE492919D93700067026 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				40D0BE3D2919D89900067026 /* ACPProfileInfoViewController.swift */,
+			);
+			path = Info;
+			sourceTree = "<group>";
+		};
+		40D0BE4A2919D94300067026 /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				40D0BE402919D89900067026 /* ACPProfileSecurityViewController.swift */,
+			);
+			path = Security;
+			sourceTree = "<group>";
+		};
+		40D0BE4B2919D95E00067026 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				40D0BE3E2919D89900067026 /* ACPProfileVerticalStackButton.swift */,
+				40D0BE3C2919D89900067026 /* ACPProfileSettingsView.swift */,
+				40D0BE3B2919D89900067026 /* ACPProfileHeaderView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		FB00E332458E87060AD9B9F0 /* Pods */ = {
