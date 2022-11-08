@@ -232,16 +232,7 @@ KYC requires a selfie/clear shot of your face and a photo of the document that c
 "empty_wallet_balance" = "Total balance in USD:";
 "empty_wallet_balance_highlight" = "USD";
 
-/* Wallet Success Screen */
-"wallet_success_title" = "Confirmed!";
-"wallet_success_subtitle" = "Your VISA debit card request has been successfully submitted. The card will be shipped to your address within 2-3 business days.";
-"wallet_success_btn" = "Done";
-
-/* Profile Screen */
-"profile_tab_title" = "Profile";
-"profile_page_title" = "Profile";
-
-/* Profile Screen */
+/* Request Card Screen */
 "request_card_title" = "Request a debit card";
 "request_card_subtitle" = "ACP Mobile VISA debit card will be sent to the address registered to your account. Please review this information before submitting the request.";
 "request_card_first_name" = "First Name";
@@ -252,3 +243,13 @@ KYC requires a selfie/clear shot of your face and a photo of the document that c
 "request_card_edit_btn" = "Edit";
 "request_card_save_btn" = "Save";
 "request_card_btn" = "Request Card";
+
+/* Wallet Success Screen */
+"wallet_success_title" = "Confirmed!";
+"wallet_success_subtitle" = "Your VISA debit card request has been successfully submitted. The card will be shipped to your address within 2-3 business days.";
+"wallet_success_btn" = "Done";
+
+/* Profile Screen */
+"profile_tab_title" = "Profile";
+"profile_page_title" = "Profile";
+
