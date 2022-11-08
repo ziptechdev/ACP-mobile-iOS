@@ -49,8 +49,8 @@ class ApplyACPView: UIView {
     let correctImageView: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.contentMode = .scaleAspectFill
-        view.image = UIImage(named: "correctACP")
+        view.contentMode = .scaleAspectFit
+        view.image = UIImage(named: "circle_checkmark")
         return view
     }()
 
@@ -137,8 +137,8 @@ class ApplyACPView: UIView {
     let choosePlanSelectedImageView: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.contentMode = .scaleAspectFill
-        view.image = UIImage(named: "correctACP")
+        view.contentMode = .scaleAspectFit
+        view.image = UIImage(named: "circle_checkmark")
         view.isHidden = true
         return view
     }()
@@ -158,8 +158,8 @@ class ApplyACPView: UIView {
     let phoneSelectedImageView: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.contentMode = .scaleAspectFill
-        view.image = UIImage(named: "correctACP")
+        view.contentMode = .scaleAspectFit
+        view.image = UIImage(named: "circle_checkmark")
         view.isHidden = true
         return view
     }()
@@ -329,7 +329,7 @@ class ApplyACPView: UIView {
 
         choosePlanSelectedImageView.snp.makeConstraints { make in
             make.centerX.equalTo(planView.snp.centerX)
-            make.top.equalTo(planView.snp.top).offset(-Constants.LeftPlanTopOffest)
+            make.centerY.equalTo(planView.snp.top)
         }
 
         phoneImageView.snp.makeConstraints { make in
@@ -338,7 +338,7 @@ class ApplyACPView: UIView {
 
         phoneSelectedImageView.snp.makeConstraints { make in
             make.centerX.equalTo(phoneSetupStackView.snp.centerX)
-            make.top.equalTo(phoneSetupStackView.snp.top).inset(-Constants.LeftPlanTopOffest)
+            make.centerY.equalTo(phoneSetupStackView.snp.top)
         }
 
         switchTextLabel.snp.makeConstraints { make in

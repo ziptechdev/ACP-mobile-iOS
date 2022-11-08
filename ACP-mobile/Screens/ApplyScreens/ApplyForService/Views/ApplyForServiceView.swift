@@ -55,8 +55,8 @@ class ApplyForServiceView: UIView {
     let correctImageView: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.contentMode = .scaleAspectFill
-        view.image = UIImage(named: "correct2x")
+        view.contentMode = .scaleAspectFit
+        view.image = UIImage(named: "circle_checkmark_orange")
         return view
     }()
 
@@ -271,7 +271,7 @@ class ApplyForServiceView: UIView {
             static let ButtonContentSpacing: CGFloat = 10
             static let ButtonCornerRadius: CGFloat = 10
             static let HeightView: CGFloat = 34
-            static let ImageView: CGFloat = 24
+            static let ImageView: CGFloat = 18
         }
     }
 }
