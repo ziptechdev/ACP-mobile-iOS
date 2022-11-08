@@ -108,18 +108,34 @@ extension ACPHomeScreenTabViewController: ACPTabMenuViewControllerDelegate {
             return viewController
         case 1:
             // TODO: Remove Test
+
             viewModel.test()
-            if viewModel.isWalletEmpty {
+
+            switch viewModel.walletIndex {
+            case 0:
                 let viewController = ACPEmptyWalletViewController()
                 return viewController
-            } else {
+
+            case 1:
+                let viewController = RequestCardViewController()
+                viewController.viewModel = RequestCardViewModel()
+                return viewController
+
+            case 2:
+                let viewController = ACPCardSuccessViewController()
+                navigationController?.pushViewController(viewController, animated: true)
+                return didSelectTab(index: 1)
+
+
+            default:
                 let viewController = ACPWalletViewController()
                 return viewController
             }
+
         default:
             // TODO: Add Proper VC
-            let viewController = RequestCardViewController()
-            viewController.viewModel = RequestCardViewModel()
+            let viewController = UIViewController()
+            viewController.view.backgroundColor = .white
             return viewController
         }
     }

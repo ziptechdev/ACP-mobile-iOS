@@ -34,8 +34,8 @@ class ACPWalletViewController: UIViewController {
     private lazy var newCardButton: ACPImageButton = {
         let button = ACPImageButton(
             titleKey: "wallet_btn",
-            spacing: Constants.Constraints.ButtonContentSpacing,
-            cornerRadius: Constants.Constraints.ButtonCornerRadius,
+            spacing: Constants.ButtonContentSpacing,
+            cornerRadius: Constants.ButtonCornerRadius,
             imageName: "plus",
             isLeft: true
         )
@@ -103,20 +103,20 @@ class ACPWalletViewController: UIViewController {
         }
 
         debitCard.snp.makeConstraints { make in
-            make.right.left.equalToSuperview().inset(Constants.Constraints.ContentInset)
-            make.height.equalTo(Constants.Constraints.CardHeight)
-            make.top.equalToSuperview().inset(Constants.Constraints.CardOffset)
+            make.right.left.equalToSuperview().inset(Constants.ContentInset)
+            make.height.equalTo(Constants.CardHeight)
+            make.top.equalToSuperview().inset(Constants.CardOffset)
         }
 
         newCardButton.snp.makeConstraints { make in
-            make.right.left.equalToSuperview().inset(Constants.Constraints.ContentInset)
-            make.height.equalTo(Constants.Constraints.ButtonHeight)
-            make.top.equalTo(debitCard.snp.bottom).offset(Constants.Constraints.ButtonOffset)
+            make.right.left.equalToSuperview().inset(Constants.ContentInset)
+            make.height.equalTo(Constants.ButtonHeight)
+            make.top.equalTo(debitCard.snp.bottom).offset(Constants.ButtonOffset)
         }
 
         transactionsLabel.snp.makeConstraints { make in
-            make.right.left.equalToSuperview().inset(Constants.Constraints.ContentInset)
-            make.top.equalTo(newCardButton.snp.bottom).offset(Constants.Constraints.TitleOffset)
+            make.right.left.equalToSuperview().inset(Constants.ContentInset)
+            make.top.equalTo(newCardButton.snp.bottom).offset(Constants.TitleOffset)
         }
     }
 
@@ -126,7 +126,7 @@ class ACPWalletViewController: UIViewController {
 
         tabMenu.view.translatesAutoresizingMaskIntoConstraints = false
         tabMenu.view.snp.makeConstraints { make in
-            make.top.equalTo(transactionsLabel.snp.bottom).offset(Constants.Constraints.TabMenuOffset)
+            make.top.equalTo(transactionsLabel.snp.bottom).offset(Constants.TabMenuOffset)
             make.left.right.bottom.equalToSuperview()
         }
 
@@ -145,23 +145,21 @@ class ACPWalletViewController: UIViewController {
     // MARK: - Constants
 
     private struct Constants {
-        struct Constraints {
-            static let ContentInset: CGFloat = 35
+        static let ContentInset: CGFloat = 35
 
-            static let CardOffset: CGFloat = 40
-            static let CardHeight: CGFloat = 180
+        static let CardOffset: CGFloat = 40
+        static let CardHeight: CGFloat = 180
 
-            static let ButtonContentSpacing: CGFloat = 10
-            static let ButtonCornerRadius: CGFloat = 10
-            static let ButtonHeight: CGFloat = 46
-            static let ButtonOffset: CGFloat = 30
+        static let ButtonContentSpacing: CGFloat = 10
+        static let ButtonCornerRadius: CGFloat = 10
+        static let ButtonHeight: CGFloat = 46
+        static let ButtonOffset: CGFloat = 30
 
-            static let TitleOffset: CGFloat = 60
+        static let TitleOffset: CGFloat = 60
 
-            static let TabMenuHeight: CGFloat = 40
-            static let TabMenuOffset: CGFloat = 30
-            static let HeaderCornerRadius: CGFloat = 10
-        }
+        static let TabMenuHeight: CGFloat = 40
+        static let TabMenuOffset: CGFloat = 30
+        static let HeaderCornerRadius: CGFloat = 10
     }
 }
 
@@ -173,15 +171,15 @@ extension ACPWalletViewController: ACPTabMenuViewControllerDelegate {
     func setupViews(collectionView: UICollectionView, containerView: UIView) {
         collectionView.backgroundColor = .gray06Light
         collectionView.layer.masksToBounds = true
-        collectionView.layer.cornerRadius = Constants.Constraints.HeaderCornerRadius
+        collectionView.layer.cornerRadius = Constants.HeaderCornerRadius
         collectionView.contentInset = UIEdgeInsets(top: 6, left: 6, bottom: 6, right: 6)
 
         collectionView.register(ACPTabMenuTitleCell.self)
 
         collectionView.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInset)
+            make.left.right.equalToSuperview().inset(Constants.ContentInset)
             make.top.equalToSuperview()
-            make.height.equalTo(Constants.Constraints.TabMenuHeight)
+            make.height.equalTo(Constants.TabMenuHeight)
         }
 
         containerView.snp.makeConstraints { make in
@@ -192,7 +190,8 @@ extension ACPWalletViewController: ACPTabMenuViewControllerDelegate {
 
     func cellForIndex(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
         let cell: ACPTabMenuTitleCell = collectionView.dequeue(at: indexPath)
-        cell.configureCell(text: "Test")
+        let cellTitle: String = .localizedString(key: "wallet_transactions_tab_\(indexPath.row)")
+        cell.configureCell(text: cellTitle)
         return cell
     }
 
