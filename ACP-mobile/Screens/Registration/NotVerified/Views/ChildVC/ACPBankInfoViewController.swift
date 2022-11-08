@@ -70,7 +70,7 @@ class ACPBankInfoViewController: UIViewController {
 
     private lazy var completeButton: ACPShadowButton = {
         let button = ACPShadowButton()
-        button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
+        button.layer.cornerRadius = Constants.ButtonCornerRadius
         button.layer.masksToBounds = true
         button.isUserInteractionEnabled = false
         button.backgroundColor = .lavenderGray
@@ -112,45 +112,44 @@ class ACPBankInfoViewController: UIViewController {
 
     private func setupConstraints() {
         subtitleLabel.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.top.equalToSuperview().inset(Constants.Constraints.ContentInsetVertical)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.top.equalToSuperview().inset(Constants.ContentInsetVertical)
         }
 
         bankNameTextField.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.top.equalTo(subtitleLabel.snp.bottom).offset(Constants.Constraints.NameOffsetVertical)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.top.equalTo(subtitleLabel.snp.bottom).offset(Constants.NameOffsetVertical)
         }
 
         bankNumberTextField.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.top.equalTo(bankNameTextField.snp.bottom).offset(Constants.Constraints.TextFieldOffsetVertical)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.top.equalTo(bankNameTextField.snp.bottom).offset(Constants.TextFieldOffsetVertical)
         }
 
         accountHolderTextField.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.top.equalTo(bankNumberTextField.snp.bottom).offset(Constants.Constraints.TextFieldOffsetVertical)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.top.equalTo(bankNumberTextField.snp.bottom).offset(Constants.TextFieldOffsetVertical)
         }
 
         accountNumberTextField.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.top.equalTo(accountHolderTextField.snp.bottom).offset(Constants.Constraints.TextFieldOffsetVertical)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.top.equalTo(accountHolderTextField.snp.bottom).offset(Constants.TextFieldOffsetVertical)
         }
 
         expirationTextField.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.top.equalTo(accountNumberTextField.snp.bottom).offset(Constants.Constraints.TextFieldOffsetVertical)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.top.equalTo(accountNumberTextField.snp.bottom).offset(Constants.TextFieldOffsetVertical)
         }
 
         completeButton.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.height.equalTo(Constants.Constraints.ButtonHeight)
-            make.top.equalTo(expirationTextField.snp.bottom).offset(Constants.Constraints.ButtonOffsetVertical)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.height.equalTo(Constants.ButtonHeight)
+            make.top.equalTo(expirationTextField.snp.bottom).offset(Constants.ButtonOffsetVertical)
         }
 
         infoLabel.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.top.equalTo(completeButton.snp.bottom).offset(Constants.Constraints.InfoOffsetVertical)
-            make.bottom.equalToSuperview().inset(Constants.Constraints.InfoInsetVertical)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(Constants.InfoInsetVertical)
         }
     }
 
@@ -163,22 +162,20 @@ class ACPBankInfoViewController: UIViewController {
     // MARK: - Constants
 
     private struct Constants {
-        struct Constraints {
-            static let ContentInsetVertical: CGFloat = 30
-            static let ContentInsetHorizontal: CGFloat = 35
+        static let ContentInsetVertical: CGFloat = 30
+        static let ContentInsetHorizontal: CGFloat = 35
 
-            static let NameOffsetVertical: CGFloat = 30
+        static let NameOffsetVertical: CGFloat = 30
 
-            static let TextFieldOffsetVertical: CGFloat = 10
+        static let TextFieldOffsetVertical: CGFloat = 10
 
-            static let ButtonHeight: CGFloat = 46
-            static let ButtonContentSpacing: CGFloat = 10
-            static let ButtonCornerRadius: CGFloat = 10
-            static let ButtonOffsetVertical: CGFloat = 60
+        static let ButtonHeight: CGFloat = 46
+        static let ButtonContentSpacing: CGFloat = 10
+        static let ButtonCornerRadius: CGFloat = 10
+        static let ButtonOffsetVertical: CGFloat = 60
 
-            static let InfoOffsetVertical: CGFloat = 30
-            static let InfoInsetVertical: CGFloat = 60
-        }
+        static let InfoOffsetVertical: CGFloat = 30
+        static let InfoInsetVertical: CGFloat = 5
     }
 }
 
