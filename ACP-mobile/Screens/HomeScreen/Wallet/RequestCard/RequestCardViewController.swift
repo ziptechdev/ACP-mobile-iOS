@@ -11,15 +11,13 @@ import SnapKit
 class RequestCardViewController: UIViewController {
 
     // MARK: - Properties
+
     var viewModel: RequestCardViewModel?
 
     private lazy var textFields: [TextInput] = [
-        firstNameTextField, lastNameTextField, streetTextField, cityTextField, stateTextField, zipTextField, phoneTextField
+        firstNameTextField, lastNameTextField, streetTextField, cityTextField, stateTextField,
+        zipTextField, phoneTextField
     ]
-    private lazy var textFieldsACP: [ACPTextField] = [
-        firstNameTextField, lastNameTextField, streetTextField, cityTextField, zipTextField, phoneTextField, firstNameTextField, lastNameTextField
-    ]
-    private var isEditable = false
 
     // MARK: - Views
 
@@ -60,13 +58,21 @@ class RequestCardViewController: UIViewController {
 
     private lazy var firstNameTextField: ACPTextField = {
         let view = ACPTextField()
+        view.isUserInteractionEnabled = false
         view.titleLabel.text = .localizedString(key: "request_card_first_name")
+        view.textField.layer.borderWidth = 0
+        view.textField.backgroundColor = .gray06Light
+        view.textField.textColor = .gray01Dark
         view.textField.delegate = self
         return view
     }()
     private lazy var lastNameTextField: ACPTextField = {
         let view = ACPTextField()
+        view.isUserInteractionEnabled = false
         view.titleLabel.text = .localizedString(key: "request_card_last_name")
+        view.textField.layer.borderWidth = 0
+        view.textField.backgroundColor = .gray06Light
+        view.textField.textColor = .gray01Dark
         view.textField.delegate = self
         return view
     }()
@@ -121,8 +127,8 @@ class RequestCardViewController: UIViewController {
 
     private lazy var editButton: ACPImageButton = {
         let button = ACPImageButton(
-            spacing: Constants.Constraints.ButtonCornerRadius,
-            cornerRadius: Constants.Constraints.ButtonCornerRadius,
+            spacing: Constants.ButtonCornerRadius,
+            cornerRadius: Constants.ButtonCornerRadius,
             imageName: "edit",
             textColor: .coreBlue,
             isLeft: true
@@ -131,7 +137,7 @@ class RequestCardViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
         button.layer.borderWidth = 1
-        button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
+        button.layer.cornerRadius = Constants.ButtonCornerRadius
         button.layer.borderColor = UIColor.coreBlue.cgColor
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(.localizedString(key: "edit_btn"), for: .normal)
@@ -141,7 +147,7 @@ class RequestCardViewController: UIViewController {
 
     private lazy var requestCardButton: UIButton = {
         let button = UIButton()
-        button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
+        button.layer.cornerRadius = Constants.ButtonCornerRadius
         button.layer.masksToBounds = true
         button.isUserInteractionEnabled = true
         button.backgroundColor = .coreBlue
@@ -153,7 +159,7 @@ class RequestCardViewController: UIViewController {
 
     private lazy var saveButton: UIButton = {
         let button = UIButton()
-        button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
+        button.layer.cornerRadius = Constants.ButtonCornerRadius
         button.layer.masksToBounds = true
         button.isUserInteractionEnabled = true
         button.backgroundColor = .coreBlue
@@ -168,9 +174,8 @@ class RequestCardViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         setupUI()
-        enabledTextFields()
-        showValuesIfPresent()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -188,6 +193,10 @@ class RequestCardViewController: UIViewController {
     private func setupUI() {
         addSubviews()
         setupConstraints()
+
+        updateTextFields(isEditable: false)
+
+        showValuesIfPresent()
     }
 
     private func addSubviews() {
@@ -218,65 +227,71 @@ class RequestCardViewController: UIViewController {
         }
 
         titleLabel.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.top.equalToSuperview().offset(Constants.Constraints.ContentInsetVertical)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.top.equalToSuperview().offset(Constants.ContentInsetVertical)
         }
 
         subtitleLabel.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.top.equalTo(titleLabel.snp.bottom).offset(Constants.Constraints.SubtitleOffsetVertical)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.top.equalTo(titleLabel.snp.bottom).offset(Constants.SubtitleOffsetVertical)
         }
+
         firstNameTextField.snp.makeConstraints { make in
-            make.left.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.right.equalTo(view.snp.centerX).inset(Constants.Constraints.TextFieldSpacing / 2)
-            make.top.equalTo(subtitleLabel.snp.bottom).offset(Constants.Constraints.StreetOffsetVertical)
+            make.left.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.right.equalTo(view.snp.centerX).inset(Constants.TextFieldSpacing / 2)
+            make.top.equalTo(subtitleLabel.snp.bottom).offset(Constants.StreetOffsetVertical)
         }
+
         lastNameTextField.snp.makeConstraints { make in
-            make.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.left.equalTo(view.snp.centerX).offset(Constants.Constraints.TextFieldSpacing / 2)
-            make.top.equalTo(subtitleLabel.snp.bottom).offset(Constants.Constraints.StreetOffsetVertical)
+            make.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.left.equalTo(view.snp.centerX).offset(Constants.TextFieldSpacing / 2)
+            make.top.equalTo(subtitleLabel.snp.bottom).offset(Constants.StreetOffsetVertical)
         }
+
         streetTextField.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.top.equalTo(firstNameTextField.snp.bottom).offset(Constants.Constraints.TextFieldOffsetVertical)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.top.equalTo(firstNameTextField.snp.bottom).offset(Constants.TextFieldOffsetVertical)
         }
 
         cityTextField.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.top.equalTo(streetTextField.snp.bottom).offset(Constants.Constraints.TextFieldOffsetVertical)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.top.equalTo(streetTextField.snp.bottom).offset(Constants.TextFieldOffsetVertical)
         }
 
         stateTextField.snp.makeConstraints { make in
-            make.left.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.right.equalTo(view.snp.centerX).inset(Constants.Constraints.TextFieldSpacing / 2)
-            make.top.equalTo(cityTextField.snp.bottom).offset(Constants.Constraints.TextFieldOffsetVertical)
+            make.left.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.right.equalTo(view.snp.centerX).inset(Constants.TextFieldSpacing / 2)
+            make.top.equalTo(cityTextField.snp.bottom).offset(Constants.TextFieldOffsetVertical)
         }
 
         zipTextField.snp.makeConstraints { make in
-            make.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.left.equalTo(view.snp.centerX).offset(Constants.Constraints.TextFieldSpacing / 2)
-            make.top.equalTo(cityTextField.snp.bottom).offset(Constants.Constraints.TextFieldOffsetVertical)
+            make.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.left.equalTo(view.snp.centerX).offset(Constants.TextFieldSpacing / 2)
+            make.top.equalTo(cityTextField.snp.bottom).offset(Constants.TextFieldOffsetVertical)
         }
 
         phoneTextField.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.top.equalTo(zipTextField.snp.bottom).offset(Constants.Constraints.SubtitleOffsetVertical)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.top.equalTo(zipTextField.snp.bottom).offset(Constants.SubtitleOffsetVertical)
         }
+
         editButton.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.height.equalTo(Constants.Constraints.ButtonHeight)
-            make.top.equalTo(phoneTextField.snp.bottom).offset(Constants.Constraints.StreetOffsetVertical)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.height.equalTo(Constants.ButtonHeight)
+            make.top.equalTo(phoneTextField.snp.bottom).offset(Constants.StreetOffsetVertical)
         }
+
         saveButton.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.height.equalTo(Constants.Constraints.ButtonHeight)
-            make.top.equalTo(phoneTextField.snp.bottom).offset(Constants.Constraints.StreetOffsetVertical)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.height.equalTo(Constants.ButtonHeight)
+            make.top.equalTo(phoneTextField.snp.bottom).offset(Constants.StreetOffsetVertical)
         }
+
         requestCardButton.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.height.equalTo(Constants.Constraints.ButtonHeight)
-            make.top.equalTo(editButton.snp.bottom).offset(Constants.Constraints.StreetOffsetVertical)
-            make.bottom.equalToSuperview().inset(Constants.Constraints.TextFieldSpacing)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.height.equalTo(Constants.ButtonHeight)
+            make.top.equalTo(editButton.snp.bottom).offset(Constants.StreetOffsetVertical)
+            make.bottom.equalToSuperview().inset(Constants.TextFieldSpacing)
         }
     }
 
@@ -286,6 +301,7 @@ class RequestCardViewController: UIViewController {
         guard let viewModel = viewModel else {
             return
         }
+
         firstNameTextField.textField.text = viewModel.firstName
         lastNameTextField.textField.text = viewModel.lastName
         streetTextField.textField.text = viewModel.address
@@ -298,24 +314,23 @@ class RequestCardViewController: UIViewController {
     // MARK: - Callback
 
     @objc func didTapSaveButton() {
-        isEditable = false
-        enabledTextFields()
+        updateTextFields(isEditable: false)
+
         viewModel?.firstName = firstNameTextField.textField.text ?? ""
         viewModel?.address = streetTextField.textField.text ?? ""
         viewModel?.city = cityTextField.textField.text ?? ""
         viewModel?.zipCode = zipTextField.textField.text ?? ""
         viewModel?.phoneNumber = phoneTextField.textField.text ?? ""
-
     }
+
     @objc func didTapEdit() {
-        isEditable = true
-        enabledTextFields()
+        updateTextFields(isEditable: true)
+    }
 
-    }
     @objc func didTapRequestCardButton() {
-        isEditable = false
-        enabledTextFields()
+        updateTextFields(isEditable: false)
     }
+
     @objc private func textFieldDidChange(_ textField: UITextField) {
         guard var text = textField.text else {
             return
@@ -333,57 +348,37 @@ class RequestCardViewController: UIViewController {
         textField.text = String(text.prefix(12))
     }
 
-    private func enabledTextFields() {
-        if isEditable {
-            textFieldsACP.forEach { textFieldacp in
-                if textFieldacp == firstNameTextField || textFieldacp == lastNameTextField {
+    private func updateTextFields(isEditable: Bool) {
+        let editableTextFields = Array(textFields.dropFirst(2))
 
-                } else {
-                    textFieldacp.textField.backgroundColor = .white
-                    textFieldacp.textField.isUserInteractionEnabled = true
-                    textFieldacp.textField.textColor = .gray06Dark
-                }
+        editableTextFields.forEach { textField in
+            textField.textField.isUserInteractionEnabled = isEditable
+            textField.textField.layer.borderWidth = isEditable ? 1 : 0
+            textField.textField.backgroundColor = isEditable ? .white : .gray06Light
 
-            }
-
-            stateTextField.textField.isUserInteractionEnabled = true
-            stateTextField.textField.backgroundColor = .white
-            saveButton.isHidden = false
-            editButton.isHidden = true
-            requestCardButton.isHidden = true
-
-        } else {
-            textFieldsACP.forEach { textFieldacp in
-                textFieldacp.textField.backgroundColor = .gray06Light
-                textFieldacp.textField.isUserInteractionEnabled = false
-                textFieldacp.textField.textColor = .gray06Dark
-            }
-            stateTextField.textField.isUserInteractionEnabled = false
-            stateTextField.textField.backgroundColor = .gray06Light
-
-            saveButton.isHidden = true
-            editButton.isHidden = false
-            requestCardButton.isHidden = false
+            textField.textField.textFieldImage?.isHidden = !isEditable
         }
+
+        saveButton.isHidden = !isEditable
+        editButton.isHidden = isEditable
+        requestCardButton.isHidden = isEditable
     }
 
     // MARK: - Constants
 
     private struct Constants {
-        struct Constraints {
-            static let ContentInsetVertical: CGFloat = 60
-            static let ContentInsetHorizontal: CGFloat = 35
+        static let ContentInsetVertical: CGFloat = 60
+        static let ContentInsetHorizontal: CGFloat = 35
 
-            static let SubtitleOffsetVertical: CGFloat = 10
+        static let SubtitleOffsetVertical: CGFloat = 10
 
-            static let StreetOffsetVertical: CGFloat = 30
-            static let TextFieldOffsetVertical: CGFloat = 10
-            static let TextFieldSpacing: CGFloat = 20
+        static let StreetOffsetVertical: CGFloat = 30
+        static let TextFieldOffsetVertical: CGFloat = 10
+        static let TextFieldSpacing: CGFloat = 20
 
-            static let ButtonHeight: CGFloat = 46
-            static let ButtonCornerRadius: CGFloat = 10
-            static let ButtonOffsetVertical: CGFloat = 60
-        }
+        static let ButtonHeight: CGFloat = 46
+        static let ButtonCornerRadius: CGFloat = 10
+        static let ButtonOffsetVertical: CGFloat = 60
     }
 }
 

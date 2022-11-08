@@ -113,15 +113,13 @@ extension ACPHomeScreenTabViewController: ACPTabMenuViewControllerDelegate {
                 let viewController = ACPEmptyWalletViewController()
                 return viewController
             } else {
-                let viewController = RequestCardViewController()
-                viewController.viewModel = RequestCardViewModel()
-                // let viewController = ACPWalletViewController()
+                let viewController = ACPWalletViewController()
                 return viewController
             }
         default:
             // TODO: Add Proper VC
-            let viewController = UIViewController()
-            viewController.view.backgroundColor = .white
+            let viewController = RequestCardViewController()
+            viewController.viewModel = RequestCardViewModel()
             return viewController
         }
     }
