@@ -221,6 +221,9 @@ KYC requires a selfie/clear shot of your face and a photo of the document that c
 "wallet_btn" = "New Card";
 "wallet_transactions" = "Transactions";
 "wallet_transactions_details" = "Details";
+"wallet_transactions_tab_0" = "All";
+"wallet_transactions_tab_1" = "Incoming";
+"wallet_transactions_tab_2" = "Outgoing";
 
 /* Empty Wallet Screen */
 "empty_wallet_title" = "You need a card!";
@@ -228,6 +231,18 @@ KYC requires a selfie/clear shot of your face and a photo of the document that c
 "empty_wallet_btn" = "Request Card";
 "empty_wallet_balance" = "Total balance in USD:";
 "empty_wallet_balance_highlight" = "USD";
+
+/* Request Card Screen */
+"request_card_title" = "Request a debit card";
+"request_card_subtitle" = "ACP Mobile VISA debit card will be sent to the address registered to your account. Please review this information before submitting the request.";
+"request_card_first_name" = "First Name";
+"request_card_last_name" = "Last Name";
+"request_card_street_num" = "Street Number and Name";
+"request_card_city" = "City";
+"request_card_state" = "State";
+"request_card_edit_btn" = "Edit";
+"request_card_save_btn" = "Save";
+"request_card_btn" = "Request Card";
 
 /* Wallet Success Screen */
 "wallet_success_title" = "Confirmed!";

@@ -19,7 +19,7 @@ class ACPHomeScreenTabViewModel {
         "profile"
     ]
 
-    var isWalletEmpty: Bool = false
+    var walletIndex = -1
 
     func numberOfTabItems() -> Int {
         return tabs.count
@@ -40,6 +40,6 @@ class ACPHomeScreenTabViewModel {
     }
 
     func test() {
-        isWalletEmpty = !isWalletEmpty
+        walletIndex = walletIndex == 3 ? 0 : walletIndex + 1
     }
 }
