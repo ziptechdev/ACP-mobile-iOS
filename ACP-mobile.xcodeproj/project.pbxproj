@@ -67,7 +67,7 @@
 		CED24DC328F82EE600DDD3B9 /* ACPProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED24DC228F82EE600DDD3B9 /* ACPProfileHeaderView.swift */; };
 		CED24DC528F82EFD00DDD3B9 /* ACPProfileSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED24DC428F82EFD00DDD3B9 /* ACPProfileSettingsView.swift */; };
 		CED24DC728F82F2A00DDD3B9 /* ACPProfileSecurityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED24DC628F82F2A00DDD3B9 /* ACPProfileSecurityViewController.swift */; };
-		CED24DC928F82F3F00DDD3B9 /* ACPPersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED24DC828F82F3F00DDD3B9 /* ACPPersonalInfoViewController.swift */; };
+		CED24DC928F82F3F00DDD3B9 /* ACPProfileInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED24DC828F82F3F00DDD3B9 /* ACPProfileInfoViewController.swift */; };
 		FF3F59D25D870A8B465A1AB4 /* Pods_ACP_mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA43A30C610F68C5A06DD99 /* Pods_ACP_mobile.framework */; };
 /* End PBXBuildFile section */
 
@@ -137,7 +137,7 @@
 		CED24DC228F82EE600DDD3B9 /* ACPProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPProfileHeaderView.swift; sourceTree = "<group>"; };
 		CED24DC428F82EFD00DDD3B9 /* ACPProfileSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPProfileSettingsView.swift; sourceTree = "<group>"; };
 		CED24DC628F82F2A00DDD3B9 /* ACPProfileSecurityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPProfileSecurityViewController.swift; sourceTree = "<group>"; };
-		CED24DC828F82F3F00DDD3B9 /* ACPPersonalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPPersonalInfoViewController.swift; sourceTree = "<group>"; };
+		CED24DC828F82F3F00DDD3B9 /* ACPProfileInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPProfileInfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -457,7 +457,7 @@
 				CED24DC228F82EE600DDD3B9 /* ACPProfileHeaderView.swift */,
 				CED24DC428F82EFD00DDD3B9 /* ACPProfileSettingsView.swift */,
 				CED24DC628F82F2A00DDD3B9 /* ACPProfileSecurityViewController.swift */,
-				CED24DC828F82F3F00DDD3B9 /* ACPPersonalInfoViewController.swift */,
+				CED24DC828F82F3F00DDD3B9 /* ACPProfileInfoViewController.swift */,
 				CE6EFA632907B79000093F79 /* ACPProfileVerticalStackButton.swift */,
 			);
 			path = Profile;
@@ -608,7 +608,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE6D94EE28EFC54A005577F8 /* ACPTermsPrivacyViewController.swift in Sources */,
-				CED24DC928F82F3F00DDD3B9 /* ACPPersonalInfoViewController.swift in Sources */,
+				CED24DC928F82F3F00DDD3B9 /* ACPProfileInfoViewController.swift in Sources */,
 				40ECB6D628F63143004FD644 /* ACPImageButton.swift in Sources */,
 				1390E2A928E88AF9009BCE11 /* EgibilityCheckViewController.swift in Sources */,
 				40EE2CBD28E52E050028888D /* ACPHomeScreenProgramCell.swift in Sources */,

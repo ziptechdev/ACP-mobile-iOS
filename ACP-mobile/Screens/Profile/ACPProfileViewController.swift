@@ -17,7 +17,9 @@ class ACPProfileViewController: UIViewController {
     // MARK: - Life Cycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        title = Constants.Text.Title
+
+        title = "Change"
+
         navigationController?.navigationBar.isHidden = false
     }
 
@@ -52,18 +54,11 @@ class ACPProfileViewController: UIViewController {
             make.bottom.left.right.equalToSuperview()
         }
     }
-
-    // MARK: - Constants
-       private struct Constants {
-           struct Text {
-               static let Title = "Profile"
-           }
-       }
 }
 
 extension ACPProfileViewController: ACPProfileHeaderViewDelegate {
     func didTapPersonalInfo() {
-        let vc = ACPPersonalInfoViewController()
+        let vc = ACPProfileInfoViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
 

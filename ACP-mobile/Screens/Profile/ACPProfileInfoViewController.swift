@@ -1,5 +1,5 @@
 //
-//  ACPPersonalInfoViewController.swift
+//  ACPProfileInfoViewController.swift
 //  ACP-mobile
 //
 //  Created by Eldar Tutnjic on 13. 10. 2022..
@@ -7,7 +7,8 @@
 
 import UIKit
 
-class ACPPersonalInfoViewController: UIViewController {
+class ACPProfileInfoViewController: UIViewController {
+
     // MARK: - Properties
     var viewModel: ACPEligibilityDetailsViewModel?
 
@@ -431,7 +432,7 @@ class ACPPersonalInfoViewController: UIViewController {
 
 // MARK: - UITextFieldDelegate
 
-extension ACPPersonalInfoViewController: UITextFieldDelegate {
+extension ACPProfileInfoViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == monthTextField.textField {
             dayTextField.textField.becomeFirstResponder()
@@ -448,7 +449,7 @@ extension ACPPersonalInfoViewController: UITextFieldDelegate {
 
 // MARK: - ACPToolbarDelegate
 
-extension ACPPersonalInfoViewController: ACPToolbarDelegate {
+extension ACPProfileInfoViewController: ACPToolbarDelegate {
     func didPressDone(_ textfield: UITextField) {
         _ = textFieldShouldReturn(textfield)
     }
@@ -456,7 +457,7 @@ extension ACPPersonalInfoViewController: ACPToolbarDelegate {
 
 // MARK: - UIPickerViewDelegate
 
-extension ACPPersonalInfoViewController: UIPickerViewDelegate {
+extension ACPProfileInfoViewController: UIPickerViewDelegate {
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return viewModel?.model.dobModel.monthOptions[row]
@@ -470,7 +471,7 @@ extension ACPPersonalInfoViewController: UIPickerViewDelegate {
 
 // MARK: - UIPickerViewDelegate
 
-extension ACPPersonalInfoViewController: UIPickerViewDataSource {
+extension ACPProfileInfoViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
