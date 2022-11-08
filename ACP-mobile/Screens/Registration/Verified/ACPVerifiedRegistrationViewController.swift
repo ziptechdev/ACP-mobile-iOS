@@ -10,9 +10,13 @@ import SnapKit
 
 class ACPVerifiedRegistrationViewController: UIViewController {
 
-	// MARK: - Properties
+    // MARK: - Properties
 
     private var isSecureEntry = true
+
+    private lazy var textFields: [TextInput] = [
+        emailTextField, passwordTextField, confirmTextField
+    ]
 
     // MARK: - Views
 
@@ -26,7 +30,7 @@ class ACPVerifiedRegistrationViewController: UIViewController {
 
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = Constants.Text.Title
+        label.text = .localizedString(key: "verified_register_title")
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 32, weight: .bold)
@@ -37,10 +41,9 @@ class ACPVerifiedRegistrationViewController: UIViewController {
 
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = Constants.Text.Subtitle
+        // TODO: Set the name
+        label.attributedText = NSMutableAttributedString.subtitleString(key: "verified_register_subtitle")
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 14, weight: .regular)
-        label.textColor = .gray01Light
         label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 2
         return label
@@ -48,39 +51,39 @@ class ACPVerifiedRegistrationViewController: UIViewController {
 
     private lazy var emailTextField: ACPTextField = {
         let view = ACPTextField()
-        view.titleLabel.text = Constants.Text.Email
+        view.titleLabel.text = .localizedString(key: "verified_register_email")
         view.textField.delegate = self
         return view
     }()
 
     private lazy var passwordTextField: ACPTextField = {
         let view = ACPTextField()
-        view.titleLabel.text = Constants.Text.Password
+        view.titleLabel.text = .localizedString(key: "verified_register_password")
         view.textField.delegate = self
-        view.textField.isSecureTextEntry = isSecureEntry
-        view.textField.addRightImage(named: "eye", imageColor: .gray01Light)
+        view.toggleSecureEntry(isSecureEntry)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(toggleSecureEntry))
+        view.textFieldImage?.addGestureRecognizer(tap)
         return view
     }()
 
     private lazy var confirmTextField: ACPTextField = {
         let view = ACPTextField()
-        view.titleLabel.text = Constants.Text.ConfirmPassword
+        view.titleLabel.text = .localizedString(key: "verified_register_confirm")
         view.textField.delegate = self
-        view.textField.isSecureTextEntry = isSecureEntry
-        view.textField.addRightImage(named: "eye", imageColor: .gray01Light)
+        view.toggleSecureEntry(isSecureEntry)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(toggleSecureEntry))
+        view.textFieldImage?.addGestureRecognizer(tap)
         return view
     }()
 
-    private lazy var registerButton: UIButton = {
-        let button = UIButton()
+    private lazy var registerButton: ACPShadowButton = {
+        let button = ACPShadowButton()
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
         button.layer.masksToBounds = true
-        button.backgroundColor = .coreBlue
+        button.isUserInteractionEnabled = false
+        button.backgroundColor = .lavenderGray
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(Constants.Text.Register, for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.setTitleColor(.white, for: .highlighted)
-        button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
+        button.setTitle(titleKey: "verified_register_btn")
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         return button
     }()
@@ -98,7 +101,7 @@ class ACPVerifiedRegistrationViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        title = Constants.Text.Register
+        title = .localizedString(key: "verified_register_page_title")
         navigationController?.navigationBar.isHidden = false
 
         setupRightNavigationBarButton()
@@ -171,18 +174,38 @@ class ACPVerifiedRegistrationViewController: UIViewController {
 
     // MARK: - Callbacks
 
+    @objc func toggleSecureEntry() {
+        isSecureEntry = !isSecureEntry
+
+        passwordTextField.toggleSecureEntry(isSecureEntry)
+        confirmTextField.toggleSecureEntry(isSecureEntry)
+    }
+
     @objc func didTapButton() {
-        print("register")
+        guard checkPasswords() else {
+            return
+        }
+
+        let targetVC = ACPRegistrationCompleteViewController()
+        navigationController?.pushViewController(targetVC, animated: true)
     }
 
-    func focusTextField(_ view: ACPTextField) {
-        view.textField.layer.borderColor = UIColor.coreBlue.cgColor
-        view.textFieldImage?.tintColor = .gray06Dark
+    func checkPasswords() -> Bool {
+        let passwordsMatch = passwordTextField.text == confirmTextField.text
+
+        if !passwordsMatch {
+            showError(true)
+        }
+
+        return passwordsMatch
     }
 
-    func unFocusTextField(_ view: ACPTextField) {
-        view.textField.layer.borderColor = UIColor.gray03Light.cgColor
-        view.textFieldImage?.tintColor = .gray03Light
+    func showError(_ show: Bool) {
+        if show {
+            confirmTextField.showError(message: "Passwords do not match")
+        } else {
+            confirmTextField.hideError()
+        }
     }
 
     // MARK: - Constants
@@ -205,15 +228,6 @@ class ACPVerifiedRegistrationViewController: UIViewController {
 
             static let InfoLabelInsetY: CGFloat = 5
         }
-
-        struct Text {
-            static let Title = "Register new account"
-            static let Subtitle = "Hi John! Register new account by entering your email address and password below."
-            static let Email = "Email Address"
-            static let Password = "Password"
-            static let ConfirmPassword = "Confirm Password"
-            static let Register = "Register"
-        }
     }
 }
 
@@ -221,35 +235,27 @@ class ACPVerifiedRegistrationViewController: UIViewController {
 
 extension ACPVerifiedRegistrationViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == emailTextField.textField {
-            passwordTextField.textField.becomeFirstResponder()
-        } else if textField == passwordTextField.textField {
-            confirmTextField.textField.becomeFirstResponder()
-        } else {
-            confirmTextField.textField.resignFirstResponder()
+        guard let currentIndex = textFields.firstIndex(where: { $0.textField == textField }) else {
+            return true
         }
+
+        let nextIndex = currentIndex.advanced(by: 1)
+
+        if nextIndex < textFields.count {
+            textFields[nextIndex].textField.becomeFirstResponder()
+        } else if nextIndex == textFields.count {
+            textFields[currentIndex].textField.resignFirstResponder()
+        }
+
         return true
     }
 
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        if textField == emailTextField.textField {
-            focusTextField(emailTextField)
-        } else if textField == passwordTextField.textField {
-            focusTextField(passwordTextField)
-        } else {
-            focusTextField(confirmTextField)
-        }
-        return true
-    }
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        showError(false)
 
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        if textField == emailTextField.textField {
-            unFocusTextField(emailTextField)
-        } else if textField == passwordTextField.textField {
-            unFocusTextField(passwordTextField)
-        } else {
-            unFocusTextField(confirmTextField)
-        }
-        return true
+        let isEnabled = textFields.allSatisfy({ !$0.isEmpty })
+
+        registerButton.isUserInteractionEnabled = isEnabled
+        registerButton.backgroundColor = isEnabled ? .coreBlue : .lavenderGray
     }
 }

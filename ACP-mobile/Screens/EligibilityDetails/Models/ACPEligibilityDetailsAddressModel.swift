@@ -9,7 +9,7 @@ import UIKit
 
 struct ACPEligibilityDetailsAddressModel {
 
-	// MARK: - Properties
+    // MARK: - Properties
 
     var address = ""
     var city = ""

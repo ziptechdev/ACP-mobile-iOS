@@ -29,7 +29,7 @@ class ACPEligibilityDetailsFailViewController: UIViewController {
 
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = Constants.Text.Title
+        label.text = .localizedString(key: "verify_fail_title")
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 32, weight: .bold)
@@ -52,31 +52,37 @@ class ACPEligibilityDetailsFailViewController: UIViewController {
         return label
     }()
 
-    private lazy var newAccountButton: UIButton = {
-        let button = UIButton()
+    private lazy var newAccountButton: ACPShadowButton = {
+        let button = ACPShadowButton()
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
         button.layer.masksToBounds = true
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(Constants.Text.NewAccount, for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.setTitleColor(.white, for: .highlighted)
-        button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
+        button.setTitle(titleKey: "verify_fail_new_account")
         button.addTarget(self, action: #selector(didTapAccountButton), for: .touchUpInside)
         return button
     }()
 
-    private lazy var tryAgainButton: UIButton = {
-        let button = UIButton()
+    private lazy var tryAgainButton: ACPShadowButton = {
+        let button = ACPShadowButton()
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
         button.layer.masksToBounds = true
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(Constants.Text.TryAgain, for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.setTitleColor(.white, for: .highlighted)
-        button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
+        button.setTitle(titleKey: "verify_fail_try_again")
         button.addTarget(self, action: #selector(didTapTryAgainButton), for: .touchUpInside)
+        return button
+    }()
+
+    private lazy var cancelButton: UIButton = {
+        let button = UIButton()
+        let image = UIImage(named: "x_mark")?.withRenderingMode(.alwaysTemplate)
+        button.layer.masksToBounds = true
+        button.backgroundColor = .clear
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(image, for: .normal)
+        button.imageView?.tintColor = .gray01Dark
+        button.addTarget(self, action: #selector(didTapCancel), for: .touchUpInside)
         return button
     }()
 
@@ -91,9 +97,7 @@ class ACPEligibilityDetailsFailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        navigationController?.navigationBar.isHidden = false
-
-        setupRightNavigationBarButton()
+        navigationController?.navigationBar.isHidden = true
     }
 
     // MARK: - UI
@@ -112,6 +116,7 @@ class ACPEligibilityDetailsFailViewController: UIViewController {
         view.addSubview(subtitleLabel)
         view.addSubview(newAccountButton)
         view.addSubview(tryAgainButton)
+        view.addSubview(cancelButton)
     }
 
     private func setupConstraints() {
@@ -121,7 +126,7 @@ class ACPEligibilityDetailsFailViewController: UIViewController {
         }
 
         failCircle.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(Constants.Constraints.LoadingBarInsetY)
+            make.top.equalTo(cancelButton.snp.bottom).offset(Constants.Constraints.LoadingBarInsetY)
             make.left.right.equalToSuperview().inset(Constants.Constraints.LoadingBarInsetX)
             make.height.equalTo(failCircle.snp.width)
         }
@@ -148,18 +153,22 @@ class ACPEligibilityDetailsFailViewController: UIViewController {
             make.height.equalTo(Constants.Constraints.ButtonHeight)
             make.top.equalTo(tryAgainButton.snp.bottom).offset(Constants.Constraints.ButtonSpacingVertical)
         }
+
+        cancelButton.snp.makeConstraints { make in
+            make.right.equalToSuperview().inset(Constants.Constraints.CancelInsetHorizontal)
+            make.height.width.equalTo(Constants.Constraints.CancelButtonSize)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(Constants.Constraints.CancelInsetVertical)
+        }
     }
 
     private func subtitleAttributedText() -> NSAttributedString {
-        let subtitle = Constants.Text.Subtitle as NSString
-        let fullRange = NSRange(location: 0, length: subtitle.length)
-        let attributeRange = subtitle.range(of: Constants.Text.NationalVerifier)
+        let string: NSMutableAttributedString = .subtitleString(
+            key: "verify_fail_subtitle",
+            isCenter: true
+        )
 
-        let string = NSMutableAttributedString(string: Constants.Text.Subtitle)
-        string.addAttribute(.font, value: UIFont.systemFont(ofSize: 14, weight: .regular), range: fullRange)
-        string.addAttribute(.paragraphStyle, value: NSMutableParagraphStyle.center, range: fullRange)
-        string.addAttribute(.foregroundColor, value: UIColor.gray01Light, range: fullRange)
-        string.addAttribute(.foregroundColor, value: UIColor.coreBlue, range: attributeRange)
+        let highlightRange = string.range(of: .localizedString(key: "verify_fail_highlight"))
+        string.addAttribute(.foregroundColor, value: UIColor.coreBlue, range: highlightRange)
 
         return string
     }
@@ -167,11 +176,21 @@ class ACPEligibilityDetailsFailViewController: UIViewController {
     // MARK: - Callbacks
 
     @objc func didTapAccountButton() {
-        // TODO: Add Stuff
+        let targetVC = ACPNotVerifiedRegistrationViewController()
+
+        navigationController?.pushViewController(targetVC, animated: true)
+        navigationController?.popInTheBackgroundToVC(EligibilityCheckViewController.self)
     }
 
     @objc func didTapTryAgainButton() {
-        // TODO: Add Stuff
+        let targetVC = EligibilityZipViewController()
+
+        navigationController?.pushViewController(targetVC, animated: true)
+        navigationController?.popInTheBackgroundToVC(EligibilityCheckViewController.self)
+    }
+
+    @objc func didTapCancel() {
+        navigationController?.popToRootViewController(animated: true)
     }
 
     @objc func didTapLabel(_ sender: UITapGestureRecognizer? = nil) {
@@ -179,10 +198,10 @@ class ACPEligibilityDetailsFailViewController: UIViewController {
             return
         }
 
-        let subtitle = Constants.Text.Subtitle as NSString
-        let attributeRange = subtitle.range(of: Constants.Text.NationalVerifier)
+        let string: String = .localizedString(key: "verify_fail_subtitle")
+        let highlightRange = string.range(of: .localizedString(key: "verify_fail_highlight"))
 
-        if sender.didTapAttributedTextInLabel(label: subtitleLabel, inRange: attributeRange) {
+        if sender.didTapAttributedTextInLabel(label: subtitleLabel, inRange: highlightRange) {
             // TODO: Add Link
             print("NationalVerifier")
         }
@@ -206,14 +225,10 @@ class ACPEligibilityDetailsFailViewController: UIViewController {
             static let ButtonOffsetVertical: CGFloat = 60
             static let ButtonSpacingVertical: CGFloat = 30
             static let ButtonCornerRadius: CGFloat = 10
-        }
 
-        struct Text {
-            static let Title = "We could not verify your identity."
-            static let NationalVerifier = "National Verifier"
-            static let Subtitle = "You either entered wrong information or there is no such data in National Verifier system."
-            static let TryAgain = "Try Again"
-            static let NewAccount = "New Account"
+            static let CancelInsetVertical: CGFloat = 38
+            static let CancelInsetHorizontal: CGFloat = 35
+            static let CancelButtonSize: CGFloat = 14
         }
     }
 }

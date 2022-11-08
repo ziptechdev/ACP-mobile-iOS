@@ -13,19 +13,21 @@ class ACPEligibilityDetailsViewModel {
 
     var model = ACPEligibilityDetailsModel()
 
-    func titleForTab(at index: ACPTopTabMenuViewController.TabIndex) -> String {
-        switch index {
-        case .first:
-            return "Name"
-        case .second:
-            return "Date of Birth"
-        case .third:
-            return "Address"
-        }
-    }
+    private let tabNames: [String] = [
+        .localizedString(key: "eligibility_details_page_title"),
+        .localizedString(key: "eligibility_dob_page_title"),
+        .localizedString(key: "eligibility_address_page_title")
+    ]
 
     func didTapVerify() {
         // TODO: Network call
+    }
 
+    func numberOfTabItems() -> Int {
+        return tabNames.count
+    }
+
+    func titleForTab(at index: Int) -> String {
+        return tabNames[index]
     }
 }

@@ -34,7 +34,7 @@ class ACPWelcomeScreenViewController: UIViewController {
     private lazy var titleText: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = "Affordable Conectivity Program"
+        lbl.text = .localizedString(key: "welcome_title")
         lbl.numberOfLines = 0
         lbl.textColor = .white
         lbl.font = .systemFont(ofSize: 30, weight: .bold)
@@ -45,64 +45,66 @@ class ACPWelcomeScreenViewController: UIViewController {
     private lazy var firstDescriptionText: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = NSLocalizedString("welcomeScreen_first_descirption_text", comment: "")
+        lbl.attributedText = NSMutableAttributedString.subtitleString(
+            key: "welcome_first_descirption_text",
+            color: .white
+        )
         lbl.numberOfLines = 0
         lbl.adjustsFontSizeToFitWidth = true
-        lbl.textColor = .white
-        lbl.font = .systemFont(ofSize: 14, weight: .regular)
         return lbl
     }()
 
     private lazy var secondDescriptionText: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = NSLocalizedString("welcomeScreen_second_descirption_text", comment: "")
+        lbl.attributedText = NSMutableAttributedString.subtitleString(
+            key: "welcome_second_descirption_text",
+            color: .white
+        )
         lbl.numberOfLines = 0
         lbl.adjustsFontSizeToFitWidth = true
-        lbl.textColor = .white
-        lbl.font = .systemFont(ofSize: 14, weight: .regular)
         return lbl
     }()
 
     private lazy var thirdDescriptionText: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = NSLocalizedString("welcomeScreen_third_descirption_text", comment: "")
+        lbl.attributedText = NSMutableAttributedString.subtitleString(
+            key: "welcome_third_descirption_text",
+            color: .white
+        )
         lbl.numberOfLines = 0
         lbl.adjustsFontSizeToFitWidth = true
-        lbl.textColor = .white
-        lbl.font = .systemFont(ofSize: 14, weight: .regular)
         return lbl
     }()
 
     private lazy var termsPrivacyUrl: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = NSLocalizedString("welcomeScreen_privacyTerms_descirption_text", comment: "")
+        lbl.attributedText = attributedTextStyle()
         lbl.numberOfLines = 0
         lbl.adjustsFontSizeToFitWidth = true
-        lbl.textColor = .white
-        lbl.font = .systemFont(ofSize: 14, weight: .regular)
         return lbl
     }()
 
     private lazy var continueButton: UIButton! = {
-      let button = UIButton()
-      button.translatesAutoresizingMaskIntoConstraints = false
-      button.backgroundColor = .white
-      button.setTitleColor(.coreBlue, for: .normal)
-      button.addTarget(self, action: #selector(didTapContinue), for: .touchUpInside)
-      button.setTitle("Continue", for: .normal)
-      button.layer.masksToBounds = true
-      button.layer.cornerRadius = 10
-      return button
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .white
+        button.addTarget(self, action: #selector(didTapContinue), for: .touchUpInside)
+        button.setTitle(titleKey: "welcome_btn", textColor: .coreBlue)
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = Constants.ButtonCornerRadius
+        return button
     }()
 
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         view.backgroundColor = .coreBlue
+
         view.addSubview(leftTopLine)
         view.addSubview(rightTopLine)
         view.addSubview(titleText)
@@ -116,7 +118,9 @@ class ACPWelcomeScreenViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        title = "Welcome"
+
+        title = .localizedString(key: "welcome_page_title")
+
         navigationController?.navigationBar.isHidden = false
         navigationController?.navigationBar.titleTextAttributes = [
             .font: UIFont.systemFont(ofSize: 20, weight: .regular),
@@ -131,50 +135,65 @@ class ACPWelcomeScreenViewController: UIViewController {
 
     private func setupConstraints() {
         leftTopLine.snp.makeConstraints { make in
-            make.left.equalToSuperview().inset(Constants.Constraints.LeftLineLeftOffest)
-            make.top.equalToSuperview().inset(Constants.Constraints.LeftTopLineOffest)
+            make.left.equalToSuperview().inset(Constants.HorizontalContentInset)
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(Constants.VerticalContentInset)
             make.width.equalTo(rightTopLine)
         }
 
         rightTopLine.snp.makeConstraints { make in
-            make.right.equalToSuperview().inset(Constants.Constraints.RighLineLeftOffest)
-            make.top.equalToSuperview().inset(Constants.Constraints.RightTopLineOffest)
+            make.right.equalToSuperview().inset(Constants.HorizontalContentInset)
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(Constants.VerticalContentInset)
             make.width.equalTo(leftTopLine)
         }
 
         titleText.snp.makeConstraints { make in
-            make.right.left.equalToSuperview().inset(Constants.Constraints.TitleLeftRighOffest)
-            make.top.equalTo(rightTopLine.snp.bottom).offset(Constants.Constraints.TitleTextTopOffset)
+            make.right.left.equalToSuperview().inset(Constants.HorizontalContentInset)
+            make.top.equalTo(rightTopLine.snp.bottom).offset(Constants.TitleTextTopOffset)
         }
 
         firstDescriptionText.snp.makeConstraints { make in
-            make.right.left.equalToSuperview().inset(Constants.Constraints.DescriptionTextLeftRightOffest)
-            make.top.equalTo(titleText.snp.bottom).offset(Constants.Constraints.DescirptionTopOffest)
+            make.right.left.equalToSuperview().inset(Constants.HorizontalContentInset)
+            make.top.equalTo(titleText.snp.bottom).offset(Constants.DescirptionTopOffest)
         }
 
         secondDescriptionText.snp.makeConstraints { make in
-            make.right.left.equalToSuperview().inset(Constants.Constraints.DescriptionTextLeftRightOffest)
-            make.top.equalTo(firstDescriptionText.snp.bottom).offset(Constants.Constraints.DescriptionTextTopOffset)
+            make.right.left.equalToSuperview().inset(Constants.HorizontalContentInset)
+            make.top.equalTo(firstDescriptionText.snp.bottom).offset(Constants.DescriptionTextTopOffset)
         }
 
         thirdDescriptionText.snp.makeConstraints { make in
-            make.right.left.equalToSuperview().inset(Constants.Constraints.DescriptionTextLeftRightOffest)
-            make.top.equalTo(secondDescriptionText.snp.bottom).offset(Constants.Constraints.DescriptionTextTopOffset)
+            make.right.left.equalToSuperview().inset(Constants.HorizontalContentInset)
+            make.top.equalTo(secondDescriptionText.snp.bottom).offset(Constants.DescriptionTextTopOffset)
         }
 
         termsPrivacyUrl.snp.makeConstraints { make in
-            make.right.left.equalToSuperview().inset(Constants.Constraints.DescriptionTextLeftRightOffest)
-            make.top.equalTo(thirdDescriptionText.snp.bottom).offset(Constants.Constraints.DescriptionTextTopOffset)
+            make.right.left.equalToSuperview().inset(Constants.HorizontalContentInset)
+            make.top.equalTo(thirdDescriptionText.snp.bottom).offset(Constants.DescriptionTextTopOffset)
         }
 
         continueButton.snp.makeConstraints { make in
-            make.right.left.equalToSuperview().inset(Constants.Constraints.ButtonLeftRightOffest)
-            make.top.equalTo(termsPrivacyUrl.snp.bottom).offset(Constants.Constraints.ButtonTopOffest)
-            make.height.equalTo(Constants.Constraints.ButtonHeight)
+            make.right.left.equalToSuperview().inset(Constants.HorizontalContentInset)
+            make.top.equalTo(termsPrivacyUrl.snp.bottom).offset(Constants.ButtonTopOffest)
+            make.height.equalTo(Constants.ButtonHeight)
         }
     }
 
+    private func attributedTextStyle() -> NSAttributedString {
+        let string: NSMutableAttributedString = .localizedString(key: "welcome_privacyTerms_descirption_text")
+        let termsHighlighted = string.range(of: .localizedString(key: "welcome_privacyTerms_terms"))
+        let privacyHighlighted = string.range(of: .localizedString(key: "welcome_privacyTerms_privacy"))
+
+        string.addAttribute(.font, value: UIFont.systemFont(ofSize: 14, weight: .bold))
+        string.addAttribute(.paragraphStyle, value: NSMutableParagraphStyle.lineHeight)
+        string.addAttribute(.foregroundColor, value: UIColor.white)
+        string.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: termsHighlighted)
+        string.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: privacyHighlighted)
+
+        return string
+    }
+
     // MARK: Functions
+
     @objc func didTapContinue() {
         let targetVC = ACPTermsPrivacyViewController()
         navigationController?.pushViewController(targetVC, animated: true)
@@ -183,30 +202,16 @@ class ACPWelcomeScreenViewController: UIViewController {
     // MARK: - Constants
 
     private struct Constants {
-        struct Constraints {
+        static let HorizontalContentInset: CGFloat = 35
+        static let VerticalContentInset: CGFloat = 25
 
-            static let LeftTopLineOffest: CGFloat = 140
-            static let LeftLineLeftOffest: CGFloat = 35
+        static let TitleTextTopOffset: CGFloat = 30
 
-            static let RightTopLineOffest: CGFloat = 140
-            static let RighLineLeftOffest: CGFloat = 35
+        static let DescirptionTopOffest: CGFloat = 10
+        static let DescriptionTextTopOffset: CGFloat = 20
 
-            static let TitleTextTopOffset: CGFloat = 35
-            static let TitleLeftRighOffest: CGFloat = 35
-
-            static let DescirptionTopOffest: CGFloat = 10
-            static let DescriptionTextTopOffset: CGFloat = 20
-            static let DescriptionTextLeftRightOffest: CGFloat = 35
-
-            static let ButtonTopOffest: CGFloat = 40
-            static let ButtonHeight: CGFloat = 46
-            static let ButtonLeftRightOffest: CGFloat = 35
-
-        }
-
-        struct Text {
-            static let Terms: String = "terms of use"
-            static let Privacy: String = "privacy policy"
-        }
+        static let ButtonTopOffest: CGFloat = 40
+        static let ButtonCornerRadius: CGFloat = 10
+        static let ButtonHeight: CGFloat = 46
     }
 }

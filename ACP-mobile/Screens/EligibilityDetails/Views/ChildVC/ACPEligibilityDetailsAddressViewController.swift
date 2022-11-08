@@ -13,13 +13,17 @@ class ACPEligibilityDetailsAddressViewController: UIViewController {
     // MARK: - Properties
 
     var viewModel: ACPEligibilityDetailsViewModel?
-    weak var delegate: ACPEligibilityDetailsDelegate?
+    weak var delegate: ACPTabMenuDelegate?
+
+    private lazy var textFields: [TextInput] = [
+        streetTextField, cityTextField, stateTextField, zipTextField
+    ]
 
     // MARK: - Views
 
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = Constants.Text.Title
+        label.text = .localizedString(key: "eligibility_address_title")
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 32, weight: .bold)
         label.textColor = .coreBlue
@@ -29,10 +33,8 @@ class ACPEligibilityDetailsAddressViewController: UIViewController {
 
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = Constants.Text.Subtitle
+        label.attributedText = NSMutableAttributedString.subtitleString(key: "eligibility_address_subtitle")
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 14, weight: .regular)
-        label.textColor = .gray01Light
         label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 2
         return label
@@ -40,21 +42,21 @@ class ACPEligibilityDetailsAddressViewController: UIViewController {
 
     private lazy var streetTextField: ACPTextField = {
         let view = ACPTextField()
-        view.titleLabel.text = Constants.Text.Street
+        view.titleLabel.text = .localizedString(key: "eligibility_address_street")
         view.textField.delegate = self
         return view
     }()
 
     private lazy var cityTextField: ACPTextField = {
         let view = ACPTextField()
-        view.titleLabel.text = Constants.Text.City
+        view.titleLabel.text = .localizedString(key: "eligibility_address_city")
         view.textField.delegate = self
         return view
     }()
 
     private lazy var stateTextField: ACPPickerView = {
         let view = ACPPickerView()
-        view.titleLabel.text = Constants.Text.State
+        view.titleLabel.text = .localizedString(key: "eligibility_address_state")
         view.textField.addRightImage(named: "down_arrow")
         view.delegate = self
         view.pickerView.delegate = self
@@ -64,11 +66,11 @@ class ACPEligibilityDetailsAddressViewController: UIViewController {
 
     private lazy var zipTextField: ACPTextField = {
         let view = ACPTextField()
-        view.titleLabel.text = Constants.Text.Zip
+        view.titleLabel.text = .localizedString(key: "eligibility_address_zip")
         view.delegate = self
         view.textField.delegate = self
         view.textField.attributedPlaceholder = NSAttributedString(
-            string: Constants.Text.ZipPlaceholder,
+            string: .localizedString(key: "eligibility_address_placeholder"),
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray01Dark]
         )
         view.textField.keyboardType = .numberPad
@@ -79,23 +81,21 @@ class ACPEligibilityDetailsAddressViewController: UIViewController {
 
     private let noBlankLabel: UILabel = {
         let label = UILabel()
-        label.text = Constants.Text.Blank
+        label.text = .localizedString(key: "eligibility_address_info")
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 12, weight: .regular)
         label.textColor = .gray01Light
         return label
     }()
 
-    private lazy var verifyButton: UIButton = {
-        let button = UIButton()
+    private lazy var verifyButton: ACPShadowButton = {
+        let button = ACPShadowButton()
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
         button.layer.masksToBounds = true
-        button.backgroundColor = .coreBlue
+        button.isUserInteractionEnabled = false
+        button.backgroundColor = .lavenderGray
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(Constants.Text.Verify, for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.setTitleColor(.white, for: .highlighted)
-        button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
+        button.setTitle(titleKey: "eligibility_address_btn")
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         return button
     }()
@@ -201,22 +201,12 @@ class ACPEligibilityDetailsAddressViewController: UIViewController {
     // MARK: - Callback
 
     @objc func didTapButton() {
-        guard let street = streetTextField.textField.text, street != "" else {
-            return
-        }
-        viewModel?.model.dobModel.day = street
+        viewModel?.model.addressModel.address = streetTextField.text
+        viewModel?.model.addressModel.city = cityTextField.text
+//        viewModel?.model.addressModel.state
+        viewModel?.model.addressModel.zipCode = zipTextField.text
 
-        guard let city = cityTextField.textField.text, city != "" else {
-            return
-        }
-        viewModel?.model.dobModel.year = city
-
-        guard let zip = zipTextField.textField.text, zip != "" else {
-            return
-        }
-        viewModel?.model.dobModel.ssn = zip
-
-        delegate?.didTapVerifyButton()
+        delegate?.didTapActionButton()
     }
 
     @objc private func textFieldDidChange(_ textField: UITextField) {
@@ -253,21 +243,6 @@ class ACPEligibilityDetailsAddressViewController: UIViewController {
             static let ButtonCornerRadius: CGFloat = 10
             static let ButtonOffsetVertical: CGFloat = 60
         }
-
-        struct Text {
-            static let Title = "Your home address"
-            static let Subtitle = """
-            The address where you will get service.
-            Do not use a P.O. Box.
-            """
-            static let Verify = "Verify"
-            static let Blank = "*Cannot be left blank"
-            static let Street = "Street Number and Name*"
-            static let City = "City*"
-            static let State = "State*"
-            static let Zip = "ZIP Code"
-            static let ZipPlaceholder = "92805 - 1483"
-        }
     }
 }
 
@@ -276,16 +251,26 @@ class ACPEligibilityDetailsAddressViewController: UIViewController {
 extension ACPEligibilityDetailsAddressViewController: UITextFieldDelegate {
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == streetTextField.textField {
-            cityTextField.textField.becomeFirstResponder()
-        } else if textField == cityTextField.textField {
-            stateTextField.textField.becomeFirstResponder()
-        } else if textField == stateTextField.textField {
-            zipTextField.textField.becomeFirstResponder()
-        } else {
-            zipTextField.textField.resignFirstResponder()
+        guard let currentIndex = textFields.firstIndex(where: { $0.textField == textField }) else {
+            return true
         }
+
+        let nextIndex = currentIndex.advanced(by: 1)
+
+        if nextIndex < textFields.count {
+            textFields[nextIndex].textField.becomeFirstResponder()
+        } else if nextIndex == textFields.count {
+            textFields[currentIndex].textField.resignFirstResponder()
+        }
+
         return true
+    }
+
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        let isEnabled = textFields.allSatisfy({ !$0.isEmpty })
+
+        verifyButton.isUserInteractionEnabled = isEnabled
+        verifyButton.backgroundColor = isEnabled ? .coreBlue : .lavenderGray
     }
 }
 

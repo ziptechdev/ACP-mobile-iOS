@@ -44,7 +44,11 @@ class ACPEligibilityDetailsSuccessViewController: UIViewController {
 
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = Constants.Text.Title
+        // TODO: Set the name
+        label.text = .formatLocalizedString(
+            key: "verify_success_title",
+            values: "Adi"
+        )
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 32, weight: .bold)
@@ -55,26 +59,23 @@ class ACPEligibilityDetailsSuccessViewController: UIViewController {
 
     private lazy var subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = Constants.Text.Subtitle
-        label.textAlignment = .center
+        label.attributedText = NSMutableAttributedString.subtitleString(
+            key: "verify_success_subtitle",
+            isCenter: true
+        )
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 14, weight: .regular)
-        label.textColor = .gray01Light
         label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 3
         return label
     }()
 
-    private lazy var registerButton: UIButton = {
-        let button = UIButton()
+    private lazy var registerButton: ACPShadowButton = {
+        let button = ACPShadowButton()
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
         button.layer.masksToBounds = true
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(Constants.Text.Register, for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.setTitleColor(.white, for: .highlighted)
-        button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
+        button.setTitle(titleKey: "verify_success_register")
         button.addTarget(self, action: #selector(didTapRegisterButton), for: .touchUpInside)
         return button
     }()
@@ -84,10 +85,7 @@ class ACPEligibilityDetailsSuccessViewController: UIViewController {
         button.layer.masksToBounds = true
         button.backgroundColor = .clear
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(Constants.Text.Cancel, for: .normal)
-        button.setTitleColor(.coreBlue, for: .normal)
-        button.setTitleColor(.coreBlue, for: .highlighted)
-        button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
+        button.setTitle(titleKey: "verify_success_cancel", textColor: .coreBlue)
         button.addTarget(self, action: #selector(didTapCancel), for: .touchUpInside)
         return button
     }()
@@ -199,13 +197,6 @@ class ACPEligibilityDetailsSuccessViewController: UIViewController {
             static let CancelInsetVertical: CGFloat = 38
             static let CancelInsetHorizontal: CGFloat = 35
             static let CancelButtonSize: CGFloat = 14
-        }
-
-        struct Text {
-            static let Title = "Welcome, John!"
-            static let Subtitle = "Success! Your identity has been verified and you are eligible for ACP. You can continue by registering new ACP Mobile account."
-            static let Register = "Register"
-            static let Cancel = "Cancel"
         }
     }
 }
