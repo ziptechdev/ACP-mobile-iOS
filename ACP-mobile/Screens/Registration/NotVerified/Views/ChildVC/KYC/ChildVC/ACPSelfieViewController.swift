@@ -10,7 +10,7 @@ import SnapKit
 
 class ACPSelfieViewController: UIViewController {
 
-	// MARK: - Properties
+    // MARK: - Properties
 
     weak var delegate: ACPTabMenuDelegate?
 
@@ -37,8 +37,8 @@ class ACPSelfieViewController: UIViewController {
         return label
     }()
 
-    private lazy var openCameraButton: UIButton = {
-        let button = UIButton()
+    private lazy var openCameraButton: ACPShadowButton = {
+        let button = ACPShadowButton()
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
         button.layer.masksToBounds = true
         button.backgroundColor = .coreBlue

@@ -85,11 +85,14 @@
 		40251D41290CD2840083B89A /* ACPCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40251D40290CD2840083B89A /* ACPCardModel.swift */; };
 		40251D44290DE04C0083B89A /* ACPTransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40251D43290DE04C0083B89A /* ACPTransactionsViewController.swift */; };
 		40251D46290DE0710083B89A /* ACPTransactionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40251D45290DE0710083B89A /* ACPTransactionsCell.swift */; };
+		4031545E290E2349009320D8 /* ACPLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4031545D290E2349009320D8 /* ACPLoginViewController.swift */; };
+		40315460290E3002009320D8 /* ACPShadowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4031545F290E3002009320D8 /* ACPShadowButton.swift */; };
 		403AD22029075B0600C6D556 /* ACPHomeScreenTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403AD21F29075B0600C6D556 /* ACPHomeScreenTabViewController.swift */; };
 		403AD22329075B6400C6D556 /* ACPHomeScreenTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403AD22229075B6400C6D556 /* ACPHomeScreenTabViewModel.swift */; };
 		403AD2252907636B00C6D556 /* ACPTabMenuImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403AD2242907636B00C6D556 /* ACPTabMenuImageCell.swift */; };
 		40B5EDD828E224F40096B91B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40B5EDD728E224F40096B91B /* Assets.xcassets */; };
 		40B5EDDB28E224F40096B91B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40B5EDD928E224F40096B91B /* LaunchScreen.storyboard */; };
+		40EDB816290EF4FC007E0255 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 40EDB815290EF4FC007E0255 /* GoogleService-Info.plist */; };
 		40EE2CB028E4AC5B0028888D /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40EE2CAF28E4AC5B0028888D /* Colors.xcassets */; };
 		CE62E30128EA64D20000833B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE62E30028EA64D20000833B /* Localizable.strings */; };
 		FF3F59D25D870A8B465A1AB4 /* Pods_ACP_mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA43A30C610F68C5A06DD99 /* Pods_ACP_mobile.framework */; };
@@ -182,6 +185,8 @@
 		40251D40290CD2840083B89A /* ACPCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPCardModel.swift; sourceTree = "<group>"; };
 		40251D43290DE04C0083B89A /* ACPTransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPTransactionsViewController.swift; sourceTree = "<group>"; };
 		40251D45290DE0710083B89A /* ACPTransactionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPTransactionsCell.swift; sourceTree = "<group>"; };
+		4031545D290E2349009320D8 /* ACPLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPLoginViewController.swift; sourceTree = "<group>"; };
+		4031545F290E3002009320D8 /* ACPShadowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPShadowButton.swift; sourceTree = "<group>"; };
 		403AD21F29075B0600C6D556 /* ACPHomeScreenTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPHomeScreenTabViewController.swift; sourceTree = "<group>"; };
 		403AD22229075B6400C6D556 /* ACPHomeScreenTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPHomeScreenTabViewModel.swift; sourceTree = "<group>"; };
 		403AD2242907636B00C6D556 /* ACPTabMenuImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPTabMenuImageCell.swift; sourceTree = "<group>"; };
@@ -195,6 +200,7 @@
 		40C7E59628EF6CEC00C03ECE /* ACPPersonalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPPersonalInfoViewController.swift; sourceTree = "<group>"; };
 		40C7E59C28EF735000C03ECE /* ACPPersonalInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPPersonalInfoViewModel.swift; sourceTree = "<group>"; };
 		40C7E59E28EF74A800C03ECE /* ACPPersonalInfoDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPPersonalInfoDetailsViewController.swift; sourceTree = "<group>"; };
+		40EDB815290EF4FC007E0255 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		40EE2CAF28E4AC5B0028888D /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		687DCBFD8B005412AF06BEDD /* Pods-ACP-mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACP-mobile.debug.xcconfig"; path = "Target Support Files/Pods-ACP-mobile/Pods-ACP-mobile.debug.xcconfig"; sourceTree = "<group>"; };
 		CE62E30028EA64D20000833B /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -259,6 +265,7 @@
 		400AB98A28FF7F5F00A6DCB6 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				4031545C290E2325009320D8 /* Login */,
 				400AB98B28FF7F5F00A6DCB6 /* EligibilityDetails */,
 				400AB99C28FF7F5F00A6DCB6 /* Registration */,
 				400AB9A128FF7F5F00A6DCB6 /* LandingScreen */,
@@ -441,6 +448,7 @@
 		400AB9C228FF7F6000A6DCB6 /* Generic */ = {
 			isa = PBXGroup;
 			children = (
+				40315461290E3B62009320D8 /* Shadows */,
 				400AB9C328FF7F6000A6DCB6 /* TabMenu */,
 				400AB9C628FF7F6000A6DCB6 /* ACPTableView.swift */,
 				400AB9C728FF7F6000A6DCB6 /* ACPNavigationController.swift */,
@@ -658,6 +666,22 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		4031545C290E2325009320D8 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				4031545D290E2349009320D8 /* ACPLoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		40315461290E3B62009320D8 /* Shadows */ = {
+			isa = PBXGroup;
+			children = (
+				4031545F290E3002009320D8 /* ACPShadowButton.swift */,
+			);
+			path = Shadows;
+			sourceTree = "<group>";
+		};
 		403AD21E29075AC200C6D556 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -713,6 +737,7 @@
 				40B5EDD728E224F40096B91B /* Assets.xcassets */,
 				40EE2CAF28E4AC5B0028888D /* Colors.xcassets */,
 				40B5EDDC28E224F40096B91B /* Info.plist */,
+				40EDB815290EF4FC007E0255 /* GoogleService-Info.plist */,
 				40B5EDD928E224F40096B91B /* LaunchScreen.storyboard */,
 				CE62E30028EA64D20000833B /* Localizable.strings */,
 			);
@@ -791,6 +816,7 @@
 			files = (
 				40EE2CB028E4AC5B0028888D /* Colors.xcassets in Resources */,
 				CE62E30128EA64D20000833B /* Localizable.strings in Resources */,
+				40EDB816290EF4FC007E0255 /* GoogleService-Info.plist in Resources */,
 				40B5EDDB28E224F40096B91B /* LaunchScreen.storyboard in Resources */,
 				40B5EDD828E224F40096B91B /* Assets.xcassets in Resources */,
 			);
@@ -867,6 +893,7 @@
 				400AB9ED28FF7F6000A6DCB6 /* ACPEligibilityDetailsViewModel.swift in Sources */,
 				4013FADE29083DB00018025F /* ACPCardSuccessViewController.swift in Sources */,
 				400ABA2B28FF7F6000A6DCB6 /* ACPPersonalInfoViewController.swift in Sources */,
+				4031545E290E2349009320D8 /* ACPLoginViewController.swift in Sources */,
 				400AB9FB28FF7F6000A6DCB6 /* ACPLandingScreenViewController.swift in Sources */,
 				400AB9FE28FF7F6000A6DCB6 /* EligibilityZipViewController.swift in Sources */,
 				40251D46290DE0710083B89A /* ACPTransactionsCell.swift in Sources */,
@@ -905,6 +932,7 @@
 				400ABA3228FF904B00A6DCB6 /* ACPTabMenuDotCell.swift in Sources */,
 				400ABA0828FF7F6000A6DCB6 /* UITableView+ACP.swift in Sources */,
 				400ABA0E28FF7F6000A6DCB6 /* UIColor+ACP.swift in Sources */,
+				40315460290E3002009320D8 /* ACPShadowButton.swift in Sources */,
 				400ABA2928FF7F6000A6DCB6 /* ACPBankInfoViewController.swift in Sources */,
 				400AB9FF28FF7F6000A6DCB6 /* EligibilityZipView.swift in Sources */,
 				400ABA1128FF7F6000A6DCB6 /* SceneDelegate.swift in Sources */,
@@ -1082,8 +1110,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = HBSJWT4Z7H;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = BS9VX4J4D4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ACP-mobile/Resources/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = ACP;
@@ -1091,14 +1119,15 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "ACP.ACP-mobile";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zlatan.acp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1113,8 +1142,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = HBSJWT4Z7H;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = BS9VX4J4D4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ACP-mobile/Resources/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = ACP;
@@ -1122,14 +1151,15 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "ACP.ACP-mobile";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zlatan.acp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

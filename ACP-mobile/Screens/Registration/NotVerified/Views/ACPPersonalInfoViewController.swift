@@ -10,7 +10,7 @@ import SnapKit
 
 class ACPPersonalInfoViewController: UIViewController {
 
-	// MARK: - Properties
+    // MARK: - Properties
 
     private let viewModel = ACPPersonalInfoViewModel()
 

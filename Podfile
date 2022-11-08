@@ -7,5 +7,6 @@ target 'ACP-mobile' do
   pod 'SwiftyJSON'
   pod 'SwiftLint'
   pod 'SnapKit'
+  pod 'FirebaseAnalytics'
 
 end

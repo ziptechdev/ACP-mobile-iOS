@@ -10,7 +10,7 @@ import SnapKit
 
 class ACPBankInfoViewController: UIViewController {
 
-	// MARK: - Properties
+    // MARK: - Properties
 
     weak var delegate: ACPTabMenuDelegate?
 
@@ -68,11 +68,12 @@ class ACPBankInfoViewController: UIViewController {
         return view
     }()
 
-    private lazy var completeButton: UIButton = {
-        let button = UIButton()
+    private lazy var completeButton: ACPShadowButton = {
+        let button = ACPShadowButton()
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
         button.layer.masksToBounds = true
-        button.backgroundColor = .coreBlue
+        button.isUserInteractionEnabled = false
+        button.backgroundColor = .lavenderGray
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(titleKey: "bank_info_btn")
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)

@@ -52,8 +52,8 @@ class ACPEligibilityDetailsFailViewController: UIViewController {
         return label
     }()
 
-    private lazy var newAccountButton: UIButton = {
-        let button = UIButton()
+    private lazy var newAccountButton: ACPShadowButton = {
+        let button = ACPShadowButton()
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
         button.layer.masksToBounds = true
         button.backgroundColor = .coreBlue
@@ -63,8 +63,8 @@ class ACPEligibilityDetailsFailViewController: UIViewController {
         return button
     }()
 
-    private lazy var tryAgainButton: UIButton = {
-        let button = UIButton()
+    private lazy var tryAgainButton: ACPShadowButton = {
+        let button = ACPShadowButton()
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
         button.layer.masksToBounds = true
         button.backgroundColor = .coreBlue
