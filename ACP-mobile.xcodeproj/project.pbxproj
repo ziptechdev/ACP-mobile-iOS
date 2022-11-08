@@ -12,6 +12,8 @@
 		133F868F290870EC00663815 /* ApplyACPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F868E290870EC00663815 /* ApplyACPViewController.swift */; };
 		133F86922908714E00663815 /* ApplyForServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F86912908714E00663815 /* ApplyForServiceView.swift */; };
 		133F86942908715900663815 /* ApplyForServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F86932908715900663815 /* ApplyForServiceViewController.swift */; };
+		13581443290F2B1500612D8B /* RequestCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13581442290F2B1500612D8B /* RequestCardViewController.swift */; };
+		13BF542829104B1600C94201 /* RequestCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BF542729104B1600C94201 /* RequestCardViewModel.swift */; };
 		400AB9ED28FF7F6000A6DCB6 /* ACPEligibilityDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB98D28FF7F5F00A6DCB6 /* ACPEligibilityDetailsViewModel.swift */; };
 		400AB9EE28FF7F6000A6DCB6 /* ACPEligibilityDetailsDOBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB98F28FF7F5F00A6DCB6 /* ACPEligibilityDetailsDOBModel.swift */; };
 		400AB9EF28FF7F6000A6DCB6 /* ACPEligibilityDetailsAddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB99028FF7F5F00A6DCB6 /* ACPEligibilityDetailsAddressModel.swift */; };
@@ -109,6 +111,14 @@
 		133F868E290870EC00663815 /* ApplyACPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyACPViewController.swift; sourceTree = "<group>"; };
 		133F86912908714E00663815 /* ApplyForServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyForServiceView.swift; sourceTree = "<group>"; };
 		133F86932908715900663815 /* ApplyForServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyForServiceViewController.swift; sourceTree = "<group>"; };
+		13581442290F2B1500612D8B /* RequestCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCardViewController.swift; sourceTree = "<group>"; };
+		13BF542729104B1600C94201 /* RequestCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCardViewModel.swift; sourceTree = "<group>"; };
+		400AB76528FF5B6F00A6DCB6 /* ACPScanIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPScanIDViewController.swift; sourceTree = "<group>"; };
+		400AB76728FF5BCA00A6DCB6 /* ACPKYCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPKYCViewController.swift; sourceTree = "<group>"; };
+		400AB76928FF5BD800A6DCB6 /* ACPKYCCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPKYCCompleteViewController.swift; sourceTree = "<group>"; };
+		400AB76B28FF5BEF00A6DCB6 /* ACPSelfieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPSelfieViewController.swift; sourceTree = "<group>"; };
+		400AB77028FF681700A6DCB6 /* ACPIdentityProofViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPIdentityProofViewController.swift; sourceTree = "<group>"; };
+		400AB77328FF6E9300A6DCB6 /* ACPBankInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPBankInfoViewController.swift; sourceTree = "<group>"; };
 		400AB98D28FF7F5F00A6DCB6 /* ACPEligibilityDetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsViewModel.swift; sourceTree = "<group>"; };
 		400AB98F28FF7F5F00A6DCB6 /* ACPEligibilityDetailsDOBModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsDOBModel.swift; sourceTree = "<group>"; };
 		400AB99028FF7F5F00A6DCB6 /* ACPEligibilityDetailsAddressModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsAddressModel.swift; sourceTree = "<group>"; };
@@ -262,6 +272,23 @@
 				133F86912908714E00663815 /* ApplyForServiceView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		13581441290F2AC100612D8B /* RequestCard */ = {
+			isa = PBXGroup;
+			children = (
+				13BF542929104B1F00C94201 /* ViewModel */,
+				13581442290F2B1500612D8B /* RequestCardViewController.swift */,
+			);
+			path = RequestCard;
+			sourceTree = "<group>";
+		};
+		13BF542929104B1F00C94201 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				13BF542729104B1600C94201 /* RequestCardViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		1EF3BAC39E57E76420CCD5AA /* Frameworks */ = {
@@ -599,6 +626,7 @@
 		4013FADA29083D620018025F /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
+				13581441290F2AC100612D8B /* RequestCard */,
 				40251D42290DE0100083B89A /* Transactions */,
 				4013FAE52908438E0018025F /* EmptyWallet */,
 				4013FADC29083D920018025F /* CardSuccess */,
@@ -898,6 +926,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13BF542829104B1600C94201 /* RequestCardViewModel.swift in Sources */,
 				400AB9ED28FF7F6000A6DCB6 /* ACPEligibilityDetailsViewModel.swift in Sources */,
 				4013FADE29083DB00018025F /* ACPCardSuccessViewController.swift in Sources */,
 				400ABA2B28FF7F6000A6DCB6 /* ACPPersonalInfoViewController.swift in Sources */,
@@ -964,6 +993,7 @@
 				400ABA2228FF7F6000A6DCB6 /* ACPVerifyEmailKeyboardView.swift in Sources */,
 				400ABA1E28FF7F6000A6DCB6 /* ACPCircleLoadingBarView.swift in Sources */,
 				400ABA2028FF7F6000A6DCB6 /* ACPVerifyEmailCodeView.swift in Sources */,
+				13581443290F2B1500612D8B /* RequestCardViewController.swift in Sources */,
 				403AD2252907636B00C6D556 /* ACPTabMenuImageCell.swift in Sources */,
 				400ABA0A28FF7F6000A6DCB6 /* UIViewController+Keyboard.swift in Sources */,
 				400ABA1D28FF7F6000A6DCB6 /* ACPBorderedView.swift in Sources */,
