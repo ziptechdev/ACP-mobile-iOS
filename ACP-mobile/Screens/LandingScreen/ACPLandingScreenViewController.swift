@@ -93,7 +93,6 @@ class ACPLandingScreenViewController: UIViewController {
     }
 
     private func setupConstraints() {
-
         welcomeImageView.snp.makeConstraints { make in
             make.top.right.left.bottom.equalToSuperview()
         }
