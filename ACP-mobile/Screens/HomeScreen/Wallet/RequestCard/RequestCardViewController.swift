@@ -127,6 +127,7 @@ class RequestCardViewController: UIViewController {
 
     private lazy var editButton: ACPImageButton = {
         let button = ACPImageButton(
+            titleKey: "request_card_edit_btn",
             spacing: Constants.ButtonCornerRadius,
             cornerRadius: Constants.ButtonCornerRadius,
             imageName: "edit",
@@ -135,12 +136,8 @@ class RequestCardViewController: UIViewController {
         )
         button.backgroundColor = .clear
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
         button.layer.borderWidth = 1
-        button.layer.cornerRadius = Constants.ButtonCornerRadius
         button.layer.borderColor = UIColor.coreBlue.cgColor
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(.localizedString(key: "edit_btn"), for: .normal)
         button.addTarget(self, action: #selector(didTapEdit), for: .touchUpInside)
         return button
     }()
@@ -149,7 +146,6 @@ class RequestCardViewController: UIViewController {
         let button = UIButton()
         button.layer.cornerRadius = Constants.ButtonCornerRadius
         button.layer.masksToBounds = true
-        button.isUserInteractionEnabled = true
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(titleKey: "request_card_btn")
@@ -161,7 +157,6 @@ class RequestCardViewController: UIViewController {
         let button = UIButton()
         button.layer.cornerRadius = Constants.ButtonCornerRadius
         button.layer.masksToBounds = true
-        button.isUserInteractionEnabled = true
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(titleKey: "request_card_save_btn")
@@ -176,16 +171,6 @@ class RequestCardViewController: UIViewController {
         super.viewDidLoad()
 
         setupUI()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        addKeyboardObserver()
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        removeKeyboardObserver()
     }
 
     // MARK: - UI
