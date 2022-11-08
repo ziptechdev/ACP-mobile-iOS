@@ -58,7 +58,7 @@
 "eligibility_btn" = "Check Eligibility";
 "new_account_btn" = "New Account";
 "eligibility_info" = "*All of your personal and identity information goes through National Verifier (NV), a body of FCC. No information is stored by us or third-party services.";
-"eligibility_highlight" = "assistance programs";
+"eligibility_details_highlight_text" = "assistance programs";
 
 /* Screen 2 */
 "eligibility_zip_title" = "Start by entering your ZIP code";
@@ -199,6 +199,30 @@ KYC requires a selfie/clear shot of your face and a photo of the document that c
 "registration_complete_subtitle" = "You’ve done your part. Now it’s time for us to back-check your information and approve registration. This process may take 2-3 business days.";
 "registration_complete_btn" = "Login";
 
+/* Apply for Service Screen */
+ "apply_now_btn" = "Apply now";
+ "visit_website_btn" = "Visit website";
+ "service_title" = "Veterans Pension or Survivor Benefits";
+ "service_subtitle" = "U.S. Department of Veteran Affairs";
+ "eligble_check" = "You are eligible";
+ "auto_renewal" = "Auto-renewal after expiration";
+ "service_description" = "A VA Survivors Pension offers monthly payments to qualified surviving spouses and unmarried dependent children of wartime Veterans who meet certain income and net worth limits set by Congress.";
+ "service_note" = "Your information is already stored in your profile. Simply press ‘Apply Now’ button to begin application process. It may take 2-3 business days for us to reach back.";
+
+ /* Apply ACP Screen */
+ "acp_title" = "ACP";
+ "apply_acp_title" = "Apply for ACP";
+ "apply_acp_description" = "Hi %@! You can now easily apply for ACP because you are currently taking part in following government assistance programs:";
+ "apply_acp_eligibility" = "Supplemental Nutrition AssistanceProgram (SNAP)";
+ "apply_acp_plan_name" = "7GB Choose Plan";
+ "apply_acp_phone_setup" = "One-click-setup phone";
+ "apply_acp_choose_plan" = "Choose plan:";
+ "apply_acp_choose_device" = "Choose device:";
+
+ /* Apply Succesfull Screen*/
+ "successfull_title" = "Confirmed!";
+ "acp_successfull_desc" = "Your ACP application has been successfully submitted and will be reviewed within 2-3 business days. If everything is correct, you will receive funds immediately and your device will be shipped within 5 businss days. Check notifications for further updates about the package.";
+ "acp_successfull_register_btn" = "Done";
 /* Login Screen */
 "login_page_title" = "Login";
 "login_title" = "Welcome to ACP";
@@ -221,6 +245,9 @@ KYC requires a selfie/clear shot of your face and a photo of the document that c
 "wallet_btn" = "New Card";
 "wallet_transactions" = "Transactions";
 "wallet_transactions_details" = "Details";
+"wallet_transactions_tab_0" = "All";
+"wallet_transactions_tab_1" = "Incoming";
+"wallet_transactions_tab_2" = "Outgoing";
 
 /* Empty Wallet Screen */
 "empty_wallet_title" = "You need a card!";
@@ -228,6 +255,18 @@ KYC requires a selfie/clear shot of your face and a photo of the document that c
 "empty_wallet_btn" = "Request Card";
 "empty_wallet_balance" = "Total balance in USD:";
 "empty_wallet_balance_highlight" = "USD";
+
+/* Request Card Screen */
+"request_card_title" = "Request a debit card";
+"request_card_subtitle" = "ACP Mobile VISA debit card will be sent to the address registered to your account. Please review this information before submitting the request.";
+"request_card_first_name" = "First Name";
+"request_card_last_name" = "Last Name";
+"request_card_street_num" = "Street Number and Name";
+"request_card_city" = "City";
+"request_card_state" = "State";
+"request_card_edit_btn" = "Edit";
+"request_card_save_btn" = "Save";
+"request_card_btn" = "Request Card";
 
 /* Wallet Success Screen */
 "wallet_success_title" = "Confirmed!";

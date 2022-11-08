@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		133F868A29086DC400663815 /* ACPSuccesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F868929086DC400663815 /* ACPSuccesViewController.swift */; };
+		133F868D29086E6E00663815 /* ApplyACPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F868C29086E6E00663815 /* ApplyACPView.swift */; };
+		133F868F290870EC00663815 /* ApplyACPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F868E290870EC00663815 /* ApplyACPViewController.swift */; };
+		133F86922908714E00663815 /* ApplyForServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F86912908714E00663815 /* ApplyForServiceView.swift */; };
+		133F86942908715900663815 /* ApplyForServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F86932908715900663815 /* ApplyForServiceViewController.swift */; };
+		13581443290F2B1500612D8B /* RequestCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13581442290F2B1500612D8B /* RequestCardViewController.swift */; };
+		13BF542829104B1600C94201 /* RequestCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BF542729104B1600C94201 /* RequestCardViewModel.swift */; };
 		400AB9ED28FF7F6000A6DCB6 /* ACPEligibilityDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB98D28FF7F5F00A6DCB6 /* ACPEligibilityDetailsViewModel.swift */; };
 		400AB9EE28FF7F6000A6DCB6 /* ACPEligibilityDetailsDOBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB98F28FF7F5F00A6DCB6 /* ACPEligibilityDetailsDOBModel.swift */; };
 		400AB9EF28FF7F6000A6DCB6 /* ACPEligibilityDetailsAddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB99028FF7F5F00A6DCB6 /* ACPEligibilityDetailsAddressModel.swift */; };
@@ -105,6 +112,13 @@
 /* Begin PBXFileReference section */
 		0EA43A30C610F68C5A06DD99 /* Pods_ACP_mobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ACP_mobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1301AD36DE072905C940D450 /* Pods-ACP-mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACP-mobile.release.xcconfig"; path = "Target Support Files/Pods-ACP-mobile/Pods-ACP-mobile.release.xcconfig"; sourceTree = "<group>"; };
+		133F868929086DC400663815 /* ACPSuccesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPSuccesViewController.swift; sourceTree = "<group>"; };
+		133F868C29086E6E00663815 /* ApplyACPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyACPView.swift; sourceTree = "<group>"; };
+		133F868E290870EC00663815 /* ApplyACPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyACPViewController.swift; sourceTree = "<group>"; };
+		133F86912908714E00663815 /* ApplyForServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyForServiceView.swift; sourceTree = "<group>"; };
+		133F86932908715900663815 /* ApplyForServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyForServiceViewController.swift; sourceTree = "<group>"; };
+		13581442290F2B1500612D8B /* RequestCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCardViewController.swift; sourceTree = "<group>"; };
+		13BF542729104B1600C94201 /* RequestCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCardViewModel.swift; sourceTree = "<group>"; };
 		400AB76528FF5B6F00A6DCB6 /* ACPScanIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPScanIDViewController.swift; sourceTree = "<group>"; };
 		400AB76728FF5BCA00A6DCB6 /* ACPKYCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPKYCViewController.swift; sourceTree = "<group>"; };
 		400AB76928FF5BD800A6DCB6 /* ACPKYCCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPKYCCompleteViewController.swift; sourceTree = "<group>"; };
@@ -192,9 +206,6 @@
 		403AD21F29075B0600C6D556 /* ACPHomeScreenTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPHomeScreenTabViewController.swift; sourceTree = "<group>"; };
 		403AD22229075B6400C6D556 /* ACPHomeScreenTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPHomeScreenTabViewModel.swift; sourceTree = "<group>"; };
 		403AD2242907636B00C6D556 /* ACPTabMenuImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPTabMenuImageCell.swift; sourceTree = "<group>"; };
-		409132C028F4E0740003CC4E /* ACPVerifyEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPVerifyEmailViewController.swift; sourceTree = "<group>"; };
-		409132C428F4EBC10003CC4E /* ACPVerifyEmailKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPVerifyEmailKeyboardView.swift; sourceTree = "<group>"; };
-		409132C628F4EBF50003CC4E /* ACPVerifyEmailCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPVerifyEmailCodeView.swift; sourceTree = "<group>"; };
 		40B5EDCB28E224F20096B91B /* ACP-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ACP-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		40B5EDD728E224F40096B91B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40B5EDDA28E224F40096B91B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -232,6 +243,75 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		133F868529086D1800663815 /* ApplyScreens */ = {
+			isa = PBXGroup;
+			children = (
+				133F868829086D8200663815 /* ACPSuccess */,
+				133F868729086D6A00663815 /* ApplyForACP */,
+				133F868629086D5000663815 /* ApplyForService */,
+			);
+			path = ApplyScreens;
+			sourceTree = "<group>";
+		};
+		133F868629086D5000663815 /* ApplyForService */ = {
+			isa = PBXGroup;
+			children = (
+				133F86902908710700663815 /* Views */,
+				133F86932908715900663815 /* ApplyForServiceViewController.swift */,
+			);
+			path = ApplyForService;
+			sourceTree = "<group>";
+		};
+		133F868729086D6A00663815 /* ApplyForACP */ = {
+			isa = PBXGroup;
+			children = (
+				133F868B29086E1300663815 /* Views */,
+				133F868E290870EC00663815 /* ApplyACPViewController.swift */,
+			);
+			path = ApplyForACP;
+			sourceTree = "<group>";
+		};
+		133F868829086D8200663815 /* ACPSuccess */ = {
+			isa = PBXGroup;
+			children = (
+				133F868929086DC400663815 /* ACPSuccesViewController.swift */,
+			);
+			path = ACPSuccess;
+			sourceTree = "<group>";
+		};
+		133F868B29086E1300663815 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				133F868C29086E6E00663815 /* ApplyACPView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		133F86902908710700663815 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				133F86912908714E00663815 /* ApplyForServiceView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		13581441290F2AC100612D8B /* RequestCard */ = {
+			isa = PBXGroup;
+			children = (
+				13BF542929104B1F00C94201 /* ViewModel */,
+				13581442290F2B1500612D8B /* RequestCardViewController.swift */,
+			);
+			path = RequestCard;
+			sourceTree = "<group>";
+		};
+		13BF542929104B1F00C94201 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				13BF542729104B1600C94201 /* RequestCardViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		1EF3BAC39E57E76420CCD5AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,6 +349,7 @@
 			isa = PBXGroup;
 			children = (
 				40D0BE3A2919D89900067026 /* Profile */,
+				133F868529086D1800663815 /* ApplyScreens */,
 				4031545C290E2325009320D8 /* Login */,
 				400AB98B28FF7F5F00A6DCB6 /* EligibilityDetails */,
 				400AB99C28FF7F5F00A6DCB6 /* Registration */,
@@ -416,7 +497,6 @@
 			children = (
 				400AB9B028FF7F5F00A6DCB6 /* ACPHomeScreenEligibilityHeaderView.swift */,
 				400AB9B128FF7F5F00A6DCB6 /* ACPHomeScreenProgramCell.swift */,
-				400AB9B228FF7F5F00A6DCB6 /* ACPHomeScreenViewController.swift */,
 				400AB9B328FF7F5F00A6DCB6 /* ACPHomeScreenHeaderView.swift */,
 			);
 			path = Views;
@@ -594,6 +674,7 @@
 		4013FADA29083D620018025F /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
+				13581441290F2AC100612D8B /* RequestCard */,
 				40251D42290DE0100083B89A /* Transactions */,
 				4013FAE52908438E0018025F /* EmptyWallet */,
 				4013FADC29083D920018025F /* CardSuccess */,
@@ -690,6 +771,7 @@
 			isa = PBXGroup;
 			children = (
 				400AB9AF28FF7F5F00A6DCB6 /* Views */,
+				400AB9B228FF7F5F00A6DCB6 /* ACPHomeScreenViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -710,7 +792,6 @@
 				40B5EDCC28E224F20096B91B /* Products */,
 				FB00E332458E87060AD9B9F0 /* Pods */,
 				1EF3BAC39E57E76420CCD5AA /* Frameworks */,
-				400AB92628FF7D1200A6DCB6 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -945,6 +1026,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13BF542829104B1600C94201 /* RequestCardViewModel.swift in Sources */,
 				400AB9ED28FF7F6000A6DCB6 /* ACPEligibilityDetailsViewModel.swift in Sources */,
 				4013FADE29083DB00018025F /* ACPCardSuccessViewController.swift in Sources */,
 				400ABA2B28FF7F6000A6DCB6 /* ACPPersonalInfoViewController.swift in Sources */,
@@ -980,19 +1062,23 @@
 				400AB9F828FF7F6000A6DCB6 /* ACPEligibilityDetailsViewController.swift in Sources */,
 				400AB9F028FF7F6000A6DCB6 /* ACPEligibilityDetailsModel.swift in Sources */,
 				400ABA2528FF7F6000A6DCB6 /* ACPSelfieViewController.swift in Sources */,
+				133F86922908714E00663815 /* ApplyForServiceView.swift in Sources */,
 				40251D41290CD2840083B89A /* ACPCardModel.swift in Sources */,
 				400ABA1F28FF7F6000A6DCB6 /* ACPPersonalInfoViewModel.swift in Sources */,
 				40D0BE452919D89900067026 /* ACPProfileViewController.swift in Sources */,
 				400AB9F228FF7F6000A6DCB6 /* ACPEligibilityDetailsNameViewController.swift in Sources */,
+				133F868F290870EC00663815 /* ApplyACPViewController.swift in Sources */,
 				400ABA0128FF7F6000A6DCB6 /* EligibilityCheckView.swift in Sources */,
 				400AB9F728FF7F6000A6DCB6 /* ACPEligibilityDetailsVerifyViewController.swift in Sources */,
 				400ABA0C28FF7F6000A6DCB6 /* UIViewController+ACP.swift in Sources */,
+				133F86942908715900663815 /* ApplyForServiceViewController.swift in Sources */,
 				400ABA3228FF904B00A6DCB6 /* ACPTabMenuDotCell.swift in Sources */,
 				40D0BE462919D89900067026 /* ACPProfileSecurityViewController.swift in Sources */,
 				400ABA0828FF7F6000A6DCB6 /* UITableView+ACP.swift in Sources */,
 				400ABA0E28FF7F6000A6DCB6 /* UIColor+ACP.swift in Sources */,
 				40315460290E3002009320D8 /* ACPShadowButton.swift in Sources */,
 				400ABA2928FF7F6000A6DCB6 /* ACPBankInfoViewController.swift in Sources */,
+				133F868D29086E6E00663815 /* ApplyACPView.swift in Sources */,
 				400AB9FF28FF7F6000A6DCB6 /* EligibilityZipView.swift in Sources */,
 				400ABA1128FF7F6000A6DCB6 /* SceneDelegate.swift in Sources */,
 				403AD22029075B0600C6D556 /* ACPHomeScreenTabViewController.swift in Sources */,
@@ -1012,11 +1098,13 @@
 				400ABA2228FF7F6000A6DCB6 /* ACPVerifyEmailKeyboardView.swift in Sources */,
 				400ABA1E28FF7F6000A6DCB6 /* ACPCircleLoadingBarView.swift in Sources */,
 				400ABA2028FF7F6000A6DCB6 /* ACPVerifyEmailCodeView.swift in Sources */,
+				13581443290F2B1500612D8B /* RequestCardViewController.swift in Sources */,
 				403AD2252907636B00C6D556 /* ACPTabMenuImageCell.swift in Sources */,
 				400ABA0A28FF7F6000A6DCB6 /* UIViewController+Keyboard.swift in Sources */,
 				400ABA1D28FF7F6000A6DCB6 /* ACPBorderedView.swift in Sources */,
 				403AD22329075B6400C6D556 /* ACPHomeScreenTabViewModel.swift in Sources */,
 				400ABA1B28FF7F6000A6DCB6 /* ACPPickerView.swift in Sources */,
+				133F868A29086DC400663815 /* ACPSuccesViewController.swift in Sources */,
 				400ABA2F28FF7F6000A6DCB6 /* ACPEndpoint.swift in Sources */,
 				400ABA2628FF7F6000A6DCB6 /* ACPScanIDViewController.swift in Sources */,
 				400AB9F128FF7F6000A6DCB6 /* ACPEligibilityDetailsNameModel.swift in Sources */,
