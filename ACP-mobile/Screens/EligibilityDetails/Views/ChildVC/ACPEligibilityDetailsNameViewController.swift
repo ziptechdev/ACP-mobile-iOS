@@ -1,5 +1,5 @@
 //
-//  ACPEligibilityDetaialsNameViewController.swift
+//  ACPEligibilityDetailsNameViewController.swift
 //  ACP-mobile
 //
 //  Created by Adi on 01/10/2022.
