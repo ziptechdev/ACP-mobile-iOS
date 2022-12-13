@@ -32,6 +32,8 @@ class EligibilityZipViewController: UIViewController {
 
         setupRightNavigationBarButton()
         setupLeftNavigationBarButton()
+        
+        self.hideKeyboardWhenTappedAround()
     }
 
     override func viewDidLoad() {

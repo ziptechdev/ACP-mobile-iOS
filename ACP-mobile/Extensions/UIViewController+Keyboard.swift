@@ -25,7 +25,17 @@ extension UIViewController {
             object: nil
         )
     }
-
+    // hide keyboard when tap around
+    func hideKeyboardWhenTappedAround() {
+          let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+          tap.cancelsTouchesInView = false
+          view.addGestureRecognizer(tap)
+      }
+      
+    @objc func dismissKeyboard() {
+          view.endEditing(true)
+      }
+    
     @objc func keyboardWillChangeFrame(_ notification: NSNotification) {
         let textFieldSpacing: CGFloat = 5
 

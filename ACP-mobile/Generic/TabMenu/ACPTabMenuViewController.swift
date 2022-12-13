@@ -83,6 +83,7 @@ class ACPTabMenuViewController: UIViewController {
         super.viewDidLoad()
 
         setupUI()
+        hideKeyboardWhenTappedAround()
     }
 
     // MARK: - UI

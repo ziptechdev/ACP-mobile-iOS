@@ -96,6 +96,7 @@ class ACPVerifiedRegistrationViewController: UIViewController {
         super.viewDidLoad()
 
         setupUI()
+        hideKeyboardWhenTappedAround()
     }
 
     override func viewWillAppear(_ animated: Bool) {
