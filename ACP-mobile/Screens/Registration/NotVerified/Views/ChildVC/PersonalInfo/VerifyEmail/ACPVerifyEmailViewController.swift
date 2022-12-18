@@ -76,8 +76,8 @@ class ACPVerifyEmailViewController: UIViewController {
         return view
     }()
 
-    private lazy var confirmButton: ACPShadowButton = {
-        let button = ACPShadowButton()
+    private lazy var confirmButton: UIButton = {
+        let button = UIButton()
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
         button.layer.masksToBounds = true
         button.backgroundColor = .coreBlue

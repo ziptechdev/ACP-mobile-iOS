@@ -85,8 +85,8 @@ class ApplyForServiceView: UIView {
         return stackView
     }()
 
-    let applyNowButton: ACPShadowButton = {
-        let button = ACPShadowButton()
+    let applyNowButton: UIButton = {
+        let button = UIButton()
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius

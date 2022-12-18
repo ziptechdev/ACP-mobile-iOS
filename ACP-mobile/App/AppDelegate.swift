@@ -11,26 +11,22 @@ import FirebaseCore
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    var window: UIWindow?
+    private var appCoordinator: AppCoordinator?
+
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        let appCoordinator = AppCoordinator(window: window)
+
+        appCoordinator.start()
         FirebaseApp.configure()
+
+        self.window = window
+        self.appCoordinator = appCoordinator
+
         return true
     }
-
-    // MARK: UISceneSession Lifecycle
-
-    func application(
-        _ application: UIApplication,
-        configurationForConnecting connectingSceneSession: UISceneSession,
-        options: UIScene.ConnectionOptions
-    ) -> UISceneConfiguration {
-        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
-    }
-
-    func application(
-        _ application: UIApplication,
-        didDiscardSceneSessions sceneSessions: Set<UISceneSession>
-    ) {}
 }

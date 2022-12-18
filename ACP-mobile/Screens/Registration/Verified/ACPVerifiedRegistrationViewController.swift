@@ -76,8 +76,8 @@ class ACPVerifiedRegistrationViewController: UIViewController {
         return view
     }()
 
-    private lazy var registerButton: ACPShadowButton = {
-        let button = ACPShadowButton()
+    private lazy var registerButton: UIButton = {
+        let button = UIButton()
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
         button.layer.masksToBounds = true
         button.isUserInteractionEnabled = false

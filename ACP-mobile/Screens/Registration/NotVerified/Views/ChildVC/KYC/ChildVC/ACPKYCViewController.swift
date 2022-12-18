@@ -37,8 +37,8 @@ class ACPKYCViewController: UIViewController {
         return label
     }()
 
-    private lazy var startButton: ACPShadowButton = {
-        let button = ACPShadowButton()
+    private lazy var startButton: UIButton = {
+        let button = UIButton()
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
         button.layer.masksToBounds = true
         button.backgroundColor = .coreBlue

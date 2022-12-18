@@ -64,13 +64,7 @@ class ACPTextField: UIView, TextInput {
         return view
     }()
 
-    let spacerView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-
-    let errorLabel: UILabel = {
+    private let errorLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontSizeToFitWidth = true
@@ -105,6 +99,15 @@ class ACPTextField: UIView, TextInput {
         return toolBar
     }()
 
+    private lazy var stackView = UIStackView(
+        subviews: [
+            titleLabel,
+            textField,
+            errorLabel
+        ],
+        spacing: Constants.Constraints.TextFieldOffset
+    )
+
     // MARK: - Initialization
 
     override init(frame: CGRect) {
@@ -125,69 +128,29 @@ class ACPTextField: UIView, TextInput {
     }
 
     private func addSubviews() {
-        addSubview(titleLabel)
-        addSubview(textField)
-        addSubview(spacerView)
-        addSubview(errorLabel)
+        addSubview(stackView)
     }
 
     private func setupConstraints() {
-        titleLabel.snp.makeConstraints { make in
-            make.left.right.top.equalToSuperview()
+        stackView.snp.makeConstraints { make in
+            make.left.right.top.bottom.equalToSuperview()
         }
 
         textField.snp.makeConstraints { make in
-            make.left.right.equalToSuperview()
             make.height.equalTo(Constants.Constraints.TextFieldHeight)
-            make.top.equalTo(titleLabel.snp.bottom).offset(Constants.Constraints.TextFieldOffset)
-        }
-
-        spacerView.snp.makeConstraints { make in
-            make.left.right.equalToSuperview()
-            make.height.equalTo(0)
-            make.top.equalTo(textField.snp.bottom)
-            make.bottom.equalTo(errorLabel.snp.top)
-        }
-
-        errorLabel.snp.makeConstraints { make in
-            make.left.right.bottom.equalToSuperview()
-            make.top.equalTo(spacerView.snp.bottom)
         }
     }
 
     func showError(message: String) {
-        if !isErrorShowing {
-            isErrorShowing = true
-
-            spacerView.snp.remakeConstraints { make in
-                make.left.right.equalToSuperview()
-                make.height.equalTo(Constants.Constraints.TextFieldOffset)
-                make.top.equalTo(textField.snp.bottom)
-                make.bottom.equalTo(errorLabel.snp.top)
-            }
-
-            textField.layer.borderColor = UIColor.warningRed.cgColor
-            errorLabel.isHidden = false
-        }
-
+        textField.layer.borderColor = UIColor.warningRed.cgColor
+        errorLabel.isHidden = false
         errorLabel.text = message
     }
 
     func hideError() {
-        if isErrorShowing {
-            isErrorShowing = false
-
-            spacerView.snp.remakeConstraints { make in
-                make.left.right.equalToSuperview()
-                make.height.equalTo(0)
-                make.top.equalTo(textField.snp.bottom)
-                make.bottom.equalTo(errorLabel.snp.top)
-            }
-
-            textField.layer.borderColor = UIColor.gray03Light.cgColor
-            errorLabel.isHidden = true
-            errorLabel.text = ""
-        }
+        textField.layer.borderColor = UIColor.gray03Light.cgColor
+        errorLabel.isHidden = true
+        errorLabel.text = ""
     }
 
     func toggleSecureEntry(_ isSecureEntry: Bool) {

@@ -44,6 +44,7 @@ class ACPNavigationController: UINavigationController {
         super.pushViewController(viewController, animated: animated)
     }
 
+    @discardableResult
     override func popViewController(animated: Bool) -> UIViewController? {
         backButtonOverride = nil
 

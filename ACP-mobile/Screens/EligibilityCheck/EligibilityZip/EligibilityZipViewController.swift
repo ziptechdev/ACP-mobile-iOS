@@ -129,8 +129,8 @@ extension EligibilityZipViewController: EligibilityZipCodeDelegate {
     }
 
     func didTapNextButton() {
-        let targetVC = ACPEligibilityDetailsViewController()
-        navigationController?.pushViewController(targetVC, animated: true)
+//        let targetVC = ACPEligibilityDetailsViewController(viewModel: viewModel)
+//        navigationController?.pushViewController(targetVC, animated: true)
     }
 }
 

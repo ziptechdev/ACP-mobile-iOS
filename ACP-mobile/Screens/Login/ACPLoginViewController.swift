@@ -66,8 +66,8 @@ class ACPLoginViewController: UIViewController {
         return label
     }()
 
-    private lazy var loginButton: ACPShadowButton = {
-        let button = ACPShadowButton()
+    private lazy var loginButton: UIButton = {
+        let button = UIButton()
         button.layer.cornerRadius = Constants.ButtonCornerRadius
         button.layer.masksToBounds = true
         button.isUserInteractionEnabled = false

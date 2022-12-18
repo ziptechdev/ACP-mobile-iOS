@@ -37,7 +37,6 @@ class ACPHomeScreenProgramCell: UITableViewCell {
             imageName: "checkmark",
             isLeft: true
         )
-        button.hasShadow = false
         button.backgroundColor = .acpYellow
         return button
     }()
@@ -51,8 +50,8 @@ class ACPHomeScreenProgramCell: UITableViewCell {
         return label
     }()
 
-    private let actionButton: ACPShadowButton = {
-        let button = ACPShadowButton()
+    private let actionButton: UIButton = {
+        let button = UIButton()
         button.backgroundColor = .coreBlue
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
         button.layer.masksToBounds = true

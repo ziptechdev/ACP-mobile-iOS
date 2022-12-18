@@ -75,10 +75,8 @@ extension UIViewController {
             textColor: color,
             isLeft: true
         )
-        button.hasShadow = false
 
         button.addTarget(self, action: #selector(didTapLeftButton), for: .touchUpInside)
-
         navigationItem.leftBarButtonItems = [UIBarButtonItem(customView: button)]
     }
 

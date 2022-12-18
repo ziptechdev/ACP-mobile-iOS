@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ACPImageButton: ACPShadowButton {
+class ACPImageButton: UIButton {
 
     init(titleKey: String? = nil,
          font: UIFont? = nil,
@@ -19,6 +19,8 @@ class ACPImageButton: ACPShadowButton {
          isLeft: Bool = false
     ) {
         super.init(frame: .zero)
+
+        translatesAutoresizingMaskIntoConstraints = false
 
         semanticContentAttribute = isLeft ? .forceLeftToRight : .forceRightToLeft
 

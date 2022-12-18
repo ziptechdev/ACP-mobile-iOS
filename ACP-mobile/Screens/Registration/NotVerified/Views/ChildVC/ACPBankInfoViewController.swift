@@ -68,8 +68,8 @@ class ACPBankInfoViewController: UIViewController {
         return view
     }()
 
-    private lazy var completeButton: ACPShadowButton = {
-        let button = ACPShadowButton()
+    private lazy var completeButton: UIButton = {
+        let button = UIButton()
         button.layer.cornerRadius = Constants.ButtonCornerRadius
         button.layer.masksToBounds = true
         button.isUserInteractionEnabled = false

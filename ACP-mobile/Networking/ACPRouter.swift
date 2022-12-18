@@ -7,37 +7,32 @@
 
 import Alamofire
 
-protocol ACPRouterDelegate: AnyObject {
-    func receivedResponse(_ response: Data)
-    func receivedError(_ error: Error)
-}
+typealias RouterCompletion = (Data?, Error?) -> Void
 
 class ACPRouter {
 
     // MARK: - Properties
 
-    private var httpHeaders: HTTPHeaders = [
-        .contentType("application/json")
-    ]
+    static let shared = ACPRouter()
 
-    private let encoding: ParameterEncoding = JSONEncoding.default
+    private var httpHeaders: HTTPHeaders {
+        return [
+            .accept("application/json"),
+            .contentType("application/json")
+        ]
+    }
 
-    weak var delegate: ACPRouterDelegate?
+    private var encoding: ParameterEncoding { JSONEncoding.default }
 
     // MARK: - Request
 
-    func request(_ endpoint: ACPEndpoint) {
+    func request(_ endpoint: ACPEndpoint, completion: @escaping RouterCompletion) {
         let url = endpoint.baseURL + endpoint.path
+        var httpHeaders = self.httpHeaders
 
         if let extraHeaders = endpoint.headers {
             extraHeaders.forEach({ httpHeaders.add($0) })
         }
-
-        let authStr = "Username:Password"
-        let authData = authStr.data(using: .utf8)
-
-        // TODO: Real Auth
-        httpHeaders.add(.authorization("Basic \(authData!.base64EncodedString(options: []))"))
 
         let request = AF.request(
             url,
@@ -47,16 +42,12 @@ class ACPRouter {
             headers: httpHeaders
         )
 
-        request.validate().responseData { [weak self] response in
-            guard let self = self else {
-                return
-            }
-
+        request.validate().responseData { response in
             switch response.result {
             case .success(let value):
-                self.delegate?.receivedResponse(value)
+                completion(value, nil)
             case .failure(let error):
-                self.delegate?.receivedError(error)
+                completion(nil, error)
             }
         }
     }

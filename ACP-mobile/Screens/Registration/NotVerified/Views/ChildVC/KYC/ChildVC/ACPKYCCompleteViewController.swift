@@ -46,8 +46,8 @@ class ACPKYCCompleteViewController: UIViewController {
         return label
     }()
 
-    private lazy var doneButton: ACPShadowButton = {
-        let button = ACPShadowButton()
+    private lazy var doneButton: UIButton = {
+        let button = UIButton()
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
         button.layer.masksToBounds = true
         button.backgroundColor = .coreBlue

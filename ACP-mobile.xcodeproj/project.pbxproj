@@ -14,26 +14,16 @@
 		133F86942908715900663815 /* ApplyForServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F86932908715900663815 /* ApplyForServiceViewController.swift */; };
 		13581443290F2B1500612D8B /* RequestCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13581442290F2B1500612D8B /* RequestCardViewController.swift */; };
 		13BF542829104B1600C94201 /* RequestCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BF542729104B1600C94201 /* RequestCardViewModel.swift */; };
-		400AB9ED28FF7F6000A6DCB6 /* ACPEligibilityDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB98D28FF7F5F00A6DCB6 /* ACPEligibilityDetailsViewModel.swift */; };
-		400AB9EE28FF7F6000A6DCB6 /* ACPEligibilityDetailsDOBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB98F28FF7F5F00A6DCB6 /* ACPEligibilityDetailsDOBModel.swift */; };
-		400AB9EF28FF7F6000A6DCB6 /* ACPEligibilityDetailsAddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB99028FF7F5F00A6DCB6 /* ACPEligibilityDetailsAddressModel.swift */; };
-		400AB9F028FF7F6000A6DCB6 /* ACPEligibilityDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB99128FF7F5F00A6DCB6 /* ACPEligibilityDetailsModel.swift */; };
-		400AB9F128FF7F6000A6DCB6 /* ACPEligibilityDetailsNameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB99228FF7F5F00A6DCB6 /* ACPEligibilityDetailsNameModel.swift */; };
-		400AB9F228FF7F6000A6DCB6 /* ACPEligibilityDetailsNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB99528FF7F5F00A6DCB6 /* ACPEligibilityDetailsNameViewController.swift */; };
-		400AB9F328FF7F6000A6DCB6 /* ACPEligibilityDetailsDOBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB99628FF7F5F00A6DCB6 /* ACPEligibilityDetailsDOBViewController.swift */; };
-		400AB9F428FF7F6000A6DCB6 /* ACPEligibilityDetailsAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB99728FF7F5F00A6DCB6 /* ACPEligibilityDetailsAddressViewController.swift */; };
-		400AB9F528FF7F6000A6DCB6 /* ACPEligibilityDetailsFailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB99828FF7F5F00A6DCB6 /* ACPEligibilityDetailsFailViewController.swift */; };
-		400AB9F628FF7F6000A6DCB6 /* ACPEligibilityDetailsSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB99928FF7F5F00A6DCB6 /* ACPEligibilityDetailsSuccessViewController.swift */; };
-		400AB9F728FF7F6000A6DCB6 /* ACPEligibilityDetailsVerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB99A28FF7F5F00A6DCB6 /* ACPEligibilityDetailsVerifyViewController.swift */; };
-		400AB9F828FF7F6000A6DCB6 /* ACPEligibilityDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB99B28FF7F5F00A6DCB6 /* ACPEligibilityDetailsViewController.swift */; };
+		400AB9F228FF7F6000A6DCB6 /* EligibilityDetailsNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB99528FF7F5F00A6DCB6 /* EligibilityDetailsNameViewController.swift */; };
+		400AB9F328FF7F6000A6DCB6 /* EligibilityDetailsDOBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB99628FF7F5F00A6DCB6 /* EligibilityDetailsDOBViewController.swift */; };
+		400AB9F428FF7F6000A6DCB6 /* EligibilityDetailsAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB99728FF7F5F00A6DCB6 /* EligibilityDetailsAddressViewController.swift */; };
+		400AB9F528FF7F6000A6DCB6 /* EligibilityFailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB99828FF7F5F00A6DCB6 /* EligibilityFailViewController.swift */; };
+		400AB9F628FF7F6000A6DCB6 /* EligibilitySuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB99928FF7F5F00A6DCB6 /* EligibilitySuccessViewController.swift */; };
+		400AB9F728FF7F6000A6DCB6 /* EligibilityVerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB99A28FF7F5F00A6DCB6 /* EligibilityVerifyViewController.swift */; };
+		400AB9F828FF7F6000A6DCB6 /* EligibilityDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB99B28FF7F5F00A6DCB6 /* EligibilityDetailsViewController.swift */; };
 		400AB9F928FF7F6000A6DCB6 /* ACPVerifiedRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB99E28FF7F5F00A6DCB6 /* ACPVerifiedRegistrationViewController.swift */; };
-		400AB9FB28FF7F6000A6DCB6 /* ACPLandingScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9A228FF7F5F00A6DCB6 /* ACPLandingScreenViewController.swift */; };
-		400AB9FC28FF7F6000A6DCB6 /* ACPWelcomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9A428FF7F5F00A6DCB6 /* ACPWelcomeScreenViewController.swift */; };
-		400AB9FD28FF7F6000A6DCB6 /* ACPTermsPrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9A528FF7F5F00A6DCB6 /* ACPTermsPrivacyViewController.swift */; };
 		400AB9FE28FF7F6000A6DCB6 /* EligibilityZipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9A828FF7F5F00A6DCB6 /* EligibilityZipViewController.swift */; };
 		400AB9FF28FF7F6000A6DCB6 /* EligibilityZipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9AA28FF7F5F00A6DCB6 /* EligibilityZipView.swift */; };
-		400ABA0028FF7F6000A6DCB6 /* EligibilityCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9AB28FF7F5F00A6DCB6 /* EligibilityCheckViewController.swift */; };
-		400ABA0128FF7F6000A6DCB6 /* EligibilityCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9AD28FF7F5F00A6DCB6 /* EligibilityCheckView.swift */; };
 		400ABA0228FF7F6000A6DCB6 /* ACPHomeScreenEligibilityHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9B028FF7F5F00A6DCB6 /* ACPHomeScreenEligibilityHeaderView.swift */; };
 		400ABA0328FF7F6000A6DCB6 /* ACPHomeScreenProgramCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9B128FF7F5F00A6DCB6 /* ACPHomeScreenProgramCell.swift */; };
 		400ABA0428FF7F6000A6DCB6 /* ACPHomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9B228FF7F5F00A6DCB6 /* ACPHomeScreenViewController.swift */; };
@@ -49,7 +39,6 @@
 		400ABA0E28FF7F6000A6DCB6 /* UIColor+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9BD28FF7F6000A6DCB6 /* UIColor+ACP.swift */; };
 		400ABA0F28FF7F6000A6DCB6 /* String+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9BE28FF7F6000A6DCB6 /* String+ACP.swift */; };
 		400ABA1028FF7F6000A6DCB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9C028FF7F6000A6DCB6 /* AppDelegate.swift */; };
-		400ABA1128FF7F6000A6DCB6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9C128FF7F6000A6DCB6 /* SceneDelegate.swift */; };
 		400ABA1228FF7F6000A6DCB6 /* ACPTabMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9C428FF7F6000A6DCB6 /* ACPTabMenuViewController.swift */; };
 		400ABA1328FF7F6000A6DCB6 /* ACPFocusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9C528FF7F6000A6DCB6 /* ACPFocusableView.swift */; };
 		400ABA1428FF7F6000A6DCB6 /* ACPTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9C628FF7F6000A6DCB6 /* ACPTableView.swift */; };
@@ -74,8 +63,6 @@
 		400ABA2928FF7F6000A6DCB6 /* ACPBankInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9E428FF7F6000A6DCB6 /* ACPBankInfoViewController.swift */; };
 		400ABA2A28FF7F6000A6DCB6 /* ACPNotVerifiedRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9E528FF7F6000A6DCB6 /* ACPNotVerifiedRegistrationViewController.swift */; };
 		400ABA2B28FF7F6000A6DCB6 /* ACPPersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9E628FF7F6000A6DCB6 /* ACPPersonalInfoViewController.swift */; };
-		400ABA2C28FF7F6000A6DCB6 /* TestEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9E928FF7F6000A6DCB6 /* TestEndpoint.swift */; };
-		400ABA2D28FF7F6000A6DCB6 /* VerifyEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9EA28FF7F6000A6DCB6 /* VerifyEndpoint.swift */; };
 		400ABA2E28FF7F6000A6DCB6 /* ACPRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9EB28FF7F6000A6DCB6 /* ACPRouter.swift */; };
 		400ABA2F28FF7F6000A6DCB6 /* ACPEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9EC28FF7F6000A6DCB6 /* ACPEndpoint.swift */; };
 		400ABA3228FF904B00A6DCB6 /* ACPTabMenuDotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400ABA3128FF904B00A6DCB6 /* ACPTabMenuDotCell.swift */; };
@@ -95,6 +82,26 @@
 		403AD22029075B0600C6D556 /* ACPHomeScreenTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403AD21F29075B0600C6D556 /* ACPHomeScreenTabViewController.swift */; };
 		403AD22329075B6400C6D556 /* ACPHomeScreenTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403AD22229075B6400C6D556 /* ACPHomeScreenTabViewModel.swift */; };
 		403AD2252907636B00C6D556 /* ACPTabMenuImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403AD2242907636B00C6D556 /* ACPTabMenuImageCell.swift */; };
+		404A89F5294E4AE900266334 /* UIStackView+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404A89F4294E4AE900266334 /* UIStackView+ACP.swift */; };
+		404A8A00294E61B700266334 /* UIAlertController+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404A89FF294E61B700266334 /* UIAlertController+ACP.swift */; };
+		404A8A14294F938F00266334 /* EligibilityDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404A8A09294F938F00266334 /* EligibilityDetailsViewModel.swift */; };
+		404A8A15294F938F00266334 /* EligibilityCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404A8A0B294F938F00266334 /* EligibilityCoordinator.swift */; };
+		404A8A16294F938F00266334 /* EligibilityResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404A8A0D294F938F00266334 /* EligibilityResponse.swift */; };
+		404A8A17294F938F00266334 /* EligibilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404A8A0F294F938F00266334 /* EligibilityService.swift */; };
+		404A8A18294F938F00266334 /* EligibilityServiceEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404A8A10294F938F00266334 /* EligibilityServiceEndpoint.swift */; };
+		404A8A1B294F94FD00266334 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404A8A1A294F94FD00266334 /* AppCoordinator.swift */; };
+		404A8A1D294F955E00266334 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404A8A1C294F955E00266334 /* Coordinator.swift */; };
+		404A8A20294F975F00266334 /* EligibilityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404A8A1F294F975F00266334 /* EligibilityModel.swift */; };
+		404A8A30294F979800266334 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404A8A25294F979800266334 /* WelcomeViewModel.swift */; };
+		404A8A31294F979800266334 /* WelcomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404A8A27294F979800266334 /* WelcomeCoordinator.swift */; };
+		404A8A35294F979800266334 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404A8A2F294F979800266334 /* WelcomeViewController.swift */; };
+		404A8A37294F994A00266334 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404A8A36294F994A00266334 /* TermsViewController.swift */; };
+		404A8A39294F99BE00266334 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404A8A38294F99BE00266334 /* LandingViewController.swift */; };
+		404A8A3B294F9F8C00266334 /* EligibilityCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404A8A3A294F9F8C00266334 /* EligibilityCheckViewController.swift */; };
+		404A8A3D294FAD3800266334 /* EligibilityZipCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404A8A3C294FAD3800266334 /* EligibilityZipCodeViewController.swift */; };
+		404A8A40294FB1A100266334 /* EligibilityVerifyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404A8A3F294FB1A100266334 /* EligibilityVerifyViewModel.swift */; };
+		404A8A42294FBB9800266334 /* EligibilitySuccessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404A8A41294FBB9800266334 /* EligibilitySuccessViewModel.swift */; };
+		404A8A44294FBBA800266334 /* EligibilityFailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404A8A43294FBBA800266334 /* EligibilityFailViewModel.swift */; };
 		40B5EDD828E224F40096B91B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40B5EDD728E224F40096B91B /* Assets.xcassets */; };
 		40B5EDDB28E224F40096B91B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40B5EDD928E224F40096B91B /* LaunchScreen.storyboard */; };
 		40EDB816290EF4FC007E0255 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 40EDB815290EF4FC007E0255 /* GoogleService-Info.plist */; };
@@ -113,32 +120,16 @@
 		133F86932908715900663815 /* ApplyForServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyForServiceViewController.swift; sourceTree = "<group>"; };
 		13581442290F2B1500612D8B /* RequestCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCardViewController.swift; sourceTree = "<group>"; };
 		13BF542729104B1600C94201 /* RequestCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCardViewModel.swift; sourceTree = "<group>"; };
-		400AB76528FF5B6F00A6DCB6 /* ACPScanIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPScanIDViewController.swift; sourceTree = "<group>"; };
-		400AB76728FF5BCA00A6DCB6 /* ACPKYCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPKYCViewController.swift; sourceTree = "<group>"; };
-		400AB76928FF5BD800A6DCB6 /* ACPKYCCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPKYCCompleteViewController.swift; sourceTree = "<group>"; };
-		400AB76B28FF5BEF00A6DCB6 /* ACPSelfieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPSelfieViewController.swift; sourceTree = "<group>"; };
-		400AB77028FF681700A6DCB6 /* ACPIdentityProofViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPIdentityProofViewController.swift; sourceTree = "<group>"; };
-		400AB77328FF6E9300A6DCB6 /* ACPBankInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPBankInfoViewController.swift; sourceTree = "<group>"; };
-		400AB98D28FF7F5F00A6DCB6 /* ACPEligibilityDetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsViewModel.swift; sourceTree = "<group>"; };
-		400AB98F28FF7F5F00A6DCB6 /* ACPEligibilityDetailsDOBModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsDOBModel.swift; sourceTree = "<group>"; };
-		400AB99028FF7F5F00A6DCB6 /* ACPEligibilityDetailsAddressModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsAddressModel.swift; sourceTree = "<group>"; };
-		400AB99128FF7F5F00A6DCB6 /* ACPEligibilityDetailsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsModel.swift; sourceTree = "<group>"; };
-		400AB99228FF7F5F00A6DCB6 /* ACPEligibilityDetailsNameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsNameModel.swift; sourceTree = "<group>"; };
-		400AB99528FF7F5F00A6DCB6 /* ACPEligibilityDetailsNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsNameViewController.swift; sourceTree = "<group>"; };
-		400AB99628FF7F5F00A6DCB6 /* ACPEligibilityDetailsDOBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsDOBViewController.swift; sourceTree = "<group>"; };
-		400AB99728FF7F5F00A6DCB6 /* ACPEligibilityDetailsAddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsAddressViewController.swift; sourceTree = "<group>"; };
-		400AB99828FF7F5F00A6DCB6 /* ACPEligibilityDetailsFailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsFailViewController.swift; sourceTree = "<group>"; };
-		400AB99928FF7F5F00A6DCB6 /* ACPEligibilityDetailsSuccessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsSuccessViewController.swift; sourceTree = "<group>"; };
-		400AB99A28FF7F5F00A6DCB6 /* ACPEligibilityDetailsVerifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsVerifyViewController.swift; sourceTree = "<group>"; };
-		400AB99B28FF7F5F00A6DCB6 /* ACPEligibilityDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsViewController.swift; sourceTree = "<group>"; };
+		400AB99528FF7F5F00A6DCB6 /* EligibilityDetailsNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilityDetailsNameViewController.swift; sourceTree = "<group>"; };
+		400AB99628FF7F5F00A6DCB6 /* EligibilityDetailsDOBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilityDetailsDOBViewController.swift; sourceTree = "<group>"; };
+		400AB99728FF7F5F00A6DCB6 /* EligibilityDetailsAddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilityDetailsAddressViewController.swift; sourceTree = "<group>"; };
+		400AB99828FF7F5F00A6DCB6 /* EligibilityFailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilityFailViewController.swift; sourceTree = "<group>"; };
+		400AB99928FF7F5F00A6DCB6 /* EligibilitySuccessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilitySuccessViewController.swift; sourceTree = "<group>"; };
+		400AB99A28FF7F5F00A6DCB6 /* EligibilityVerifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilityVerifyViewController.swift; sourceTree = "<group>"; };
+		400AB99B28FF7F5F00A6DCB6 /* EligibilityDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilityDetailsViewController.swift; sourceTree = "<group>"; };
 		400AB99E28FF7F5F00A6DCB6 /* ACPVerifiedRegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPVerifiedRegistrationViewController.swift; sourceTree = "<group>"; };
-		400AB9A228FF7F5F00A6DCB6 /* ACPLandingScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPLandingScreenViewController.swift; sourceTree = "<group>"; };
-		400AB9A428FF7F5F00A6DCB6 /* ACPWelcomeScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPWelcomeScreenViewController.swift; sourceTree = "<group>"; };
-		400AB9A528FF7F5F00A6DCB6 /* ACPTermsPrivacyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPTermsPrivacyViewController.swift; sourceTree = "<group>"; };
 		400AB9A828FF7F5F00A6DCB6 /* EligibilityZipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilityZipViewController.swift; sourceTree = "<group>"; };
 		400AB9AA28FF7F5F00A6DCB6 /* EligibilityZipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilityZipView.swift; sourceTree = "<group>"; };
-		400AB9AB28FF7F5F00A6DCB6 /* EligibilityCheckViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilityCheckViewController.swift; sourceTree = "<group>"; };
-		400AB9AD28FF7F5F00A6DCB6 /* EligibilityCheckView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilityCheckView.swift; sourceTree = "<group>"; };
 		400AB9B028FF7F5F00A6DCB6 /* ACPHomeScreenEligibilityHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPHomeScreenEligibilityHeaderView.swift; sourceTree = "<group>"; };
 		400AB9B128FF7F5F00A6DCB6 /* ACPHomeScreenProgramCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPHomeScreenProgramCell.swift; sourceTree = "<group>"; };
 		400AB9B228FF7F5F00A6DCB6 /* ACPHomeScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPHomeScreenViewController.swift; sourceTree = "<group>"; };
@@ -154,7 +145,6 @@
 		400AB9BD28FF7F6000A6DCB6 /* UIColor+ACP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+ACP.swift"; sourceTree = "<group>"; };
 		400AB9BE28FF7F6000A6DCB6 /* String+ACP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+ACP.swift"; sourceTree = "<group>"; };
 		400AB9C028FF7F6000A6DCB6 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		400AB9C128FF7F6000A6DCB6 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		400AB9C428FF7F6000A6DCB6 /* ACPTabMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPTabMenuViewController.swift; sourceTree = "<group>"; };
 		400AB9C528FF7F6000A6DCB6 /* ACPFocusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPFocusableView.swift; sourceTree = "<group>"; };
 		400AB9C628FF7F6000A6DCB6 /* ACPTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPTableView.swift; sourceTree = "<group>"; };
@@ -179,8 +169,6 @@
 		400AB9E428FF7F6000A6DCB6 /* ACPBankInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPBankInfoViewController.swift; sourceTree = "<group>"; };
 		400AB9E528FF7F6000A6DCB6 /* ACPNotVerifiedRegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPNotVerifiedRegistrationViewController.swift; sourceTree = "<group>"; };
 		400AB9E628FF7F6000A6DCB6 /* ACPPersonalInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPPersonalInfoViewController.swift; sourceTree = "<group>"; };
-		400AB9E928FF7F6000A6DCB6 /* TestEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestEndpoint.swift; sourceTree = "<group>"; };
-		400AB9EA28FF7F6000A6DCB6 /* VerifyEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyEndpoint.swift; sourceTree = "<group>"; };
 		400AB9EB28FF7F6000A6DCB6 /* ACPRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPRouter.swift; sourceTree = "<group>"; };
 		400AB9EC28FF7F6000A6DCB6 /* ACPEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEndpoint.swift; sourceTree = "<group>"; };
 		400ABA3128FF904B00A6DCB6 /* ACPTabMenuDotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPTabMenuDotCell.swift; sourceTree = "<group>"; };
@@ -200,6 +188,26 @@
 		403AD21F29075B0600C6D556 /* ACPHomeScreenTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPHomeScreenTabViewController.swift; sourceTree = "<group>"; };
 		403AD22229075B6400C6D556 /* ACPHomeScreenTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPHomeScreenTabViewModel.swift; sourceTree = "<group>"; };
 		403AD2242907636B00C6D556 /* ACPTabMenuImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPTabMenuImageCell.swift; sourceTree = "<group>"; };
+		404A89F4294E4AE900266334 /* UIStackView+ACP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStackView+ACP.swift"; sourceTree = "<group>"; };
+		404A89FF294E61B700266334 /* UIAlertController+ACP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+ACP.swift"; sourceTree = "<group>"; };
+		404A8A09294F938F00266334 /* EligibilityDetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilityDetailsViewModel.swift; sourceTree = "<group>"; };
+		404A8A0B294F938F00266334 /* EligibilityCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilityCoordinator.swift; sourceTree = "<group>"; };
+		404A8A0D294F938F00266334 /* EligibilityResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilityResponse.swift; sourceTree = "<group>"; };
+		404A8A0F294F938F00266334 /* EligibilityService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilityService.swift; sourceTree = "<group>"; };
+		404A8A10294F938F00266334 /* EligibilityServiceEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilityServiceEndpoint.swift; sourceTree = "<group>"; };
+		404A8A1A294F94FD00266334 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		404A8A1C294F955E00266334 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		404A8A1F294F975F00266334 /* EligibilityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EligibilityModel.swift; sourceTree = "<group>"; };
+		404A8A25294F979800266334 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
+		404A8A27294F979800266334 /* WelcomeCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeCoordinator.swift; sourceTree = "<group>"; };
+		404A8A2F294F979800266334 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		404A8A36294F994A00266334 /* TermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
+		404A8A38294F99BE00266334 /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
+		404A8A3A294F9F8C00266334 /* EligibilityCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EligibilityCheckViewController.swift; sourceTree = "<group>"; };
+		404A8A3C294FAD3800266334 /* EligibilityZipCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EligibilityZipCodeViewController.swift; sourceTree = "<group>"; };
+		404A8A3F294FB1A100266334 /* EligibilityVerifyViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilityVerifyViewModel.swift; sourceTree = "<group>"; };
+		404A8A41294FBB9800266334 /* EligibilitySuccessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EligibilitySuccessViewModel.swift; sourceTree = "<group>"; };
+		404A8A43294FBBA800266334 /* EligibilityFailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EligibilityFailViewModel.swift; sourceTree = "<group>"; };
 		40B5EDCB28E224F20096B91B /* ACP-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ACP-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		40B5EDD728E224F40096B91B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40B5EDDA28E224F40096B91B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -304,65 +312,11 @@
 			children = (
 				133F868529086D1800663815 /* ApplyScreens */,
 				4031545C290E2325009320D8 /* Login */,
-				400AB98B28FF7F5F00A6DCB6 /* EligibilityDetails */,
 				400AB99C28FF7F5F00A6DCB6 /* Registration */,
-				400AB9A128FF7F5F00A6DCB6 /* LandingScreen */,
-				400AB9A328FF7F5F00A6DCB6 /* Welcome&Terms */,
 				400AB9A628FF7F5F00A6DCB6 /* EligibilityCheck */,
 				400AB9AE28FF7F5F00A6DCB6 /* HomeScreen */,
 			);
 			path = Screens;
-			sourceTree = "<group>";
-		};
-		400AB98B28FF7F5F00A6DCB6 /* EligibilityDetails */ = {
-			isa = PBXGroup;
-			children = (
-				400AB98C28FF7F5F00A6DCB6 /* ViewModels */,
-				400AB98E28FF7F5F00A6DCB6 /* Models */,
-				400AB99328FF7F5F00A6DCB6 /* Views */,
-			);
-			path = EligibilityDetails;
-			sourceTree = "<group>";
-		};
-		400AB98C28FF7F5F00A6DCB6 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				400AB98D28FF7F5F00A6DCB6 /* ACPEligibilityDetailsViewModel.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		400AB98E28FF7F5F00A6DCB6 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				400AB98F28FF7F5F00A6DCB6 /* ACPEligibilityDetailsDOBModel.swift */,
-				400AB99028FF7F5F00A6DCB6 /* ACPEligibilityDetailsAddressModel.swift */,
-				400AB99128FF7F5F00A6DCB6 /* ACPEligibilityDetailsModel.swift */,
-				400AB99228FF7F5F00A6DCB6 /* ACPEligibilityDetailsNameModel.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		400AB99328FF7F5F00A6DCB6 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				400AB99428FF7F5F00A6DCB6 /* ChildVC */,
-				400AB99828FF7F5F00A6DCB6 /* ACPEligibilityDetailsFailViewController.swift */,
-				400AB99928FF7F5F00A6DCB6 /* ACPEligibilityDetailsSuccessViewController.swift */,
-				400AB99A28FF7F5F00A6DCB6 /* ACPEligibilityDetailsVerifyViewController.swift */,
-				400AB99B28FF7F5F00A6DCB6 /* ACPEligibilityDetailsViewController.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		400AB99428FF7F5F00A6DCB6 /* ChildVC */ = {
-			isa = PBXGroup;
-			children = (
-				400AB99528FF7F5F00A6DCB6 /* ACPEligibilityDetailsNameViewController.swift */,
-				400AB99628FF7F5F00A6DCB6 /* ACPEligibilityDetailsDOBViewController.swift */,
-				400AB99728FF7F5F00A6DCB6 /* ACPEligibilityDetailsAddressViewController.swift */,
-			);
-			path = ChildVC;
 			sourceTree = "<group>";
 		};
 		400AB99C28FF7F5F00A6DCB6 /* Registration */ = {
@@ -382,29 +336,10 @@
 			path = Verified;
 			sourceTree = "<group>";
 		};
-		400AB9A128FF7F5F00A6DCB6 /* LandingScreen */ = {
-			isa = PBXGroup;
-			children = (
-				400AB9A228FF7F5F00A6DCB6 /* ACPLandingScreenViewController.swift */,
-			);
-			path = LandingScreen;
-			sourceTree = "<group>";
-		};
-		400AB9A328FF7F5F00A6DCB6 /* Welcome&Terms */ = {
-			isa = PBXGroup;
-			children = (
-				400AB9A428FF7F5F00A6DCB6 /* ACPWelcomeScreenViewController.swift */,
-				400AB9A528FF7F5F00A6DCB6 /* ACPTermsPrivacyViewController.swift */,
-			);
-			path = "Welcome&Terms";
-			sourceTree = "<group>";
-		};
 		400AB9A628FF7F5F00A6DCB6 /* EligibilityCheck */ = {
 			isa = PBXGroup;
 			children = (
 				400AB9A728FF7F5F00A6DCB6 /* EligibilityZip */,
-				400AB9AB28FF7F5F00A6DCB6 /* EligibilityCheckViewController.swift */,
-				400AB9AC28FF7F5F00A6DCB6 /* Views */,
 			);
 			path = EligibilityCheck;
 			sourceTree = "<group>";
@@ -422,14 +357,6 @@
 			isa = PBXGroup;
 			children = (
 				400AB9AA28FF7F5F00A6DCB6 /* EligibilityZipView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		400AB9AC28FF7F5F00A6DCB6 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				400AB9AD28FF7F5F00A6DCB6 /* EligibilityCheckView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -457,18 +384,20 @@
 		400AB9B428FF7F6000A6DCB6 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				400AB9B528FF7F6000A6DCB6 /* UIResponder+ACP.swift */,
-				400AB9B628FF7F6000A6DCB6 /* UITextField+ACP.swift */,
-				400AB9B728FF7F6000A6DCB6 /* UITableView+ACP.swift */,
-				400AB9B828FF7F6000A6DCB6 /* UICollectionView+ACP.swift */,
-				400AB9B928FF7F6000A6DCB6 /* UIViewController+Keyboard.swift */,
 				400AB9BA28FF7F6000A6DCB6 /* NSMutableParagraphStyle+ACP.swift */,
-				400AB9BB28FF7F6000A6DCB6 /* UIViewController+ACP.swift */,
-				400AB9BC28FF7F6000A6DCB6 /* UITapGestureRecognizer+ACP.swift */,
-				400AB9BD28FF7F6000A6DCB6 /* UIColor+ACP.swift */,
 				400AB9BE28FF7F6000A6DCB6 /* String+ACP.swift */,
+				404A89FF294E61B700266334 /* UIAlertController+ACP.swift */,
 				4013FAEB290892810018025F /* UIButton+ACP.swift */,
+				400AB9B828FF7F6000A6DCB6 /* UICollectionView+ACP.swift */,
+				400AB9BD28FF7F6000A6DCB6 /* UIColor+ACP.swift */,
 				4013FAED2908A3A30018025F /* UINavigationController+ACP.swift */,
+				400AB9B528FF7F6000A6DCB6 /* UIResponder+ACP.swift */,
+				404A89F4294E4AE900266334 /* UIStackView+ACP.swift */,
+				400AB9B728FF7F6000A6DCB6 /* UITableView+ACP.swift */,
+				400AB9BC28FF7F6000A6DCB6 /* UITapGestureRecognizer+ACP.swift */,
+				400AB9B628FF7F6000A6DCB6 /* UITextField+ACP.swift */,
+				400AB9BB28FF7F6000A6DCB6 /* UIViewController+ACP.swift */,
+				400AB9B928FF7F6000A6DCB6 /* UIViewController+Keyboard.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -477,7 +406,7 @@
 			isa = PBXGroup;
 			children = (
 				400AB9C028FF7F6000A6DCB6 /* AppDelegate.swift */,
-				400AB9C128FF7F6000A6DCB6 /* SceneDelegate.swift */,
+				404A8A1A294F94FD00266334 /* AppCoordinator.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -485,7 +414,6 @@
 		400AB9C228FF7F6000A6DCB6 /* Generic */ = {
 			isa = PBXGroup;
 			children = (
-				40315461290E3B62009320D8 /* Shadows */,
 				400AB9C328FF7F6000A6DCB6 /* TabMenu */,
 				400AB9C628FF7F6000A6DCB6 /* ACPTableView.swift */,
 				400AB9C728FF7F6000A6DCB6 /* ACPNavigationController.swift */,
@@ -507,6 +435,7 @@
 		400AB9CC28FF7F6000A6DCB6 /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
+				4031545F290E3002009320D8 /* ACPShadowButton.swift */,
 				400AB9CD28FF7F6000A6DCB6 /* ACPTextField.swift */,
 				400AB9CE28FF7F6000A6DCB6 /* ACPTermsAndPrivacyLabel.swift */,
 				400AB9CF28FF7F6000A6DCB6 /* ACPPickerView.swift */,
@@ -586,20 +515,10 @@
 		400AB9E728FF7F6000A6DCB6 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				400AB9E828FF7F6000A6DCB6 /* Endpoints */,
 				400AB9EB28FF7F6000A6DCB6 /* ACPRouter.swift */,
 				400AB9EC28FF7F6000A6DCB6 /* ACPEndpoint.swift */,
 			);
 			path = Networking;
-			sourceTree = "<group>";
-		};
-		400AB9E828FF7F6000A6DCB6 /* Endpoints */ = {
-			isa = PBXGroup;
-			children = (
-				400AB9E928FF7F6000A6DCB6 /* TestEndpoint.swift */,
-				400AB9EA28FF7F6000A6DCB6 /* VerifyEndpoint.swift */,
-			);
-			path = Endpoints;
 			sourceTree = "<group>";
 		};
 		400ABA3028FF8BFE00A6DCB6 /* ChildVC */ = {
@@ -711,12 +630,12 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		40315461290E3B62009320D8 /* Shadows */ = {
+		40315461290E3B62009320D8 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				4031545F290E3002009320D8 /* ACPShadowButton.swift */,
+				404A8A1C294F955E00266334 /* Coordinator.swift */,
 			);
-			path = Shadows;
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		403AD21E29075AC200C6D556 /* Home */ = {
@@ -735,6 +654,124 @@
 				403AD22229075B6400C6D556 /* ACPHomeScreenTabViewModel.swift */,
 			);
 			path = TabController;
+			sourceTree = "<group>";
+		};
+		404A8A03294F91AC00266334 /* EligibilityDetails */ = {
+			isa = PBXGroup;
+			children = (
+				400AB99B28FF7F5F00A6DCB6 /* EligibilityDetailsViewController.swift */,
+				400AB99528FF7F5F00A6DCB6 /* EligibilityDetailsNameViewController.swift */,
+				400AB99628FF7F5F00A6DCB6 /* EligibilityDetailsDOBViewController.swift */,
+				400AB99728FF7F5F00A6DCB6 /* EligibilityDetailsAddressViewController.swift */,
+			);
+			path = EligibilityDetails;
+			sourceTree = "<group>";
+		};
+		404A8A07294F938F00266334 /* Eligibility */ = {
+			isa = PBXGroup;
+			children = (
+				404A8A0A294F938F00266334 /* Coordinator */,
+				404A8A0C294F938F00266334 /* Models */,
+				404A8A0E294F938F00266334 /* Service */,
+				404A8A08294F938F00266334 /* ViewModels */,
+				404A8A11294F938F00266334 /* Views */,
+			);
+			path = Eligibility;
+			sourceTree = "<group>";
+		};
+		404A8A08294F938F00266334 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				404A8A09294F938F00266334 /* EligibilityDetailsViewModel.swift */,
+				404A8A3F294FB1A100266334 /* EligibilityVerifyViewModel.swift */,
+				404A8A41294FBB9800266334 /* EligibilitySuccessViewModel.swift */,
+				404A8A43294FBBA800266334 /* EligibilityFailViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		404A8A0A294F938F00266334 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				404A8A0B294F938F00266334 /* EligibilityCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		404A8A0C294F938F00266334 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				404A8A0D294F938F00266334 /* EligibilityResponse.swift */,
+				404A8A1F294F975F00266334 /* EligibilityModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		404A8A0E294F938F00266334 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				404A8A0F294F938F00266334 /* EligibilityService.swift */,
+				404A8A10294F938F00266334 /* EligibilityServiceEndpoint.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		404A8A11294F938F00266334 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				404A8A3C294FAD3800266334 /* EligibilityZipCodeViewController.swift */,
+				404A8A03294F91AC00266334 /* EligibilityDetails */,
+				400AB99A28FF7F5F00A6DCB6 /* EligibilityVerifyViewController.swift */,
+				400AB99928FF7F5F00A6DCB6 /* EligibilitySuccessViewController.swift */,
+				400AB99828FF7F5F00A6DCB6 /* EligibilityFailViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		404A8A1E294F96CE00266334 /* NewScreens */ = {
+			isa = PBXGroup;
+			children = (
+				404A8A23294F979800266334 /* Welcome */,
+				404A8A07294F938F00266334 /* Eligibility */,
+			);
+			path = NewScreens;
+			sourceTree = "<group>";
+		};
+		404A8A23294F979800266334 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				404A8A26294F979800266334 /* Coordinator */,
+				404A8A24294F979800266334 /* ViewModels */,
+				404A8A2D294F979800266334 /* Views */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		404A8A24294F979800266334 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				404A8A25294F979800266334 /* WelcomeViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		404A8A26294F979800266334 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				404A8A27294F979800266334 /* WelcomeCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		404A8A2D294F979800266334 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				404A8A38294F99BE00266334 /* LandingViewController.swift */,
+				404A8A2F294F979800266334 /* WelcomeViewController.swift */,
+				404A8A36294F994A00266334 /* TermsViewController.swift */,
+				404A8A3A294F9F8C00266334 /* EligibilityCheckViewController.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		40B5EDC228E224F20096B91B = {
@@ -758,8 +795,10 @@
 		40B5EDCD28E224F20096B91B /* ACP-mobile */ = {
 			isa = PBXGroup;
 			children = (
+				404A8A1E294F96CE00266334 /* NewScreens */,
 				400AB9BF28FF7F6000A6DCB6 /* App */,
 				400AB9B428FF7F6000A6DCB6 /* Extensions */,
+				40315461290E3B62009320D8 /* Protocols */,
 				400AB9C228FF7F6000A6DCB6 /* Generic */,
 				400AB9E728FF7F6000A6DCB6 /* Networking */,
 				400AB98A28FF7F5F00A6DCB6 /* Screens */,
@@ -927,70 +966,77 @@
 			buildActionMask = 2147483647;
 			files = (
 				13BF542829104B1600C94201 /* RequestCardViewModel.swift in Sources */,
-				400AB9ED28FF7F6000A6DCB6 /* ACPEligibilityDetailsViewModel.swift in Sources */,
+				404A8A1D294F955E00266334 /* Coordinator.swift in Sources */,
 				4013FADE29083DB00018025F /* ACPCardSuccessViewController.swift in Sources */,
 				400ABA2B28FF7F6000A6DCB6 /* ACPPersonalInfoViewController.swift in Sources */,
 				4031545E290E2349009320D8 /* ACPLoginViewController.swift in Sources */,
-				400AB9FB28FF7F6000A6DCB6 /* ACPLandingScreenViewController.swift in Sources */,
 				400AB9FE28FF7F6000A6DCB6 /* EligibilityZipViewController.swift in Sources */,
 				40251D46290DE0710083B89A /* ACPTransactionsCell.swift in Sources */,
 				400ABA0228FF7F6000A6DCB6 /* ACPHomeScreenEligibilityHeaderView.swift in Sources */,
 				400ABA0F28FF7F6000A6DCB6 /* String+ACP.swift in Sources */,
 				400ABA1328FF7F6000A6DCB6 /* ACPFocusableView.swift in Sources */,
 				400ABA1928FF7F6000A6DCB6 /* ACPTextField.swift in Sources */,
-				400AB9FD28FF7F6000A6DCB6 /* ACPTermsPrivacyViewController.swift in Sources */,
 				400ABA0928FF7F6000A6DCB6 /* UICollectionView+ACP.swift in Sources */,
-				400AB9F528FF7F6000A6DCB6 /* ACPEligibilityDetailsFailViewController.swift in Sources */,
+				400AB9F528FF7F6000A6DCB6 /* EligibilityFailViewController.swift in Sources */,
 				400ABA0D28FF7F6000A6DCB6 /* UITapGestureRecognizer+ACP.swift in Sources */,
 				400ABA2828FF7F6000A6DCB6 /* ACPKYCCompleteViewController.swift in Sources */,
+				404A8A39294F99BE00266334 /* LandingViewController.swift in Sources */,
 				40251D44290DE04C0083B89A /* ACPTransactionsViewController.swift in Sources */,
-				400ABA2C28FF7F6000A6DCB6 /* TestEndpoint.swift in Sources */,
 				4013FAEE2908A3A30018025F /* UINavigationController+ACP.swift in Sources */,
-				400AB9F428FF7F6000A6DCB6 /* ACPEligibilityDetailsAddressViewController.swift in Sources */,
+				400AB9F428FF7F6000A6DCB6 /* EligibilityDetailsAddressViewController.swift in Sources */,
 				400ABA1528FF7F6000A6DCB6 /* ACPNavigationController.swift in Sources */,
-				400AB9EF28FF7F6000A6DCB6 /* ACPEligibilityDetailsAddressModel.swift in Sources */,
+				404A8A37294F994A00266334 /* TermsViewController.swift in Sources */,
+				404A8A35294F979800266334 /* WelcomeViewController.swift in Sources */,
+				404A8A16294F938F00266334 /* EligibilityResponse.swift in Sources */,
 				4013FAE7290844380018025F /* ACPEmptyWalletBalanceView.swift in Sources */,
 				400ABA2128FF7F6000A6DCB6 /* ACPVerifyEmailViewController.swift in Sources */,
+				404A8A31294F979800266334 /* WelcomeCoordinator.swift in Sources */,
 				400ABA2428FF7F6000A6DCB6 /* ACPIdentityProofViewController.swift in Sources */,
+				404A8A18294F938F00266334 /* EligibilityServiceEndpoint.swift in Sources */,
 				400ABA1028FF7F6000A6DCB6 /* AppDelegate.swift in Sources */,
+				404A8A20294F975F00266334 /* EligibilityModel.swift in Sources */,
 				400ABA0728FF7F6000A6DCB6 /* UITextField+ACP.swift in Sources */,
 				400ABA1828FF7F6000A6DCB6 /* ACPTabMenuTitleCell.swift in Sources */,
 				4013FAEA29085B220018025F /* ACPDebitCardView.swift in Sources */,
-				400ABA0028FF7F6000A6DCB6 /* EligibilityCheckViewController.swift in Sources */,
-				400AB9F828FF7F6000A6DCB6 /* ACPEligibilityDetailsViewController.swift in Sources */,
-				400AB9F028FF7F6000A6DCB6 /* ACPEligibilityDetailsModel.swift in Sources */,
+				400AB9F828FF7F6000A6DCB6 /* EligibilityDetailsViewController.swift in Sources */,
+				404A8A00294E61B700266334 /* UIAlertController+ACP.swift in Sources */,
 				400ABA2528FF7F6000A6DCB6 /* ACPSelfieViewController.swift in Sources */,
+				404A8A3D294FAD3800266334 /* EligibilityZipCodeViewController.swift in Sources */,
 				133F86922908714E00663815 /* ApplyForServiceView.swift in Sources */,
 				40251D41290CD2840083B89A /* ACPCardModel.swift in Sources */,
 				400ABA1F28FF7F6000A6DCB6 /* ACPPersonalInfoViewModel.swift in Sources */,
-				400AB9F228FF7F6000A6DCB6 /* ACPEligibilityDetailsNameViewController.swift in Sources */,
+				400AB9F228FF7F6000A6DCB6 /* EligibilityDetailsNameViewController.swift in Sources */,
 				133F868F290870EC00663815 /* ApplyACPViewController.swift in Sources */,
-				400ABA0128FF7F6000A6DCB6 /* EligibilityCheckView.swift in Sources */,
-				400AB9F728FF7F6000A6DCB6 /* ACPEligibilityDetailsVerifyViewController.swift in Sources */,
+				400AB9F728FF7F6000A6DCB6 /* EligibilityVerifyViewController.swift in Sources */,
 				400ABA0C28FF7F6000A6DCB6 /* UIViewController+ACP.swift in Sources */,
 				133F86942908715900663815 /* ApplyForServiceViewController.swift in Sources */,
 				400ABA3228FF904B00A6DCB6 /* ACPTabMenuDotCell.swift in Sources */,
 				400ABA0828FF7F6000A6DCB6 /* UITableView+ACP.swift in Sources */,
+				404A8A3B294F9F8C00266334 /* EligibilityCheckViewController.swift in Sources */,
 				400ABA0E28FF7F6000A6DCB6 /* UIColor+ACP.swift in Sources */,
 				40315460290E3002009320D8 /* ACPShadowButton.swift in Sources */,
 				400ABA2928FF7F6000A6DCB6 /* ACPBankInfoViewController.swift in Sources */,
 				133F868D29086E6E00663815 /* ApplyACPView.swift in Sources */,
 				400AB9FF28FF7F6000A6DCB6 /* EligibilityZipView.swift in Sources */,
-				400ABA1128FF7F6000A6DCB6 /* SceneDelegate.swift in Sources */,
 				403AD22029075B0600C6D556 /* ACPHomeScreenTabViewController.swift in Sources */,
 				400ABA0428FF7F6000A6DCB6 /* ACPHomeScreenViewController.swift in Sources */,
-				400AB9F328FF7F6000A6DCB6 /* ACPEligibilityDetailsDOBViewController.swift in Sources */,
+				404A89F5294E4AE900266334 /* UIStackView+ACP.swift in Sources */,
+				400AB9F328FF7F6000A6DCB6 /* EligibilityDetailsDOBViewController.swift in Sources */,
 				400ABA2E28FF7F6000A6DCB6 /* ACPRouter.swift in Sources */,
 				4013FAEC290892810018025F /* UIButton+ACP.swift in Sources */,
 				400ABA1428FF7F6000A6DCB6 /* ACPTableView.swift in Sources */,
+				404A8A15294F938F00266334 /* EligibilityCoordinator.swift in Sources */,
+				404A8A14294F938F00266334 /* EligibilityDetailsViewModel.swift in Sources */,
 				400ABA1C28FF7F6000A6DCB6 /* ACPImageButton.swift in Sources */,
-				400AB9EE28FF7F6000A6DCB6 /* ACPEligibilityDetailsDOBModel.swift in Sources */,
 				400ABA0B28FF7F6000A6DCB6 /* NSMutableParagraphStyle+ACP.swift in Sources */,
+				404A8A17294F938F00266334 /* EligibilityService.swift in Sources */,
 				400ABA2328FF7F6000A6DCB6 /* ACPPersonalInfoDetailsViewController.swift in Sources */,
+				404A8A1B294F94FD00266334 /* AppCoordinator.swift in Sources */,
 				400ABA0528FF7F6000A6DCB6 /* ACPHomeScreenHeaderView.swift in Sources */,
-				400AB9F628FF7F6000A6DCB6 /* ACPEligibilityDetailsSuccessViewController.swift in Sources */,
+				400AB9F628FF7F6000A6DCB6 /* EligibilitySuccessViewController.swift in Sources */,
 				400ABA0328FF7F6000A6DCB6 /* ACPHomeScreenProgramCell.swift in Sources */,
 				400ABA2228FF7F6000A6DCB6 /* ACPVerifyEmailKeyboardView.swift in Sources */,
+				404A8A30294F979800266334 /* WelcomeViewModel.swift in Sources */,
 				400ABA1E28FF7F6000A6DCB6 /* ACPCircleLoadingBarView.swift in Sources */,
 				400ABA2028FF7F6000A6DCB6 /* ACPVerifyEmailCodeView.swift in Sources */,
 				13581443290F2B1500612D8B /* RequestCardViewController.swift in Sources */,
@@ -1002,12 +1048,12 @@
 				133F868A29086DC400663815 /* ACPSuccesViewController.swift in Sources */,
 				400ABA2F28FF7F6000A6DCB6 /* ACPEndpoint.swift in Sources */,
 				400ABA2628FF7F6000A6DCB6 /* ACPScanIDViewController.swift in Sources */,
-				400AB9F128FF7F6000A6DCB6 /* ACPEligibilityDetailsNameModel.swift in Sources */,
 				4013FAE12908427F0018025F /* ACPEmptyWalletViewController.swift in Sources */,
 				400ABA0628FF7F6000A6DCB6 /* UIResponder+ACP.swift in Sources */,
-				400AB9FC28FF7F6000A6DCB6 /* ACPWelcomeScreenViewController.swift in Sources */,
-				400ABA2D28FF7F6000A6DCB6 /* VerifyEndpoint.swift in Sources */,
+				404A8A40294FB1A100266334 /* EligibilityVerifyViewModel.swift in Sources */,
 				400ABA1228FF7F6000A6DCB6 /* ACPTabMenuViewController.swift in Sources */,
+				404A8A44294FBBA800266334 /* EligibilityFailViewModel.swift in Sources */,
+				404A8A42294FBB9800266334 /* EligibilitySuccessViewModel.swift in Sources */,
 				400ABA1A28FF7F6000A6DCB6 /* ACPTermsAndPrivacyLabel.swift in Sources */,
 				400ABA2728FF7F6000A6DCB6 /* ACPKYCViewController.swift in Sources */,
 				4013FAE32908428A0018025F /* ACPWalletViewController.swift in Sources */,
