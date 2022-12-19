@@ -23,8 +23,8 @@ class EligibilitySuccessViewModel {
 
     // MARK: - Coordination
 
-    func goToEligibilityRegistration() {
-        coordinator?.goToEligibilityRegistration(with: model.eligibilityCheckId)
+    func goToRegistration() {
+        coordinator?.goToRegistration(model: model)
     }
 
     func dismiss() {

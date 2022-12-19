@@ -1,5 +1,5 @@
 //
-//  EligibilityZipViewController.swift
+//  EligibilityZipCodeViewController.swift
 //  ACP-mobile
 //
 //  Created by Abi  on 4. 10. 2022..
@@ -8,19 +8,33 @@
 import UIKit
 import SnapKit
 
-class EligibilityZipViewController: UIViewController {
+class EligibilityZipCodeViewController: UIViewController {
+
+    // MARK: - Properties
+
+    private let viewModel: EligibilityZipCodeViewModel
 
     // MARK: - Views
 
-    private let zipCodeView: EligibilityZipView = {
-        let view = EligibilityZipView()
+    private let zipCodeView: EligibilityZipCodeView = {
+        let view = EligibilityZipCodeView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
 
-    // MARK: - Properties
-
     private let infoLabel = ACPTermsAndPrivacyLabel()
+
+    // MARK: - Initialization
+
+    init(viewModel: EligibilityZipCodeViewModel) {
+        self.viewModel = viewModel
+
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     // MARK: - Life Cycle
 
@@ -63,9 +77,10 @@ class EligibilityZipViewController: UIViewController {
             make.top.left.right.equalTo(view.safeAreaLayoutGuide)
             make.bottom.equalTo(infoLabel.snp.top)
         }
+
         infoLabel.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.HeaderInsetHorizontal)
-            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(Constants.Constraints.HeaderInsetVertical)
+            make.left.right.equalToSuperview().inset(Constants.HeaderInsetHorizontal)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(Constants.HeaderInsetVertical)
         }
     }
 
@@ -88,35 +103,41 @@ class EligibilityZipViewController: UIViewController {
         }
     }
 
+    // MARK: - Navigation
+
+    @objc override func didTapRightButton() {
+        viewModel.dismiss()
+    }
+
+    @objc override func didTapLeftButton() {
+        viewModel.goBack()
+    }
+
     // MARK: - Constants
 
     private struct Constants {
-        struct Constraints {
-            static let HeaderInsetHorizontal: CGFloat = 35
-            static let HeaderInsetVertical: CGFloat = 5
-            static let HeaderCornerRadius: CGFloat = 10
-            static let HeaderHeight: CGFloat = 40
-        }
+        static let HeaderInsetHorizontal: CGFloat = 35
+        static let HeaderInsetVertical: CGFloat = 5
+        static let HeaderCornerRadius: CGFloat = 10
+        static let HeaderHeight: CGFloat = 40
     }
 }
 
 // MARK: - ACPTermsAndPrivacyLabelDelegate
 
-extension EligibilityZipViewController: ACPTermsAndPrivacyLabelDelegate {
+extension EligibilityZipCodeViewController: ACPTermsAndPrivacyLabelDelegate {
     func didTapTerms() {
-        // TODO: Add link
-        print("Clicked on terms")
+        viewModel.openTerms()
     }
 
     func didTapPrivacy() {
-        // TODO: Add link
-        print("Clicked on privacy")
+        viewModel.openPrivacyPolicy()
     }
 }
 
 // MARK: - EligibilityCheckDelegate
 
-extension EligibilityZipViewController: EligibilityZipCodeDelegate {
+extension EligibilityZipCodeViewController: EligibilityZipCodeDelegate {
     func didPressDone(_ textfield: UITextField, _ secondTextfield: UITextField) {
         textfield.resignFirstResponder()
         secondTextfield.resignFirstResponder()
@@ -129,12 +150,15 @@ extension EligibilityZipViewController: EligibilityZipCodeDelegate {
     }
 
     func didTapNextButton() {
-//        let targetVC = ACPEligibilityDetailsViewController(viewModel: viewModel)
-//        navigationController?.pushViewController(targetVC, animated: true)
+        guard let firstPart = zipCodeView.zipFirstCodeTextField.text,
+              let secondPart = zipCodeView.zipSecondCodeTextField.text
+        else { return }
+        viewModel.model.zipCode = "\(firstPart) - \(secondPart)"
+        viewModel.goToDetails()
     }
 }
 
-extension EligibilityZipViewController: UITextFieldDelegate {
+extension EligibilityZipCodeViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == zipCodeView.zipFirstCodeTextField {
             zipCodeView.zipFirstCodeTextField.becomeFirstResponder()

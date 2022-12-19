@@ -104,18 +104,18 @@ class EligibilityDetailsViewController: UIViewController {
 
 extension EligibilityDetailsViewController: ACPTermsAndPrivacyLabelDelegate {
     func didTapTerms() {
-        // TODO: Add link
+        viewModel.openTerms()
     }
 
     func didTapPrivacy() {
-        // TODO: Add link
+        viewModel.openPrivacyPolicy()
     }
 }
 
 // MARK: - ACPTabMenuDelegate
 
 extension EligibilityDetailsViewController: ACPTabMenuDelegate {
-    override func didTapRightButton() {
+    @objc override func didTapRightButton() {
         viewModel.dismiss()
     }
 

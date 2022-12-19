@@ -12,8 +12,9 @@ protocol WelcomeCoordinatorProtocol: Coordinator {
     func goToWelcomePageOne()
     func goToWelcomePageTwo()
     func goToEligibilityCheck()
-    func openLink(url: String)
     func goToEligibility()
+    func goToKYC()
+    func openLink(url: String)
 }
 
 class WelcomeCoordinator: WelcomeCoordinatorProtocol {
@@ -77,13 +78,19 @@ class WelcomeCoordinator: WelcomeCoordinatorProtocol {
         let coordinator = EligibilityCoordinator(navigationController: navigationController)
         addChild(coordinator)
         coordinator.onDismiss = { [weak self] in
-            self?.onDismiss?()
             self?.removeChild(coordinator)
         }
-        
+        coordinator.goToKYCCoordinator = { [weak self] in
+            self?.removeChild(coordinator)
+            self?.goToKYC()
+        }
     }
 
-    func goToRegistration() {
-
+    func goToKYC() {
+        let coordinator = KYCCoordinator(navigationController: navigationController)
+        addChild(coordinator)
+        coordinator.onDismiss = { [weak self] in
+            self?.removeChild(coordinator)
+        }
     }
 }

@@ -1,5 +1,5 @@
 //
-//  ACPVerifiedRegistrationViewController.swift
+//  EligibilityRegistrationViewController.swift
 //  ACP-mobile
 //
 //  Created by Adi on 04/10/2022.
@@ -8,11 +8,11 @@
 import UIKit
 import SnapKit
 
-class ACPVerifiedRegistrationViewController: UIViewController {
+class EligibilityRegistrationViewController: UIViewController {
 
     // MARK: - Properties
 
-    private var isSecureEntry = true
+    private let viewModel: EligibilityRegistrationViewModel
 
     private lazy var textFields: [TextInput] = [
         emailTextField, passwordTextField, confirmTextField
@@ -41,8 +41,8 @@ class ACPVerifiedRegistrationViewController: UIViewController {
 
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        // TODO: Set the name
-        label.attributedText = NSMutableAttributedString.subtitleString(key: "verified_register_subtitle")
+        label.font = .systemFont(ofSize: 14, weight: .regular)
+        label.textColor = .gray01Light
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 2
@@ -60,7 +60,7 @@ class ACPVerifiedRegistrationViewController: UIViewController {
         let view = ACPTextField()
         view.titleLabel.text = .localizedString(key: "verified_register_password")
         view.textField.delegate = self
-        view.toggleSecureEntry(isSecureEntry)
+        view.toggleSecureEntry(viewModel.isSecureEntry)
         let tap = UITapGestureRecognizer(target: self, action: #selector(toggleSecureEntry))
         view.textFieldImage?.addGestureRecognizer(tap)
         return view
@@ -70,7 +70,7 @@ class ACPVerifiedRegistrationViewController: UIViewController {
         let view = ACPTextField()
         view.titleLabel.text = .localizedString(key: "verified_register_confirm")
         view.textField.delegate = self
-        view.toggleSecureEntry(isSecureEntry)
+        view.toggleSecureEntry(viewModel.isSecureEntry)
         let tap = UITapGestureRecognizer(target: self, action: #selector(toggleSecureEntry))
         view.textFieldImage?.addGestureRecognizer(tap)
         return view
@@ -78,7 +78,7 @@ class ACPVerifiedRegistrationViewController: UIViewController {
 
     private lazy var registerButton: UIButton = {
         let button = UIButton()
-        button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
+        button.layer.cornerRadius = Constants.ButtonCornerRadius
         button.layer.masksToBounds = true
         button.isUserInteractionEnabled = false
         button.backgroundColor = .lavenderGray
@@ -89,6 +89,18 @@ class ACPVerifiedRegistrationViewController: UIViewController {
     }()
 
     private let infoLabel = ACPTermsAndPrivacyLabel()
+
+    // MARK: - Initialization
+
+    init(viewModel: EligibilityRegistrationViewModel) {
+        self.viewModel = viewModel
+
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     // MARK: - Life Cycle
 
@@ -115,6 +127,11 @@ class ACPVerifiedRegistrationViewController: UIViewController {
 
         addSubviews()
         setupConstraints()
+
+        subtitleLabel.text = .formatLocalizedString(
+            key: "verified_register_subtitle",
+            values: viewModel.firstName
+        )
     }
 
     private func addSubviews() {
@@ -131,54 +148,53 @@ class ACPVerifiedRegistrationViewController: UIViewController {
     private func setupConstraints() {
         registerImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(Constants.Constraints.ContentInsetVertical)
-            make.width.height.equalTo(Constants.Constraints.ImageSize)
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(Constants.ContentInsetVertical)
+            make.width.height.equalTo(Constants.ImageSize)
         }
 
         titleLabel.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.top.equalTo(registerImageView.snp.bottom).offset(Constants.Constraints.ContentInsetVertical)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.top.equalTo(registerImageView.snp.bottom).offset(Constants.ContentInsetVertical)
         }
 
         subtitleLabel.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.top.equalTo(titleLabel.snp.bottom).offset(Constants.Constraints.SubtitleOffsetVertical)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.top.equalTo(titleLabel.snp.bottom).offset(Constants.SubtitleOffsetVertical)
         }
 
         emailTextField.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.top.equalTo(subtitleLabel.snp.bottom).offset(Constants.Constraints.EmailOffsetVertical)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.top.equalTo(subtitleLabel.snp.bottom).offset(Constants.EmailOffsetVertical)
         }
 
         passwordTextField.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.top.equalTo(emailTextField.snp.bottom).offset(Constants.Constraints.TextFieldOffsetVertical)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.top.equalTo(emailTextField.snp.bottom).offset(Constants.TextFieldOffsetVertical)
         }
 
         confirmTextField.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.top.equalTo(passwordTextField.snp.bottom).offset(Constants.Constraints.TextFieldOffsetVertical)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.top.equalTo(passwordTextField.snp.bottom).offset(Constants.TextFieldOffsetVertical)
         }
 
         registerButton.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.height.equalTo(Constants.Constraints.ButtonHeight)
-            make.top.equalTo(confirmTextField.snp.bottom).offset(Constants.Constraints.ButtonOffsetVertical)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.height.equalTo(Constants.ButtonHeight)
+            make.top.equalTo(confirmTextField.snp.bottom).offset(Constants.ButtonOffsetVertical)
         }
 
         infoLabel.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(Constants.Constraints.InfoLabelInsetY)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(Constants.InfoLabelInsetY)
         }
     }
 
     // MARK: - Callbacks
 
     @objc func toggleSecureEntry() {
-        isSecureEntry = !isSecureEntry
-
-        passwordTextField.toggleSecureEntry(isSecureEntry)
-        confirmTextField.toggleSecureEntry(isSecureEntry)
+        viewModel.isSecureEntry.toggle()
+        passwordTextField.toggleSecureEntry(viewModel.isSecureEntry)
+        confirmTextField.toggleSecureEntry(viewModel.isSecureEntry)
     }
 
     @objc func didTapButton() {
@@ -186,8 +202,7 @@ class ACPVerifiedRegistrationViewController: UIViewController {
             return
         }
 
-        let targetVC = ACPRegistrationCompleteViewController()
-        navigationController?.pushViewController(targetVC, animated: true)
+        viewModel.register(errorCompletion: showServerError)
     }
 
     func checkPasswords() -> Bool {
@@ -208,32 +223,44 @@ class ACPVerifiedRegistrationViewController: UIViewController {
         }
     }
 
+    func showServerError() {
+        UIAlertController.showErrorAlert(message: "Server error", from: self)
+    }
+
+    // MARK: - Navigation
+
+    @objc override func didTapRightButton() {
+        viewModel.dismiss()
+    }
+
+    @objc override func didTapLeftButton() {
+        viewModel.goBack()
+    }
+
     // MARK: - Constants
 
     private struct Constants {
-        struct Constraints {
-            static let ContentInsetVertical: CGFloat = 30
-            static let ContentInsetHorizontal: CGFloat = 35
+        static let ContentInsetVertical: CGFloat = 30
+        static let ContentInsetHorizontal: CGFloat = 35
 
-            static let ImageSize: CGFloat = 128
+        static let ImageSize: CGFloat = 128
 
-            static let SubtitleOffsetVertical: CGFloat = 10
+        static let SubtitleOffsetVertical: CGFloat = 10
 
-            static let EmailOffsetVertical: CGFloat = 30
-            static let TextFieldOffsetVertical: CGFloat = 10
+        static let EmailOffsetVertical: CGFloat = 30
+        static let TextFieldOffsetVertical: CGFloat = 10
 
-            static let ButtonHeight: CGFloat = 46
-            static let ButtonCornerRadius: CGFloat = 10
-            static let ButtonOffsetVertical: CGFloat = 60
+        static let ButtonHeight: CGFloat = 46
+        static let ButtonCornerRadius: CGFloat = 10
+        static let ButtonOffsetVertical: CGFloat = 60
 
-            static let InfoLabelInsetY: CGFloat = 5
-        }
+        static let InfoLabelInsetY: CGFloat = 5
     }
 }
 
 // MARK: - UITextFieldDelegate
 
-extension ACPVerifiedRegistrationViewController: UITextFieldDelegate {
+extension EligibilityRegistrationViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         guard let currentIndex = textFields.firstIndex(where: { $0.textField == textField }) else {
             return true

@@ -12,8 +12,10 @@ class EligibilityVerifyViewModel {
     // MARK: - Properties
 
     private weak var coordinator: EligibilityCoordinatorProtocol?
-    private let service: EligibilityServiceProtocol = EligibilityService()
+    private let service = EligibilityService()
     private var model: EligibilityModel
+
+    private var nationalVerifierUrl: String { "nationalVerifier" }
 
     var firstName: String { model.firstName }
 
@@ -23,6 +25,8 @@ class EligibilityVerifyViewModel {
         self.coordinator = coordinator
         self.model = model
     }
+
+    // MARK: - Network
 
     func verifyData() {
         service.eligibilityCheck { [weak self] data, error in
@@ -49,6 +53,10 @@ class EligibilityVerifyViewModel {
 
     func goToSuccess() {
         coordinator?.goToSuccess(model: model)
+    }
+
+    func openNationalVerifier() {
+        coordinator?.openLink(url: nationalVerifierUrl)
     }
 
     func goToFail() {

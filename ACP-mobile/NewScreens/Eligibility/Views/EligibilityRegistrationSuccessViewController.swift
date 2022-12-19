@@ -1,14 +1,18 @@
 //
-//  ACPRegistrationCompleteViewController.swift
+//  EligibilityRegistrationSuccessViewController.swift
 //  ACP-mobile
 //
-//  Created by Adi on 19/10/2022.
+//  Created by Adi on 19/12/2022.
 //
 
 import UIKit
 import SnapKit
 
-class ACPRegistrationCompleteViewController: UIViewController {
+class EligibilityRegistrationSuccessViewController: UIViewController {
+
+    // MARK: - Properties
+
+    private let viewModel: EligibilityRegistrationSuccessViewModel
 
     // MARK: - Views
 
@@ -56,6 +60,18 @@ class ACPRegistrationCompleteViewController: UIViewController {
         return button
     }()
 
+    // MARK: - Initialization
+
+    init(viewModel: EligibilityRegistrationSuccessViewModel) {
+        self.viewModel = viewModel
+
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
@@ -92,24 +108,24 @@ class ACPRegistrationCompleteViewController: UIViewController {
     private func setupConstraints() {
         imageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(Constants.Constraints.ImageInsetY)
-            make.height.width.equalTo(Constants.Constraints.ImageSize)
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(Constants.ImageInsetY)
+            make.height.width.equalTo(Constants.ImageSize)
         }
 
         titleLabel.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInset)
-            make.top.equalTo(imageView.snp.bottom).offset(Constants.Constraints.TitleOffset)
+            make.left.right.equalToSuperview().inset(Constants.ContentInset)
+            make.top.equalTo(imageView.snp.bottom).offset(Constants.TitleOffset)
         }
 
         subtitleLabel.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInset)
-            make.top.equalTo(titleLabel.snp.bottom).offset(Constants.Constraints.SubtitleOffset)
+            make.left.right.equalToSuperview().inset(Constants.ContentInset)
+            make.top.equalTo(titleLabel.snp.bottom).offset(Constants.SubtitleOffset)
         }
 
         loginButton.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInset)
-            make.height.equalTo(Constants.Constraints.ButtonHeight)
-            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(Constants.Constraints.ButtonInsetVertical)
+            make.left.right.equalToSuperview().inset(Constants.ContentInset)
+            make.height.equalTo(Constants.ButtonHeight)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(Constants.ButtonInsetVertical)
         }
     }
 
@@ -124,30 +140,29 @@ class ACPRegistrationCompleteViewController: UIViewController {
         return string
     }
 
-    // MARK: - Callbacks
+    // MARK: - Coordination
+
+    @objc override func didTapRightButton() {
+        viewModel.dismiss()
+    }
 
     @objc func didTapLoginButton() {
-        let targetVC = UIViewController()
-
-        navigationController?.pushViewController(targetVC, animated: true)
-        navigationController?.popToRootInTheBackground()
+        viewModel.goToLogin()
     }
 
     // MARK: - Constants
 
     private struct Constants {
-        struct Constraints {
-            static let ImageInsetY: CGFloat = 128
-            static let ImageSize: CGFloat = 128
+        static let ImageInsetY: CGFloat = 128
+        static let ImageSize: CGFloat = 128
 
-            static let TitleOffset: CGFloat = 60
-            static let ContentInset: CGFloat = 35
+        static let TitleOffset: CGFloat = 60
+        static let ContentInset: CGFloat = 35
 
-            static let SubtitleOffset: CGFloat = 20
+        static let SubtitleOffset: CGFloat = 20
 
-            static let ButtonHeight: CGFloat = 46
-            static let ButtonInsetVertical: CGFloat = 70
-            static let ButtonCornerRadius: CGFloat = 10
-        }
+        static let ButtonHeight: CGFloat = 46
+        static let ButtonInsetVertical: CGFloat = 70
+        static let ButtonCornerRadius: CGFloat = 10
     }
 }

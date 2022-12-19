@@ -1,11 +1,13 @@
 //
-//  EligibilityFailViewModel.swift
+//  EligibilityRegistrationSuccessViewModel.swift
 //  ACP-mobile
 //
-//  Created by Adi on 18/12/2022.
+//  Created by Adi on 19/12/2022.
 //
 
-class EligibilityFailViewModel {
+import UIKit
+
+class EligibilityRegistrationSuccessViewModel {
 
     // MARK: - Properties
 
@@ -21,16 +23,8 @@ class EligibilityFailViewModel {
 
     // MARK: - Coordination
 
-    func tryAgain() {
-        coordinator?.tryAgain()
-    }
-
-    func goToKYC() {
-        coordinator?.goToKYC()
-    }
-
-    func openNationalVerifier() {
-        coordinator?.openLink(url: nationalVerifierUrl)
+    func goToLogin() {
+        coordinator?.goToLogin()
     }
 
     func dismiss() {

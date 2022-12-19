@@ -18,4 +18,6 @@ struct EligibilityModel {
     var state = 0
     var zipCode = ""
     var eligibilityCheckId = ""
+    var email = ""
+    var password = ""
 }

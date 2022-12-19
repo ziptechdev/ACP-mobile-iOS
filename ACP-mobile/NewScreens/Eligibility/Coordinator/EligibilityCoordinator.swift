@@ -15,8 +15,11 @@ protocol EligibilityCoordinatorProtocol: Coordinator {
     func goToSuccess(model: EligibilityModel)
     func goToFail()
     func tryAgain()
-    func goToEligibilityRegistration(with id: String)
-    func goToRegistration()
+    func goToRegistration(model: EligibilityModel)
+    func goToRegistrationSuccess()
+    func goToLogin()
+    func goToKYC()
+    func openLink(url: String)
 }
 
 class EligibilityCoordinator: EligibilityCoordinatorProtocol {
@@ -27,6 +30,8 @@ class EligibilityCoordinator: EligibilityCoordinatorProtocol {
     var childCoordinators: [Coordinator] = []
     var navigationController: ACPNavigationController
 
+    var goToKYCCoordinator: (() -> Void)?
+
     // MARK: - Initialization
 
     init(navigationController: ACPNavigationController) {
@@ -36,7 +41,7 @@ class EligibilityCoordinator: EligibilityCoordinatorProtocol {
     // MARK: - Start / Dismiss
 
     func start() {
-        goToDetails(model: EligibilityModel())
+        goToZipCode()
     }
 
     func dismiss() {
@@ -52,7 +57,9 @@ class EligibilityCoordinator: EligibilityCoordinatorProtocol {
     // MARK: - Coordination
 
     func goToZipCode() {
-
+        let viewModel = EligibilityZipCodeViewModel(coordinator: self)
+        let destinationVC = EligibilityZipCodeViewController(viewModel: viewModel)
+        navigationController.pushViewController(destinationVC, animated: true)
     }
 
     func goToDetails(model: EligibilityModel) {
@@ -84,15 +91,36 @@ class EligibilityCoordinator: EligibilityCoordinatorProtocol {
         navigationController.popInTheBackgroundToVC(EligibilityCheckViewController.self)
     }
 
-    func goToEligibilityRegistration(with id: String) {
-        print(id)
-        let viewController = ACPVerifiedRegistrationViewController()
+    func goToRegistration(model: EligibilityModel) {
+        let viewModel = EligibilityRegistrationViewModel(coordinator: self, model: model)
+        let viewController = EligibilityRegistrationViewController(viewModel: viewModel)
+        navigationController.pushViewController(viewController, animated: true)
+        navigationController.popInTheBackgroundToVC(EligibilityCheckViewController.self)
+    }
+
+    func goToRegistrationSuccess() {
+        let viewModel = EligibilityRegistrationSuccessViewModel(coordinator: self)
+        let viewController = EligibilityRegistrationSuccessViewController(viewModel: viewModel)
         navigationController.pushViewController(viewController, animated: true)
     }
 
-    func goToRegistration() {
-        let viewController = ACPNotVerifiedRegistrationViewController()
-        navigationController.pushViewController(viewController, animated: true)
-        navigationController.popInTheBackgroundToVC(EligibilityCheckViewController.self)
+    func goToKYC() {
+        goToKYCCoordinator?()
+    }
+
+    func goToLogin() {
+        let coordinator = LoginCoordinator(navigationController: navigationController)
+        addChild(coordinator)
+        coordinator.onDismiss = { [weak self] in
+            self?.removeChild(coordinator)
+            self?.dismiss()
+        }
+    }
+
+    func openLink(url: String) {
+        print("Coordinator opened web url for \(url)")
+        let destinationVC = UIViewController()
+        destinationVC.view.backgroundColor = .white
+        navigationController.present(destinationVC, animated: true)
     }
 }

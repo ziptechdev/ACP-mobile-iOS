@@ -181,13 +181,13 @@ class EligibilityCheckViewController: UIViewController {
         let termsRange = info.range(of: .localizedString(key: "eligibility_details_highlight_text"))
 
         if sender.didTapAttributedTextInLabel(label: descriptionLabel, inRange: termsRange) {
-            didTapTextLink()
+            viewModel.openAssistanceLink()
         }
     }
 
     // MARK: - Navigation
 
-    override func didTapRightButton() {
+    @objc override func didTapRightButton() {
         viewModel.dismiss()
     }
 
@@ -196,8 +196,7 @@ class EligibilityCheckViewController: UIViewController {
     }
 
     @objc func createNewAccountTapped() {
-        let targetVC = ACPNotVerifiedRegistrationViewController()
-        navigationController?.pushViewController(targetVC, animated: true)
+        viewModel.goToKYC()
     }
 
     // MARK: - Constants
@@ -224,9 +223,5 @@ extension EligibilityCheckViewController: ACPTermsAndPrivacyLabelDelegate {
 
     func didTapPrivacy() {
         viewModel.openPrivacyPolicy()
-    }
-
-    func didTapTextLink() {
-        viewModel.openAssistanceLink()
     }
 }

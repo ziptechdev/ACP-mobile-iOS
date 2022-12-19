@@ -200,8 +200,7 @@ class EligibilityVerifyViewController: UIViewController {
         let highlightRange = string.range(of: .localizedString(key: "verify_process_highlight"))
 
         if sender.didTapAttributedTextInLabel(label: subtitleLabel, inRange: highlightRange) {
-            // TODO: Add Link
-            print("NationalVerifier")
+            viewModel.openNationalVerifier()
         }
     }
 

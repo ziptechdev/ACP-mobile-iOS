@@ -12,8 +12,8 @@ class WelcomeViewModel {
     private weak var coordinator: WelcomeCoordinatorProtocol?
 
     private var termsUrl: String { "terms" }
-    private var privacyPolicyUrl: String { "terms" }
-    private var assistanceUrl: String { "terms" }
+    private var privacyPolicyUrl: String { "privacy" }
+    private var assistanceUrl: String { "assistance" }
 
     // MARK: - Initialization
 
@@ -37,6 +37,10 @@ class WelcomeViewModel {
 
     func goToEligibility() {
         coordinator?.goToEligibility()
+    }
+
+    func goToKYC() {
+        coordinator?.goToKYC()
     }
 
     func openTerms() {

@@ -1,5 +1,5 @@
 //
-//  ACPLoginViewController.swift
+//  LoginViewController.swift
 //  ACP-mobile
 //
 //  Created by Adi on 30/10/2022.
@@ -8,11 +8,11 @@
 import UIKit
 import SnapKit
 
-class ACPLoginViewController: UIViewController {
+class LoginViewController: UIViewController {
 
     // MARK: - Properties
 
-    private var isSecureEntry = true
+    private var viewModel: LoginViewModel
 
     private lazy var textFields: [TextInput] = [
         emailTextField, passwordTextField
@@ -49,7 +49,7 @@ class ACPLoginViewController: UIViewController {
         let view = ACPTextField()
         view.titleLabel.text = .localizedString(key: "login_password")
         view.textField.delegate = self
-        view.toggleSecureEntry(isSecureEntry)
+        view.toggleSecureEntry(viewModel.isSecureEntry)
         let tap = UITapGestureRecognizer(target: self, action: #selector(toggleSecureEntry))
         view.textFieldImage?.addGestureRecognizer(tap)
         return view
@@ -80,6 +80,18 @@ class ACPLoginViewController: UIViewController {
 
     private let infoLabel = ACPTermsAndPrivacyLabel()
 
+    // MARK: - Initialization
+
+    init(viewModel: LoginViewModel) {
+        self.viewModel = viewModel
+
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
@@ -94,7 +106,10 @@ class ACPLoginViewController: UIViewController {
         title = .localizedString(key: "login_page_title")
         navigationController?.navigationBar.isHidden = false
 
-        setupRightNavigationBarButton()
+        if viewModel.showCloseButton {
+            setupRightNavigationBarButton()
+            navigationItem.leftBarButtonItem = nil
+        }
     }
 
     // MARK: - UI
@@ -159,16 +174,16 @@ class ACPLoginViewController: UIViewController {
     // MARK: - Callbacks
 
     @objc func toggleSecureEntry() {
-        isSecureEntry = !isSecureEntry
-
-        passwordTextField.toggleSecureEntry(isSecureEntry)
+        viewModel.isSecureEntry.toggle()
+        passwordTextField.toggleSecureEntry(viewModel.isSecureEntry)
     }
 
     @objc func didTapButton() {
-        let targetVC = ACPHomeScreenTabViewController()
+        viewModel.login()
+    }
 
-        navigationController?.pushViewController(targetVC, animated: true)
-        navigationController?.popToRootInTheBackground()
+    @objc override func didTapRightButton() {
+        viewModel.dismiss()
     }
 
     // MARK: - Constants
@@ -192,7 +207,7 @@ class ACPLoginViewController: UIViewController {
 
 // MARK: - UITextFieldDelegate
 
-extension ACPLoginViewController: UITextFieldDelegate {
+extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         guard let currentIndex = textFields.firstIndex(where: { $0.textField == textField }) else {
             return true
@@ -219,12 +234,12 @@ extension ACPLoginViewController: UITextFieldDelegate {
 
 // MARK: - ACPTermsAndPrivacyLabelDelegate
 
-extension ACPLoginViewController: ACPTermsAndPrivacyLabelDelegate {
+extension LoginViewController: ACPTermsAndPrivacyLabelDelegate {
     func didTapTerms() {
-        // TODO: Add link
+        viewModel.openTerms()
     }
 
     func didTapPrivacy() {
-        // TODO: Add link
+        viewModel.openPrivacyPolicy()
     }
 }

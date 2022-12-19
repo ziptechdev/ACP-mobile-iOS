@@ -1,5 +1,5 @@
 //
-//  EligibilityZipView.swift
+//  EligibilityZipCodeView.swift
 //  ACP-mobile
 //
 //  Created by Abi  on 4. 10. 2022..
@@ -13,8 +13,7 @@ protocol EligibilityZipCodeDelegate: AnyObject {
     func didPressDone(_ textfield: UITextField, _ secondTextfield: UITextField)
 }
 
-// TODO: Body Length Fix
-class EligibilityZipView: UIView {
+class EligibilityZipCodeView: UIView {
 
     // MARK: - Delegates
 
@@ -92,7 +91,7 @@ class EligibilityZipView: UIView {
         stackView.distribution = .fill
         stackView.alignment = .center
         stackView.spacing = 1
-        stackView.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
+        stackView.layer.cornerRadius = Constants.ButtonCornerRadius
         stackView.layer.borderWidth = 2.0
         stackView.layer.borderColor = UIColor.gray03Light.cgColor
         return stackView
@@ -119,15 +118,15 @@ class EligibilityZipView: UIView {
     let nextButton: ACPImageButton = {
         let button = ACPImageButton(
             titleKey: "eligibility_zip_btn",
-            spacing: Constants.Constraints.ButtonContentSpacing,
-            cornerRadius: Constants.Constraints.ButtonCornerRadius,
+            spacing: Constants.ButtonContentSpacing,
+            cornerRadius: Constants.ButtonCornerRadius,
             imageName: "right_arrow"
         )
         button.backgroundColor = .lavenderGray
         button.isUserInteractionEnabled = false
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
-        button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
+        button.layer.cornerRadius = Constants.ButtonCornerRadius
         return button
     }()
 
@@ -259,45 +258,45 @@ class EligibilityZipView: UIView {
 
     private func setUpConstraints() {
         nextButton.snp.makeConstraints { make in
-            make.height.equalTo(Constants.Constraints.ButtonHeight)
+            make.height.equalTo(Constants.ButtonHeight)
         }
 
         zipCodeStackView.snp.makeConstraints { make in
-            make.height.equalTo(Constants.Constraints.ButtonHeight)
+            make.height.equalTo(Constants.ButtonHeight)
         }
 
         customLine.snp.makeConstraints { make in
-            make.height.equalTo(Constants.Constraints.LeadingConstant)
-            make.width.equalTo(Constants.Constraints.DividerLineViewWidth)
+            make.height.equalTo(Constants.LeadingConstant)
+            make.width.equalTo(Constants.DividerLineViewWidth)
         }
 
         zipSecondCodeTextField.snp.makeConstraints { make in
-            make.width.equalTo(Constants.Constraints.SecondTextFieldWidth)
+            make.width.equalTo(Constants.SecondTextFieldWidth)
         }
 
         textStackView.snp.makeConstraints { make in
-            make.top.equalTo(snp.top).offset(Constants.Constraints.TopConstant)
-            make.left.right.equalToSuperview().inset(Constants.Constraints.LeadingConstant)
+            make.top.equalTo(snp.top).offset(Constants.TopConstant)
+            make.left.right.equalToSuperview().inset(Constants.LeadingConstant)
         }
 
         zipLabelName.snp.makeConstraints { make in
-            make.top.equalTo(textStackView.snp.bottom).offset(Constants.Constraints.ButtonHeight)
+            make.top.equalTo(textStackView.snp.bottom).offset(Constants.ButtonHeight)
             make.left.equalTo(zipCodeStackView.snp.left)
         }
 
         errorLabel.snp.makeConstraints { make in
-            make.top.equalTo(zipCodeStackView.snp.bottom).offset(Constants.Constraints.TopErrorConstant)
+            make.top.equalTo(zipCodeStackView.snp.bottom).offset(Constants.TopErrorConstant)
             make.left.equalTo(zipCodeStackView.snp.left)
         }
 
         zipCodeStackView.snp.makeConstraints { make in
-            make.top.equalTo(zipLabelName.snp.bottom).offset(Constants.Constraints.ZipCodeTextFieldTopConstant)
-            make.left.right.equalToSuperview().inset(Constants.Constraints.LeadingConstant)
+            make.top.equalTo(zipLabelName.snp.bottom).offset(Constants.ZipCodeTextFieldTopConstant)
+            make.left.right.equalToSuperview().inset(Constants.LeadingConstant)
         }
 
         buttonAndInfoStackView.snp.makeConstraints { make in
-            make.bottom.equalTo(snp.bottom).inset(Constants.Constraints.BottomButtonSpacingConstant)
-            make.left.right.equalToSuperview().inset(Constants.Constraints.LeadingConstant)
+            make.bottom.equalTo(snp.bottom).inset(Constants.BottomButtonSpacingConstant)
+            make.left.right.equalToSuperview().inset(Constants.LeadingConstant)
         }
     }
 
@@ -306,23 +305,23 @@ class EligibilityZipView: UIView {
         zipLabelName.text = .localizedString(key: "eligibility_zip_label")
         errorLabel.text = .localizedString(key: "eligibility_zip_error")
     }
+}
 
-    // MARK: - Constants
+// MARK: - Constants
 
+extension EligibilityZipCodeView {
     private struct Constants {
-        struct Constraints {
-            static let TopConstant: CGFloat = 60
-            static let LeadingConstant: CGFloat = 30
-            static let TrailingConstant: CGFloat = 20
-            static let BottomButtonSpacingConstant: CGFloat = 85
-            static let SecondTextFieldWidth: CGFloat = 140
-            static let DividerLineViewWidth: CGFloat = 2
-            static let TopErrorConstant: CGFloat = 10
-            static let ZipCodeTextFieldTopConstant: CGFloat = 6
-            static let ButtonHeight: CGFloat = 46
-            static let ButtonContentSpacing: CGFloat = 10
-            static let ButtonCornerRadius: CGFloat = 10
-            static let TitleBotOffset: CGFloat = 10
-        }
+        static let TopConstant: CGFloat = 60
+        static let LeadingConstant: CGFloat = 30
+        static let TrailingConstant: CGFloat = 20
+        static let BottomButtonSpacingConstant: CGFloat = 85
+        static let SecondTextFieldWidth: CGFloat = 140
+        static let DividerLineViewWidth: CGFloat = 2
+        static let TopErrorConstant: CGFloat = 10
+        static let ZipCodeTextFieldTopConstant: CGFloat = 6
+        static let ButtonHeight: CGFloat = 46
+        static let ButtonContentSpacing: CGFloat = 10
+        static let ButtonCornerRadius: CGFloat = 10
+        static let TitleBotOffset: CGFloat = 10
     }
 }

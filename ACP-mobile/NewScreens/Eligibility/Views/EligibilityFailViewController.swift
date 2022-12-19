@@ -191,18 +191,6 @@ class EligibilityFailViewController: UIViewController {
 
     // MARK: - Callbacks
 
-    @objc func didTapAccountButton() {
-        viewModel.goToRegistration()
-    }
-
-    @objc func didTapTryAgainButton() {
-        viewModel.tryAgain()
-    }
-
-    @objc func didTapCancel() {
-        viewModel.dismiss()
-    }
-
     @objc func didTapLabel(_ sender: UITapGestureRecognizer? = nil) {
         guard let sender = sender else {
             return
@@ -212,9 +200,26 @@ class EligibilityFailViewController: UIViewController {
         let highlightRange = string.range(of: .localizedString(key: "verify_fail_highlight"))
 
         if sender.didTapAttributedTextInLabel(label: subtitleLabel, inRange: highlightRange) {
-            // TODO: Add Link
-            print("NationalVerifier")
+            viewModel.openNationalVerifier()
         }
+    }
+
+    // MARK: - Navigation
+
+    @objc override func didTapRightButton() {
+        viewModel.dismiss()
+    }
+
+    @objc func didTapAccountButton() {
+        viewModel.goToKYC()
+    }
+
+    @objc func didTapTryAgainButton() {
+        viewModel.tryAgain()
+    }
+
+    @objc func didTapCancel() {
+        viewModel.dismiss()
     }
 
     // MARK: - Constants

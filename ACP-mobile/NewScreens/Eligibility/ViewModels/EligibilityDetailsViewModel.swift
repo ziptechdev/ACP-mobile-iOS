@@ -12,8 +12,10 @@ class EligibilityDetailsViewModel {
     // MARK: - Properties
 
     private weak var coordinator: EligibilityCoordinatorProtocol?
-    private let service: EligibilityServiceProtocol = EligibilityService()
     var model: EligibilityModel
+
+    private var termsUrl: String { "terms" }
+    private var privacyPolicyUrl: String { "privacy" }
 
     private var tabNames: [String] {
         return [
@@ -94,14 +96,15 @@ class EligibilityDetailsViewModel {
         coordinator?.goToVerify(model: model)
     }
 
+    func openTerms() {
+        coordinator?.openLink(url: termsUrl)
+    }
+
+    func openPrivacyPolicy() {
+        coordinator?.openLink(url: privacyPolicyUrl)
+    }
+
     func dismiss() {
         coordinator?.dismiss()
-    }
-}
-
-// MARK: - Constants
-
-extension EligibilityDetailsViewModel {
-    private struct Constants {
     }
 }
