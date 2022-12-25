@@ -153,16 +153,16 @@ class TextField: UIView, TextInput {
         errorLabel.text = ""
     }
 
-    func toggleSecureEntry(_ isSecureEntry: Bool) {
-        let imageName = isSecureEntry ? "eye_open" : "eye_closed"
+    func toggleSecureEntry() {
+        textField.isSecureTextEntry.toggle()
+
+        let imageName = textField.isSecureTextEntry ? "eye_open" : "eye_closed"
 
         if let textFieldImage = textFieldImage {
             textFieldImage.image = UIImage(named: imageName)
         } else {
             textField.addRightImage(named: imageName)
         }
-
-        textField.isSecureTextEntry = isSecureEntry
     }
 
     // MARK: - Callback

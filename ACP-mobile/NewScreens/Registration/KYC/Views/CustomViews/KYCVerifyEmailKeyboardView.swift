@@ -1,5 +1,5 @@
 //
-//  ACPVerifyEmailKeyboardView.swift
+//  KYCVerifyEmailKeyboardView.swift
 //  ACP-mobile
 //
 //  Created by Adi on 11/10/2022.
@@ -8,16 +8,16 @@
 import UIKit
 import SnapKit
 
-protocol ACPVerifyEmailKeyboardViewDelegate: AnyObject {
+protocol KYCVerifyEmailKeyboardViewDelegate: AnyObject {
     func didPressKey(key: String)
     func didPressDelete()
 }
 
-class ACPVerifyEmailKeyboardView: UIView {
+class KYCVerifyEmailKeyboardView: UIView {
 
     // MARK: - Properties
 
-    weak var delegate: ACPVerifyEmailKeyboardViewDelegate?
+    weak var delegate: KYCVerifyEmailKeyboardViewDelegate?
 
     // MARK: - Initialization
 
@@ -40,34 +40,34 @@ class ACPVerifyEmailKeyboardView: UIView {
     }
 
     private func setupKeyboard() {
-        var topConstraint = snp.top
-
+        let verticalStackView = UIStackView(
+            distribution: .equalSpacing
+        )
         for i in 0...3 {
+            let horizontalStackView = UIStackView(
+                axis: .horizontal,
+                distribution: .equalSpacing
+            )
             for j in 1...3 {
-                if let newKey = setupKey(i: i, j: j, top: topConstraint) {
-
-                    // Set new constraint
-                    if j == 3 {
-                        topConstraint = newKey.snp.bottom
-                    }
-
-                    // Set constraints for the last button
-                    if j == 3 && i == 3 {
-                        newKey.snp.makeConstraints { make in
-                            make.bottom.equalToSuperview()
-                            make.right.equalToSuperview()
-                        }
-                    }
+                let newKey = setupKey(i: i, j: j)
+                newKey.snp.makeConstraints { make in
+                    make.width.height.equalTo(Constants.KeySize)
                 }
+                horizontalStackView.addArrangedSubview(newKey)
             }
+            verticalStackView.addArrangedSubview(horizontalStackView)
+        }
+        addSubview(verticalStackView)
+        verticalStackView.snp.makeConstraints { make in
+            make.left.right.top.bottom.equalToSuperview()
         }
     }
 
-    private func setupKey(i: Int, j: Int, top: ConstraintItem) -> UIView? {
+    private func setupKey(i: Int, j: Int) -> UIView {
         let value = i * 3 + j
 
         guard value != 10 else {
-            return nil
+            return UIView()
         }
 
         let view: UIView
@@ -93,20 +93,6 @@ class ACPVerifyEmailKeyboardView: UIView {
 
         view.translatesAutoresizingMaskIntoConstraints = false
         view.isUserInteractionEnabled = true
-        addSubview(view)
-
-        view.snp.makeConstraints { make in
-            make.top.equalTo(top)
-            make.width.equalToSuperview().inset(Constants.Constraints.KeySpacing).dividedBy(3)
-            make.height.equalTo(view.snp.width)
-            if j == 1 {
-                make.left.equalToSuperview()
-            } else if j == 2 {
-                make.centerX.equalToSuperview()
-            } else {
-                make.right.equalToSuperview()
-            }
-        }
 
         return view
     }
@@ -128,8 +114,6 @@ class ACPVerifyEmailKeyboardView: UIView {
     // MARK: - Constants
 
     private struct Constants {
-        struct Constraints {
-            static let KeySpacing: CGFloat = 10
-        }
+        static let KeySize: CGFloat = 60
     }
 }

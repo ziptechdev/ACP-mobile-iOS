@@ -1,5 +1,5 @@
 //
-//  ACPVerifyEmailViewController.swift
+//  KYCVerifyEmailViewController.swift
 //  ACP-mobile
 //
 //  Created by Adi on 11/10/2022.
@@ -8,22 +8,20 @@
 import UIKit
 import SnapKit
 
-class ACPVerifyEmailViewController: UIViewController {
+class KYCVerifyEmailViewController: UIViewController {
 
     // MARK: - Properties
 
+    private let viewModel: KYCPersonalInfoViewModel
     private var code = ""
-    private var dismissCallback: (() -> Void)
 
     // MARK: - Views
-
-    private let infoLabel = TermsAndPrivacyLabel()
 
     private lazy var cancelButton: UIButton = {
         let button = UIButton()
         let image = UIImage(named: "x_mark")?.withRenderingMode(.alwaysTemplate)
         button.layer.masksToBounds = true
-        button.layer.cornerRadius = Constants.Constraints.CancelButtonRadius
+        button.layer.cornerRadius = Constants.CancelButtonRadius
         button.backgroundColor = .gray06Light
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(image, for: .normal)
@@ -54,8 +52,8 @@ class ACPVerifyEmailViewController: UIViewController {
         return label
     }()
 
-    private let codeView: ACPVerifyEmailCodeView = {
-        let view = ACPVerifyEmailCodeView()
+    private let codeView: KYCVerifyEmailCodeView = {
+        let view = KYCVerifyEmailCodeView()
 
         return view
     }()
@@ -70,15 +68,15 @@ class ACPVerifyEmailViewController: UIViewController {
         return label
     }()
 
-    private lazy var keyboardView: ACPVerifyEmailKeyboardView = {
-        let view = ACPVerifyEmailKeyboardView()
+    private lazy var keyboardView: KYCVerifyEmailKeyboardView = {
+        let view = KYCVerifyEmailKeyboardView()
         view.delegate = self
         return view
     }()
 
     private lazy var confirmButton: UIButton = {
         let button = UIButton()
-        button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
+        button.layer.cornerRadius = Constants.ButtonCornerRadius
         button.layer.masksToBounds = true
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -89,8 +87,8 @@ class ACPVerifyEmailViewController: UIViewController {
 
     // MARK: - Initialization
 
-    init(dismissCallback: @escaping (() -> Void)) {
-        self.dismissCallback = dismissCallback
+    init(viewModel: KYCPersonalInfoViewModel) {
+        self.viewModel = viewModel
 
         super.init(nibName: nil, bundle: nil)
     }
@@ -105,8 +103,6 @@ class ACPVerifyEmailViewController: UIViewController {
         super.viewDidLoad()
 
         setupUI()
-
-        infoLabel.delegate = self
     }
 
     // MARK: - UI
@@ -126,50 +122,44 @@ class ACPVerifyEmailViewController: UIViewController {
         view.addSubview(resendCodeLabel)
         view.addSubview(keyboardView)
         view.addSubview(confirmButton)
-        view.addSubview(infoLabel)
     }
 
     private func setupConstraints() {
         cancelButton.snp.makeConstraints { make in
-            make.width.height.equalTo(Constants.Constraints.CancelButtonSize)
-            make.top.equalToSuperview().inset(Constants.Constraints.CancelButtonInsetY)
-            make.right.equalToSuperview().inset(Constants.Constraints.CancelButtonInsetX)
+            make.width.height.equalTo(Constants.CancelButtonSize)
+            make.top.equalToSuperview().inset(Constants.CancelButtonInsetY)
+            make.right.equalToSuperview().inset(Constants.CancelButtonInsetX)
         }
 
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(cancelButton.snp.bottom).offset(Constants.Constraints.TitleOffset)
+            make.top.equalTo(cancelButton.snp.bottom).offset(Constants.TitleOffset)
             make.centerX.equalToSuperview()
         }
 
         subtitleLabel.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(Constants.Constraints.SubtitleOffset)
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
+            make.top.equalTo(titleLabel.snp.bottom).offset(Constants.SubtitleOffset)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
         }
 
         codeView.snp.makeConstraints { make in
-            make.top.equalTo(subtitleLabel.snp.bottom).offset(Constants.Constraints.CodeViewOffset)
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
+            make.top.equalTo(subtitleLabel.snp.bottom).offset(Constants.CodeViewOffset)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
         }
 
         resendCodeLabel.snp.makeConstraints { make in
-            make.top.equalTo(codeView.snp.bottom).offset(Constants.Constraints.ResendLabelOffset)
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
+            make.top.equalTo(codeView.snp.bottom).offset(Constants.ResendLabelOffset)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
         }
 
         keyboardView.snp.makeConstraints { make in
-            make.top.equalTo(resendCodeLabel.snp.bottom).offset(Constants.Constraints.KeyboardViewInsetY)
-            make.left.right.equalToSuperview().inset(Constants.Constraints.KeyboardViewInsetX)
+            make.top.equalTo(resendCodeLabel.snp.bottom).offset(Constants.KeyboardViewInsetY)
+            make.left.right.equalToSuperview().inset(Constants.KeyboardViewInsetX)
         }
 
         confirmButton.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.height.equalTo(Constants.Constraints.ButtonHeight)
-            make.top.equalTo(keyboardView.snp.bottom).offset(Constants.Constraints.ButtonOffsetVertical)
-        }
-
-        infoLabel.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.top.equalTo(confirmButton.snp.bottom).offset(Constants.Constraints.InfoOffsetVertical)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.height.equalTo(Constants.ButtonHeight)
+            make.top.equalTo(keyboardView.snp.bottom).offset(Constants.ButtonOffsetVertical)
         }
     }
 
@@ -200,60 +190,40 @@ class ACPVerifyEmailViewController: UIViewController {
         let highlightRange = string.range(of: .localizedString(key: "verify_email_highlight"))
 
         if sender.didTapAttributedTextInLabel(label: resendCodeLabel, inRange: highlightRange) {
-            // TODO: Add Link
-            print("Resend")
+            viewModel.resendEmailCode()
         }
     }
 
     @objc func didTapConfirm() {
-        // TODO: Add Call
-        print("Confirm")
-        dismissCallback()
-        dismiss(animated: true)
+        viewModel.confirmCode(code)
     }
 
     // MARK: - Constants
 
     private struct Constants {
-        struct Constraints {
-            static let ContentInsetHorizontal: CGFloat = 35
+        static let ContentInsetHorizontal: CGFloat = 35
 
-            static let CancelButtonInsetY: CGFloat = 28
-            static let CancelButtonInsetX: CGFloat = 23
-            static let CancelButtonRadius: CGFloat = 10
-            static let CancelButtonSize: CGFloat = 36
+        static let CancelButtonInsetY: CGFloat = 28
+        static let CancelButtonInsetX: CGFloat = 23
+        static let CancelButtonRadius: CGFloat = 10
+        static let CancelButtonSize: CGFloat = 36
 
-            static let TitleOffset: CGFloat = 20
-            static let SubtitleOffset: CGFloat = 20
-            static let CodeViewOffset: CGFloat = 30
-            static let ResendLabelOffset: CGFloat = 20
-            static let KeyboardViewInsetY: CGFloat = 20
-            static let KeyboardViewInsetX: CGFloat = 60
+        static let TitleOffset: CGFloat = 20
+        static let SubtitleOffset: CGFloat = 20
+        static let CodeViewOffset: CGFloat = 30
+        static let ResendLabelOffset: CGFloat = 20
+        static let KeyboardViewInsetY: CGFloat = 20
+        static let KeyboardViewInsetX: CGFloat = 60
 
-            static let ButtonHeight: CGFloat = 46
-            static let ButtonCornerRadius: CGFloat = 10
-            static let ButtonOffsetVertical: CGFloat = 30
-
-            static let InfoOffsetVertical: CGFloat = 30
-        }
+        static let ButtonHeight: CGFloat = 46
+        static let ButtonCornerRadius: CGFloat = 10
+        static let ButtonOffsetVertical: CGFloat = 30
     }
 }
 
-// MARK: - TermsAndPrivacyLabelDelegate
+// MARK: - KYCVerifyEmailKeyboardViewDelegate
 
-extension ACPVerifyEmailViewController: TermsAndPrivacyLabelDelegate {
-    func didTapTerms() {
-        // TODO: Add link
-    }
-
-    func didTapPrivacy() {
-        // TODO: Add link
-    }
-}
-
-// MARK: - ACPVerifyEmailKeyboardViewDelegate
-
-extension ACPVerifyEmailViewController: ACPVerifyEmailKeyboardViewDelegate {
+extension KYCVerifyEmailViewController: KYCVerifyEmailKeyboardViewDelegate {
     func didPressKey(key: String) {
         code = String((code + key).prefix(5))
         codeView.setText(code: code)

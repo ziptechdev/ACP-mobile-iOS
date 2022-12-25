@@ -20,8 +20,6 @@ class LoginViewModel {
     private var termsUrl: String { "terms" }
     private var privacyPolicyUrl: String { "privacy" }
 
-    var isSecureEntry = true
-
     // MARK: - Initialization
 
     init(coordinator: LoginCoordinatorProtocol,

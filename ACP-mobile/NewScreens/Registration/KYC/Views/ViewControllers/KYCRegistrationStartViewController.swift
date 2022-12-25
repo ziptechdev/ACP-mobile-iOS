@@ -1,14 +1,18 @@
 //
-//  ACPNotVerifiedRegistrationViewController.swift
+//  KYCRegistrationStartViewController.swift
 //  ACP-mobile
 //
-//  Created by Adi on 06/10/2022.
+//  Created by Adi on 25/12/2022.
 //
 
 import UIKit
 import SnapKit
 
-class ACPNotVerifiedRegistrationViewController: UIViewController {
+class KYCRegistrationStartViewController: UIViewController {
+
+    // MARK: - Properties
+
+    private var viewModel: KYCRegistrationStartViewModel
 
     // MARK: - Views
 
@@ -54,8 +58,8 @@ class ACPNotVerifiedRegistrationViewController: UIViewController {
     private lazy var getStartedButton: ImageButton = {
         let button = ImageButton(
             titleKey: "not_verified_register_btn",
-            spacing: Constants.Constraints.ButtonContentSpacing,
-            cornerRadius: Constants.Constraints.ButtonCornerRadius,
+            spacing: Constants.ButtonContentSpacing,
+            cornerRadius: Constants.ButtonCornerRadius,
             imageName: "right_arrow"
         )
         button.backgroundColor = .coreBlue
@@ -66,12 +70,29 @@ class ACPNotVerifiedRegistrationViewController: UIViewController {
 
     private let infoLabel = TermsAndPrivacyLabel()
 
+    // MARK: - Initialization
+
+    init(viewModel: KYCRegistrationStartViewModel) {
+        self.viewModel = viewModel
+
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    deinit {
+        viewModel.dismiss()
+    }
+
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupUI()
+        infoLabel.delegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -102,35 +123,35 @@ class ACPNotVerifiedRegistrationViewController: UIViewController {
 
     private func setupConstraints() {
         titleLabel.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(Constants.Constraints.ContentInsetVertical)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(Constants.ContentInsetVertical)
         }
 
         subtitleLabel.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.top.equalTo(titleLabel.snp.bottom).offset(Constants.Constraints.SubtitleOffsetVertical)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.top.equalTo(titleLabel.snp.bottom).offset(Constants.SubtitleOffsetVertical)
         }
 
         explanationLabel.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.top.equalTo(subtitleLabel.snp.bottom).offset(Constants.Constraints.ExplanationOffsetVertical)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.top.equalTo(subtitleLabel.snp.bottom).offset(Constants.ExplanationOffsetVertical)
         }
 
         registerImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(explanationLabel.snp.bottom).offset(Constants.Constraints.ImageOffsetVertical)
-            make.width.height.equalTo(Constants.Constraints.ImageSize)
+            make.top.equalTo(explanationLabel.snp.bottom).offset(Constants.ImageOffsetVertical)
+            make.width.height.equalTo(Constants.ImageSize)
         }
 
         getStartedButton.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.height.equalTo(Constants.Constraints.ButtonHeight)
-            make.bottom.equalTo(infoLabel.snp.top).offset(-Constants.Constraints.ButtonOffsetVertical)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.height.equalTo(Constants.ButtonHeight)
+            make.bottom.equalTo(infoLabel.snp.top).offset(-Constants.ButtonOffsetVertical)
         }
 
         infoLabel.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(Constants.Constraints.InfoLabelInsetY)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(Constants.InfoLabelInsetY)
         }
     }
 
@@ -148,8 +169,7 @@ class ACPNotVerifiedRegistrationViewController: UIViewController {
     // MARK: - Callbacks
 
     @objc func didTapButton() {
-        let viewController = ACPPersonalInfoViewController()
-        navigationController?.pushViewController(viewController, animated: true)
+        viewModel.goToPersonalDetails()
     }
 
     @objc func didTapLabel(_ sender: UITapGestureRecognizer? = nil) {
@@ -161,34 +181,43 @@ class ACPNotVerifiedRegistrationViewController: UIViewController {
         let highlightRange = string.range(of: .localizedString(key: "not_verified_register_highlight"))
 
         if sender.didTapAttributedTextInLabel(label: explanationLabel, inRange: highlightRange) {
-            // TODO: Add Link
-            print("Partners")
+            viewModel.openPartners()
         }
     }
 
     // MARK: - Constants
 
     private struct Constants {
-        struct Constraints {
-            static let ContentInsetVertical: CGFloat = 96
-            static let ContentInsetHorizontal: CGFloat = 35
+        static let ContentInsetVertical: CGFloat = 96
+        static let ContentInsetHorizontal: CGFloat = 35
 
-            static let ImageSize: CGFloat = 128
-            static let ImageOffsetVertical: CGFloat = 85
+        static let ImageSize: CGFloat = 128
+        static let ImageOffsetVertical: CGFloat = 85
 
-            static let SubtitleOffsetVertical: CGFloat = 20
+        static let SubtitleOffsetVertical: CGFloat = 20
 
-            static let ExplanationOffsetVertical: CGFloat = 20
+        static let ExplanationOffsetVertical: CGFloat = 20
 
-            static let EmailOffsetVertical: CGFloat = 30
-            static let TextFieldOffsetVertical: CGFloat = 10
+        static let EmailOffsetVertical: CGFloat = 30
+        static let TextFieldOffsetVertical: CGFloat = 10
 
-            static let ButtonHeight: CGFloat = 46
-            static let ButtonContentSpacing: CGFloat = 10
-            static let ButtonCornerRadius: CGFloat = 10
-            static let ButtonOffsetVertical: CGFloat = 30
+        static let ButtonHeight: CGFloat = 46
+        static let ButtonContentSpacing: CGFloat = 10
+        static let ButtonCornerRadius: CGFloat = 10
+        static let ButtonOffsetVertical: CGFloat = 30
 
-            static let InfoLabelInsetY: CGFloat = 60
-        }
+        static let InfoLabelInsetY: CGFloat = 60
+    }
+}
+
+// MARK: - TermsAndPrivacyLabelDelegate
+
+extension KYCRegistrationStartViewController: TermsAndPrivacyLabelDelegate {
+    func didTapTerms() {
+        viewModel.openTerms()
+    }
+
+    func didTapPrivacy() {
+        viewModel.openPrivacyPolicy()
     }
 }

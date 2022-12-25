@@ -1,5 +1,5 @@
 //
-//  ACPPersonalInfoDetailsViewController.swift
+//  KYCPersonalInfoDetailsViewController.swift
 //  ACP-mobile
 //
 //  Created by Adi on 06/10/2022.
@@ -8,15 +8,15 @@
 import UIKit
 import SnapKit
 
-class ACPPersonalInfoDetailsViewController: UIViewController {
+class KYCPersonalInfoDetailsViewController: UIViewController {
 
     // MARK: - Properties
 
-    private var isSecureEntry = true
+    private let viewModel: KYCPersonalInfoViewModel
     weak var delegate: TabMenuDelegate?
 
     private lazy var textFields: [TextInput] = [
-        nameTextField, lastNameTextField, emailTextField, phoneTextField, passwordTextField,
+        firstNameTextField, lastNameTextField, emailTextField, phoneTextField, passwordTextField,
         confirmTextField, ssnTextField
     ]
 
@@ -46,7 +46,7 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
         return label
     }()
 
-    private lazy var nameTextField: TextField = {
+    private lazy var firstNameTextField: TextField = {
         let view = TextField()
         view.titleLabel.text = .localizedString(key: "personal_info_first_name")
         view.textField.delegate = self
@@ -80,7 +80,7 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
         let view = TextField()
         view.titleLabel.text = .localizedString(key: "personal_info_password")
         view.textField.delegate = self
-        view.toggleSecureEntry(isSecureEntry)
+        view.toggleSecureEntry()
         let tap = UITapGestureRecognizer(target: self, action: #selector(toggleSecureEntry))
         view.textFieldImage?.addGestureRecognizer(tap)
         return view
@@ -90,7 +90,7 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
         let view = TextField()
         view.titleLabel.text = .localizedString(key: "personal_info_confirm")
         view.textField.delegate = self
-        view.toggleSecureEntry(isSecureEntry)
+        view.toggleSecureEntry()
         let tap = UITapGestureRecognizer(target: self, action: #selector(toggleSecureEntry))
         view.textFieldImage?.addGestureRecognizer(tap)
         return view
@@ -108,8 +108,8 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
     private lazy var nextButton: ImageButton = {
         let button = ImageButton(
             titleKey: "personal_info_btn",
-            spacing: Constants.Constraints.ButtonContentSpacing,
-            cornerRadius: Constants.Constraints.ButtonCornerRadius,
+            spacing: Constants.ButtonContentSpacing,
+            cornerRadius: Constants.ButtonCornerRadius,
             imageName: "right_arrow"
         )
         button.isUserInteractionEnabled = false
@@ -120,6 +120,18 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
     }()
 
     private let infoLabel = TermsAndPrivacyLabel()
+
+    // MARK: - Initialization
+
+    init(viewModel: KYCPersonalInfoViewModel) {
+        self.viewModel = viewModel
+
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     // MARK: - Life Cycle
 
@@ -140,7 +152,7 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
 
     private func addSubviews() {
         contentView.addSubview(subtitleLabel)
-        contentView.addSubview(nameTextField)
+        contentView.addSubview(firstNameTextField)
         contentView.addSubview(lastNameTextField)
         contentView.addSubview(emailTextField)
         contentView.addSubview(phoneTextField)
@@ -163,71 +175,76 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
         }
 
         subtitleLabel.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.top.equalToSuperview().inset(Constants.Constraints.ContentInsetVertical)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.top.equalToSuperview().inset(Constants.ContentInsetVertical)
         }
 
-        nameTextField.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.top.equalTo(subtitleLabel.snp.bottom).offset(Constants.Constraints.NameOffsetVertical)
+        firstNameTextField.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.top.equalTo(subtitleLabel.snp.bottom).offset(Constants.NameOffsetVertical)
         }
 
         lastNameTextField.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.top.equalTo(nameTextField.snp.bottom).offset(Constants.Constraints.TextFieldOffsetVertical)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.top.equalTo(firstNameTextField.snp.bottom).offset(Constants.TextFieldOffsetVertical)
         }
 
         emailTextField.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.top.equalTo(lastNameTextField.snp.bottom).offset(Constants.Constraints.TextFieldOffsetVertical)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.top.equalTo(lastNameTextField.snp.bottom).offset(Constants.TextFieldOffsetVertical)
         }
 
         phoneTextField.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.top.equalTo(emailTextField.snp.bottom).offset(Constants.Constraints.TextFieldOffsetVertical)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.top.equalTo(emailTextField.snp.bottom).offset(Constants.TextFieldOffsetVertical)
         }
 
         passwordTextField.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.top.equalTo(phoneTextField.snp.bottom).offset(Constants.Constraints.TextFieldOffsetVertical)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.top.equalTo(phoneTextField.snp.bottom).offset(Constants.TextFieldOffsetVertical)
         }
 
         confirmTextField.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.top.equalTo(passwordTextField.snp.bottom).offset(Constants.Constraints.TextFieldOffsetVertical)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.top.equalTo(passwordTextField.snp.bottom).offset(Constants.TextFieldOffsetVertical)
         }
 
         ssnTextField.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.top.equalTo(confirmTextField.snp.bottom).offset(Constants.Constraints.TextFieldOffsetVertical)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.top.equalTo(confirmTextField.snp.bottom).offset(Constants.TextFieldOffsetVertical)
         }
 
         nextButton.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.height.equalTo(Constants.Constraints.ButtonHeight)
-            make.top.equalTo(ssnTextField.snp.bottom).offset(Constants.Constraints.ButtonOffsetVertical)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.height.equalTo(Constants.ButtonHeight)
+            make.top.equalTo(ssnTextField.snp.bottom).offset(Constants.ButtonOffsetVertical)
         }
 
         infoLabel.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInsetHorizontal)
-            make.top.equalTo(nextButton.snp.bottom).offset(Constants.Constraints.InfoOffsetVertical)
-            make.bottom.equalToSuperview().inset(Constants.Constraints.InfoInsetVertical)
+            make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
+            make.top.equalTo(nextButton.snp.bottom).offset(Constants.InfoOffsetVertical)
+            make.bottom.equalToSuperview().inset(Constants.InfoInsetVertical)
         }
     }
 
     // MARK: - Callback
 
     @objc func toggleSecureEntry() {
-        isSecureEntry = !isSecureEntry
-
-        passwordTextField.toggleSecureEntry(isSecureEntry)
-        confirmTextField.toggleSecureEntry(isSecureEntry)
+        passwordTextField.toggleSecureEntry()
+        confirmTextField.toggleSecureEntry()
     }
 
     @objc func didTapButton() {
         guard checkPasswords() else {
             return
         }
+
+        viewModel.model.firstName = firstNameTextField.text
+//        viewModel.model.middleName =
+        viewModel.model.lastName = lastNameTextField.text
+        viewModel.model.phoneNumber = phoneTextField.text
+        viewModel.model.password = passwordTextField.text
+        viewModel.model.ssn = ssnTextField.text
 
         delegate?.didTapNextButton()
     }
@@ -253,40 +270,38 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
     // MARK: - Constants
 
     private struct Constants {
-        struct Constraints {
-            static let ContentInsetVertical: CGFloat = 30
-            static let ContentInsetHorizontal: CGFloat = 35
+        static let ContentInsetVertical: CGFloat = 30
+        static let ContentInsetHorizontal: CGFloat = 35
 
-            static let NameOffsetVertical: CGFloat = 30
+        static let NameOffsetVertical: CGFloat = 30
 
-            static let TextFieldOffsetVertical: CGFloat = 10
+        static let TextFieldOffsetVertical: CGFloat = 10
 
-            static let ButtonHeight: CGFloat = 46
-            static let ButtonContentSpacing: CGFloat = 10
-            static let ButtonCornerRadius: CGFloat = 10
-            static let ButtonOffsetVertical: CGFloat = 60
+        static let ButtonHeight: CGFloat = 46
+        static let ButtonContentSpacing: CGFloat = 10
+        static let ButtonCornerRadius: CGFloat = 10
+        static let ButtonOffsetVertical: CGFloat = 60
 
-            static let InfoOffsetVertical: CGFloat = 30
-            static let InfoInsetVertical: CGFloat = 60
-        }
+        static let InfoOffsetVertical: CGFloat = 30
+        static let InfoInsetVertical: CGFloat = 60
     }
 }
 
 // MARK: - TermsAndPrivacyLabelDelegate
 
-extension ACPPersonalInfoDetailsViewController: TermsAndPrivacyLabelDelegate {
+extension KYCPersonalInfoDetailsViewController: TermsAndPrivacyLabelDelegate {
     func didTapTerms() {
-        // TODO: Add link
+        viewModel.openTerms()
     }
 
     func didTapPrivacy() {
-        // TODO: Add link
+        viewModel.openPrivacyPolicy()
     }
 }
 
 // MARK: - UITextFieldDelegate
 
-extension ACPPersonalInfoDetailsViewController: UITextFieldDelegate {
+extension KYCPersonalInfoDetailsViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         guard let currentIndex = textFields.firstIndex(where: { $0.textField == textField }) else {
             return true
@@ -315,7 +330,7 @@ extension ACPPersonalInfoDetailsViewController: UITextFieldDelegate {
 
 // MARK: - ToolbarDelegate
 
-extension ACPPersonalInfoDetailsViewController: ToolbarDelegate {
+extension KYCPersonalInfoDetailsViewController: ToolbarDelegate {
     func didPressDone(_ textfield: UITextField) {
         _ = textFieldShouldReturn(textfield)
     }

@@ -1,5 +1,5 @@
 //
-//  ACPVerifyEmailCodeView.swift
+//  KYCVerifyEmailCodeView.swift
 //  ACP-mobile
 //
 //  Created by Adi on 11/10/2022.
@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class ACPVerifyEmailCodeView: UIView {
+class KYCVerifyEmailCodeView: UIView {
 
     // MARK: - Properties
 
@@ -27,6 +27,12 @@ class ACPVerifyEmailCodeView: UIView {
     private lazy var thirdNumberLabel = makeInputLabel()
     private lazy var fourthNumberLabel = makeInputLabel()
     private lazy var fifthNumberLabel = makeInputLabel()
+
+    private lazy var stackView = UIStackView(
+        subviews: inputLabels,
+        axis: .horizontal,
+        distribution: .equalSpacing
+    )
 
     // MARK: - Initialization
 
@@ -52,44 +58,19 @@ class ACPVerifyEmailCodeView: UIView {
     }
 
     private func addSubviews() {
-        addSubview(firstNumberLabel)
-        addSubview(secondNumberLabel)
-        addSubview(thirdNumberLabel)
-        addSubview(fourthNumberLabel)
-        addSubview(fifthNumberLabel)
+        addSubview(stackView)
     }
 
     private func setupConstraints() {
-        firstNumberLabel.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview()
-            make.left.equalToSuperview()
-            make.height.equalTo(firstNumberLabel.snp.width)
+        stackView.snp.makeConstraints { make in
+            make.top.left.right.bottom.equalToSuperview()
         }
 
-        secondNumberLabel.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview()
-            make.left.equalTo(firstNumberLabel.snp.right).offset(Constants.Constraints.InputSpacing)
-            make.height.equalTo(secondNumberLabel.snp.width)
-        }
-
-        thirdNumberLabel.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview()
-            make.left.equalTo(secondNumberLabel.snp.right).offset(Constants.Constraints.InputSpacing)
-            make.height.equalTo(thirdNumberLabel.snp.width)
-        }
-
-        fourthNumberLabel.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview()
-            make.left.equalTo(thirdNumberLabel.snp.right).offset(Constants.Constraints.InputSpacing)
-            make.height.equalTo(fourthNumberLabel.snp.width)
-        }
-
-        fifthNumberLabel.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview()
-            make.left.equalTo(fourthNumberLabel.snp.right).offset(Constants.Constraints.InputSpacing)
-            make.right.equalToSuperview()
-            make.height.equalTo(fifthNumberLabel.snp.width)
-        }
+        inputLabels.forEach({ inputLabel in
+            inputLabel.snp.makeConstraints { make in
+                make.height.width.equalTo(Constants.InputSize)
+            }
+        })
     }
 
     private func makeInputLabel() -> UILabel {
@@ -99,7 +80,7 @@ class ACPVerifyEmailCodeView: UIView {
         label.textAlignment = .center
         label.layer.borderColor = UIColor.gray01Light.withAlphaComponent(0.5).cgColor
         label.layer.borderWidth = 1
-        label.layer.cornerRadius = Constants.Constraints.InputCornerRadius
+        label.layer.cornerRadius = Constants.InputCornerRadius
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }
@@ -125,9 +106,7 @@ class ACPVerifyEmailCodeView: UIView {
     // MARK: - Constants
 
     private struct Constants {
-        struct Constraints {
-            static let InputSpacing: CGFloat = 10
-            static let InputCornerRadius: CGFloat = 10
-        }
+        static let InputSize: CGFloat = 50
+        static let InputCornerRadius: CGFloat = 10
     }
 }

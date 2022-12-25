@@ -49,7 +49,7 @@ class LoginViewController: UIViewController {
         let view = TextField()
         view.titleLabel.text = .localizedString(key: "login_password")
         view.textField.delegate = self
-        view.toggleSecureEntry(viewModel.isSecureEntry)
+        view.toggleSecureEntry()
         let tap = UITapGestureRecognizer(target: self, action: #selector(toggleSecureEntry))
         view.textFieldImage?.addGestureRecognizer(tap)
         return view
@@ -178,8 +178,7 @@ class LoginViewController: UIViewController {
     // MARK: - Callbacks
 
     @objc func toggleSecureEntry() {
-        viewModel.isSecureEntry.toggle()
-        passwordTextField.toggleSecureEntry(viewModel.isSecureEntry)
+        passwordTextField.toggleSecureEntry()
     }
 
     @objc func didTapButton() {

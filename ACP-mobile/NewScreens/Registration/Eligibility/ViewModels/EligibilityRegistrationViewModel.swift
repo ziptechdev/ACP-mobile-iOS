@@ -16,7 +16,6 @@ class EligibilityRegistrationViewModel {
     private let service = EligibilityService()
     private var model: EligibilityModel
 
-    var isSecureEntry = true
     var firstName: String { model.firstName }
     var errorCompletion: (() -> Void)?
 

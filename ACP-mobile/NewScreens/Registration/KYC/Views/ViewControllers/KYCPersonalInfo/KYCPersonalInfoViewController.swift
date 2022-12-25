@@ -1,5 +1,5 @@
 //
-//  ACPPersonalInfoViewController.swift
+//  KYCPersonalInfoViewController.swift
 //  ACP-mobile
 //
 //  Created by Adi on 06/10/2022.
@@ -8,15 +8,27 @@
 import UIKit
 import SnapKit
 
-class ACPPersonalInfoViewController: UIViewController {
+class KYCPersonalInfoViewController: UIViewController {
 
     // MARK: - Properties
 
-    private let viewModel = ACPPersonalInfoViewModel()
+    private let viewModel: KYCPersonalInfoViewModel
 
     // MARK: - Views
 
     private let tabMenu = TabMenuViewController()
+
+    // MARK: - Initialization
+
+    init(viewModel: KYCPersonalInfoViewModel) {
+        self.viewModel = viewModel
+
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     // MARK: - Life Cycle
 
@@ -58,6 +70,8 @@ class ACPPersonalInfoViewController: UIViewController {
         tabMenu.didMove(toParent: self)
 
         tabMenu.delegate = self
+
+        viewModel.nextTab = tabMenu.nextTab
     }
 
     // MARK: - Callbacks
@@ -74,25 +88,13 @@ class ACPPersonalInfoViewController: UIViewController {
     }
 }
 
-// MARK: - TermsAndPrivacyLabelDelegate
-
-extension ACPPersonalInfoViewController: TermsAndPrivacyLabelDelegate {
-    func didTapTerms() {
-        // TODO: Add link
-    }
-
-    func didTapPrivacy() {
-        // TODO: Add link
-    }
-}
-
 // MARK: - TabMenuDelegate
 
-extension ACPPersonalInfoViewController: TabMenuDelegate {
+extension KYCPersonalInfoViewController: TabMenuDelegate {
     func didTapNextButton() {
         if tabMenu.currentTab == 0 {
-            let verifyVC = ACPVerifyEmailViewController(dismissCallback: tabMenu.nextTab)
-            navigationController?.present(verifyVC, animated: true)
+            viewModel.openVerifyEmail()
+
         } else {
             tabMenu.nextTab()
         }
@@ -106,7 +108,7 @@ extension ACPPersonalInfoViewController: TabMenuDelegate {
 
 // MARK: - TabMenuViewControllerDelegate
 
-extension ACPPersonalInfoViewController: TabMenuViewControllerDelegate {
+extension KYCPersonalInfoViewController: TabMenuViewControllerDelegate {
     var numberOfItems: Int {
         return viewModel.numberOfTabItems()
     }
@@ -140,7 +142,7 @@ extension ACPPersonalInfoViewController: TabMenuViewControllerDelegate {
     func didSelectTab(index: Int) -> UIViewController {
         switch index {
         case 0:
-            let viewController = ACPPersonalInfoDetailsViewController()
+            let viewController = KYCPersonalInfoDetailsViewController(viewModel: viewModel)
             viewController.delegate = self
             return viewController
         case 1:

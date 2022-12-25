@@ -5,8 +5,13 @@
 //  Created by Adi on 19/12/2022.
 //
 
-protocol KYCCoordinatorProtocol: Coordinator {
+import UIKit
 
+protocol KYCCoordinatorProtocol: Coordinator {
+    func goToStart()
+    func goToPersonalDetails()
+    func openVerifyEmail(viewModel: KYCPersonalInfoViewModel)
+    func openLink(url: String)
 }
 
 class KYCCoordinator: KYCCoordinatorProtocol {
@@ -26,8 +31,32 @@ class KYCCoordinator: KYCCoordinatorProtocol {
     // MARK: - Start / Dismiss
 
     func start() {
-
+        goToStart()
     }
 
     // MARK: - Coordination
+
+    func goToStart() {
+        let viewModel = KYCRegistrationStartViewModel(coordinator: self)
+        let viewController = KYCRegistrationStartViewController(viewModel: viewModel)
+        navigationController.pushViewController(viewController, animated: true)
+    }
+
+    func goToPersonalDetails() {
+        let viewModel = KYCPersonalInfoViewModel(coordinator: self)
+        let viewController = KYCPersonalInfoViewController(viewModel: viewModel)
+        navigationController.pushViewController(viewController, animated: true)
+    }
+
+    func openVerifyEmail(viewModel: KYCPersonalInfoViewModel) {
+        let viewController = KYCVerifyEmailViewController(viewModel: viewModel)
+        navigationController.present(viewController, animated: true)
+    }
+
+    func openLink(url: String) {
+        print("Coordinator opened web url for \(url)")
+        let destinationVC = UIViewController()
+        destinationVC.view.backgroundColor = .white
+        navigationController.present(destinationVC, animated: true)
+    }
 }
