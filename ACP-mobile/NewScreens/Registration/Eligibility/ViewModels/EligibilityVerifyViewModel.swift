@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 class EligibilityVerifyViewModel {
 
@@ -29,7 +30,21 @@ class EligibilityVerifyViewModel {
     // MARK: - Network
 
     func verifyData() {
-        service.eligibilityCheck { [weak self] data, error in
+        let parameters: Parameters = [
+            "firstName": model.firstName,
+            "middleName": model.middleName,
+            "lastName": model.lastName,
+            "address": model.address,
+            "state": model.state,
+            "city": model.city,
+            "zipCode": model.zipCodeString,
+            "dateOfBirth": model.dateOfBirth,
+            "eligibilityProgramCode": "E1, E2, E3", // ?
+            "consentInd": "Y", // ?
+            "socialSecurityNumber": model.ssn
+        ]
+
+        service.eligibilityCheck(parameters: parameters) { [weak self] data, error in
             guard let self = self else { return }
 
             guard let data = data, error == nil else {

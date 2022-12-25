@@ -8,8 +8,8 @@
 import Alamofire
 
 enum EligibilityServiceEndpoint {
-    case eligibilityCheck
-    case register(id: String)
+    case eligibilityCheck(parameters: Parameters?)
+    case register(id: String, parameters: Parameters?)
 }
 
 extension EligibilityServiceEndpoint: ACPEndpoint {
@@ -19,7 +19,7 @@ extension EligibilityServiceEndpoint: ACPEndpoint {
         switch self {
         case .eligibilityCheck:
             return "national-verifier/eligibility-check"
-        case .register(let id):
+        case .register(let id, _):
             return "users/eligibility-register/\(id)"
         }
     }
@@ -34,5 +34,12 @@ extension EligibilityServiceEndpoint: ACPEndpoint {
 
     var headers: HTTPHeaders? { nil }
 
-    var parameters: Parameters? { nil }
+    var parameters: Parameters? {
+        switch self {
+        case .eligibilityCheck(let parameters):
+            return parameters
+        case .register(_, let parameters):
+            return parameters
+        }
+    }
 }

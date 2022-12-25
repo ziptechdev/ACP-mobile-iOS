@@ -6,7 +6,7 @@
 //
 
 struct EligibilityResponse: Codable {
+    let status: String?
     let eligibilityCheckId: String?
     let applicationId: String?
-    let status: String?
 }

@@ -7,4 +7,6 @@
 
 struct LoginResponse: Codable {
     let status: String?
+    let message: String
+    let data: LoginData
 }

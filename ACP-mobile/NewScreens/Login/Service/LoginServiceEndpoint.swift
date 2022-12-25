@@ -8,7 +8,7 @@
 import Alamofire
 
 enum LoginServiceEndpoint {
-    case login
+    case login(parameters: Parameters?)
 }
 
 extension LoginServiceEndpoint: ACPEndpoint {
@@ -17,7 +17,7 @@ extension LoginServiceEndpoint: ACPEndpoint {
     var path: String {
         switch self {
         case .login:
-            return "login"
+            return "users/login"
         }
     }
 
@@ -30,5 +30,10 @@ extension LoginServiceEndpoint: ACPEndpoint {
 
     var headers: HTTPHeaders? { nil }
 
-    var parameters: Parameters? { nil }
+    var parameters: Parameters? {
+        switch self {
+        case .login(let parameters):
+            return parameters
+        }
+    }
 }

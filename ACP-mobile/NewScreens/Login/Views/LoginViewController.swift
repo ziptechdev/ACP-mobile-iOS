@@ -179,7 +179,10 @@ class LoginViewController: UIViewController {
     }
 
     @objc func didTapButton() {
-        viewModel.login()
+        viewModel.login(
+            email: emailTextField.text,
+            password: passwordTextField.text
+        )
     }
 
     @objc override func didTapRightButton() {

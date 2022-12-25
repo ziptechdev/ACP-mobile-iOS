@@ -1,5 +1,5 @@
 //
-//  EligibilityDetailsDOBViewController.swift
+//  EligibilityDetailsAddressViewController.swift
 //  ACP-mobile
 //
 //  Created by Adi on 01/10/2022.
@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class EligibilityDetailsDOBViewController: UIViewController {
+class EligibilityDetailsAddressViewController: UIViewController {
 
     // MARK: - Properties
 
@@ -16,14 +16,14 @@ class EligibilityDetailsDOBViewController: UIViewController {
     weak var delegate: ACPTabMenuDelegate?
 
     private lazy var textFields: [TextInput] = [
-        monthTextField, dayTextField, yearTextField, ssnTextField
+        streetTextField, cityTextField, stateTextField
     ]
 
     // MARK: - Views
 
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = .localizedString(key: "eligibility_dob_title")
+        label.text = .localizedString(key: "eligibility_address_title")
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 32, weight: .bold)
         label.textColor = .coreBlue
@@ -33,75 +33,62 @@ class EligibilityDetailsDOBViewController: UIViewController {
 
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.attributedText = NSMutableAttributedString.subtitleString(key: "eligibility_dob_subtitle")
+        label.attributedText = NSMutableAttributedString.subtitleString(key: "eligibility_address_subtitle")
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 2
         return label
     }()
 
-    private lazy var monthTextField: ACPPickerView = {
+    private lazy var streetTextField: ACPTextField = {
+        let view = ACPTextField()
+        view.titleLabel.text = .localizedString(key: "eligibility_address_street")
+        view.textField.delegate = self
+        return view
+    }()
+
+    private lazy var cityTextField: ACPTextField = {
+        let view = ACPTextField()
+        view.titleLabel.text = .localizedString(key: "eligibility_address_city")
+        view.textField.delegate = self
+        return view
+    }()
+
+    private lazy var stateTextField: ACPPickerView = {
         let view = ACPPickerView()
-        view.titleLabel.text = .localizedString(key: "eligibility_dob_month")
+        view.titleLabel.text = .localizedString(key: "eligibility_address_state")
         view.textField.addRightImage(named: "down_arrow")
         view.delegate = self
-        view.textField.delegate = self
         view.pickerView.delegate = self
         view.pickerView.dataSource = self
         return view
     }()
 
-    private lazy var dayTextField: ACPTextField = {
+    private lazy var zipTextField: ACPTextField = {
         let view = ACPTextField()
-        view.titleLabel.text = .localizedString(key: "eligibility_dob_day")
-        view.delegate = self
-        view.textField.delegate = self
-        view.textField.keyboardType = .numberPad
+        view.titleLabel.text = .localizedString(key: "eligibility_address_zip")
         view.textField.textAlignment = .center
-        view.textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
-        return view
-    }()
-
-    private lazy var yearTextField: ACPTextField = {
-        let view = ACPTextField()
-        view.titleLabel.text = .localizedString(key: "eligibility_dob_year")
-        view.delegate = self
-        view.textField.delegate = self
-        view.textField.keyboardType = .numberPad
-        view.textField.textAlignment = .center
-        view.textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
-        return view
-    }()
-
-    private lazy var ssnTextField: ACPTextField = {
-        let view = ACPTextField()
-        view.titleLabel.text = .localizedString(key: "eligibility_dob_ssn")
-        view.delegate = self
-        view.textField.delegate = self
-        view.textField.keyboardType = .numberPad
-        view.textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        view.isUserInteractionEnabled = false
         return view
     }()
 
     private let noBlankLabel: UILabel = {
         let label = UILabel()
-        label.text = .localizedString(key: "eligibility_dob_info")
+        label.text = .localizedString(key: "eligibility_address_info")
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 12, weight: .regular)
         label.textColor = .gray01Light
         return label
     }()
 
-    private lazy var nextButton: ACPImageButton = {
-        let button = ACPImageButton(
-            titleKey: "eligibility_dob_btn",
-            spacing: Constants.ButtonContentSpacing,
-            cornerRadius: Constants.ButtonCornerRadius,
-            imageName: "right_arrow"
-        )
+    private lazy var verifyButton: UIButton = {
+        let button = UIButton()
+        button.layer.cornerRadius = Constants.ButtonCornerRadius
+        button.layer.masksToBounds = true
         button.isUserInteractionEnabled = false
         button.backgroundColor = .lavenderGray
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle(titleKey: "eligibility_address_btn")
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         return button
     }()
@@ -115,7 +102,7 @@ class EligibilityDetailsDOBViewController: UIViewController {
     )
 
     private lazy var dualFieldStackView = UIStackView(
-        subviews: [dayTextField, yearTextField],
+        subviews: [stateTextField, zipTextField],
         axis: .horizontal,
         distribution: .fillEqually,
         spacing: Constants.dualFieldStackViewSpacing
@@ -123,9 +110,9 @@ class EligibilityDetailsDOBViewController: UIViewController {
 
     private lazy var fieldsStackView = UIStackView(
         subviews: [
-            monthTextField,
+            streetTextField,
+            cityTextField,
             dualFieldStackView,
-            ssnTextField,
             noBlankLabel
         ],
         spacing: Constants.fieldsStackViewSpacing
@@ -161,18 +148,6 @@ class EligibilityDetailsDOBViewController: UIViewController {
         showValuesIfPresent()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        addKeyboardObserver()
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-        removeKeyboardObserver()
-    }
-
     // MARK: - UI
 
     private func setupUI() {
@@ -182,7 +157,7 @@ class EligibilityDetailsDOBViewController: UIViewController {
 
     private func addSubviews() {
         view.addSubview(topStackView)
-        view.addSubview(nextButton)
+        view.addSubview(verifyButton)
     }
 
     private func setupConstraints() {
@@ -191,7 +166,7 @@ class EligibilityDetailsDOBViewController: UIViewController {
             make.top.equalToSuperview().inset(Constants.ContentInsetVertical)
         }
 
-        nextButton.snp.makeConstraints { make in
+        verifyButton.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(Constants.ContentInsetHorizontal)
             make.height.equalTo(Constants.ButtonHeight)
             make.top.equalTo(topStackView.snp.bottom).offset(Constants.ButtonOffsetVertical)
@@ -201,10 +176,10 @@ class EligibilityDetailsDOBViewController: UIViewController {
     // MARK: - Presenting
 
     private func showValuesIfPresent() {
-        pickerView(monthTextField.pickerView, didSelectRow: viewModel.model.month, inComponent: 0)
-        dayTextField.textField.text = viewModel.model.day
-        yearTextField.textField.text = viewModel.model.year
-        ssnTextField.textField.text = viewModel.model.ssn
+        streetTextField.textField.text = viewModel.model.address
+        cityTextField.textField.text = viewModel.model.city
+        pickerView(stateTextField.pickerView, didSelectRow: viewModel.model.selectedState, inComponent: 0)
+        zipTextField.textField.text = viewModel.model.zipCode
 
         checkValues()
     }
@@ -212,39 +187,17 @@ class EligibilityDetailsDOBViewController: UIViewController {
     private func checkValues() {
         let isEnabled = textFields.allSatisfy({ !$0.isEmpty })
 
-        nextButton.isUserInteractionEnabled = isEnabled
-        nextButton.backgroundColor = isEnabled ? .coreBlue : .lavenderGray
+        verifyButton.isUserInteractionEnabled = isEnabled
+        verifyButton.backgroundColor = isEnabled ? .coreBlue : .lavenderGray
     }
 
     // MARK: - Callback
 
     @objc func didTapButton() {
-        viewModel.model.day = dayTextField.text
-        viewModel.model.year = yearTextField.text
-        viewModel.model.ssn = ssnTextField.text
+        viewModel.model.address = streetTextField.text
+        viewModel.model.city = cityTextField.text
 
-        if viewModel.isDateOfBirthValid {
-            delegate?.didTapNextButton()
-        } else {
-            UIAlertController.showErrorAlert(message: "Please enter a valid date of birth", from: self)
-        }
-    }
-
-    @objc private func textFieldDidChange(_ textField: UITextField) {
-        guard var text = textField.text else {
-            return
-        }
-
-        switch textField {
-        case dayTextField.textField:
-            text = String(text.prefix(2))
-
-        default:
-            text = String(text.prefix(4))
-
-        }
-
-        textField.text = text
+        delegate?.didTapActionButton()
     }
 
     // MARK: - Constants
@@ -259,7 +212,6 @@ class EligibilityDetailsDOBViewController: UIViewController {
         static let topStackViewSpacing: CGFloat = 30
 
         static let ButtonHeight: CGFloat = 46
-        static let ButtonContentSpacing: CGFloat = 10
         static let ButtonCornerRadius: CGFloat = 10
         static let ButtonOffsetVertical: CGFloat = 60
     }
@@ -267,7 +219,8 @@ class EligibilityDetailsDOBViewController: UIViewController {
 
 // MARK: - UITextFieldDelegate
 
-extension EligibilityDetailsDOBViewController: UITextFieldDelegate {
+extension EligibilityDetailsAddressViewController: UITextFieldDelegate {
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         guard let currentIndex = textFields.firstIndex(where: { $0.textField == textField }) else {
             return true
@@ -287,19 +240,12 @@ extension EligibilityDetailsDOBViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
         checkValues()
     }
-
-    func textField(
-        _ textField: UITextField,
-        shouldChangeCharactersIn range: NSRange,
-        replacementString string: String
-    ) -> Bool {
-        return textField != monthTextField.textField
-    }
 }
 
 // MARK: - ACPToolbarDelegate
 
-extension EligibilityDetailsDOBViewController: ACPToolbarDelegate {
+extension EligibilityDetailsAddressViewController: ACPToolbarDelegate {
+
     func didPressDone(_ textfield: UITextField) {
         _ = textFieldShouldReturn(textfield)
     }
@@ -307,26 +253,27 @@ extension EligibilityDetailsDOBViewController: ACPToolbarDelegate {
 
 // MARK: - UIPickerViewDelegate
 
-extension EligibilityDetailsDOBViewController: UIPickerViewDelegate {
+extension EligibilityDetailsAddressViewController: UIPickerViewDelegate {
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return viewModel.monthOptions[row]
+        return viewModel.stateOptions[row]
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        viewModel.model.month = row
-        monthTextField.textField.text = viewModel.monthOptions[row]
+        viewModel.model.selectedState = row
+        stateTextField.textField.text = viewModel.stateOptions[row]
     }
 }
 
 // MARK: - UIPickerViewDelegate
 
-extension EligibilityDetailsDOBViewController: UIPickerViewDataSource {
+extension EligibilityDetailsAddressViewController: UIPickerViewDataSource {
+
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return viewModel.monthOptions.count
+        return viewModel.stateOptions.count
     }
 }

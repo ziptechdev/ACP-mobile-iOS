@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 class EligibilityRegistrationViewModel {
 
@@ -13,10 +14,11 @@ class EligibilityRegistrationViewModel {
 
     private weak var coordinator: EligibilityCoordinatorProtocol?
     private let service = EligibilityService()
-    private let model: EligibilityModel
+    private var model: EligibilityModel
 
     var isSecureEntry = true
     var firstName: String { model.firstName }
+    var errorCompletion: (() -> Void)?
 
     // MARK: - Initialization
 
@@ -27,23 +29,28 @@ class EligibilityRegistrationViewModel {
 
     // MARK: - Network
 
-    func register(errorCompletion: @escaping (() -> Void)) {
-        service.registerUser(id: model.eligibilityCheckId) { [weak self] data, error in
+    func register(email: String, password: String) {
+        let parameters: Parameters = [
+            "username": email,
+            "password": password
+        ]
+
+        service.registerUser(id: model.eligibilityCheckId, parameters: parameters) { [weak self] data, error in
             guard let self = self else { return }
 
-//            guard let data = data, error == nil else {
-//                errorCompletion()
-//                return
-//            }
-//
-//            guard let model = try? JSONDecoder().decode(EligibilityRegistrationResponse.self, from: data),
-//                  let userId = model.id
-//            else {
-//                errorCompletion()
-//                return
-//            }
+            guard let data = data, error == nil else {
+                self.errorCompletion?()
+                return
+            }
 
-//            print(userId)
+            guard let model = try? JSONDecoder().decode(EligibilityRegistrationResponse.self, from: data),
+                  let userId = model.id
+            else {
+                self.errorCompletion?()
+                return
+            }
+
+            print(userId)
             self.goToSuccess()
         }
     }

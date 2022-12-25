@@ -26,22 +26,12 @@ class EligibilityDetailsViewModel {
     }
 
     var isDateOfBirthValid: Bool {
-        return getDateOfBirth() != nil
+        return checkIfAgeIsValid()
     }
 
-    var stateOptions: [String] {
-        return [
-            "AK", "AL", "AR", "AS", "AZ", "CA", "CO", "CT", "DC", "DE", "FL", "GA", "GU", "HI", "IA",
-            "ID", "IL", "IN", "KS", "KY", "LA", "MA", "MD", "ME", "MI", "MN", "MO", "MS", "MT", "NC",
-            "ND", "NE", "NH", "NJ", "NM", "NV", "NY", "OH", "OK", "OR", "PA", "PR", "RI", "SC", "SD",
-            "TN", "TX", "UT", "VA", "VI", "VT", "WA", "WI", "WV", "WY"
-        ]
-    }
+    var stateOptions: [String] { model.stateOptions }
 
-    var monthOptions: [String] {
-        let range = 1...12
-        return range.map { "\($0) / \(String.localizedString(key: "month_\($0)"))" }
-    }
+    var monthOptions: [String] { model.monthOptions }
 
     // MARK: - Initialization
 
@@ -52,26 +42,13 @@ class EligibilityDetailsViewModel {
 
     // MARK: - Helpers
 
-    private func getDateOfBirth() -> String? {
-        let monthString = "\(model.day)-\(model.month + 1)-\(model.year)"
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy"
-
-        guard let date = dateFormatter.date(from: monthString),
-              checkIfAgeIsValid(date: date)
-        else {
-            return nil
-        }
-
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        return dateFormatter.string(from: date)
-    }
-
-    private func checkIfAgeIsValid(date: Date) -> Bool {
+    private func checkIfAgeIsValid() -> Bool {
         let now = Date()
-        let calendar = Calendar.current
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
 
-        guard let age = calendar.dateComponents([.year], from: date, to: now).year,
+        guard let date = dateFormatter.date(from: model.dateOfBirth),
+              let age = Calendar.current.dateComponents([.year], from: date, to: now).year,
               age >= 18,
               age < 120
         else {

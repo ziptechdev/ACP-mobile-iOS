@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 class LoginViewModel {
 
@@ -32,8 +33,13 @@ class LoginViewModel {
 
     // MARK: - Callback
 
-    func login() {
-        service.login { [weak self] data, error in
+    func login(email: String, password: String) {
+        let parameters: Parameters = [
+            "username": email,
+            "password": password
+        ]
+
+        service.login(parameters: parameters) { [weak self] data, error in
             guard let self = self else { return }
 
             guard let data = data, error == nil else {

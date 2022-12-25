@@ -108,6 +108,7 @@ class EligibilityRegistrationViewController: UIViewController {
         super.viewDidLoad()
 
         setupUI()
+        viewModel.errorCompletion = showServerError
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -202,7 +203,10 @@ class EligibilityRegistrationViewController: UIViewController {
             return
         }
 
-        viewModel.register(errorCompletion: showServerError)
+        viewModel.register(
+            email: emailTextField.text,
+            password: passwordTextField.text
+        )
     }
 
     func checkPasswords() -> Bool {
