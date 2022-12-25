@@ -56,7 +56,7 @@ extension KYCViewController {
     private struct Constants {
 
         struct Fonts {}
-        
+
         struct Strings {}
     }
 }

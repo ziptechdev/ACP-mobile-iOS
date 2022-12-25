@@ -13,7 +13,7 @@ class AppCoordinator: Coordinator {
 
     var window: UIWindow
 
-    var parentCoordinator: Coordinator? = nil
+    var parentCoordinator: Coordinator?
     var childCoordinators: [Coordinator] = []
     var navigationController = ACPNavigationController()
 

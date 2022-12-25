@@ -60,7 +60,7 @@ class EligibilityRegistrationViewModel {
     private func goToSuccess() {
         coordinator?.goToRegistrationSuccess()
     }
-    
+
     func dismiss() {
         coordinator?.dismiss()
     }

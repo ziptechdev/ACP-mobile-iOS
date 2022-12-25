@@ -19,5 +19,5 @@ class KYCViewModel {
     }
 
     // MARK: - Callbacks
-    
+
 }

@@ -23,7 +23,6 @@ protocol ACPTabMenuViewControllerDelegate: AnyObject {
 
 class ACPTabMenuViewController: UIViewController {
 
-    // TODO: Add swipe gestures
     // MARK: - Properties
 
     private let allTabsEnabled: Bool

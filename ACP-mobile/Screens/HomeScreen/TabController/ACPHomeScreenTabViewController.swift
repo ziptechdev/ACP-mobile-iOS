@@ -126,7 +126,6 @@ extension ACPHomeScreenTabViewController: ACPTabMenuViewControllerDelegate {
                 navigationController?.pushViewController(viewController, animated: true)
                 return didSelectTab(index: 1)
 
-
             default:
                 let viewController = ACPWalletViewController()
                 return viewController
