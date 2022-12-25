@@ -13,7 +13,7 @@ class EligibilityDetailsNameViewController: UIViewController {
     // MARK: - Properties
 
     private let viewModel: EligibilityDetailsViewModel
-    weak var delegate: ACPTabMenuDelegate?
+    weak var delegate: TabMenuDelegate?
 
     private lazy var textFields: [TextInput] = [
         nameTextField, middleNameTextField, lastNameTextField
@@ -40,22 +40,22 @@ class EligibilityDetailsNameViewController: UIViewController {
         return label
     }()
 
-    private lazy var nameTextField: ACPTextField = {
-        let view = ACPTextField()
+    private lazy var nameTextField: TextField = {
+        let view = TextField()
         view.titleLabel.text = .localizedString(key: "eligibility_details_name")
         view.textField.delegate = self
         return view
     }()
 
-    private lazy var middleNameTextField: ACPTextField = {
-        let view = ACPTextField()
+    private lazy var middleNameTextField: TextField = {
+        let view = TextField()
         view.titleLabel.attributedText = attributedTitleText()
         view.textField.delegate = self
         return view
     }()
 
-    private lazy var lastNameTextField: ACPTextField = {
-        let view = ACPTextField()
+    private lazy var lastNameTextField: TextField = {
+        let view = TextField()
         view.titleLabel.text = .localizedString(key: "eligibility_details_last_name")
         view.textField.delegate = self
         return view
@@ -70,8 +70,8 @@ class EligibilityDetailsNameViewController: UIViewController {
         return label
     }()
 
-    private lazy var nextButton: ACPImageButton = {
-        let button = ACPImageButton(
+    private lazy var nextButton: ImageButton = {
+        let button = ImageButton(
             titleKey: "eligibility_details_btn",
             spacing: Constants.ButtonContentSpacing,
             cornerRadius: Constants.ButtonCornerRadius,

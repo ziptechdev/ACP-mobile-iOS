@@ -29,24 +29,12 @@
 		400ABA0728FF7F6000A6DCB6 /* UITextField+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9B628FF7F6000A6DCB6 /* UITextField+ACP.swift */; };
 		400ABA0828FF7F6000A6DCB6 /* UITableView+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9B728FF7F6000A6DCB6 /* UITableView+ACP.swift */; };
 		400ABA0928FF7F6000A6DCB6 /* UICollectionView+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9B828FF7F6000A6DCB6 /* UICollectionView+ACP.swift */; };
-		400ABA0A28FF7F6000A6DCB6 /* UIViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9B928FF7F6000A6DCB6 /* UIViewController+Keyboard.swift */; };
 		400ABA0B28FF7F6000A6DCB6 /* NSMutableParagraphStyle+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9BA28FF7F6000A6DCB6 /* NSMutableParagraphStyle+ACP.swift */; };
 		400ABA0C28FF7F6000A6DCB6 /* UIViewController+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9BB28FF7F6000A6DCB6 /* UIViewController+ACP.swift */; };
 		400ABA0D28FF7F6000A6DCB6 /* UITapGestureRecognizer+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9BC28FF7F6000A6DCB6 /* UITapGestureRecognizer+ACP.swift */; };
 		400ABA0E28FF7F6000A6DCB6 /* UIColor+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9BD28FF7F6000A6DCB6 /* UIColor+ACP.swift */; };
 		400ABA0F28FF7F6000A6DCB6 /* String+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9BE28FF7F6000A6DCB6 /* String+ACP.swift */; };
 		400ABA1028FF7F6000A6DCB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9C028FF7F6000A6DCB6 /* AppDelegate.swift */; };
-		400ABA1228FF7F6000A6DCB6 /* ACPTabMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9C428FF7F6000A6DCB6 /* ACPTabMenuViewController.swift */; };
-		400ABA1328FF7F6000A6DCB6 /* ACPFocusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9C528FF7F6000A6DCB6 /* ACPFocusableView.swift */; };
-		400ABA1428FF7F6000A6DCB6 /* ACPTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9C628FF7F6000A6DCB6 /* ACPTableView.swift */; };
-		400ABA1528FF7F6000A6DCB6 /* ACPNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9C728FF7F6000A6DCB6 /* ACPNavigationController.swift */; };
-		400ABA1828FF7F6000A6DCB6 /* ACPTabMenuTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9CB28FF7F6000A6DCB6 /* ACPTabMenuTitleCell.swift */; };
-		400ABA1928FF7F6000A6DCB6 /* ACPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9CD28FF7F6000A6DCB6 /* ACPTextField.swift */; };
-		400ABA1A28FF7F6000A6DCB6 /* ACPTermsAndPrivacyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9CE28FF7F6000A6DCB6 /* ACPTermsAndPrivacyLabel.swift */; };
-		400ABA1B28FF7F6000A6DCB6 /* ACPPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9CF28FF7F6000A6DCB6 /* ACPPickerView.swift */; };
-		400ABA1C28FF7F6000A6DCB6 /* ACPImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9D028FF7F6000A6DCB6 /* ACPImageButton.swift */; };
-		400ABA1D28FF7F6000A6DCB6 /* ACPBorderedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9D128FF7F6000A6DCB6 /* ACPBorderedView.swift */; };
-		400ABA1E28FF7F6000A6DCB6 /* ACPCircleLoadingBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9D228FF7F6000A6DCB6 /* ACPCircleLoadingBarView.swift */; };
 		400ABA1F28FF7F6000A6DCB6 /* ACPPersonalInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9D528FF7F6000A6DCB6 /* ACPPersonalInfoViewModel.swift */; };
 		400ABA2028FF7F6000A6DCB6 /* ACPVerifyEmailCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9DA28FF7F6000A6DCB6 /* ACPVerifyEmailCodeView.swift */; };
 		400ABA2128FF7F6000A6DCB6 /* ACPVerifyEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9DB28FF7F6000A6DCB6 /* ACPVerifyEmailViewController.swift */; };
@@ -60,9 +48,8 @@
 		400ABA2928FF7F6000A6DCB6 /* ACPBankInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9E428FF7F6000A6DCB6 /* ACPBankInfoViewController.swift */; };
 		400ABA2A28FF7F6000A6DCB6 /* ACPNotVerifiedRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9E528FF7F6000A6DCB6 /* ACPNotVerifiedRegistrationViewController.swift */; };
 		400ABA2B28FF7F6000A6DCB6 /* ACPPersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9E628FF7F6000A6DCB6 /* ACPPersonalInfoViewController.swift */; };
-		400ABA2E28FF7F6000A6DCB6 /* ACPRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9EB28FF7F6000A6DCB6 /* ACPRouter.swift */; };
-		400ABA2F28FF7F6000A6DCB6 /* ACPEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9EC28FF7F6000A6DCB6 /* ACPEndpoint.swift */; };
-		400ABA3228FF904B00A6DCB6 /* ACPTabMenuDotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400ABA3128FF904B00A6DCB6 /* ACPTabMenuDotCell.swift */; };
+		400ABA2E28FF7F6000A6DCB6 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9EB28FF7F6000A6DCB6 /* Router.swift */; };
+		400ABA2F28FF7F6000A6DCB6 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9EC28FF7F6000A6DCB6 /* Endpoint.swift */; };
 		400ABA352900413D00A6DCB6 /* ACPRegistrationCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400ABA342900413D00A6DCB6 /* ACPRegistrationCompleteViewController.swift */; };
 		4013FADE29083DB00018025F /* ACPCardSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4013FADD29083DB00018025F /* ACPCardSuccessViewController.swift */; };
 		4013FAE12908427F0018025F /* ACPEmptyWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4013FAE02908427F0018025F /* ACPEmptyWalletViewController.swift */; };
@@ -74,10 +61,8 @@
 		40251D41290CD2840083B89A /* ACPCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40251D40290CD2840083B89A /* ACPCardModel.swift */; };
 		40251D44290DE04C0083B89A /* ACPTransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40251D43290DE04C0083B89A /* ACPTransactionsViewController.swift */; };
 		40251D46290DE0710083B89A /* ACPTransactionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40251D45290DE0710083B89A /* ACPTransactionsCell.swift */; };
-		40315460290E3002009320D8 /* ACPShadowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4031545F290E3002009320D8 /* ACPShadowButton.swift */; };
 		403AD22029075B0600C6D556 /* ACPHomeScreenTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403AD21F29075B0600C6D556 /* ACPHomeScreenTabViewController.swift */; };
 		403AD22329075B6400C6D556 /* ACPHomeScreenTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403AD22229075B6400C6D556 /* ACPHomeScreenTabViewModel.swift */; };
-		403AD2252907636B00C6D556 /* ACPTabMenuImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403AD2242907636B00C6D556 /* ACPTabMenuImageCell.swift */; };
 		404A89F5294E4AE900266334 /* UIStackView+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404A89F4294E4AE900266334 /* UIStackView+ACP.swift */; };
 		404A8A00294E61B700266334 /* UIAlertController+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404A89FF294E61B700266334 /* UIAlertController+ACP.swift */; };
 		404A8A14294F938F00266334 /* EligibilityDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404A8A09294F938F00266334 /* EligibilityDetailsViewModel.swift */; };
@@ -118,6 +103,20 @@
 		404A8A7C2950134300266334 /* KYCServiceEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404A8A742950134300266334 /* KYCServiceEndpoint.swift */; };
 		404A8A7D2950134300266334 /* KYCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404A8A772950134300266334 /* KYCViewController.swift */; };
 		408E06982957D57E00F0F96C /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408E06972957D57E00F0F96C /* LoginData.swift */; };
+		408E06AA2957FE0900F0F96C /* TabMenuImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408E069B2957FE0900F0F96C /* TabMenuImageCell.swift */; };
+		408E06AB2957FE0900F0F96C /* TabMenuDotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408E069C2957FE0900F0F96C /* TabMenuDotCell.swift */; };
+		408E06AC2957FE0900F0F96C /* TabMenuTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408E069D2957FE0900F0F96C /* TabMenuTitleCell.swift */; };
+		408E06AD2957FE0900F0F96C /* TabMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408E069E2957FE0900F0F96C /* TabMenuViewController.swift */; };
+		408E06AE2957FE0900F0F96C /* FocusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408E069F2957FE0900F0F96C /* FocusableView.swift */; };
+		408E06AF2957FE0900F0F96C /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408E06A12957FE0900F0F96C /* PickerView.swift */; };
+		408E06B02957FE0900F0F96C /* CircleLoadingBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408E06A22957FE0900F0F96C /* CircleLoadingBarView.swift */; };
+		408E06B12957FE0900F0F96C /* ShadowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408E06A32957FE0900F0F96C /* ShadowButton.swift */; };
+		408E06B22957FE0900F0F96C /* ImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408E06A42957FE0900F0F96C /* ImageButton.swift */; };
+		408E06B32957FE0900F0F96C /* TermsAndPrivacyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408E06A52957FE0900F0F96C /* TermsAndPrivacyLabel.swift */; };
+		408E06B42957FE0900F0F96C /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408E06A62957FE0900F0F96C /* TableView.swift */; };
+		408E06B52957FE0900F0F96C /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408E06A72957FE0900F0F96C /* TextField.swift */; };
+		408E06B62957FE0900F0F96C /* BorderedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408E06A82957FE0900F0F96C /* BorderedView.swift */; };
+		408E06B72957FE0900F0F96C /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408E06A92957FE0900F0F96C /* NavigationController.swift */; };
 		40B5EDD828E224F40096B91B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40B5EDD728E224F40096B91B /* Assets.xcassets */; };
 		40B5EDDB28E224F40096B91B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40B5EDD928E224F40096B91B /* LaunchScreen.storyboard */; };
 		40EDB816290EF4FC007E0255 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 40EDB815290EF4FC007E0255 /* GoogleService-Info.plist */; };
@@ -151,24 +150,12 @@
 		400AB9B628FF7F6000A6DCB6 /* UITextField+ACP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+ACP.swift"; sourceTree = "<group>"; };
 		400AB9B728FF7F6000A6DCB6 /* UITableView+ACP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+ACP.swift"; sourceTree = "<group>"; };
 		400AB9B828FF7F6000A6DCB6 /* UICollectionView+ACP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+ACP.swift"; sourceTree = "<group>"; };
-		400AB9B928FF7F6000A6DCB6 /* UIViewController+Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Keyboard.swift"; sourceTree = "<group>"; };
 		400AB9BA28FF7F6000A6DCB6 /* NSMutableParagraphStyle+ACP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMutableParagraphStyle+ACP.swift"; sourceTree = "<group>"; };
 		400AB9BB28FF7F6000A6DCB6 /* UIViewController+ACP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+ACP.swift"; sourceTree = "<group>"; };
 		400AB9BC28FF7F6000A6DCB6 /* UITapGestureRecognizer+ACP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITapGestureRecognizer+ACP.swift"; sourceTree = "<group>"; };
 		400AB9BD28FF7F6000A6DCB6 /* UIColor+ACP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+ACP.swift"; sourceTree = "<group>"; };
 		400AB9BE28FF7F6000A6DCB6 /* String+ACP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+ACP.swift"; sourceTree = "<group>"; };
 		400AB9C028FF7F6000A6DCB6 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		400AB9C428FF7F6000A6DCB6 /* ACPTabMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPTabMenuViewController.swift; sourceTree = "<group>"; };
-		400AB9C528FF7F6000A6DCB6 /* ACPFocusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPFocusableView.swift; sourceTree = "<group>"; };
-		400AB9C628FF7F6000A6DCB6 /* ACPTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPTableView.swift; sourceTree = "<group>"; };
-		400AB9C728FF7F6000A6DCB6 /* ACPNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPNavigationController.swift; sourceTree = "<group>"; };
-		400AB9CB28FF7F6000A6DCB6 /* ACPTabMenuTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPTabMenuTitleCell.swift; sourceTree = "<group>"; };
-		400AB9CD28FF7F6000A6DCB6 /* ACPTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPTextField.swift; sourceTree = "<group>"; };
-		400AB9CE28FF7F6000A6DCB6 /* ACPTermsAndPrivacyLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPTermsAndPrivacyLabel.swift; sourceTree = "<group>"; };
-		400AB9CF28FF7F6000A6DCB6 /* ACPPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPPickerView.swift; sourceTree = "<group>"; };
-		400AB9D028FF7F6000A6DCB6 /* ACPImageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPImageButton.swift; sourceTree = "<group>"; };
-		400AB9D128FF7F6000A6DCB6 /* ACPBorderedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPBorderedView.swift; sourceTree = "<group>"; };
-		400AB9D228FF7F6000A6DCB6 /* ACPCircleLoadingBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPCircleLoadingBarView.swift; sourceTree = "<group>"; };
 		400AB9D528FF7F6000A6DCB6 /* ACPPersonalInfoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPPersonalInfoViewModel.swift; sourceTree = "<group>"; };
 		400AB9DA28FF7F6000A6DCB6 /* ACPVerifyEmailCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPVerifyEmailCodeView.swift; sourceTree = "<group>"; };
 		400AB9DB28FF7F6000A6DCB6 /* ACPVerifyEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPVerifyEmailViewController.swift; sourceTree = "<group>"; };
@@ -182,9 +169,8 @@
 		400AB9E428FF7F6000A6DCB6 /* ACPBankInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPBankInfoViewController.swift; sourceTree = "<group>"; };
 		400AB9E528FF7F6000A6DCB6 /* ACPNotVerifiedRegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPNotVerifiedRegistrationViewController.swift; sourceTree = "<group>"; };
 		400AB9E628FF7F6000A6DCB6 /* ACPPersonalInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPPersonalInfoViewController.swift; sourceTree = "<group>"; };
-		400AB9EB28FF7F6000A6DCB6 /* ACPRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPRouter.swift; sourceTree = "<group>"; };
-		400AB9EC28FF7F6000A6DCB6 /* ACPEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEndpoint.swift; sourceTree = "<group>"; };
-		400ABA3128FF904B00A6DCB6 /* ACPTabMenuDotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPTabMenuDotCell.swift; sourceTree = "<group>"; };
+		400AB9EB28FF7F6000A6DCB6 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		400AB9EC28FF7F6000A6DCB6 /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		400ABA342900413D00A6DCB6 /* ACPRegistrationCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPRegistrationCompleteViewController.swift; sourceTree = "<group>"; };
 		4013FADD29083DB00018025F /* ACPCardSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPCardSuccessViewController.swift; sourceTree = "<group>"; };
 		4013FAE02908427F0018025F /* ACPEmptyWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPEmptyWalletViewController.swift; sourceTree = "<group>"; };
@@ -196,10 +182,8 @@
 		40251D40290CD2840083B89A /* ACPCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPCardModel.swift; sourceTree = "<group>"; };
 		40251D43290DE04C0083B89A /* ACPTransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPTransactionsViewController.swift; sourceTree = "<group>"; };
 		40251D45290DE0710083B89A /* ACPTransactionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPTransactionsCell.swift; sourceTree = "<group>"; };
-		4031545F290E3002009320D8 /* ACPShadowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPShadowButton.swift; sourceTree = "<group>"; };
 		403AD21F29075B0600C6D556 /* ACPHomeScreenTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPHomeScreenTabViewController.swift; sourceTree = "<group>"; };
 		403AD22229075B6400C6D556 /* ACPHomeScreenTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPHomeScreenTabViewModel.swift; sourceTree = "<group>"; };
-		403AD2242907636B00C6D556 /* ACPTabMenuImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPTabMenuImageCell.swift; sourceTree = "<group>"; };
 		404A89F4294E4AE900266334 /* UIStackView+ACP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStackView+ACP.swift"; sourceTree = "<group>"; };
 		404A89FF294E61B700266334 /* UIAlertController+ACP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+ACP.swift"; sourceTree = "<group>"; };
 		404A8A09294F938F00266334 /* EligibilityDetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilityDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -240,6 +224,20 @@
 		404A8A742950134300266334 /* KYCServiceEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCServiceEndpoint.swift; sourceTree = "<group>"; };
 		404A8A772950134300266334 /* KYCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCViewController.swift; sourceTree = "<group>"; };
 		408E06972957D57E00F0F96C /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
+		408E069B2957FE0900F0F96C /* TabMenuImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabMenuImageCell.swift; sourceTree = "<group>"; };
+		408E069C2957FE0900F0F96C /* TabMenuDotCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabMenuDotCell.swift; sourceTree = "<group>"; };
+		408E069D2957FE0900F0F96C /* TabMenuTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabMenuTitleCell.swift; sourceTree = "<group>"; };
+		408E069E2957FE0900F0F96C /* TabMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabMenuViewController.swift; sourceTree = "<group>"; };
+		408E069F2957FE0900F0F96C /* FocusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusableView.swift; sourceTree = "<group>"; };
+		408E06A12957FE0900F0F96C /* PickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
+		408E06A22957FE0900F0F96C /* CircleLoadingBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleLoadingBarView.swift; sourceTree = "<group>"; };
+		408E06A32957FE0900F0F96C /* ShadowButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowButton.swift; sourceTree = "<group>"; };
+		408E06A42957FE0900F0F96C /* ImageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageButton.swift; sourceTree = "<group>"; };
+		408E06A52957FE0900F0F96C /* TermsAndPrivacyLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsAndPrivacyLabel.swift; sourceTree = "<group>"; };
+		408E06A62957FE0900F0F96C /* TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		408E06A72957FE0900F0F96C /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		408E06A82957FE0900F0F96C /* BorderedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderedView.swift; sourceTree = "<group>"; };
+		408E06A92957FE0900F0F96C /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		40B5EDCB28E224F20096B91B /* ACP-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ACP-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		40B5EDD728E224F40096B91B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40B5EDDA28E224F40096B91B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -393,7 +391,6 @@
 				400AB9BC28FF7F6000A6DCB6 /* UITapGestureRecognizer+ACP.swift */,
 				400AB9B628FF7F6000A6DCB6 /* UITextField+ACP.swift */,
 				400AB9BB28FF7F6000A6DCB6 /* UIViewController+ACP.swift */,
-				400AB9B928FF7F6000A6DCB6 /* UIViewController+Keyboard.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -410,36 +407,10 @@
 		400AB9C228FF7F6000A6DCB6 /* Generic */ = {
 			isa = PBXGroup;
 			children = (
-				400AB9C328FF7F6000A6DCB6 /* TabMenu */,
-				400AB9C628FF7F6000A6DCB6 /* ACPTableView.swift */,
-				400AB9C728FF7F6000A6DCB6 /* ACPNavigationController.swift */,
-				400AB9CC28FF7F6000A6DCB6 /* UIElements */,
+				408E06992957FE0900F0F96C /* TabMenu */,
+				408E06A02957FE0900F0F96C /* UIElements */,
 			);
 			path = Generic;
-			sourceTree = "<group>";
-		};
-		400AB9C328FF7F6000A6DCB6 /* TabMenu */ = {
-			isa = PBXGroup;
-			children = (
-				400AB9C428FF7F6000A6DCB6 /* ACPTabMenuViewController.swift */,
-				400AB9C528FF7F6000A6DCB6 /* ACPFocusableView.swift */,
-				400ABA3328FF905C00A6DCB6 /* Cells */,
-			);
-			path = TabMenu;
-			sourceTree = "<group>";
-		};
-		400AB9CC28FF7F6000A6DCB6 /* UIElements */ = {
-			isa = PBXGroup;
-			children = (
-				4031545F290E3002009320D8 /* ACPShadowButton.swift */,
-				400AB9CD28FF7F6000A6DCB6 /* ACPTextField.swift */,
-				400AB9CE28FF7F6000A6DCB6 /* ACPTermsAndPrivacyLabel.swift */,
-				400AB9CF28FF7F6000A6DCB6 /* ACPPickerView.swift */,
-				400AB9D028FF7F6000A6DCB6 /* ACPImageButton.swift */,
-				400AB9D128FF7F6000A6DCB6 /* ACPBorderedView.swift */,
-				400AB9D228FF7F6000A6DCB6 /* ACPCircleLoadingBarView.swift */,
-			);
-			path = UIElements;
 			sourceTree = "<group>";
 		};
 		400AB9D328FF7F6000A6DCB6 /* NotVerified */ = {
@@ -511,8 +482,8 @@
 		400AB9E728FF7F6000A6DCB6 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				400AB9EB28FF7F6000A6DCB6 /* ACPRouter.swift */,
-				400AB9EC28FF7F6000A6DCB6 /* ACPEndpoint.swift */,
+				400AB9EB28FF7F6000A6DCB6 /* Router.swift */,
+				400AB9EC28FF7F6000A6DCB6 /* Endpoint.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -526,16 +497,6 @@
 				400AB9E328FF7F6000A6DCB6 /* ACPKYCCompleteViewController.swift */,
 			);
 			path = ChildVC;
-			sourceTree = "<group>";
-		};
-		400ABA3328FF905C00A6DCB6 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				400ABA3128FF904B00A6DCB6 /* ACPTabMenuDotCell.swift */,
-				400AB9CB28FF7F6000A6DCB6 /* ACPTabMenuTitleCell.swift */,
-				403AD2242907636B00C6D556 /* ACPTabMenuImageCell.swift */,
-			);
-			path = Cells;
 			sourceTree = "<group>";
 		};
 		4013FADA29083D620018025F /* Wallet */ = {
@@ -894,6 +855,42 @@
 			path = Registration;
 			sourceTree = "<group>";
 		};
+		408E06992957FE0900F0F96C /* TabMenu */ = {
+			isa = PBXGroup;
+			children = (
+				408E069A2957FE0900F0F96C /* Cells */,
+				408E069E2957FE0900F0F96C /* TabMenuViewController.swift */,
+				408E069F2957FE0900F0F96C /* FocusableView.swift */,
+			);
+			path = TabMenu;
+			sourceTree = "<group>";
+		};
+		408E069A2957FE0900F0F96C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				408E069B2957FE0900F0F96C /* TabMenuImageCell.swift */,
+				408E069C2957FE0900F0F96C /* TabMenuDotCell.swift */,
+				408E069D2957FE0900F0F96C /* TabMenuTitleCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		408E06A02957FE0900F0F96C /* UIElements */ = {
+			isa = PBXGroup;
+			children = (
+				408E06A12957FE0900F0F96C /* PickerView.swift */,
+				408E06A22957FE0900F0F96C /* CircleLoadingBarView.swift */,
+				408E06A32957FE0900F0F96C /* ShadowButton.swift */,
+				408E06A42957FE0900F0F96C /* ImageButton.swift */,
+				408E06A52957FE0900F0F96C /* TermsAndPrivacyLabel.swift */,
+				408E06A62957FE0900F0F96C /* TableView.swift */,
+				408E06A72957FE0900F0F96C /* TextField.swift */,
+				408E06A82957FE0900F0F96C /* BorderedView.swift */,
+				408E06A92957FE0900F0F96C /* NavigationController.swift */,
+			);
+			path = UIElements;
+			sourceTree = "<group>";
+		};
 		40B5EDC228E224F20096B91B = {
 			isa = PBXGroup;
 			children = (
@@ -1094,33 +1091,34 @@
 				400ABA0228FF7F6000A6DCB6 /* ACPHomeScreenEligibilityHeaderView.swift in Sources */,
 				404A8A7B2950134300266334 /* KYCService.swift in Sources */,
 				400ABA0F28FF7F6000A6DCB6 /* String+ACP.swift in Sources */,
-				400ABA1328FF7F6000A6DCB6 /* ACPFocusableView.swift in Sources */,
-				400ABA1928FF7F6000A6DCB6 /* ACPTextField.swift in Sources */,
 				400ABA0928FF7F6000A6DCB6 /* UICollectionView+ACP.swift in Sources */,
 				400AB9F528FF7F6000A6DCB6 /* EligibilityFailViewController.swift in Sources */,
 				404A8A7A2950134300266334 /* KYCResponse.swift in Sources */,
 				400ABA0D28FF7F6000A6DCB6 /* UITapGestureRecognizer+ACP.swift in Sources */,
 				400ABA2828FF7F6000A6DCB6 /* ACPKYCCompleteViewController.swift in Sources */,
 				404A8A39294F99BE00266334 /* LandingViewController.swift in Sources */,
+				408E06B52957FE0900F0F96C /* TextField.swift in Sources */,
+				408E06B12957FE0900F0F96C /* ShadowButton.swift in Sources */,
 				40251D44290DE04C0083B89A /* ACPTransactionsViewController.swift in Sources */,
 				4013FAEE2908A3A30018025F /* UINavigationController+ACP.swift in Sources */,
 				404A8A6829500F1500266334 /* EligibilityZipCodeView.swift in Sources */,
 				400AB9F428FF7F6000A6DCB6 /* EligibilityDetailsAddressViewController.swift in Sources */,
-				400ABA1528FF7F6000A6DCB6 /* ACPNavigationController.swift in Sources */,
 				404A8A37294F994A00266334 /* TermsViewController.swift in Sources */,
 				404A8A35294F979800266334 /* WelcomeViewController.swift in Sources */,
 				404A8A16294F938F00266334 /* EligibilityResponse.swift in Sources */,
 				404A8A46294FD93300266334 /* EligibilityRegistrationViewController.swift in Sources */,
 				408E06982957D57E00F0F96C /* LoginData.swift in Sources */,
 				4013FAE7290844380018025F /* ACPEmptyWalletBalanceView.swift in Sources */,
+				408E06AE2957FE0900F0F96C /* FocusableView.swift in Sources */,
+				408E06AF2957FE0900F0F96C /* PickerView.swift in Sources */,
 				400ABA2128FF7F6000A6DCB6 /* ACPVerifyEmailViewController.swift in Sources */,
+				408E06B32957FE0900F0F96C /* TermsAndPrivacyLabel.swift in Sources */,
 				404A8A31294F979800266334 /* WelcomeCoordinator.swift in Sources */,
 				400ABA2428FF7F6000A6DCB6 /* ACPIdentityProofViewController.swift in Sources */,
 				404A8A18294F938F00266334 /* EligibilityServiceEndpoint.swift in Sources */,
 				400ABA1028FF7F6000A6DCB6 /* AppDelegate.swift in Sources */,
 				404A8A20294F975F00266334 /* EligibilityModel.swift in Sources */,
 				400ABA0728FF7F6000A6DCB6 /* UITextField+ACP.swift in Sources */,
-				400ABA1828FF7F6000A6DCB6 /* ACPTabMenuTitleCell.swift in Sources */,
 				4013FAEA29085B220018025F /* ACPDebitCardView.swift in Sources */,
 				400AB9F828FF7F6000A6DCB6 /* EligibilityDetailsViewController.swift in Sources */,
 				404A8A60294FFF5400266334 /* LoginResponse.swift in Sources */,
@@ -1129,6 +1127,7 @@
 				404A8A3D294FAD3800266334 /* EligibilityZipCodeViewController.swift in Sources */,
 				133F86922908714E00663815 /* ApplyForServiceView.swift in Sources */,
 				404A8A4C294FF6DC00266334 /* EligibilityRegistrationSuccessViewModel.swift in Sources */,
+				408E06AC2957FE0900F0F96C /* TabMenuTitleCell.swift in Sources */,
 				404A8A4A294FF63500266334 /* EligibilityRegistrationSuccessViewController.swift in Sources */,
 				40251D41290CD2840083B89A /* ACPCardModel.swift in Sources */,
 				400ABA1F28FF7F6000A6DCB6 /* ACPPersonalInfoViewModel.swift in Sources */,
@@ -1138,11 +1137,10 @@
 				400AB9F728FF7F6000A6DCB6 /* EligibilityVerifyViewController.swift in Sources */,
 				400ABA0C28FF7F6000A6DCB6 /* UIViewController+ACP.swift in Sources */,
 				133F86942908715900663815 /* ApplyForServiceViewController.swift in Sources */,
-				400ABA3228FF904B00A6DCB6 /* ACPTabMenuDotCell.swift in Sources */,
 				400ABA0828FF7F6000A6DCB6 /* UITableView+ACP.swift in Sources */,
 				404A8A3B294F9F8C00266334 /* EligibilityCheckViewController.swift in Sources */,
 				400ABA0E28FF7F6000A6DCB6 /* UIColor+ACP.swift in Sources */,
-				40315460290E3002009320D8 /* ACPShadowButton.swift in Sources */,
+				408E06B62957FE0900F0F96C /* BorderedView.swift in Sources */,
 				400ABA2928FF7F6000A6DCB6 /* ACPBankInfoViewController.swift in Sources */,
 				133F868D29086E6E00663815 /* ApplyACPView.swift in Sources */,
 				404A8A48294FDB3600266334 /* EligibilityRegistrationViewModel.swift in Sources */,
@@ -1151,14 +1149,17 @@
 				400ABA0428FF7F6000A6DCB6 /* ACPHomeScreenViewController.swift in Sources */,
 				404A89F5294E4AE900266334 /* UIStackView+ACP.swift in Sources */,
 				400AB9F328FF7F6000A6DCB6 /* EligibilityDetailsDOBViewController.swift in Sources */,
+				408E06AB2957FE0900F0F96C /* TabMenuDotCell.swift in Sources */,
 				404A8A792950134300266334 /* KYCCoordinator.swift in Sources */,
-				400ABA2E28FF7F6000A6DCB6 /* ACPRouter.swift in Sources */,
+				400ABA2E28FF7F6000A6DCB6 /* Router.swift in Sources */,
+				408E06B22957FE0900F0F96C /* ImageButton.swift in Sources */,
 				4013FAEC290892810018025F /* UIButton+ACP.swift in Sources */,
-				400ABA1428FF7F6000A6DCB6 /* ACPTableView.swift in Sources */,
+				408E06AD2957FE0900F0F96C /* TabMenuViewController.swift in Sources */,
 				404A8A15294F938F00266334 /* EligibilityCoordinator.swift in Sources */,
+				408E06B42957FE0900F0F96C /* TableView.swift in Sources */,
 				404A8A4E294FF92500266334 /* EligibilityRegistrationResponse.swift in Sources */,
 				404A8A14294F938F00266334 /* EligibilityDetailsViewModel.swift in Sources */,
-				400ABA1C28FF7F6000A6DCB6 /* ACPImageButton.swift in Sources */,
+				408E06B72957FE0900F0F96C /* NavigationController.swift in Sources */,
 				400ABA0B28FF7F6000A6DCB6 /* NSMutableParagraphStyle+ACP.swift in Sources */,
 				404A8A17294F938F00266334 /* EligibilityService.swift in Sources */,
 				400ABA2328FF7F6000A6DCB6 /* ACPPersonalInfoDetailsViewController.swift in Sources */,
@@ -1172,30 +1173,25 @@
 				404A8A30294F979800266334 /* WelcomeViewModel.swift in Sources */,
 				404A8A61294FFF5400266334 /* LoginServiceEndpoint.swift in Sources */,
 				404A8A6529500C7200266334 /* EligibilityZipCodeViewModel.swift in Sources */,
-				400ABA1E28FF7F6000A6DCB6 /* ACPCircleLoadingBarView.swift in Sources */,
 				400ABA2028FF7F6000A6DCB6 /* ACPVerifyEmailCodeView.swift in Sources */,
 				13581443290F2B1500612D8B /* RequestCardViewController.swift in Sources */,
-				403AD2252907636B00C6D556 /* ACPTabMenuImageCell.swift in Sources */,
-				400ABA0A28FF7F6000A6DCB6 /* UIViewController+Keyboard.swift in Sources */,
-				400ABA1D28FF7F6000A6DCB6 /* ACPBorderedView.swift in Sources */,
 				403AD22329075B6400C6D556 /* ACPHomeScreenTabViewModel.swift in Sources */,
-				400ABA1B28FF7F6000A6DCB6 /* ACPPickerView.swift in Sources */,
 				133F868A29086DC400663815 /* ACPSuccesViewController.swift in Sources */,
-				400ABA2F28FF7F6000A6DCB6 /* ACPEndpoint.swift in Sources */,
+				400ABA2F28FF7F6000A6DCB6 /* Endpoint.swift in Sources */,
 				400ABA2628FF7F6000A6DCB6 /* ACPScanIDViewController.swift in Sources */,
+				408E06AA2957FE0900F0F96C /* TabMenuImageCell.swift in Sources */,
 				4013FAE12908427F0018025F /* ACPEmptyWalletViewController.swift in Sources */,
 				400ABA0628FF7F6000A6DCB6 /* UIResponder+ACP.swift in Sources */,
 				404A8A40294FB1A100266334 /* EligibilityVerifyViewModel.swift in Sources */,
 				404A8A7D2950134300266334 /* KYCViewController.swift in Sources */,
-				400ABA1228FF7F6000A6DCB6 /* ACPTabMenuViewController.swift in Sources */,
 				404A8A44294FBBA800266334 /* EligibilityFailViewModel.swift in Sources */,
 				404A8A62294FFF5400266334 /* LoginService.swift in Sources */,
 				404A8A42294FBB9800266334 /* EligibilitySuccessViewModel.swift in Sources */,
-				400ABA1A28FF7F6000A6DCB6 /* ACPTermsAndPrivacyLabel.swift in Sources */,
 				400ABA2728FF7F6000A6DCB6 /* ACPKYCViewController.swift in Sources */,
 				4013FAE32908428A0018025F /* ACPWalletViewController.swift in Sources */,
 				400ABA352900413D00A6DCB6 /* ACPRegistrationCompleteViewController.swift in Sources */,
 				400ABA2A28FF7F6000A6DCB6 /* ACPNotVerifiedRegistrationViewController.swift in Sources */,
+				408E06B02957FE0900F0F96C /* CircleLoadingBarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

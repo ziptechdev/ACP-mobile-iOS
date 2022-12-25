@@ -49,15 +49,15 @@ class EligibilityRegistrationViewController: UIViewController {
         return label
     }()
 
-    private lazy var emailTextField: ACPTextField = {
-        let view = ACPTextField()
+    private lazy var emailTextField: TextField = {
+        let view = TextField()
         view.titleLabel.text = .localizedString(key: "verified_register_email")
         view.textField.delegate = self
         return view
     }()
 
-    private lazy var passwordTextField: ACPTextField = {
-        let view = ACPTextField()
+    private lazy var passwordTextField: TextField = {
+        let view = TextField()
         view.titleLabel.text = .localizedString(key: "verified_register_password")
         view.textField.delegate = self
         view.toggleSecureEntry(viewModel.isSecureEntry)
@@ -66,8 +66,8 @@ class EligibilityRegistrationViewController: UIViewController {
         return view
     }()
 
-    private lazy var confirmTextField: ACPTextField = {
-        let view = ACPTextField()
+    private lazy var confirmTextField: TextField = {
+        let view = TextField()
         view.titleLabel.text = .localizedString(key: "verified_register_confirm")
         view.textField.delegate = self
         view.toggleSecureEntry(viewModel.isSecureEntry)
@@ -88,7 +88,7 @@ class EligibilityRegistrationViewController: UIViewController {
         return button
     }()
 
-    private let infoLabel = ACPTermsAndPrivacyLabel()
+    private let infoLabel = TermsAndPrivacyLabel()
 
     // MARK: - Initialization
 

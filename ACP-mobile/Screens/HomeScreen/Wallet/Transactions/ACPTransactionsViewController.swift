@@ -16,8 +16,8 @@ class ACPTransactionsViewController: UIViewController {
 
     // MARK: - Views
 
-    private let tableView: ACPTableView = {
-        let view = ACPTableView()
+    private let tableView: TableView = {
+        let view = TableView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.isScrollEnabled = false
         view.showsVerticalScrollIndicator = false

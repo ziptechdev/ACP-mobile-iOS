@@ -12,11 +12,11 @@ class ACPScanIDViewController: UIViewController {
 
     // MARK: - Properties
 
-    weak var delegate: ACPTabMenuDelegate?
+    weak var delegate: TabMenuDelegate?
 
     // MARK: - Views
 
-    private let cardView = ACPBorderedView(imageName: "scan_id")
+    private let cardView = BorderedView(imageName: "scan_id")
 
     private let titleLabel: UILabel = {
         let label = UILabel()

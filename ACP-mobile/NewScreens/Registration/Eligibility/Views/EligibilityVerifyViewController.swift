@@ -18,7 +18,7 @@ class EligibilityVerifyViewController: UIViewController {
 
     // MARK: - Views
 
-    private let loadingBar = ACPCircleLoadingBarView()
+    private let loadingBar = CircleLoadingBarView()
 
     private let loadingLabel: UILabel = {
         let label = UILabel()

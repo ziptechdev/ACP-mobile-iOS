@@ -1,5 +1,5 @@
 //
-//  ACPBorderedView.swift
+//  BorderedView.swift
 //  ACP-mobile
 //
 //  Created by Adi on 18/10/2022.
@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class ACPBorderedView: UIView {
+class BorderedView: UIView {
 
     // MARK: - Views
 

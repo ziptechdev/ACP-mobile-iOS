@@ -22,7 +22,7 @@ class EligibilityZipCodeViewController: UIViewController {
         return view
     }()
 
-    private let infoLabel = ACPTermsAndPrivacyLabel()
+    private let infoLabel = TermsAndPrivacyLabel()
 
     // MARK: - Initialization
 
@@ -122,9 +122,9 @@ class EligibilityZipCodeViewController: UIViewController {
     }
 }
 
-// MARK: - ACPTermsAndPrivacyLabelDelegate
+// MARK: - TermsAndPrivacyLabelDelegate
 
-extension EligibilityZipCodeViewController: ACPTermsAndPrivacyLabelDelegate {
+extension EligibilityZipCodeViewController: TermsAndPrivacyLabelDelegate {
     func didTapTerms() {
         viewModel.openTerms()
     }

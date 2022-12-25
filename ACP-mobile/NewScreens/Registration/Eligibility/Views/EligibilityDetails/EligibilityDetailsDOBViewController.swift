@@ -13,7 +13,7 @@ class EligibilityDetailsDOBViewController: UIViewController {
     // MARK: - Properties
 
     private let viewModel: EligibilityDetailsViewModel
-    weak var delegate: ACPTabMenuDelegate?
+    weak var delegate: TabMenuDelegate?
 
     private lazy var textFields: [TextInput] = [
         monthTextField, dayTextField, yearTextField, ssnTextField
@@ -40,8 +40,8 @@ class EligibilityDetailsDOBViewController: UIViewController {
         return label
     }()
 
-    private lazy var monthTextField: ACPPickerView = {
-        let view = ACPPickerView()
+    private lazy var monthTextField: PickerView = {
+        let view = PickerView()
         view.titleLabel.text = .localizedString(key: "eligibility_dob_month")
         view.textField.addRightImage(named: "down_arrow")
         view.delegate = self
@@ -51,8 +51,8 @@ class EligibilityDetailsDOBViewController: UIViewController {
         return view
     }()
 
-    private lazy var dayTextField: ACPTextField = {
-        let view = ACPTextField()
+    private lazy var dayTextField: TextField = {
+        let view = TextField()
         view.titleLabel.text = .localizedString(key: "eligibility_dob_day")
         view.delegate = self
         view.textField.delegate = self
@@ -62,8 +62,8 @@ class EligibilityDetailsDOBViewController: UIViewController {
         return view
     }()
 
-    private lazy var yearTextField: ACPTextField = {
-        let view = ACPTextField()
+    private lazy var yearTextField: TextField = {
+        let view = TextField()
         view.titleLabel.text = .localizedString(key: "eligibility_dob_year")
         view.delegate = self
         view.textField.delegate = self
@@ -73,8 +73,8 @@ class EligibilityDetailsDOBViewController: UIViewController {
         return view
     }()
 
-    private lazy var ssnTextField: ACPTextField = {
-        let view = ACPTextField()
+    private lazy var ssnTextField: TextField = {
+        let view = TextField()
         view.titleLabel.text = .localizedString(key: "eligibility_dob_ssn")
         view.delegate = self
         view.textField.delegate = self
@@ -92,8 +92,8 @@ class EligibilityDetailsDOBViewController: UIViewController {
         return label
     }()
 
-    private lazy var nextButton: ACPImageButton = {
-        let button = ACPImageButton(
+    private lazy var nextButton: ImageButton = {
+        let button = ImageButton(
             titleKey: "eligibility_dob_btn",
             spacing: Constants.ButtonContentSpacing,
             cornerRadius: Constants.ButtonCornerRadius,
@@ -159,18 +159,6 @@ class EligibilityDetailsDOBViewController: UIViewController {
         setupUI()
 
         showValuesIfPresent()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        addKeyboardObserver()
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-        removeKeyboardObserver()
     }
 
     // MARK: - UI
@@ -297,9 +285,9 @@ extension EligibilityDetailsDOBViewController: UITextFieldDelegate {
     }
 }
 
-// MARK: - ACPToolbarDelegate
+// MARK: - ToolbarDelegate
 
-extension EligibilityDetailsDOBViewController: ACPToolbarDelegate {
+extension EligibilityDetailsDOBViewController: ToolbarDelegate {
     func didPressDone(_ textfield: UITextField) {
         _ = textFieldShouldReturn(textfield)
     }

@@ -17,7 +17,7 @@ class ACPVerifyEmailViewController: UIViewController {
 
     // MARK: - Views
 
-    private let infoLabel = ACPTermsAndPrivacyLabel()
+    private let infoLabel = TermsAndPrivacyLabel()
 
     private lazy var cancelButton: UIButton = {
         let button = UIButton()
@@ -239,9 +239,9 @@ class ACPVerifyEmailViewController: UIViewController {
     }
 }
 
-// MARK: - ACPTermsAndPrivacyLabelDelegate
+// MARK: - TermsAndPrivacyLabelDelegate
 
-extension ACPVerifyEmailViewController: ACPTermsAndPrivacyLabelDelegate {
+extension ACPVerifyEmailViewController: TermsAndPrivacyLabelDelegate {
     func didTapTerms() {
         // TODO: Add link
     }

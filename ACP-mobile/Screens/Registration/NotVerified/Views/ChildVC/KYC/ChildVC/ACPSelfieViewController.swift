@@ -12,11 +12,11 @@ class ACPSelfieViewController: UIViewController {
 
     // MARK: - Properties
 
-    weak var delegate: ACPTabMenuDelegate?
+    weak var delegate: TabMenuDelegate?
 
     // MARK: - Views
 
-    private let cardView = ACPBorderedView(imageName: "selfie")
+    private let cardView = BorderedView(imageName: "selfie")
 
     private let titleLabel: UILabel = {
         let label = UILabel()

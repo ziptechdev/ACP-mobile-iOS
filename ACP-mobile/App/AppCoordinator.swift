@@ -15,7 +15,7 @@ class AppCoordinator: Coordinator {
 
     var parentCoordinator: Coordinator?
     var childCoordinators: [Coordinator] = []
-    var navigationController = ACPNavigationController()
+    var navigationController = NavigationController()
 
     private var isInitialLaunch: Bool {
         return !UserDefaults.standard.bool(forKey: Constants.initialLaunch)

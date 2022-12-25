@@ -9,14 +9,14 @@ import Alamofire
 
 class EligibilityService {
     func eligibilityCheck(parameters: Parameters?, completion: @escaping RouterCompletion) {
-        ACPRouter.shared.request(
+        Router.shared.request(
             EligibilityServiceEndpoint.eligibilityCheck(parameters: parameters),
             completion: completion
         )
     }
 
     func registerUser(id: String, parameters: Parameters?, completion: @escaping RouterCompletion) {
-        ACPRouter.shared.request(
+        Router.shared.request(
             EligibilityServiceEndpoint.register(id: id, parameters: parameters),
             completion: completion
         )

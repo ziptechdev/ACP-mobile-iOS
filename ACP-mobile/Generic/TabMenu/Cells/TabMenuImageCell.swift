@@ -1,5 +1,5 @@
 //
-//  ACPTabMenuImageCell.swift
+//  TabMenuImageCell.swift
 //  ACP-mobile
 //
 //  Created by Adi on 25/10/2022.
@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class ACPTabMenuImageCell: UICollectionViewCell {
+class TabMenuImageCell: UICollectionViewCell {
 
     // MARK: - Views
 
@@ -102,7 +102,7 @@ class ACPTabMenuImageCell: UICollectionViewCell {
     }
 }
 
-extension ACPTabMenuImageCell: ACPFocusableView {
+extension TabMenuImageCell: FocusableView {
     func onActive() {
         imageView.tintColor = .coreBlue
         containerView.backgroundColor = .coreLightBlue

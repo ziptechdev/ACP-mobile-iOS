@@ -56,8 +56,8 @@ class RequestCardViewController: UIViewController {
         return label
     }()
 
-    private lazy var firstNameTextField: ACPTextField = {
-        let view = ACPTextField()
+    private lazy var firstNameTextField: TextField = {
+        let view = TextField()
         view.isUserInteractionEnabled = false
         view.titleLabel.text = .localizedString(key: "request_card_first_name")
         view.textField.layer.borderWidth = 0
@@ -66,8 +66,8 @@ class RequestCardViewController: UIViewController {
         view.textField.delegate = self
         return view
     }()
-    private lazy var lastNameTextField: ACPTextField = {
-        let view = ACPTextField()
+    private lazy var lastNameTextField: TextField = {
+        let view = TextField()
         view.isUserInteractionEnabled = false
         view.titleLabel.text = .localizedString(key: "request_card_last_name")
         view.textField.layer.borderWidth = 0
@@ -77,22 +77,22 @@ class RequestCardViewController: UIViewController {
         return view
     }()
 
-    private lazy var streetTextField: ACPTextField = {
-        let view = ACPTextField()
+    private lazy var streetTextField: TextField = {
+        let view = TextField()
         view.titleLabel.text = .localizedString(key: "request_card_street_num")
         view.textField.delegate = self
         return view
     }()
 
-    private lazy var cityTextField: ACPTextField = {
-        let view = ACPTextField()
+    private lazy var cityTextField: TextField = {
+        let view = TextField()
         view.titleLabel.text = .localizedString(key: "request_card_city")
         view.textField.delegate = self
         return view
     }()
 
-    private lazy var stateTextField: ACPPickerView = {
-        let view = ACPPickerView()
+    private lazy var stateTextField: PickerView = {
+        let view = PickerView()
         view.titleLabel.text = .localizedString(key: "request_card_state")
         view.textField.addRightImage(named: "down_arrow")
         view.delegate = self
@@ -101,8 +101,8 @@ class RequestCardViewController: UIViewController {
         return view
     }()
 
-    private lazy var zipTextField: ACPTextField = {
-        let view = ACPTextField()
+    private lazy var zipTextField: TextField = {
+        let view = TextField()
         view.titleLabel.text = .localizedString(key: "eligibility_address_zip")
         view.delegate = self
         view.textField.delegate = self
@@ -116,8 +116,8 @@ class RequestCardViewController: UIViewController {
         return view
     }()
 
-    private lazy var phoneTextField: ACPTextField = {
-        let view = ACPTextField()
+    private lazy var phoneTextField: TextField = {
+        let view = TextField()
         view.titleLabel.text = .localizedString(key: "personal_info_phone")
         view.delegate = self
         view.textField.delegate = self
@@ -125,8 +125,8 @@ class RequestCardViewController: UIViewController {
         return view
     }()
 
-    private lazy var editButton: ACPImageButton = {
-        let button = ACPImageButton(
+    private lazy var editButton: ImageButton = {
+        let button = ImageButton(
             titleKey: "request_card_edit_btn",
             spacing: Constants.ButtonCornerRadius,
             cornerRadius: Constants.ButtonCornerRadius,
@@ -394,9 +394,9 @@ extension RequestCardViewController: UITextFieldDelegate {
     }
 }
 
-// MARK: - ACPToolbarDelegate
+// MARK: - ToolbarDelegate
 
-extension RequestCardViewController: ACPToolbarDelegate {
+extension RequestCardViewController: ToolbarDelegate {
 
     func didPressDone(_ textfield: UITextField) {
         _ = textFieldShouldReturn(textfield)

@@ -1,14 +1,13 @@
 //
-//  ACPEndpoint.swift
+//  Endpoint.swift
 //  ACP-mobile
 //
 //  Created by Adi on 05/10/2022.
 //
 
-import Foundation
 import Alamofire
 
-protocol ACPEndpoint {
+protocol Endpoint {
     var baseURL: String { get }
     var path: String { get }
     var httpMethod: HTTPMethod { get }

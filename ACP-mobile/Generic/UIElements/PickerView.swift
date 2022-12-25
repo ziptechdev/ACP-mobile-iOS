@@ -1,5 +1,5 @@
 //
-//  ACPTextField.swift
+//  PickerView.swift
 //  ACP-mobile
 //
 //  Created by Adi on 02/10/2022.
@@ -8,15 +8,15 @@
 import UIKit
 import SnapKit
 
-protocol TextInput: AnyObject {
-    var isEmpty: Bool { get }
-    var text: String { get }
-    var textField: TextField { get }
+protocol ToolbarDelegate: AnyObject {
+    func didPressDone(_ textfield: UITextField)
 }
 
-class ACPTextField: UIView, TextInput {
+class PickerView: UIView, TextInput {
 
     // MARK: - Properties
+
+    weak var delegate: ToolbarDelegate?
 
     var isEmpty: Bool {
         let textFieldEmpty = textField.text?.isEmpty ?? true
@@ -25,18 +25,6 @@ class ACPTextField: UIView, TextInput {
 
     var text: String {
         return textField.text ?? ""
-    }
-
-    private var isErrorShowing = false
-
-    weak var delegate: ACPToolbarDelegate? {
-        didSet {
-            textField.inputAccessoryView = toolbar
-        }
-    }
-
-    var textFieldImage: UIImageView? {
-        return textField.textFieldImage
     }
 
     // MARK: - Views
@@ -50,31 +38,24 @@ class ACPTextField: UIView, TextInput {
         return label
     }()
 
-    let textField: TextField = {
-        let view = TextField()
+    let textField: ACPTextField = {
+        let view = ACPTextField()
+        view.isPicker = true
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = Constants.Constraints.TextFieldRoundedCorners
         view.layer.masksToBounds = true
         view.autocorrectionType = .no
+        view.tintColor = .clear
         view.layer.borderWidth = Constants.Constraints.TextFieldBorderWidth
         view.layer.borderColor = UIColor.gray03Light.cgColor
         view.font = .systemFont(ofSize: 16, weight: .regular)
-        view.autocorrectionType = .no
         view.textColor = .gray06Dark
         return view
     }()
 
-    private let errorLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.adjustsFontSizeToFitWidth = true
-        label.font = .systemFont(ofSize: 14, weight: .regular)
-        label.textColor = .warningRed
-        label.isHidden = true
-        return label
-    }()
+    let pickerView = UIPickerView()
 
-    private lazy var toolbar: UIToolbar = {
+    private lazy var pickerToolbar: UIToolbar = {
         let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 40))
         toolBar.barStyle = UIBarStyle.default
         toolBar.isTranslucent = true
@@ -99,21 +80,15 @@ class ACPTextField: UIView, TextInput {
         return toolBar
     }()
 
-    private lazy var stackView = UIStackView(
-        subviews: [
-            titleLabel,
-            textField,
-            errorLabel
-        ],
-        spacing: Constants.Constraints.TextFieldOffset
-    )
-
     // MARK: - Initialization
 
     override init(frame: CGRect) {
         super.init(frame: frame)
 
         setupUI()
+
+        textField.inputView = pickerView
+        textField.inputAccessoryView = pickerToolbar
     }
 
     required init?(coder: NSCoder) {
@@ -128,41 +103,20 @@ class ACPTextField: UIView, TextInput {
     }
 
     private func addSubviews() {
-        addSubview(stackView)
+        addSubview(titleLabel)
+        addSubview(textField)
     }
 
     private func setupConstraints() {
-        stackView.snp.makeConstraints { make in
-            make.left.right.top.bottom.equalToSuperview()
+        titleLabel.snp.makeConstraints { make in
+            make.left.right.top.equalToSuperview()
         }
 
         textField.snp.makeConstraints { make in
+            make.left.right.bottom.equalToSuperview()
             make.height.equalTo(Constants.Constraints.TextFieldHeight)
+            make.top.equalTo(titleLabel.snp.bottom).offset(Constants.Constraints.TextFieldOffset)
         }
-    }
-
-    func showError(message: String) {
-        textField.layer.borderColor = UIColor.warningRed.cgColor
-        errorLabel.isHidden = false
-        errorLabel.text = message
-    }
-
-    func hideError() {
-        textField.layer.borderColor = UIColor.gray03Light.cgColor
-        errorLabel.isHidden = true
-        errorLabel.text = ""
-    }
-
-    func toggleSecureEntry(_ isSecureEntry: Bool) {
-        let imageName = isSecureEntry ? "eye_open" : "eye_closed"
-
-        if let textFieldImage = textFieldImage {
-            textFieldImage.image = UIImage(named: imageName)
-        } else {
-            textField.addRightImage(named: imageName)
-        }
-
-        textField.isSecureTextEntry = isSecureEntry
     }
 
     // MARK: - Callback

@@ -12,13 +12,13 @@ class ACPIdentityProofViewController: UIViewController {
 
     // MARK: - Properties
 
-    weak var delegate: ACPTabMenuDelegate?
+    weak var delegate: TabMenuDelegate?
 
     // MARK: - Views
 
-    private let tabMenu = ACPTabMenuViewController(allowSelection: false)
+    private let tabMenu = TabMenuViewController(allowSelection: false)
 
-    private let infoLabel = ACPTermsAndPrivacyLabel()
+    private let infoLabel = TermsAndPrivacyLabel()
 
     // MARK: - Life Cycle
 
@@ -82,9 +82,9 @@ class ACPIdentityProofViewController: UIViewController {
     }
 }
 
-// MARK: - ACPTermsAndPrivacyLabelDelegate
+// MARK: - TermsAndPrivacyLabelDelegate
 
-extension ACPIdentityProofViewController: ACPTermsAndPrivacyLabelDelegate {
+extension ACPIdentityProofViewController: TermsAndPrivacyLabelDelegate {
     func didTapTerms() {
         // TODO: Add link
     }
@@ -94,9 +94,9 @@ extension ACPIdentityProofViewController: ACPTermsAndPrivacyLabelDelegate {
     }
 }
 
-// MARK: - ACPTabMenuDelegate
+// MARK: - TabMenuDelegate
 
-extension ACPIdentityProofViewController: ACPTabMenuDelegate {
+extension ACPIdentityProofViewController: TabMenuDelegate {
     func didTapNextButton() {
         // TODO: Add link
         tabMenu.nextTab()
@@ -108,15 +108,15 @@ extension ACPIdentityProofViewController: ACPTabMenuDelegate {
     }
 }
 
-// MARK: - ACPTabMenuViewControllerDelegate
+// MARK: - TabMenuViewControllerDelegate
 
-extension ACPIdentityProofViewController: ACPTabMenuViewControllerDelegate {
+extension ACPIdentityProofViewController: TabMenuViewControllerDelegate {
     var numberOfItems: Int {
         return 4
     }
 
     func setupViews(collectionView: UICollectionView, containerView: UIView) {
-        collectionView.register(ACPTabMenuDotCell.self)
+        collectionView.register(TabMenuDotCell.self)
 
         collectionView.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(Constants.Constraints.HeaderInsetHorizontal)
@@ -131,7 +131,7 @@ extension ACPIdentityProofViewController: ACPTabMenuViewControllerDelegate {
     }
 
     func cellForIndex(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: ACPTabMenuDotCell = collectionView.dequeue(at: indexPath)
+        let cell: TabMenuDotCell = collectionView.dequeue(at: indexPath)
         return cell
     }
 

@@ -38,15 +38,15 @@ class LoginViewController: UIViewController {
         return label
     }()
 
-    private lazy var emailTextField: ACPTextField = {
-        let view = ACPTextField()
+    private lazy var emailTextField: TextField = {
+        let view = TextField()
         view.titleLabel.text = .localizedString(key: "login_email")
         view.textField.delegate = self
         return view
     }()
 
-    private lazy var passwordTextField: ACPTextField = {
-        let view = ACPTextField()
+    private lazy var passwordTextField: TextField = {
+        let view = TextField()
         view.titleLabel.text = .localizedString(key: "login_password")
         view.textField.delegate = self
         view.toggleSecureEntry(viewModel.isSecureEntry)
@@ -78,7 +78,7 @@ class LoginViewController: UIViewController {
         return button
     }()
 
-    private let infoLabel = ACPTermsAndPrivacyLabel()
+    private let infoLabel = TermsAndPrivacyLabel()
 
     // MARK: - Initialization
 
@@ -235,9 +235,9 @@ extension LoginViewController: UITextFieldDelegate {
     }
 }
 
-// MARK: - ACPTermsAndPrivacyLabelDelegate
+// MARK: - TermsAndPrivacyLabelDelegate
 
-extension LoginViewController: ACPTermsAndPrivacyLabelDelegate {
+extension LoginViewController: TermsAndPrivacyLabelDelegate {
     func didTapTerms() {
         viewModel.openTerms()
     }

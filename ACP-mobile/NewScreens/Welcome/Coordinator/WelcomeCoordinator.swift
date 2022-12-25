@@ -23,11 +23,11 @@ class WelcomeCoordinator: WelcomeCoordinatorProtocol {
 
     var parentCoordinator: Coordinator?
     var childCoordinators: [Coordinator] = []
-    var navigationController: ACPNavigationController
+    var navigationController: NavigationController
 
     // MARK: - Initialization
 
-    init(navigationController: ACPNavigationController) {
+    init(navigationController: NavigationController) {
         self.navigationController = navigationController
     }
 

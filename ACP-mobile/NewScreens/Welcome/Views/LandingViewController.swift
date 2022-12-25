@@ -54,8 +54,8 @@ class LandingViewController: UIViewController {
         return label
     }()
 
-    private let getStartedButton: ACPImageButton = {
-        let button = ACPImageButton(
+    private let getStartedButton: ImageButton = {
+        let button = ImageButton(
             titleKey: "landing_btn",
             spacing: Constants.ButtonContentSpacing,
             cornerRadius: Constants.ButtonCornerRadius,

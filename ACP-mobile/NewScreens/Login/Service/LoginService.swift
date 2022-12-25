@@ -9,7 +9,7 @@ import Alamofire
 
 class LoginService {
     func login(parameters: Parameters?, completion: @escaping RouterCompletion) {
-        ACPRouter.shared.request(
+        Router.shared.request(
             LoginServiceEndpoint.login(parameters: parameters),
             completion: completion
         )

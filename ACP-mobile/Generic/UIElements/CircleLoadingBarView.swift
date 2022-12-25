@@ -1,5 +1,5 @@
 //
-//  ACPCircleLoadingBarView.swift
+//  CircleLoadingBarView.swift
 //  ACP-mobile
 //
 //  Created by Adi on 04/10/2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ACPCircleLoadingBarView: UIView {
+class CircleLoadingBarView: UIView {
 
     // MARK: - Properties
 

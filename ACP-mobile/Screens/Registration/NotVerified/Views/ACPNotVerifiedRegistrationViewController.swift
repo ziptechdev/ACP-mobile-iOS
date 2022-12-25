@@ -51,8 +51,8 @@ class ACPNotVerifiedRegistrationViewController: UIViewController {
         return view
     }()
 
-    private lazy var getStartedButton: ACPImageButton = {
-        let button = ACPImageButton(
+    private lazy var getStartedButton: ImageButton = {
+        let button = ImageButton(
             titleKey: "not_verified_register_btn",
             spacing: Constants.Constraints.ButtonContentSpacing,
             cornerRadius: Constants.Constraints.ButtonCornerRadius,
@@ -64,7 +64,7 @@ class ACPNotVerifiedRegistrationViewController: UIViewController {
         return button
     }()
 
-    private let infoLabel = ACPTermsAndPrivacyLabel()
+    private let infoLabel = TermsAndPrivacyLabel()
 
     // MARK: - Life Cycle
 

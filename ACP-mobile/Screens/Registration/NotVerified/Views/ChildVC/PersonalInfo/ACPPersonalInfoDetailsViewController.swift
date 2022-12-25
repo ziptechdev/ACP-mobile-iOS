@@ -13,7 +13,7 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
     // MARK: - Properties
 
     private var isSecureEntry = true
-    weak var delegate: ACPTabMenuDelegate?
+    weak var delegate: TabMenuDelegate?
 
     private lazy var textFields: [TextInput] = [
         nameTextField, lastNameTextField, emailTextField, phoneTextField, passwordTextField,
@@ -46,29 +46,29 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
         return label
     }()
 
-    private lazy var nameTextField: ACPTextField = {
-        let view = ACPTextField()
+    private lazy var nameTextField: TextField = {
+        let view = TextField()
         view.titleLabel.text = .localizedString(key: "personal_info_first_name")
         view.textField.delegate = self
         return view
     }()
 
-    private lazy var lastNameTextField: ACPTextField = {
-        let view = ACPTextField()
+    private lazy var lastNameTextField: TextField = {
+        let view = TextField()
         view.titleLabel.text = .localizedString(key: "personal_info_last_name")
         view.textField.delegate = self
         return view
     }()
 
-    private lazy var emailTextField: ACPTextField = {
-        let view = ACPTextField()
+    private lazy var emailTextField: TextField = {
+        let view = TextField()
         view.titleLabel.text = .localizedString(key: "personal_info_email")
         view.textField.delegate = self
         return view
     }()
 
-    private lazy var phoneTextField: ACPTextField = {
-        let view = ACPTextField()
+    private lazy var phoneTextField: TextField = {
+        let view = TextField()
         view.titleLabel.text = .localizedString(key: "personal_info_phone")
         view.delegate = self
         view.textField.delegate = self
@@ -76,8 +76,8 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
         return view
     }()
 
-    private lazy var passwordTextField: ACPTextField = {
-        let view = ACPTextField()
+    private lazy var passwordTextField: TextField = {
+        let view = TextField()
         view.titleLabel.text = .localizedString(key: "personal_info_password")
         view.textField.delegate = self
         view.toggleSecureEntry(isSecureEntry)
@@ -86,8 +86,8 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
         return view
     }()
 
-    private lazy var confirmTextField: ACPTextField = {
-        let view = ACPTextField()
+    private lazy var confirmTextField: TextField = {
+        let view = TextField()
         view.titleLabel.text = .localizedString(key: "personal_info_confirm")
         view.textField.delegate = self
         view.toggleSecureEntry(isSecureEntry)
@@ -96,8 +96,8 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
         return view
     }()
 
-    private lazy var ssnTextField: ACPTextField = {
-        let view = ACPTextField()
+    private lazy var ssnTextField: TextField = {
+        let view = TextField()
         view.titleLabel.text = .localizedString(key: "personal_info_ssn")
         view.delegate = self
         view.textField.delegate = self
@@ -105,8 +105,8 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
         return view
     }()
 
-    private lazy var nextButton: ACPImageButton = {
-        let button = ACPImageButton(
+    private lazy var nextButton: ImageButton = {
+        let button = ImageButton(
             titleKey: "personal_info_btn",
             spacing: Constants.Constraints.ButtonContentSpacing,
             cornerRadius: Constants.Constraints.ButtonCornerRadius,
@@ -119,7 +119,7 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
         return button
     }()
 
-    private let infoLabel = ACPTermsAndPrivacyLabel()
+    private let infoLabel = TermsAndPrivacyLabel()
 
     // MARK: - Life Cycle
 
@@ -272,9 +272,9 @@ class ACPPersonalInfoDetailsViewController: UIViewController {
     }
 }
 
-// MARK: - ACPTermsAndPrivacyLabelDelegate
+// MARK: - TermsAndPrivacyLabelDelegate
 
-extension ACPPersonalInfoDetailsViewController: ACPTermsAndPrivacyLabelDelegate {
+extension ACPPersonalInfoDetailsViewController: TermsAndPrivacyLabelDelegate {
     func didTapTerms() {
         // TODO: Add link
     }
@@ -313,9 +313,9 @@ extension ACPPersonalInfoDetailsViewController: UITextFieldDelegate {
     }
 }
 
-// MARK: - ACPToolbarDelegate
+// MARK: - ToolbarDelegate
 
-extension ACPPersonalInfoDetailsViewController: ACPToolbarDelegate {
+extension ACPPersonalInfoDetailsViewController: ToolbarDelegate {
     func didPressDone(_ textfield: UITextField) {
         _ = textFieldShouldReturn(textfield)
     }

@@ -16,9 +16,9 @@ class EligibilityDetailsViewController: UIViewController {
 
     // MARK: - Views
 
-    private let tabMenu = ACPTabMenuViewController()
+    private let tabMenu = TabMenuViewController()
 
-    private let infoLabel = ACPTermsAndPrivacyLabel()
+    private let infoLabel = TermsAndPrivacyLabel()
 
     // MARK: - Initialization
 
@@ -100,9 +100,9 @@ class EligibilityDetailsViewController: UIViewController {
     }
 }
 
-// MARK: - ACPTermsAndPrivacyLabelDelegate
+// MARK: - TermsAndPrivacyLabelDelegate
 
-extension EligibilityDetailsViewController: ACPTermsAndPrivacyLabelDelegate {
+extension EligibilityDetailsViewController: TermsAndPrivacyLabelDelegate {
     func didTapTerms() {
         viewModel.openTerms()
     }
@@ -112,9 +112,9 @@ extension EligibilityDetailsViewController: ACPTermsAndPrivacyLabelDelegate {
     }
 }
 
-// MARK: - ACPTabMenuDelegate
+// MARK: - TabMenuDelegate
 
-extension EligibilityDetailsViewController: ACPTabMenuDelegate {
+extension EligibilityDetailsViewController: TabMenuDelegate {
     func didTapNextButton() {
         tabMenu.nextTab()
     }
@@ -124,9 +124,9 @@ extension EligibilityDetailsViewController: ACPTabMenuDelegate {
     }
 }
 
-// MARK: - ACPTabMenuViewControllerDelegate
+// MARK: - TabMenuViewControllerDelegate
 
-extension EligibilityDetailsViewController: ACPTabMenuViewControllerDelegate {
+extension EligibilityDetailsViewController: TabMenuViewControllerDelegate {
     var numberOfItems: Int {
         return viewModel.numberOfTabItems()
     }
@@ -137,7 +137,7 @@ extension EligibilityDetailsViewController: ACPTabMenuViewControllerDelegate {
         collectionView.layer.cornerRadius = Constants.HeaderCornerRadius
         collectionView.contentInset = UIEdgeInsets(top: 6, left: 6, bottom: 6, right: 6)
 
-        collectionView.register(ACPTabMenuTitleCell.self)
+        collectionView.register(TabMenuTitleCell.self)
 
         collectionView.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(Constants.HeaderInsetHorizontal)
@@ -152,7 +152,7 @@ extension EligibilityDetailsViewController: ACPTabMenuViewControllerDelegate {
     }
 
     func cellForIndex(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: ACPTabMenuTitleCell = collectionView.dequeue(at: indexPath)
+        let cell: TabMenuTitleCell = collectionView.dequeue(at: indexPath)
         cell.configureCell(text: viewModel.titleForTab(at: indexPath.item))
         return cell
     }

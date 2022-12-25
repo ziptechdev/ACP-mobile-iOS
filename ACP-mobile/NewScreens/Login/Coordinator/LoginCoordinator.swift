@@ -20,13 +20,13 @@ class LoginCoordinator: LoginCoordinatorProtocol {
 
     var parentCoordinator: Coordinator?
     var childCoordinators: [Coordinator] = []
-    var navigationController: ACPNavigationController
+    var navigationController: NavigationController
 
     let isAfterRegistration: Bool
 
     // MARK: - Initialization
 
-    init(navigationController: ACPNavigationController,
+    init(navigationController: NavigationController,
          isAfterRegistration: Bool = true
     ) {
         self.navigationController = navigationController

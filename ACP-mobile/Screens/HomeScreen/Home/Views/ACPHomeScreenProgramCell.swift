@@ -29,8 +29,8 @@ class ACPHomeScreenProgramCell: UITableViewCell {
         return view
     }()
 
-    private let statusButton: ACPImageButton = {
-        let button = ACPImageButton(
+    private let statusButton: ImageButton = {
+        let button = ImageButton(
             horizontal: Constants.Constraints.StatusButtonContentInsetX,
             spacing: Constants.Constraints.StatusButtonContentSpacing,
             cornerRadius: Constants.Constraints.StatusButtonCornerRadius,

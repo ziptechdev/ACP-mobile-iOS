@@ -1,5 +1,5 @@
 //
-//  ACPTableView.swift
+//  TableView.swift
 //  ACP-mobile
 //
 //  Created by Adi on 28/09/2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ACPTableView: UITableView {
+class TableView: UITableView {
 
     override init(frame: CGRect = .zero, style: UITableView.Style = .plain) {
         super.init(frame: frame, style: style)

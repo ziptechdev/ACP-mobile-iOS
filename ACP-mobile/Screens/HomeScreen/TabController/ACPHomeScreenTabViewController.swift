@@ -16,7 +16,7 @@ class ACPHomeScreenTabViewController: UIViewController {
 
     // MARK: - Views
 
-    private let tabMenu = ACPTabMenuViewController(allTabsEnabled: true)
+    private let tabMenu = TabMenuViewController(allTabsEnabled: true)
 
     // MARK: - Life Cycle
 
@@ -68,13 +68,13 @@ class ACPHomeScreenTabViewController: UIViewController {
     }
 }
 
-extension ACPHomeScreenTabViewController: ACPTabMenuViewControllerDelegate {
+extension ACPHomeScreenTabViewController: TabMenuViewControllerDelegate {
     var numberOfItems: Int {
         return viewModel.numberOfTabItems()
     }
 
     func setupViews(collectionView: UICollectionView, containerView: UIView) {
-        collectionView.register(ACPTabMenuImageCell.self)
+        collectionView.register(TabMenuImageCell.self)
 
         containerView.snp.makeConstraints { make in
             make.top.left.right.equalToSuperview()
@@ -89,7 +89,7 @@ extension ACPHomeScreenTabViewController: ACPTabMenuViewControllerDelegate {
     }
 
     func cellForIndex(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: ACPTabMenuImageCell = collectionView.dequeue(at: indexPath)
+        let cell: TabMenuImageCell = collectionView.dequeue(at: indexPath)
         cell.configureCell(
             title: viewModel.titleForTab(at: indexPath.item),
             imageName: viewModel.imageNameForTab(at: indexPath.item)

@@ -120,8 +120,8 @@ class ApplyForServiceView: UIView {
         return stackView
     }()
 
-    let visitWebsiteButton: ACPImageButton = {
-        let button = ACPImageButton(
+    let visitWebsiteButton: ImageButton = {
+        let button = ImageButton(
             spacing: Constants.Constraints.ButtonContentSpacing,
             cornerRadius: Constants.Constraints.ButtonCornerRadius,
             imageName: "website",

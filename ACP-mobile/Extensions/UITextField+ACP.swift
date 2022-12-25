@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class TextField: UITextField {
+class ACPTextField: UITextField {
 
     var isPicker: Bool = false
 

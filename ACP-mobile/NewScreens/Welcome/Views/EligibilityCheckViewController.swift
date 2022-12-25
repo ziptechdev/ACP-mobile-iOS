@@ -78,7 +78,7 @@ class EligibilityCheckViewController: UIViewController {
         spacing: 30
     )
 
-    private let termsLabel = ACPTermsAndPrivacyLabel()
+    private let termsLabel = TermsAndPrivacyLabel()
 
     // MARK: - Initialization
 
@@ -210,9 +210,9 @@ class EligibilityCheckViewController: UIViewController {
     }
 }
 
-// MARK: - ACPTermsAndPrivacyLabelDelegate
+// MARK: - TermsAndPrivacyLabelDelegate
 
-extension EligibilityCheckViewController: ACPTermsAndPrivacyLabelDelegate {
+extension EligibilityCheckViewController: TermsAndPrivacyLabelDelegate {
     func didTapTerms() {
         viewModel.openTerms()
     }

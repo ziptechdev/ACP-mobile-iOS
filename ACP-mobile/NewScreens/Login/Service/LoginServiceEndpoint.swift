@@ -11,7 +11,7 @@ enum LoginServiceEndpoint {
     case login(parameters: Parameters?)
 }
 
-extension LoginServiceEndpoint: ACPEndpoint {
+extension LoginServiceEndpoint: Endpoint {
     var baseURL: String { "https://acp-mobile-backend.herokuapp.com/api/v1/" }
 
     var path: String {

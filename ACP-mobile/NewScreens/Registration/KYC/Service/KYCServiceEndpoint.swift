@@ -11,7 +11,7 @@ enum KYCServiceEndpoint {
     case kyc
 }
 
-extension KYCServiceEndpoint: ACPEndpoint {
+extension KYCServiceEndpoint: Endpoint {
     var baseURL: String { "https://acp-mobile-backend.herokuapp.com/api/v1/" }
 
     var path: String {

@@ -1,5 +1,5 @@
 //
-//  ACPImageButton.swift
+//  ImageButton.swift
 //  ACP-mobile
 //
 //  Created by Adi on 29/09/2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ACPImageButton: UIButton {
+class ImageButton: UIButton {
 
     init(titleKey: String? = nil,
          font: UIFont? = nil,

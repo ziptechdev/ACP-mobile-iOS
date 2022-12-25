@@ -1,5 +1,5 @@
 //
-//  ACPNavigationController.swift
+//  NavigationController.swift
 //  ACP-mobile
 //
 //  Created by Adi on 28/09/2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ACPNavigationController: UINavigationController {
+class NavigationController: UINavigationController {
 
     /// Set this to override default back button behaviour
     var backButtonOverride: (() -> Void)?

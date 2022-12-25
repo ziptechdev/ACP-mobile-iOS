@@ -27,13 +27,13 @@ class EligibilityCoordinator: EligibilityCoordinatorProtocol {
 
     var parentCoordinator: Coordinator?
     var childCoordinators: [Coordinator] = []
-    var navigationController: ACPNavigationController
+    var navigationController: NavigationController
 
     var goToKYCCoordinator: (() -> Void)?
 
     // MARK: - Initialization
 
-    init(navigationController: ACPNavigationController) {
+    init(navigationController: NavigationController) {
         self.navigationController = navigationController
     }
 

@@ -1,5 +1,5 @@
 //
-//  ACPShadowButton.swift
+//  ShadowButton.swift
 //  ACP-mobile
 //
 //  Created by Adi on 30/10/2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ACPShadowButton: UIButton {
+class ShadowButton: UIButton {
     var hasShadow = true
 
     private var shadowAdded: Bool = false

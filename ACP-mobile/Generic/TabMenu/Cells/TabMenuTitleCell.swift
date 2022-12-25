@@ -1,5 +1,5 @@
 //
-//  ACPTabMenuTitleCell.swift
+//  TabMenuTitleCell.swift
 //  ACP-mobile
 //
 //  Created by Adi on 06/10/2022.
@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class ACPTabMenuTitleCell: UICollectionViewCell {
+class TabMenuTitleCell: UICollectionViewCell {
 
     // MARK: - Views
 
@@ -69,7 +69,7 @@ class ACPTabMenuTitleCell: UICollectionViewCell {
     }
 }
 
-extension ACPTabMenuTitleCell: ACPFocusableView {
+extension TabMenuTitleCell: FocusableView {
     func onActive() {
         contentView.backgroundColor = .white
         titleLabel.textColor = .gray06Dark

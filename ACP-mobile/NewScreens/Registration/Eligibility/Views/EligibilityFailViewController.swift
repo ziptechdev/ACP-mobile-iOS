@@ -16,8 +16,8 @@ class EligibilityFailViewController: UIViewController {
 
     // MARK: - Views
 
-    private let failCircle: ACPCircleLoadingBarView = {
-        let view = ACPCircleLoadingBarView()
+    private let failCircle: CircleLoadingBarView = {
+        let view = CircleLoadingBarView()
         view.barColor = .warningRed
         return view
     }()

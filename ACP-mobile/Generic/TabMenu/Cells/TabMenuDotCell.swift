@@ -1,5 +1,5 @@
 //
-//  ACPTabMenuDotCell.swift
+//  TabMenuDotCell.swift
 //  ACP-mobile
 //
 //  Created by Adi on 19/10/2022.
@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class ACPTabMenuDotCell: UICollectionViewCell {
+class TabMenuDotCell: UICollectionViewCell {
 
     // MARK: - Views
 
@@ -67,7 +67,7 @@ class ACPTabMenuDotCell: UICollectionViewCell {
     }
 }
 
-extension ACPTabMenuDotCell: ACPFocusableView {
+extension TabMenuDotCell: FocusableView {
     func onActive() {
         dotView.backgroundColor = .coreBlue
     }

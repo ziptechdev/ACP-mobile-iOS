@@ -13,7 +13,7 @@ protocol Coordinator: AnyObject {
     /// Collection of child Coordinators
     var childCoordinators: [Coordinator] { get set }
     /// Navigation Controller used by the coordinator
-    var navigationController: ACPNavigationController { get set }
+    var navigationController: NavigationController { get set }
 
     /// Start the Coordinator
     func start()
@@ -39,6 +39,7 @@ extension Coordinator {
     func start() {}
 
     func dismiss() {
+        print("Coordinator dismissed: \(String(describing: self))")
         parentCoordinator?.removeChild(self)
     }
 

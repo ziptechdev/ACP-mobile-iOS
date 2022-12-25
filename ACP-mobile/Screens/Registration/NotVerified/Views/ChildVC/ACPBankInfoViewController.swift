@@ -12,7 +12,7 @@ class ACPBankInfoViewController: UIViewController {
 
     // MARK: - Properties
 
-    weak var delegate: ACPTabMenuDelegate?
+    weak var delegate: TabMenuDelegate?
 
     private lazy var textFields: [TextInput] = [
         bankNameTextField, bankNumberTextField, accountHolderTextField, accountNumberTextField, expirationTextField
@@ -29,15 +29,15 @@ class ACPBankInfoViewController: UIViewController {
         return label
     }()
 
-    private lazy var bankNameTextField: ACPTextField = {
-        let view = ACPTextField()
+    private lazy var bankNameTextField: TextField = {
+        let view = TextField()
         view.titleLabel.text = .localizedString(key: "bank_info_bank_name")
         view.textField.delegate = self
         return view
     }()
 
-    private lazy var bankNumberTextField: ACPTextField = {
-        let view = ACPTextField()
+    private lazy var bankNumberTextField: TextField = {
+        let view = TextField()
         view.titleLabel.text = .localizedString(key: "bank_info_bank_number")
         view.delegate = self
         view.textField.delegate = self
@@ -45,15 +45,15 @@ class ACPBankInfoViewController: UIViewController {
         return view
     }()
 
-    private lazy var accountHolderTextField: ACPTextField = {
-        let view = ACPTextField()
+    private lazy var accountHolderTextField: TextField = {
+        let view = TextField()
         view.titleLabel.text = .localizedString(key: "bank_info_acc_name")
         view.textField.delegate = self
         return view
     }()
 
-    private lazy var accountNumberTextField: ACPTextField = {
-        let view = ACPTextField()
+    private lazy var accountNumberTextField: TextField = {
+        let view = TextField()
         view.titleLabel.text = .localizedString(key: "bank_info_acc_number")
         view.delegate = self
         view.textField.delegate = self
@@ -61,8 +61,8 @@ class ACPBankInfoViewController: UIViewController {
         return view
     }()
 
-    private lazy var expirationTextField: ACPTextField = {
-        let view = ACPTextField()
+    private lazy var expirationTextField: TextField = {
+        let view = TextField()
         view.titleLabel.text = .localizedString(key: "bank_info_expiration")
         view.textField.delegate = self
         return view
@@ -80,7 +80,7 @@ class ACPBankInfoViewController: UIViewController {
         return button
     }()
 
-    private let infoLabel = ACPTermsAndPrivacyLabel()
+    private let infoLabel = TermsAndPrivacyLabel()
 
     // MARK: - Life Cycle
 
@@ -179,9 +179,9 @@ class ACPBankInfoViewController: UIViewController {
     }
 }
 
-// MARK: - ACPTermsAndPrivacyLabelDelegate
+// MARK: - TermsAndPrivacyLabelDelegate
 
-extension ACPBankInfoViewController: ACPTermsAndPrivacyLabelDelegate {
+extension ACPBankInfoViewController: TermsAndPrivacyLabelDelegate {
     func didTapTerms() {
         // TODO: Add link
     }
@@ -218,9 +218,9 @@ extension ACPBankInfoViewController: UITextFieldDelegate {
     }
 }
 
-// MARK: - ACPToolbarDelegate
+// MARK: - ToolbarDelegate
 
-extension ACPBankInfoViewController: ACPToolbarDelegate {
+extension ACPBankInfoViewController: ToolbarDelegate {
     func didPressDone(_ textfield: UITextField) {
         _ = textFieldShouldReturn(textfield)
     }

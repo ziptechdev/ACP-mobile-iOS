@@ -13,7 +13,7 @@ class EligibilityDetailsAddressViewController: UIViewController {
     // MARK: - Properties
 
     private let viewModel: EligibilityDetailsViewModel
-    weak var delegate: ACPTabMenuDelegate?
+    weak var delegate: TabMenuDelegate?
 
     private lazy var textFields: [TextInput] = [
         streetTextField, cityTextField, stateTextField
@@ -40,22 +40,22 @@ class EligibilityDetailsAddressViewController: UIViewController {
         return label
     }()
 
-    private lazy var streetTextField: ACPTextField = {
-        let view = ACPTextField()
+    private lazy var streetTextField: TextField = {
+        let view = TextField()
         view.titleLabel.text = .localizedString(key: "eligibility_address_street")
         view.textField.delegate = self
         return view
     }()
 
-    private lazy var cityTextField: ACPTextField = {
-        let view = ACPTextField()
+    private lazy var cityTextField: TextField = {
+        let view = TextField()
         view.titleLabel.text = .localizedString(key: "eligibility_address_city")
         view.textField.delegate = self
         return view
     }()
 
-    private lazy var stateTextField: ACPPickerView = {
-        let view = ACPPickerView()
+    private lazy var stateTextField: PickerView = {
+        let view = PickerView()
         view.titleLabel.text = .localizedString(key: "eligibility_address_state")
         view.textField.addRightImage(named: "down_arrow")
         view.delegate = self
@@ -64,8 +64,8 @@ class EligibilityDetailsAddressViewController: UIViewController {
         return view
     }()
 
-    private lazy var zipTextField: ACPTextField = {
-        let view = ACPTextField()
+    private lazy var zipTextField: TextField = {
+        let view = TextField()
         view.titleLabel.text = .localizedString(key: "eligibility_address_zip")
         view.textField.textAlignment = .center
         view.isUserInteractionEnabled = false
@@ -242,9 +242,9 @@ extension EligibilityDetailsAddressViewController: UITextFieldDelegate {
     }
 }
 
-// MARK: - ACPToolbarDelegate
+// MARK: - ToolbarDelegate
 
-extension EligibilityDetailsAddressViewController: ACPToolbarDelegate {
+extension EligibilityDetailsAddressViewController: ToolbarDelegate {
 
     func didPressDone(_ textfield: UITextField) {
         _ = textFieldShouldReturn(textfield)

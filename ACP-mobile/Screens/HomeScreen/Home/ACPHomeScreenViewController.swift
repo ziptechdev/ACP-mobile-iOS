@@ -23,8 +23,8 @@ class ACPHomeScreenViewController: UIViewController {
 
     let headerView = ACPHomeScreenHeaderView()
 
-    let tableView: ACPTableView = {
-        let view = ACPTableView(style: .grouped)
+    let tableView: TableView = {
+        let view = TableView(style: .grouped)
         view.backgroundColor = .gray06Light
         return view
     }()

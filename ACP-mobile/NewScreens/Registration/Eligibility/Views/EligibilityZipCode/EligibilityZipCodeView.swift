@@ -115,8 +115,8 @@ class EligibilityZipCodeView: UIView {
         return label
     }()
 
-    let nextButton: ACPImageButton = {
-        let button = ACPImageButton(
+    let nextButton: ImageButton = {
+        let button = ImageButton(
             titleKey: "eligibility_zip_btn",
             spacing: Constants.ButtonContentSpacing,
             cornerRadius: Constants.ButtonCornerRadius,

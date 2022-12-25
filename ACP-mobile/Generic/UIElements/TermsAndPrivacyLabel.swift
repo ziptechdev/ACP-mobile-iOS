@@ -1,5 +1,5 @@
 //
-//  ACPTermsAndPrivacyLabel.swift
+//  TermsAndPrivacyLabel.swift
 //  ACP-mobile
 //
 //  Created by Adi on 01/10/2022.
@@ -7,18 +7,18 @@
 
 import UIKit
 
-// MARK: - ACPTermsAndPrivacyLabelDelegate
+// MARK: - TermsAndPrivacyLabelDelegate
 
-protocol ACPTermsAndPrivacyLabelDelegate: AnyObject {
+protocol TermsAndPrivacyLabelDelegate: AnyObject {
     func didTapTerms()
     func didTapPrivacy()
 }
 
-class ACPTermsAndPrivacyLabel: UILabel {
+class TermsAndPrivacyLabel: UILabel {
 
     // MARK: - Properties
 
-    weak var delegate: ACPTermsAndPrivacyLabelDelegate?
+    weak var delegate: TermsAndPrivacyLabelDelegate?
 
     // MARK: - Initialization
 

@@ -16,7 +16,7 @@ class ACPPersonalInfoViewController: UIViewController {
 
     // MARK: - Views
 
-    private let tabMenu = ACPTabMenuViewController()
+    private let tabMenu = TabMenuViewController()
 
     // MARK: - Life Cycle
 
@@ -74,9 +74,9 @@ class ACPPersonalInfoViewController: UIViewController {
     }
 }
 
-// MARK: - ACPTermsAndPrivacyLabelDelegate
+// MARK: - TermsAndPrivacyLabelDelegate
 
-extension ACPPersonalInfoViewController: ACPTermsAndPrivacyLabelDelegate {
+extension ACPPersonalInfoViewController: TermsAndPrivacyLabelDelegate {
     func didTapTerms() {
         // TODO: Add link
     }
@@ -86,9 +86,9 @@ extension ACPPersonalInfoViewController: ACPTermsAndPrivacyLabelDelegate {
     }
 }
 
-// MARK: - ACPTabMenuDelegate
+// MARK: - TabMenuDelegate
 
-extension ACPPersonalInfoViewController: ACPTabMenuDelegate {
+extension ACPPersonalInfoViewController: TabMenuDelegate {
     func didTapNextButton() {
         if tabMenu.currentTab == 0 {
             let verifyVC = ACPVerifyEmailViewController(dismissCallback: tabMenu.nextTab)
@@ -104,9 +104,9 @@ extension ACPPersonalInfoViewController: ACPTabMenuDelegate {
     }
 }
 
-// MARK: - ACPTabMenuViewControllerDelegate
+// MARK: - TabMenuViewControllerDelegate
 
-extension ACPPersonalInfoViewController: ACPTabMenuViewControllerDelegate {
+extension ACPPersonalInfoViewController: TabMenuViewControllerDelegate {
     var numberOfItems: Int {
         return viewModel.numberOfTabItems()
     }
@@ -117,7 +117,7 @@ extension ACPPersonalInfoViewController: ACPTabMenuViewControllerDelegate {
         collectionView.layer.cornerRadius = Constants.Constraints.HeaderCornerRadius
         collectionView.contentInset = UIEdgeInsets(top: 6, left: 6, bottom: 6, right: 6)
 
-        collectionView.register(ACPTabMenuTitleCell.self)
+        collectionView.register(TabMenuTitleCell.self)
 
         collectionView.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(Constants.Constraints.HeaderInsetHorizontal)
@@ -132,7 +132,7 @@ extension ACPPersonalInfoViewController: ACPTabMenuViewControllerDelegate {
     }
 
     func cellForIndex(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: ACPTabMenuTitleCell = collectionView.dequeue(at: indexPath)
+        let cell: TabMenuTitleCell = collectionView.dequeue(at: indexPath)
         cell.configureCell(text: viewModel.titleForTab(at: indexPath.item))
         return cell
     }

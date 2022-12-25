@@ -12,7 +12,7 @@ class ACPKYCCompleteViewController: UIViewController {
 
     // MARK: - Properties
 
-    weak var delegate: ACPTabMenuDelegate?
+    weak var delegate: TabMenuDelegate?
 
     // MARK: - Views
 

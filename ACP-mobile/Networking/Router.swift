@@ -1,5 +1,5 @@
 //
-//  ACPRouter.swift
+//  Router.swift
 //  ACP-mobile
 //
 //  Created by Adi on 05/10/2022.
@@ -9,11 +9,11 @@ import Alamofire
 
 typealias RouterCompletion = (Data?, Error?) -> Void
 
-class ACPRouter {
+class Router {
 
     // MARK: - Properties
 
-    static let shared = ACPRouter()
+    static let shared = Router()
 
     private var httpHeaders: HTTPHeaders {
         return [
@@ -26,7 +26,7 @@ class ACPRouter {
 
     // MARK: - Request
 
-    func request(_ endpoint: ACPEndpoint, completion: @escaping RouterCompletion) {
+    func request(_ endpoint: Endpoint, completion: @escaping RouterCompletion) {
         let url = endpoint.baseURL + endpoint.path
         var httpHeaders = self.httpHeaders
 

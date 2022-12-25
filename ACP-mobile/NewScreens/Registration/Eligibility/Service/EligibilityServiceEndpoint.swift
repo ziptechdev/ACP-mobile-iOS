@@ -12,7 +12,7 @@ enum EligibilityServiceEndpoint {
     case register(id: String, parameters: Parameters?)
 }
 
-extension EligibilityServiceEndpoint: ACPEndpoint {
+extension EligibilityServiceEndpoint: Endpoint {
     var baseURL: String { "https://acp-mobile-backend.herokuapp.com/api/v1/" }
 
     var path: String {
