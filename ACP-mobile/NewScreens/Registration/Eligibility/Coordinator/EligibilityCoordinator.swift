@@ -8,7 +8,6 @@
 import UIKit
 
 protocol EligibilityCoordinatorProtocol: Coordinator {
-    func goBack()
     func goToZipCode()
     func goToDetails(model: EligibilityModel)
     func goToVerify(model: EligibilityModel)
@@ -26,7 +25,7 @@ class EligibilityCoordinator: EligibilityCoordinatorProtocol {
 
     // MARK: - Properties
 
-    var onDismiss: (() -> Void)?
+    var parentCoordinator: Coordinator?
     var childCoordinators: [Coordinator] = []
     var navigationController: ACPNavigationController
 
@@ -38,20 +37,10 @@ class EligibilityCoordinator: EligibilityCoordinatorProtocol {
         self.navigationController = navigationController
     }
 
-    // MARK: - Start / Dismiss
+    // MARK: - Start
 
     func start() {
         goToZipCode()
-    }
-
-    func dismiss() {
-        onDismiss?()
-        navigationController.popToRootViewController(animated: true)
-    }
-
-    func goBack() {
-        onDismiss?()
-        navigationController.popViewController(animated: true)
     }
 
     // MARK: - Coordination
@@ -87,8 +76,8 @@ class EligibilityCoordinator: EligibilityCoordinatorProtocol {
     }
 
     func tryAgain() {
-        goToZipCode()
-        navigationController.popInTheBackgroundToVC(EligibilityCheckViewController.self)
+        let viewController = navigationController.popToVC(EligibilityZipCodeViewController.self)
+        viewController.resetTextFields()
     }
 
     func goToRegistration(model: EligibilityModel) {
@@ -111,10 +100,6 @@ class EligibilityCoordinator: EligibilityCoordinatorProtocol {
     func goToLogin() {
         let coordinator = LoginCoordinator(navigationController: navigationController)
         addChild(coordinator)
-        coordinator.onDismiss = { [weak self] in
-            self?.removeChild(coordinator)
-            self?.dismiss()
-        }
     }
 
     func openLink(url: String) {

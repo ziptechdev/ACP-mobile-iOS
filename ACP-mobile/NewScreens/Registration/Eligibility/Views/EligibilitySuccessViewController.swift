@@ -183,12 +183,8 @@ class EligibilitySuccessViewController: UIViewController {
 
     // MARK: - Navigation
 
-    @objc override func didTapRightButton() {
-        viewModel.dismiss()
-    }
-
     @objc func didTapCancel() {
-        viewModel.dismiss()
+        didTapRightButton()
     }
 
     @objc func didTapRegisterButton() {

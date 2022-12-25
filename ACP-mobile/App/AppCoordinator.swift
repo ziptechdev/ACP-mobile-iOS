@@ -13,7 +13,7 @@ class AppCoordinator: Coordinator {
 
     var window: UIWindow
 
-    var onDismiss: (() -> Void)?
+    var parentCoordinator: Coordinator? = nil
     var childCoordinators: [Coordinator] = []
     var navigationController = ACPNavigationController()
 
@@ -45,9 +45,6 @@ class AppCoordinator: Coordinator {
 
         let coordinator = WelcomeCoordinator(navigationController: navigationController)
         addChild(coordinator)
-        coordinator.onDismiss = { [weak self] in
-            self?.removeChild(coordinator)
-        }
     }
 
     func goToLogin() {

@@ -8,8 +8,8 @@
 import UIKit
 
 protocol Coordinator: AnyObject {
-    /// Called when the Coordinator is dismissed
-    var onDismiss: (() -> Void)? { get set }
+    /// Parent Coordinator
+    var parentCoordinator: Coordinator? { get set }
     /// Collection of child Coordinators
     var childCoordinators: [Coordinator] { get set }
     /// Navigation Controller used by the coordinator
@@ -39,11 +39,12 @@ extension Coordinator {
     func start() {}
 
     func dismiss() {
-        onDismiss?()
+        parentCoordinator?.removeChild(self)
     }
 
     func addChild(_ coordinator: Coordinator) {
         childCoordinators.append(coordinator)
+        coordinator.parentCoordinator = self
         coordinator.start()
     }
 

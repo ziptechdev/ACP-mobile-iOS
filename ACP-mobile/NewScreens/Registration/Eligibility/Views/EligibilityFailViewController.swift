@@ -206,10 +206,6 @@ class EligibilityFailViewController: UIViewController {
 
     // MARK: - Navigation
 
-    @objc override func didTapRightButton() {
-        viewModel.dismiss()
-    }
-
     @objc func didTapAccountButton() {
         viewModel.goToKYC()
     }
@@ -219,7 +215,7 @@ class EligibilityFailViewController: UIViewController {
     }
 
     @objc func didTapCancel() {
-        viewModel.dismiss()
+        didTapRightButton()
     }
 
     // MARK: - Constants

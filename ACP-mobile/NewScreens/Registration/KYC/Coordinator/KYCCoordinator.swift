@@ -13,7 +13,7 @@ class KYCCoordinator: KYCCoordinatorProtocol {
 
     // MARK: - Properties
 
-    var onDismiss: (() -> Void)?
+    var parentCoordinator: Coordinator?
     var childCoordinators: [Coordinator] = []
     var navigationController: ACPNavigationController
 
@@ -28,6 +28,6 @@ class KYCCoordinator: KYCCoordinatorProtocol {
     func start() {
 
     }
-    
+
     // MARK: - Coordination
 }

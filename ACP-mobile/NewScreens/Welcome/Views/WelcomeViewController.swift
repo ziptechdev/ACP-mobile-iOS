@@ -210,11 +210,7 @@ class WelcomeViewController: UIViewController {
         return string
     }
 
-    // MARK: Navigation
-
-    @objc override func didTapRightButton() {
-        viewModel.dismiss()
-    }
+    // MARK: - Navigation
 
     @objc func didTapContinue() {
         viewModel.goToWelcomePageTwo()

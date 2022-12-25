@@ -37,10 +37,6 @@ class EligibilityZipCodeViewModel {
         coordinator?.openLink(url: privacyPolicyUrl)
     }
 
-    func goBack() {
-        coordinator?.goBack()
-    }
-
     func dismiss() {
         coordinator?.dismiss()
     }

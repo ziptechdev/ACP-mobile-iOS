@@ -187,10 +187,6 @@ class EligibilityCheckViewController: UIViewController {
 
     // MARK: - Navigation
 
-    @objc override func didTapRightButton() {
-        viewModel.dismiss()
-    }
-
     @objc func checkEligibilityTapped() {
         viewModel.goToEligibility()
     }

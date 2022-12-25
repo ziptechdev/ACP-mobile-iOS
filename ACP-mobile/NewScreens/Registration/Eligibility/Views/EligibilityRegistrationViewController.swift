@@ -231,16 +231,6 @@ class EligibilityRegistrationViewController: UIViewController {
         UIAlertController.showErrorAlert(message: "Server error", from: self)
     }
 
-    // MARK: - Navigation
-
-    @objc override func didTapRightButton() {
-        viewModel.dismiss()
-    }
-
-    @objc override func didTapLeftButton() {
-        viewModel.goBack()
-    }
-
     // MARK: - Constants
 
     private struct Constants {

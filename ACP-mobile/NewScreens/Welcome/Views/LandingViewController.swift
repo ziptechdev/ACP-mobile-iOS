@@ -78,6 +78,10 @@ class LandingViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    deinit {
+        viewModel.dismiss()
+    }
+
     // MARK: - Life Cycle
 
     override func viewWillAppear(_ animated: Bool) {

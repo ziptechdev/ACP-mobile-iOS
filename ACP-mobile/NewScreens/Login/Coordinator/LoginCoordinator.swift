@@ -18,7 +18,7 @@ class LoginCoordinator: LoginCoordinatorProtocol {
 
     // MARK: - Properties
 
-    var onDismiss: (() -> Void)?
+    var parentCoordinator: Coordinator?
     var childCoordinators: [Coordinator] = []
     var navigationController: ACPNavigationController
 
@@ -33,7 +33,7 @@ class LoginCoordinator: LoginCoordinatorProtocol {
         self.isAfterRegistration = isAfterRegistration
     }
 
-    // MARK: - Start / Dismiss
+    // MARK: - Start
 
     func start() {
         goToLogin()
@@ -47,13 +47,9 @@ class LoginCoordinator: LoginCoordinatorProtocol {
         navigationController.pushViewController(viewController, animated: true)
     }
 
-    func goToHome() {
+    func goToHome() {}
 
-    }
-
-    func goToForgotPassword() {
-        
-    }
+    func goToForgotPassword() {}
 
     func openLink(url: String) {
         print("Coordinator opened web url for \(url)")

@@ -115,10 +115,6 @@ extension EligibilityDetailsViewController: ACPTermsAndPrivacyLabelDelegate {
 // MARK: - ACPTabMenuDelegate
 
 extension EligibilityDetailsViewController: ACPTabMenuDelegate {
-    @objc override func didTapRightButton() {
-        viewModel.dismiss()
-    }
-
     func didTapNextButton() {
         tabMenu.nextTab()
     }

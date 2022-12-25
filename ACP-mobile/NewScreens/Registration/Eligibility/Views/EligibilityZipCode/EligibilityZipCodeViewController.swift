@@ -36,6 +36,10 @@ class EligibilityZipCodeViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    deinit {
+        viewModel.dismiss()
+    }
+
     // MARK: - Life Cycle
 
     override func viewWillAppear(_ animated: Bool) {
@@ -84,6 +88,11 @@ class EligibilityZipCodeViewController: UIViewController {
         }
     }
 
+    func resetTextFields() {
+        zipCodeView.zipFirstCodeTextField.text = ""
+        zipCodeView.zipSecondCodeTextField.text = ""
+    }
+
     @objc func focusZipCodeStack() {
         zipCodeView.zipCodeStackView.layer.borderColor = UIColor.coreBlue.cgColor
     }
@@ -101,16 +110,6 @@ class EligibilityZipCodeViewController: UIViewController {
         } else {
             zipCodeView.setVisibilityForInvalidZipCode()
         }
-    }
-
-    // MARK: - Navigation
-
-    @objc override func didTapRightButton() {
-        viewModel.dismiss()
-    }
-
-    @objc override func didTapLeftButton() {
-        viewModel.goBack()
     }
 
     // MARK: - Constants

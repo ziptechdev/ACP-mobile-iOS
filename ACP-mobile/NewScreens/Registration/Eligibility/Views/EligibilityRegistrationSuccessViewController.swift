@@ -142,10 +142,6 @@ class EligibilityRegistrationSuccessViewController: UIViewController {
 
     // MARK: - Coordination
 
-    @objc override func didTapRightButton() {
-        viewModel.dismiss()
-    }
-
     @objc func didTapLoginButton() {
         viewModel.goToLogin()
     }

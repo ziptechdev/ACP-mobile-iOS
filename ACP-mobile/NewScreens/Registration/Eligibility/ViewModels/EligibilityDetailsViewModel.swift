@@ -80,8 +80,4 @@ class EligibilityDetailsViewModel {
     func openPrivacyPolicy() {
         coordinator?.openLink(url: privacyPolicyUrl)
     }
-
-    func dismiss() {
-        coordinator?.dismiss()
-    }
 }

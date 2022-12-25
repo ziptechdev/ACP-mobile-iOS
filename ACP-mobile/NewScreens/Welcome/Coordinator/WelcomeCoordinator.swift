@@ -21,7 +21,7 @@ class WelcomeCoordinator: WelcomeCoordinatorProtocol {
 
     // MARK: - Properties
 
-    var onDismiss: (() -> Void)?
+    var parentCoordinator: Coordinator?
     var childCoordinators: [Coordinator] = []
     var navigationController: ACPNavigationController
 
@@ -35,10 +35,6 @@ class WelcomeCoordinator: WelcomeCoordinatorProtocol {
 
     func start() {
         goToLandingPage()
-    }
-
-    func dismiss() {
-        navigationController.popToRootViewController(animated: true)
     }
 
     // MARK: - Coordination
@@ -77,20 +73,14 @@ class WelcomeCoordinator: WelcomeCoordinatorProtocol {
     func goToEligibility() {
         let coordinator = EligibilityCoordinator(navigationController: navigationController)
         addChild(coordinator)
-        coordinator.onDismiss = { [weak self] in
-            self?.removeChild(coordinator)
-        }
         coordinator.goToKYCCoordinator = { [weak self] in
-            self?.removeChild(coordinator)
             self?.goToKYC()
+            self?.navigationController.popInTheBackgroundToVC(EligibilityCheckViewController.self)
         }
     }
 
     func goToKYC() {
         let coordinator = KYCCoordinator(navigationController: navigationController)
         addChild(coordinator)
-        coordinator.onDismiss = { [weak self] in
-            self?.removeChild(coordinator)
-        }
     }
 }

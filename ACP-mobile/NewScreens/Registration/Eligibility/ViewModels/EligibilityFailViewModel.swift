@@ -32,8 +32,4 @@ class EligibilityFailViewModel {
     func openNationalVerifier() {
         coordinator?.openLink(url: nationalVerifierUrl)
     }
-
-    func dismiss() {
-        coordinator?.dismiss()
-    }
 }

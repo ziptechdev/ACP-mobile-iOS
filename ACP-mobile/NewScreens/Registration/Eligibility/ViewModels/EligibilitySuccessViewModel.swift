@@ -26,8 +26,4 @@ class EligibilitySuccessViewModel {
     func goToRegistration() {
         coordinator?.goToRegistration(model: model)
     }
-
-    func dismiss() {
-        coordinator?.dismiss()
-    }
 }

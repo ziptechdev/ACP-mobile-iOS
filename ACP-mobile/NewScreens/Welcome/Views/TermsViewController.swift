@@ -288,11 +288,7 @@ class TermsViewController: UIViewController {
         }
     }
 
-    // MARK: Functions
-
-    @objc override func didTapRightButton() {
-        viewModel.dismiss()
-    }
+    // MARK: - Navigation
 
     @objc func didTapAccept() {
         viewModel.goToEligibilityCheck()

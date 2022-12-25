@@ -23,6 +23,20 @@ extension UINavigationController {
         setViewControllers(newStack, animated: false)
     }
 
+    func popToVC<T: UIViewController>(_ type: T.Type) -> T {
+        guard let targetVC = viewControllers.first(where: { $0.isKind(of: type) }) as? T,
+              let targetIndex = viewControllers.firstIndex(where: { $0 == targetVC })
+        else {
+            fatalError("The ViewController of type \(type.description()) is not in the view stack")
+        }
+
+        let newStack = Array(viewControllers.prefix(targetIndex + 1))
+
+        setViewControllers(newStack, animated: true)
+
+        return targetVC
+    }
+
     func popToRootInTheBackground() {
         guard let lastVC = viewControllers.last else {
             fatalError("There are no ViewControllers in the view stack")

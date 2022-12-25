@@ -77,8 +77,4 @@ class EligibilityVerifyViewModel {
     func goToFail() {
         coordinator?.goToFail()
     }
-
-    func dismiss() {
-        coordinator?.dismiss()
-    }
 }

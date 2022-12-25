@@ -92,13 +92,11 @@ class LoginViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: - Life Cycle
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        setupUI()
+    deinit {
+        viewModel.dismiss()
     }
+
+    // MARK: - Life Cycle
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -110,6 +108,12 @@ class LoginViewController: UIViewController {
             setupRightNavigationBarButton()
             navigationItem.leftBarButtonItem = nil
         }
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        setupUI()
     }
 
     // MARK: - UI
@@ -183,10 +187,6 @@ class LoginViewController: UIViewController {
             email: emailTextField.text,
             password: passwordTextField.text
         )
-    }
-
-    @objc override func didTapRightButton() {
-        viewModel.dismiss()
     }
 
     // MARK: - Constants
