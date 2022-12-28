@@ -24,13 +24,15 @@ class AppCoordinator: Coordinator {
     // MARK: - Start / Dismiss
 
     func start() {
-        if isInitialLaunch {
-            goToWelcome()
-        } else if AuthManager.shared.isUserLoggedIn {
-            goToHome()
-        } else {
-            goToLogin()
-        }
+        goToWelcome()
+
+//        if isInitialLaunch {
+//            goToWelcome()
+//        } else if AuthManager.shared.isUserLoggedIn {
+//            goToHome()
+//        } else {
+//            goToLogin()
+//        }
     }
 
     // MARK: - Coordination
