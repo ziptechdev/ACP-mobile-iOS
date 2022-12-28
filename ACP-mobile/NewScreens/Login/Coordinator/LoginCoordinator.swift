@@ -47,7 +47,9 @@ class LoginCoordinator: LoginCoordinatorProtocol {
         navigationController.pushViewController(viewController, animated: true)
     }
 
-    func goToHome() {}
+    func goToHome() {
+        AppCoordinator.shared.goToHome()
+    }
 
     func goToForgotPassword() {}
 

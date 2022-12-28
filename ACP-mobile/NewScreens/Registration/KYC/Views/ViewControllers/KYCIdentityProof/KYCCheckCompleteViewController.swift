@@ -1,5 +1,5 @@
 //
-//  ACPKYCViewController.swift
+//  KYCCheckCompleteViewController.swift
 //  ACP-mobile
 //
 //  Created by Adi on 18/10/2022.
@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class ACPKYCViewController: UIViewController {
+class KYCCheckCompleteViewController: UIViewController {
 
     // MARK: - Properties
 
@@ -16,35 +16,44 @@ class ACPKYCViewController: UIViewController {
 
     // MARK: - Views
 
+    private let imageView: UIImageView = {
+        let view = UIImageView()
+        view.contentMode = .scaleAspectFit
+        view.translatesAutoresizingMaskIntoConstraints = false
+        let image = UIImage(named: "success")?.withRenderingMode(.alwaysTemplate)
+        view.image = image
+        view.tintColor = .successGreen
+        return view
+    }()
+
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = .localizedString(key: "kyc_title")
+        label.text = .localizedString(key: "kyc_success_title")
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 32, weight: .bold)
         label.textColor = .coreBlue
+        label.textAlignment = .center
         label.adjustsFontSizeToFitWidth = true
         return label
     }()
 
     private lazy var subtitleLabel: UILabel = {
         let label = UILabel()
-        label.attributedText = attributedSubitleText()
+        label.attributedText = NSMutableAttributedString.subtitleString(key: "kyc_success_subtitle")
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
-        label.isUserInteractionEnabled = true
-        let tap = UITapGestureRecognizer(target: self, action: #selector(didTapLabel(_:)))
-        label.addGestureRecognizer(tap)
+        label.numberOfLines = 3
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
 
-    private lazy var startButton: UIButton = {
+    private lazy var doneButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
         button.layer.masksToBounds = true
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(titleKey: "kyc_btn")
-        button.addTarget(self, action: #selector(didTapStartButton), for: .touchUpInside)
+        button.setTitle(titleKey: "kyc_success_btn")
+        button.addTarget(self, action: #selector(didTapDoneButton), for: .touchUpInside)
         return button
     }()
 
@@ -64,15 +73,22 @@ class ACPKYCViewController: UIViewController {
     }
 
     private func addSubviews() {
+        view.addSubview(imageView)
         view.addSubview(titleLabel)
         view.addSubview(subtitleLabel)
-        view.addSubview(startButton)
+        view.addSubview(doneButton)
     }
 
     private func setupConstraints() {
+        imageView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalToSuperview().inset(Constants.Constraints.ImageInsetY)
+            make.height.width.equalTo(Constants.Constraints.ImageSize)
+        }
+
         titleLabel.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInset)
-            make.top.equalToSuperview().inset(Constants.Constraints.TitleInsetY)
+            make.top.equalTo(imageView.snp.bottom).offset(Constants.Constraints.TitleInsetY)
         }
 
         subtitleLabel.snp.makeConstraints { make in
@@ -80,50 +96,30 @@ class ACPKYCViewController: UIViewController {
             make.top.equalTo(titleLabel.snp.bottom).offset(Constants.Constraints.SubtitleOffset)
         }
 
-        startButton.snp.makeConstraints { make in
+        doneButton.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInset)
             make.height.equalTo(Constants.Constraints.ButtonHeight)
             make.top.equalTo(subtitleLabel.snp.bottom).offset(Constants.Constraints.ButtonOffsetVertical)
         }
     }
 
-    private func attributedSubitleText() -> NSMutableAttributedString {
-        let string: NSMutableAttributedString = .subtitleString(key: "kyc_subtitle")
-
-        let highlightRange = string.range(of: .localizedString(key: "kyc_highlight"))
-        string.addAttribute(.foregroundColor, value: UIColor.coreBlue, range: highlightRange)
-
-        return string
-    }
-
     // MARK: - Callbacks
 
-    @objc func didTapStartButton() {
-        delegate?.didTapNextButton()
-    }
-
-    @objc func didTapLabel(_ sender: UITapGestureRecognizer? = nil) {
-        guard let sender = sender else {
-            return
-        }
-
-        let subtitle: String = .localizedString(key: "kyc_subtitle")
-        let highlightRange = subtitle.range(of: .localizedString(key: "kyc_highlight"))
-
-        if sender.didTapAttributedTextInLabel(label: subtitleLabel, inRange: highlightRange) {
-            // TODO: Add Link
-            print("kyc_highlight")
-        }
+    @objc func didTapDoneButton() {
+        delegate?.didTapActionButton()
     }
 
     // MARK: - Constants
 
     private struct Constants {
         struct Constraints {
-            static let TitleInsetY: CGFloat = 60
+            static let ImageInsetY: CGFloat = 60
+            static let ImageSize: CGFloat = 128
+
+            static let TitleInsetY: CGFloat = 30
             static let ContentInset: CGFloat = 35
 
-            static let SubtitleOffset: CGFloat = 30
+            static let SubtitleOffset: CGFloat = 20
 
             static let ButtonHeight: CGFloat = 46
             static let ButtonOffsetVertical: CGFloat = 60

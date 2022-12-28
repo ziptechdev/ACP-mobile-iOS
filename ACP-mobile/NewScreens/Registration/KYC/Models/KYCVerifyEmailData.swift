@@ -1,10 +1,10 @@
 //
-//  KYCData.swift
+//  KYCVerifyEmailData.swift
 //  ACP-mobile
 //
 //  Created by Adi on 28/12/2022.
 //
 
-struct KYCData: Codable {
+struct KYCVerifyEmailData: Codable {
     let verificationCode: Int
 }

@@ -138,19 +138,19 @@ extension KYCIdentityProofViewController: TabMenuViewControllerDelegate {
     func didSelectTab(index: Int) -> UIViewController {
         switch index {
         case 0:
-            let viewController = ACPKYCViewController()
+            let viewController = KYCVerificationViewController()
             viewController.delegate = self
             return viewController
         case 1:
-            let viewController = ACPScanIDViewController()
+            let viewController = KYCScanIDViewController()
             viewController.delegate = self
             return viewController
         case 2:
-            let viewController = ACPSelfieViewController()
+            let viewController = KYCSelfieViewController()
             viewController.delegate = self
             return viewController
         default:
-            let viewController = ACPKYCCompleteViewController()
+            let viewController = KYCCheckCompleteViewController()
             viewController.delegate = self
             return viewController
         }

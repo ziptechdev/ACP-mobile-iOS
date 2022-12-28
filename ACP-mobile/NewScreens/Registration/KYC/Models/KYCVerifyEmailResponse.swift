@@ -1,12 +1,12 @@
 //
-//  KYCResponse.swift
+//  KYCVerifyEmailResponse.swift
 //  ACP-mobile
 //
 //  Created by Adi on 19/12/2022.
 //
 
-struct KYCResponse: Codable {
+struct KYCVerifyEmailResponse: Codable {
     let statusCode: Int
     let message: String
-    let data: KYCData?
+    let data: KYCVerifyEmailData?
 }

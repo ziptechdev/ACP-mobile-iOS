@@ -1,5 +1,5 @@
 //
-//  ACPRegistrationCompleteViewController.swift
+//  KYCRegistrationCompleteViewController.swift
 //  ACP-mobile
 //
 //  Created by Adi on 19/10/2022.
@@ -8,8 +8,12 @@
 import UIKit
 import SnapKit
 
-class ACPRegistrationCompleteViewController: UIViewController {
+class KYCRegistrationCompleteViewController: UIViewController {
 
+    // MARK: - Properties
+
+    private let viewModel: KYCRegistrationCompleteViewModel
+    
     // MARK: - Views
 
     private let imageView: UIImageView = {
@@ -55,6 +59,18 @@ class ACPRegistrationCompleteViewController: UIViewController {
         button.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
         return button
     }()
+
+    // MARK: - Initialization
+
+    init(viewModel: KYCRegistrationCompleteViewModel) {
+        self.viewModel = viewModel
+
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     // MARK: - Life Cycle
 

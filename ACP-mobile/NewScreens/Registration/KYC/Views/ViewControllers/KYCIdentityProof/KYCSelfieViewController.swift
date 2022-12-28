@@ -1,5 +1,5 @@
 //
-//  ACPScanIDViewController.swift
+//  KYCSelfieViewController.swift
 //  ACP-mobile
 //
 //  Created by Adi on 18/10/2022.
@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class ACPScanIDViewController: UIViewController {
+class KYCSelfieViewController: UIViewController {
 
     // MARK: - Properties
 
@@ -16,11 +16,11 @@ class ACPScanIDViewController: UIViewController {
 
     // MARK: - Views
 
-    private let cardView = BorderedView(imageName: "scan_id")
+    private let cardView = BorderedView(imageName: "selfie")
 
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = .localizedString(key: "kyc_scan_id_title")
+        label.text = .localizedString(key: "kyc_selfie_title")
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 32, weight: .bold)
         label.textColor = .coreBlue
@@ -31,32 +31,33 @@ class ACPScanIDViewController: UIViewController {
 
     private lazy var subtitleLabel: UILabel = {
         let label = UILabel()
-        label.attributedText = attributedSubitleText()
+        label.attributedText = NSMutableAttributedString.subtitleString(key: "kyc_selfie_subtitle")
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 2
         label.adjustsFontSizeToFitWidth = true
         return label
     }()
 
-    private lazy var scanFrontButton: UIButton = {
+    private lazy var openCameraButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
         button.layer.masksToBounds = true
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(titleKey: "kyc_scan_id_btn")
-        button.addTarget(self, action: #selector(didTapScanFrontButton), for: .touchUpInside)
+        button.setTitle(titleKey: "kyc_selfie_btn")
+        button.addTarget(self, action: #selector(didTapOpenCameraButton), for: .touchUpInside)
         return button
     }()
 
-    private lazy var scanBackButton: UIButton = {
+    private lazy var uploadPhotoButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
         button.layer.masksToBounds = true
-        button.backgroundColor = .coreBlue
+        button.backgroundColor = .clear
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.coreBlue.cgColor
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(titleKey: "kyc_scan_id_btn_2")
-        button.addTarget(self, action: #selector(didTapScanBackButton), for: .touchUpInside)
+        button.setTitle(titleKey: "kyc_selfie_btn_2", textColor: .coreBlue)
+        button.addTarget(self, action: #selector(didTapUploadPhotoButton), for: .touchUpInside)
         return button
     }()
 
@@ -79,8 +80,8 @@ class ACPScanIDViewController: UIViewController {
         view.addSubview(cardView)
         view.addSubview(titleLabel)
         view.addSubview(subtitleLabel)
-        view.addSubview(scanFrontButton)
-        view.addSubview(scanBackButton)
+        view.addSubview(openCameraButton)
+        view.addSubview(uploadPhotoButton)
     }
 
     private func setupConstraints() {
@@ -100,38 +101,26 @@ class ACPScanIDViewController: UIViewController {
             make.top.equalTo(titleLabel.snp.bottom).offset(Constants.Constraints.SubtitleOffset)
         }
 
-        scanFrontButton.snp.makeConstraints { make in
+        openCameraButton.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInset)
             make.height.equalTo(Constants.Constraints.ButtonHeight)
             make.top.equalTo(subtitleLabel.snp.bottom).offset(Constants.Constraints.ButtonOffsetVertical)
         }
 
-        scanBackButton.snp.makeConstraints { make in
+        uploadPhotoButton.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInset)
             make.height.equalTo(Constants.Constraints.ButtonHeight)
-            make.top.equalTo(scanFrontButton.snp.bottom).offset(Constants.Constraints.ButtonSpacingVertical)
+            make.top.equalTo(openCameraButton.snp.bottom).offset(Constants.Constraints.ButtonSpacingVertical)
         }
-    }
-
-    private func attributedSubitleText() -> NSMutableAttributedString {
-        let string: NSMutableAttributedString = .subtitleString(
-            key: "kyc_scan_id_subtitle",
-            isCenter: true
-        )
-        let highlightRange = string.range(of: .localizedString(key: "kyc_scan_id_highlight"))
-
-        string.addAttribute(.font, value: UIFont.systemFont(ofSize: 13, weight: .semibold), range: highlightRange)
-
-        return string
     }
 
     // MARK: - Callbacks
 
-    @objc func didTapScanFrontButton() {
+    @objc func didTapOpenCameraButton() {
         delegate?.didTapNextButton()
     }
 
-    @objc func didTapScanBackButton() {
+    @objc func didTapUploadPhotoButton() {
         delegate?.didTapNextButton()
     }
 
@@ -148,7 +137,7 @@ class ACPScanIDViewController: UIViewController {
             static let SubtitleOffset: CGFloat = 20
 
             static let ButtonHeight: CGFloat = 46
-            static let ButtonOffsetVertical: CGFloat = 30
+            static let ButtonOffsetVertical: CGFloat = 50
             static let ButtonSpacingVertical: CGFloat = 20
             static let ButtonCornerRadius: CGFloat = 10
         }

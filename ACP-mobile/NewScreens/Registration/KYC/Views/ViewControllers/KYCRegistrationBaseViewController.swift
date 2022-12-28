@@ -76,7 +76,7 @@ class KYCRegistrationBaseViewController: UIViewController {
             self?.navigationController?.dismiss(animated: true)
         }
 
-        viewModel.sendVerifyEmailError = { [weak self] message in
+        viewModel.showErrorMessage = { [weak self] message in
             guard let self = self else { return }
             UIAlertController.showErrorAlert(message: message, from: self)
         }
@@ -108,8 +108,7 @@ extension KYCRegistrationBaseViewController: TabMenuDelegate {
     }
 
     func didTapActionButton() {
-        let targetVC = ACPRegistrationCompleteViewController()
-        navigationController?.pushViewController(targetVC, animated: true)
+        viewModel.register()
     }
 }
 
@@ -157,7 +156,7 @@ extension KYCRegistrationBaseViewController: TabMenuViewControllerDelegate {
             viewController.delegate = self
             return viewController
         default:
-            let viewController = ACPBankInfoViewController()
+            let viewController = KYCBankInfoViewController(viewModel: viewModel)
             viewController.delegate = self
             return viewController
         }

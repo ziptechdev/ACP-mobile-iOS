@@ -235,7 +235,7 @@ class KYCPersonalInfoDetailsViewController: UIViewController {
         phoneTextField.textField.text = viewModel.model.phoneNumber
         passwordTextField.textField.text = viewModel.model.password
         ssnTextField.textField.text = viewModel.model.ssn
-        
+
         checkValues()
     }
 

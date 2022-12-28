@@ -1,5 +1,5 @@
 //
-//  ACPBankInfoViewController.swift
+//  KYCBankInfoViewController.swift
 //  ACP-mobile
 //
 //  Created by Adi on 19/10/2022.
@@ -8,10 +8,11 @@
 import UIKit
 import SnapKit
 
-class ACPBankInfoViewController: UIViewController {
+class KYCBankInfoViewController: UIViewController {
 
     // MARK: - Properties
 
+    private let viewModel: KYCRegistrationViewModel
     weak var delegate: TabMenuDelegate?
 
     private lazy var textFields: [TextInput] = [
@@ -81,6 +82,18 @@ class ACPBankInfoViewController: UIViewController {
     }()
 
     private let infoLabel = TermsAndPrivacyLabel()
+
+    // MARK: - Initialization
+
+    init(viewModel: KYCRegistrationViewModel) {
+        self.viewModel = viewModel
+
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     // MARK: - Life Cycle
 
@@ -153,9 +166,32 @@ class ACPBankInfoViewController: UIViewController {
         }
     }
 
+    private func showValuesIfPresent() {
+        bankNameTextField.textField.text = viewModel.model.bankName
+        bankNumberTextField.textField.text = viewModel.model.bankNumber
+        accountHolderTextField.textField.text = viewModel.model.accountHolderName
+        accountNumberTextField.textField.text = viewModel.model.accountNumber
+        expirationTextField.textField.text = viewModel.model.expirationDate
+
+        checkValues()
+    }
+
+    private func checkValues() {
+        let isEnabled = textFields.allSatisfy({ !$0.isEmpty })
+
+        completeButton.isUserInteractionEnabled = isEnabled
+        completeButton.backgroundColor = isEnabled ? .coreBlue : .lavenderGray
+    }
+
     // MARK: - Callback
 
     @objc func didTapButton() {
+        viewModel.model.bankName = bankNameTextField.text
+        viewModel.model.bankNumber = bankNumberTextField.text
+        viewModel.model.accountHolderName = accountHolderTextField.text
+        viewModel.model.accountNumber = accountNumberTextField.text
+        viewModel.model.expirationDate = expirationTextField.text
+
         delegate?.didTapActionButton()
     }
 
@@ -181,19 +217,19 @@ class ACPBankInfoViewController: UIViewController {
 
 // MARK: - TermsAndPrivacyLabelDelegate
 
-extension ACPBankInfoViewController: TermsAndPrivacyLabelDelegate {
+extension KYCBankInfoViewController: TermsAndPrivacyLabelDelegate {
     func didTapTerms() {
-        // TODO: Add link
+        viewModel.openTerms()
     }
 
     func didTapPrivacy() {
-        // TODO: Add link
+        viewModel.openPrivacyPolicy()
     }
 }
 
 // MARK: - UITextFieldDelegate
 
-extension ACPBankInfoViewController: UITextFieldDelegate {
+extension KYCBankInfoViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         guard let currentIndex = textFields.firstIndex(where: { $0.textField == textField }) else {
             return true
@@ -211,16 +247,13 @@ extension ACPBankInfoViewController: UITextFieldDelegate {
     }
 
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        let isEnabled = textFields.allSatisfy({ !$0.isEmpty })
-
-        completeButton.isUserInteractionEnabled = isEnabled
-        completeButton.backgroundColor = isEnabled ? .coreBlue : .lavenderGray
+        checkValues()
     }
 }
 
 // MARK: - ToolbarDelegate
 
-extension ACPBankInfoViewController: ToolbarDelegate {
+extension KYCBankInfoViewController: ToolbarDelegate {
     func didPressDone(_ textfield: UITextField) {
         _ = textFieldShouldReturn(textfield)
     }

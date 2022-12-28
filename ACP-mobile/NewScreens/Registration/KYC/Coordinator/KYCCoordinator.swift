@@ -11,6 +11,8 @@ protocol KYCCoordinatorProtocol: Coordinator {
     func goToStart()
     func goToPersonalDetails()
     func openVerifyEmail(viewModel: KYCRegistrationViewModel)
+    func goToRegistrationComplete()
+    func goToLogin()
     func openLink(url: String)
 }
 
@@ -51,6 +53,17 @@ class KYCCoordinator: KYCCoordinatorProtocol {
     func openVerifyEmail(viewModel: KYCRegistrationViewModel) {
         let viewController = KYCVerifyEmailViewController(viewModel: viewModel)
         navigationController.present(viewController, animated: true)
+    }
+
+    func goToRegistrationComplete() {
+        let viewModel = KYCRegistrationCompleteViewModel(coordinator: self)
+        let viewController = KYCRegistrationCompleteViewController(viewModel: viewModel)
+        navigationController.pushViewController(viewController, animated: true)
+    }
+
+    func goToLogin() {
+        let coordinator = LoginCoordinator(navigationController: navigationController)
+        addChild(coordinator)
     }
 
     func openLink(url: String) {

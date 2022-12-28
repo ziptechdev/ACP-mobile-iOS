@@ -15,8 +15,8 @@ class KYCRegistrationViewModel {
     private let service = KYCService()
     var model = KYCModel()
 
+    var showErrorMessage: ((String) -> Void)?
     var dismissVerifyEmail: (() -> Void)?
-    var sendVerifyEmailError: ((String) -> Void)?
     var verifyEmailError: ((String) -> Void)?
 
     private var termsUrl: String { "terms" }
@@ -55,14 +55,14 @@ class KYCRegistrationViewModel {
             guard let self = self else { return }
 
             guard let data = data, error == nil else {
-                self.sendVerifyEmailError?("Something went wrong. Try again.")
+                self.showErrorMessage?("Something went wrong. Try again.")
                 return
             }
 
-            guard let model = try? JSONDecoder().decode(KYCResponse.self, from: data),
+            guard let model = try? JSONDecoder().decode(KYCVerifyEmailResponse.self, from: data),
                   let verificationCode = model.data?.verificationCode
             else {
-                self.sendVerifyEmailError?("Something went wrong. Try again.")
+                self.showErrorMessage?("Something went wrong. Try again.")
                 return
             }
 
@@ -80,6 +80,40 @@ class KYCRegistrationViewModel {
             dismissVerifyEmail?()
         } else {
             verifyEmailError?("Verification code is incorrect.")
+        }
+    }
+
+    func register() {
+        let parameters: Parameters = [
+            "firstName": model.firstName,
+            "lastName": model.lastName,
+            "username": model.email,
+            "password": model.password,
+            "phoneNumber": model.phoneNumber,
+            "socialSecurityNumber": model.ssn,
+            "bankName": model.bankName,
+            "bankNumber": model.bankNumber,
+            "accountHolderName": model.accountHolderName,
+            "accountNumber": model.accountNumber,
+            "expirationDate": model.expirationDate
+        ]
+
+        service.kycRegister(parameters: parameters) { [weak self] data, error in
+            guard let self = self else { return }
+
+            guard let data = data, error == nil else {
+                self.showErrorMessage?("Something went wrong. Try again.")
+                return
+            }
+
+            guard let model = try? JSONDecoder().decode(KYCRegisterResponse.self, from: data),
+                  let _ = model.data
+            else {
+                self.showErrorMessage?("Something went wrong. Try again.")
+                return
+            }
+
+            self.coordinator?.goToRegistrationComplete()
         }
     }
 

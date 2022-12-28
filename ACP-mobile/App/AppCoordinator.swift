@@ -9,9 +9,9 @@ import UIKit
 
 class AppCoordinator: Coordinator {
 
-    // MARK: - Properties
+    static var shared = AppCoordinator()
 
-    var window: UIWindow
+    // MARK: - Properties
 
     var parentCoordinator: Coordinator?
     var childCoordinators: [Coordinator] = []
@@ -21,24 +21,19 @@ class AppCoordinator: Coordinator {
         return !UserDefaults.standard.bool(forKey: Constants.initialLaunch)
     }
 
-    // MARK: - Initialization
+    // MARK: - Start / Dismiss
 
-    init(window: UIWindow) {
-        self.window = window
+    func start() {
+        if isInitialLaunch {
+            goToWelcome()
+        } else if AuthManager.shared.isUserLoggedIn {
+            goToHome()
+        } else {
+            goToLogin()
+        }
     }
 
     // MARK: - Coordination
-
-    func start() {
-        window.rootViewController = navigationController
-        window.makeKeyAndVisible()
-
-//        if isInitialLaunch {
-            goToWelcome()
-//        } else {
-//            goToLogin()
-//        }
-    }
 
     func goToWelcome() {
         UserDefaults.standard.set(true, forKey: Constants.initialLaunch)
@@ -53,6 +48,10 @@ class AppCoordinator: Coordinator {
             isAfterRegistration: false
         )
         addChild(coordinator)
+    }
+
+    func goToHome() {
+        navigationController.setViewControllers([ACPHomeScreenTabViewController()], animated: true)
     }
 }
 
