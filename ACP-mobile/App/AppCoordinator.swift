@@ -40,7 +40,7 @@ class AppCoordinator: Coordinator {
     func goToWelcome() {
         UserDefaults.standard.set(true, forKey: Constants.initialLaunch)
 
-        let coordinator = LoginCoordinator(navigationController: navigationController)
+        let coordinator = WelcomeCoordinator(navigationController: navigationController)
         addChild(coordinator)
     }
 
