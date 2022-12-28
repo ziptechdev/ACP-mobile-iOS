@@ -276,3 +276,12 @@ KYC requires a selfie/clear shot of your face and a photo of the document that c
 /* Profile Screen */
 "profile_tab_title" = "Profile";
 "profile_page_title" = "Profile";
+"profile_personal_info" = "Personal information";
+"profile_security" = "Security";
+"profile_personal_name_section" = "Name";
+"profile_personal_dob_section" = "Date of Birth";
+"profile_personal_address_section" = "Address";
+"profile_personal_ssn_section" = "SSN (Social Security Number)";
+"profile_personal_btn_save" = "Save";
+"profile_personal_middle_name" = "Middle Name";
+"profile_personal_address_placeholder" = "92805 - 1483";

@@ -11,12 +11,22 @@ import UIKit
 
 extension ACPProfileInfoViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == monthTextField.textField {
+        if textField == nameTextField {
+            middleNameTextField.textField.becomeFirstResponder()
+        } else if textField == middleNameTextField {
+            lastNameTextField.becomeFirstResponder()
+        } else if textField == lastNameTextField {
+            monthTextField.textField.becomeFirstResponder()
+        } else if textField == monthTextField.textField {
             dayTextField.textField.becomeFirstResponder()
         } else if textField == dayTextField.textField {
             yearTextField.textField.becomeFirstResponder()
         } else if textField == yearTextField.textField {
-            ssnTextField.textField.becomeFirstResponder()
+            cityTextField.textField.becomeFirstResponder()
+        } else if textField == streetTextField {
+            stateTextField.textField.becomeFirstResponder()
+        } else if textField == cityTextField {
+            zipTextField.textField.becomeFirstResponder()
         } else {
             ssnTextField.textField.resignFirstResponder()
         }

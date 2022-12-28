@@ -186,24 +186,7 @@ extension ACPProfileInfoViewController {
         }
 
         struct Text {
-            static let Title = "Profile"
-            static let MainTitle = "Personal information"
-            static let FullNameSection = "Name"
-            static let FirstName = "First Name"
             static let MiddleName = "Middle Name"
-            static let LastName = "Last Name"
-            static let DOBSection = "Date of Birth"
-            static let Month = "Month"
-            static let Day = "Day"
-            static let Year = "Year"
-            static let AddressSection = "Address"
-            static let StreetNumberName = "Street Number and Name"
-            static let City = "City"
-            static let State = "State"
-            static let ZIPCode = "ZIP Code"
-            static let ZipPlaceholder = "92805 - 1483"
-            static let SSN = "SSN (Social Security Number)"
-            static let SaveButtonText = "Save"
         }
     }
 }
