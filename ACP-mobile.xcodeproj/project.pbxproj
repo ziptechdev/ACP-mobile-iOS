@@ -40,13 +40,13 @@
 		400ABA2128FF7F6000A6DCB6 /* KYCVerifyEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9DB28FF7F6000A6DCB6 /* KYCVerifyEmailViewController.swift */; };
 		400ABA2228FF7F6000A6DCB6 /* KYCVerifyEmailKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9DC28FF7F6000A6DCB6 /* KYCVerifyEmailKeyboardView.swift */; };
 		400ABA2328FF7F6000A6DCB6 /* KYCPersonalInfoDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9DD28FF7F6000A6DCB6 /* KYCPersonalInfoDetailsViewController.swift */; };
-		400ABA2428FF7F6000A6DCB6 /* ACPIdentityProofViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9DF28FF7F6000A6DCB6 /* ACPIdentityProofViewController.swift */; };
+		400ABA2428FF7F6000A6DCB6 /* KYCIdentityProofViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9DF28FF7F6000A6DCB6 /* KYCIdentityProofViewController.swift */; };
 		400ABA2528FF7F6000A6DCB6 /* ACPSelfieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9E028FF7F6000A6DCB6 /* ACPSelfieViewController.swift */; };
 		400ABA2628FF7F6000A6DCB6 /* ACPScanIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9E128FF7F6000A6DCB6 /* ACPScanIDViewController.swift */; };
 		400ABA2728FF7F6000A6DCB6 /* ACPKYCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9E228FF7F6000A6DCB6 /* ACPKYCViewController.swift */; };
 		400ABA2828FF7F6000A6DCB6 /* ACPKYCCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9E328FF7F6000A6DCB6 /* ACPKYCCompleteViewController.swift */; };
 		400ABA2928FF7F6000A6DCB6 /* ACPBankInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9E428FF7F6000A6DCB6 /* ACPBankInfoViewController.swift */; };
-		400ABA2B28FF7F6000A6DCB6 /* KYCPersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9E628FF7F6000A6DCB6 /* KYCPersonalInfoViewController.swift */; };
+		400ABA2B28FF7F6000A6DCB6 /* KYCRegistrationBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9E628FF7F6000A6DCB6 /* KYCRegistrationBaseViewController.swift */; };
 		400ABA2E28FF7F6000A6DCB6 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9EB28FF7F6000A6DCB6 /* Router.swift */; };
 		400ABA2F28FF7F6000A6DCB6 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9EC28FF7F6000A6DCB6 /* Endpoint.swift */; };
 		400ABA352900413D00A6DCB6 /* ACPRegistrationCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400ABA342900413D00A6DCB6 /* ACPRegistrationCompleteViewController.swift */; };
@@ -95,7 +95,6 @@
 		404A8A63294FFF5400266334 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404A8A5D294FFF5400266334 /* LoginViewController.swift */; };
 		404A8A6529500C7200266334 /* EligibilityZipCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404A8A6429500C7200266334 /* EligibilityZipCodeViewModel.swift */; };
 		404A8A6829500F1500266334 /* EligibilityZipCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404A8A6729500F1500266334 /* EligibilityZipCodeView.swift */; };
-		404A8A782950134300266334 /* KYCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404A8A6D2950134300266334 /* KYCViewModel.swift */; };
 		404A8A792950134300266334 /* KYCCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404A8A6F2950134300266334 /* KYCCoordinator.swift */; };
 		404A8A7A2950134300266334 /* KYCResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404A8A712950134300266334 /* KYCResponse.swift */; };
 		404A8A7B2950134300266334 /* KYCService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404A8A732950134300266334 /* KYCService.swift */; };
@@ -117,8 +116,9 @@
 		408E06B72957FE0900F0F96C /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408E06A92957FE0900F0F96C /* NavigationController.swift */; };
 		408E06B92957FF7A00F0F96C /* KYCRegistrationStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408E06B82957FF7A00F0F96C /* KYCRegistrationStartViewController.swift */; };
 		408E06BB2958004D00F0F96C /* KYCRegistrationStartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408E06BA2958004D00F0F96C /* KYCRegistrationStartViewModel.swift */; };
-		408E06BE295802FB00F0F96C /* KYCPersonalInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408E06BD295802FB00F0F96C /* KYCPersonalInfoViewModel.swift */; };
+		408E06BE295802FB00F0F96C /* KYCRegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408E06BD295802FB00F0F96C /* KYCRegistrationViewModel.swift */; };
 		408E06C02958B5B500F0F96C /* KYCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408E06BF2958B5B500F0F96C /* KYCModel.swift */; };
+		408E06D9295BCB4800F0F96C /* KYCData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408E06D8295BCB4800F0F96C /* KYCData.swift */; };
 		40B5EDD828E224F40096B91B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40B5EDD728E224F40096B91B /* Assets.xcassets */; };
 		40B5EDDB28E224F40096B91B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40B5EDD928E224F40096B91B /* LaunchScreen.storyboard */; };
 		40EDB816290EF4FC007E0255 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 40EDB815290EF4FC007E0255 /* GoogleService-Info.plist */; };
@@ -163,13 +163,13 @@
 		400AB9DB28FF7F6000A6DCB6 /* KYCVerifyEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCVerifyEmailViewController.swift; sourceTree = "<group>"; };
 		400AB9DC28FF7F6000A6DCB6 /* KYCVerifyEmailKeyboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCVerifyEmailKeyboardView.swift; sourceTree = "<group>"; };
 		400AB9DD28FF7F6000A6DCB6 /* KYCPersonalInfoDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCPersonalInfoDetailsViewController.swift; sourceTree = "<group>"; };
-		400AB9DF28FF7F6000A6DCB6 /* ACPIdentityProofViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPIdentityProofViewController.swift; sourceTree = "<group>"; };
+		400AB9DF28FF7F6000A6DCB6 /* KYCIdentityProofViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCIdentityProofViewController.swift; sourceTree = "<group>"; };
 		400AB9E028FF7F6000A6DCB6 /* ACPSelfieViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPSelfieViewController.swift; sourceTree = "<group>"; };
 		400AB9E128FF7F6000A6DCB6 /* ACPScanIDViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPScanIDViewController.swift; sourceTree = "<group>"; };
 		400AB9E228FF7F6000A6DCB6 /* ACPKYCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPKYCViewController.swift; sourceTree = "<group>"; };
 		400AB9E328FF7F6000A6DCB6 /* ACPKYCCompleteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPKYCCompleteViewController.swift; sourceTree = "<group>"; };
 		400AB9E428FF7F6000A6DCB6 /* ACPBankInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPBankInfoViewController.swift; sourceTree = "<group>"; };
-		400AB9E628FF7F6000A6DCB6 /* KYCPersonalInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCPersonalInfoViewController.swift; sourceTree = "<group>"; };
+		400AB9E628FF7F6000A6DCB6 /* KYCRegistrationBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCRegistrationBaseViewController.swift; sourceTree = "<group>"; };
 		400AB9EB28FF7F6000A6DCB6 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		400AB9EC28FF7F6000A6DCB6 /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		400ABA342900413D00A6DCB6 /* ACPRegistrationCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPRegistrationCompleteViewController.swift; sourceTree = "<group>"; };
@@ -218,7 +218,6 @@
 		404A8A5D294FFF5400266334 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		404A8A6429500C7200266334 /* EligibilityZipCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EligibilityZipCodeViewModel.swift; sourceTree = "<group>"; };
 		404A8A6729500F1500266334 /* EligibilityZipCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EligibilityZipCodeView.swift; sourceTree = "<group>"; };
-		404A8A6D2950134300266334 /* KYCViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCViewModel.swift; sourceTree = "<group>"; };
 		404A8A6F2950134300266334 /* KYCCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCCoordinator.swift; sourceTree = "<group>"; };
 		404A8A712950134300266334 /* KYCResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCResponse.swift; sourceTree = "<group>"; };
 		404A8A732950134300266334 /* KYCService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCService.swift; sourceTree = "<group>"; };
@@ -240,8 +239,9 @@
 		408E06A92957FE0900F0F96C /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		408E06B82957FF7A00F0F96C /* KYCRegistrationStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYCRegistrationStartViewController.swift; sourceTree = "<group>"; };
 		408E06BA2958004D00F0F96C /* KYCRegistrationStartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYCRegistrationStartViewModel.swift; sourceTree = "<group>"; };
-		408E06BD295802FB00F0F96C /* KYCPersonalInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYCPersonalInfoViewModel.swift; sourceTree = "<group>"; };
+		408E06BD295802FB00F0F96C /* KYCRegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYCRegistrationViewModel.swift; sourceTree = "<group>"; };
 		408E06BF2958B5B500F0F96C /* KYCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYCModel.swift; sourceTree = "<group>"; };
+		408E06D8295BCB4800F0F96C /* KYCData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYCData.swift; sourceTree = "<group>"; };
 		40B5EDCB28E224F20096B91B /* ACP-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ACP-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		40B5EDD728E224F40096B91B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40B5EDDA28E224F40096B91B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -446,32 +446,15 @@
 		400AB9D728FF7F6000A6DCB6 /* ChildVC */ = {
 			isa = PBXGroup;
 			children = (
-				400AB9D828FF7F6000A6DCB6 /* PersonalInfo */,
 				400AB9DE28FF7F6000A6DCB6 /* KYC */,
 				400AB9E428FF7F6000A6DCB6 /* ACPBankInfoViewController.swift */,
 			);
 			path = ChildVC;
 			sourceTree = "<group>";
 		};
-		400AB9D828FF7F6000A6DCB6 /* PersonalInfo */ = {
-			isa = PBXGroup;
-			children = (
-				400AB9D928FF7F6000A6DCB6 /* VerifyEmail */,
-			);
-			path = PersonalInfo;
-			sourceTree = "<group>";
-		};
-		400AB9D928FF7F6000A6DCB6 /* VerifyEmail */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = VerifyEmail;
-			sourceTree = "<group>";
-		};
 		400AB9DE28FF7F6000A6DCB6 /* KYC */ = {
 			isa = PBXGroup;
 			children = (
-				400AB9DF28FF7F6000A6DCB6 /* ACPIdentityProofViewController.swift */,
 				400ABA3028FF8BFE00A6DCB6 /* ChildVC */,
 			);
 			path = KYC;
@@ -807,8 +790,7 @@
 			isa = PBXGroup;
 			children = (
 				408E06BA2958004D00F0F96C /* KYCRegistrationStartViewModel.swift */,
-				404A8A6D2950134300266334 /* KYCViewModel.swift */,
-				408E06BD295802FB00F0F96C /* KYCPersonalInfoViewModel.swift */,
+				408E06BD295802FB00F0F96C /* KYCRegistrationViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -826,6 +808,7 @@
 			children = (
 				404A8A712950134300266334 /* KYCResponse.swift */,
 				408E06BF2958B5B500F0F96C /* KYCModel.swift */,
+				408E06D8295BCB4800F0F96C /* KYCData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -893,15 +876,6 @@
 			path = UIElements;
 			sourceTree = "<group>";
 		};
-		408E06BC295801DC00F0F96C /* KYCPersonalInfo */ = {
-			isa = PBXGroup;
-			children = (
-				400AB9E628FF7F6000A6DCB6 /* KYCPersonalInfoViewController.swift */,
-				400AB9DD28FF7F6000A6DCB6 /* KYCPersonalInfoDetailsViewController.swift */,
-			);
-			path = KYCPersonalInfo;
-			sourceTree = "<group>";
-		};
 		408E06C22958B9BF00F0F96C /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -915,10 +889,20 @@
 			isa = PBXGroup;
 			children = (
 				408E06B82957FF7A00F0F96C /* KYCRegistrationStartViewController.swift */,
-				408E06BC295801DC00F0F96C /* KYCPersonalInfo */,
+				400AB9E628FF7F6000A6DCB6 /* KYCRegistrationBaseViewController.swift */,
+				400AB9DD28FF7F6000A6DCB6 /* KYCPersonalInfoDetailsViewController.swift */,
+				408E06DA295BCFD800F0F96C /* KYCIdentityProof */,
 				400AB9DB28FF7F6000A6DCB6 /* KYCVerifyEmailViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		408E06DA295BCFD800F0F96C /* KYCIdentityProof */ = {
+			isa = PBXGroup;
+			children = (
+				400AB9DF28FF7F6000A6DCB6 /* KYCIdentityProofViewController.swift */,
+			);
+			path = KYCIdentityProof;
 			sourceTree = "<group>";
 		};
 		40B5EDC228E224F20096B91B = {
@@ -1116,7 +1100,7 @@
 				13BF542829104B1600C94201 /* RequestCardViewModel.swift in Sources */,
 				404A8A1D294F955E00266334 /* Coordinator.swift in Sources */,
 				4013FADE29083DB00018025F /* ACPCardSuccessViewController.swift in Sources */,
-				400ABA2B28FF7F6000A6DCB6 /* KYCPersonalInfoViewController.swift in Sources */,
+				400ABA2B28FF7F6000A6DCB6 /* KYCRegistrationBaseViewController.swift in Sources */,
 				40251D46290DE0710083B89A /* ACPTransactionsCell.swift in Sources */,
 				400ABA0228FF7F6000A6DCB6 /* ACPHomeScreenEligibilityHeaderView.swift in Sources */,
 				404A8A7B2950134300266334 /* KYCService.swift in Sources */,
@@ -1145,7 +1129,7 @@
 				400ABA2128FF7F6000A6DCB6 /* KYCVerifyEmailViewController.swift in Sources */,
 				408E06B32957FE0900F0F96C /* TermsAndPrivacyLabel.swift in Sources */,
 				404A8A31294F979800266334 /* WelcomeCoordinator.swift in Sources */,
-				400ABA2428FF7F6000A6DCB6 /* ACPIdentityProofViewController.swift in Sources */,
+				400ABA2428FF7F6000A6DCB6 /* KYCIdentityProofViewController.swift in Sources */,
 				404A8A18294F938F00266334 /* EligibilityServiceEndpoint.swift in Sources */,
 				400ABA1028FF7F6000A6DCB6 /* AppDelegate.swift in Sources */,
 				404A8A20294F975F00266334 /* EligibilityModel.swift in Sources */,
@@ -1163,7 +1147,6 @@
 				40251D41290CD2840083B89A /* ACPCardModel.swift in Sources */,
 				400ABA1F28FF7F6000A6DCB6 /* ACPPersonalInfoViewModel.swift in Sources */,
 				400AB9F228FF7F6000A6DCB6 /* EligibilityDetailsNameViewController.swift in Sources */,
-				404A8A782950134300266334 /* KYCViewModel.swift in Sources */,
 				133F868F290870EC00663815 /* ApplyACPViewController.swift in Sources */,
 				400AB9F728FF7F6000A6DCB6 /* EligibilityVerifyViewController.swift in Sources */,
 				400ABA0C28FF7F6000A6DCB6 /* UIViewController+ACP.swift in Sources */,
@@ -1189,7 +1172,7 @@
 				408E06AD2957FE0900F0F96C /* TabMenuViewController.swift in Sources */,
 				408E06BB2958004D00F0F96C /* KYCRegistrationStartViewModel.swift in Sources */,
 				404A8A15294F938F00266334 /* EligibilityCoordinator.swift in Sources */,
-				408E06BE295802FB00F0F96C /* KYCPersonalInfoViewModel.swift in Sources */,
+				408E06BE295802FB00F0F96C /* KYCRegistrationViewModel.swift in Sources */,
 				408E06B42957FE0900F0F96C /* TableView.swift in Sources */,
 				404A8A4E294FF92500266334 /* EligibilityRegistrationResponse.swift in Sources */,
 				404A8A14294F938F00266334 /* EligibilityDetailsViewModel.swift in Sources */,
@@ -1218,6 +1201,7 @@
 				400ABA0628FF7F6000A6DCB6 /* UIResponder+ACP.swift in Sources */,
 				404A8A40294FB1A100266334 /* EligibilityVerifyViewModel.swift in Sources */,
 				404A8A44294FBBA800266334 /* EligibilityFailViewModel.swift in Sources */,
+				408E06D9295BCB4800F0F96C /* KYCData.swift in Sources */,
 				404A8A62294FFF5400266334 /* LoginService.swift in Sources */,
 				404A8A42294FBB9800266334 /* EligibilitySuccessViewModel.swift in Sources */,
 				400ABA2728FF7F6000A6DCB6 /* ACPKYCViewController.swift in Sources */,

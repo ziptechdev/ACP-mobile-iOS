@@ -6,5 +6,7 @@
 //
 
 struct KYCResponse: Codable {
-    let status: String?
+    let statusCode: Int
+    let message: String
+    let data: KYCData?
 }

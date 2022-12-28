@@ -12,7 +12,7 @@ class KYCVerifyEmailViewController: UIViewController {
 
     // MARK: - Properties
 
-    private let viewModel: KYCPersonalInfoViewModel
+    private let viewModel: KYCRegistrationViewModel
     private var code = ""
 
     // MARK: - Views
@@ -87,7 +87,7 @@ class KYCVerifyEmailViewController: UIViewController {
 
     // MARK: - Initialization
 
-    init(viewModel: KYCPersonalInfoViewModel) {
+    init(viewModel: KYCRegistrationViewModel) {
         self.viewModel = viewModel
 
         super.init(nibName: nil, bundle: nil)
@@ -103,6 +103,11 @@ class KYCVerifyEmailViewController: UIViewController {
         super.viewDidLoad()
 
         setupUI()
+
+        viewModel.verifyEmailError = { [weak self] message in
+            guard let self = self else { return }
+            UIAlertController.showErrorAlert(message: message, from: self)
+        }
     }
 
     // MARK: - UI

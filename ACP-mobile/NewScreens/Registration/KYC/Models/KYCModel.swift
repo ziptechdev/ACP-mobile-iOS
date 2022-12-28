@@ -7,8 +7,8 @@
 
 struct KYCModel {
     var firstName = ""
-    var middleName = ""
     var lastName = ""
+    var email = ""
     var phoneNumber = ""
     var password = ""
     var ssn = ""
@@ -17,4 +17,5 @@ struct KYCModel {
     var accountHolderName = ""
     var accountNumber = ""
     var expirationDate = ""
+    var verificationCode = ""
 }

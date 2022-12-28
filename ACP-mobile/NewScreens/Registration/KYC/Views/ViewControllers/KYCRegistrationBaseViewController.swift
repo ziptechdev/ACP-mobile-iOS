@@ -1,5 +1,5 @@
 //
-//  KYCPersonalInfoViewController.swift
+//  KYCRegistrationBaseViewController.swift
 //  ACP-mobile
 //
 //  Created by Adi on 06/10/2022.
@@ -8,11 +8,11 @@
 import UIKit
 import SnapKit
 
-class KYCPersonalInfoViewController: UIViewController {
+class KYCRegistrationBaseViewController: UIViewController {
 
     // MARK: - Properties
 
-    private let viewModel: KYCPersonalInfoViewModel
+    private let viewModel: KYCRegistrationViewModel
 
     // MARK: - Views
 
@@ -20,7 +20,7 @@ class KYCPersonalInfoViewController: UIViewController {
 
     // MARK: - Initialization
 
-    init(viewModel: KYCPersonalInfoViewModel) {
+    init(viewModel: KYCRegistrationViewModel) {
         self.viewModel = viewModel
 
         super.init(nibName: nil, bundle: nil)
@@ -71,7 +71,15 @@ class KYCPersonalInfoViewController: UIViewController {
 
         tabMenu.delegate = self
 
-        viewModel.nextTab = tabMenu.nextTab
+        viewModel.dismissVerifyEmail = { [weak self] in
+            self?.tabMenu.nextTab()
+            self?.navigationController?.dismiss(animated: true)
+        }
+
+        viewModel.sendVerifyEmailError = { [weak self] message in
+            guard let self = self else { return }
+            UIAlertController.showErrorAlert(message: message, from: self)
+        }
     }
 
     // MARK: - Callbacks
@@ -90,11 +98,10 @@ class KYCPersonalInfoViewController: UIViewController {
 
 // MARK: - TabMenuDelegate
 
-extension KYCPersonalInfoViewController: TabMenuDelegate {
+extension KYCRegistrationBaseViewController: TabMenuDelegate {
     func didTapNextButton() {
         if tabMenu.currentTab == 0 {
-            viewModel.openVerifyEmail()
-
+            viewModel.sendEmailCode()
         } else {
             tabMenu.nextTab()
         }
@@ -108,7 +115,7 @@ extension KYCPersonalInfoViewController: TabMenuDelegate {
 
 // MARK: - TabMenuViewControllerDelegate
 
-extension KYCPersonalInfoViewController: TabMenuViewControllerDelegate {
+extension KYCRegistrationBaseViewController: TabMenuViewControllerDelegate {
     var numberOfItems: Int {
         return viewModel.numberOfTabItems()
     }
@@ -146,7 +153,7 @@ extension KYCPersonalInfoViewController: TabMenuViewControllerDelegate {
             viewController.delegate = self
             return viewController
         case 1:
-            let viewController = ACPIdentityProofViewController()
+            let viewController = KYCIdentityProofViewController()
             viewController.delegate = self
             return viewController
         default:

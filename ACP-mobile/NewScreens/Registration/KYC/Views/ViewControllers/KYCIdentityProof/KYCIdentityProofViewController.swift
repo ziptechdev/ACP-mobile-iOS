@@ -1,5 +1,5 @@
 //
-//  ACPIdentityProofViewController.swift
+//  KYCIdentityProofViewController.swift
 //  ACP-mobile
 //
 //  Created by Adi on 19/10/2022.
@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class ACPIdentityProofViewController: UIViewController {
+class KYCIdentityProofViewController: UIViewController {
 
     // MARK: - Properties
 
@@ -84,7 +84,7 @@ class ACPIdentityProofViewController: UIViewController {
 
 // MARK: - TermsAndPrivacyLabelDelegate
 
-extension ACPIdentityProofViewController: TermsAndPrivacyLabelDelegate {
+extension KYCIdentityProofViewController: TermsAndPrivacyLabelDelegate {
     func didTapTerms() {
         // TODO: Add link
     }
@@ -96,7 +96,7 @@ extension ACPIdentityProofViewController: TermsAndPrivacyLabelDelegate {
 
 // MARK: - TabMenuDelegate
 
-extension ACPIdentityProofViewController: TabMenuDelegate {
+extension KYCIdentityProofViewController: TabMenuDelegate {
     func didTapNextButton() {
         // TODO: Add link
         tabMenu.nextTab()
@@ -110,7 +110,7 @@ extension ACPIdentityProofViewController: TabMenuDelegate {
 
 // MARK: - TabMenuViewControllerDelegate
 
-extension ACPIdentityProofViewController: TabMenuViewControllerDelegate {
+extension KYCIdentityProofViewController: TabMenuViewControllerDelegate {
     var numberOfItems: Int {
         return 4
     }

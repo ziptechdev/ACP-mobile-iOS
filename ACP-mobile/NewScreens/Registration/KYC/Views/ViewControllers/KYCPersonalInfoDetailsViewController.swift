@@ -12,7 +12,7 @@ class KYCPersonalInfoDetailsViewController: UIViewController {
 
     // MARK: - Properties
 
-    private let viewModel: KYCPersonalInfoViewModel
+    private let viewModel: KYCRegistrationViewModel
     weak var delegate: TabMenuDelegate?
 
     private lazy var textFields: [TextInput] = [
@@ -123,7 +123,7 @@ class KYCPersonalInfoDetailsViewController: UIViewController {
 
     // MARK: - Initialization
 
-    init(viewModel: KYCPersonalInfoViewModel) {
+    init(viewModel: KYCRegistrationViewModel) {
         self.viewModel = viewModel
 
         super.init(nibName: nil, bundle: nil)
@@ -139,6 +139,7 @@ class KYCPersonalInfoDetailsViewController: UIViewController {
         super.viewDidLoad()
 
         setupUI()
+        showValuesIfPresent()
     }
 
     // MARK: - UI
@@ -227,6 +228,24 @@ class KYCPersonalInfoDetailsViewController: UIViewController {
         }
     }
 
+    private func showValuesIfPresent() {
+        firstNameTextField.textField.text = viewModel.model.firstName
+        lastNameTextField.textField.text = viewModel.model.lastName
+        emailTextField.textField.text = viewModel.model.email
+        phoneTextField.textField.text = viewModel.model.phoneNumber
+        passwordTextField.textField.text = viewModel.model.password
+        ssnTextField.textField.text = viewModel.model.ssn
+        
+        checkValues()
+    }
+
+    private func checkValues() {
+        let isEnabled = textFields.allSatisfy({ !$0.isEmpty })
+
+        nextButton.isUserInteractionEnabled = isEnabled
+        nextButton.backgroundColor = isEnabled ? .coreBlue : .lavenderGray
+    }
+
     // MARK: - Callback
 
     @objc func toggleSecureEntry() {
@@ -240,8 +259,8 @@ class KYCPersonalInfoDetailsViewController: UIViewController {
         }
 
         viewModel.model.firstName = firstNameTextField.text
-//        viewModel.model.middleName =
         viewModel.model.lastName = lastNameTextField.text
+        viewModel.model.email = emailTextField.text
         viewModel.model.phoneNumber = phoneTextField.text
         viewModel.model.password = passwordTextField.text
         viewModel.model.ssn = ssnTextField.text
@@ -321,10 +340,7 @@ extension KYCPersonalInfoDetailsViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
         showError(false)
 
-        let isEnabled = textFields.allSatisfy({ !$0.isEmpty })
-
-        nextButton.isUserInteractionEnabled = isEnabled
-        nextButton.backgroundColor = isEnabled ? .coreBlue : .lavenderGray
+        checkValues()
     }
 }
 

@@ -10,7 +10,7 @@ import UIKit
 protocol KYCCoordinatorProtocol: Coordinator {
     func goToStart()
     func goToPersonalDetails()
-    func openVerifyEmail(viewModel: KYCPersonalInfoViewModel)
+    func openVerifyEmail(viewModel: KYCRegistrationViewModel)
     func openLink(url: String)
 }
 
@@ -43,12 +43,12 @@ class KYCCoordinator: KYCCoordinatorProtocol {
     }
 
     func goToPersonalDetails() {
-        let viewModel = KYCPersonalInfoViewModel(coordinator: self)
-        let viewController = KYCPersonalInfoViewController(viewModel: viewModel)
+        let viewModel = KYCRegistrationViewModel(coordinator: self)
+        let viewController = KYCRegistrationBaseViewController(viewModel: viewModel)
         navigationController.pushViewController(viewController, animated: true)
     }
 
-    func openVerifyEmail(viewModel: KYCPersonalInfoViewModel) {
+    func openVerifyEmail(viewModel: KYCRegistrationViewModel) {
         let viewController = KYCVerifyEmailViewController(viewModel: viewModel)
         navigationController.present(viewController, animated: true)
     }

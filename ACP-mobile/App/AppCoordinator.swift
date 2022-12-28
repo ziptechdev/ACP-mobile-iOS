@@ -33,22 +33,26 @@ class AppCoordinator: Coordinator {
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
 
-        if isInitialLaunch {
+//        if isInitialLaunch {
             goToWelcome()
-        } else {
-            goToLogin()
-        }
+//        } else {
+//            goToLogin()
+//        }
     }
 
     func goToWelcome() {
         UserDefaults.standard.set(true, forKey: Constants.initialLaunch)
 
-        let coordinator = WelcomeCoordinator(navigationController: navigationController)
+        let coordinator = KYCCoordinator(navigationController: navigationController)
         addChild(coordinator)
     }
 
     func goToLogin() {
-        goToWelcome()
+        let coordinator = LoginCoordinator(
+            navigationController: navigationController,
+            isAfterRegistration: false
+        )
+        addChild(coordinator)
     }
 }
 

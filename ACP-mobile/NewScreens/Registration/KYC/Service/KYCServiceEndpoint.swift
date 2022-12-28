@@ -8,8 +8,8 @@
 import Alamofire
 
 enum KYCServiceEndpoint {
-    case validateEmail(parameters: Parameters?)
-    case kyc
+    case verifyEmail(parameters: Parameters?)
+    case kycRegister(parameters: Parameters?)
 }
 
 extension KYCServiceEndpoint: Endpoint {
@@ -17,17 +17,17 @@ extension KYCServiceEndpoint: Endpoint {
 
     var path: String {
         switch self {
-        case .validateEmail:
+        case .verifyEmail:
             return "users/verify-email"
-        case .kyc:
-            return "kyc"
+        case .kycRegister:
+            return "users/kyc-register"
         }
     }
 
     var httpMethod: HTTPMethod {
         switch self {
-        case .validateEmail,
-                .kyc:
+        case .verifyEmail,
+                .kycRegister:
             return .post
         }
     }
@@ -36,10 +36,9 @@ extension KYCServiceEndpoint: Endpoint {
 
     var parameters: Parameters? {
         switch self {
-        case .validateEmail(let parameters):
+        case .verifyEmail(let parameters),
+                .kycRegister(let parameters):
             return parameters
-        case .kyc:
-            return nil
         }
     }
 }
