@@ -31,8 +31,8 @@ class ACPWalletViewController: UIViewController {
 
     let debitCard = ACPDebitCardView()
 
-    private lazy var newCardButton: ACPImageButton = {
-        let button = ACPImageButton(
+    private lazy var newCardButton: ImageButton = {
+        let button = ImageButton(
             titleKey: "wallet_btn",
             spacing: Constants.ButtonContentSpacing,
             cornerRadius: Constants.ButtonCornerRadius,
@@ -56,7 +56,7 @@ class ACPWalletViewController: UIViewController {
         return label
     }()
 
-    private let tabMenu = ACPTabMenuViewController(allTabsEnabled: true)
+    private let tabMenu = TabMenuViewController(allTabsEnabled: true)
 
     // MARK: - Life Cycle
 
@@ -163,7 +163,7 @@ class ACPWalletViewController: UIViewController {
     }
 }
 
-extension ACPWalletViewController: ACPTabMenuViewControllerDelegate {
+extension ACPWalletViewController: TabMenuViewControllerDelegate {
     var numberOfItems: Int {
         return 3
     }
@@ -174,7 +174,7 @@ extension ACPWalletViewController: ACPTabMenuViewControllerDelegate {
         collectionView.layer.cornerRadius = Constants.HeaderCornerRadius
         collectionView.contentInset = UIEdgeInsets(top: 6, left: 6, bottom: 6, right: 6)
 
-        collectionView.register(ACPTabMenuTitleCell.self)
+        collectionView.register(TabMenuTitleCell.self)
 
         collectionView.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(Constants.ContentInset)
@@ -189,7 +189,7 @@ extension ACPWalletViewController: ACPTabMenuViewControllerDelegate {
     }
 
     func cellForIndex(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: ACPTabMenuTitleCell = collectionView.dequeue(at: indexPath)
+        let cell: TabMenuTitleCell = collectionView.dequeue(at: indexPath)
         let cellTitle: String = .localizedString(key: "wallet_transactions_tab_\(indexPath.row)")
         cell.configureCell(text: cellTitle)
         return cell

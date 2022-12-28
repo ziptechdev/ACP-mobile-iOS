@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum ACPColorEnum: String {
+enum ColorEnum: String {
     case CoreBlue, Gray01Dark, Gray01Light, Gray03Light, Gray06Dark, Gray06Light, ACPYellow,
          WarningRed, SuccessGreen, LavenderGray, CoreLightBlue, CoreBrown, CoreLightPurple,
          CorePurple
@@ -19,18 +19,18 @@ extension UIColor {
         return UIColor(named: name) ?? .black
     }
 
-    static let coreBlue = namedColor(ACPColorEnum.CoreBlue.rawValue)
-    static let gray01Dark = namedColor(ACPColorEnum.Gray01Dark.rawValue)
-    static let gray01Light = namedColor(ACPColorEnum.Gray01Light.rawValue)
-    static let gray03Light = namedColor(ACPColorEnum.Gray03Light.rawValue)
-    static let gray06Dark = namedColor(ACPColorEnum.Gray06Dark.rawValue)
-    static let gray06Light = namedColor(ACPColorEnum.Gray06Light.rawValue)
-    static let acpYellow = namedColor(ACPColorEnum.ACPYellow.rawValue)
-    static let warningRed = namedColor(ACPColorEnum.WarningRed.rawValue)
-    static let successGreen = namedColor(ACPColorEnum.SuccessGreen.rawValue)
-    static let lavenderGray = namedColor(ACPColorEnum.LavenderGray.rawValue)
-    static let coreLightBlue = namedColor(ACPColorEnum.CoreLightBlue.rawValue)
-    static let coreBrown = namedColor(ACPColorEnum.CoreBrown.rawValue)
-    static let coreLightPurple = namedColor(ACPColorEnum.CoreLightPurple.rawValue)
-    static let corePurple = namedColor(ACPColorEnum.CorePurple.rawValue)
+    static let coreBlue = namedColor(ColorEnum.CoreBlue.rawValue)
+    static let gray01Dark = namedColor(ColorEnum.Gray01Dark.rawValue)
+    static let gray01Light = namedColor(ColorEnum.Gray01Light.rawValue)
+    static let gray03Light = namedColor(ColorEnum.Gray03Light.rawValue)
+    static let gray06Dark = namedColor(ColorEnum.Gray06Dark.rawValue)
+    static let gray06Light = namedColor(ColorEnum.Gray06Light.rawValue)
+    static let acpYellow = namedColor(ColorEnum.ACPYellow.rawValue)
+    static let warningRed = namedColor(ColorEnum.WarningRed.rawValue)
+    static let successGreen = namedColor(ColorEnum.SuccessGreen.rawValue)
+    static let lavenderGray = namedColor(ColorEnum.LavenderGray.rawValue)
+    static let coreLightBlue = namedColor(ColorEnum.CoreLightBlue.rawValue)
+    static let coreBrown = namedColor(ColorEnum.CoreBrown.rawValue)
+    static let coreLightPurple = namedColor(ColorEnum.CoreLightPurple.rawValue)
+    static let corePurple = namedColor(ColorEnum.CorePurple.rawValue)
 }

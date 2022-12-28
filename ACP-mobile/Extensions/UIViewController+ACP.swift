@@ -65,7 +65,7 @@ extension UIViewController {
     // MARK: - Left Navigation Button
 
     func setupLeftNavigationBarButton(color: UIColor = .gray01Light) {
-        let button = ACPImageButton(
+        let button = ImageButton(
             titleKey: "back_button",
             font: .systemFont(ofSize: 16, weight: .medium),
             horizontal: 15,
@@ -75,15 +75,13 @@ extension UIViewController {
             textColor: color,
             isLeft: true
         )
-        button.hasShadow = false
 
         button.addTarget(self, action: #selector(didTapLeftButton), for: .touchUpInside)
-
         navigationItem.leftBarButtonItems = [UIBarButtonItem(customView: button)]
     }
 
     @objc func didTapLeftButton() {
-        guard let navigationController = navigationController as? ACPNavigationController else {
+        guard let navigationController = navigationController as? NavigationController else {
             return
         }
 

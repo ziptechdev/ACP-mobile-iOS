@@ -29,15 +29,14 @@ class ACPHomeScreenProgramCell: UITableViewCell {
         return view
     }()
 
-    private let statusButton: ACPImageButton = {
-        let button = ACPImageButton(
+    private let statusButton: ImageButton = {
+        let button = ImageButton(
             horizontal: Constants.Constraints.StatusButtonContentInsetX,
             spacing: Constants.Constraints.StatusButtonContentSpacing,
             cornerRadius: Constants.Constraints.StatusButtonCornerRadius,
             imageName: "checkmark",
             isLeft: true
         )
-        button.hasShadow = false
         button.backgroundColor = .acpYellow
         return button
     }()
@@ -51,8 +50,8 @@ class ACPHomeScreenProgramCell: UITableViewCell {
         return label
     }()
 
-    private let actionButton: ACPShadowButton = {
-        let button = ACPShadowButton()
+    private let actionButton: UIButton = {
+        let button = UIButton()
         button.backgroundColor = .coreBlue
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
         button.layer.masksToBounds = true

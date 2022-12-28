@@ -18,7 +18,7 @@ class ApplyForServiceViewController: UIViewController {
         return view
     }()
 
-    private let infoLabel = ACPTermsAndPrivacyLabel()
+    private let infoLabel = TermsAndPrivacyLabel()
 
     // MARK: - Life Cycle
 
@@ -77,9 +77,9 @@ class ApplyForServiceViewController: UIViewController {
     }
 }
 
-// MARK: - ACPTermsAndPrivacyLabelDelegate
+// MARK: - TermsAndPrivacyLabelDelegate
 
-extension ApplyForServiceViewController: ACPTermsAndPrivacyLabelDelegate {
+extension ApplyForServiceViewController: TermsAndPrivacyLabelDelegate {
     func didTapTerms() {
         // TODO: Add link
         print("Clicked on terms")
