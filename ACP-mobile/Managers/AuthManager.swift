@@ -18,29 +18,4 @@ class AuthManager {
     var isUserLoggedIn: Bool {
         return accessToken != nil
     }
-
-    // MARK: - Views
-
-    // MARK: - Initialization
-
-    // MARK: - Life Cycle
-
-    // MARK: - UI
-
-    private func setupUI() {
-        addSubviews()
-        setupConstraints()
-    }
-
-    private func addSubviews() {}
-
-    private func setupConstraints() {}
-
-    // MARK: - Callbacks
-
-    // MARK: - Constants
-
-    private struct Constants {
-
-    }
 }
