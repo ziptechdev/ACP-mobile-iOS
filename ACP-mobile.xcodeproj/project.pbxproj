@@ -507,6 +507,7 @@
 			isa = PBXGroup;
 			children = (
 				404A8A1C294F955E00266334 /* Coordinator.swift */,
+				408E069F2957FE0900F0F96C /* FocusableView.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -791,7 +792,6 @@
 			children = (
 				408E069A2957FE0900F0F96C /* Cells */,
 				408E069E2957FE0900F0F96C /* TabMenuViewController.swift */,
-				408E069F2957FE0900F0F96C /* FocusableView.swift */,
 			);
 			path = TabMenu;
 			sourceTree = "<group>";
