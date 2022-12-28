@@ -125,7 +125,6 @@ class ACPProfileHeaderView: UIView {
         isVerifiedLabel.snp.makeConstraints { make in
             make.top.equalTo(nameLabel.snp.bottom).offset(Constants.Constraints.VerifiedOffsetTop)
             make.centerX.equalToSuperview()
-            make.bottom.equalTo(changeProfileButton.snp.top)
         }
 
         changeProfileButton.snp.makeConstraints { make in
