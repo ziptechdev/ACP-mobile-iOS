@@ -80,32 +80,32 @@ class ACPProfileSettingsView: UIView {
 
     private func setupConstraints() {
         containerView.snp.makeConstraints { make in
-            make.left.right.equalToSuperview()
-        }
+                    make.left.right.equalToSuperview()
+                }
 
-        languageGlobeImageView.snp.makeConstraints { make in
-            make.width.height.equalTo(Constants.Constraints.ImageSize)
-            make.top.equalToSuperview().inset(Constants.Constraints.ContentInsetVertical)
-            make.left.equalToSuperview().offset(Constants.Constraints.ImageLeftOffset)
-        }
+                languageGlobeImageView.snp.makeConstraints { make in
+                    make.width.height.equalTo(Constants.Constraints.ImageSize)
+                    make.top.equalToSuperview().inset(Constants.Constraints.ContentInsetVertical)
+                    make.left.equalToSuperview().offset(Constants.Constraints.ImageLeftOffset)
+                }
 
-        selectLanguage.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(Constants.Constraints.ContentInsetVertical)
-            make.left.equalTo(languageGlobeImageView.snp.right).offset(Constants.Constraints.SelectLanaguageLeftOffest)
+                selectLanguage.snp.makeConstraints { make in
+                    make.top.equalToSuperview().inset(Constants.Constraints.ContentInsetVertical)
+                    make.left.equalTo(languageGlobeImageView.snp.right).offset(Constants.Constraints.SelectLanaguageLO)
 
-        }
+                }
 
-        selectedLangauge.snp.makeConstraints { make in
-            make.top.equalTo(containerView.snp.top).offset(Constants.Constraints.ContentInsetVertical)
-            make.left.equalTo(selectLanguage.snp.right).offset(Constants.Constraints.SelectedLangaugeLeftOffest)
-        }
+                selectedLangauge.snp.makeConstraints { make in
+                    make.top.equalTo(containerView.snp.top).offset(Constants.Constraints.ContentInsetVertical)
+                    make.left.equalTo(selectLanguage.snp.right).offset(Constants.Constraints.SelectedLangaugeLO)
+                }
 
-        arrowImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(Constants.Constraints.ContentInsetVertical)
-            make.height.equalTo(Constants.Constraints.ArrowHeight)
-            make.width.equalTo(Constants.Constraints.ArrowWidth)
-            make.left.equalTo(selectedLangauge.snp.right).offset(Constants.Constraints.ArrowLeftOffest)
-        }
+                arrowImageView.snp.makeConstraints { make in
+                    make.centerY.equalTo(selectedLangauge)
+                    make.height.equalTo(Constants.Constraints.ArrowHeight)
+                    make.width.equalTo(Constants.Constraints.ArrowWidth)
+                    make.left.equalTo(selectedLangauge.snp.right).offset(Constants.Constraints.ArrowLeftOffest)
+                }
 
     }
 
@@ -131,9 +131,9 @@ class ACPProfileSettingsView: UIView {
             static let ContentInsetVertical: CGFloat = 30
             static let ContentInsetHorizontal: CGFloat = 35
 
-            static let SelectLanaguageLeftOffest: CGFloat = 10
+            static let SelectLanaguageLO: CGFloat = 10
 
-            static let SelectedLangaugeLeftOffest: CGFloat = 114
+            static let SelectedLangaugeLO: CGFloat = 114
             static let ArrowLeftOffest: CGFloat = 9
             static let ArrowRightOffest: CGFloat = 55
             static let ArrowHeight: CGFloat = 6

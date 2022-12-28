@@ -105,6 +105,8 @@
 		40D0BE462919D89900067026 /* ACPProfileSecurityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D0BE402919D89900067026 /* ACPProfileSecurityViewController.swift */; };
 		40EDB816290EF4FC007E0255 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 40EDB815290EF4FC007E0255 /* GoogleService-Info.plist */; };
 		40EE2CB028E4AC5B0028888D /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40EE2CAF28E4AC5B0028888D /* Colors.xcassets */; };
+		CE511182294AF6CD000E9110 /* ACPProfileInfoViewControllerUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE511181294AF6CD000E9110 /* ACPProfileInfoViewControllerUI.swift */; };
+		CE511184294AF89A000E9110 /* ACPProfileInfoViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE511183294AF89A000E9110 /* ACPProfileInfoViewControllerExtensions.swift */; };
 		CE62E30128EA64D20000833B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE62E30028EA64D20000833B /* Localizable.strings */; };
 		FF3F59D25D870A8B465A1AB4 /* Pods_ACP_mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA43A30C610F68C5A06DD99 /* Pods_ACP_mobile.framework */; };
 /* End PBXBuildFile section */
@@ -119,12 +121,6 @@
 		133F86932908715900663815 /* ApplyForServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyForServiceViewController.swift; sourceTree = "<group>"; };
 		13581442290F2B1500612D8B /* RequestCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCardViewController.swift; sourceTree = "<group>"; };
 		13BF542729104B1600C94201 /* RequestCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCardViewModel.swift; sourceTree = "<group>"; };
-		400AB76528FF5B6F00A6DCB6 /* ACPScanIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPScanIDViewController.swift; sourceTree = "<group>"; };
-		400AB76728FF5BCA00A6DCB6 /* ACPKYCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPKYCViewController.swift; sourceTree = "<group>"; };
-		400AB76928FF5BD800A6DCB6 /* ACPKYCCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPKYCCompleteViewController.swift; sourceTree = "<group>"; };
-		400AB76B28FF5BEF00A6DCB6 /* ACPSelfieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPSelfieViewController.swift; sourceTree = "<group>"; };
-		400AB77028FF681700A6DCB6 /* ACPIdentityProofViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPIdentityProofViewController.swift; sourceTree = "<group>"; };
-		400AB77328FF6E9300A6DCB6 /* ACPBankInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPBankInfoViewController.swift; sourceTree = "<group>"; };
 		400AB98D28FF7F5F00A6DCB6 /* ACPEligibilityDetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsViewModel.swift; sourceTree = "<group>"; };
 		400AB98F28FF7F5F00A6DCB6 /* ACPEligibilityDetailsDOBModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsDOBModel.swift; sourceTree = "<group>"; };
 		400AB99028FF7F5F00A6DCB6 /* ACPEligibilityDetailsAddressModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsAddressModel.swift; sourceTree = "<group>"; };
@@ -210,9 +206,6 @@
 		40B5EDD728E224F40096B91B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40B5EDDA28E224F40096B91B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40B5EDDC28E224F40096B91B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		40C7E59628EF6CEC00C03ECE /* ACPPersonalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPPersonalInfoViewController.swift; sourceTree = "<group>"; };
-		40C7E59C28EF735000C03ECE /* ACPPersonalInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPPersonalInfoViewModel.swift; sourceTree = "<group>"; };
-		40C7E59E28EF74A800C03ECE /* ACPPersonalInfoDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPPersonalInfoDetailsViewController.swift; sourceTree = "<group>"; };
 		40D0BE3B2919D89900067026 /* ACPProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPProfileHeaderView.swift; sourceTree = "<group>"; };
 		40D0BE3C2919D89900067026 /* ACPProfileSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPProfileSettingsView.swift; sourceTree = "<group>"; };
 		40D0BE3D2919D89900067026 /* ACPProfileInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPProfileInfoViewController.swift; sourceTree = "<group>"; };
@@ -222,13 +215,9 @@
 		40EDB815290EF4FC007E0255 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		40EE2CAF28E4AC5B0028888D /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		687DCBFD8B005412AF06BEDD /* Pods-ACP-mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACP-mobile.debug.xcconfig"; path = "Target Support Files/Pods-ACP-mobile/Pods-ACP-mobile.debug.xcconfig"; sourceTree = "<group>"; };
+		CE511181294AF6CD000E9110 /* ACPProfileInfoViewControllerUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPProfileInfoViewControllerUI.swift; sourceTree = "<group>"; };
+		CE511183294AF89A000E9110 /* ACPProfileInfoViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPProfileInfoViewControllerExtensions.swift; sourceTree = "<group>"; };
 		CE62E30028EA64D20000833B /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
-		CE6EFA632907B79000093F79 /* ACPProfileVerticalStackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPProfileVerticalStackButton.swift; sourceTree = "<group>"; };
-		CED24DC028F82ED900DDD3B9 /* ACPProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPProfileViewController.swift; sourceTree = "<group>"; };
-		CED24DC228F82EE600DDD3B9 /* ACPProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPProfileHeaderView.swift; sourceTree = "<group>"; };
-		CED24DC428F82EFD00DDD3B9 /* ACPProfileSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPProfileSettingsView.swift; sourceTree = "<group>"; };
-		CED24DC628F82F2A00DDD3B9 /* ACPProfileSecurityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPProfileSecurityViewController.swift; sourceTree = "<group>"; };
-		CED24DC828F82F3F00DDD3B9 /* ACPProfileInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPProfileInfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -320,35 +309,9 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		400AB92628FF7D1200A6DCB6 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				409132C028F4E0740003CC4E /* ACPVerifyEmailViewController.swift */,
-				40C7E59E28EF74A800C03ECE /* ACPPersonalInfoDetailsViewController.swift */,
-				409132C628F4EBF50003CC4E /* ACPVerifyEmailCodeView.swift */,
-				400AB77028FF681700A6DCB6 /* ACPIdentityProofViewController.swift */,
-				400AB76928FF5BD800A6DCB6 /* ACPKYCCompleteViewController.swift */,
-				40C7E59C28EF735000C03ECE /* ACPPersonalInfoViewModel.swift */,
-				400AB76B28FF5BEF00A6DCB6 /* ACPSelfieViewController.swift */,
-				400AB76728FF5BCA00A6DCB6 /* ACPKYCViewController.swift */,
-				40C7E59628EF6CEC00C03ECE /* ACPPersonalInfoViewController.swift */,
-				400AB76528FF5B6F00A6DCB6 /* ACPScanIDViewController.swift */,
-				400AB77328FF6E9300A6DCB6 /* ACPBankInfoViewController.swift */,
-				409132C428F4EBC10003CC4E /* ACPVerifyEmailKeyboardView.swift */,
-				CED24DC828F82F3F00DDD3B9 /* ACPProfileInfoViewController.swift */,
-				CED24DC028F82ED900DDD3B9 /* ACPProfileViewController.swift */,
-				CED24DC428F82EFD00DDD3B9 /* ACPProfileSettingsView.swift */,
-				CE6EFA632907B79000093F79 /* ACPProfileVerticalStackButton.swift */,
-				CED24DC228F82EE600DDD3B9 /* ACPProfileHeaderView.swift */,
-				CED24DC628F82F2A00DDD3B9 /* ACPProfileSecurityViewController.swift */,
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
 		400AB98A28FF7F5F00A6DCB6 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				40D0BE3A2919D89900067026 /* Profile */,
 				133F868529086D1800663815 /* ApplyScreens */,
 				4031545C290E2325009320D8 /* Login */,
 				400AB98B28FF7F5F00A6DCB6 /* EligibilityDetails */,
@@ -829,13 +792,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		40D0BE3A2919D89900067026 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Profile;
-			sourceTree = "<group>";
-		};
 		40D0BE472919D8FC00067026 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -858,7 +814,9 @@
 		40D0BE492919D93700067026 /* Info */ = {
 			isa = PBXGroup;
 			children = (
+				CE511181294AF6CD000E9110 /* ACPProfileInfoViewControllerUI.swift */,
 				40D0BE3D2919D89900067026 /* ACPProfileInfoViewController.swift */,
+				CE511183294AF89A000E9110 /* ACPProfileInfoViewControllerExtensions.swift */,
 			);
 			path = Info;
 			sourceTree = "<group>";
@@ -1033,6 +991,7 @@
 				4031545E290E2349009320D8 /* ACPLoginViewController.swift in Sources */,
 				400AB9FB28FF7F6000A6DCB6 /* ACPLandingScreenViewController.swift in Sources */,
 				400AB9FE28FF7F6000A6DCB6 /* EligibilityZipViewController.swift in Sources */,
+				CE511184294AF89A000E9110 /* ACPProfileInfoViewControllerExtensions.swift in Sources */,
 				40251D46290DE0710083B89A /* ACPTransactionsCell.swift in Sources */,
 				400ABA0228FF7F6000A6DCB6 /* ACPHomeScreenEligibilityHeaderView.swift in Sources */,
 				400ABA0F28FF7F6000A6DCB6 /* String+ACP.swift in Sources */,
@@ -1040,6 +999,7 @@
 				400ABA1928FF7F6000A6DCB6 /* ACPTextField.swift in Sources */,
 				400AB9FD28FF7F6000A6DCB6 /* ACPTermsPrivacyViewController.swift in Sources */,
 				400ABA0928FF7F6000A6DCB6 /* UICollectionView+ACP.swift in Sources */,
+				CE511182294AF6CD000E9110 /* ACPProfileInfoViewControllerUI.swift in Sources */,
 				400AB9F528FF7F6000A6DCB6 /* ACPEligibilityDetailsFailViewController.swift in Sources */,
 				400ABA0D28FF7F6000A6DCB6 /* UITapGestureRecognizer+ACP.swift in Sources */,
 				400ABA2828FF7F6000A6DCB6 /* ACPKYCCompleteViewController.swift in Sources */,
