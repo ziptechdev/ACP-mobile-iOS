@@ -119,6 +119,7 @@ class EligibilityRegistrationViewController: UIViewController {
 
         setupRightNavigationBarButton()
         setupLeftNavigationBarButton()
+        hideKeyboardWhenTappedAround()
     }
 
     // MARK: - UI
