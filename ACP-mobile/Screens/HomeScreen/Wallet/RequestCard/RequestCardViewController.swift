@@ -171,6 +171,7 @@ class RequestCardViewController: UIViewController {
         super.viewDidLoad()
 
         setupUI()
+        hideKeyboardWhenTappedAround()
     }
 
     // MARK: - UI

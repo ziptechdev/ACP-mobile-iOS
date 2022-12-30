@@ -69,6 +69,8 @@ class EligibilityZipCodeViewController: UIViewController {
 
         addSubviews()
         setUpConstraints()
+        hideKeyboardWhenTappedAround()
+
     }
 
     private func addSubviews() {
@@ -146,6 +148,7 @@ extension EligibilityZipCodeViewController: EligibilityZipCodeDelegate {
         if textfield == zipCodeView.zipFirstCodeTextField || secondTextfield == zipCodeView.zipSecondCodeTextField {
             unfocusZipCodeStackView(firstCount: text.count, secondCount: textSecond.count)
         }
+      
     }
 
     func didTapNextButton() {
@@ -197,4 +200,5 @@ extension EligibilityZipCodeViewController: UITextFieldDelegate {
 
         checkIsZipCodeValid(firstCount: text, secondCount: textSecond)
     }
+
 }

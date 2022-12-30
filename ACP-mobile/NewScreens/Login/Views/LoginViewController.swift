@@ -86,6 +86,7 @@ class LoginViewController: UIViewController {
         self.viewModel = viewModel
 
         super.init(nibName: nil, bundle: nil)
+        
     }
 
     required init?(coder: NSCoder) {
@@ -114,6 +115,8 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         setupUI()
+        hideKeyboardWhenTappedAround()
+
     }
 
     // MARK: - UI
