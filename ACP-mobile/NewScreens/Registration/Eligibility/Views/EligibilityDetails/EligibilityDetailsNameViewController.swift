@@ -128,6 +128,7 @@ class EligibilityDetailsNameViewController: UIViewController {
 
         setupUI()
         showValuesIfPresent()
+        hideKeyboardWhenTappedAround()
     }
 
     // MARK: - UI

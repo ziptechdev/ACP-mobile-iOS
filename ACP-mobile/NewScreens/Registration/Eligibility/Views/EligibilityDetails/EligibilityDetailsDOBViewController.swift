@@ -157,8 +157,8 @@ class EligibilityDetailsDOBViewController: UIViewController {
         super.viewDidLoad()
 
         setupUI()
-
         showValuesIfPresent()
+        hideKeyboardWhenTappedAround()
     }
 
     // MARK: - UI

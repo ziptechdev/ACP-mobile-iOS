@@ -101,6 +101,7 @@ class KYCBankInfoViewController: UIViewController {
         super.viewDidLoad()
 
         setupUI()
+        hideKeyboardWhenTappedAround()
     }
 
     // MARK: - UI

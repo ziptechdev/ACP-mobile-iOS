@@ -140,6 +140,7 @@ class KYCPersonalInfoDetailsViewController: UIViewController {
 
         setupUI()
         showValuesIfPresent()
+        hideKeyboardWhenTappedAround()
     }
 
     // MARK: - UI

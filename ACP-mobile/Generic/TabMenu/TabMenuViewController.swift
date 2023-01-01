@@ -82,7 +82,6 @@ class TabMenuViewController: UIViewController {
         super.viewDidLoad()
 
         setupUI()
-        hideKeyboardWhenTappedAround()
     }
 
     // MARK: - UI

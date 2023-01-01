@@ -144,8 +144,8 @@ class EligibilityDetailsAddressViewController: UIViewController {
         super.viewDidLoad()
 
         setupUI()
-
         showValuesIfPresent()
+        hideKeyboardWhenTappedAround()
     }
 
     // MARK: - UI

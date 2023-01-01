@@ -129,6 +129,7 @@ class EligibilityRegistrationViewController: UIViewController {
 
         addSubviews()
         setupConstraints()
+        hideKeyboardWhenTappedAround()
 
         subtitleLabel.text = .formatLocalizedString(
             key: "verified_register_subtitle",
