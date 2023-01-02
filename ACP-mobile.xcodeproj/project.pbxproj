@@ -105,8 +105,10 @@
 		40D0BE462919D89900067026 /* ACPProfileSecurityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D0BE402919D89900067026 /* ACPProfileSecurityViewController.swift */; };
 		40EDB816290EF4FC007E0255 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 40EDB815290EF4FC007E0255 /* GoogleService-Info.plist */; };
 		40EE2CB028E4AC5B0028888D /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40EE2CAF28E4AC5B0028888D /* Colors.xcassets */; };
-		CE511182294AF6CD000E9110 /* ACPProfileInfoViewControllerUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE511181294AF6CD000E9110 /* ACPProfileInfoViewControllerUI.swift */; };
-		CE511184294AF89A000E9110 /* ACPProfileInfoViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE511183294AF89A000E9110 /* ACPProfileInfoViewControllerExtensions.swift */; };
+		CE05019229638D44004E06BC /* ACPProfileNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05019129638D44004E06BC /* ACPProfileNameView.swift */; };
+		CE05019529638FEE004E06BC /* ACPProfileDOBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05019429638FEE004E06BC /* ACPProfileDOBView.swift */; };
+		CE05019729639067004E06BC /* ACPProfileAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05019629639067004E06BC /* ACPProfileAddressView.swift */; };
+		CE0501992963927C004E06BC /* ACPProfileSSNView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0501982963927C004E06BC /* ACPProfileSSNView.swift */; };
 		CE62E30128EA64D20000833B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE62E30028EA64D20000833B /* Localizable.strings */; };
 		FF3F59D25D870A8B465A1AB4 /* Pods_ACP_mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA43A30C610F68C5A06DD99 /* Pods_ACP_mobile.framework */; };
 /* End PBXBuildFile section */
@@ -215,8 +217,10 @@
 		40EDB815290EF4FC007E0255 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		40EE2CAF28E4AC5B0028888D /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		687DCBFD8B005412AF06BEDD /* Pods-ACP-mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACP-mobile.debug.xcconfig"; path = "Target Support Files/Pods-ACP-mobile/Pods-ACP-mobile.debug.xcconfig"; sourceTree = "<group>"; };
-		CE511181294AF6CD000E9110 /* ACPProfileInfoViewControllerUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPProfileInfoViewControllerUI.swift; sourceTree = "<group>"; };
-		CE511183294AF89A000E9110 /* ACPProfileInfoViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPProfileInfoViewControllerExtensions.swift; sourceTree = "<group>"; };
+		CE05019129638D44004E06BC /* ACPProfileNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPProfileNameView.swift; sourceTree = "<group>"; };
+		CE05019429638FEE004E06BC /* ACPProfileDOBView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPProfileDOBView.swift; sourceTree = "<group>"; };
+		CE05019629639067004E06BC /* ACPProfileAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPProfileAddressView.swift; sourceTree = "<group>"; };
+		CE0501982963927C004E06BC /* ACPProfileSSNView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPProfileSSNView.swift; sourceTree = "<group>"; };
 		CE62E30028EA64D20000833B /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -814,9 +818,8 @@
 		40D0BE492919D93700067026 /* Info */ = {
 			isa = PBXGroup;
 			children = (
-				CE511181294AF6CD000E9110 /* ACPProfileInfoViewControllerUI.swift */,
+				CE05019329638D49004E06BC /* Subviews */,
 				40D0BE3D2919D89900067026 /* ACPProfileInfoViewController.swift */,
-				CE511183294AF89A000E9110 /* ACPProfileInfoViewControllerExtensions.swift */,
 			);
 			path = Info;
 			sourceTree = "<group>";
@@ -837,6 +840,17 @@
 				40D0BE3B2919D89900067026 /* ACPProfileHeaderView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		CE05019329638D49004E06BC /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				CE05019129638D44004E06BC /* ACPProfileNameView.swift */,
+				CE05019429638FEE004E06BC /* ACPProfileDOBView.swift */,
+				CE05019629639067004E06BC /* ACPProfileAddressView.swift */,
+				CE0501982963927C004E06BC /* ACPProfileSSNView.swift */,
+			);
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 		FB00E332458E87060AD9B9F0 /* Pods */ = {
@@ -991,15 +1005,16 @@
 				4031545E290E2349009320D8 /* ACPLoginViewController.swift in Sources */,
 				400AB9FB28FF7F6000A6DCB6 /* ACPLandingScreenViewController.swift in Sources */,
 				400AB9FE28FF7F6000A6DCB6 /* EligibilityZipViewController.swift in Sources */,
-				CE511184294AF89A000E9110 /* ACPProfileInfoViewControllerExtensions.swift in Sources */,
 				40251D46290DE0710083B89A /* ACPTransactionsCell.swift in Sources */,
+				CE05019529638FEE004E06BC /* ACPProfileDOBView.swift in Sources */,
 				400ABA0228FF7F6000A6DCB6 /* ACPHomeScreenEligibilityHeaderView.swift in Sources */,
 				400ABA0F28FF7F6000A6DCB6 /* String+ACP.swift in Sources */,
 				400ABA1328FF7F6000A6DCB6 /* ACPFocusableView.swift in Sources */,
+				CE05019229638D44004E06BC /* ACPProfileNameView.swift in Sources */,
 				400ABA1928FF7F6000A6DCB6 /* ACPTextField.swift in Sources */,
 				400AB9FD28FF7F6000A6DCB6 /* ACPTermsPrivacyViewController.swift in Sources */,
 				400ABA0928FF7F6000A6DCB6 /* UICollectionView+ACP.swift in Sources */,
-				CE511182294AF6CD000E9110 /* ACPProfileInfoViewControllerUI.swift in Sources */,
+				CE0501992963927C004E06BC /* ACPProfileSSNView.swift in Sources */,
 				400AB9F528FF7F6000A6DCB6 /* ACPEligibilityDetailsFailViewController.swift in Sources */,
 				400ABA0D28FF7F6000A6DCB6 /* UITapGestureRecognizer+ACP.swift in Sources */,
 				400ABA2828FF7F6000A6DCB6 /* ACPKYCCompleteViewController.swift in Sources */,
@@ -1057,6 +1072,7 @@
 				400ABA0328FF7F6000A6DCB6 /* ACPHomeScreenProgramCell.swift in Sources */,
 				400ABA2228FF7F6000A6DCB6 /* ACPVerifyEmailKeyboardView.swift in Sources */,
 				400ABA1E28FF7F6000A6DCB6 /* ACPCircleLoadingBarView.swift in Sources */,
+				CE05019729639067004E06BC /* ACPProfileAddressView.swift in Sources */,
 				400ABA2028FF7F6000A6DCB6 /* ACPVerifyEmailCodeView.swift in Sources */,
 				13581443290F2B1500612D8B /* RequestCardViewController.swift in Sources */,
 				403AD2252907636B00C6D556 /* ACPTabMenuImageCell.swift in Sources */,

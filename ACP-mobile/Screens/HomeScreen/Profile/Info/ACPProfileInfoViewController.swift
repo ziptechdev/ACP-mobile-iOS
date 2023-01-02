@@ -14,6 +14,11 @@ class ACPProfileInfoViewController: UIViewController {
 
     // MARK: - Views
 
+    let nameView = ACPProfileNameView()
+    let dobView = ACPProfileDOBView()
+    let addressView = ACPProfileAddressView()
+    let ssnView = ACPProfileSSNView()
+
     let titleLabel: UILabel = {
         let label = UILabel()
         label.text = .localizedString(key: "profile_personal_info")
@@ -22,145 +27,6 @@ class ACPProfileInfoViewController: UIViewController {
         label.textColor = .coreBlue
         label.adjustsFontSizeToFitWidth = true
         return label
-    }()
-
-    let nameSectionTitle: UILabel = {
-        let label = UILabel()
-        label.text = .localizedString(key: "profile_personal_name_section")
-        label.textAlignment = .left
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 16, weight: .bold)
-        label.textColor = .gray06Dark
-        label.adjustsFontSizeToFitWidth = true
-        return label
-    }()
-
-    lazy var nameTextField: ACPTextField = {
-        let view = ACPTextField()
-        view.titleLabel.text = .localizedString(key: "personal_info_first_name")
-        return view
-    }()
-
-    lazy var middleNameTextField: ACPTextField = {
-        let view = ACPTextField()
-        view.titleLabel.attributedText = attributedTitleText()
-        return view
-    }()
-
-    lazy var lastNameTextField: ACPTextField = {
-        let view = ACPTextField()
-        view.titleLabel.text = .localizedString(key: "personal_info_last_name")
-        return view
-    }()
-
-    let DOBSectionTitle: UILabel = {
-        let label = UILabel()
-        label.text = .localizedString(key: "profile_personal_dob_section")
-        label.textAlignment = .left
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 16, weight: .bold)
-        label.textColor = .gray06Dark
-        label.adjustsFontSizeToFitWidth = true
-        return label
-    }()
-
-    lazy var monthTextField: ACPPickerView = {
-        let view = ACPPickerView()
-        view.titleLabel.text = .localizedString(key: "eligibility_dob_month")
-        view.textField.addRightImage(named: "down_arrow")
-        view.pickerView.delegate = self
-        view.pickerView.dataSource = self
-        return view
-    }()
-
-    lazy var dayTextField: ACPTextField = {
-        let view = ACPTextField()
-        view.titleLabel.text = .localizedString(key: "eligibility_dob_day")
-        view.delegate = self
-        view.textField.keyboardType = .numberPad
-        view.textField.textAlignment = .center
-        view.textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
-        return view
-    }()
-
-    lazy var yearTextField: ACPTextField = {
-        let view = ACPTextField()
-        view.titleLabel.text = .localizedString(key: "eligibility_dob_year")
-        view.delegate = self
-        view.textField.keyboardType = .numberPad
-        view.textField.textAlignment = .center
-        view.textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
-        return view
-    }()
-
-    let addressSectionTitle: UILabel = {
-        let label = UILabel()
-        label.text = .localizedString(key: "profile_personal_address_section")
-        label.textAlignment = .left
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 16, weight: .bold)
-        label.textColor = .gray06Dark
-        label.adjustsFontSizeToFitWidth = true
-        return label
-    }()
-
-    lazy var streetTextField: ACPTextField = {
-        let view = ACPTextField()
-        view.titleLabel.text = .localizedString(key: "eligibility_address_street")
-        view.textField.delegate = self
-        return view
-    }()
-
-    lazy var cityTextField: ACPTextField = {
-        let view = ACPTextField()
-        view.titleLabel.text = .localizedString(key: "eligibility_address_city")
-        view.textField.delegate = self
-        return view
-    }()
-
-    lazy var stateTextField: ACPPickerView = {
-        let view = ACPPickerView()
-        view.titleLabel.text = .localizedString(key: "eligibility_address_state")
-        view.textField.addRightImage(named: "down_arrow")
-        view.delegate = self
-        view.pickerView.delegate = self
-        view.pickerView.dataSource = self
-        return view
-    }()
-
-    lazy var zipTextField: ACPTextField = {
-        let view = ACPTextField()
-        view.titleLabel.text = .localizedString(key: "eligibility_address_zip")
-        view.delegate = self
-        view.textField.delegate = self
-        view.textField.attributedPlaceholder = NSAttributedString(
-            string: .localizedString(key: "profile_personal_address_placeholder"),
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray01Dark]
-        )
-        view.textField.keyboardType = .numberPad
-        view.textField.textAlignment = .center
-        view.textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
-        return view
-    }()
-
-    let SSNSectionTitle: UILabel = {
-        let label = UILabel()
-        label.text = .localizedString(key: "profile_personal_ssn_section")
-        label.textAlignment = .left
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 16, weight: .bold)
-        label.textColor = .gray06Dark
-        label.adjustsFontSizeToFitWidth = true
-        return label
-    }()
-
-    lazy var ssnTextField: ACPTextField = {
-        let view = ACPTextField()
-        view.titleLabel.text = .localizedString(key: "eligibility_dob_ssn")
-        view.delegate = self
-        view.textField.keyboardType = .numberPad
-        view.textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
-        return view
     }()
 
     lazy var scrolLView: UIScrollView = {
@@ -192,7 +58,6 @@ class ACPProfileInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        showValuesIfPresent()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -207,25 +72,63 @@ class ACPProfileInfoViewController: UIViewController {
         removeKeyboardObserver()
     }
 
-    private func attributedTitleText() -> NSMutableAttributedString {
-        let middleName = Constants.Text.MiddleName as NSString
-        let fullRange = NSRange(location: 0, length: middleName.length)
-        let string = NSMutableAttributedString(string: .localizedString(key: "profile_personal_middle_name"))
-        string.addAttribute(.foregroundColor, value: UIColor.gray06Dark, range: fullRange)
-        return string
+    // MARK: - UI
+
+    func setupUI() {
+        view.backgroundColor = .white
+        addSubviews()
+        setupConstraints()
     }
 
-    // MARK: - Presenting
+    func addSubviews() {
+        view.addSubview(scrolLView)
+        scrolLView.addSubview(titleLabel)
+        scrolLView.addSubview(nameView)
+        scrolLView.addSubview(dobView)
+        scrolLView.addSubview(addressView)
+        scrolLView.addSubview(ssnView)
 
-    private func showValuesIfPresent() {
-        guard let viewModel = viewModel?.model.dobModel else {
-            return
+        scrolLView.addSubview(saveButton)
+    }
+
+    func setupConstraints() {
+        scrolLView.snp.makeConstraints { make in
+            make.top.left.right.bottom.equalTo(view.safeAreaLayoutGuide)
         }
 
-        pickerView(monthTextField.pickerView, didSelectRow: viewModel.month, inComponent: 0)
-        dayTextField.textField.text = viewModel.day
-        yearTextField.textField.text = viewModel.year
-        ssnTextField.textField.text = viewModel.ssn
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalTo(scrolLView).inset(Constants.Constraints.TitleTopOffset)
+            make.left.equalTo(scrolLView).inset(Constants.Constraints.LROffset)
+        }
+
+        nameView.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(Constants.Constraints.NameSectionTopOffset)
+            make.left.equalTo(scrolLView).inset(Constants.Constraints.LROffset)
+        }
+
+        dobView.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(Constants.Constraints.DOBSectionTopOffset)
+            make.left.equalTo(scrolLView).inset(Constants.Constraints.LROffset)
+        }
+
+        addressView.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(Constants.Constraints.AddressSectionTopOffset)
+            make.left.equalTo(scrolLView).offset(Constants.Constraints.LROffset)
+          }
+
+        ssnView.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(Constants.Constraints.SSNSectionTopOffset)
+            make.left.equalTo(scrolLView).inset(Constants.Constraints.LROffset)
+        }
+
+        saveButton.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(Constants.Constraints.ButtonTopOffset)
+            make.left.equalTo(scrolLView).inset(Constants.Constraints.LROffset)
+            make.height.equalTo(Constants.Constraints.ButtonHeight)
+            make.width.equalTo(Constants.Constraints.mainWidth)
+            make.bottom.equalToSuperview()
+        }
+
     }
 
     // MARK: - Callback
@@ -234,13 +137,26 @@ class ACPProfileInfoViewController: UIViewController {
         print("save")
     }
 
-    @objc private func textFieldDidChange(_ textField: UITextField) {
-        guard var text = textField.text else { return }
-        switch textField {
-        case dayTextField.textField:
-            text = String(text.prefix(2))
-        default: text = String(text.prefix(4))
-            }
-        textField.text = text
+    // MARK: - Constants
+
+    struct Constants {
+        struct Constraints {
+
+            static let LROffset = 35
+            static let mainWidth = 320
+            static let TextFieldSpacing = 20
+
+            static let TitleTopOffset = 60
+            static let NameSectionTopOffset = 26
+            static let DOBSectionTopOffset = 309
+            static let AddressSectionTopOffset = 514
+            static let SSNSectionTopOffset = 797
+
+            static let ButtonTopOffset = 924
+            static let ButtonHeight: CGFloat = 46
+            static let ButtonCornerRadius: CGFloat = 10
+
+            static let LRFieldWidth: CGFloat = 150
+        }
     }
 }
