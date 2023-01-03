@@ -103,7 +103,7 @@ class ACPProfileDOBView: UIView {
         yearTextField.snp.makeConstraints { make in
             make.top.equalTo(monthTextField.snp.bottom).offset(Constants.Constraints.YearTopOffset)
             make.left.equalTo(snp.centerX).offset(Constants.Constraints.TextFieldSpacing / 2)
-            make.right.equalTo(snp.left)
+            make.right.equalTo(snp.right)
             make.width.equalTo(Constants.Constraints.LRFieldWidth)
         }
     }

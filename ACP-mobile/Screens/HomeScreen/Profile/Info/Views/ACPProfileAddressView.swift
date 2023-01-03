@@ -119,7 +119,6 @@ class ACPProfileAddressView: UIView {
         }
     }
 
-    
     // MARK: - Constants
 
     struct Constants {

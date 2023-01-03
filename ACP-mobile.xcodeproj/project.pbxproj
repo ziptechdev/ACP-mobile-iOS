@@ -818,7 +818,7 @@
 		40D0BE492919D93700067026 /* Info */ = {
 			isa = PBXGroup;
 			children = (
-				CE05019329638D49004E06BC /* Subviews */,
+				CE05019329638D49004E06BC /* Views */,
 				40D0BE3D2919D89900067026 /* ACPProfileInfoViewController.swift */,
 			);
 			path = Info;
@@ -842,7 +842,7 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		CE05019329638D49004E06BC /* Subviews */ = {
+		CE05019329638D49004E06BC /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				CE05019129638D44004E06BC /* ACPProfileNameView.swift */,
@@ -850,7 +850,7 @@
 				CE05019629639067004E06BC /* ACPProfileAddressView.swift */,
 				CE0501982963927C004E06BC /* ACPProfileSSNView.swift */,
 			);
-			path = Subviews;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		FB00E332458E87060AD9B9F0 /* Pods */ = {
