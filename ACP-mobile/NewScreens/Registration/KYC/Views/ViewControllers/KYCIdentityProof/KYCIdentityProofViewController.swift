@@ -99,13 +99,17 @@ extension KYCIdentityProofViewController: TermsAndPrivacyLabelDelegate {
 extension KYCIdentityProofViewController: TabMenuDelegate {
     func didTapNextButton() {
         // TODO: Add link
-        tabMenu.nextTab()
+        print("afdf q22")
+//        tabMenu.nextTab()
+        tabMenu.openCamera()
     }
 
     func didTapActionButton() {
         // TODO: Add link
+        print("afdf")
         delegate?.didTapNextButton()
     }
+    
 }
 
 // MARK: - TabMenuViewControllerDelegate
