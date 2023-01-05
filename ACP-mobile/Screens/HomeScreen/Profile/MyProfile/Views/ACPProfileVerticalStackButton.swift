@@ -79,10 +79,10 @@ class ACPProfileVerticalStackButton: UIView {
         }
     }
 
-    func present(buttonTitle: String, leftImageName: String) {
+    func present(buttonTitle: String, leftImageName: String, showArrow: Bool) {
         buttonText.text = buttonTitle
         leftImageView.image = UIImage(named: leftImageName)
-        rightImageView.image = UIImage(named: "down_arrow")
+        (showArrow == true) ? rightImageView.image = UIImage(named: "down_arrow") : nil
     }
 
     // MARK: - Constants

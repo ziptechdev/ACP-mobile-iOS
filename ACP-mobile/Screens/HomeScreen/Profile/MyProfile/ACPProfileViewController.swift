@@ -70,4 +70,8 @@ extension ACPProfileViewController: ACPProfileHeaderViewDelegate {
     func didTapLegalInfo() {
         print("LEGAL BTN TAPPED")
     }
+
+    func didTapLogout() {
+        print("LOG OUT TAPPED")
+    }
 }

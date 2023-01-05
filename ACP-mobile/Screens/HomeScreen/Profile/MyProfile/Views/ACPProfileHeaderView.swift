@@ -12,6 +12,7 @@ protocol ACPProfileHeaderViewDelegate: AnyObject {
     func didTapPersonalInfo()
     func didTapSecurityInfo()
     func didTapLegalInfo()
+    func didTapLogout()
 }
 
 class ACPProfileHeaderView: UIView {
@@ -66,6 +67,7 @@ class ACPProfileHeaderView: UIView {
     private let personalInfoButton = ACPProfileVerticalStackButton()
     private let securityButton = ACPProfileVerticalStackButton()
     private let legalButton = ACPProfileVerticalStackButton()
+    private let logoutButton = ACPProfileVerticalStackButton()
 
     // MARK: - Initialization
 
@@ -101,6 +103,7 @@ class ACPProfileHeaderView: UIView {
         addSubview(personalInfoButton)
         addSubview(securityButton)
         addSubview(legalButton)
+        addSubview(logoutButton)
     }
 
     private func setupConstraints() {
@@ -154,6 +157,13 @@ class ACPProfileHeaderView: UIView {
             make.left.equalTo(Constants.Constraints.ButtonLeftOffest)
             make.width.equalTo(Constants.Constraints.ButtonWidth)
             make.height.equalTo(Constants.Constraints.ButtonHeight)
+        }
+
+        logoutButton.snp.makeConstraints { make in
+            make.top.equalTo(legalButton.snp.bottom).offset(Constants.Constraints.VerifiedOffsetTop)
+            make.left.equalTo(Constants.Constraints.ButtonLeftOffest)
+            make.width.equalTo(Constants.Constraints.ButtonWidth)
+            make.height.equalTo(Constants.Constraints.ButtonHeight)
             make.bottom.equalToSuperview().inset(Constants.Constraints.VerticalButtonOffest)
         }
     }
@@ -162,10 +172,12 @@ class ACPProfileHeaderView: UIView {
         let personalButtonGesture = UITapGestureRecognizer(target: self, action: #selector(personalButtonPressed))
         let securityButtonGesture = UITapGestureRecognizer(target: self, action: #selector(securityButtonPressed))
         let legalButtonGesture = UITapGestureRecognizer(target: self, action: #selector(legalButtonPressed))
+        let logoutButtonGesture =  UITapGestureRecognizer(target: self, action: #selector(logoutButtonPressed))
 
         personalInfoButton.addGestureRecognizer(personalButtonGesture)
         securityButton.addGestureRecognizer(securityButtonGesture)
         legalButton.addGestureRecognizer(legalButtonGesture)
+        logoutButton.addGestureRecognizer(logoutButtonGesture)
     }
 
     // MARK: - Presenting
@@ -174,9 +186,10 @@ class ACPProfileHeaderView: UIView {
         changeProfileButton.setTitle(Constants.Text.ButtonChangeProfilePicture, for: .normal)
         profileImageView.image = UIImage(named: "test_profile")
         nameLabel.text = name
-        personalInfoButton.present(buttonTitle: "Personal Info", leftImageName: "account")
-        securityButton.present(buttonTitle: "Security", leftImageName: "lock")
-        legalButton.present(buttonTitle: "Legal", leftImageName: "document")
+        personalInfoButton.present(buttonTitle: "Personal Info", leftImageName: "account", showArrow: true)
+        securityButton.present(buttonTitle: "Security", leftImageName: "lock", showArrow: true)
+        legalButton.present(buttonTitle: "Legal", leftImageName: "document", showArrow: true)
+        logoutButton.present(buttonTitle: "Sign Out", leftImageName: "signout", showArrow: false)
 
         if isVerified {
             isVerifiedLabel.text = Constants.Text.Verified
@@ -199,6 +212,10 @@ class ACPProfileHeaderView: UIView {
 
     @objc func legalButtonPressed(sender: AnyObject) {
         delegate?.didTapLegalInfo()
+    }
+
+    @objc func logoutButtonPressed(sender: AnyObject) {
+        delegate?.didTapLogout()
     }
 
     // MARK: - Constants
