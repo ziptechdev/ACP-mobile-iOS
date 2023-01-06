@@ -14,7 +14,7 @@ struct KYCVerifyEmailResponse: Codable {
 struct KYCScanDocumentResponse: Codable {
     let statusCode: Int
     let message: String
-    let data: DataClass
+    let data: DataClass?
 }
 
 // MARK: - DataClass

@@ -64,7 +64,7 @@ class TabMenuViewController: UIViewController {
 
     // MARK: - Initialization
 
-    init(initialTab: Int = 1, allTabsEnabled: Bool = false, allowSelection: Bool = true) {
+    init(initialTab: Int = 0, allTabsEnabled: Bool = false, allowSelection: Bool = true) {
         self.currentTabItem = initialTab
         self.allTabsEnabled = allTabsEnabled
         self.allowSelection = allowSelection
@@ -171,15 +171,6 @@ class TabMenuViewController: UIViewController {
         }
     }
     
-    func openCamera() {
-       let imgPicker = UIImagePickerController()
-       imgPicker.delegate = self
-       imgPicker.sourceType = .camera
-       imgPicker.allowsEditing = false
-       imgPicker.showsCameraControls = true
-       self.present(imgPicker, animated: true, completion: nil)
-    }
-
     // MARK: - Navigation
 
     func nextTab() {
@@ -283,24 +274,3 @@ extension TabMenuViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension TabMenuViewController: UIImagePickerControllerDelegate,UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController,
-    didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey :
-    Any]) {
-       if let img = info[UIImagePickerController.InfoKey.originalImage] as?
-       UIImage {
-           //  self.imgV.image = img
-         
-         //  test.imageView.image = img
-           print("test \(img)")
-             self.dismiss(animated: true, completion: nil)
-           
-          }
-          else {
-           //   let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
-            //  imagePicked.image = image
-          //    dismiss(animated:true, completion: nil)
-             print("error ")
-          }
-       }
-}

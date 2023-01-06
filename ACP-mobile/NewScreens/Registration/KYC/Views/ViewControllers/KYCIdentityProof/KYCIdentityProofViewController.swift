@@ -11,6 +11,8 @@ import SnapKit
 class KYCIdentityProofViewController: UIViewController {
 
     // MARK: - Properties
+    private let viewModel: KYCDocumentsViewModel
+    private let viewModelInfo: KYCRegistrationViewModel
 
     weak var delegate: TabMenuDelegate?
 
@@ -39,7 +41,17 @@ class KYCIdentityProofViewController: UIViewController {
 
         infoLabel.delegate = self
     }
+    
+    init(viewModel: KYCDocumentsViewModel, viewModelInfo: KYCRegistrationViewModel) {
+        self.viewModel = viewModel
+        self.viewModelInfo = viewModelInfo
 
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     private func addSubviews() {
         view.addSubview(infoLabel)
     }
@@ -100,8 +112,8 @@ extension KYCIdentityProofViewController: TabMenuDelegate {
     func didTapNextButton() {
         // TODO: Add link
         print("afdf q22")
-//        tabMenu.nextTab()
-        tabMenu.openCamera()
+        tabMenu.nextTab()
+    //    tabMenu.openCamera()
     }
 
     func didTapActionButton() {
@@ -146,11 +158,11 @@ extension KYCIdentityProofViewController: TabMenuViewControllerDelegate {
             viewController.delegate = self
             return viewController
         case 1:
-            let viewController = KYCScanIDViewController()
+            let viewController = KYCScanIDViewController(viewModel: viewModel, viewModelInfo: viewModelInfo)
             viewController.delegate = self
             return viewController
         case 2:
-            let viewController = KYCSelfieViewController()
+            let viewController = KYCSelfieViewController(viewModel: viewModel)
             viewController.delegate = self
             return viewController
         default:

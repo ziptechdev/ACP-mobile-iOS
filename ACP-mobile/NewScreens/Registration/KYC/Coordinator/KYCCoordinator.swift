@@ -46,7 +46,8 @@ class KYCCoordinator: KYCCoordinatorProtocol {
 
     func goToPersonalDetails() {
         let viewModel = KYCRegistrationViewModel(coordinator: self)
-        let viewController = KYCRegistrationBaseViewController(viewModel: viewModel)
+        let viewModelDocuments = KYCDocumentsViewModel(coordinator: self)
+        let viewController = KYCRegistrationBaseViewController(viewModel: viewModel, viewModelDocuments: viewModelDocuments)
         navigationController.pushViewController(viewController, animated: true)
     }
 

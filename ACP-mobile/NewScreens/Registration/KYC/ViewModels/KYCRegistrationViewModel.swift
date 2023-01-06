@@ -47,7 +47,6 @@ class KYCRegistrationViewModel {
     }
 
     // MARK: - Network
-
     func sendEmailCode() {
         let parameters: Parameters = ["email": model.email]
 
@@ -65,7 +64,7 @@ class KYCRegistrationViewModel {
                 self.showErrorMessage?("Something went wrong. Try again.")
                 return
             }
-
+            print("code \(verificationCode)")
             self.model.verificationCode = "\(verificationCode)"
             self.openVerifyEmail()
         }
