@@ -85,8 +85,8 @@ class ApplyForServiceView: UIView {
         return stackView
     }()
 
-    let applyNowButton: ACPShadowButton = {
-        let button = ACPShadowButton()
+    let applyNowButton: UIButton = {
+        let button = UIButton()
         button.backgroundColor = .coreBlue
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = Constants.Constraints.ButtonCornerRadius
@@ -120,8 +120,8 @@ class ApplyForServiceView: UIView {
         return stackView
     }()
 
-    let visitWebsiteButton: ACPImageButton = {
-        let button = ACPImageButton(
+    let visitWebsiteButton: ImageButton = {
+        let button = ImageButton(
             spacing: Constants.Constraints.ButtonContentSpacing,
             cornerRadius: Constants.Constraints.ButtonCornerRadius,
             imageName: "website",

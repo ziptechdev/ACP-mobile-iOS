@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00D8FB9DB22ED69797EEE0FD /* EligibilitySuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC80EA627422E93DA7D9410D /* EligibilitySuccessViewController.swift */; };
+		0297043A9AB992902E8545A9 /* KYCRegistrationCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4ED146B3D530CA857E690D /* KYCRegistrationCompleteViewController.swift */; };
+		092B1CF197CF14EC8EDBBC0B /* CircleLoadingBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C179C1BA7152F02C50945C5 /* CircleLoadingBarView.swift */; };
+		0CE5B5B012B5BA0111BF44E5 /* TabMenuImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31EACC9A6C0A22F9E87C253 /* TabMenuImageCell.swift */; };
+		0DDA9D91DB5E71922F32693B /* EligibilityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EAD73EC53840EDC97B16F0 /* EligibilityModel.swift */; };
 		133F868A29086DC400663815 /* ACPSuccesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F868929086DC400663815 /* ACPSuccesViewController.swift */; };
 		133F868D29086E6E00663815 /* ApplyACPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F868C29086E6E00663815 /* ApplyACPView.swift */; };
 		133F868F290870EC00663815 /* ApplyACPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F868E290870EC00663815 /* ApplyACPViewController.swift */; };
@@ -14,26 +19,18 @@
 		133F86942908715900663815 /* ApplyForServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F86932908715900663815 /* ApplyForServiceViewController.swift */; };
 		13581443290F2B1500612D8B /* RequestCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13581442290F2B1500612D8B /* RequestCardViewController.swift */; };
 		13BF542829104B1600C94201 /* RequestCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BF542729104B1600C94201 /* RequestCardViewModel.swift */; };
-		400AB9ED28FF7F6000A6DCB6 /* ACPEligibilityDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB98D28FF7F5F00A6DCB6 /* ACPEligibilityDetailsViewModel.swift */; };
-		400AB9EE28FF7F6000A6DCB6 /* ACPEligibilityDetailsDOBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB98F28FF7F5F00A6DCB6 /* ACPEligibilityDetailsDOBModel.swift */; };
-		400AB9EF28FF7F6000A6DCB6 /* ACPEligibilityDetailsAddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB99028FF7F5F00A6DCB6 /* ACPEligibilityDetailsAddressModel.swift */; };
-		400AB9F028FF7F6000A6DCB6 /* ACPEligibilityDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB99128FF7F5F00A6DCB6 /* ACPEligibilityDetailsModel.swift */; };
-		400AB9F128FF7F6000A6DCB6 /* ACPEligibilityDetailsNameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB99228FF7F5F00A6DCB6 /* ACPEligibilityDetailsNameModel.swift */; };
-		400AB9F228FF7F6000A6DCB6 /* ACPEligibilityDetailsNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB99528FF7F5F00A6DCB6 /* ACPEligibilityDetailsNameViewController.swift */; };
-		400AB9F328FF7F6000A6DCB6 /* ACPEligibilityDetailsDOBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB99628FF7F5F00A6DCB6 /* ACPEligibilityDetailsDOBViewController.swift */; };
-		400AB9F428FF7F6000A6DCB6 /* ACPEligibilityDetailsAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB99728FF7F5F00A6DCB6 /* ACPEligibilityDetailsAddressViewController.swift */; };
-		400AB9F528FF7F6000A6DCB6 /* ACPEligibilityDetailsFailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB99828FF7F5F00A6DCB6 /* ACPEligibilityDetailsFailViewController.swift */; };
-		400AB9F628FF7F6000A6DCB6 /* ACPEligibilityDetailsSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB99928FF7F5F00A6DCB6 /* ACPEligibilityDetailsSuccessViewController.swift */; };
-		400AB9F728FF7F6000A6DCB6 /* ACPEligibilityDetailsVerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB99A28FF7F5F00A6DCB6 /* ACPEligibilityDetailsVerifyViewController.swift */; };
-		400AB9F828FF7F6000A6DCB6 /* ACPEligibilityDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB99B28FF7F5F00A6DCB6 /* ACPEligibilityDetailsViewController.swift */; };
-		400AB9F928FF7F6000A6DCB6 /* ACPVerifiedRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB99E28FF7F5F00A6DCB6 /* ACPVerifiedRegistrationViewController.swift */; };
-		400AB9FB28FF7F6000A6DCB6 /* ACPLandingScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9A228FF7F5F00A6DCB6 /* ACPLandingScreenViewController.swift */; };
-		400AB9FC28FF7F6000A6DCB6 /* ACPWelcomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9A428FF7F5F00A6DCB6 /* ACPWelcomeScreenViewController.swift */; };
-		400AB9FD28FF7F6000A6DCB6 /* ACPTermsPrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9A528FF7F5F00A6DCB6 /* ACPTermsPrivacyViewController.swift */; };
-		400AB9FE28FF7F6000A6DCB6 /* EligibilityZipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9A828FF7F5F00A6DCB6 /* EligibilityZipViewController.swift */; };
-		400AB9FF28FF7F6000A6DCB6 /* EligibilityZipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9AA28FF7F5F00A6DCB6 /* EligibilityZipView.swift */; };
+		1640BD56C54C05CA53433E5F /* EligibilityRegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BC26760AF88C5781730280 /* EligibilityRegistrationViewModel.swift */; };
+		17EE5DCC45FDD3571FE82811 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52744797F569113391A23C8D /* LoginService.swift */; };
+		1B2DD724DFDA01170E775D14 /* KYCVerifyEmailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E8498E6F4DEBE262CA28A6 /* KYCVerifyEmailData.swift */; };
+		2044B62166F66CC20C7A3518 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A82E2323B96C7E792D43ED /* LoginViewModel.swift */; };
+		2108498FD8D32715201C46D8 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91267CF3C1FA4BA8195AB3F3 /* LoginResponse.swift */; };
+		215F141F11E340515265D069 /* KYCCheckCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDED0463A176F0DD761CE4F /* KYCCheckCompleteViewController.swift */; };
+		215F812F1C2B195031C3A322 /* EligibilitySuccessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97759464A3C235009BF4FD6E /* EligibilitySuccessViewModel.swift */; };
+		2B7D9EFCBBEEA4418E9F93BB /* EligibilityResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D6CBF574DEA56C25C0055D /* EligibilityResponse.swift */; };
+		30695B12DDFBDBE24D66769F /* KYCScanIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0366AF4C43A4245B2D9C8C38 /* KYCScanIDViewController.swift */; };
+		3540DB59561483435A0220E9 /* EligibilityFailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C4611889CF754F17C62C06 /* EligibilityFailViewModel.swift */; };
+		35DFF18DC31ED70E04206468 /* KYCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392784CFC9D11B3AA9C37E4 /* KYCModel.swift */; };
 		400ABA0028FF7F6000A6DCB6 /* EligibilityCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9AB28FF7F5F00A6DCB6 /* EligibilityCheckViewController.swift */; };
-		400ABA0128FF7F6000A6DCB6 /* EligibilityCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9AD28FF7F5F00A6DCB6 /* EligibilityCheckView.swift */; };
 		400ABA0228FF7F6000A6DCB6 /* ACPHomeScreenEligibilityHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9B028FF7F5F00A6DCB6 /* ACPHomeScreenEligibilityHeaderView.swift */; };
 		400ABA0328FF7F6000A6DCB6 /* ACPHomeScreenProgramCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9B128FF7F5F00A6DCB6 /* ACPHomeScreenProgramCell.swift */; };
 		400ABA0428FF7F6000A6DCB6 /* ACPHomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9B228FF7F5F00A6DCB6 /* ACPHomeScreenViewController.swift */; };
@@ -42,44 +39,12 @@
 		400ABA0728FF7F6000A6DCB6 /* UITextField+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9B628FF7F6000A6DCB6 /* UITextField+ACP.swift */; };
 		400ABA0828FF7F6000A6DCB6 /* UITableView+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9B728FF7F6000A6DCB6 /* UITableView+ACP.swift */; };
 		400ABA0928FF7F6000A6DCB6 /* UICollectionView+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9B828FF7F6000A6DCB6 /* UICollectionView+ACP.swift */; };
-		400ABA0A28FF7F6000A6DCB6 /* UIViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9B928FF7F6000A6DCB6 /* UIViewController+Keyboard.swift */; };
 		400ABA0B28FF7F6000A6DCB6 /* NSMutableParagraphStyle+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9BA28FF7F6000A6DCB6 /* NSMutableParagraphStyle+ACP.swift */; };
 		400ABA0C28FF7F6000A6DCB6 /* UIViewController+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9BB28FF7F6000A6DCB6 /* UIViewController+ACP.swift */; };
 		400ABA0D28FF7F6000A6DCB6 /* UITapGestureRecognizer+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9BC28FF7F6000A6DCB6 /* UITapGestureRecognizer+ACP.swift */; };
 		400ABA0E28FF7F6000A6DCB6 /* UIColor+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9BD28FF7F6000A6DCB6 /* UIColor+ACP.swift */; };
 		400ABA0F28FF7F6000A6DCB6 /* String+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9BE28FF7F6000A6DCB6 /* String+ACP.swift */; };
 		400ABA1028FF7F6000A6DCB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9C028FF7F6000A6DCB6 /* AppDelegate.swift */; };
-		400ABA1128FF7F6000A6DCB6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9C128FF7F6000A6DCB6 /* SceneDelegate.swift */; };
-		400ABA1228FF7F6000A6DCB6 /* ACPTabMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9C428FF7F6000A6DCB6 /* ACPTabMenuViewController.swift */; };
-		400ABA1328FF7F6000A6DCB6 /* ACPFocusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9C528FF7F6000A6DCB6 /* ACPFocusableView.swift */; };
-		400ABA1428FF7F6000A6DCB6 /* ACPTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9C628FF7F6000A6DCB6 /* ACPTableView.swift */; };
-		400ABA1528FF7F6000A6DCB6 /* ACPNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9C728FF7F6000A6DCB6 /* ACPNavigationController.swift */; };
-		400ABA1828FF7F6000A6DCB6 /* ACPTabMenuTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9CB28FF7F6000A6DCB6 /* ACPTabMenuTitleCell.swift */; };
-		400ABA1928FF7F6000A6DCB6 /* ACPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9CD28FF7F6000A6DCB6 /* ACPTextField.swift */; };
-		400ABA1A28FF7F6000A6DCB6 /* ACPTermsAndPrivacyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9CE28FF7F6000A6DCB6 /* ACPTermsAndPrivacyLabel.swift */; };
-		400ABA1B28FF7F6000A6DCB6 /* ACPPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9CF28FF7F6000A6DCB6 /* ACPPickerView.swift */; };
-		400ABA1C28FF7F6000A6DCB6 /* ACPImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9D028FF7F6000A6DCB6 /* ACPImageButton.swift */; };
-		400ABA1D28FF7F6000A6DCB6 /* ACPBorderedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9D128FF7F6000A6DCB6 /* ACPBorderedView.swift */; };
-		400ABA1E28FF7F6000A6DCB6 /* ACPCircleLoadingBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9D228FF7F6000A6DCB6 /* ACPCircleLoadingBarView.swift */; };
-		400ABA1F28FF7F6000A6DCB6 /* ACPPersonalInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9D528FF7F6000A6DCB6 /* ACPPersonalInfoViewModel.swift */; };
-		400ABA2028FF7F6000A6DCB6 /* ACPVerifyEmailCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9DA28FF7F6000A6DCB6 /* ACPVerifyEmailCodeView.swift */; };
-		400ABA2128FF7F6000A6DCB6 /* ACPVerifyEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9DB28FF7F6000A6DCB6 /* ACPVerifyEmailViewController.swift */; };
-		400ABA2228FF7F6000A6DCB6 /* ACPVerifyEmailKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9DC28FF7F6000A6DCB6 /* ACPVerifyEmailKeyboardView.swift */; };
-		400ABA2328FF7F6000A6DCB6 /* ACPPersonalInfoDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9DD28FF7F6000A6DCB6 /* ACPPersonalInfoDetailsViewController.swift */; };
-		400ABA2428FF7F6000A6DCB6 /* ACPIdentityProofViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9DF28FF7F6000A6DCB6 /* ACPIdentityProofViewController.swift */; };
-		400ABA2528FF7F6000A6DCB6 /* ACPSelfieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9E028FF7F6000A6DCB6 /* ACPSelfieViewController.swift */; };
-		400ABA2628FF7F6000A6DCB6 /* ACPScanIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9E128FF7F6000A6DCB6 /* ACPScanIDViewController.swift */; };
-		400ABA2728FF7F6000A6DCB6 /* ACPKYCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9E228FF7F6000A6DCB6 /* ACPKYCViewController.swift */; };
-		400ABA2828FF7F6000A6DCB6 /* ACPKYCCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9E328FF7F6000A6DCB6 /* ACPKYCCompleteViewController.swift */; };
-		400ABA2928FF7F6000A6DCB6 /* ACPBankInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9E428FF7F6000A6DCB6 /* ACPBankInfoViewController.swift */; };
-		400ABA2A28FF7F6000A6DCB6 /* ACPNotVerifiedRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9E528FF7F6000A6DCB6 /* ACPNotVerifiedRegistrationViewController.swift */; };
-		400ABA2B28FF7F6000A6DCB6 /* ACPPersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9E628FF7F6000A6DCB6 /* ACPPersonalInfoViewController.swift */; };
-		400ABA2C28FF7F6000A6DCB6 /* TestEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9E928FF7F6000A6DCB6 /* TestEndpoint.swift */; };
-		400ABA2D28FF7F6000A6DCB6 /* VerifyEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9EA28FF7F6000A6DCB6 /* VerifyEndpoint.swift */; };
-		400ABA2E28FF7F6000A6DCB6 /* ACPRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9EB28FF7F6000A6DCB6 /* ACPRouter.swift */; };
-		400ABA2F28FF7F6000A6DCB6 /* ACPEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB9EC28FF7F6000A6DCB6 /* ACPEndpoint.swift */; };
-		400ABA3228FF904B00A6DCB6 /* ACPTabMenuDotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400ABA3128FF904B00A6DCB6 /* ACPTabMenuDotCell.swift */; };
-		400ABA352900413D00A6DCB6 /* ACPRegistrationCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400ABA342900413D00A6DCB6 /* ACPRegistrationCompleteViewController.swift */; };
 		4013FADE29083DB00018025F /* ACPCardSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4013FADD29083DB00018025F /* ACPCardSuccessViewController.swift */; };
 		4013FAE12908427F0018025F /* ACPEmptyWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4013FAE02908427F0018025F /* ACPEmptyWalletViewController.swift */; };
 		4013FAE32908428A0018025F /* ACPWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4013FAE22908428A0018025F /* ACPWalletViewController.swift */; };
@@ -90,11 +55,8 @@
 		40251D41290CD2840083B89A /* ACPCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40251D40290CD2840083B89A /* ACPCardModel.swift */; };
 		40251D44290DE04C0083B89A /* ACPTransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40251D43290DE04C0083B89A /* ACPTransactionsViewController.swift */; };
 		40251D46290DE0710083B89A /* ACPTransactionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40251D45290DE0710083B89A /* ACPTransactionsCell.swift */; };
-		4031545E290E2349009320D8 /* ACPLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4031545D290E2349009320D8 /* ACPLoginViewController.swift */; };
-		40315460290E3002009320D8 /* ACPShadowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4031545F290E3002009320D8 /* ACPShadowButton.swift */; };
 		403AD22029075B0600C6D556 /* ACPHomeScreenTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403AD21F29075B0600C6D556 /* ACPHomeScreenTabViewController.swift */; };
 		403AD22329075B6400C6D556 /* ACPHomeScreenTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403AD22229075B6400C6D556 /* ACPHomeScreenTabViewModel.swift */; };
-		403AD2252907636B00C6D556 /* ACPTabMenuImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403AD2242907636B00C6D556 /* ACPTabMenuImageCell.swift */; };
 		40B5EDD828E224F40096B91B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40B5EDD728E224F40096B91B /* Assets.xcassets */; };
 		40B5EDDB28E224F40096B91B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40B5EDD928E224F40096B91B /* LaunchScreen.storyboard */; };
 		40D0BE412919D89900067026 /* ACPProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D0BE3B2919D89900067026 /* ACPProfileHeaderView.swift */; };
@@ -105,16 +67,86 @@
 		40D0BE462919D89900067026 /* ACPProfileSecurityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D0BE402919D89900067026 /* ACPProfileSecurityViewController.swift */; };
 		40EDB816290EF4FC007E0255 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 40EDB815290EF4FC007E0255 /* GoogleService-Info.plist */; };
 		40EE2CB028E4AC5B0028888D /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40EE2CAF28E4AC5B0028888D /* Colors.xcassets */; };
+		41A19C601E92798E1CEF862F /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F974777E0F55DBD7424D034A /* AuthManager.swift */; };
+		41F619C03C2DA2BCF4E07158 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053FB1B2EAA9A73599FBAF0C /* AppCoordinator.swift */; };
+		4321EDA2276006DA50CD438F /* TabMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46B483C3F8D7E7E77A75BF9 /* TabMenuViewController.swift */; };
+		43A737D48DCA72D15610BC27 /* KYCRegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310EFAD02BB12F1703F79D1B /* KYCRegisterResponse.swift */; };
+		4C6ED5552B682EF64DA5D61D /* EligibilityZipCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C073808790391B98498910D9 /* EligibilityZipCodeViewModel.swift */; };
+		4C836E31C7307163DB43985B /* ShadowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13D1DF37C0837E8E4BC7AE9 /* ShadowButton.swift */; };
+		5034926640CCFD1565F07B13 /* KYCRegisterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37055A88CED438FA6A96A73F /* KYCRegisterData.swift */; };
+		554BCF64C90C421E2870823D /* EligibilityRegistrationSuccessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253B7D063497FD88FAA0C063 /* EligibilityRegistrationSuccessViewModel.swift */; };
+		56191BAF72AC805A03A42A47 /* KYCPersonalInfoDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962220DBC94C2C9979E4283D /* KYCPersonalInfoDetailsViewController.swift */; };
+		57A871172C05BEF0F648BF7F /* EligibilityRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8872E468EED41745963AEA /* EligibilityRegistrationViewController.swift */; };
+		57F32F94D0AE610C1B3F9BD8 /* FocusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF12AB550459ED7BE83F1D91 /* FocusableView.swift */; };
+		5B205DFC08E4F8F2438CDE18 /* BorderedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA13C0B9407B5A32257609E /* BorderedView.swift */; };
+		5B3A41FAE7AEFE0925C226EF /* KYCService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45702B7A2FA1AD8D2AACC5 /* KYCService.swift */; };
+		5ED25A606E0BC6F99E44CC87 /* UIStackView+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D46D772B45FA926738EACAA /* UIStackView+ACP.swift */; };
+		617CDE7EEEC454477071D36F /* EligibilityZipCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE592FD5B325EACF34C557BC /* EligibilityZipCodeView.swift */; };
+		62B71D3D3088670BF444639C /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74581283CA8C675FF3D683CA /* Router.swift */; };
+		670E1DDED38A87244E08E77C /* EligibilityServiceEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50151E6F3D9D75884AA95C47 /* EligibilityServiceEndpoint.swift */; };
+		69CD5333F57059A18872A392 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A088F99F4409B7430CF9E /* WelcomeViewModel.swift */; };
+		7369A88BA929444990BD487D /* TabMenuDotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4BF3DCFADD9CFBABAC1819 /* TabMenuDotCell.swift */; };
+		78102AA2F88885B046DBA4D1 /* KYCCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D54F2C67BF62BE762B704A8 /* KYCCoordinator.swift */; };
+		7CE926C716E4465F27B948C0 /* KYCRegistrationStartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BF1620F8D18C118F958FE4 /* KYCRegistrationStartViewModel.swift */; };
+		81B77CA1FE869BB8762F9AAA /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE91A92B3AAFD02474F39933 /* LoginData.swift */; };
+		83E0F712358A59B56E985757 /* KYCIdentityProofViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEB735CC8FEA320201CF5E8 /* KYCIdentityProofViewController.swift */; };
+		85B007FF9DEC988A218EF8E7 /* KYCVerifyEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AA4B5D101A84E6FF2EB042 /* KYCVerifyEmailViewController.swift */; };
+		85C82623F045EB685E55ECD6 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9698152CF0866E419F6BA00 /* LandingViewController.swift */; };
+		8ADE8379A51BF6B5D5D3F19C /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA4BC913548F1CE488ACE21 /* LoginCoordinator.swift */; };
+		8BA1AA83F8427CF19C1BB2AE /* EligibilityRegistrationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457B20033C61DF34277AC892 /* EligibilityRegistrationResponse.swift */; };
+		90C8A51D9C537918FEE47063 /* KYCRegistrationCompleteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A98E80A656BA46143E3B9D /* KYCRegistrationCompleteViewModel.swift */; };
+		995EC56F3CABEBBBE5CD4D79 /* EligibilityCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7C950CF106368C8D074A53 /* EligibilityCoordinator.swift */; };
+		9DFE9BCF29DC8279A2712B6B /* TabMenuTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB3F3DBAC4351A09B1C9754 /* TabMenuTitleCell.swift */; };
+		9E9233CA3D65AFC65A6AF1C8 /* EligibilityVerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C872C815F75403A7F67F7E2D /* EligibilityVerifyViewController.swift */; };
+		A080380B1ABC27C04B8515D6 /* ImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF91E10493CD6ABEBA6C900 /* ImageButton.swift */; };
+		A129A25A312E241A6708EE11 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E415BCD059FF3447D4B2CEC5 /* PickerView.swift */; };
+		A62BE0043C8038E1D7C862DD /* KYCVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3482FAAA969A9440862FE1 /* KYCVerificationViewController.swift */; };
+		A62CD398741BF5EFDBAA7EB9 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D001E954E914707EBB620555 /* Coordinator.swift */; };
+		A7588F11E7C44D8EE26E8B4C /* EligibilityZipCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90987635ED759C2B338D9180 /* EligibilityZipCodeViewController.swift */; };
+		A7BC7C9A914EA2C709FB16D4 /* EligibilityDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFDAAC94868703D3A80FE11 /* EligibilityDetailsViewController.swift */; };
+		A81049B991BB027238283080 /* KYCRegistrationStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F973775D76DDB9913F82F6E /* KYCRegistrationStartViewController.swift */; };
+		A920440F078A0C02D240C700 /* WelcomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9260E7CFE1E132916A4B8FCB /* WelcomeCoordinator.swift */; };
+		A95C9EFD2E7C753327C7B619 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D5AEB4C65B2F156A51FAF2 /* TermsViewController.swift */; };
+		B050367319BAB29AC6417381 /* KYCRegistrationBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BAE02250E8F8653C988B53 /* KYCRegistrationBaseViewController.swift */; };
+		B30D11F4D55E4A890E174DE0 /* EligibilityDetailsDOBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645426114EE76FC8C5EF3393 /* EligibilityDetailsDOBViewController.swift */; };
+		B4ACD21A3B17AC6721E725B7 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5CD4B6685F8C2BC39B5303 /* WelcomeViewController.swift */; };
+		B74694CF360D08AC498D3DF2 /* EligibilityDetailsNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63D69D5CC1E834C6519643B /* EligibilityDetailsNameViewController.swift */; };
+		BD0008A455F385289AD21BDA /* EligibilityVerifyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D211907CB53174934E3BFDB5 /* EligibilityVerifyViewModel.swift */; };
+		C00412690D1BF7F81E8E31FA /* UIAlertController+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548D77969E9C410C92339EAA /* UIAlertController+ACP.swift */; };
+		C8842928FDC726D638DE3560 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDDC1701064F22F8BFA4CB1 /* LoginViewController.swift */; };
+		C8F3ACECA061CDAA6B6AD528 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FFABB34581EE3D51E7DC76 /* TableView.swift */; };
+		CAF86BF3755A85609B4105FB /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835A05A61589E31FC243E7A2 /* NavigationController.swift */; };
+		CD996F6F241BFD7AB1CFFB76 /* EligibilityDetailsAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4885A5E64F00B2701CF5222 /* EligibilityDetailsAddressViewController.swift */; };
 		CE05019229638D44004E06BC /* ACPProfileNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05019129638D44004E06BC /* ACPProfileNameView.swift */; };
 		CE05019529638FEE004E06BC /* ACPProfileDOBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05019429638FEE004E06BC /* ACPProfileDOBView.swift */; };
 		CE05019729639067004E06BC /* ACPProfileAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05019629639067004E06BC /* ACPProfileAddressView.swift */; };
 		CE0501992963927C004E06BC /* ACPProfileSSNView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0501982963927C004E06BC /* ACPProfileSSNView.swift */; };
 		CE62E30128EA64D20000833B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE62E30028EA64D20000833B /* Localizable.strings */; };
+		D0291FC2113129E1F06322EE /* KYCVerifyEmailKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D878C12CD9BF0C094E77448 /* KYCVerifyEmailKeyboardView.swift */; };
+		D99A77055911911F679AE3E7 /* KYCSelfieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088DD1D281EE1D3A5A1FA10D /* KYCSelfieViewController.swift */; };
+		DF71723E561AFE00E5A96ED2 /* TermsAndPrivacyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE667F1DD8228A232867EBB9 /* TermsAndPrivacyLabel.swift */; };
+		E1326A23AC40C7DD1D87F677 /* EligibilityDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC91A0D722C2EDADC66C33 /* EligibilityDetailsViewModel.swift */; };
+		E1ACA6AC2E3EABB16DFCAC51 /* EligibilityFailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32C0CC9DE3A227E3C5F2068 /* EligibilityFailViewController.swift */; };
+		E2579F3243DA8C926C21440C /* KYCVerifyEmailCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ED06D2C2871AACA82EF1E7 /* KYCVerifyEmailCodeView.swift */; };
+		E28A64318063CEA292BC67A6 /* KYCVerifyEmailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C509EE7EC623304AE9BFF182 /* KYCVerifyEmailResponse.swift */; };
+		E505B1ABF2D41FAA5242C44E /* EligibilityRegistrationSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74922F9A20161BA7E7D0F7B /* EligibilityRegistrationSuccessViewController.swift */; };
+		E86C8BB952530920BA6D6CAC /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE998292F472345F7396F82A /* Endpoint.swift */; };
+		EB0C9AA7B34F36F73B71388B /* EligibilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190195DC478E9AF22E23BD8B /* EligibilityService.swift */; };
+		EDEB5E6C934C1F9EF201173C /* LoginServiceEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9747AB149F568A41FBC3BCD /* LoginServiceEndpoint.swift */; };
+		EE5DB31C14898BAD68905E33 /* KYCServiceEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8DD0A53229D15A571183E2 /* KYCServiceEndpoint.swift */; };
+		F13043A5CFC112C5B9FCE8D2 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35978EA1E6A77AA9F4E0D3A /* TextField.swift */; };
+		F38C055260E7BBA3563294D6 /* KYCBankInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C569C5647161B1EE2D6D97B6 /* KYCBankInfoViewController.swift */; };
 		FF3F59D25D870A8B465A1AB4 /* Pods_ACP_mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA43A30C610F68C5A06DD99 /* Pods_ACP_mobile.framework */; };
+		FF6245FC359A7E93AC21D042 /* KYCRegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A213475D5F98CE6044028845 /* KYCRegistrationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0366AF4C43A4245B2D9C8C38 /* KYCScanIDViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCScanIDViewController.swift; sourceTree = "<group>"; };
+		053FB1B2EAA9A73599FBAF0C /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		088DD1D281EE1D3A5A1FA10D /* KYCSelfieViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCSelfieViewController.swift; sourceTree = "<group>"; };
 		0EA43A30C610F68C5A06DD99 /* Pods_ACP_mobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ACP_mobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		11D5AEB4C65B2F156A51FAF2 /* TermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
+		12AA4B5D101A84E6FF2EB042 /* KYCVerifyEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCVerifyEmailViewController.swift; sourceTree = "<group>"; };
 		1301AD36DE072905C940D450 /* Pods-ACP-mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACP-mobile.release.xcconfig"; path = "Target Support Files/Pods-ACP-mobile/Pods-ACP-mobile.release.xcconfig"; sourceTree = "<group>"; };
 		133F868929086DC400663815 /* ACPSuccesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPSuccesViewController.swift; sourceTree = "<group>"; };
 		133F868C29086E6E00663815 /* ApplyACPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyACPView.swift; sourceTree = "<group>"; };
@@ -123,26 +155,18 @@
 		133F86932908715900663815 /* ApplyForServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyForServiceViewController.swift; sourceTree = "<group>"; };
 		13581442290F2B1500612D8B /* RequestCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCardViewController.swift; sourceTree = "<group>"; };
 		13BF542729104B1600C94201 /* RequestCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCardViewModel.swift; sourceTree = "<group>"; };
-		400AB98D28FF7F5F00A6DCB6 /* ACPEligibilityDetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsViewModel.swift; sourceTree = "<group>"; };
-		400AB98F28FF7F5F00A6DCB6 /* ACPEligibilityDetailsDOBModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsDOBModel.swift; sourceTree = "<group>"; };
-		400AB99028FF7F5F00A6DCB6 /* ACPEligibilityDetailsAddressModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsAddressModel.swift; sourceTree = "<group>"; };
-		400AB99128FF7F5F00A6DCB6 /* ACPEligibilityDetailsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsModel.swift; sourceTree = "<group>"; };
-		400AB99228FF7F5F00A6DCB6 /* ACPEligibilityDetailsNameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsNameModel.swift; sourceTree = "<group>"; };
-		400AB99528FF7F5F00A6DCB6 /* ACPEligibilityDetailsNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsNameViewController.swift; sourceTree = "<group>"; };
-		400AB99628FF7F5F00A6DCB6 /* ACPEligibilityDetailsDOBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsDOBViewController.swift; sourceTree = "<group>"; };
-		400AB99728FF7F5F00A6DCB6 /* ACPEligibilityDetailsAddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsAddressViewController.swift; sourceTree = "<group>"; };
-		400AB99828FF7F5F00A6DCB6 /* ACPEligibilityDetailsFailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsFailViewController.swift; sourceTree = "<group>"; };
-		400AB99928FF7F5F00A6DCB6 /* ACPEligibilityDetailsSuccessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsSuccessViewController.swift; sourceTree = "<group>"; };
-		400AB99A28FF7F5F00A6DCB6 /* ACPEligibilityDetailsVerifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsVerifyViewController.swift; sourceTree = "<group>"; };
-		400AB99B28FF7F5F00A6DCB6 /* ACPEligibilityDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEligibilityDetailsViewController.swift; sourceTree = "<group>"; };
-		400AB99E28FF7F5F00A6DCB6 /* ACPVerifiedRegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPVerifiedRegistrationViewController.swift; sourceTree = "<group>"; };
-		400AB9A228FF7F5F00A6DCB6 /* ACPLandingScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPLandingScreenViewController.swift; sourceTree = "<group>"; };
-		400AB9A428FF7F5F00A6DCB6 /* ACPWelcomeScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPWelcomeScreenViewController.swift; sourceTree = "<group>"; };
-		400AB9A528FF7F5F00A6DCB6 /* ACPTermsPrivacyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPTermsPrivacyViewController.swift; sourceTree = "<group>"; };
-		400AB9A828FF7F5F00A6DCB6 /* EligibilityZipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilityZipViewController.swift; sourceTree = "<group>"; };
-		400AB9AA28FF7F5F00A6DCB6 /* EligibilityZipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilityZipView.swift; sourceTree = "<group>"; };
-		400AB9AB28FF7F5F00A6DCB6 /* EligibilityCheckViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilityCheckViewController.swift; sourceTree = "<group>"; };
-		400AB9AD28FF7F5F00A6DCB6 /* EligibilityCheckView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilityCheckView.swift; sourceTree = "<group>"; };
+		15A98E80A656BA46143E3B9D /* KYCRegistrationCompleteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYCRegistrationCompleteViewModel.swift; sourceTree = "<group>"; };
+		190195DC478E9AF22E23BD8B /* EligibilityService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilityService.swift; sourceTree = "<group>"; };
+		1BA13C0B9407B5A32257609E /* BorderedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderedView.swift; sourceTree = "<group>"; };
+		253B7D063497FD88FAA0C063 /* EligibilityRegistrationSuccessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EligibilityRegistrationSuccessViewModel.swift; sourceTree = "<group>"; };
+		27EC91A0D722C2EDADC66C33 /* EligibilityDetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilityDetailsViewModel.swift; sourceTree = "<group>"; };
+		2BDDC1701064F22F8BFA4CB1 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		310EFAD02BB12F1703F79D1B /* KYCRegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYCRegisterResponse.swift; sourceTree = "<group>"; };
+		37055A88CED438FA6A96A73F /* KYCRegisterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYCRegisterData.swift; sourceTree = "<group>"; };
+		3E8DD0A53229D15A571183E2 /* KYCServiceEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCServiceEndpoint.swift; sourceTree = "<group>"; };
+		3F3482FAAA969A9440862FE1 /* KYCVerificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCVerificationViewController.swift; sourceTree = "<group>"; };
+		3F4ED146B3D530CA857E690D /* KYCRegistrationCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYCRegistrationCompleteViewController.swift; sourceTree = "<group>"; };
+		400AB9AB28FF7F5F00A6DCB6 /* EligibilityCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EligibilityCheckViewController.swift; sourceTree = "<group>"; };
 		400AB9B028FF7F5F00A6DCB6 /* ACPHomeScreenEligibilityHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPHomeScreenEligibilityHeaderView.swift; sourceTree = "<group>"; };
 		400AB9B128FF7F5F00A6DCB6 /* ACPHomeScreenProgramCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPHomeScreenProgramCell.swift; sourceTree = "<group>"; };
 		400AB9B228FF7F5F00A6DCB6 /* ACPHomeScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPHomeScreenViewController.swift; sourceTree = "<group>"; };
@@ -151,44 +175,12 @@
 		400AB9B628FF7F6000A6DCB6 /* UITextField+ACP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+ACP.swift"; sourceTree = "<group>"; };
 		400AB9B728FF7F6000A6DCB6 /* UITableView+ACP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+ACP.swift"; sourceTree = "<group>"; };
 		400AB9B828FF7F6000A6DCB6 /* UICollectionView+ACP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+ACP.swift"; sourceTree = "<group>"; };
-		400AB9B928FF7F6000A6DCB6 /* UIViewController+Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Keyboard.swift"; sourceTree = "<group>"; };
 		400AB9BA28FF7F6000A6DCB6 /* NSMutableParagraphStyle+ACP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMutableParagraphStyle+ACP.swift"; sourceTree = "<group>"; };
 		400AB9BB28FF7F6000A6DCB6 /* UIViewController+ACP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+ACP.swift"; sourceTree = "<group>"; };
 		400AB9BC28FF7F6000A6DCB6 /* UITapGestureRecognizer+ACP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITapGestureRecognizer+ACP.swift"; sourceTree = "<group>"; };
 		400AB9BD28FF7F6000A6DCB6 /* UIColor+ACP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+ACP.swift"; sourceTree = "<group>"; };
 		400AB9BE28FF7F6000A6DCB6 /* String+ACP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+ACP.swift"; sourceTree = "<group>"; };
 		400AB9C028FF7F6000A6DCB6 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		400AB9C128FF7F6000A6DCB6 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		400AB9C428FF7F6000A6DCB6 /* ACPTabMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPTabMenuViewController.swift; sourceTree = "<group>"; };
-		400AB9C528FF7F6000A6DCB6 /* ACPFocusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPFocusableView.swift; sourceTree = "<group>"; };
-		400AB9C628FF7F6000A6DCB6 /* ACPTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPTableView.swift; sourceTree = "<group>"; };
-		400AB9C728FF7F6000A6DCB6 /* ACPNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPNavigationController.swift; sourceTree = "<group>"; };
-		400AB9CB28FF7F6000A6DCB6 /* ACPTabMenuTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPTabMenuTitleCell.swift; sourceTree = "<group>"; };
-		400AB9CD28FF7F6000A6DCB6 /* ACPTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPTextField.swift; sourceTree = "<group>"; };
-		400AB9CE28FF7F6000A6DCB6 /* ACPTermsAndPrivacyLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPTermsAndPrivacyLabel.swift; sourceTree = "<group>"; };
-		400AB9CF28FF7F6000A6DCB6 /* ACPPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPPickerView.swift; sourceTree = "<group>"; };
-		400AB9D028FF7F6000A6DCB6 /* ACPImageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPImageButton.swift; sourceTree = "<group>"; };
-		400AB9D128FF7F6000A6DCB6 /* ACPBorderedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPBorderedView.swift; sourceTree = "<group>"; };
-		400AB9D228FF7F6000A6DCB6 /* ACPCircleLoadingBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPCircleLoadingBarView.swift; sourceTree = "<group>"; };
-		400AB9D528FF7F6000A6DCB6 /* ACPPersonalInfoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPPersonalInfoViewModel.swift; sourceTree = "<group>"; };
-		400AB9DA28FF7F6000A6DCB6 /* ACPVerifyEmailCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPVerifyEmailCodeView.swift; sourceTree = "<group>"; };
-		400AB9DB28FF7F6000A6DCB6 /* ACPVerifyEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPVerifyEmailViewController.swift; sourceTree = "<group>"; };
-		400AB9DC28FF7F6000A6DCB6 /* ACPVerifyEmailKeyboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPVerifyEmailKeyboardView.swift; sourceTree = "<group>"; };
-		400AB9DD28FF7F6000A6DCB6 /* ACPPersonalInfoDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPPersonalInfoDetailsViewController.swift; sourceTree = "<group>"; };
-		400AB9DF28FF7F6000A6DCB6 /* ACPIdentityProofViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPIdentityProofViewController.swift; sourceTree = "<group>"; };
-		400AB9E028FF7F6000A6DCB6 /* ACPSelfieViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPSelfieViewController.swift; sourceTree = "<group>"; };
-		400AB9E128FF7F6000A6DCB6 /* ACPScanIDViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPScanIDViewController.swift; sourceTree = "<group>"; };
-		400AB9E228FF7F6000A6DCB6 /* ACPKYCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPKYCViewController.swift; sourceTree = "<group>"; };
-		400AB9E328FF7F6000A6DCB6 /* ACPKYCCompleteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPKYCCompleteViewController.swift; sourceTree = "<group>"; };
-		400AB9E428FF7F6000A6DCB6 /* ACPBankInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPBankInfoViewController.swift; sourceTree = "<group>"; };
-		400AB9E528FF7F6000A6DCB6 /* ACPNotVerifiedRegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPNotVerifiedRegistrationViewController.swift; sourceTree = "<group>"; };
-		400AB9E628FF7F6000A6DCB6 /* ACPPersonalInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPPersonalInfoViewController.swift; sourceTree = "<group>"; };
-		400AB9E928FF7F6000A6DCB6 /* TestEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestEndpoint.swift; sourceTree = "<group>"; };
-		400AB9EA28FF7F6000A6DCB6 /* VerifyEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyEndpoint.swift; sourceTree = "<group>"; };
-		400AB9EB28FF7F6000A6DCB6 /* ACPRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPRouter.swift; sourceTree = "<group>"; };
-		400AB9EC28FF7F6000A6DCB6 /* ACPEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPEndpoint.swift; sourceTree = "<group>"; };
-		400ABA3128FF904B00A6DCB6 /* ACPTabMenuDotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPTabMenuDotCell.swift; sourceTree = "<group>"; };
-		400ABA342900413D00A6DCB6 /* ACPRegistrationCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPRegistrationCompleteViewController.swift; sourceTree = "<group>"; };
 		4013FADD29083DB00018025F /* ACPCardSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPCardSuccessViewController.swift; sourceTree = "<group>"; };
 		4013FAE02908427F0018025F /* ACPEmptyWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPEmptyWalletViewController.swift; sourceTree = "<group>"; };
 		4013FAE22908428A0018025F /* ACPWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPWalletViewController.swift; sourceTree = "<group>"; };
@@ -199,11 +191,8 @@
 		40251D40290CD2840083B89A /* ACPCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPCardModel.swift; sourceTree = "<group>"; };
 		40251D43290DE04C0083B89A /* ACPTransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPTransactionsViewController.swift; sourceTree = "<group>"; };
 		40251D45290DE0710083B89A /* ACPTransactionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPTransactionsCell.swift; sourceTree = "<group>"; };
-		4031545D290E2349009320D8 /* ACPLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPLoginViewController.swift; sourceTree = "<group>"; };
-		4031545F290E3002009320D8 /* ACPShadowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPShadowButton.swift; sourceTree = "<group>"; };
 		403AD21F29075B0600C6D556 /* ACPHomeScreenTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPHomeScreenTabViewController.swift; sourceTree = "<group>"; };
 		403AD22229075B6400C6D556 /* ACPHomeScreenTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPHomeScreenTabViewModel.swift; sourceTree = "<group>"; };
-		403AD2242907636B00C6D556 /* ACPTabMenuImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPTabMenuImageCell.swift; sourceTree = "<group>"; };
 		40B5EDCB28E224F20096B91B /* ACP-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ACP-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		40B5EDD728E224F40096B91B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40B5EDDA28E224F40096B91B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -216,12 +205,77 @@
 		40D0BE402919D89900067026 /* ACPProfileSecurityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPProfileSecurityViewController.swift; sourceTree = "<group>"; };
 		40EDB815290EF4FC007E0255 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		40EE2CAF28E4AC5B0028888D /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		457B20033C61DF34277AC892 /* EligibilityRegistrationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EligibilityRegistrationResponse.swift; sourceTree = "<group>"; };
+		46C4611889CF754F17C62C06 /* EligibilityFailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EligibilityFailViewModel.swift; sourceTree = "<group>"; };
+		4EA4BC913548F1CE488ACE21 /* LoginCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
+		50151E6F3D9D75884AA95C47 /* EligibilityServiceEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilityServiceEndpoint.swift; sourceTree = "<group>"; };
+		52744797F569113391A23C8D /* LoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		52E8498E6F4DEBE262CA28A6 /* KYCVerifyEmailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYCVerifyEmailData.swift; sourceTree = "<group>"; };
+		548D77969E9C410C92339EAA /* UIAlertController+ACP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+ACP.swift"; sourceTree = "<group>"; };
+		55D6CBF574DEA56C25C0055D /* EligibilityResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilityResponse.swift; sourceTree = "<group>"; };
+		645426114EE76FC8C5EF3393 /* EligibilityDetailsDOBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilityDetailsDOBViewController.swift; sourceTree = "<group>"; };
+		67BC26760AF88C5781730280 /* EligibilityRegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EligibilityRegistrationViewModel.swift; sourceTree = "<group>"; };
+		67BF1620F8D18C118F958FE4 /* KYCRegistrationStartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYCRegistrationStartViewModel.swift; sourceTree = "<group>"; };
 		687DCBFD8B005412AF06BEDD /* Pods-ACP-mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACP-mobile.debug.xcconfig"; path = "Target Support Files/Pods-ACP-mobile/Pods-ACP-mobile.debug.xcconfig"; sourceTree = "<group>"; };
+		6BF91E10493CD6ABEBA6C900 /* ImageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageButton.swift; sourceTree = "<group>"; };
+		6D54F2C67BF62BE762B704A8 /* KYCCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCCoordinator.swift; sourceTree = "<group>"; };
+		74581283CA8C675FF3D683CA /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		7C179C1BA7152F02C50945C5 /* CircleLoadingBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleLoadingBarView.swift; sourceTree = "<group>"; };
+		7C8872E468EED41745963AEA /* EligibilityRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EligibilityRegistrationViewController.swift; sourceTree = "<group>"; };
+		7D46D772B45FA926738EACAA /* UIStackView+ACP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStackView+ACP.swift"; sourceTree = "<group>"; };
+		7EEB735CC8FEA320201CF5E8 /* KYCIdentityProofViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCIdentityProofViewController.swift; sourceTree = "<group>"; };
+		835A05A61589E31FC243E7A2 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		83FFABB34581EE3D51E7DC76 /* TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		89BAE02250E8F8653C988B53 /* KYCRegistrationBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCRegistrationBaseViewController.swift; sourceTree = "<group>"; };
+		8B4BF3DCFADD9CFBABAC1819 /* TabMenuDotCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabMenuDotCell.swift; sourceTree = "<group>"; };
+		8BDED0463A176F0DD761CE4F /* KYCCheckCompleteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCCheckCompleteViewController.swift; sourceTree = "<group>"; };
+		8D878C12CD9BF0C094E77448 /* KYCVerifyEmailKeyboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCVerifyEmailKeyboardView.swift; sourceTree = "<group>"; };
+		8E0A088F99F4409B7430CF9E /* WelcomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
+		90987635ED759C2B338D9180 /* EligibilityZipCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EligibilityZipCodeViewController.swift; sourceTree = "<group>"; };
+		91267CF3C1FA4BA8195AB3F3 /* LoginResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		9260E7CFE1E132916A4B8FCB /* WelcomeCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeCoordinator.swift; sourceTree = "<group>"; };
+		962220DBC94C2C9979E4283D /* KYCPersonalInfoDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCPersonalInfoDetailsViewController.swift; sourceTree = "<group>"; };
+		97759464A3C235009BF4FD6E /* EligibilitySuccessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EligibilitySuccessViewModel.swift; sourceTree = "<group>"; };
+		9F973775D76DDB9913F82F6E /* KYCRegistrationStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYCRegistrationStartViewController.swift; sourceTree = "<group>"; };
+		A213475D5F98CE6044028845 /* KYCRegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYCRegistrationViewModel.swift; sourceTree = "<group>"; };
+		A4885A5E64F00B2701CF5222 /* EligibilityDetailsAddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilityDetailsAddressViewController.swift; sourceTree = "<group>"; };
+		A74922F9A20161BA7E7D0F7B /* EligibilityRegistrationSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EligibilityRegistrationSuccessViewController.swift; sourceTree = "<group>"; };
+		A9698152CF0866E419F6BA00 /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
+		AD7C950CF106368C8D074A53 /* EligibilityCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilityCoordinator.swift; sourceTree = "<group>"; };
+		B35978EA1E6A77AA9F4E0D3A /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		B46B483C3F8D7E7E77A75BF9 /* TabMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabMenuViewController.swift; sourceTree = "<group>"; };
+		B9747AB149F568A41FBC3BCD /* LoginServiceEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginServiceEndpoint.swift; sourceTree = "<group>"; };
+		C073808790391B98498910D9 /* EligibilityZipCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EligibilityZipCodeViewModel.swift; sourceTree = "<group>"; };
+		C13D1DF37C0837E8E4BC7AE9 /* ShadowButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowButton.swift; sourceTree = "<group>"; };
+		C32C0CC9DE3A227E3C5F2068 /* EligibilityFailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilityFailViewController.swift; sourceTree = "<group>"; };
+		C509EE7EC623304AE9BFF182 /* KYCVerifyEmailResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCVerifyEmailResponse.swift; sourceTree = "<group>"; };
+		C569C5647161B1EE2D6D97B6 /* KYCBankInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCBankInfoViewController.swift; sourceTree = "<group>"; };
+		C5ED06D2C2871AACA82EF1E7 /* KYCVerifyEmailCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCVerifyEmailCodeView.swift; sourceTree = "<group>"; };
+		C872C815F75403A7F67F7E2D /* EligibilityVerifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilityVerifyViewController.swift; sourceTree = "<group>"; };
+		CA5CD4B6685F8C2BC39B5303 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		CE05019129638D44004E06BC /* ACPProfileNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPProfileNameView.swift; sourceTree = "<group>"; };
 		CE05019429638FEE004E06BC /* ACPProfileDOBView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPProfileDOBView.swift; sourceTree = "<group>"; };
 		CE05019629639067004E06BC /* ACPProfileAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPProfileAddressView.swift; sourceTree = "<group>"; };
 		CE0501982963927C004E06BC /* ACPProfileSSNView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPProfileSSNView.swift; sourceTree = "<group>"; };
+		CE592FD5B325EACF34C557BC /* EligibilityZipCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EligibilityZipCodeView.swift; sourceTree = "<group>"; };
 		CE62E30028EA64D20000833B /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		CE91A92B3AAFD02474F39933 /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
+		D001E954E914707EBB620555 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		D211907CB53174934E3BFDB5 /* EligibilityVerifyViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilityVerifyViewModel.swift; sourceTree = "<group>"; };
+		D63D69D5CC1E834C6519643B /* EligibilityDetailsNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilityDetailsNameViewController.swift; sourceTree = "<group>"; };
+		E31EACC9A6C0A22F9E87C253 /* TabMenuImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabMenuImageCell.swift; sourceTree = "<group>"; };
+		E415BCD059FF3447D4B2CEC5 /* PickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
+		E9EAD73EC53840EDC97B16F0 /* EligibilityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EligibilityModel.swift; sourceTree = "<group>"; };
+		EAB3F3DBAC4351A09B1C9754 /* TabMenuTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabMenuTitleCell.swift; sourceTree = "<group>"; };
+		EC80EA627422E93DA7D9410D /* EligibilitySuccessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilitySuccessViewController.swift; sourceTree = "<group>"; };
+		EE667F1DD8228A232867EBB9 /* TermsAndPrivacyLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsAndPrivacyLabel.swift; sourceTree = "<group>"; };
+		F2A82E2323B96C7E792D43ED /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		F392784CFC9D11B3AA9C37E4 /* KYCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYCModel.swift; sourceTree = "<group>"; };
+		F974777E0F55DBD7424D034A /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		FD45702B7A2FA1AD8D2AACC5 /* KYCService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCService.swift; sourceTree = "<group>"; };
+		FE998292F472345F7396F82A /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		FF12AB550459ED7BE83F1D91 /* FocusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusableView.swift; sourceTree = "<group>"; };
+		FFFDAAC94868703D3A80FE11 /* EligibilityDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilityDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +290,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0479837723FFED44D8235ECA /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				61BE15B39CFAD7C635CE01CE /* Coordinator */,
+				A06ABC3A76FA7833AE11012E /* Models */,
+				9332D4EDDC800098F8941CBE /* Service */,
+				7F22CBB9E6242E5734878834 /* ViewModels */,
+				52DED0D4C30929969D55D9D3 /* Views */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		09E0F919DCC0BBA9F9F8986D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A9698152CF0866E419F6BA00 /* LandingViewController.swift */,
+				CA5CD4B6685F8C2BC39B5303 /* WelcomeViewController.swift */,
+				11D5AEB4C65B2F156A51FAF2 /* TermsViewController.swift */,
+				400AB9AB28FF7F5F00A6DCB6 /* EligibilityCheckViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		109F5F7DBC50E47E97F667FA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AC956385E56D44813ECD37EC /* CustomViews */,
+				6B3D6ADEF2F2F7E274762774 /* ViewControllers */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		133F868529086D1800663815 /* ApplyScreens */ = {
 			isa = PBXGroup;
 			children = (
@@ -305,6 +391,16 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		1E6759CD2B5B15413A55FAFD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E9EAD73EC53840EDC97B16F0 /* EligibilityModel.swift */,
+				55D6CBF574DEA56C25C0055D /* EligibilityResponse.swift */,
+				457B20033C61DF34277AC892 /* EligibilityRegistrationResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		1EF3BAC39E57E76420CCD5AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -313,139 +409,53 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		400AB98A28FF7F5F00A6DCB6 /* Screens */ = {
+		230F5A8A90973B63A31CE18A /* Registration */ = {
 			isa = PBXGroup;
 			children = (
-				133F868529086D1800663815 /* ApplyScreens */,
-				4031545C290E2325009320D8 /* Login */,
-				400AB98B28FF7F5F00A6DCB6 /* EligibilityDetails */,
-				400AB99C28FF7F5F00A6DCB6 /* Registration */,
-				400AB9A128FF7F5F00A6DCB6 /* LandingScreen */,
-				400AB9A328FF7F5F00A6DCB6 /* Welcome&Terms */,
-				400AB9A628FF7F5F00A6DCB6 /* EligibilityCheck */,
-				400AB9AE28FF7F5F00A6DCB6 /* HomeScreen */,
-			);
-			path = Screens;
-			sourceTree = "<group>";
-		};
-		400AB98B28FF7F5F00A6DCB6 /* EligibilityDetails */ = {
-			isa = PBXGroup;
-			children = (
-				400AB98C28FF7F5F00A6DCB6 /* ViewModels */,
-				400AB98E28FF7F5F00A6DCB6 /* Models */,
-				400AB99328FF7F5F00A6DCB6 /* Views */,
-			);
-			path = EligibilityDetails;
-			sourceTree = "<group>";
-		};
-		400AB98C28FF7F5F00A6DCB6 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				400AB98D28FF7F5F00A6DCB6 /* ACPEligibilityDetailsViewModel.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		400AB98E28FF7F5F00A6DCB6 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				400AB98F28FF7F5F00A6DCB6 /* ACPEligibilityDetailsDOBModel.swift */,
-				400AB99028FF7F5F00A6DCB6 /* ACPEligibilityDetailsAddressModel.swift */,
-				400AB99128FF7F5F00A6DCB6 /* ACPEligibilityDetailsModel.swift */,
-				400AB99228FF7F5F00A6DCB6 /* ACPEligibilityDetailsNameModel.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		400AB99328FF7F5F00A6DCB6 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				400AB99428FF7F5F00A6DCB6 /* ChildVC */,
-				400AB99828FF7F5F00A6DCB6 /* ACPEligibilityDetailsFailViewController.swift */,
-				400AB99928FF7F5F00A6DCB6 /* ACPEligibilityDetailsSuccessViewController.swift */,
-				400AB99A28FF7F5F00A6DCB6 /* ACPEligibilityDetailsVerifyViewController.swift */,
-				400AB99B28FF7F5F00A6DCB6 /* ACPEligibilityDetailsViewController.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		400AB99428FF7F5F00A6DCB6 /* ChildVC */ = {
-			isa = PBXGroup;
-			children = (
-				400AB99528FF7F5F00A6DCB6 /* ACPEligibilityDetailsNameViewController.swift */,
-				400AB99628FF7F5F00A6DCB6 /* ACPEligibilityDetailsDOBViewController.swift */,
-				400AB99728FF7F5F00A6DCB6 /* ACPEligibilityDetailsAddressViewController.swift */,
-			);
-			path = ChildVC;
-			sourceTree = "<group>";
-		};
-		400AB99C28FF7F5F00A6DCB6 /* Registration */ = {
-			isa = PBXGroup;
-			children = (
-				400AB9D328FF7F6000A6DCB6 /* NotVerified */,
-				400AB99D28FF7F5F00A6DCB6 /* Verified */,
+				F23185C62BE78BAFA7001C76 /* Eligibility */,
+				696E77A4B51D2D1C5175BC6B /* KYC */,
 			);
 			path = Registration;
 			sourceTree = "<group>";
 		};
-		400AB99D28FF7F5F00A6DCB6 /* Verified */ = {
+		2A81F440FBF58342815D913C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				400AB99E28FF7F5F00A6DCB6 /* ACPVerifiedRegistrationViewController.swift */,
-			);
-			path = Verified;
-			sourceTree = "<group>";
-		};
-		400AB9A128FF7F5F00A6DCB6 /* LandingScreen */ = {
-			isa = PBXGroup;
-			children = (
-				400AB9A228FF7F5F00A6DCB6 /* ACPLandingScreenViewController.swift */,
-			);
-			path = LandingScreen;
-			sourceTree = "<group>";
-		};
-		400AB9A328FF7F5F00A6DCB6 /* Welcome&Terms */ = {
-			isa = PBXGroup;
-			children = (
-				400AB9A428FF7F5F00A6DCB6 /* ACPWelcomeScreenViewController.swift */,
-				400AB9A528FF7F5F00A6DCB6 /* ACPTermsPrivacyViewController.swift */,
-			);
-			path = "Welcome&Terms";
-			sourceTree = "<group>";
-		};
-		400AB9A628FF7F5F00A6DCB6 /* EligibilityCheck */ = {
-			isa = PBXGroup;
-			children = (
-				400AB9A728FF7F5F00A6DCB6 /* EligibilityZip */,
-				400AB9AB28FF7F5F00A6DCB6 /* EligibilityCheckViewController.swift */,
-				400AB9AC28FF7F5F00A6DCB6 /* Views */,
-			);
-			path = EligibilityCheck;
-			sourceTree = "<group>";
-		};
-		400AB9A728FF7F5F00A6DCB6 /* EligibilityZip */ = {
-			isa = PBXGroup;
-			children = (
-				400AB9A828FF7F5F00A6DCB6 /* EligibilityZipViewController.swift */,
-				400AB9A928FF7F5F00A6DCB6 /* Views */,
-			);
-			path = EligibilityZip;
-			sourceTree = "<group>";
-		};
-		400AB9A928FF7F5F00A6DCB6 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				400AB9AA28FF7F5F00A6DCB6 /* EligibilityZipView.swift */,
+				8ED7649190F5438019E8C15D /* EligibilityZipCode */,
+				8F15AB9CCF9CFC9DCA45E1F1 /* EligibilityDetails */,
+				C872C815F75403A7F67F7E2D /* EligibilityVerifyViewController.swift */,
+				EC80EA627422E93DA7D9410D /* EligibilitySuccessViewController.swift */,
+				C32C0CC9DE3A227E3C5F2068 /* EligibilityFailViewController.swift */,
+				7C8872E468EED41745963AEA /* EligibilityRegistrationViewController.swift */,
+				A74922F9A20161BA7E7D0F7B /* EligibilityRegistrationSuccessViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		400AB9AC28FF7F5F00A6DCB6 /* Views */ = {
+		3CFFA530DE9EDB3D07F1A14A /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				400AB9AD28FF7F5F00A6DCB6 /* EligibilityCheckView.swift */,
+				190195DC478E9AF22E23BD8B /* EligibilityService.swift */,
+				50151E6F3D9D75884AA95C47 /* EligibilityServiceEndpoint.swift */,
 			);
-			path = Views;
+			path = Service;
+			sourceTree = "<group>";
+		};
+		3E46B4F4A8D4E90F0B0D9AAD /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				9260E7CFE1E132916A4B8FCB /* WelcomeCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		400AB98A28FF7F5F00A6DCB6 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				133F868529086D1800663815 /* ApplyScreens */,
+				400AB9AE28FF7F5F00A6DCB6 /* HomeScreen */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 		400AB9AE28FF7F5F00A6DCB6 /* HomeScreen */ = {
@@ -476,7 +486,6 @@
 				400AB9B628FF7F6000A6DCB6 /* UITextField+ACP.swift */,
 				400AB9B728FF7F6000A6DCB6 /* UITableView+ACP.swift */,
 				400AB9B828FF7F6000A6DCB6 /* UICollectionView+ACP.swift */,
-				400AB9B928FF7F6000A6DCB6 /* UIViewController+Keyboard.swift */,
 				400AB9BA28FF7F6000A6DCB6 /* NSMutableParagraphStyle+ACP.swift */,
 				400AB9BB28FF7F6000A6DCB6 /* UIViewController+ACP.swift */,
 				400AB9BC28FF7F6000A6DCB6 /* UITapGestureRecognizer+ACP.swift */,
@@ -484,6 +493,8 @@
 				400AB9BE28FF7F6000A6DCB6 /* String+ACP.swift */,
 				4013FAEB290892810018025F /* UIButton+ACP.swift */,
 				4013FAED2908A3A30018025F /* UINavigationController+ACP.swift */,
+				548D77969E9C410C92339EAA /* UIAlertController+ACP.swift */,
+				7D46D772B45FA926738EACAA /* UIStackView+ACP.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -492,7 +503,7 @@
 			isa = PBXGroup;
 			children = (
 				400AB9C028FF7F6000A6DCB6 /* AppDelegate.swift */,
-				400AB9C128FF7F6000A6DCB6 /* SceneDelegate.swift */,
+				053FB1B2EAA9A73599FBAF0C /* AppCoordinator.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -500,10 +511,7 @@
 		400AB9C228FF7F6000A6DCB6 /* Generic */ = {
 			isa = PBXGroup;
 			children = (
-				40315461290E3B62009320D8 /* Shadows */,
 				400AB9C328FF7F6000A6DCB6 /* TabMenu */,
-				400AB9C628FF7F6000A6DCB6 /* ACPTableView.swift */,
-				400AB9C728FF7F6000A6DCB6 /* ACPNavigationController.swift */,
 				400AB9CC28FF7F6000A6DCB6 /* UIElements */,
 			);
 			path = Generic;
@@ -512,9 +520,8 @@
 		400AB9C328FF7F6000A6DCB6 /* TabMenu */ = {
 			isa = PBXGroup;
 			children = (
-				400AB9C428FF7F6000A6DCB6 /* ACPTabMenuViewController.swift */,
-				400AB9C528FF7F6000A6DCB6 /* ACPFocusableView.swift */,
 				400ABA3328FF905C00A6DCB6 /* Cells */,
+				B46B483C3F8D7E7E77A75BF9 /* TabMenuViewController.swift */,
 			);
 			path = TabMenu;
 			sourceTree = "<group>";
@@ -522,118 +529,34 @@
 		400AB9CC28FF7F6000A6DCB6 /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
-				400AB9CD28FF7F6000A6DCB6 /* ACPTextField.swift */,
-				400AB9CE28FF7F6000A6DCB6 /* ACPTermsAndPrivacyLabel.swift */,
-				400AB9CF28FF7F6000A6DCB6 /* ACPPickerView.swift */,
-				400AB9D028FF7F6000A6DCB6 /* ACPImageButton.swift */,
-				400AB9D128FF7F6000A6DCB6 /* ACPBorderedView.swift */,
-				400AB9D228FF7F6000A6DCB6 /* ACPCircleLoadingBarView.swift */,
+				E415BCD059FF3447D4B2CEC5 /* PickerView.swift */,
+				7C179C1BA7152F02C50945C5 /* CircleLoadingBarView.swift */,
+				C13D1DF37C0837E8E4BC7AE9 /* ShadowButton.swift */,
+				6BF91E10493CD6ABEBA6C900 /* ImageButton.swift */,
+				EE667F1DD8228A232867EBB9 /* TermsAndPrivacyLabel.swift */,
+				83FFABB34581EE3D51E7DC76 /* TableView.swift */,
+				B35978EA1E6A77AA9F4E0D3A /* TextField.swift */,
+				1BA13C0B9407B5A32257609E /* BorderedView.swift */,
+				835A05A61589E31FC243E7A2 /* NavigationController.swift */,
 			);
 			path = UIElements;
-			sourceTree = "<group>";
-		};
-		400AB9D328FF7F6000A6DCB6 /* NotVerified */ = {
-			isa = PBXGroup;
-			children = (
-				400AB9D428FF7F6000A6DCB6 /* ViewModels */,
-				400AB9D628FF7F6000A6DCB6 /* Views */,
-			);
-			path = NotVerified;
-			sourceTree = "<group>";
-		};
-		400AB9D428FF7F6000A6DCB6 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				400AB9D528FF7F6000A6DCB6 /* ACPPersonalInfoViewModel.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		400AB9D628FF7F6000A6DCB6 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				400AB9E528FF7F6000A6DCB6 /* ACPNotVerifiedRegistrationViewController.swift */,
-				400AB9E628FF7F6000A6DCB6 /* ACPPersonalInfoViewController.swift */,
-				400AB9D728FF7F6000A6DCB6 /* ChildVC */,
-				400ABA342900413D00A6DCB6 /* ACPRegistrationCompleteViewController.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		400AB9D728FF7F6000A6DCB6 /* ChildVC */ = {
-			isa = PBXGroup;
-			children = (
-				400AB9D828FF7F6000A6DCB6 /* PersonalInfo */,
-				400AB9DE28FF7F6000A6DCB6 /* KYC */,
-				400AB9E428FF7F6000A6DCB6 /* ACPBankInfoViewController.swift */,
-			);
-			path = ChildVC;
-			sourceTree = "<group>";
-		};
-		400AB9D828FF7F6000A6DCB6 /* PersonalInfo */ = {
-			isa = PBXGroup;
-			children = (
-				400AB9DD28FF7F6000A6DCB6 /* ACPPersonalInfoDetailsViewController.swift */,
-				400AB9D928FF7F6000A6DCB6 /* VerifyEmail */,
-			);
-			path = PersonalInfo;
-			sourceTree = "<group>";
-		};
-		400AB9D928FF7F6000A6DCB6 /* VerifyEmail */ = {
-			isa = PBXGroup;
-			children = (
-				400AB9DA28FF7F6000A6DCB6 /* ACPVerifyEmailCodeView.swift */,
-				400AB9DB28FF7F6000A6DCB6 /* ACPVerifyEmailViewController.swift */,
-				400AB9DC28FF7F6000A6DCB6 /* ACPVerifyEmailKeyboardView.swift */,
-			);
-			path = VerifyEmail;
-			sourceTree = "<group>";
-		};
-		400AB9DE28FF7F6000A6DCB6 /* KYC */ = {
-			isa = PBXGroup;
-			children = (
-				400AB9DF28FF7F6000A6DCB6 /* ACPIdentityProofViewController.swift */,
-				400ABA3028FF8BFE00A6DCB6 /* ChildVC */,
-			);
-			path = KYC;
 			sourceTree = "<group>";
 		};
 		400AB9E728FF7F6000A6DCB6 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				400AB9E828FF7F6000A6DCB6 /* Endpoints */,
-				400AB9EB28FF7F6000A6DCB6 /* ACPRouter.swift */,
-				400AB9EC28FF7F6000A6DCB6 /* ACPEndpoint.swift */,
+				74581283CA8C675FF3D683CA /* Router.swift */,
+				FE998292F472345F7396F82A /* Endpoint.swift */,
 			);
 			path = Networking;
-			sourceTree = "<group>";
-		};
-		400AB9E828FF7F6000A6DCB6 /* Endpoints */ = {
-			isa = PBXGroup;
-			children = (
-				400AB9E928FF7F6000A6DCB6 /* TestEndpoint.swift */,
-				400AB9EA28FF7F6000A6DCB6 /* VerifyEndpoint.swift */,
-			);
-			path = Endpoints;
-			sourceTree = "<group>";
-		};
-		400ABA3028FF8BFE00A6DCB6 /* ChildVC */ = {
-			isa = PBXGroup;
-			children = (
-				400AB9E028FF7F6000A6DCB6 /* ACPSelfieViewController.swift */,
-				400AB9E128FF7F6000A6DCB6 /* ACPScanIDViewController.swift */,
-				400AB9E228FF7F6000A6DCB6 /* ACPKYCViewController.swift */,
-				400AB9E328FF7F6000A6DCB6 /* ACPKYCCompleteViewController.swift */,
-			);
-			path = ChildVC;
 			sourceTree = "<group>";
 		};
 		400ABA3328FF905C00A6DCB6 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				400ABA3128FF904B00A6DCB6 /* ACPTabMenuDotCell.swift */,
-				400AB9CB28FF7F6000A6DCB6 /* ACPTabMenuTitleCell.swift */,
-				403AD2242907636B00C6D556 /* ACPTabMenuImageCell.swift */,
+				E31EACC9A6C0A22F9E87C253 /* TabMenuImageCell.swift */,
+				8B4BF3DCFADD9CFBABAC1819 /* TabMenuDotCell.swift */,
+				EAB3F3DBAC4351A09B1C9754 /* TabMenuTitleCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -718,22 +641,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		4031545C290E2325009320D8 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				4031545D290E2349009320D8 /* ACPLoginViewController.swift */,
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
-		40315461290E3B62009320D8 /* Shadows */ = {
-			isa = PBXGroup;
-			children = (
-				4031545F290E3002009320D8 /* ACPShadowButton.swift */,
-			);
-			path = Shadows;
-			sourceTree = "<group>";
-		};
 		403AD21E29075AC200C6D556 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -779,6 +686,9 @@
 				400AB9E728FF7F6000A6DCB6 /* Networking */,
 				400AB98A28FF7F5F00A6DCB6 /* Screens */,
 				40B5EDFE28E227A30096B91B /* Resources */,
+				88FFE1C707250CF8F9B7F5A9 /* Managers */,
+				A77176A1B8E6445714C0BEF4 /* Protocols */,
+				871C36561512C1732B82F650 /* NewScreens */,
 			);
 			path = "ACP-mobile";
 			sourceTree = "<group>";
@@ -842,6 +752,187 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		52DED0D4C30929969D55D9D3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2BDDC1701064F22F8BFA4CB1 /* LoginViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		61BE15B39CFAD7C635CE01CE /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				4EA4BC913548F1CE488ACE21 /* LoginCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		696E77A4B51D2D1C5175BC6B /* KYC */ = {
+			isa = PBXGroup;
+			children = (
+				B402E5606B3AF8CBF8730EF4 /* Coordinator */,
+				BCB5B0F74571C80E6E892488 /* Models */,
+				C4207D045C9129CA572C075D /* Service */,
+				79B9BC8ABE214CA6B33D9CEF /* ViewModels */,
+				109F5F7DBC50E47E97F667FA /* Views */,
+			);
+			path = KYC;
+			sourceTree = "<group>";
+		};
+		6B3D6ADEF2F2F7E274762774 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E00ECF35F63A980E43E496DD /* KYCIdentityProof */,
+				9F973775D76DDB9913F82F6E /* KYCRegistrationStartViewController.swift */,
+				89BAE02250E8F8653C988B53 /* KYCRegistrationBaseViewController.swift */,
+				962220DBC94C2C9979E4283D /* KYCPersonalInfoDetailsViewController.swift */,
+				12AA4B5D101A84E6FF2EB042 /* KYCVerifyEmailViewController.swift */,
+				C569C5647161B1EE2D6D97B6 /* KYCBankInfoViewController.swift */,
+				3F4ED146B3D530CA857E690D /* KYCRegistrationCompleteViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		79B9BC8ABE214CA6B33D9CEF /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				67BF1620F8D18C118F958FE4 /* KYCRegistrationStartViewModel.swift */,
+				A213475D5F98CE6044028845 /* KYCRegistrationViewModel.swift */,
+				15A98E80A656BA46143E3B9D /* KYCRegistrationCompleteViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		7F22CBB9E6242E5734878834 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F2A82E2323B96C7E792D43ED /* LoginViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		871C36561512C1732B82F650 /* NewScreens */ = {
+			isa = PBXGroup;
+			children = (
+				9E49EDAE613885FA0A0C130A /* Welcome */,
+				230F5A8A90973B63A31CE18A /* Registration */,
+				0479837723FFED44D8235ECA /* Login */,
+			);
+			path = NewScreens;
+			sourceTree = "<group>";
+		};
+		88FFE1C707250CF8F9B7F5A9 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				F974777E0F55DBD7424D034A /* AuthManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		8ED7649190F5438019E8C15D /* EligibilityZipCode */ = {
+			isa = PBXGroup;
+			children = (
+				90987635ED759C2B338D9180 /* EligibilityZipCodeViewController.swift */,
+				CE592FD5B325EACF34C557BC /* EligibilityZipCodeView.swift */,
+			);
+			path = EligibilityZipCode;
+			sourceTree = "<group>";
+		};
+		8F15AB9CCF9CFC9DCA45E1F1 /* EligibilityDetails */ = {
+			isa = PBXGroup;
+			children = (
+				FFFDAAC94868703D3A80FE11 /* EligibilityDetailsViewController.swift */,
+				D63D69D5CC1E834C6519643B /* EligibilityDetailsNameViewController.swift */,
+				645426114EE76FC8C5EF3393 /* EligibilityDetailsDOBViewController.swift */,
+				A4885A5E64F00B2701CF5222 /* EligibilityDetailsAddressViewController.swift */,
+			);
+			path = EligibilityDetails;
+			sourceTree = "<group>";
+		};
+		9332D4EDDC800098F8941CBE /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				52744797F569113391A23C8D /* LoginService.swift */,
+				B9747AB149F568A41FBC3BCD /* LoginServiceEndpoint.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		9E49EDAE613885FA0A0C130A /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				3E46B4F4A8D4E90F0B0D9AAD /* Coordinator */,
+				EF066FEF9E5FF61C1B4FFA13 /* ViewModels */,
+				09E0F919DCC0BBA9F9F8986D /* Views */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		A06ABC3A76FA7833AE11012E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				91267CF3C1FA4BA8195AB3F3 /* LoginResponse.swift */,
+				CE91A92B3AAFD02474F39933 /* LoginData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A1CF072A5BD2C1F4B41175E8 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				AD7C950CF106368C8D074A53 /* EligibilityCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		A77176A1B8E6445714C0BEF4 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				D001E954E914707EBB620555 /* Coordinator.swift */,
+				FF12AB550459ED7BE83F1D91 /* FocusableView.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		AC956385E56D44813ECD37EC /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				C5ED06D2C2871AACA82EF1E7 /* KYCVerifyEmailCodeView.swift */,
+				8D878C12CD9BF0C094E77448 /* KYCVerifyEmailKeyboardView.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		B402E5606B3AF8CBF8730EF4 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				6D54F2C67BF62BE762B704A8 /* KYCCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		BCB5B0F74571C80E6E892488 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F392784CFC9D11B3AA9C37E4 /* KYCModel.swift */,
+				C509EE7EC623304AE9BFF182 /* KYCVerifyEmailResponse.swift */,
+				52E8498E6F4DEBE262CA28A6 /* KYCVerifyEmailData.swift */,
+				310EFAD02BB12F1703F79D1B /* KYCRegisterResponse.swift */,
+				37055A88CED438FA6A96A73F /* KYCRegisterData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C4207D045C9129CA572C075D /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				FD45702B7A2FA1AD8D2AACC5 /* KYCService.swift */,
+				3E8DD0A53229D15A571183E2 /* KYCServiceEndpoint.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		CE05019329638D49004E06BC /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -853,6 +944,38 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		E00ECF35F63A980E43E496DD /* KYCIdentityProof */ = {
+			isa = PBXGroup;
+			children = (
+				3F3482FAAA969A9440862FE1 /* KYCVerificationViewController.swift */,
+				0366AF4C43A4245B2D9C8C38 /* KYCScanIDViewController.swift */,
+				088DD1D281EE1D3A5A1FA10D /* KYCSelfieViewController.swift */,
+				8BDED0463A176F0DD761CE4F /* KYCCheckCompleteViewController.swift */,
+				7EEB735CC8FEA320201CF5E8 /* KYCIdentityProofViewController.swift */,
+			);
+			path = KYCIdentityProof;
+			sourceTree = "<group>";
+		};
+		EF066FEF9E5FF61C1B4FFA13 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				8E0A088F99F4409B7430CF9E /* WelcomeViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		F23185C62BE78BAFA7001C76 /* Eligibility */ = {
+			isa = PBXGroup;
+			children = (
+				A1CF072A5BD2C1F4B41175E8 /* Coordinator */,
+				1E6759CD2B5B15413A55FAFD /* Models */,
+				3CFFA530DE9EDB3D07F1A14A /* Service */,
+				FBF6837FFC66325CF509814C /* ViewModels */,
+				2A81F440FBF58342815D913C /* Views */,
+			);
+			path = Eligibility;
+			sourceTree = "<group>";
+		};
 		FB00E332458E87060AD9B9F0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -860,6 +983,20 @@
 				1301AD36DE072905C940D450 /* Pods-ACP-mobile.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		FBF6837FFC66325CF509814C /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				C073808790391B98498910D9 /* EligibilityZipCodeViewModel.swift */,
+				27EC91A0D722C2EDADC66C33 /* EligibilityDetailsViewModel.swift */,
+				D211907CB53174934E3BFDB5 /* EligibilityVerifyViewModel.swift */,
+				97759464A3C235009BF4FD6E /* EligibilitySuccessViewModel.swift */,
+				46C4611889CF754F17C62C06 /* EligibilityFailViewModel.swift */,
+				67BC26760AF88C5781730280 /* EligibilityRegistrationViewModel.swift */,
+				253B7D063497FD88FAA0C063 /* EligibilityRegistrationSuccessViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -999,103 +1136,130 @@
 			buildActionMask = 2147483647;
 			files = (
 				13BF542829104B1600C94201 /* RequestCardViewModel.swift in Sources */,
-				400AB9ED28FF7F6000A6DCB6 /* ACPEligibilityDetailsViewModel.swift in Sources */,
 				4013FADE29083DB00018025F /* ACPCardSuccessViewController.swift in Sources */,
-				400ABA2B28FF7F6000A6DCB6 /* ACPPersonalInfoViewController.swift in Sources */,
-				4031545E290E2349009320D8 /* ACPLoginViewController.swift in Sources */,
-				400AB9FB28FF7F6000A6DCB6 /* ACPLandingScreenViewController.swift in Sources */,
-				400AB9FE28FF7F6000A6DCB6 /* EligibilityZipViewController.swift in Sources */,
 				40251D46290DE0710083B89A /* ACPTransactionsCell.swift in Sources */,
 				CE05019529638FEE004E06BC /* ACPProfileDOBView.swift in Sources */,
 				400ABA0228FF7F6000A6DCB6 /* ACPHomeScreenEligibilityHeaderView.swift in Sources */,
 				400ABA0F28FF7F6000A6DCB6 /* String+ACP.swift in Sources */,
-				400ABA1328FF7F6000A6DCB6 /* ACPFocusableView.swift in Sources */,
 				CE05019229638D44004E06BC /* ACPProfileNameView.swift in Sources */,
-				400ABA1928FF7F6000A6DCB6 /* ACPTextField.swift in Sources */,
-				400AB9FD28FF7F6000A6DCB6 /* ACPTermsPrivacyViewController.swift in Sources */,
 				400ABA0928FF7F6000A6DCB6 /* UICollectionView+ACP.swift in Sources */,
 				CE0501992963927C004E06BC /* ACPProfileSSNView.swift in Sources */,
-				400AB9F528FF7F6000A6DCB6 /* ACPEligibilityDetailsFailViewController.swift in Sources */,
 				400ABA0D28FF7F6000A6DCB6 /* UITapGestureRecognizer+ACP.swift in Sources */,
-				400ABA2828FF7F6000A6DCB6 /* ACPKYCCompleteViewController.swift in Sources */,
 				40251D44290DE04C0083B89A /* ACPTransactionsViewController.swift in Sources */,
-				400ABA2C28FF7F6000A6DCB6 /* TestEndpoint.swift in Sources */,
 				40D0BE442919D89900067026 /* ACPProfileVerticalStackButton.swift in Sources */,
 				40D0BE422919D89900067026 /* ACPProfileSettingsView.swift in Sources */,
 				4013FAEE2908A3A30018025F /* UINavigationController+ACP.swift in Sources */,
-				400AB9F428FF7F6000A6DCB6 /* ACPEligibilityDetailsAddressViewController.swift in Sources */,
-				400ABA1528FF7F6000A6DCB6 /* ACPNavigationController.swift in Sources */,
-				400AB9EF28FF7F6000A6DCB6 /* ACPEligibilityDetailsAddressModel.swift in Sources */,
 				4013FAE7290844380018025F /* ACPEmptyWalletBalanceView.swift in Sources */,
-				400ABA2128FF7F6000A6DCB6 /* ACPVerifyEmailViewController.swift in Sources */,
-				400ABA2428FF7F6000A6DCB6 /* ACPIdentityProofViewController.swift in Sources */,
 				400ABA1028FF7F6000A6DCB6 /* AppDelegate.swift in Sources */,
 				400ABA0728FF7F6000A6DCB6 /* UITextField+ACP.swift in Sources */,
-				400ABA1828FF7F6000A6DCB6 /* ACPTabMenuTitleCell.swift in Sources */,
 				4013FAEA29085B220018025F /* ACPDebitCardView.swift in Sources */,
 				400ABA0028FF7F6000A6DCB6 /* EligibilityCheckViewController.swift in Sources */,
-				400AB9F828FF7F6000A6DCB6 /* ACPEligibilityDetailsViewController.swift in Sources */,
-				400AB9F028FF7F6000A6DCB6 /* ACPEligibilityDetailsModel.swift in Sources */,
-				400ABA2528FF7F6000A6DCB6 /* ACPSelfieViewController.swift in Sources */,
 				133F86922908714E00663815 /* ApplyForServiceView.swift in Sources */,
 				40251D41290CD2840083B89A /* ACPCardModel.swift in Sources */,
-				400ABA1F28FF7F6000A6DCB6 /* ACPPersonalInfoViewModel.swift in Sources */,
 				40D0BE452919D89900067026 /* ACPProfileViewController.swift in Sources */,
-				400AB9F228FF7F6000A6DCB6 /* ACPEligibilityDetailsNameViewController.swift in Sources */,
 				133F868F290870EC00663815 /* ApplyACPViewController.swift in Sources */,
-				400ABA0128FF7F6000A6DCB6 /* EligibilityCheckView.swift in Sources */,
-				400AB9F728FF7F6000A6DCB6 /* ACPEligibilityDetailsVerifyViewController.swift in Sources */,
 				400ABA0C28FF7F6000A6DCB6 /* UIViewController+ACP.swift in Sources */,
 				133F86942908715900663815 /* ApplyForServiceViewController.swift in Sources */,
-				400ABA3228FF904B00A6DCB6 /* ACPTabMenuDotCell.swift in Sources */,
 				40D0BE462919D89900067026 /* ACPProfileSecurityViewController.swift in Sources */,
 				400ABA0828FF7F6000A6DCB6 /* UITableView+ACP.swift in Sources */,
 				400ABA0E28FF7F6000A6DCB6 /* UIColor+ACP.swift in Sources */,
-				40315460290E3002009320D8 /* ACPShadowButton.swift in Sources */,
-				400ABA2928FF7F6000A6DCB6 /* ACPBankInfoViewController.swift in Sources */,
 				133F868D29086E6E00663815 /* ApplyACPView.swift in Sources */,
-				400AB9FF28FF7F6000A6DCB6 /* EligibilityZipView.swift in Sources */,
-				400ABA1128FF7F6000A6DCB6 /* SceneDelegate.swift in Sources */,
 				403AD22029075B0600C6D556 /* ACPHomeScreenTabViewController.swift in Sources */,
 				400ABA0428FF7F6000A6DCB6 /* ACPHomeScreenViewController.swift in Sources */,
 				40D0BE412919D89900067026 /* ACPProfileHeaderView.swift in Sources */,
-				400AB9F328FF7F6000A6DCB6 /* ACPEligibilityDetailsDOBViewController.swift in Sources */,
-				400ABA2E28FF7F6000A6DCB6 /* ACPRouter.swift in Sources */,
 				4013FAEC290892810018025F /* UIButton+ACP.swift in Sources */,
-				400ABA1428FF7F6000A6DCB6 /* ACPTableView.swift in Sources */,
-				400ABA1C28FF7F6000A6DCB6 /* ACPImageButton.swift in Sources */,
-				400AB9EE28FF7F6000A6DCB6 /* ACPEligibilityDetailsDOBModel.swift in Sources */,
 				400ABA0B28FF7F6000A6DCB6 /* NSMutableParagraphStyle+ACP.swift in Sources */,
-				400ABA2328FF7F6000A6DCB6 /* ACPPersonalInfoDetailsViewController.swift in Sources */,
 				400ABA0528FF7F6000A6DCB6 /* ACPHomeScreenHeaderView.swift in Sources */,
-				400AB9F628FF7F6000A6DCB6 /* ACPEligibilityDetailsSuccessViewController.swift in Sources */,
 				400ABA0328FF7F6000A6DCB6 /* ACPHomeScreenProgramCell.swift in Sources */,
-				400ABA2228FF7F6000A6DCB6 /* ACPVerifyEmailKeyboardView.swift in Sources */,
-				400ABA1E28FF7F6000A6DCB6 /* ACPCircleLoadingBarView.swift in Sources */,
 				CE05019729639067004E06BC /* ACPProfileAddressView.swift in Sources */,
-				400ABA2028FF7F6000A6DCB6 /* ACPVerifyEmailCodeView.swift in Sources */,
 				13581443290F2B1500612D8B /* RequestCardViewController.swift in Sources */,
-				403AD2252907636B00C6D556 /* ACPTabMenuImageCell.swift in Sources */,
-				400ABA0A28FF7F6000A6DCB6 /* UIViewController+Keyboard.swift in Sources */,
-				400ABA1D28FF7F6000A6DCB6 /* ACPBorderedView.swift in Sources */,
 				403AD22329075B6400C6D556 /* ACPHomeScreenTabViewModel.swift in Sources */,
-				400ABA1B28FF7F6000A6DCB6 /* ACPPickerView.swift in Sources */,
 				133F868A29086DC400663815 /* ACPSuccesViewController.swift in Sources */,
-				400ABA2F28FF7F6000A6DCB6 /* ACPEndpoint.swift in Sources */,
-				400ABA2628FF7F6000A6DCB6 /* ACPScanIDViewController.swift in Sources */,
-				400AB9F128FF7F6000A6DCB6 /* ACPEligibilityDetailsNameModel.swift in Sources */,
 				4013FAE12908427F0018025F /* ACPEmptyWalletViewController.swift in Sources */,
 				400ABA0628FF7F6000A6DCB6 /* UIResponder+ACP.swift in Sources */,
-				400AB9FC28FF7F6000A6DCB6 /* ACPWelcomeScreenViewController.swift in Sources */,
-				400ABA2D28FF7F6000A6DCB6 /* VerifyEndpoint.swift in Sources */,
-				400ABA1228FF7F6000A6DCB6 /* ACPTabMenuViewController.swift in Sources */,
 				40D0BE432919D89900067026 /* ACPProfileInfoViewController.swift in Sources */,
-				400ABA1A28FF7F6000A6DCB6 /* ACPTermsAndPrivacyLabel.swift in Sources */,
-				400ABA2728FF7F6000A6DCB6 /* ACPKYCViewController.swift in Sources */,
 				4013FAE32908428A0018025F /* ACPWalletViewController.swift in Sources */,
-				400ABA352900413D00A6DCB6 /* ACPRegistrationCompleteViewController.swift in Sources */,
-				400AB9F928FF7F6000A6DCB6 /* ACPVerifiedRegistrationViewController.swift in Sources */,
-				400ABA2A28FF7F6000A6DCB6 /* ACPNotVerifiedRegistrationViewController.swift in Sources */,
+				8ADE8379A51BF6B5D5D3F19C /* LoginCoordinator.swift in Sources */,
+				43A737D48DCA72D15610BC27 /* KYCRegisterResponse.swift in Sources */,
+				A62CD398741BF5EFDBAA7EB9 /* Coordinator.swift in Sources */,
+				B050367319BAB29AC6417381 /* KYCRegistrationBaseViewController.swift in Sources */,
+				5B3A41FAE7AEFE0925C226EF /* KYCService.swift in Sources */,
+				E1ACA6AC2E3EABB16DFCAC51 /* EligibilityFailViewController.swift in Sources */,
+				E28A64318063CEA292BC67A6 /* KYCVerifyEmailResponse.swift in Sources */,
+				215F141F11E340515265D069 /* KYCCheckCompleteViewController.swift in Sources */,
+				85C82623F045EB685E55ECD6 /* LandingViewController.swift in Sources */,
+				F13043A5CFC112C5B9FCE8D2 /* TextField.swift in Sources */,
+				4C836E31C7307163DB43985B /* ShadowButton.swift in Sources */,
+				90C8A51D9C537918FEE47063 /* KYCRegistrationCompleteViewModel.swift in Sources */,
+				617CDE7EEEC454477071D36F /* EligibilityZipCodeView.swift in Sources */,
+				CD996F6F241BFD7AB1CFFB76 /* EligibilityDetailsAddressViewController.swift in Sources */,
+				A95C9EFD2E7C753327C7B619 /* TermsViewController.swift in Sources */,
+				41A19C601E92798E1CEF862F /* AuthManager.swift in Sources */,
+				B4ACD21A3B17AC6721E725B7 /* WelcomeViewController.swift in Sources */,
+				2B7D9EFCBBEEA4418E9F93BB /* EligibilityResponse.swift in Sources */,
+				57A871172C05BEF0F648BF7F /* EligibilityRegistrationViewController.swift in Sources */,
+				81B77CA1FE869BB8762F9AAA /* LoginData.swift in Sources */,
+				57F32F94D0AE610C1B3F9BD8 /* FocusableView.swift in Sources */,
+				A129A25A312E241A6708EE11 /* PickerView.swift in Sources */,
+				35DFF18DC31ED70E04206468 /* KYCModel.swift in Sources */,
+				85B007FF9DEC988A218EF8E7 /* KYCVerifyEmailViewController.swift in Sources */,
+				DF71723E561AFE00E5A96ED2 /* TermsAndPrivacyLabel.swift in Sources */,
+				A920440F078A0C02D240C700 /* WelcomeCoordinator.swift in Sources */,
+				83E0F712358A59B56E985757 /* KYCIdentityProofViewController.swift in Sources */,
+				670E1DDED38A87244E08E77C /* EligibilityServiceEndpoint.swift in Sources */,
+				0DDA9D91DB5E71922F32693B /* EligibilityModel.swift in Sources */,
+				A7BC7C9A914EA2C709FB16D4 /* EligibilityDetailsViewController.swift in Sources */,
+				2108498FD8D32715201C46D8 /* LoginResponse.swift in Sources */,
+				C00412690D1BF7F81E8E31FA /* UIAlertController+ACP.swift in Sources */,
+				D99A77055911911F679AE3E7 /* KYCSelfieViewController.swift in Sources */,
+				A7588F11E7C44D8EE26E8B4C /* EligibilityZipCodeViewController.swift in Sources */,
+				554BCF64C90C421E2870823D /* EligibilityRegistrationSuccessViewModel.swift in Sources */,
+				9DFE9BCF29DC8279A2712B6B /* TabMenuTitleCell.swift in Sources */,
+				E505B1ABF2D41FAA5242C44E /* EligibilityRegistrationSuccessViewController.swift in Sources */,
+				B74694CF360D08AC498D3DF2 /* EligibilityDetailsNameViewController.swift in Sources */,
+				5034926640CCFD1565F07B13 /* KYCRegisterData.swift in Sources */,
+				9E9233CA3D65AFC65A6AF1C8 /* EligibilityVerifyViewController.swift in Sources */,
+				5B205DFC08E4F8F2438CDE18 /* BorderedView.swift in Sources */,
+				F38C055260E7BBA3563294D6 /* KYCBankInfoViewController.swift in Sources */,
+				1640BD56C54C05CA53433E5F /* EligibilityRegistrationViewModel.swift in Sources */,
+				EE5DB31C14898BAD68905E33 /* KYCServiceEndpoint.swift in Sources */,
+				A81049B991BB027238283080 /* KYCRegistrationStartViewController.swift in Sources */,
+				5ED25A606E0BC6F99E44CC87 /* UIStackView+ACP.swift in Sources */,
+				B30D11F4D55E4A890E174DE0 /* EligibilityDetailsDOBViewController.swift in Sources */,
+				7369A88BA929444990BD487D /* TabMenuDotCell.swift in Sources */,
+				78102AA2F88885B046DBA4D1 /* KYCCoordinator.swift in Sources */,
+				62B71D3D3088670BF444639C /* Router.swift in Sources */,
+				A080380B1ABC27C04B8515D6 /* ImageButton.swift in Sources */,
+				4321EDA2276006DA50CD438F /* TabMenuViewController.swift in Sources */,
+				7CE926C716E4465F27B948C0 /* KYCRegistrationStartViewModel.swift in Sources */,
+				995EC56F3CABEBBBE5CD4D79 /* EligibilityCoordinator.swift in Sources */,
+				FF6245FC359A7E93AC21D042 /* KYCRegistrationViewModel.swift in Sources */,
+				C8F3ACECA061CDAA6B6AD528 /* TableView.swift in Sources */,
+				8BA1AA83F8427CF19C1BB2AE /* EligibilityRegistrationResponse.swift in Sources */,
+				E1326A23AC40C7DD1D87F677 /* EligibilityDetailsViewModel.swift in Sources */,
+				CAF86BF3755A85609B4105FB /* NavigationController.swift in Sources */,
+				EB0C9AA7B34F36F73B71388B /* EligibilityService.swift in Sources */,
+				56191BAF72AC805A03A42A47 /* KYCPersonalInfoDetailsViewController.swift in Sources */,
+				41F619C03C2DA2BCF4E07158 /* AppCoordinator.swift in Sources */,
+				2044B62166F66CC20C7A3518 /* LoginViewModel.swift in Sources */,
+				00D8FB9DB22ED69797EEE0FD /* EligibilitySuccessViewController.swift in Sources */,
+				C8842928FDC726D638DE3560 /* LoginViewController.swift in Sources */,
+				D0291FC2113129E1F06322EE /* KYCVerifyEmailKeyboardView.swift in Sources */,
+				69CD5333F57059A18872A392 /* WelcomeViewModel.swift in Sources */,
+				EDEB5E6C934C1F9EF201173C /* LoginServiceEndpoint.swift in Sources */,
+				4C6ED5552B682EF64DA5D61D /* EligibilityZipCodeViewModel.swift in Sources */,
+				E2579F3243DA8C926C21440C /* KYCVerifyEmailCodeView.swift in Sources */,
+				E86C8BB952530920BA6D6CAC /* Endpoint.swift in Sources */,
+				30695B12DDFBDBE24D66769F /* KYCScanIDViewController.swift in Sources */,
+				0CE5B5B012B5BA0111BF44E5 /* TabMenuImageCell.swift in Sources */,
+				BD0008A455F385289AD21BDA /* EligibilityVerifyViewModel.swift in Sources */,
+				3540DB59561483435A0220E9 /* EligibilityFailViewModel.swift in Sources */,
+				1B2DD724DFDA01170E775D14 /* KYCVerifyEmailData.swift in Sources */,
+				17EE5DCC45FDD3571FE82811 /* LoginService.swift in Sources */,
+				215F812F1C2B195031C3A322 /* EligibilitySuccessViewModel.swift in Sources */,
+				A62BE0043C8038E1D7C862DD /* KYCVerificationViewController.swift in Sources */,
+				0297043A9AB992902E8545A9 /* KYCRegistrationCompleteViewController.swift in Sources */,
+				092B1CF197CF14EC8EDBBC0B /* CircleLoadingBarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1234,7 +1398,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BS9VX4J4D4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ACP-mobile/Resources/Info.plist";
@@ -1250,7 +1414,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zlatan.acp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1266,7 +1430,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BS9VX4J4D4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ACP-mobile/Resources/Info.plist";
@@ -1282,7 +1446,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zlatan.acp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

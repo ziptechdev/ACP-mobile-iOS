@@ -123,7 +123,7 @@
 /* Verified Registration Screen */
 "verified_register_page_title" = "Register";
 "verified_register_title" = "Register new account";
-"verified_register_subtitle" = "Hi John! Register a new account by entering your email address and password below.";
+"verified_register_subtitle" = "Hi %@! Register a new account by entering your email address and password below.";
 "verified_register_email" = "Email Address";
 "verified_register_password" = "Password";
 "verified_register_confirm" = "Confirm Password";

@@ -9,7 +9,7 @@ import UIKit
 
 extension UITableView {
 
-    // MARK: - UITableViewCell
+    // MARK: - Dequeue UITableViewCell
 
     func register<T>(_: T.Type) where T: UITableViewCell {
         register(T.self, forCellReuseIdentifier: String(describing: T.self))
@@ -23,7 +23,7 @@ extension UITableView {
         return cell
     }
 
-    // MARK: - UITableViewHeaderFooterView
+    // MARK: - Dequeue UITableViewHeaderFooterView
 
     func registerHeaderFooter<T>(_: T.Type) where T: UITableViewHeaderFooterView {
         register(T.self, forHeaderFooterViewReuseIdentifier: String(describing: T.self))
