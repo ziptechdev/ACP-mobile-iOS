@@ -12,6 +12,8 @@
 		133F868F290870EC00663815 /* ApplyACPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F868E290870EC00663815 /* ApplyACPViewController.swift */; };
 		133F86922908714E00663815 /* ApplyForServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F86912908714E00663815 /* ApplyForServiceView.swift */; };
 		133F86942908715900663815 /* ApplyForServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F86932908715900663815 /* ApplyForServiceViewController.swift */; };
+		1351CAB7296777CB00BF8C15 /* KYCDocumentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1351CAB6296777CB00BF8C15 /* KYCDocumentViewModel.swift */; };
+		1351CABA2967979D00BF8C15 /* KYCDocumentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1351CAB92967979D00BF8C15 /* KYCDocumentsViewModel.swift */; };
 		13581443290F2B1500612D8B /* RequestCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13581442290F2B1500612D8B /* RequestCardViewController.swift */; };
 		13BF542829104B1600C94201 /* RequestCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BF542729104B1600C94201 /* RequestCardViewModel.swift */; };
 		400AB9F228FF7F6000A6DCB6 /* EligibilityDetailsNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AB99528FF7F5F00A6DCB6 /* EligibilityDetailsNameViewController.swift */; };
@@ -138,6 +140,8 @@
 		133F868E290870EC00663815 /* ApplyACPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyACPViewController.swift; sourceTree = "<group>"; };
 		133F86912908714E00663815 /* ApplyForServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyForServiceView.swift; sourceTree = "<group>"; };
 		133F86932908715900663815 /* ApplyForServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyForServiceViewController.swift; sourceTree = "<group>"; };
+		1351CAB6296777CB00BF8C15 /* KYCDocumentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYCDocumentViewModel.swift; sourceTree = "<group>"; };
+		1351CAB92967979D00BF8C15 /* KYCDocumentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYCDocumentsViewModel.swift; sourceTree = "<group>"; };
 		13581442290F2B1500612D8B /* RequestCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCardViewController.swift; sourceTree = "<group>"; };
 		13BF542729104B1600C94201 /* RequestCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCardViewModel.swift; sourceTree = "<group>"; };
 		400AB99528FF7F5F00A6DCB6 /* EligibilityDetailsNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilityDetailsNameViewController.swift; sourceTree = "<group>"; };
@@ -320,6 +324,14 @@
 				133F86912908714E00663815 /* ApplyForServiceView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		1351CAB82967977200BF8C15 /* KYCIdentityProof */ = {
+			isa = PBXGroup;
+			children = (
+				1351CAB92967979D00BF8C15 /* KYCDocumentsViewModel.swift */,
+			);
+			path = KYCIdentityProof;
 			sourceTree = "<group>";
 		};
 		13581441290F2AC100612D8B /* RequestCard */ = {
@@ -733,9 +745,11 @@
 		404A8A6C2950134300266334 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				1351CAB82967977200BF8C15 /* KYCIdentityProof */,
 				408E06BA2958004D00F0F96C /* KYCRegistrationStartViewModel.swift */,
 				408E06BD295802FB00F0F96C /* KYCRegistrationViewModel.swift */,
 				408E06DF295BD91100F0F96C /* KYCRegistrationCompleteViewModel.swift */,
+				1351CAB6296777CB00BF8C15 /* KYCDocumentViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -1084,6 +1098,7 @@
 				408E06E3295BDD7600F0F96C /* AuthManager.swift in Sources */,
 				404A8A35294F979800266334 /* WelcomeViewController.swift in Sources */,
 				404A8A16294F938F00266334 /* EligibilityResponse.swift in Sources */,
+				1351CAB7296777CB00BF8C15 /* KYCDocumentViewModel.swift in Sources */,
 				404A8A46294FD93300266334 /* EligibilityRegistrationViewController.swift in Sources */,
 				408E06982957D57E00F0F96C /* LoginData.swift in Sources */,
 				4013FAE7290844380018025F /* ACPEmptyWalletBalanceView.swift in Sources */,
@@ -1154,6 +1169,7 @@
 				404A8A30294F979800266334 /* WelcomeViewModel.swift in Sources */,
 				404A8A61294FFF5400266334 /* LoginServiceEndpoint.swift in Sources */,
 				404A8A6529500C7200266334 /* EligibilityZipCodeViewModel.swift in Sources */,
+				1351CABA2967979D00BF8C15 /* KYCDocumentsViewModel.swift in Sources */,
 				400ABA2028FF7F6000A6DCB6 /* KYCVerifyEmailCodeView.swift in Sources */,
 				13581443290F2B1500612D8B /* RequestCardViewController.swift in Sources */,
 				403AD22329075B6400C6D556 /* ACPHomeScreenTabViewModel.swift in Sources */,
@@ -1239,7 +1255,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1293,7 +1309,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1312,7 +1328,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = BS9VX4J4D4;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ACP-mobile/Resources/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = ACP;
@@ -1322,7 +1338,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1346,7 +1362,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = BS9VX4J4D4;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ACP-mobile/Resources/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = ACP;
@@ -1356,7 +1372,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

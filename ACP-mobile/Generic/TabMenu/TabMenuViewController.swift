@@ -170,7 +170,7 @@ class TabMenuViewController: UIViewController {
             }
         }
     }
-
+    
     // MARK: - Navigation
 
     func nextTab() {
@@ -273,3 +273,4 @@ extension TabMenuViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: cellWidth, height: cellHeight)
     }
 }
+

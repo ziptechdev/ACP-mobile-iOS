@@ -12,7 +12,7 @@ class BorderedView: UIView {
 
     // MARK: - Views
 
-    private let imageView: UIImageView = {
+     let imageView: UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFit
         view.translatesAutoresizingMaskIntoConstraints = false

@@ -13,6 +13,9 @@ class KYCRegistrationBaseViewController: UIViewController {
     // MARK: - Properties
 
     private let viewModel: KYCRegistrationViewModel
+    
+    private let viewModelDocuments: KYCDocumentsViewModel
+
 
     // MARK: - Views
 
@@ -20,8 +23,9 @@ class KYCRegistrationBaseViewController: UIViewController {
 
     // MARK: - Initialization
 
-    init(viewModel: KYCRegistrationViewModel) {
+    init(viewModel: KYCRegistrationViewModel, viewModelDocuments: KYCDocumentsViewModel) {
         self.viewModel = viewModel
+        self.viewModelDocuments = viewModelDocuments
 
         super.init(nibName: nil, bundle: nil)
     }
@@ -108,7 +112,8 @@ extension KYCRegistrationBaseViewController: TabMenuDelegate {
     }
 
     func didTapActionButton() {
-        viewModel.register()
+        print("helout world \(viewModelDocuments.idAccount ) ++ \(viewModelDocuments.workflowId)")
+        viewModel.register(accountId: viewModelDocuments.idAccount ?? "", workflowId: viewModelDocuments.workflowId ?? "" )
     }
 }
 
@@ -152,7 +157,7 @@ extension KYCRegistrationBaseViewController: TabMenuViewControllerDelegate {
             viewController.delegate = self
             return viewController
         case 1:
-            let viewController = KYCIdentityProofViewController()
+            let viewController = KYCIdentityProofViewController(viewModel: viewModelDocuments, viewModelInfo: viewModel)
             viewController.delegate = self
             return viewController
         default:
