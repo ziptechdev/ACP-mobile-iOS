@@ -7,6 +7,7 @@
 
 import Alamofire
 import SwiftyJSON
+import UIKit
 
 class KYCDocumentsViewModel {
 
@@ -16,10 +17,14 @@ class KYCDocumentsViewModel {
     private let service = KYCService()
     var model = KYCDocumentsModel()
 
+    
+    var idAccount: String?
+    var workflowId: String?
+    
     var showErrorMessage: ((String) -> Void)?
     var dismissVerifyEmail: (() -> Void)?
     var verifyEmailError: ((String) -> Void)?
-
+    
     private var termsUrl: String { "terms" }
     private var privacyPolicyUrl: String { "privacy" }
 
@@ -46,173 +51,90 @@ class KYCDocumentsViewModel {
     func titleForTab(at index: Int) -> String {
         return tabNames[index]
     }
-
-    // MARK: - Network
-//    func sendEmailCode() {
-//        let parameters: Parameters = ["email": model.email]
-//
-//        service.verifyEmail(parameters: parameters) { [weak self] data, error in
-//            guard let self = self else { return }
-//
-//            guard let data = data, error == nil else {
-//                self.showErrorMessage?("Something went wrong. Try again.")
-//                return
-//            }
-//
-//            guard let model = try? JSONDecoder().decode(KYCVerifyEmailResponse.self, from: data),
-//                  let verificationCode = model.data?.verificationCode
-//            else {
-//                self.showErrorMessage?("Something went wrong. Try again.")
-//                return
-//            }
-//            print("code \(verificationCode)")
-//            self.model.verificationCode = "\(verificationCode)"
-//            self.openVerifyEmail()
-//        }
-//    }
-//
-//    func resendEmailCode() {
-//        sendEmailCode()
-//    }
-//
-//    func confirmCode(_ code: String) {
-//        if code == model.verificationCode {
-//            dismissVerifyEmail?()
-//        } else {
-//            verifyEmailError?("Verification code is incorrect.")
-//        }
-//    }
-//
-//    func register() {
-//        let parameters: Parameters = [
-//            "firstName": model.firstName,
-//            "lastName": model.lastName,
-//            "username": model.email,
-//            "password": model.password,
-//            "phoneNumber": model.phoneNumber,
-//            "socialSecurityNumber": model.ssn,
-//            "bankName": model.bankName,
-//            "bankNumber": model.bankNumber,
-//            "accountHolderName": model.accountHolderName,
-//            "accountNumber": model.accountNumber,
-//            "expirationDate": model.expirationDate
-//        ]
-//
-//        service.kycRegister(parameters: parameters) { [weak self] data, error in
-//            guard let self = self else { return }
-//
-//            guard let data = data, error == nil else {
-//                self.showErrorMessage?("Something went wrong. Try again.")
-//                return
-//            }
-//
-//            guard let model = try? JSONDecoder().decode(KYCRegisterResponse.self, from: data),
-//                  let _ = model.data
-//            else {
-//                self.showErrorMessage?("Something went wrong. Try again.")
-//                return
-//            }
-//
-//            self.coordinator?.goToRegistrationComplete()
-//        }
-//    }
-
     func kycVerifyUploadTEST() {
-        var scanFront = model.documentIdFront
-        var  scanBack = model.documentIdBack
-        var selfie = model.selfie
-        var userIP = model.userIp
-//        var userState
-        
+        let scanFront = model.documentIdFront
+        let scanBack = model.documentIdBack
+        let selfie = model.selfie
+        let userIP = model.userIp
         var username = model.username
         var userState = model.userState
         var dateAt = model.consentOptainedAt
         
-        var idAccount: String?
-      //  print("dataet \(dateAt)")
-        username = "ab23@gmail.com"
-        userState = "IL"
-        userIP = "192.168.0.1"
-     //   dateAt = "2023-01-04T17:20:35.000Z"
-        dateAt = "2023-01-04 17:20:35"
-//        dateAt = "2018-09-12T14:11:54.348Z"
-//        let today = Date()
-//        let formatter1 = DateFormatter()
-//        formatter1.dateStyle = .short
-//        var strDate = formatter1.string(from: today)
-//        print("date \(strDate)")
-       // print(formatter1.string(from: today))
+        //  print("dataet \(dateAt)")
+        // these are hardcoded values that we can use to get successfull response
+//        username = "ab2320@gmail.com"
+//        userState = "IL"
+//        dateAt = "2023-01-04 23:38:13"
         
         
-        let parameters = [
-              "documentIdFront": "",
-              "documentIdBack" : "",
-              "selfie": "",
-              "username" : "",
-              "userIp": "",
-              "userState" : "",
-              "consentOptained": "",
-              "consentOptainedAt" : "",
-              
-          ]
-
-         print("tu smo krenuli")
-           let headers: HTTPHeaders = [
-               "Content-type": "multipart/form-data"
-           ]
-        print("username \(username) + \(userIP) +== \(userState) +== \(dateAt) === \(scanBack) === \(scanFront) == \(selfie)")
+        //        let parameters = [
+        //              "documentIdFront": "",
+        //              "documentIdBack" : "",
+        //              "selfie": "",
+        //              "username" : "",
+        //              "userIp": "",
+        //              "userState" : "",
+        //              "consentOptained": "",
+        //              "consentOptainedAt" : "",
+        //          ]
+        
+        print("tu smo krenuli")
+        let headers: HTTPHeaders = [
+            "Content-type": "multipart/form-data"
+        ]
+        let image = UIImage.init(named: "welcome")
+        let imageData = image?.jpegData(compressionQuality: 0.9)
+        // print("username \(username) + \(userIP) +== \(userState) +== \(dateAt) === \(scanBack) === \(scanFront) == \(selfie)")
         AF.upload(
-
-                           multipartFormData: { multipartFormData in
-                               multipartFormData.append(scanFront ?? Data(), withName: "documentIdFront" , fileName: "image.jpeg", mimeType: "image/jpeg")
-                               multipartFormData.append(scanBack ?? Data(), withName: "documentIdBack" , fileName: "image2.jpeg", mimeType: "image/jpeg")
-                               multipartFormData.append(selfie ?? Data(), withName: "selfie" , fileName: "image3.jpeg", mimeType: "image/jpeg")
-                               multipartFormData.append(username.data(using: .utf8)!, withName: "username")
-                               multipartFormData.append(userIP.data(using: .utf8)!, withName: "userIp")
-                               multipartFormData.append(userState.data(using: .utf8)!, withName: "userState")
-                               multipartFormData.append("yes".data(using: .utf8)!, withName: "consentOptained")
-                               multipartFormData.append(dateAt.data(using: .utf8)!, withName: "consentOptainedAt")
-                               
-                               //                   for (key, value) in parameters
-                               //                             {
-                               //                                 multipartFormData.append(value.data(using: String.Encoding.utf8)!, withName: key)
-                               //                             }
-   
-           },
-               to: "https://acp-mobile-backend.herokuapp.com/api/v1/jumio/resident-identity-verification",
-               method: .post ,
-               headers: headers)
-               .response { response in
-                   if let data = response.data, let s = String(data: data, encoding: .utf8) {
-                                        print("tu smo \(data)")
-                                        let arr = JSON(data)
-                                        print("arr \(arr.count)")
-                                        print("arrsss \(s)")
-                 
-                                    }
-               }
+            
+            multipartFormData: { multipartFormData in
+                multipartFormData.append(imageData ?? Data(), withName: "documentIdFront" , fileName: "image.jpeg", mimeType: "image/jpeg")
+                multipartFormData.append(imageData ?? Data(), withName: "documentIdBack" , fileName: "image2.jpeg", mimeType: "image/jpeg")
+                multipartFormData.append(imageData ?? Data(), withName: "selfie" , fileName: "image3.jpeg", mimeType: "image/jpeg")
+                multipartFormData.append(username.data(using: .utf8)!, withName: "username")
+                multipartFormData.append(userIP.data(using: .utf8)!, withName: "userIp")
+                multipartFormData.append(userState.data(using: .utf8)!, withName: "userState")
+                multipartFormData.append("yes".data(using: .utf8)!, withName: "consentOptained")
+                multipartFormData.append(dateAt.data(using: .utf8)!, withName: "consentOptainedAt")
+                
+                //                   for (key, value) in parameters
+                //                             {
+                //                                 multipartFormData.append(value.data(using: String.Encoding.utf8)!, withName: key)
+                //                             }
+                
+            },
+            to: "https://acp-mobile-backend.herokuapp.com/api/v1/jumio/resident-identity-verification",
+            method: .post ,
+            headers: headers)
+        .response {  [weak self] response in
+            if let data = response.data, let s = String(data: data, encoding: .utf8) {
+                //   print("tu smo \(data)")
+                let arr = JSON(data)
+                //    print("arr \(arr.count)")
+                print("arrsss \(s)")
+                
+            }
+            
+            guard let self = self else { return }
+            
+            guard let data = response.data else {
+                self.showErrorMessage?("Something went wrong. Try again.")
+                return
+            }
+            
+            guard let model = try? JSONDecoder().decode(KYCScanDocumentResponse.self, from: data),
+                  let mod = model.data
+            else {
+                
+                self.showErrorMessage?("Something went wrong. Try again.")
+                return
+            }
+            self.idAccount = model.data?.account.id
+            self.workflowId = model.data?.workflowExecution.id
+            print("helou \(self.idAccount) ++ \(self.workflowId)")
+            // self.coordinator?.goToRegistrationComplete()
+        }
                                     
-//                   [weak self] data in
-//                       guard let self = self else { return }
-//
-//                   guard let data = data.data else {
-//                           self.showErrorMessage?("Something went wrong. Try again.")
-//                           return
-//                       }
-//
-//                   guard let model = try? JSONDecoder().decode(KYCScanDocumentResponse.self, from: data),
-//                         let mod = model.data
-//                      else {
-//
-//                           self.showErrorMessage?("Something went wrong. Try again.")
-//                           return
-//                       }
-//                   let idAccount = model.data?.account.id
-//                   let workflowId = model.data?.workflowExecution.id
-//                   print("helou \(idAccount) ++ \(workflowId)")
-//                      // self.coordinator?.goToRegistrationComplete()
-//                   }
-  
        }
     
     // MARK: - Coordination

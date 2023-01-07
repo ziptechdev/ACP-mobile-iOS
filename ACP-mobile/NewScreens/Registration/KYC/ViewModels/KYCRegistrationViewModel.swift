@@ -14,6 +14,8 @@ class KYCRegistrationViewModel {
     private weak var coordinator: KYCCoordinatorProtocol?
     private let service = KYCService()
     var model = KYCModel()
+    var accountId = ""
+    var workflowId = ""
 
     var showErrorMessage: ((String) -> Void)?
     var dismissVerifyEmail: (() -> Void)?
@@ -61,7 +63,7 @@ class KYCRegistrationViewModel {
             guard let model = try? JSONDecoder().decode(KYCVerifyEmailResponse.self, from: data),
                   let verificationCode = model.data?.verificationCode
             else {
-                self.showErrorMessage?("Something went wrong. Try again.")
+                self.showErrorMessage?("Something went wrong. Try again. ")
                 return
             }
             print("code \(verificationCode)")
@@ -82,7 +84,7 @@ class KYCRegistrationViewModel {
         }
     }
 
-    func register() {
+    func register(accountId: String, workflowId: String) {
         let parameters: Parameters = [
             "firstName": model.firstName,
             "lastName": model.lastName,
@@ -97,10 +99,11 @@ class KYCRegistrationViewModel {
             "expirationDate": model.expirationDate
         ]
 
-        service.kycRegister(parameters: parameters) { [weak self] data, error in
+        service.kycRegister(accountId: accountId, workflowId: workflowId, parameters: parameters) { [weak self] data, error in
             guard let self = self else { return }
 
             guard let data = data, error == nil else {
+                
                 self.showErrorMessage?("Something went wrong. Try again.")
                 return
             }

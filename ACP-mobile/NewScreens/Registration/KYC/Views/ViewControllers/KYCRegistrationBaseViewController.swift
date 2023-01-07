@@ -112,7 +112,8 @@ extension KYCRegistrationBaseViewController: TabMenuDelegate {
     }
 
     func didTapActionButton() {
-        viewModel.register()
+        print("helout world \(viewModelDocuments.idAccount ) ++ \(viewModelDocuments.workflowId)")
+        viewModel.register(accountId: viewModelDocuments.idAccount ?? "", workflowId: viewModelDocuments.workflowId ?? "" )
     }
 }
 

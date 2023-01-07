@@ -23,9 +23,9 @@ struct KYCModel {
 }
 
 struct KYCDocumentsModel {
-    var documentIdFront:Data? = nil
-    var documentIdBack:Data? = nil
-    var selfie:Data? = nil
+    var documentIdFront: Data?
+    var documentIdBack: Data?
+    var selfie: Data?
     var username = ""
     var userIp = ""
     var userState = ""

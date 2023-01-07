@@ -93,7 +93,7 @@ class KYCScanIDViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(titleKey: "personal_info_btn")
         button.addTarget(self, action: #selector(didTapNextButton), for: .touchUpInside)
-        button.isHidden = false
+        button.isHidden = true
         return button
     }()
 
@@ -101,8 +101,6 @@ class KYCScanIDViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        subtitleLabel.isHidden = true
-        titleLabel.isHidden = true
         setupUI()
     }
 
@@ -164,11 +162,11 @@ class KYCScanIDViewController: UIViewController {
             make.top.equalTo(cardView.snp.bottom).offset(Constants.Constraints.TitleInsetY)
         }
 
-//        subtitleLabel.snp.makeConstraints { make in
-//            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInset)
-//            make.top.equalTo(titleLabel.snp.bottom).offset(Constants.Constraints.SubtitleOffset)
-//        }
-//
+        subtitleLabel.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInset)
+            make.top.equalTo(titleLabel.snp.bottom).offset(Constants.Constraints.SubtitleOffset)
+        }
+
         scanFrontButton.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInset)
             make.height.equalTo(Constants.Constraints.ButtonHeight)
@@ -183,6 +181,8 @@ class KYCScanIDViewController: UIViewController {
         nextButton.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInset)
             make.top.equalTo(titleLabel.snp.bottom).offset(Constants.Constraints.ButtonCornerRadius)
+            make.height.equalTo(Constants.Constraints.ButtonHeight)
+
         }
     }
 
@@ -200,8 +200,6 @@ class KYCScanIDViewController: UIViewController {
 
     // MARK: - Callbacks
     @objc func didTapNextButton() {
-        
-        print("test \(backImage)")
         viewModel.model.documentIdFront = frontImage
         viewModel.model.documentIdBack = backImage
         viewModel.model.username = viewModelInfo.model.email
@@ -217,12 +215,12 @@ class KYCScanIDViewController: UIViewController {
         imgPicker.allowsEditing = false
         imgPicker.showsCameraControls = true
         self.present(imgPicker, animated: true, completion: nil)
-    //    kycVerifyUploadTEST()
 //        delegate?.didTapNextButton()
     }
 
     @objc func didTapScanBackButton() {
         imageTaken = 2
+        imageViewBack.isHidden = false
         let imgPicker = UIImagePickerController()
         imgPicker.delegate = self
         imgPicker.sourceType = .camera

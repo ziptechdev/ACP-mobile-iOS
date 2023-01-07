@@ -24,11 +24,18 @@ class KYCSelfieViewController: UIViewController {
      let cardView = BorderedView(imageName: "selfie")
     
     var locationManager = CLLocationManager()
-    //locationManager.delegate = self
 
     // Request a user’s location once
   //  locationManager.requestLocation()
 
+    let imageViewSelfie: UIImageView = {
+       let view = UIImageView()
+        view.contentMode = .scaleAspectFit
+       view.translatesAutoresizingMaskIntoConstraints = false
+       view.isHidden = true
+       return view
+   }()
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = .localizedString(key: "kyc_selfie_title")
@@ -69,6 +76,7 @@ class KYCSelfieViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(titleKey: "personal_info_btn", textColor: .coreBlue)
         button.addTarget(self, action: #selector(didTapUploadPhotoButton), for: .touchUpInside)
+        button.isHidden = true
         return button
     }()
 
@@ -113,13 +121,19 @@ class KYCSelfieViewController: UIViewController {
     private func addSubviews() {
         view.addSubview(cardView)
         view.addSubview(titleLabel)
-    //    view.addSubview(subtitleLabel)
+        view.addSubview(subtitleLabel)
         view.addSubview(openCameraButton)
         view.addSubview(uploadPhotoButton)
+        view.addSubview(imageViewSelfie)
     }
 
     private func setupConstraints() {
         cardView.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInset)
+            make.top.equalToSuperview().inset(Constants.Constraints.CardInsetY)
+            make.height.equalTo(Constants.Constraints.CardHeight)
+        }
+        imageViewSelfie.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInset)
             make.top.equalToSuperview().inset(Constants.Constraints.CardInsetY)
             make.height.equalTo(Constants.Constraints.CardHeight)
@@ -130,10 +144,10 @@ class KYCSelfieViewController: UIViewController {
             make.top.equalTo(cardView.snp.bottom).offset(Constants.Constraints.TitleInsetY)
         }
 
-//        subtitleLabel.snp.makeConstraints { make in
-//            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInset)
-//            make.top.equalTo(titleLabel.snp.bottom).offset(Constants.Constraints.SubtitleOffset)
-//        }
+        subtitleLabel.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInset)
+            make.top.equalTo(titleLabel.snp.bottom).offset(Constants.Constraints.SubtitleOffset)
+        }
 
         openCameraButton.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(Constants.Constraints.ContentInset)
@@ -151,6 +165,7 @@ class KYCSelfieViewController: UIViewController {
     // MARK: - Callbacks
 
     @objc func didTapOpenCameraButton() {
+        
         let imgPicker = UIImagePickerController()
         imgPicker.delegate = self
         imgPicker.sourceType = .camera
@@ -161,14 +176,13 @@ class KYCSelfieViewController: UIViewController {
     }
 
     @objc func didTapUploadPhotoButton() {
-        let date = Date()
-        let format = date.getFormattedDate(format: "yyyy-MM-dd'T'HH:mm:ss.SSS") // Set output format
+        let date34 = Date()
+       // let format = date34.getFormattedDate(format: "yyyy-MM-dd'T'HH:mm:ss.SSS") // Set output format
+        let format = date34.getFormattedDate(format: "yyyy-MM-dd HH:mm:ss")
         let finalFormat = format + "Z"
-        let format2 = date.getFormattedDate(format: "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
-        print("test next [resss \(format2) + \(finalFormat)")
+        print("test next [resss \(format) + \(finalFormat)")
         let address = try? String(contentsOf: URL(string: "https://api.ipify.org")!, encoding: .utf8)
-        print("ipadress: \(address) ++ \(userState)")
-        
+
         viewModel.model.consentOptainedAt = finalFormat
         viewModel.model.selfie = selfie
         viewModel.model.userState = userState
@@ -176,30 +190,7 @@ class KYCSelfieViewController: UIViewController {
         viewModel.kycVerifyUploadTEST()
         delegate?.didTapNextButton()
     }
-//    func printAddresses() {
-//        var addrList : UnsafeMutablePointer<ifaddrs>?
-//        guard
-//            getifaddrs(&addrList) == 0,
-//            let firstAddr = addrList
-//        else { return }
-//        defer { freeifaddrs(addrList) }
-//        for cursor in sequence(first: firstAddr, next: { $0.pointee.ifa_next }) {
-//            let interfaceName = String(cString: cursor.pointee.ifa_name)
-//            let addrStr: String
-//            var hostname = [CChar](repeating: 0, count: Int(NI_MAXHOST))
-//            if
-//                let addr = cursor.pointee.ifa_addr,
-//                getnameinfo(addr, socklen_t(addr.pointee.sa_len), &hostname, socklen_t(hostname.count), nil, socklen_t(0), NI_NUMERICHOST) == 0,
-//                hostname[0] != 0
-//            {
-//                addrStr = String(cString: hostname)
-//            } else {
-//                addrStr = "?"
-//            }
-//            print(interfaceName, addrStr)
-//        }
-//        return
-//    }
+
     // MARK: - Constants
 
     private struct Constants {
@@ -228,13 +219,13 @@ extension KYCSelfieViewController: UIImagePickerControllerDelegate,UINavigationC
        UIImage {
            //  self.imgV.image = img
           //  img.width = 300.0
-           cardView.imageView.image = img
+          // cardView.imageView.image = img
 //            if (imageTaken == 1) {
                // cardView.isHidden = true
 //                imageViewFront.isHidden = false
 //                imageViewFront.image = img
-                let jpegImg = img.jpegData(compressionQuality: 0.7)
-                selfie = jpegImg
+//                let jpegImg = img.jpegData(compressionQuality: 0.7)
+//                selfie = jpegImg
 //                frontImage = jpegImg
 //
 //            } else if (imageTaken == 2) {
@@ -246,10 +237,14 @@ extension KYCSelfieViewController: UIImagePickerControllerDelegate,UINavigationC
 //            } else {
 //                cardView.isHidden = false
 //            }
-//            if (!imageViewBack.isHidden && !imageViewFront.isHidden) {
-//                subtitleLabel.isHidden = true
-//                nextButton.isHidden = false
-//            }
+            cardView.isHidden = true
+            imageViewSelfie.isHidden = false
+            imageViewSelfie.image = img
+            let jpegImg = img.jpegData(compressionQuality: 0.7)
+            selfie = jpegImg
+            if (!imageViewSelfie.isHidden) {
+                uploadPhotoButton.isHidden = false
+            }
           
              self.dismiss(animated: true, completion: nil)
           }
@@ -264,23 +259,23 @@ extension KYCSelfieViewController: CLLocationManagerDelegate {
 
 //        print("user latitude = \(userLocation.coordinate.latitude)")
 //        print("user longitude = \(userLocation.coordinate.longitude)")
+        print("user latitude = \(userLocation)")
 
-//        self.labelLat.text = "\(userLocation.coordinate.latitude)"
-//        self.labelLongi.text = "\(userLocation.coordinate.longitude)"
             
         let geocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(userLocation) { (placemarks, error) in
             if (error != nil){
                 print("error in reverseGeocode")
             }
-            let placemark = placemarks! as [CLPlacemark]
-            if placemark.count>0{
+            let placemark = placemarks   //! as [CLPlacemark]
+            if (placemark?.count ?? 0) > 0 {
                 let placemark = placemarks![0]
 //                print(placemark.locality!)
 //                print(placemark.administrativeArea!)
 //                print(placemark.country!)
 //
 //                print("user clocation = \(placemark.locality!), \(placemark.administrativeArea!), \(placemark.country!) \(placemark.isoCountryCode)")
+                print("user state = \(placemark.administrativeArea)")
                 self.userState = placemark.administrativeArea!
                // self.labelAdd.text = "\(placemark.locality!), \(placemark.administrativeArea!), \(placemark.country!)"
             }
