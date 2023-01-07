@@ -25,20 +25,20 @@ class ACPProfileNameView: UIView {
         return label
     }()
 
-    lazy var nameTextField: ACPTextField = {
-        let view = ACPTextField()
+    lazy var nameTextField: TextField = {
+        let view = TextField()
         view.titleLabel.text = .localizedString(key: "personal_info_first_name")
         return view
     }()
 
-    lazy var middleNameTextField: ACPTextField = {
-        let view = ACPTextField()
+    lazy var middleNameTextField: TextField = {
+        let view = TextField()
         view.titleLabel.attributedText = attributedTitleText()
         return view
     }()
 
-    lazy var lastNameTextField: ACPTextField = {
-        let view = ACPTextField()
+    lazy var lastNameTextField: TextField = {
+        let view = TextField()
         view.titleLabel.text = .localizedString(key: "personal_info_last_name")
         return view
     }()

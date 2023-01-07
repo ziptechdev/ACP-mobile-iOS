@@ -11,7 +11,7 @@ import SnapKit
 class ACPProfileAddressView: UIView {
 
     // MARK: - Properties
-    var viewModel: ACPEligibilityDetailsViewModel?
+    var viewModel: EligibilityDetailsViewModel?
 
     // MARK: - Views
 
@@ -26,27 +26,27 @@ class ACPProfileAddressView: UIView {
         return label
     }()
 
-    lazy var streetTextField: ACPTextField = {
-        let view = ACPTextField()
+    lazy var streetTextField: TextField = {
+        let view = TextField()
         view.titleLabel.text = .localizedString(key: "eligibility_address_street")
         return view
     }()
 
-    lazy var cityTextField: ACPTextField = {
-        let view = ACPTextField()
+    lazy var cityTextField: TextField = {
+        let view = TextField()
         view.titleLabel.text = .localizedString(key: "eligibility_address_city")
         return view
     }()
 
-    lazy var stateTextField: ACPPickerView = {
-        let view = ACPPickerView()
+    lazy var stateTextField: PickerView = {
+        let view = PickerView()
         view.titleLabel.text = .localizedString(key: "eligibility_address_state")
         view.textField.addRightImage(named: "down_arrow")
         return view
     }()
 
-    lazy var zipTextField: ACPTextField = {
-        let view = ACPTextField()
+    lazy var zipTextField: TextField = {
+        let view = TextField()
         view.titleLabel.text = .localizedString(key: "eligibility_address_zip")
 
         view.textField.attributedPlaceholder = NSAttributedString(

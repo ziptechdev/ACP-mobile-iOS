@@ -10,7 +10,7 @@ import UIKit
 class ACPProfileInfoViewController: UIViewController {
 
     // MARK: - Properties
-    var viewModel: ACPEligibilityDetailsViewModel?
+    var viewModel: EligibilityDetailsViewModel?
 
     // MARK: - Views
 
@@ -64,12 +64,12 @@ class ACPProfileInfoViewController: UIViewController {
         super.viewWillAppear(animated)
         title = .localizedString(key: "profile_page_title")
         navigationController?.navigationBar.isHidden = false
-        addKeyboardObserver()
+      //  addKeyboardObserver()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        removeKeyboardObserver()
+     //   removeKeyboardObserver()
     }
 
     // MARK: - UI

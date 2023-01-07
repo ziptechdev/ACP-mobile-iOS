@@ -25,8 +25,8 @@ class ACPProfileSSNView: UIView {
         return label
     }()
 
-    lazy var ssnTextField: ACPTextField = {
-        let view = ACPTextField()
+    lazy var ssnTextField: TextField = {
+        let view = TextField()
         view.titleLabel.text = .localizedString(key: "eligibility_dob_ssn")
         view.textField.keyboardType = .numberPad
         return view

@@ -11,7 +11,7 @@ import SnapKit
 class ACPProfileDOBView: UIView {
 
     // MARK: - Properties
-    var viewModel: ACPEligibilityDetailsViewModel?
+    var viewModel: EligibilityDetailsViewModel?
 
     // MARK: - Views
 
@@ -26,8 +26,8 @@ class ACPProfileDOBView: UIView {
         return label
     }()
 
-    lazy var monthTextField: ACPPickerView = {
-        let view = ACPPickerView()
+    lazy var monthTextField: PickerView = {
+        let view = PickerView()
         view.titleLabel.text = .localizedString(key: "eligibility_dob_month")
         view.textField.addRightImage(named: "down_arrow")
         view.pickerView.delegate = self
@@ -35,8 +35,8 @@ class ACPProfileDOBView: UIView {
         return view
     }()
 
-    lazy var dayTextField: ACPTextField = {
-        let view = ACPTextField()
+    lazy var dayTextField: TextField = {
+        let view = TextField()
         view.titleLabel.text = .localizedString(key: "eligibility_dob_day")
         view.textField.keyboardType = .numberPad
         view.textField.textAlignment = .center
@@ -44,8 +44,8 @@ class ACPProfileDOBView: UIView {
         return view
     }()
 
-    lazy var yearTextField: ACPTextField = {
-        let view = ACPTextField()
+    lazy var yearTextField: TextField = {
+        let view = TextField()
         view.titleLabel.text = .localizedString(key: "eligibility_dob_year")
         view.textField.keyboardType = .numberPad
         view.textField.textAlignment = .center
@@ -111,13 +111,13 @@ class ACPProfileDOBView: UIView {
     // MARK: - Presenting
 
     private func showValuesIfPresent() {
-        guard let viewModel = viewModel?.model.dobModel else {
+        guard let viewModel = viewModel?.model.dateOfBirth else {
             return
         }
 
-        pickerView(monthTextField.pickerView, didSelectRow: viewModel.month, inComponent: 0)
-        dayTextField.textField.text = viewModel.day
-        yearTextField.textField.text = viewModel.year
+//        pickerView(monthTextField.pickerView, didSelectRow: viewModel.month, inComponent: 0)
+//        dayTextField.textField.text = viewModel.day
+//        yearTextField.textField.text = viewModel.year
     }
 
     // MARK: - Callback
@@ -154,12 +154,14 @@ class ACPProfileDOBView: UIView {
 extension ACPProfileDOBView: UIPickerViewDelegate {
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return viewModel?.model.dobModel.monthOptions[row]
+      //  return viewModel?.model.dateOfBirth.monthOptions[row]
+        return viewModel?.monthOptions[row]
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        viewModel?.model.dobModel.month = row
-        monthTextField.textField.text = viewModel?.model.dobModel.monthOptions[row]
+      //  viewModel?.model.dateOfBirth.month = row
+      //  monthTextField.textField.text = viewModel?.model.dateOfBirth.monthOptions[row]
+//        viewModel?.model.dateOfBirth
     }
 }
 
@@ -171,6 +173,7 @@ extension ACPProfileDOBView: UIPickerViewDataSource {
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return viewModel?.model.dobModel.monthOptions.count ?? 0
+    //    return viewModel?.model.dobModel.monthOptions.count ?? 0
+        return viewModel?.monthOptions.count ?? 0
     }
 }

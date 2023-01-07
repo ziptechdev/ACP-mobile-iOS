@@ -45,30 +45,30 @@ class ACPProfileSecurityViewController: UIViewController {
         return label
     }()
 
-    private lazy var emailTextField: ACPTextField = {
-        let view = ACPTextField()
+    private lazy var emailTextField: TextField = {
+        let view = TextField()
         view.titleLabel.text = Constants.Text.EmailAddress
         return view
     }()
 
-    private lazy var currentPasswordTextField: ACPTextField = {
-        let view = ACPTextField()
+    private lazy var currentPasswordTextField: TextField = {
+        let view = TextField()
         view.titleLabel.text = Constants.Text.CurrentPassword
         view.textField.isSecureTextEntry = isSecureEntry
         view.textField.addRightImage(named: "eye", imageColor: .gray01Light)
         return view
     }()
 
-    private lazy var newPasswordTextField: ACPTextField = {
-        let view = ACPTextField()
+    private lazy var newPasswordTextField: TextField = {
+        let view = TextField()
         view.titleLabel.text = Constants.Text.NewPassword
         view.textField.isSecureTextEntry = isSecureEntry
         view.textField.addRightImage(named: "eye", imageColor: .gray01Light)
         return view
     }()
 
-    private lazy var confirmNewPasswordTextField: ACPTextField = {
-        let view = ACPTextField()
+    private lazy var confirmNewPasswordTextField: TextField = {
+        let view = TextField()
         view.titleLabel.text = Constants.Text.ConfirmNewPassword
         view.textField.isSecureTextEntry = isSecureEntry
         view.textField.addRightImage(named: "eye", imageColor: .gray01Light)
@@ -176,12 +176,12 @@ class ACPProfileSecurityViewController: UIViewController {
         print("save")
     }
 
-    func focusTextField(_ view: ACPTextField) {
+    func focusTextField(_ view: TextField) {
         view.textField.layer.borderColor = UIColor.coreBlue.cgColor
         view.textFieldImage?.tintColor = .gray06Dark
     }
 
-    func unFocusTextField(_ view: ACPTextField) {
+    func unFocusTextField(_ view: TextField) {
         view.textField.layer.borderColor = UIColor.gray03Light.cgColor
         view.textFieldImage?.tintColor = .gray03Light
     }
