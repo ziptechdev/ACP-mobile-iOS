@@ -15,9 +15,9 @@ class KYCService {
         )
     }
 
-    func kycRegister(parameters: Parameters?, completion: @escaping RouterCompletion) {
+    func kycRegister( accountId: String, workflowId: String, parameters: Parameters?, completion: @escaping RouterCompletion) {
         Router.shared.request(
-            KYCServiceEndpoint.kycRegister(parameters: parameters),
+            KYCServiceEndpoint.kycRegister(complexPath: accountId, complexPathWorkflow: workflowId, parameters: parameters),
             completion: completion
         )
     }

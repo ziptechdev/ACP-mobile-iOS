@@ -10,3 +10,20 @@ struct KYCVerifyEmailResponse: Codable {
     let message: String
     let data: KYCVerifyEmailData?
 }
+
+struct KYCScanDocumentResponse: Codable {
+    let statusCode: Int
+    let message: String
+    let data: DataClass?
+}
+
+// MARK: - DataClass
+struct DataClass: Codable {
+    let timestamp: String
+    let account, workflowExecution: Account
+}
+
+// MARK: - Account
+struct Account: Codable {
+    let id: String
+}

@@ -9,7 +9,7 @@ import Alamofire
 
 enum KYCServiceEndpoint {
     case verifyEmail(parameters: Parameters?)
-    case kycRegister(parameters: Parameters?)
+    case kycRegister(complexPath: String?, complexPathWorkflow: String?,parameters: Parameters?)
 }
 
 extension KYCServiceEndpoint: Endpoint {
@@ -19,8 +19,9 @@ extension KYCServiceEndpoint: Endpoint {
         switch self {
         case .verifyEmail:
             return "users/verify-email"
-        case .kycRegister:
-            return "users/kyc-register"
+        case .kycRegister(let complexPath, let complexPathWorkflow, _):
+            return "users/kyc-register/account-id/"+(complexPath ?? "")+"/workflow-execution-id/"+(complexPathWorkflow ?? "")
+//            /users/kyc-register/account-id/{accountId}/workflow-execution-id/{workflowExecutionId}
         }
     }
 
@@ -36,8 +37,9 @@ extension KYCServiceEndpoint: Endpoint {
 
     var parameters: Parameters? {
         switch self {
-        case .verifyEmail(let parameters),
-                .kycRegister(let parameters):
+        case .verifyEmail(let parameters):
+            return parameters
+        case .kycRegister(_, _, let parameters):
             return parameters
         }
     }
