@@ -1415,11 +1415,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				CURRENT_PROJECT_VERSION = 6;
+				DEVELOPMENT_TEAM = BS9VX4J4D4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ACP-mobile/Resources/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = ACP;
+				INFOPLIST_KEY_NSCameraUsageDescription = whatever;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Please allow ACP to access your location, to be able to complete registration, it will be used only for registration process.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow ACP to access your location, to be able to complete registration.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -1431,7 +1434,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zlatan.acp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1449,11 +1452,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				CURRENT_PROJECT_VERSION = 6;
+				DEVELOPMENT_TEAM = BS9VX4J4D4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ACP-mobile/Resources/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = ACP;
+				INFOPLIST_KEY_NSCameraUsageDescription = whatever;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Please allow ACP to access your location, to be able to complete registration, it will be used only for registration process.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow ACP to access your location, to be able to complete registration.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -1465,7 +1471,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zlatan.acp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

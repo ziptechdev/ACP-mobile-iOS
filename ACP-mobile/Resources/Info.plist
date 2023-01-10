@@ -7,11 +7,5 @@
 		<key>UIApplicationSupportsMultipleScenes</key>
 		<false/>
 	</dict>
-	<key>NSCameraUsageDescription</key>
-	<string>whatever</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>This app uses your location to help you register.</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Request permission to use location service when the apps is in background. in your plist file.</string>
 </dict>
 </plist>

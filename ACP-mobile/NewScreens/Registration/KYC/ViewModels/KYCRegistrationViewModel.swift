@@ -85,11 +85,13 @@ class KYCRegistrationViewModel {
     }
 
     func register(accountId: String, workflowId: String) {
+
         let parameters: Parameters = [
             "firstName": model.firstName,
             "lastName": model.lastName,
             "username": model.email,
             "password": model.password,
+            "confirmedPassword": model.password,
             "phoneNumber": model.phoneNumber,
             "socialSecurityNumber": model.ssn,
             "bankName": model.bankName,
@@ -98,16 +100,16 @@ class KYCRegistrationViewModel {
             "accountNumber": model.accountNumber,
             "expirationDate": model.expirationDate
         ]
-
+        print("account \(accountId) ]]]=== \(workflowId) +++ \(parameters)")
         service.kycRegister(accountId: accountId, workflowId: workflowId, parameters: parameters) { [weak self] data, error in
             guard let self = self else { return }
-
+            
             guard let data = data, error == nil else {
-                
+                print("error \(error)")
                 self.showErrorMessage?("Something went wrong. Try again.")
                 return
             }
-
+          
             guard let model = try? JSONDecoder().decode(KYCRegisterResponse.self, from: data),
                   let _ = model.data
             else {
