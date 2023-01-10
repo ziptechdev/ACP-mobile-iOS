@@ -1416,7 +1416,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = BS9VX4J4D4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ACP-mobile/Resources/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = ACP;
@@ -1450,7 +1450,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = BS9VX4J4D4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ACP-mobile/Resources/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = ACP;

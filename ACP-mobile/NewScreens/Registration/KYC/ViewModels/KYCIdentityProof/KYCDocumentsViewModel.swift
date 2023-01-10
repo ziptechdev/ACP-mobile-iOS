@@ -62,8 +62,8 @@ class KYCDocumentsViewModel {
         
         //  print("dataet \(dateAt)")
         // these are hardcoded values that we can use to get successfull response
-//        username = "ab2320@gmail.com"
-//        userState = "IL"
+//        username = "ab2328@gmail.com"
+   //     userState = "IL"
 //        dateAt = "2023-01-04 23:38:13"
         
         
@@ -82,15 +82,15 @@ class KYCDocumentsViewModel {
         let headers: HTTPHeaders = [
             "Content-type": "multipart/form-data"
         ]
-        let image = UIImage.init(named: "welcome")
-        let imageData = image?.jpegData(compressionQuality: 0.9)
+//        let image = UIImage.init(named: "welcome")
+//        let imageData = image?.jpegData(compressionQuality: 0.9)
         // print("username \(username) + \(userIP) +== \(userState) +== \(dateAt) === \(scanBack) === \(scanFront) == \(selfie)")
         AF.upload(
             
             multipartFormData: { multipartFormData in
-                multipartFormData.append(imageData ?? Data(), withName: "documentIdFront" , fileName: "image.jpeg", mimeType: "image/jpeg")
-                multipartFormData.append(imageData ?? Data(), withName: "documentIdBack" , fileName: "image2.jpeg", mimeType: "image/jpeg")
-                multipartFormData.append(imageData ?? Data(), withName: "selfie" , fileName: "image3.jpeg", mimeType: "image/jpeg")
+                multipartFormData.append(scanFront ?? Data(), withName: "documentIdFront" , fileName: "image.jpeg", mimeType: "image/jpeg")
+                multipartFormData.append(scanBack ?? Data(), withName: "documentIdBack" , fileName: "image2.jpeg", mimeType: "image/jpeg")
+                multipartFormData.append(selfie ?? Data(), withName: "selfie" , fileName: "image3.jpeg", mimeType: "image/jpeg")
                 multipartFormData.append(username.data(using: .utf8)!, withName: "username")
                 multipartFormData.append(userIP.data(using: .utf8)!, withName: "userIp")
                 multipartFormData.append(userState.data(using: .utf8)!, withName: "userState")

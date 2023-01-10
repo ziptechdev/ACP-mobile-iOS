@@ -176,21 +176,26 @@ class KYCSelfieViewController: UIViewController {
     }
 
     @objc func didTapUploadPhotoButton() {
-        let date34 = Date()
-       // let format = date34.getFormattedDate(format: "yyyy-MM-dd'T'HH:mm:ss.SSS") // Set output format
-        let format = date34.getFormattedDate(format: "yyyy-MM-dd HH:mm:ss")
-        let finalFormat = format + "Z"
-        print("test next [resss \(format) + \(finalFormat)")
+        let date = Date()
+        let lastWeekDate = Calendar.current.date(byAdding: .weekOfYear, value: -1, to: Date())!
+
+       // let format = date.getFormattedDate(format: "yyyy-MM-dd'T'HH:mm:ss.SSS") // Set output format
+        let format = date.getFormattedDate(format: "yyyy-MM-dd HH:mm:ss")
+        let finalFormat = addOrSubtractDay(day: -2) //format + "Z"
+        let finalStringDate = lastWeekDate.getFormattedDate(format: "yyyy-MM-dd HH:mm:ss")
+        print("test next [resss \(format) + \(finalStringDate)")
         let address = try? String(contentsOf: URL(string: "https://api.ipify.org")!, encoding: .utf8)
 
-        viewModel.model.consentOptainedAt = finalFormat
+        viewModel.model.consentOptainedAt = format
         viewModel.model.selfie = selfie
         viewModel.model.userState = userState
         viewModel.model.userIp = address ?? ""
         viewModel.kycVerifyUploadTEST()
         delegate?.didTapNextButton()
     }
-
+    func addOrSubtractDay(day:Int)->Date{
+      return Calendar.current.date(byAdding: .day, value: day, to: Date())!
+    }
     // MARK: - Constants
 
     private struct Constants {

@@ -15,7 +15,7 @@ class ACPHomeScreenTabViewModel {
 
     private let tabs = [
         "home",
-        "wallet",
+      //  "wallet",
         "profile"
     ]
 

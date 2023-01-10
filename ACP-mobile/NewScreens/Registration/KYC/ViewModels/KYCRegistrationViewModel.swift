@@ -90,6 +90,7 @@ class KYCRegistrationViewModel {
             "lastName": model.lastName,
             "username": model.email,
             "password": model.password,
+            "confirmedPassword": model.password,
             "phoneNumber": model.phoneNumber,
             "socialSecurityNumber": model.ssn,
             "bankName": model.bankName,

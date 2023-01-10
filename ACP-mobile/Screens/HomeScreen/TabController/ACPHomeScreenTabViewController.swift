@@ -106,30 +106,30 @@ extension ACPHomeScreenTabViewController: TabMenuViewControllerDelegate {
         case 0:
             let viewController = ACPHomeScreenViewController()
             return viewController
-        case 1:
-            // TODO: Remove Test
-
-            viewModel.test()
-
-            switch viewModel.walletIndex {
-            case 0:
-                let viewController = ACPEmptyWalletViewController()
-                return viewController
-
-            case 1:
-                let viewController = RequestCardViewController()
-                viewController.viewModel = RequestCardViewModel()
-                return viewController
-
-            case 2:
-                let viewController = ACPCardSuccessViewController()
-                navigationController?.pushViewController(viewController, animated: true)
-                return didSelectTab(index: 1)
-
-            default:
-                let viewController = ACPWalletViewController()
-                return viewController
-            }
+//        case 1:
+//            // TODO: Remove Test
+//
+//            viewModel.test()
+//
+//            switch viewModel.walletIndex {
+//            case 0:
+//                let viewController = ACPEmptyWalletViewController()
+//                return viewController
+//
+//            case 1:
+//                let viewController = RequestCardViewController()
+//                viewController.viewModel = RequestCardViewModel()
+//                return viewController
+//
+//            case 2:
+//                let viewController = ACPCardSuccessViewController()
+//                navigationController?.pushViewController(viewController, animated: true)
+//                return didSelectTab(index: 1)
+//
+//            default:
+//                let viewController = ACPWalletViewController()
+//                return viewController
+//            }
 
         default:
             let viewController = ACPProfileViewController()

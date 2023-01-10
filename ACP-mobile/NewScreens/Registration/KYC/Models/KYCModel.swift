@@ -13,6 +13,7 @@ struct KYCModel {
     var email = ""
     var phoneNumber = ""
     var password = ""
+    var confirmPassword = ""
     var ssn = ""
     var bankName = ""
     var bankNumber = ""
