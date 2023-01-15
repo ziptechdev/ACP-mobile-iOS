@@ -7,11 +7,5 @@
 		<key>UIApplicationSupportsMultipleScenes</key>
 		<false/>
 	</dict>
-	<key>NSCameraUsageDescription</key>
-	<string>Please allow using camera.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Please allow ACP to access your location, to be able to complete registration.</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Please allow ACP to access your location, to be able to complete registration, it will be used only for registration process.</string>
 </dict>
 </plist>
