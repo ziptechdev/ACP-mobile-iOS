@@ -83,7 +83,6 @@
 		5ED25A606E0BC6F99E44CC87 /* UIStackView+ACP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D46D772B45FA926738EACAA /* UIStackView+ACP.swift */; };
 		617CDE7EEEC454477071D36F /* EligibilityZipCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE592FD5B325EACF34C557BC /* EligibilityZipCodeView.swift */; };
 		62B71D3D3088670BF444639C /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74581283CA8C675FF3D683CA /* Router.swift */; };
-		63ED3F8637349B5FBFDC45F5 /* KYCDocumentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0401717283FDB15F7DD262F8 /* KYCDocumentViewModel.swift */; };
 		670E1DDED38A87244E08E77C /* EligibilityServiceEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50151E6F3D9D75884AA95C47 /* EligibilityServiceEndpoint.swift */; };
 		69CD5333F57059A18872A392 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A088F99F4409B7430CF9E /* WelcomeViewModel.swift */; };
 		7369A88BA929444990BD487D /* TabMenuDotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4BF3DCFADD9CFBABAC1819 /* TabMenuDotCell.swift */; };
@@ -144,7 +143,6 @@
 
 /* Begin PBXFileReference section */
 		0366AF4C43A4245B2D9C8C38 /* KYCScanIDViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCScanIDViewController.swift; sourceTree = "<group>"; };
-		0401717283FDB15F7DD262F8 /* KYCDocumentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYCDocumentViewModel.swift; sourceTree = "<group>"; };
 		053FB1B2EAA9A73599FBAF0C /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		088DD1D281EE1D3A5A1FA10D /* KYCSelfieViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCSelfieViewController.swift; sourceTree = "<group>"; };
 		0EA43A30C610F68C5A06DD99 /* Pods_ACP_mobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ACP_mobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -813,7 +811,6 @@
 				A213475D5F98CE6044028845 /* KYCRegistrationViewModel.swift */,
 				15A98E80A656BA46143E3B9D /* KYCRegistrationCompleteViewModel.swift */,
 				2D192D0DC6EF90661BC7B239 /* KYCIdentityProof */,
-				0401717283FDB15F7DD262F8 /* KYCDocumentViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -1274,7 +1271,6 @@
 				A62BE0043C8038E1D7C862DD /* KYCVerificationViewController.swift in Sources */,
 				0297043A9AB992902E8545A9 /* KYCRegistrationCompleteViewController.swift in Sources */,
 				092B1CF197CF14EC8EDBBC0B /* CircleLoadingBarView.swift in Sources */,
-				63ED3F8637349B5FBFDC45F5 /* KYCDocumentViewModel.swift in Sources */,
 				C7483B9989C3BFB5120EED0F /* KYCDocumentsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
