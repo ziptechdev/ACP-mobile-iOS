@@ -22,7 +22,6 @@ class KYCScanIDViewController: UIViewController {
     var frontImage: Data? = nil
     var backImage: Data? = nil
 
-//    var image
     // MARK: - Views
 
     private let cardView = BorderedView(imageName: "scan_id")
@@ -207,7 +206,6 @@ class KYCScanIDViewController: UIViewController {
     }
     
     @objc func didTapScanFrontButton() {
-        print("helooo")
         imageTaken = 1
         let imgPicker = UIImagePickerController()
         imgPicker.delegate = self
@@ -257,8 +255,6 @@ extension KYCScanIDViewController: UIImagePickerControllerDelegate,UINavigationC
 
         if let img = info[UIImagePickerController.InfoKey.originalImage] as?
        UIImage {
-           //  self.imgV.image = img
-          //  img.width = 300.0
            cardView.imageView.image = img
             if (imageTaken == 1) {
                 cardView.isHidden = true
@@ -284,7 +280,7 @@ extension KYCScanIDViewController: UIImagePickerControllerDelegate,UINavigationC
              self.dismiss(animated: true, completion: nil)
           }
           else {
-             print("error ")
+             print("error image")
           }
        }
 }

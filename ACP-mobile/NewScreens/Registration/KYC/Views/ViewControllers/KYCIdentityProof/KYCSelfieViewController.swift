@@ -25,9 +25,6 @@ class KYCSelfieViewController: UIViewController {
     
     var locationManager = CLLocationManager()
 
-    // Request a user’s location once
-  //  locationManager.requestLocation()
-
     let imageViewSelfie: UIImageView = {
        let view = UIImageView()
         view.contentMode = .scaleAspectFit
@@ -85,12 +82,7 @@ class KYCSelfieViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-//        isAuthorizedtoGetUserLocation()
-//
-//        if CLLocationManager.locationServicesEnabled() {
-//            locationManager.delegate = self
-//            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-//        }
+
         locationManager = CLLocationManager()
            locationManager.delegate = self
            locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -177,25 +169,17 @@ class KYCSelfieViewController: UIViewController {
 
     @objc func didTapUploadPhotoButton() {
         let date = Date()
-        let lastWeekDate = Calendar.current.date(byAdding: .weekOfYear, value: -1, to: Date())!
-
-       // let format = date.getFormattedDate(format: "yyyy-MM-dd'T'HH:mm:ss.SSS") // Set output format
         let format = date.getFormattedDate(format: "yyyy-MM-dd HH:mm:ss")
-        let finalFormat = addOrSubtractDay(day: -2) //format + "Z"
-        let finalStringDate = lastWeekDate.getFormattedDate(format: "yyyy-MM-dd HH:mm:ss")
-        print("test next [resss \(format) + \(finalStringDate)")
         let address = try? String(contentsOf: URL(string: "https://api.ipify.org")!, encoding: .utf8)
 
         viewModel.model.consentOptainedAt = format
         viewModel.model.selfie = selfie
         viewModel.model.userState = userState
         viewModel.model.userIp = address ?? ""
-        viewModel.kycVerifyUploadTEST()
+        viewModel.kycVerifyUpload()
         delegate?.didTapNextButton()
     }
-    func addOrSubtractDay(day:Int)->Date{
-      return Calendar.current.date(byAdding: .day, value: day, to: Date())!
-    }
+    
     // MARK: - Constants
 
     private struct Constants {
@@ -222,26 +206,7 @@ extension KYCSelfieViewController: UIImagePickerControllerDelegate,UINavigationC
 
         if let img = info[UIImagePickerController.InfoKey.originalImage] as?
        UIImage {
-           //  self.imgV.image = img
-          //  img.width = 300.0
-          // cardView.imageView.image = img
-//            if (imageTaken == 1) {
-               // cardView.isHidden = true
-//                imageViewFront.isHidden = false
-//                imageViewFront.image = img
-//                let jpegImg = img.jpegData(compressionQuality: 0.7)
-//                selfie = jpegImg
-//                frontImage = jpegImg
-//
-//            } else if (imageTaken == 2) {
-//                cardView.isHidden = true
-//                imageViewBack.isHidden = false
-//                imageViewBack.image = img
-//                let jpegImg = img.jpegData(compressionQuality: 0.7)
-//                backImage = jpegImg
-//            } else {
-//                cardView.isHidden = false
-//            }
+            
             cardView.isHidden = true
             imageViewSelfie.isHidden = false
             imageViewSelfie.image = img
@@ -261,11 +226,6 @@ extension KYCSelfieViewController: UIImagePickerControllerDelegate,UINavigationC
 extension KYCSelfieViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation :CLLocation = locations[0] as CLLocation
-
-//        print("user latitude = \(userLocation.coordinate.latitude)")
-//        print("user longitude = \(userLocation.coordinate.longitude)")
-        print("user latitude = \(userLocation)")
-
             
         let geocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(userLocation) { (placemarks, error) in
@@ -275,14 +235,7 @@ extension KYCSelfieViewController: CLLocationManagerDelegate {
             let placemark = placemarks   //! as [CLPlacemark]
             if (placemark?.count ?? 0) > 0 {
                 let placemark = placemarks![0]
-//                print(placemark.locality!)
-//                print(placemark.administrativeArea!)
-//                print(placemark.country!)
-//
-//                print("user clocation = \(placemark.locality!), \(placemark.administrativeArea!), \(placemark.country!) \(placemark.isoCountryCode)")
-                print("user state = \(placemark.administrativeArea)")
                 self.userState = placemark.administrativeArea!
-               // self.labelAdd.text = "\(placemark.locality!), \(placemark.administrativeArea!), \(placemark.country!)"
             }
         }
 
