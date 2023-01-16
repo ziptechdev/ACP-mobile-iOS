@@ -63,8 +63,8 @@ class KYCDocumentsViewModel {
         //  print("dataet \(dateAt)")
         // these are hardcoded values that we can use to get successfull response
 //        username = "ab2320@gmail.com"
-//        userState = "IL"
-//        dateAt = "2023-01-04 23:38:13"
+        userState = "IL"
+        dateAt = "2023-01-04 23:38:13"
         
         
         //        let parameters = [

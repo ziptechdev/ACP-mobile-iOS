@@ -32,8 +32,8 @@ class KYCSelfieViewController: UIViewController {
        let view = UIImageView()
         view.contentMode = .scaleAspectFit
        view.translatesAutoresizingMaskIntoConstraints = false
-        view.image = UIImage(named: "selfieImage")
-       view.isHidden = false
+     //   view.image = UIImage(named: "selfieImage")
+       view.isHidden = true
        return view
    }()
     
@@ -77,7 +77,7 @@ class KYCSelfieViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(titleKey: "personal_info_btn", textColor: .coreBlue)
         button.addTarget(self, action: #selector(didTapUploadPhotoButton), for: .touchUpInside)
-        button.isHidden = false
+        button.isHidden = true
         return button
     }()
 
@@ -100,7 +100,7 @@ class KYCSelfieViewController: UIViewController {
            if CLLocationManager.locationServicesEnabled(){
                locationManager.startUpdatingLocation()
            }
-        cardView.isHidden = true
+       // cardView.isHidden = true
        
     }
 

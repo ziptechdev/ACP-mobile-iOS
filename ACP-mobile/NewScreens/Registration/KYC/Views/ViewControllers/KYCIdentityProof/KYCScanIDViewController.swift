@@ -31,8 +31,8 @@ class KYCScanIDViewController: UIViewController {
        let view = UIImageView()
         view.contentMode = .scaleAspectFit
        view.translatesAutoresizingMaskIntoConstraints = false
-        view.image = UIImage(named: "secondImage")
-       view.isHidden = false
+   //     view.image = UIImage(named: "secondImage")
+       view.isHidden = true
        return view
    }()
     
@@ -40,8 +40,8 @@ class KYCScanIDViewController: UIViewController {
        let view = UIImageView()
        view.contentMode = .scaleAspectFit
        view.translatesAutoresizingMaskIntoConstraints = false
-        view.image = UIImage(named: "firstImage")
-        view.isHidden = false
+   //     view.image = UIImage(named: "firstImage")
+        view.isHidden = true
        return view
    }()
     
@@ -95,7 +95,7 @@ class KYCScanIDViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(titleKey: "personal_info_btn")
         button.addTarget(self, action: #selector(didTapNextButton), for: .touchUpInside)
-        button.isHidden = false
+        button.isHidden = true
         return button
     }()
 
@@ -104,7 +104,7 @@ class KYCScanIDViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        cardView.isHidden = true
+     //   cardView.isHidden = true
     }
 
     // MARK: - UI
